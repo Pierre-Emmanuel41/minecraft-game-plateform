@@ -2,7 +2,9 @@ package fr.pederobien.minecraftgameplateform.interfaces.task;
 
 import java.time.LocalTime;
 
-public interface ITimeTask extends Runnable {
+import fr.pederobien.minecraftgameplateform.interfaces.task.state.ITimeTaskState;
+
+public interface ITimeTask extends ITimeTaskState, Runnable {
 
 	/**
 	 * Reset all parameters managed by this time task
