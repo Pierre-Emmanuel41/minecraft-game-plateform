@@ -1,11 +1,14 @@
 package fr.pederobien.minecraftgameplateform.impl.task.state;
 
+import java.time.LocalTime;
+
 import fr.pederobien.minecraftgameplateform.exceptions.TimeTaskStateException;
 import fr.pederobien.minecraftgameplateform.interfaces.task.state.IStateTimeTask;
 import fr.pederobien.minecraftgameplateform.interfaces.task.state.ITimeTaskState;
 
 public abstract class AbstractTimeTaskState implements ITimeTaskState {
 	private IStateTimeTask task;
+	private LocalTime totalTime, limitTime;
 
 	protected AbstractTimeTaskState(IStateTimeTask task) {
 		this.task = task;
@@ -33,6 +36,18 @@ public abstract class AbstractTimeTaskState implements ITimeTaskState {
 
 	protected IStateTimeTask getTask() {
 		return task;
+	}
+
+	protected LocalTime getInternalTotalTime() {
+		return totalTime;
+	}
+
+	protected LocalTime getLimitTime() {
+		return limitTime;
+	}
+
+	protected void setLimiteTime(LocalTime limitTime) {
+		this.limitTime = limitTime;
 	}
 
 	private String getExceptionMessage() {
