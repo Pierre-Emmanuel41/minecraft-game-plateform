@@ -18,6 +18,11 @@ public interface IStateTimeTask {
 	ITimeTaskState setCurrentState(ITimeTaskState current);
 
 	/**
+	 * @return The initial state of this time task.
+	 */
+	ITimeTaskState getInitialState();
+
+	/**
 	 * @return The pause state of this time task.
 	 */
 	ITimeTaskState getPauseState();
