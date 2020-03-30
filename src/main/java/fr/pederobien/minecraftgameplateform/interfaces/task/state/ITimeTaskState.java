@@ -1,6 +1,6 @@
 package fr.pederobien.minecraftgameplateform.interfaces.task.state;
 
-public interface ITimeTaskState {
+public interface ITimeTaskState extends Runnable {
 
 	/**
 	 * Modify the state of this time task to pause state.
