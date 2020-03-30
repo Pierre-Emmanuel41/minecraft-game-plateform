@@ -1,4 +1,4 @@
-package fr.pederobien.minecraftgameplateform.impl.timeline;
+package fr.pederobien.minecraftgameplateform.impl.runtime.timeline;
 
 import java.time.LocalTime;
 import java.util.ArrayList;
@@ -7,12 +7,12 @@ import java.util.List;
 import java.util.Map;
 import java.util.function.Consumer;
 
-import fr.pederobien.minecraftgameplateform.interfaces.task.IObservableTimeTask;
-import fr.pederobien.minecraftgameplateform.interfaces.task.ITimeTask;
-import fr.pederobien.minecraftgameplateform.interfaces.task.ITimeTaskObserver;
-import fr.pederobien.minecraftgameplateform.interfaces.timeline.IObservableTimeLine;
-import fr.pederobien.minecraftgameplateform.interfaces.timeline.ITimeLineObserver;
-import fr.pederobien.minecraftgameplateform.interfaces.timeline.ITimeLinePeriodicObserver;
+import fr.pederobien.minecraftgameplateform.interfaces.runtime.task.IObservableTimeTask;
+import fr.pederobien.minecraftgameplateform.interfaces.runtime.task.ITimeTask;
+import fr.pederobien.minecraftgameplateform.interfaces.runtime.task.ITimeTaskObserver;
+import fr.pederobien.minecraftgameplateform.interfaces.runtime.timeline.IObservableTimeLine;
+import fr.pederobien.minecraftgameplateform.interfaces.runtime.timeline.ITimeLineObserver;
+import fr.pederobien.minecraftgameplateform.interfaces.runtime.timeline.ITimeLinePeriodicObserver;
 
 public class TimeLine implements IObservableTimeLine, ITimeTaskObserver {
 	private Map<LocalTime, List<ITimeLineObserver>> punctualObservers;

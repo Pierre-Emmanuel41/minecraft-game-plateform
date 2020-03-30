@@ -1,17 +1,17 @@
-package fr.pederobien.minecraftgameplateform.impl.task;
+package fr.pederobien.minecraftgameplateform.impl.runtime.task;
 
 import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 
-import fr.pederobien.minecraftgameplateform.impl.task.state.InitialTimeTaskState;
-import fr.pederobien.minecraftgameplateform.impl.task.state.PauseTimeTaskState;
-import fr.pederobien.minecraftgameplateform.impl.task.state.RunTimeTaskState;
-import fr.pederobien.minecraftgameplateform.interfaces.task.IObservableTimeTask;
-import fr.pederobien.minecraftgameplateform.interfaces.task.ITimeTask;
-import fr.pederobien.minecraftgameplateform.interfaces.task.ITimeTaskObserver;
-import fr.pederobien.minecraftgameplateform.interfaces.task.state.IStateTimeTask;
-import fr.pederobien.minecraftgameplateform.interfaces.task.state.ITimeTaskState;
+import fr.pederobien.minecraftgameplateform.impl.runtime.task.state.InitialTimeTaskState;
+import fr.pederobien.minecraftgameplateform.impl.runtime.task.state.PauseTimeTaskState;
+import fr.pederobien.minecraftgameplateform.impl.runtime.task.state.RunTimeTaskState;
+import fr.pederobien.minecraftgameplateform.interfaces.runtime.task.IObservableTimeTask;
+import fr.pederobien.minecraftgameplateform.interfaces.runtime.task.ITimeTask;
+import fr.pederobien.minecraftgameplateform.interfaces.runtime.task.ITimeTaskObserver;
+import fr.pederobien.minecraftgameplateform.interfaces.runtime.task.state.IStateTimeTask;
+import fr.pederobien.minecraftgameplateform.interfaces.runtime.task.state.ITimeTaskState;
 
 public class TimeTask implements IStateTimeTask, ITimeTask, IObservableTimeTask {
 	private ITimeTaskState current;

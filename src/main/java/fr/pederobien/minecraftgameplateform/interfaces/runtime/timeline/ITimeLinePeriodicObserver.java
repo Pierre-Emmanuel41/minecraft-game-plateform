@@ -1,8 +1,8 @@
-package fr.pederobien.minecraftgameplateform.interfaces.timeline;
+package fr.pederobien.minecraftgameplateform.interfaces.runtime.timeline;
 
 import java.time.LocalTime;
 
-import fr.pederobien.minecraftgameplateform.interfaces.task.ITimeTask;
+import fr.pederobien.minecraftgameplateform.interfaces.runtime.task.ITimeTask;
 
 public interface ITimeLinePeriodicObserver extends ITimeLineObserver {
 

@@ -1,4 +1,4 @@
-package fr.pederobien.minecraftgameplateform.interfaces.task;
+package fr.pederobien.minecraftgameplateform.interfaces.runtime.task;
 
 public interface ITimeTaskObserver {
 

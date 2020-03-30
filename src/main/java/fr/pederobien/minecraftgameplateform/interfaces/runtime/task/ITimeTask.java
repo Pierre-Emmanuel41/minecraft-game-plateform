@@ -1,8 +1,8 @@
-package fr.pederobien.minecraftgameplateform.interfaces.task;
+package fr.pederobien.minecraftgameplateform.interfaces.runtime.task;
 
 import java.time.LocalTime;
 
-import fr.pederobien.minecraftgameplateform.interfaces.task.state.ITimeTaskState;
+import fr.pederobien.minecraftgameplateform.interfaces.runtime.task.state.ITimeTaskState;
 
 public interface ITimeTask extends ITimeTaskState, Runnable {
 

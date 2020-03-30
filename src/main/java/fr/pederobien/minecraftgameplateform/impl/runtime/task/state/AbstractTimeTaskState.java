@@ -1,10 +1,10 @@
-package fr.pederobien.minecraftgameplateform.impl.task.state;
+package fr.pederobien.minecraftgameplateform.impl.runtime.task.state;
 
 import java.time.LocalTime;
 
 import fr.pederobien.minecraftgameplateform.exceptions.TimeTaskStateException;
-import fr.pederobien.minecraftgameplateform.interfaces.task.state.IStateTimeTask;
-import fr.pederobien.minecraftgameplateform.interfaces.task.state.ITimeTaskState;
+import fr.pederobien.minecraftgameplateform.interfaces.runtime.task.state.IStateTimeTask;
+import fr.pederobien.minecraftgameplateform.interfaces.runtime.task.state.ITimeTaskState;
 
 public abstract class AbstractTimeTaskState implements ITimeTaskState {
 	private IStateTimeTask task;

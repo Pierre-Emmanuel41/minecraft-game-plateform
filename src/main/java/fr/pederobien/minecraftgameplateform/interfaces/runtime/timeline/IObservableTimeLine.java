@@ -1,4 +1,4 @@
-package fr.pederobien.minecraftgameplateform.interfaces.timeline;
+package fr.pederobien.minecraftgameplateform.interfaces.runtime.timeline;
 
 import java.time.LocalTime;
 

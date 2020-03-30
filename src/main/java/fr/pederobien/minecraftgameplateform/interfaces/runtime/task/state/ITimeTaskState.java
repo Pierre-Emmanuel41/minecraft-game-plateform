@@ -1,4 +1,4 @@
-package fr.pederobien.minecraftgameplateform.interfaces.task.state;
+package fr.pederobien.minecraftgameplateform.interfaces.runtime.task.state;
 
 import java.time.LocalTime;
 
