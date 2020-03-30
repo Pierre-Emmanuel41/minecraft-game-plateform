@@ -13,6 +13,7 @@ public class RunTimeTaskState extends AbstractTimeTaskState {
 
 	@Override
 	public void run() {
+		setInternalTotalTime(getInternalTotalTime().plusSeconds(1));
 		increasingTime = increasingTime.plusSeconds(1);
 		decreasingTime = decreasingTime == null ? getLimitTime().minusSeconds(1) : decreasingTime.minusSeconds(1);
 	}

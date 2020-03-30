@@ -13,7 +13,8 @@ public class PauseTimeTaskState extends AbstractTimeTaskState {
 
 	@Override
 	public void run() {
-
+		setInternalTotalTime(getInternalTotalTime().plusSeconds(1));
+		pauseTime = pauseTime.plusSeconds(1);
 	}
 
 	@Override
