@@ -11,4 +11,9 @@ public interface ITimeTaskState extends Runnable {
 	 * Modify the state of this time task to run state.
 	 */
 	void relaunched();
+
+	/**
+	 * Modify the state of this time task to initial state.
+	 */
+	void cancel();
 }
