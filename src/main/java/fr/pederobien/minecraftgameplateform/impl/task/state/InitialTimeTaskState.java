@@ -13,6 +13,7 @@ public class InitialTimeTaskState extends AbstractTimeTaskState {
 
 	@Override
 	public void run() {
+		setInternalTotalTime(LocalTime.of(0, 0, 0));
 		getTask().setCurrentState(getTask().getRunState());
 	}
 

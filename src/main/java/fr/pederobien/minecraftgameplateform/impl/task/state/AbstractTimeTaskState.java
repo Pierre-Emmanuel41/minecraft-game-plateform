@@ -42,6 +42,10 @@ public abstract class AbstractTimeTaskState implements ITimeTaskState {
 		return totalTime;
 	}
 
+	protected void setInternalTotalTime(LocalTime totalTime) {
+		this.totalTime = totalTime;
+	}
+
 	protected LocalTime getLimitTime() {
 		return limitTime;
 	}
