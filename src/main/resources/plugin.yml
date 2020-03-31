@@ -1,0 +1,17 @@
+main: fr.pederobien.minecraftgameplateform.PlateformPlugin
+name: MinecraftGamePlateform
+version: 1.0-SNAPSHOT
+api-version: 1.13
+
+description:
+commands:
+  startgame:
+    description: This command is used to start a game
+    permission: PlateformPlugin.permission
+  pausegame:
+    description: This command is used to pause the current started game
+    permission: PlateformPlugin.permission
+  stopgame:
+    description: This command is used to stop the current started game.
+    permission: PlateformPlugin.permission
+  

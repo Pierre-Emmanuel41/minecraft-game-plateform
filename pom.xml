@@ -10,6 +10,7 @@
 	<url>http://maven.apache.org</url>
 
 	<properties>
+		<mainClass>${project.groupId}.minecraftgameplateform.PlateformPlugin</mainClass>
 		<author>Pierre-Emmanuel41</author>
 		<project.build.sourceEncoding>Cp1252</project.build.sourceEncoding>
 		<maven.compiler.target>1.8</maven.compiler.target>
@@ -38,6 +39,18 @@
 	</dependencies>
 
 	<build>
+	<finalName>minecraft-game-plateform-v${project.version}</finalName>
+		<sourceDirectory>src/main/java</sourceDirectory>
+		<resources>
+			<resource>
+				<targetPath>.</targetPath>
+				<filtering>true</filtering>
+				<directory>${basedir}/src/main/resources/</directory>
+				<includes>
+					<include>plugin.yml</include>
+				</includes>
+			</resource>
+		</resources>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
