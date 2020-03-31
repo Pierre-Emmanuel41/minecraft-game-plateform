@@ -6,6 +6,10 @@ import fr.pederobien.minecraftgameplateform.interfaces.element.IGameConfiguratio
 public class Plateform {
 	private static IGameConfigurationContext context = new GameConfigurationContext();
 
+	public static String getVersion() {
+		return "v1.0-SNAPSHOT";
+	}
+
 	/**
 	 * @return A context for game. This context is used to start, pause, relaunch and stop the game managed by the current
 	 *         configuration of this context.
