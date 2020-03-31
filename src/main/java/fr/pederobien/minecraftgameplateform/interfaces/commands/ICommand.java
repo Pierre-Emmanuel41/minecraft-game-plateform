@@ -14,4 +14,16 @@ public interface ICommand extends CommandExecutor {
 	 * @return The label of this command.
 	 */
 	String getCommand();
+
+	/**
+	 * @return true if this command is available, false otherwise.
+	 */
+	boolean isAvailable();
+
+	/**
+	 * Set the availability of this command.
+	 * 
+	 * @param isAvailable The new value that represent the availability of this command.
+	 */
+	void setAvailable(boolean isAvailable);
 }
