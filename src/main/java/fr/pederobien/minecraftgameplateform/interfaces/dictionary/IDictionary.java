@@ -7,7 +7,7 @@ public interface IDictionary {
 
 	/**
 	 * @return All locales supported by this dictionary. All locales should correspond to the same language. For instance :
-	 *         {@link Locale#ENGLISH}, {@link Locale#UK} etc...
+	 *         {@link Locale#ENGLISH}, {@link Locale#UK} etc... This list is unmodifiable.
 	 */
 	List<Locale> getLocales();
 
@@ -18,7 +18,7 @@ public interface IDictionary {
 	 * 
 	 * @return The associated message.
 	 */
-	String getMessage(IMessageCodeEvent event);
+	String getMessage(IMessageEvent event);
 
 	/**
 	 * Register the given message to this dictionary.
