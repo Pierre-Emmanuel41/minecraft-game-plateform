@@ -1,14 +1,14 @@
 package fr.pederobien.minecraftgameplateform.interfaces.commands;
 
 import org.bukkit.command.CommandExecutor;
-import org.bukkit.plugin.Plugin;
+import org.bukkit.plugin.java.JavaPlugin;
 
 public interface ICommand extends CommandExecutor {
 
 	/**
 	 * @return The plugin to which this command is associated.
 	 */
-	Plugin getPlugin();
+	JavaPlugin getPlugin();
 
 	/**
 	 * @return The label of this command.
