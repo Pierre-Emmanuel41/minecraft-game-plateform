@@ -1,11 +1,11 @@
 package fr.pederobien.minecraftgameplateform.interfaces.dictionary;
 
-import org.bukkit.command.CommandSender;
+import org.bukkit.entity.Player;
 
 public interface IMessageEvent extends IMessageCodeEvent {
 
 	/**
-	 * @return The sender of the command.
+	 * @return The player to send the message.
 	 */
-	CommandSender getSender();
+	Player getPlayer();
 }
