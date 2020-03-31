@@ -19,7 +19,7 @@ public interface IUnmodifiableTeam extends IUnmodifiableNominable {
 	EColor getColor();
 
 	/**
-	 * @return The list of players registered in this team.
+	 * @return The list of players registered in this team. This list is unmodifiable.
 	 */
 	List<Player> getPlayers();
 
