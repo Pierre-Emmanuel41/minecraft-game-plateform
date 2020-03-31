@@ -9,8 +9,11 @@ import org.bukkit.command.TabCompleter;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import fr.pederobien.minecraftgameplateform.interfaces.commands.ICommand;
+import fr.pederobien.minecraftgameplateform.interfaces.element.IGameConfigurationContext;
+import fr.pederobien.minecraftgameplateform.utils.Plateform;
 
 public abstract class AbstractCommand implements ICommand {
+	private static final IGameConfigurationContext GAME_CONFIGURATION_CONTEXT = Plateform.getGameConfigurationContext();
 	private static final TabCompleter DEFAULT_COMPLETER;
 	private JavaPlugin plugin;
 	private String label;
@@ -52,5 +55,13 @@ public abstract class AbstractCommand implements ICommand {
 	@Override
 	public TabCompleter getTabCompleter() {
 		return DEFAULT_COMPLETER;
+	}
+
+	/**
+	 * @return A context for game. This context is used to start, pause, relaunch and stop the game managed by the current
+	 *         configuration of this context.
+	 */
+	protected IGameConfigurationContext getGameConfigurationContext() {
+		return GAME_CONFIGURATION_CONTEXT;
 	}
 }
