@@ -9,6 +9,7 @@ import org.bukkit.plugin.Plugin;
 import fr.pederobien.minecraftgameplateform.exceptions.dictionary.DictionaryNotFoundException;
 import fr.pederobien.minecraftgameplateform.exceptions.dictionary.MessageNotFoundException;
 import fr.pederobien.minecraftgameplateform.exceptions.dictionary.NoRegisteredDictionaryException;
+import fr.pederobien.minecraftgameplateform.exceptions.dictionary.SecondTryMessageNotFoundException;
 import fr.pederobien.minecraftgameplateform.interfaces.dictionary.IDictionary;
 import fr.pederobien.minecraftgameplateform.interfaces.dictionary.IDictionaryManager;
 import fr.pederobien.minecraftgameplateform.interfaces.dictionary.IMessageEvent;
@@ -36,17 +37,32 @@ public class DictionaryManager implements IDictionaryManager {
 
 	@Override
 	public String getMessage(IMessageEvent event) {
-		Locale locale = Locale.forLanguageTag(event.getPlayer().getLocale().replace('_', '-'));
 		Map<Locale, IDictionary> intermediate = dictionaries.get(event.getPlugin());
 
 		// When there is not dictionary registered for this plugin
 		if (intermediate == null)
 			throw new NoRegisteredDictionaryException(event);
 
+		Locale locale = Locale.forLanguageTag(event.getPlayer().getLocale().replace('_', '-'));
+
+		// When the locale is not recognised by class Locale (should never happen)
+		if (locale == null)
+			locale = Locale.ENGLISH;
+
+		// Dictionary that contains message in the player's language
+		IDictionary firstDictionary = null;
 		try {
-			return getDictionary(intermediate, event, locale).getMessage(event);
-		} catch (MessageNotFoundException e) {
-			return getDictionary(intermediate, event, Locale.ENGLISH).getMessage(event);
+			firstDictionary = getDictionary(intermediate, event, locale);
+			return firstDictionary.getMessage(event);
+		} catch (MessageNotFoundException | DictionaryNotFoundException e) {
+
+			// Dictionary that contains messages in English
+			IDictionary secondDictionary = getDictionary(intermediate, event, Locale.ENGLISH);
+			try {
+				return secondDictionary.getMessage(event);
+			} catch (MessageNotFoundException e1) {
+				throw new SecondTryMessageNotFoundException(event, firstDictionary, secondDictionary, locale, Locale.ENGLISH);
+			}
 		}
 	}
 
