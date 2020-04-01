@@ -22,10 +22,9 @@ public class DictionaryNotFoundException extends AbstractDictionaryException {
 	}
 
 	@Override
-	public String getMessage() {
-		StringJoiner joiner = new StringJoiner(", ");
+	public StringJoiner getInternalMessage(StringJoiner joiner) {
 		joiner.add("No Dictionary found");
-		joiner.add(super.getMessage());
-		return joiner.add("{Locale=" + getLocale().toString() + "}").toString();
+		super.getInternalMessage(joiner);
+		return joiner.add("{Locale=" + getLocale().toString() + "}");
 	}
 }

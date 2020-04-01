@@ -3,7 +3,7 @@ package fr.pederobien.minecraftgameplateform.exceptions.dictionary;
 import fr.pederobien.minecraftgameplateform.interfaces.dictionary.IDictionary;
 import fr.pederobien.minecraftgameplateform.interfaces.dictionary.IMessageEvent;
 
-public class AbstractDictionaryMessageException extends AbstractDictionaryException {
+public abstract class AbstractDictionaryMessageException extends AbstractDictionaryException {
 	private static final long serialVersionUID = 1L;
 	private IDictionary dictionary;
 
@@ -18,5 +18,4 @@ public class AbstractDictionaryMessageException extends AbstractDictionaryExcept
 	public IDictionary getDictionary() {
 		return dictionary;
 	}
-
 }

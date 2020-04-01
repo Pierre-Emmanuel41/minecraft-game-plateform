@@ -1,5 +1,7 @@
 package fr.pederobien.minecraftgameplateform.exceptions.dictionary;
 
+import java.util.StringJoiner;
+
 import fr.pederobien.minecraftgameplateform.interfaces.dictionary.IMessageEvent;
 
 public class NoRegisteredDictionaryException extends AbstractDictionaryException {
@@ -10,7 +12,8 @@ public class NoRegisteredDictionaryException extends AbstractDictionaryException
 	}
 
 	@Override
-	public String getMessage() {
-		return "No registered dictionary\n" + super.getMessage();
+	public StringJoiner getInternalMessage(StringJoiner joiner) {
+		joiner.add("No registered dictionary");
+		return super.getInternalMessage(joiner);
 	}
 }

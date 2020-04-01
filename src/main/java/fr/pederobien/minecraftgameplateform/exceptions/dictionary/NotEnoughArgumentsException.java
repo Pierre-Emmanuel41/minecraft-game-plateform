@@ -13,10 +13,9 @@ public class NotEnoughArgumentsException extends AbstractDictionaryMessageExcept
 	}
 
 	@Override
-	public String getMessage() {
-		StringJoiner joiner = new StringJoiner(", ");
+	public StringJoiner getInternalMessage(StringJoiner joiner) {
 		joiner.add("Not enough arguments");
-		joiner.add(super.getMessage());
-		return joiner.add(getDictionary().toString()).toString();
+		super.getInternalMessage(joiner);
+		return joiner.add(getDictionary().toString());
 	}
 }
