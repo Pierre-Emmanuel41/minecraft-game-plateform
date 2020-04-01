@@ -5,7 +5,8 @@ import org.bukkit.plugin.Plugin;
 public interface IDictionaryManager {
 
 	/**
-	 * Register the given dictionary for the given plugin.
+	 * Register the given dictionary for the given plugin. If a dictionary is already registered for locales supported by the given
+	 * dictionary, the old dictionary is replace by the specified dictionary.
 	 * 
 	 * @param plugin     The plugin used as key to get the dictionary.
 	 * @param dictionary The dictionary used to get message when an {@link IMessageCodeEvent} arrives.
