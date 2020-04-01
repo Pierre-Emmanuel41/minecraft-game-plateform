@@ -4,7 +4,7 @@ import org.bukkit.plugin.Plugin;
 
 import fr.pederobien.minecraftgameplateform.interfaces.dictionary.IDictionary;
 import fr.pederobien.minecraftgameplateform.interfaces.dictionary.IDictionaryManager;
-import fr.pederobien.minecraftgameplateform.interfaces.dictionary.IMessageCodeEvent;
+import fr.pederobien.minecraftgameplateform.interfaces.dictionary.IMessageEvent;
 
 public interface IDictionaryContext {
 
@@ -13,7 +13,7 @@ public interface IDictionaryContext {
 	 * dictionary, the old dictionary is replace by the specified dictionary.
 	 * 
 	 * @param plugin     The plugin used as key to get the dictionary.
-	 * @param dictionary The dictionary used to get message when an {@link IMessageCodeEvent} arrives.
+	 * @param dictionary The dictionary used to get message when an {@link IMessageEvent} arrives.
 	 * 
 	 * @return This dictionary manager to register dictionaries easier.
 	 */
