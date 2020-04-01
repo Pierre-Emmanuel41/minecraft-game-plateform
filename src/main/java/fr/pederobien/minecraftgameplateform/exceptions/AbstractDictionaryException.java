@@ -2,24 +2,14 @@ package fr.pederobien.minecraftgameplateform.exceptions;
 
 import java.util.StringJoiner;
 
-import fr.pederobien.minecraftgameplateform.interfaces.dictionary.IDictionary;
 import fr.pederobien.minecraftgameplateform.interfaces.dictionary.IMessageEvent;
 
 public abstract class AbstractDictionaryException extends MinecraftPlateformException {
 	private static final long serialVersionUID = 1L;
-	private IDictionary dictionary;
 	private IMessageEvent event;
 
-	protected AbstractDictionaryException(IDictionary dictionary, IMessageEvent event) {
-		this.dictionary = dictionary;
+	protected AbstractDictionaryException(IMessageEvent event) {
 		this.event = event;
-	}
-
-	/**
-	 * @return The dictionary in which the messages should be stored.
-	 */
-	public IDictionary getDictionary() {
-		return dictionary;
 	}
 
 	/**
@@ -33,7 +23,6 @@ public abstract class AbstractDictionaryException extends MinecraftPlateformExce
 	public String getMessage() {
 		StringJoiner joiner = new StringJoiner(", ");
 		joiner.add("{Plugin=" + getEvent().getPlugin().getName() + "}");
-		joiner.add(getDictionary().toString());
 		joiner.add("{Code=" + getEvent().getCode() + "}");
 		joiner.add("{Args={");
 		StringJoiner joinerBis = new StringJoiner(" ");

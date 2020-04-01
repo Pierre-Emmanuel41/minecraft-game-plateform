@@ -33,12 +33,12 @@ public class AbstractDictionary implements IDictionary {
 	public String getMessage(IMessageEvent event) {
 		IMessage message = messages.get(event.getCode());
 		if (message == null)
-			throw new MessageNotFoundException(this, event);
+			throw new MessageNotFoundException(event, this);
 
 		try {
 			return message.getMessage(event.getArgs());
 		} catch (IndexOutOfBoundsException e) {
-			throw new NotEnoughArgumentsException(this, event);
+			throw new NotEnoughArgumentsException(event, this);
 		}
 	}
 
