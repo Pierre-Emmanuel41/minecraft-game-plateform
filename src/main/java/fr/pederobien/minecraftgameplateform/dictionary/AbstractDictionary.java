@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 import java.util.StringJoiner;
+import java.util.stream.Collectors;
 
 import fr.pederobien.minecraftgameplateform.exceptions.MessageNotFoundException;
 import fr.pederobien.minecraftgameplateform.exceptions.NotEnoughArgumentsException;
@@ -18,6 +19,7 @@ import fr.pederobien.minecraftgameplateform.interfaces.dictionary.IMessageEvent;
 public class AbstractDictionary implements IDictionary {
 	private List<Locale> locales;
 	private Map<IMessageCode, IMessage> messages;
+	private List<IMessage> messageValues;
 
 	protected AbstractDictionary(Locale... locales) {
 		this.locales = Arrays.asList(locales);
@@ -45,7 +47,20 @@ public class AbstractDictionary implements IDictionary {
 	@Override
 	public IDictionary register(IMessage message) {
 		messages.put(message.getCode(), message);
+		updateMessageValues();
 		return this;
+	}
+
+	@Override
+	public IDictionary unregister(IMessageCode code) {
+		if (messages.remove(code) != null)
+			updateMessageValues();
+		return this;
+	}
+
+	@Override
+	public List<IMessage> getMessages() {
+		return Collections.unmodifiableList(messageValues);
 	}
 
 	@Override
@@ -54,5 +69,9 @@ public class AbstractDictionary implements IDictionary {
 		for (Locale locale : locales)
 			joiner.add(locale.toString());
 		return "{Dictionary={languages={" + joiner + "}}}";
+	}
+
+	private void updateMessageValues() {
+		messageValues = messages.values().stream().collect(Collectors.toList());
 	}
 }

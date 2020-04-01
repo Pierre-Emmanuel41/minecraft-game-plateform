@@ -28,4 +28,18 @@ public interface IDictionary {
 	 * @return This dictionary to register messages easier.
 	 */
 	IDictionary register(IMessage message);
+
+	/**
+	 * Unregister the message associated to the given message code if it exist.
+	 * 
+	 * @param code The code used to remove the associated message.
+	 * 
+	 * @return This dictionary to unregister messages easier.
+	 */
+	IDictionary unregister(IMessageCode code);
+
+	/**
+	 * @return A list of all registered messages for this dictionary. This list is unmodifiable.
+	 */
+	List<IMessage> getMessages();
 }
