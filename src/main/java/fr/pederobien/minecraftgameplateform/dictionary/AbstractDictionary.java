@@ -9,8 +9,8 @@ import java.util.Map;
 import java.util.StringJoiner;
 import java.util.stream.Collectors;
 
-import fr.pederobien.minecraftgameplateform.exceptions.MessageNotFoundException;
-import fr.pederobien.minecraftgameplateform.exceptions.NotEnoughArgumentsException;
+import fr.pederobien.minecraftgameplateform.exceptions.dictionary.MessageNotFoundException;
+import fr.pederobien.minecraftgameplateform.exceptions.dictionary.NotEnoughArgumentsException;
 import fr.pederobien.minecraftgameplateform.interfaces.dictionary.IDictionary;
 import fr.pederobien.minecraftgameplateform.interfaces.dictionary.IMessage;
 import fr.pederobien.minecraftgameplateform.interfaces.dictionary.IMessageCode;

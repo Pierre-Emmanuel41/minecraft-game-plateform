@@ -1,7 +1,8 @@
-package fr.pederobien.minecraftgameplateform.exceptions;
+package fr.pederobien.minecraftgameplateform.exceptions.dictionary;
 
 import java.util.StringJoiner;
 
+import fr.pederobien.minecraftgameplateform.exceptions.MinecraftPlateformException;
 import fr.pederobien.minecraftgameplateform.interfaces.dictionary.IMessageEvent;
 
 public abstract class AbstractDictionaryException extends MinecraftPlateformException {

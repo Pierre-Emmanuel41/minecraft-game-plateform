@@ -6,9 +6,9 @@ import java.util.Map;
 
 import org.bukkit.plugin.Plugin;
 
-import fr.pederobien.minecraftgameplateform.exceptions.DictionaryNotFoundException;
-import fr.pederobien.minecraftgameplateform.exceptions.MessageNotFoundException;
-import fr.pederobien.minecraftgameplateform.exceptions.NoRegisteredDictionaryException;
+import fr.pederobien.minecraftgameplateform.exceptions.dictionary.DictionaryNotFoundException;
+import fr.pederobien.minecraftgameplateform.exceptions.dictionary.MessageNotFoundException;
+import fr.pederobien.minecraftgameplateform.exceptions.dictionary.NoRegisteredDictionaryException;
 import fr.pederobien.minecraftgameplateform.interfaces.dictionary.IDictionary;
 import fr.pederobien.minecraftgameplateform.interfaces.dictionary.IDictionaryManager;
 import fr.pederobien.minecraftgameplateform.interfaces.dictionary.IMessageEvent;

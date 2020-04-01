@@ -1,4 +1,4 @@
-package fr.pederobien.minecraftgameplateform.exceptions;
+package fr.pederobien.minecraftgameplateform.exceptions.dictionary;
 
 import java.util.StringJoiner;
 
