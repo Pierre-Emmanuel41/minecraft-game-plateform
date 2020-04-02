@@ -13,7 +13,6 @@ import fr.pederobien.minecraftgameplateform.interfaces.element.IGameConfiguratio
 import fr.pederobien.minecraftgameplateform.utils.Plateform;
 
 public abstract class AbstractCommand implements ICommand {
-	private static final IGameConfigurationContext GAME_CONFIGURATION_CONTEXT = Plateform.getGameConfigurationContext();
 	private static final TabCompleter DEFAULT_COMPLETER;
 	private JavaPlugin plugin;
 	private String label;
@@ -62,6 +61,6 @@ public abstract class AbstractCommand implements ICommand {
 	 *         configuration of this context.
 	 */
 	protected IGameConfigurationContext getGameConfigurationContext() {
-		return GAME_CONFIGURATION_CONTEXT;
+		return Plateform.getGameConfigurationContext();
 	}
 }
