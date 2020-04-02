@@ -32,6 +32,8 @@ public class DictionaryManager implements IDictionaryManager {
 		// Register the dictionary for all supported locales.
 		for (Locale locale : dictionary.getLocales())
 			intermediate.put(locale, dictionary);
+
+		dictionaries.put(plugin, intermediate);
 		return this;
 	}
 
