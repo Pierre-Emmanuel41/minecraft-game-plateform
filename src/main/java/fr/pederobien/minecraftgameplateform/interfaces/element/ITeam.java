@@ -39,4 +39,13 @@ public interface ITeam extends IUnmodifiableTeam {
 	 * @param isCreatedOnServer Boolean that describe if this team has been created on the server.
 	 */
 	void setCreatedOnServer(boolean isCreatedOnServer);
+
+	/**
+	 * Clone this team. The returned team will have the same name, the same color and the same players than this original team. One
+	 * thing differ slightly is the behaviour. When players are added or remove from the clone team, the display name of players is
+	 * not updated.
+	 * 
+	 * @return The clone of this team.
+	 */
+	ITeam clone();
 }

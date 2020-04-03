@@ -13,15 +13,16 @@ import fr.pederobien.minecraftgameplateform.utils.EColor;
 public class PlateformTeam extends AbstractNominable implements ITeam {
 	private EColor color;
 	private List<Player> players;
-	private boolean isCreatedOnServer;
+	private boolean isCreatedOnServer, isCopy;
 
-	private PlateformTeam(String name, EColor color) {
+	private PlateformTeam(String name, EColor color, boolean isCopy) {
 		super(name);
 
 		players = new ArrayList<Player>();
 		isCreatedOnServer = false;
 
 		setColor(color);
+		this.isCopy = isCopy;
 	}
 
 	/**
@@ -33,7 +34,7 @@ public class PlateformTeam extends AbstractNominable implements ITeam {
 	 * @return The created team.
 	 */
 	public static ITeam of(String name, EColor color) {
-		return new PlateformTeam(name, color);
+		return new PlateformTeam(name, color, false);
 	}
 
 	/**
@@ -100,6 +101,14 @@ public class PlateformTeam extends AbstractNominable implements ITeam {
 	}
 
 	@Override
+	public ITeam clone() {
+		ITeam team = new PlateformTeam(getName(), getColor(), true);
+		for (Player player : getPlayers())
+			team.addPlayer(player);
+		return team;
+	}
+
+	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder(getName());
 		builder.append(" [");
@@ -113,6 +122,8 @@ public class PlateformTeam extends AbstractNominable implements ITeam {
 	}
 
 	private void updatePlayer(Player player, EColor color) {
+		if (isCopy)
+			return;
 		player.setDisplayName(color.getInColor(player.getName()));
 	}
 }
