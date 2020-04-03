@@ -13,7 +13,7 @@ public class StopCommand extends AbstractGameCommand {
 	}
 
 	@Override
-	public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
+	protected boolean onGameCommand(CommandSender sender, Command command, String label, String[] args) {
 		getGameConfigurationContext().stop();
 		CommandHelper.setAllAvailable(true);
 		return true;

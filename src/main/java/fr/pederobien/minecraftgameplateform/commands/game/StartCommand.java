@@ -15,7 +15,7 @@ public class StartCommand extends AbstractGameCommand {
 	}
 
 	@Override
-	public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
+	protected boolean onGameCommand(CommandSender sender, Command command, String label, String[] args) {
 		PlayerManager.getPlayers().forEach(player -> sendMessage(player, getPlugin(), EMessageCode.STARTING_GAME, getGameConfigurationContext().getName()));
 
 		if (!getGameConfigurationContext().initiate())

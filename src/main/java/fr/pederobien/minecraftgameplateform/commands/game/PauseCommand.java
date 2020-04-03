@@ -13,7 +13,7 @@ public class PauseCommand extends AbstractGameCommand {
 	}
 
 	@Override
-	public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
+	protected boolean onGameCommand(CommandSender sender, Command command, String label, String[] args) {
 		if (!isGameStatePause)
 			getGameConfigurationContext().pause();
 		else
