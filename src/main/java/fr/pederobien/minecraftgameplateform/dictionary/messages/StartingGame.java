@@ -4,7 +4,14 @@ import fr.pederobien.minecraftgameplateform.dictionary.EMessageCode;
 import fr.pederobien.minecraftgameplateform.interfaces.dictionary.IMessage;
 
 public class StartingGame extends AbstractMessage {
+	/**
+	 * Message in French when a game is starting.
+	 */
 	public static final IMessage FRENCH = new French();
+
+	/**
+	 * Message in French when a game is starting.
+	 */
 	public static final IMessage ENGLISH = new English();
 
 	protected StartingGame() {
