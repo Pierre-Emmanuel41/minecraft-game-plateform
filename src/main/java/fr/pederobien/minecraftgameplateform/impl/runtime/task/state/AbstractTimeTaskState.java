@@ -16,22 +16,22 @@ public abstract class AbstractTimeTaskState implements ITimeTaskState {
 
 	@Override
 	public void run() {
-		throw new TimeTaskStateException(getExceptionMessage());
+		throw new TimeTaskStateException(this);
 	}
 
 	@Override
 	public void pause() {
-		throw new TimeTaskStateException(getExceptionMessage());
+		throw new TimeTaskStateException(this);
 	}
 
 	@Override
 	public void relaunched() {
-		throw new TimeTaskStateException(getExceptionMessage());
+		throw new TimeTaskStateException(this);
 	}
 
 	@Override
 	public void cancel() {
-		throw new TimeTaskStateException(getExceptionMessage());
+		throw new TimeTaskStateException(this);
 	}
 
 	protected IStateTimeTask getTask() {
@@ -52,9 +52,5 @@ public abstract class AbstractTimeTaskState implements ITimeTaskState {
 
 	protected void setLimiteTime(LocalTime limitTime) {
 		this.limitTime = limitTime;
-	}
-
-	private String getExceptionMessage() {
-		return "This method cannot be called by this state (" + getClass().getSimpleName() + ")";
 	}
 }
