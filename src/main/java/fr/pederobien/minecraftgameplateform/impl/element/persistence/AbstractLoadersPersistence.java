@@ -32,7 +32,7 @@ public abstract class AbstractLoadersPersistence<T extends IUnmodifiableNominabl
 	}
 
 	@Override
-	public Map<Double, IPersistenceLoader<T>> getLoaders() {
+	public Map<Double, U> getLoaders() {
 		return Collections.unmodifiableMap(loaders);
 	}
 }

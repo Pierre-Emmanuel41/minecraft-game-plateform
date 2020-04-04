@@ -28,5 +28,5 @@ public interface ILoadersPersistence<T extends IUnmodifiableNominable, U extends
 	/**
 	 * @return A map that contains all registered loaders to this persistence. This map is unmodifiable.
 	 */
-	Map<Double, IPersistenceLoader<T>> getLoaders();
+	Map<Double, U> getLoaders();
 }

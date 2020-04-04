@@ -2,6 +2,7 @@ package fr.pederobien.minecraftgameplateform.interfaces.element.persistence;
 
 import java.io.FileNotFoundException;
 import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.List;
 
 import fr.pederobien.minecraftgameplateform.interfaces.element.unmodifiable.IUnmodifiableNominable;
@@ -75,4 +76,17 @@ public interface IPersistence<T extends IUnmodifiableNominable> {
 	 * @return The list of file's name in the folder associated by the path returned by the method {@link #getPath()}.
 	 */
 	List<String> list();
+
+	/**
+	 * Return the absolute path associated to the given name.
+	 * 
+	 * @param name The name used to get the absolute path.
+	 * 
+	 * @return A path that correspond to <code>getPath().resolve(Paths.get(name + ".xml"))</code>
+	 * 
+	 * @see #getPath()
+	 * @see Paths#get(String, String...)
+	 * @see Path#resolve(Path)
+	 */
+	Path getAbsolutePath(String name);
 }
