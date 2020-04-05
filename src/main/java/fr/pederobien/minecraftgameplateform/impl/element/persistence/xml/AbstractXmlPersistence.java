@@ -17,6 +17,7 @@ import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
 
+import org.w3c.dom.DOMException;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
@@ -133,6 +134,63 @@ public abstract class AbstractXmlPersistence<T extends IUnmodifiableNominable> e
 			e.printStackTrace();
 		}
 		return false;
+	}
+
+	/**
+	 * Create an element from the given document.
+	 * 
+	 * @param document The document used to create an element.
+	 * @param tag      The tag associated the element to create.
+	 * @return An element created from the given document.
+	 * 
+	 * @see Document#createElement(String)
+	 */
+	protected Element createElement(Document document, String tag) {
+		return document.createElement(tag);
+	}
+
+	/**
+	 * Create an element from the given document.
+	 * 
+	 * @param document The document used to create an element.
+	 * @param tag      The object that represent the tag associated the element to create.
+	 * @return An element created from the given document.
+	 * 
+	 * @see Document#createElement(String)
+	 */
+	protected Element createElement(Document document, Object tag) {
+		return createElement(document, tag.toString());
+	}
+
+	/**
+	 * Adds a new attribute. If an attribute with that name is already present in the element, its value is changed to be that of the
+	 * value parameter. This value is a simple string; it is not parsed as it is being set. So any markup (such as syntax to be
+	 * recognized as an entity reference) is treated as literal text, and needs to be appropriately escaped by the implementation when
+	 * it is written out. In order to assign an attribute value that contains entity references, the user must create an
+	 * <code>Attr</code> node plus any <code>Text</code> and <code>EntityReference</code> nodes, build the appropriate subtree, and
+	 * use <code>setAttributeNode</code> to assign it as the value of an attribute. <br>
+	 * To set an attribute with a qualified name and namespace URI, use the <code>setAttributeNS</code> method.
+	 * 
+	 * @param element The element used to add a new attribute.
+	 * @param name    The name of the attribute to create or alter.
+	 * @param value   Value to set in string form.
+	 * @exception DOMException INVALID_CHARACTER_ERR: Raised if the specified name is not an XML name according to the XML version in
+	 *                         use specified in the <code>Document.xmlVersion</code> attribute. <br>
+	 *                         NO_MODIFICATION_ALLOWED_ERR: Raised if this node is readonly.
+	 */
+	protected void setAttribute(Element element, String tag, String value) {
+		element.setAttribute(tag, value);
+	}
+
+	/**
+	 * @param element The element used to add a new attribute.
+	 * @param name    The name of the attribute to create or alter.
+	 * @param value   Value to set in string form.
+	 * 
+	 * @see #setAttribute(Element, String, String)
+	 */
+	protected void setAttribute(Element element, Object tag, Object value) {
+		setAttribute(element, tag.toString(), value.toString());
 	}
 
 	private Document parse(String name) throws IOException {
