@@ -1,6 +1,6 @@
 package fr.pederobien.minecraftgameplateform.interfaces.element.persistence.xml;
 
-import org.w3c.dom.Node;
+import org.w3c.dom.Element;
 
 import fr.pederobien.minecraftgameplateform.interfaces.element.persistence.IPersistenceLoader;
 import fr.pederobien.minecraftgameplateform.interfaces.element.unmodifiable.IUnmodifiableNominable;
@@ -14,5 +14,5 @@ public interface IXmlPersistenceLoader<T extends IUnmodifiableNominable> extends
 	 * 
 	 * @return this loader.
 	 */
-	IXmlPersistenceLoader<T> load(Node root);
+	IXmlPersistenceLoader<T> load(Element root);
 }
