@@ -15,7 +15,7 @@ import fr.pederobien.minecraftgameplateform.utils.DisplayHelper;
 public class Spawn extends AbstractWorldStructure implements ISpawn {
 	private IWorldBlock relativePlayerSpawn;
 
-	protected Spawn(String name) {
+	public Spawn(String name) {
 		super(name);
 	}
 
