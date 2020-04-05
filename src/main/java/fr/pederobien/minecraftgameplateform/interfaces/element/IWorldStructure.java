@@ -5,7 +5,7 @@ import java.util.List;
 import fr.pederobien.minecraftgameplateform.exceptions.dictionary.WorldStructureDimensionException;
 import fr.pederobien.minecraftgameplateform.interfaces.element.unmodifiable.IUnmodifiableWorldStructure;
 
-public interface IWorldStructure extends IUnmodifiableWorldStructure {
+public interface IWorldStructure extends INominable, IUnmodifiableWorldStructure {
 
 	/**
 	 * Set the world in which the structure should be launched or extracted.
