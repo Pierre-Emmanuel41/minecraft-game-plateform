@@ -9,6 +9,7 @@ import org.bukkit.command.TabCompleter;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import fr.pederobien.minecraftgameplateform.interfaces.commands.ICommand;
+import fr.pederobien.minecraftgameplateform.interfaces.commands.ICommandHelper;
 import fr.pederobien.minecraftgameplateform.interfaces.element.IGameConfigurationContext;
 import fr.pederobien.minecraftgameplateform.utils.Plateform;
 
@@ -62,5 +63,13 @@ public abstract class AbstractCommand implements ICommand {
 	 */
 	protected IGameConfigurationContext getGameConfigurationContext() {
 		return Plateform.getGameConfigurationContext();
+	}
+
+	/**
+	 * @return The helper used to register commands. Once a command has been registered, it is impossible to unregister it. However,
+	 *         it is possible to not display it by setting {@link ICommand#setAvailable(boolean)} to false.
+	 */
+	protected ICommandHelper getCommandHelper() {
+		return Plateform.getCommandHelper();
 	}
 }

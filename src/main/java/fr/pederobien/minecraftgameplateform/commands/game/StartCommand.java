@@ -6,7 +6,6 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 import fr.pederobien.minecraftdevelopmenttoolkit.managers.PlayerManager;
 import fr.pederobien.minecraftgameplateform.dictionary.EMessageCode;
-import fr.pederobien.minecraftgameplateform.utils.CommandHelper;
 
 public class StartCommand extends AbstractGameCommand {
 
@@ -22,7 +21,7 @@ public class StartCommand extends AbstractGameCommand {
 			return false;
 
 		getGameConfigurationContext().start();
-		CommandHelper.setAllAvailable(false);
+		getCommandHelper().setAllAvailable(false);
 		return true;
 	}
 }

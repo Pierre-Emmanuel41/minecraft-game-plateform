@@ -13,6 +13,17 @@ import fr.pederobien.minecraftgameplateform.interfaces.element.ITeam;
 public class GameConfigurationContext implements IGameConfigurationContext {
 	private IGameConfiguration gameConfiguration;
 
+	private GameConfigurationContext() {
+	}
+
+	public static IGameConfigurationContext getInstance() {
+		return SingletonHolder.CONTEXT;
+	}
+
+	private static class SingletonHolder {
+		public static final IGameConfigurationContext CONTEXT = new GameConfigurationContext();
+	}
+
 	@Override
 	public void add(ITeam team) {
 		getGameConfiguration().add(team);

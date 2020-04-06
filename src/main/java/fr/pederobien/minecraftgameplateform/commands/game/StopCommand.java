@@ -4,8 +4,6 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import fr.pederobien.minecraftgameplateform.utils.CommandHelper;
-
 public class StopCommand extends AbstractGameCommand {
 
 	public StopCommand(JavaPlugin plugin) {
@@ -15,7 +13,7 @@ public class StopCommand extends AbstractGameCommand {
 	@Override
 	protected boolean onGameCommand(CommandSender sender, Command command, String label, String[] args) {
 		getGameConfigurationContext().stop();
-		CommandHelper.setAllAvailable(true);
+		getCommandHelper().setAllAvailable(true);
 		return true;
 	}
 }
