@@ -4,17 +4,74 @@ import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 
+import org.bukkit.command.CommandSender;
+import org.bukkit.entity.Player;
+
 import fr.pederobien.minecraftdevelopmenttoolkit.impl.AbstractGenericMapEdition;
 import fr.pederobien.minecraftgameplateform.interfaces.dictionary.IMessageCode;
+import fr.pederobien.minecraftgameplateform.interfaces.dictionary.IMessageEvent;
 import fr.pederobien.minecraftgameplateform.interfaces.editions.IMapPersistenceEdition;
 import fr.pederobien.minecraftgameplateform.interfaces.editions.IParentPersistenceEdition;
 import fr.pederobien.minecraftgameplateform.interfaces.element.unmodifiable.IUnmodifiableNominable;
+import fr.pederobien.minecraftgameplateform.utils.EventFactory;
+import fr.pederobien.minecraftgameplateform.utils.Plateform;
 
 public class AbstractMapPersistenceEdition<T extends IUnmodifiableNominable> extends AbstractGenericMapEdition<IMessageCode, T, IParentPersistenceEdition<T>>
 		implements IMapPersistenceEdition<T> {
 
 	public AbstractMapPersistenceEdition(String label, IMessageCode explanation) {
 		super(label, explanation);
+	}
+
+	/**
+	 * Send a message to the given player. First create an {@link IMessageEvent} that is used to get messages into registered
+	 * dictionaries for the given Plugin.
+	 * 
+	 * @param player The player to send a message.
+	 * @param plugin The plugin into the message is associated.
+	 * @param code   The code used to get the translation of the message in the player's language.
+	 * @param args   Arguments that could be useful to send dynamic messages.
+	 * 
+	 * @return The created message event.
+	 */
+	protected void sendMessageToSender(CommandSender sender, IMessageCode code, String... args) {
+		if (sender instanceof Player)
+			sendMessage((Player) sender, code, args);
+	}
+
+	/**
+	 * Send a message to the given player. First create an {@link IMessageEvent} that is used to get messages into registered
+	 * dictionaries for the given Plugin.
+	 * 
+	 * @param player The player to send a message.
+	 * @param plugin The plugin into the message is associated.
+	 * @param code   The code used to get the translation of the message in the player's language.
+	 * @param args   Arguments that could be useful to send dynamic messages.
+	 * 
+	 * @return The created message event.
+	 */
+	protected void sendMessageToSender(CommandSender sender, IMessageCode code, Object... args) {
+		if (sender instanceof Player) {
+			String[] internalArgs = new String[args.length];
+			for (int i = 0; i < args.length; i++)
+				internalArgs[i] = args[i].toString();
+			sendMessage((Player) sender, code, internalArgs);
+		}
+	}
+
+	/**
+	 * Send a message to the given player. First create an {@link IMessageEvent} that is used to get messages into registered
+	 * dictionaries for the given Plugin.
+	 * 
+	 * @param player The player to send a message.
+	 * @param plugin The plugin into the message is associated.
+	 * @param code   The code used to get the translation of the message in the player's language.
+	 * @param args   Arguments that could be useful to send dynamic messages.
+	 * 
+	 * @return The created message event.
+	 */
+	protected void sendMessage(Player player, IMessageCode code, String... args) {
+		Plateform.getNotificationCenter().sendMessage(EventFactory.messageEvent(player, getParent().getPlugin(), code, args));
 	}
 
 	/**
