@@ -3,7 +3,11 @@ package fr.pederobien.minecraftgameplateform.dictionary;
 import fr.pederobien.minecraftgameplateform.interfaces.dictionary.IMessageCode;
 
 public enum EMessageCode implements IMessageCode {
-	STARTING_GAME, NO_CONFIGURATION_SETTED;
+	// Code for game messages
+	STARTING_GAME, NO_CONFIGURATION_SETTED,
+
+	// Code for command messages
+	HELP_EXPLANATION;
 
 	private Permission permission;
 
