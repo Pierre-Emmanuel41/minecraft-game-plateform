@@ -5,6 +5,7 @@ import java.util.Map;
 
 import org.bukkit.command.PluginCommand;
 
+import fr.pederobien.minecraftgameplateform.exceptions.CommandNotFoundException;
 import fr.pederobien.minecraftgameplateform.interfaces.commands.ICommand;
 import fr.pederobien.minecraftgameplateform.interfaces.commands.ICommandHelper;
 
@@ -25,7 +26,7 @@ public class CommandHelper implements ICommandHelper {
 
 	@Override
 	public void register(ICommand command) {
-		PluginCommand cmd = command.getPlugin().getCommand(command.getLabel());
+		PluginCommand cmd = checkCommand(command);
 		cmd.setExecutor(command);
 		cmd.setTabCompleter(command.getTabCompleter());
 		commands.put(command.getLabel(), command);
@@ -42,5 +43,12 @@ public class CommandHelper implements ICommandHelper {
 		if (cmd != null)
 			cmd.setAvailable(available);
 		return cmd != null;
+	}
+
+	private PluginCommand checkCommand(ICommand command) {
+		PluginCommand cmd = command.getPlugin().getCommand(command.getLabel());
+		if (cmd == null)
+			throw new CommandNotFoundException(command.getPlugin(), command.getLabel());
+		return cmd;
 	}
 }
