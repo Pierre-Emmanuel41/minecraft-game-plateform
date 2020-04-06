@@ -8,13 +8,22 @@ import org.w3c.dom.Element;
 import fr.pederobien.minecraftgameplateform.impl.element.persistence.xml.AbstractXmlPersistence;
 import fr.pederobien.minecraftgameplateform.interfaces.element.ISpawn;
 import fr.pederobien.minecraftgameplateform.interfaces.element.IWorldBlock;
+import fr.pederobien.minecraftgameplateform.interfaces.element.persistence.IPersistence;
 
 public class SpawnPersistence extends AbstractXmlPersistence<ISpawn> {
 	private static final String ROOT_XML_DOCUMENT = "spawn";
 	private static final double CURRENT_VERSION = 1.0;
 
-	protected SpawnPersistence() {
+	private SpawnPersistence() {
 		super(ROOT.resolve(Paths.get("Spawns")), new DefaultSpawnContent());
+	}
+
+	public static IPersistence<ISpawn> getInstance() {
+		return SingletonHolder.PERSISTENCE;
+	}
+
+	private static class SingletonHolder {
+		public static final IPersistence<ISpawn> PERSISTENCE = new SpawnPersistence();
 	}
 
 	@Override
