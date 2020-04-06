@@ -8,6 +8,7 @@ import fr.pederobien.minecraftgameplateform.commands.game.StopCommand;
 import fr.pederobien.minecraftgameplateform.dictionary.dictionaries.EnglishDictionary;
 import fr.pederobien.minecraftgameplateform.dictionary.dictionaries.FrenchDictionary;
 import fr.pederobien.minecraftgameplateform.utils.Plateform;
+import fr.pederobien.minecraftgameplateform.worldstructure.spawn.commands.SpawnCommand;
 
 public class PlateformPlugin extends JavaPlugin {
 
@@ -16,6 +17,8 @@ public class PlateformPlugin extends JavaPlugin {
 		new StartCommand(this);
 		new PauseCommand(this);
 		new StopCommand(this);
+
+		new SpawnCommand(this);
 
 		Plateform.getNotificationCenter().getDictionaryContext().register(this, new EnglishDictionary());
 		Plateform.getNotificationCenter().getDictionaryContext().register(this, new FrenchDictionary());
