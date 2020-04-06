@@ -9,7 +9,7 @@ import fr.pederobien.minecraftgameplateform.interfaces.element.persistence.IPers
 import fr.pederobien.minecraftgameplateform.interfaces.element.unmodifiable.IUnmodifiableNominable;
 
 public abstract class AbstractPersistence<T extends IUnmodifiableNominable> implements IPersistence<T> {
-	protected static final Path ROOT = Paths.get("minecraft-game-plateform");
+	protected static final Path ROOT = Paths.get("plugins", "minecraft-game-plateform");
 	private Path path;
 	private IDefaultContent defaultContent;
 
