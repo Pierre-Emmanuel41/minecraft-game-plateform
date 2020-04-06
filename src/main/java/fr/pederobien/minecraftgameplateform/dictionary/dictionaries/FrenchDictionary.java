@@ -3,6 +3,7 @@ package fr.pederobien.minecraftgameplateform.dictionary.dictionaries;
 import java.util.Locale;
 
 import fr.pederobien.minecraftgameplateform.dictionary.AbstractDictionary;
+import fr.pederobien.minecraftgameplateform.dictionary.messages.common.BadCoordinatesFormat;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.explanations.HelpExplanation;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.explanations.worldstructure.CommonCenterExplanation;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.explanations.worldstructure.CommonCenter_CenterDefined;
@@ -15,11 +16,13 @@ public class FrenchDictionary extends AbstractDictionary {
 	public FrenchDictionary() {
 		super(Locale.FRANCE, Locale.FRENCH, Locale.CANADA_FRENCH);
 
-		// Code for command messages
+		// Code for common command messages
 		register(HelpExplanation.FRENCH);
+		register(BadCoordinatesFormat.FRENCH);
 
 		// Code for common world structure command messages
-		register(CommonCenterExplanation.FRENCH).register(CommonCenter_CenterDefined.FRENCH);
+		register(CommonCenterExplanation.FRENCH);
+		register(CommonCenter_CenterDefined.FRENCH);
 
 		// Code for spawn command messages
 		register(SpawnParentExplanation.FRENCH);
