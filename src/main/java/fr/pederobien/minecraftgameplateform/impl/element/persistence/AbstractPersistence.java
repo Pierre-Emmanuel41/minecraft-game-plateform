@@ -30,7 +30,7 @@ public abstract class AbstractPersistence<T extends IUnmodifiableNominable> impl
 	}
 
 	private void checkPath(Path path) {
-		if (!path.toAbsolutePath().startsWith(ROOT))
-			throw new IllegalPathException();
+		if (!path.startsWith(ROOT))
+			throw new IllegalPathException(path);
 	}
 }
