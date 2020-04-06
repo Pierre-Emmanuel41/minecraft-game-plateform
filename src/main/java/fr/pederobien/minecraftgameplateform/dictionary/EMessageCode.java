@@ -7,7 +7,10 @@ public enum EMessageCode implements IMessageCode {
 	STARTING_GAME, NO_CONFIGURATION_SETTED,
 
 	// Code for command messages
-	HELP_EXPLANATION;
+	HELP_EXPLANATION,
+
+	// Code for spawn command messages
+	SPAWN_PARENT_EXPLANATION;
 
 	private Permission permission;
 
