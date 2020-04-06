@@ -18,8 +18,8 @@ import fr.pederobien.minecraftgameplateform.interfaces.element.unmodifiable.IUnm
 public class AbstractConfigurationCommand<T extends IUnmodifiableNominable> extends AbstractCommand {
 	private IParentPersistenceEdition<T> parent;
 
-	protected AbstractConfigurationCommand(JavaPlugin plugin, String label, IParentPersistenceEdition<T> parent) {
-		super(plugin, label);
+	protected AbstractConfigurationCommand(JavaPlugin plugin, IParentPersistenceEdition<T> parent) {
+		super(plugin, parent.getLabel());
 		this.parent = parent;
 		getCommandHelper().register(this);
 		writeDefaultOrUpdate(parent.getPersistence());
