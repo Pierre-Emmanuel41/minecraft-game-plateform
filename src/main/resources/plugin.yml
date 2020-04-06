@@ -6,12 +6,15 @@ api-version: 1.13
 description:
 commands:
   startgame:
-    description: This command is used to start a game
+    description: This command is used to start a game.
     permission: PlateformPlugin.permission
   pausegame:
-    description: This command is used to pause the current started game
+    description: This command is used to pause the current started game.
     permission: PlateformPlugin.permission
   stopgame:
     description: This command is used to stop the current started game.
     permission: PlateformPlugin.permission
+  spawn:
+    description: This command is used to manipulate a spawn before starting a game.
+    permission: PlateformPlugin.yml
   
