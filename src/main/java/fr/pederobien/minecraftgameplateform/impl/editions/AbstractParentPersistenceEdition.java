@@ -3,6 +3,8 @@ package fr.pederobien.minecraftgameplateform.impl.editions;
 import org.bukkit.plugin.Plugin;
 
 import fr.pederobien.minecraftdevelopmenttoolkit.impl.AbstractGenericParentEdition;
+import fr.pederobien.minecraftdevelopmenttoolkit.interfaces.IGenericMapEdition;
+import fr.pederobien.minecraftdevelopmenttoolkit.interfaces.IGenericParentEdition;
 import fr.pederobien.minecraftgameplateform.interfaces.dictionary.IMessageCode;
 import fr.pederobien.minecraftgameplateform.interfaces.editions.IParentPersistenceEdition;
 import fr.pederobien.minecraftgameplateform.interfaces.element.persistence.IPersistence;
@@ -17,6 +19,20 @@ public class AbstractParentPersistenceEdition<T extends IUnmodifiableNominable> 
 		super(label, explanation, new ParentPersistenceHelper<T>(plugin));
 		this.persistence = persistence;
 		this.plugin = plugin;
+	}
+
+	@Override
+	public IGenericParentEdition<IMessageCode, T, IParentPersistenceEdition<T>> addEdition(IGenericMapEdition<IMessageCode, T, IParentPersistenceEdition<T>> elt) {
+		elt.setParent(this);
+		elt.setAvailable(false);
+		return super.addEdition(elt);
+	}
+
+	@Override
+	public IGenericParentEdition<IMessageCode, T, IParentPersistenceEdition<T>> removeEdition(IGenericMapEdition<IMessageCode, T, IParentPersistenceEdition<T>> elt) {
+		elt.setParent(null);
+		elt.setAvailable(true);
+		return super.removeEdition(elt);
 	}
 
 	@Override
