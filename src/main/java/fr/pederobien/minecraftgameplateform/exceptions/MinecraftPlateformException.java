@@ -9,7 +9,7 @@ public abstract class MinecraftPlateformException extends RuntimeException {
 
 	@Override
 	public final String getMessage() {
-		StringJoiner joiner = new StringJoiner("\n");
+		StringJoiner joiner = new StringJoiner("\n", "\n", "");
 		joiner.add("Plateform version : " + Plateform.getVersion());
 		StringJoiner returnedJoiner = getInternalMessage(joiner);
 		if (!joiner.equals(returnedJoiner))
