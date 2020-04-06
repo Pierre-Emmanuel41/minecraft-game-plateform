@@ -5,11 +5,11 @@ import fr.pederobien.minecraftgameplateform.interfaces.dictionary.IMessage;
 
 public class CommonCenterExplanation extends AbstractMessage {
 	/**
-	 * Message in French to explain what does the command "center" does.
+	 * Message in French to explain what does the command "center" do.
 	 */
 	public static final IMessage FRENCH = new French();
 	/**
-	 * Message in English to explain what does the command "center" does.
+	 * Message in English to explain what does the command "center" do.
 	 */
 	public static final IMessage ENGLISH = new English();
 
