@@ -1,6 +1,7 @@
-package fr.pederobien.minecraftgameplateform.dictionary.messages;
+package fr.pederobien.minecraftgameplateform.dictionary.messages.game;
 
 import fr.pederobien.minecraftgameplateform.dictionary.EMessageCode;
+import fr.pederobien.minecraftgameplateform.dictionary.messages.AbstractMessage;
 import fr.pederobien.minecraftgameplateform.interfaces.dictionary.IMessage;
 
 public class NoConfigurationSetted extends AbstractMessage {

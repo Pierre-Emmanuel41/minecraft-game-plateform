@@ -4,8 +4,8 @@ import java.util.Locale;
 
 import fr.pederobien.minecraftgameplateform.dictionary.AbstractDictionary;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.HelpExplanation;
-import fr.pederobien.minecraftgameplateform.dictionary.messages.NoConfigurationSetted;
-import fr.pederobien.minecraftgameplateform.dictionary.messages.StartingGame;
+import fr.pederobien.minecraftgameplateform.dictionary.messages.game.NoConfigurationSetted;
+import fr.pederobien.minecraftgameplateform.dictionary.messages.game.StartingGame;
 
 public class FrenchDictionary extends AbstractDictionary {
 
