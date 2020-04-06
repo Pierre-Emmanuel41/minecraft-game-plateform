@@ -1,21 +1,18 @@
-package fr.pederobien.minecraftgameplateform.dictionary;
+package fr.pederobien.minecraftgameplateform.dictionary.messages.explanations.worldstructure.spawn;
 
+import fr.pederobien.minecraftgameplateform.dictionary.Permission;
 import fr.pederobien.minecraftgameplateform.interfaces.dictionary.IMessageCode;
 
-public enum EMessageCode implements IMessageCode {
-	// Code for game messages
-	STARTING_GAME, NO_CONFIGURATION_SETTED,
-
-	// Code for command messages
-	HELP_EXPLANATION;
+public enum ESpawnMessageCode implements IMessageCode {
+	SPAWN_PARENT_EXPLANATION;
 
 	private Permission permission;
 
-	private EMessageCode() {
+	private ESpawnMessageCode() {
 		this(Permission.OPERATORS);
 	}
 
-	private EMessageCode(Permission permission) {
+	private ESpawnMessageCode(Permission permission) {
 		this.permission = permission;
 	}
 

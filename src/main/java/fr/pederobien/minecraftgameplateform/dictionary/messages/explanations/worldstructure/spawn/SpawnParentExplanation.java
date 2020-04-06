@@ -1,6 +1,5 @@
 package fr.pederobien.minecraftgameplateform.dictionary.messages.explanations.worldstructure.spawn;
 
-import fr.pederobien.minecraftgameplateform.dictionary.EMessageCode;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.AbstractMessage;
 import fr.pederobien.minecraftgameplateform.interfaces.dictionary.IMessage;
 
@@ -9,7 +8,7 @@ public class SpawnParentExplanation extends AbstractMessage {
 	public static final IMessage ENGLISH = new English();
 
 	public SpawnParentExplanation() {
-		super(EMessageCode.SPAWN_PARENT_EXPLANATION);
+		super(ESpawnMessageCode.SPAWN_PARENT_EXPLANATION);
 	}
 
 	@Override
