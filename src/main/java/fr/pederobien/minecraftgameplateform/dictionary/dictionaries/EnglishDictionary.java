@@ -9,6 +9,7 @@ import fr.pederobien.minecraftgameplateform.dictionary.messages.explanations.Hel
 import fr.pederobien.minecraftgameplateform.dictionary.messages.explanations.worldstructure.CommonCenterExplanation;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.explanations.worldstructure.CommonCenter_CenterDefined;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.explanations.worldstructure.CommonDimension_BadDimensionFormat;
+import fr.pederobien.minecraftgameplateform.dictionary.messages.explanations.worldstructure.CommonDimension_MissingDimension;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.explanations.worldstructure.spawn.DimensionSpawn_Explanation;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.explanations.worldstructure.spawn.SpawnParentExplanation;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.game.NoConfigurationSetted;
@@ -28,6 +29,7 @@ public class EnglishDictionary extends AbstractDictionary {
 		register(CommonCenterExplanation.ENGLISH);
 		register(CommonCenter_CenterDefined.ENGLISH);
 		register(CommonDimension_BadDimensionFormat.ENGLISH);
+		register(CommonDimension_MissingDimension.ENGLISH);
 
 		// Code for spawn command messages
 		register(SpawnParentExplanation.ENGLISH);
