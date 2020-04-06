@@ -1,4 +1,4 @@
-package fr.pederobien.minecraftgameplateform.editions;
+package fr.pederobien.minecraftgameplateform.interfaces.editions;
 
 import fr.pederobien.minecraftgameplateform.interfaces.element.persistence.IPersistence;
 import fr.pederobien.minecraftgameplateform.interfaces.element.unmodifiable.IUnmodifiableNominable;
