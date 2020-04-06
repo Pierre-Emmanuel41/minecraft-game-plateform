@@ -14,5 +14,6 @@ public class SpawnParent extends AbstractParentPersistenceEdition<ISpawn> {
 		super("spawn", ESpawnMessageCode.SPAWN_PARENT_EXPLANATION, plugin, SpawnPersistence.getInstance());
 
 		addEdition(WorldStructureEditionFactory.CommonCenter());
+		addEdition(SpawnEditionFactory.dimensionSpawn());
 	}
 }
