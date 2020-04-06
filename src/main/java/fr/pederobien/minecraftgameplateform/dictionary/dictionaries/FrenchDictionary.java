@@ -4,6 +4,7 @@ import java.util.Locale;
 
 import fr.pederobien.minecraftgameplateform.dictionary.AbstractDictionary;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.explanations.HelpExplanation;
+import fr.pederobien.minecraftgameplateform.dictionary.messages.explanations.worldstructure.CommonCenterExplanation;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.explanations.worldstructure.spawn.SpawnParentExplanation;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.game.NoConfigurationSetted;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.game.StartingGame;
@@ -15,6 +16,9 @@ public class FrenchDictionary extends AbstractDictionary {
 
 		// Code for command messages
 		register(HelpExplanation.FRENCH);
+
+		// Code for common world structure command messages
+		register(CommonCenterExplanation.FRENCH);
 
 		// Code for spawn command messages
 		register(SpawnParentExplanation.FRENCH);
