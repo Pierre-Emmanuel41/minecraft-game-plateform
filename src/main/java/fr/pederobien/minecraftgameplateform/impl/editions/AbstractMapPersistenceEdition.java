@@ -16,10 +16,10 @@ import fr.pederobien.minecraftgameplateform.interfaces.element.unmodifiable.IUnm
 import fr.pederobien.minecraftgameplateform.utils.EventFactory;
 import fr.pederobien.minecraftgameplateform.utils.Plateform;
 
-public class AbstractMapPersistenceEdition<T extends IUnmodifiableNominable> extends AbstractGenericMapEdition<IMessageCode, T, IParentPersistenceEdition<T>>
+public abstract class AbstractMapPersistenceEdition<T extends IUnmodifiableNominable> extends AbstractGenericMapEdition<IMessageCode, T, IParentPersistenceEdition<T>>
 		implements IMapPersistenceEdition<T> {
 
-	public AbstractMapPersistenceEdition(String label, IMessageCode explanation) {
+	protected AbstractMapPersistenceEdition(String label, IMessageCode explanation) {
 		super(label, explanation);
 	}
 
