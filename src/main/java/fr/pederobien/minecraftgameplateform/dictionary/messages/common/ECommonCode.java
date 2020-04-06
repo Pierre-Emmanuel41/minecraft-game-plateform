@@ -4,7 +4,7 @@ import fr.pederobien.minecraftgameplateform.dictionary.Permission;
 import fr.pederobien.minecraftgameplateform.interfaces.dictionary.IMessageCode;
 
 public enum ECommonCode implements IMessageCode {
-	COMMON_BAD_COORDINATES_FORMAT;
+	COMMON_BAD_COORDINATES_FORMAT, COMMON_MISSING_COORDINATES;
 
 	private Permission permission;
 

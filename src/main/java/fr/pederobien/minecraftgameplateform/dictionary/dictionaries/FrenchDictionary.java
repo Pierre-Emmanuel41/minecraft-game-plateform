@@ -4,6 +4,7 @@ import java.util.Locale;
 
 import fr.pederobien.minecraftgameplateform.dictionary.AbstractDictionary;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.common.BadCoordinatesFormat;
+import fr.pederobien.minecraftgameplateform.dictionary.messages.common.MissingCoordinates;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.explanations.HelpExplanation;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.explanations.worldstructure.CommonCenterExplanation;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.explanations.worldstructure.CommonCenter_CenterDefined;
@@ -19,6 +20,7 @@ public class FrenchDictionary extends AbstractDictionary {
 		// Code for common command messages
 		register(HelpExplanation.FRENCH);
 		register(BadCoordinatesFormat.FRENCH);
+		register(MissingCoordinates.FRENCH);
 
 		// Code for common world structure command messages
 		register(CommonCenterExplanation.FRENCH);
