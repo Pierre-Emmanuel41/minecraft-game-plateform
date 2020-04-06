@@ -3,7 +3,7 @@ package fr.pederobien.minecraftgameplateform.dictionary.dictionaries;
 import java.util.Locale;
 
 import fr.pederobien.minecraftgameplateform.dictionary.AbstractDictionary;
-import fr.pederobien.minecraftgameplateform.dictionary.messages.HelpExplanation;
+import fr.pederobien.minecraftgameplateform.dictionary.messages.explanations.HelpExplanation;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.game.NoConfigurationSetted;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.game.StartingGame;
 
