@@ -4,7 +4,7 @@ import fr.pederobien.minecraftgameplateform.dictionary.Permission;
 import fr.pederobien.minecraftgameplateform.interfaces.dictionary.IMessageCode;
 
 public enum EWorldStructureMessageCode implements IMessageCode {
-	COMMON_CENTER_EXPLANATION, COMMON_CENTER__CENTER_DEFINED;
+	COMMON_CENTER_EXPLANATION, COMMON_CENTER__CENTER_DEFINED, COMMON_DIMENSION__BAD_DIMENSION_FORMAT;
 
 	private Permission permission;
 

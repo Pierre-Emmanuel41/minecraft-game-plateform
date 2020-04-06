@@ -8,6 +8,7 @@ import fr.pederobien.minecraftgameplateform.dictionary.messages.common.MissingCo
 import fr.pederobien.minecraftgameplateform.dictionary.messages.explanations.HelpExplanation;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.explanations.worldstructure.CommonCenterExplanation;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.explanations.worldstructure.CommonCenter_CenterDefined;
+import fr.pederobien.minecraftgameplateform.dictionary.messages.explanations.worldstructure.CommonDimension_BadDimensionFormat;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.explanations.worldstructure.spawn.SpawnParentExplanation;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.game.NoConfigurationSetted;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.game.StartingGame;
@@ -25,6 +26,7 @@ public class EnglishDictionary extends AbstractDictionary {
 		// Code for common world structure command messages
 		register(CommonCenterExplanation.ENGLISH);
 		register(CommonCenter_CenterDefined.ENGLISH);
+		register(CommonDimension_BadDimensionFormat.ENGLISH);
 
 		// Code for spawn command messages
 		register(SpawnParentExplanation.ENGLISH);
