@@ -9,9 +9,10 @@ import fr.pederobien.minecraftgameplateform.interfaces.commands.ICommand;
 import fr.pederobien.minecraftgameplateform.interfaces.commands.ICommandHelper;
 
 public class CommandHelper implements ICommandHelper {
-	private static Map<String, ICommand> commands = new HashMap<String, ICommand>();
+	private Map<String, ICommand> commands;
 
 	private CommandHelper() {
+		commands = new HashMap<String, ICommand>();
 	}
 
 	public static ICommandHelper getInstance() {
