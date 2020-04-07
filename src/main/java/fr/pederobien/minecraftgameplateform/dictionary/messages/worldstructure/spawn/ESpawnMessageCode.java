@@ -13,7 +13,7 @@ public enum ESpawnMessageCode implements IMessageCode {
 	DIMENSION_SPAWN__EXPLANATION, DIMENSION_SPAWN__DEFINED,
 
 	// Code for command rename
-	RENAME_SPAWN__EXPLANATION;
+	RENAME_SPAWN__EXPLANATION, RENAME_SPAWN__NAME_ALREADY_TAKEN;
 
 	private Permission permission;
 
