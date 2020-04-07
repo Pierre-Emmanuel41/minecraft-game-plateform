@@ -5,7 +5,7 @@ import fr.pederobien.minecraftgameplateform.interfaces.dictionary.IMessageCode;
 
 public enum EGameMessageCode implements IMessageCode {
 	// Code for game messages
-	STARTING_GAME, NO_CONFIGURATION_SETTED, PAUSING_GAME;
+	STARTING_GAME, NO_CONFIGURATION_SETTED, PAUSING_GAME, STOPPING_GAME;
 
 	private Permission permission;
 
