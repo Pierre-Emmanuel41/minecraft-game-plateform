@@ -14,6 +14,7 @@ import fr.pederobien.minecraftgameplateform.dictionary.messages.explanations.wor
 import fr.pederobien.minecraftgameplateform.dictionary.messages.explanations.worldstructure.CommonDimension_MissingDimension;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.explanations.worldstructure.spawn.DimensionSpawn_Defined;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.explanations.worldstructure.spawn.DimensionSpawn_Explanation;
+import fr.pederobien.minecraftgameplateform.dictionary.messages.explanations.worldstructure.spawn.NewSpawn_Explanation;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.explanations.worldstructure.spawn.SpawnParentExplanation;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.game.NoConfigurationSetted;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.game.StartingGame;
@@ -28,7 +29,6 @@ public class FrenchDictionary extends AbstractDictionary {
 		register(BadCoordinatesFormat.FRENCH);
 		register(MissingCoordinates.FRENCH);
 		register(CommonNew_TabComplete.FRENCH);
-		register(CommonNew_TabComplete.FRENCH);
 		register(CommonNew_NameMustNotStartWithDefault.FRENCH);
 
 		// Code for common world structure command messages
@@ -39,6 +39,7 @@ public class FrenchDictionary extends AbstractDictionary {
 
 		// Code for spawn command messages
 		register(SpawnParentExplanation.FRENCH);
+		register(NewSpawn_Explanation.FRENCH);
 		register(DimensionSpawn_Explanation.FRENCH);
 		register(DimensionSpawn_Defined.FRENCH);
 

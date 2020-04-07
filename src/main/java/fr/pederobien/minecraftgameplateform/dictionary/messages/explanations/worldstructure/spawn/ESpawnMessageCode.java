@@ -4,7 +4,7 @@ import fr.pederobien.minecraftgameplateform.dictionary.Permission;
 import fr.pederobien.minecraftgameplateform.interfaces.dictionary.IMessageCode;
 
 public enum ESpawnMessageCode implements IMessageCode {
-	SPAWN_PARENT_EXPLANATION, DIMENSION_SPAWN_EXPLANATION, DIMENSION_SPAWN_DEFINED;
+	SPAWN_PARENT_EXPLANATION, NEW_SPAWN__EXPLANATION, DIMENSION_SPAWN_EXPLANATION, DIMENSION_SPAWN_DEFINED;
 
 	private Permission permission;
 
