@@ -4,9 +4,9 @@ import java.util.Locale;
 
 import fr.pederobien.minecraftgameplateform.dictionary.AbstractDictionary;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.HelpExplanation;
-import fr.pederobien.minecraftgameplateform.dictionary.messages.common.BadIntegerFormat;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.common.CommonNew_NameMustNotStartWithDefault;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.common.CommonNew_TabComplete;
+import fr.pederobien.minecraftgameplateform.dictionary.messages.common.Common_BadIntegerFormat;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.game.NoConfigurationSetted;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.game.StartingGame;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.CommonCenter_CenterDefined;
@@ -29,7 +29,7 @@ public class EnglishDictionary extends AbstractDictionary {
 
 		// Code for command messages
 		register(HelpExplanation.ENGLISH);
-		register(BadIntegerFormat.ENGLISH);
+		register(Common_BadIntegerFormat.ENGLISH);
 		register(Common_MissingCoordinates.ENGLISH);
 		register(CommonNew_TabComplete.ENGLISH);
 		register(CommonNew_NameMustNotStartWithDefault.ENGLISH);
