@@ -14,7 +14,7 @@ public class CommonRename_TabComplete extends AbstractMessage {
 	public static final IMessage ENGLISH = new English();
 
 	public CommonRename_TabComplete() {
-		super(ECommonCode.COMMON_RENAME__TAB_COMPLETE);
+		super(ECommonMessageCode.COMMON_RENAME__TAB_COMPLETE);
 	}
 
 	@Override

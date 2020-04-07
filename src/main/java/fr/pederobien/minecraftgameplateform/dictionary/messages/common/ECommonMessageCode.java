@@ -3,7 +3,7 @@ package fr.pederobien.minecraftgameplateform.dictionary.messages.common;
 import fr.pederobien.minecraftgameplateform.dictionary.Permission;
 import fr.pederobien.minecraftgameplateform.interfaces.dictionary.IMessageCode;
 
-public enum ECommonCode implements IMessageCode {
+public enum ECommonMessageCode implements IMessageCode {
 	COMMON_BAD_INTEGER_FORMAT,
 
 	// Code for common new command messages
@@ -14,11 +14,11 @@ public enum ECommonCode implements IMessageCode {
 
 	private Permission permission;
 
-	private ECommonCode() {
+	private ECommonMessageCode() {
 		this(Permission.OPERATORS);
 	}
 
-	private ECommonCode(Permission permission) {
+	private ECommonMessageCode(Permission permission) {
 		this.permission = permission;
 	}
 

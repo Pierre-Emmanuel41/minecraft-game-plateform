@@ -14,7 +14,7 @@ public class CommonNew_NameMustNotStartWithDefault extends AbstractMessage {
 	public static final IMessage ENGLISH = new English();
 
 	public CommonNew_NameMustNotStartWithDefault() {
-		super(ECommonCode.COMMON_NEW__NAME_MUST_NOT_START_WITH_DEFAULT);
+		super(ECommonMessageCode.COMMON_NEW__NAME_MUST_NOT_START_WITH_DEFAULT);
 	}
 
 	@Override

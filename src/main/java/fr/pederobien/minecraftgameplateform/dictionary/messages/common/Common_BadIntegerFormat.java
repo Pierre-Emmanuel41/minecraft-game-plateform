@@ -14,7 +14,7 @@ public class Common_BadIntegerFormat extends AbstractMessage {
 	public static final IMessage ENGLISH = new English();
 
 	public Common_BadIntegerFormat() {
-		super(ECommonCode.COMMON_BAD_INTEGER_FORMAT);
+		super(ECommonMessageCode.COMMON_BAD_INTEGER_FORMAT);
 	}
 
 	@Override

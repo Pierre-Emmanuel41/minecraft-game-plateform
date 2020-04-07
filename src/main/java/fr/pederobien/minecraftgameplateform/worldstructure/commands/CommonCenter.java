@@ -6,7 +6,7 @@ import java.util.List;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 
-import fr.pederobien.minecraftgameplateform.dictionary.messages.common.ECommonCode;
+import fr.pederobien.minecraftgameplateform.dictionary.messages.common.ECommonMessageCode;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.EWorldStructureMessageCode;
 import fr.pederobien.minecraftgameplateform.interfaces.element.IWorldStructure;
 
@@ -27,7 +27,7 @@ public class CommonCenter<T extends IWorldStructure> extends AbstractWorldStruct
 			return false;
 		} catch (NumberFormatException e) {
 			// When the coordinates are not integer
-			sendMessageToSender(sender, ECommonCode.COMMON_BAD_INTEGER_FORMAT);
+			sendMessageToSender(sender, ECommonMessageCode.COMMON_BAD_INTEGER_FORMAT);
 			return false;
 		}
 		return true;

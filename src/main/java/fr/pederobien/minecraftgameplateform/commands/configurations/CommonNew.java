@@ -6,7 +6,7 @@ import java.util.List;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 
-import fr.pederobien.minecraftgameplateform.dictionary.messages.common.ECommonCode;
+import fr.pederobien.minecraftgameplateform.dictionary.messages.common.ECommonMessageCode;
 import fr.pederobien.minecraftgameplateform.impl.editions.AbstractMapPersistenceEdition;
 import fr.pederobien.minecraftgameplateform.interfaces.dictionary.IMessageCode;
 import fr.pederobien.minecraftgameplateform.interfaces.element.unmodifiable.IUnmodifiableNominable;
@@ -58,7 +58,7 @@ public abstract class CommonNew<T extends IUnmodifiableNominable> extends Abstra
 
 			// The name of all new created object must not start with default.
 			if (startWithIgnoreCase(name, "default")) {
-				sendMessageToSender(sender, ECommonCode.COMMON_NEW__NAME_MUST_NOT_START_WITH_DEFAULT, name);
+				sendMessageToSender(sender, ECommonMessageCode.COMMON_NEW__NAME_MUST_NOT_START_WITH_DEFAULT, name);
 				return false;
 			}
 
@@ -78,7 +78,7 @@ public abstract class CommonNew<T extends IUnmodifiableNominable> extends Abstra
 	@Override
 	public List<String> onTabComplete(CommandSender sender, Command command, String alias, String[] args) {
 		if (args.length == 1)
-			return Arrays.asList(getMessageFromDictionary(sender, ECommonCode.COMMON_NEW__TAB_COMPLETE));
+			return Arrays.asList(getMessageFromDictionary(sender, ECommonMessageCode.COMMON_NEW__TAB_COMPLETE));
 		return super.onTabComplete(sender, command, alias, args);
 	}
 }
