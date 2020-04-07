@@ -3,7 +3,7 @@ package fr.pederobien.minecraftgameplateform.dictionary.messages.common;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.AbstractMessage;
 import fr.pederobien.minecraftgameplateform.interfaces.dictionary.IMessage;
 
-public class BadCoordinatesFormat extends AbstractMessage {
+public class BadIntegerFormat extends AbstractMessage {
 	/**
 	 * Message in French explains the coordinates does not have the right format.
 	 */
@@ -13,8 +13,8 @@ public class BadCoordinatesFormat extends AbstractMessage {
 	 */
 	public static final IMessage ENGLISH = new English();
 
-	public BadCoordinatesFormat() {
-		super(ECommonCode.COMMON_BAD_COORDINATES_FORMAT);
+	public BadIntegerFormat() {
+		super(ECommonCode.COMMON_BAD_INTEGER_FORMAT);
 	}
 
 	@Override
@@ -22,17 +22,17 @@ public class BadCoordinatesFormat extends AbstractMessage {
 		return null;
 	}
 
-	private static class French extends BadCoordinatesFormat {
+	private static class French extends BadIntegerFormat {
 		@Override
 		public String getMessage(String... args) {
-			return "Mauvais format des coordonnées, elles doivent être des entiers";
+			return "Mauvais format, les arguments doivent être des entiers";
 		}
 	}
 
-	private static class English extends BadCoordinatesFormat {
+	private static class English extends BadIntegerFormat {
 		@Override
 		public String getMessage(String... args) {
-			return "Bad coordinates format, they should be integer";
+			return "Bad format, arguments should be integer";
 		}
 	}
 }

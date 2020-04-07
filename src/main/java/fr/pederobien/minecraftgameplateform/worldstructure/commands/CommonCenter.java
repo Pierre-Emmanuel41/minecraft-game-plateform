@@ -27,7 +27,7 @@ public class CommonCenter<T extends IWorldStructure> extends AbstractWorldStruct
 			return false;
 		} catch (NumberFormatException e) {
 			// When the coordinates are not integer
-			sendMessageToSender(sender, ECommonCode.COMMON_BAD_COORDINATES_FORMAT);
+			sendMessageToSender(sender, ECommonCode.COMMON_BAD_INTEGER_FORMAT);
 			return false;
 		}
 		return true;
