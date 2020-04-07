@@ -1,7 +1,6 @@
 package fr.pederobien.minecraftgameplateform.dictionary.messages.game;
 
 import fr.pederobien.minecraftgameplateform.dictionary.messages.AbstractMessage;
-import fr.pederobien.minecraftgameplateform.dictionary.messages.EMessageCode;
 import fr.pederobien.minecraftgameplateform.interfaces.dictionary.IMessage;
 
 public class NoConfigurationSetted extends AbstractMessage {
@@ -15,7 +14,7 @@ public class NoConfigurationSetted extends AbstractMessage {
 	public static final IMessage ENGLISH = new English();
 
 	public NoConfigurationSetted() {
-		super(EMessageCode.NO_CONFIGURATION_SETTED);
+		super(EGameMessageCode.NO_CONFIGURATION_SETTED);
 	}
 
 	@Override

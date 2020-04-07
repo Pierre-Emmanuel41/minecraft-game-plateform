@@ -5,7 +5,7 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import fr.pederobien.minecraftdevelopmenttoolkit.managers.PlayerManager;
-import fr.pederobien.minecraftgameplateform.dictionary.messages.EMessageCode;
+import fr.pederobien.minecraftgameplateform.dictionary.messages.game.EGameMessageCode;
 
 public class StartCommand extends AbstractGameCommand {
 
@@ -15,7 +15,7 @@ public class StartCommand extends AbstractGameCommand {
 
 	@Override
 	protected boolean onGameCommand(CommandSender sender, Command command, String label, String[] args) {
-		PlayerManager.getPlayers().forEach(player -> sendMessage(player, getPlugin(), EMessageCode.STARTING_GAME, getGameConfigurationContext().getName()));
+		PlayerManager.getPlayers().forEach(player -> sendMessage(player, getPlugin(), EGameMessageCode.STARTING_GAME, getGameConfigurationContext().getName()));
 
 		if (!getGameConfigurationContext().initiate())
 			return false;

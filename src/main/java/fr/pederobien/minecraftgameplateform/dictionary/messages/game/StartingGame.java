@@ -1,7 +1,6 @@
 package fr.pederobien.minecraftgameplateform.dictionary.messages.game;
 
 import fr.pederobien.minecraftgameplateform.dictionary.messages.AbstractMessage;
-import fr.pederobien.minecraftgameplateform.dictionary.messages.EMessageCode;
 import fr.pederobien.minecraftgameplateform.interfaces.dictionary.IMessage;
 
 public class StartingGame extends AbstractMessage {
@@ -16,7 +15,7 @@ public class StartingGame extends AbstractMessage {
 	public static final IMessage ENGLISH = new English();
 
 	protected StartingGame() {
-		super(EMessageCode.STARTING_GAME);
+		super(EGameMessageCode.STARTING_GAME);
 	}
 
 	@Override

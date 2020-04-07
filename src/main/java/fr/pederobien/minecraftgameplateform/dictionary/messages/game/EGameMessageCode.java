@@ -1,19 +1,19 @@
-package fr.pederobien.minecraftgameplateform.dictionary.messages;
+package fr.pederobien.minecraftgameplateform.dictionary.messages.game;
 
 import fr.pederobien.minecraftgameplateform.dictionary.Permission;
 import fr.pederobien.minecraftgameplateform.interfaces.dictionary.IMessageCode;
 
-public enum EMessageCode implements IMessageCode {
-	// Code for command messages
-	HELP_EXPLANATION;
+public enum EGameMessageCode implements IMessageCode {
+	// Code for game messages
+	STARTING_GAME, NO_CONFIGURATION_SETTED,;
 
 	private Permission permission;
 
-	private EMessageCode() {
+	private EGameMessageCode() {
 		this(Permission.OPERATORS);
 	}
 
-	private EMessageCode(Permission permission) {
+	private EGameMessageCode(Permission permission) {
 		this.permission = permission;
 	}
 

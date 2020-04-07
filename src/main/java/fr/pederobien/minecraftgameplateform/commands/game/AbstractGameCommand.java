@@ -7,7 +7,7 @@ import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import fr.pederobien.minecraftgameplateform.commands.AbstractCommand;
-import fr.pederobien.minecraftgameplateform.dictionary.messages.EMessageCode;
+import fr.pederobien.minecraftgameplateform.dictionary.messages.game.EGameMessageCode;
 import fr.pederobien.minecraftgameplateform.interfaces.dictionary.IMessageCode;
 import fr.pederobien.minecraftgameplateform.interfaces.dictionary.IMessageEvent;
 import fr.pederobien.minecraftgameplateform.utils.EventFactory;
@@ -25,7 +25,7 @@ public abstract class AbstractGameCommand extends AbstractCommand {
 	@Override
 	public final boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
 		if (getGameConfigurationContext().getGameConfiguration() == null)
-			sendMessageToSender(sender, getPlugin(), EMessageCode.NO_CONFIGURATION_SETTED, args);
+			sendMessageToSender(sender, getPlugin(), EGameMessageCode.NO_CONFIGURATION_SETTED, args);
 		else
 			onGameCommand(sender, command, label, args);
 		return false;
