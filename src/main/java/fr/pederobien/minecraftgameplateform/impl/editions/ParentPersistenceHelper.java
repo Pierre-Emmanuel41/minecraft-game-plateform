@@ -9,7 +9,7 @@ import org.bukkit.plugin.Plugin;
 
 import fr.pederobien.minecraftdevelopmenttoolkit.impl.AbstractHelper;
 import fr.pederobien.minecraftdevelopmenttoolkit.interfaces.IGenericEdition;
-import fr.pederobien.minecraftgameplateform.dictionary.EMessageCode;
+import fr.pederobien.minecraftgameplateform.dictionary.messages.EMessageCode;
 import fr.pederobien.minecraftgameplateform.interfaces.dictionary.IDictionaryManager;
 import fr.pederobien.minecraftgameplateform.interfaces.dictionary.IMessageCode;
 import fr.pederobien.minecraftgameplateform.interfaces.editions.IParentPersistenceEdition;

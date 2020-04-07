@@ -1,5 +1,6 @@
-package fr.pederobien.minecraftgameplateform.dictionary;
+package fr.pederobien.minecraftgameplateform.dictionary.messages;
 
+import fr.pederobien.minecraftgameplateform.dictionary.Permission;
 import fr.pederobien.minecraftgameplateform.interfaces.dictionary.IMessageCode;
 
 public enum EMessageCode implements IMessageCode {

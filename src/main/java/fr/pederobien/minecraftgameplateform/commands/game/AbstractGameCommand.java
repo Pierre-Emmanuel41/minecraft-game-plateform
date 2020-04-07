@@ -7,7 +7,7 @@ import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import fr.pederobien.minecraftgameplateform.commands.AbstractCommand;
-import fr.pederobien.minecraftgameplateform.dictionary.EMessageCode;
+import fr.pederobien.minecraftgameplateform.dictionary.messages.EMessageCode;
 import fr.pederobien.minecraftgameplateform.interfaces.dictionary.IMessageCode;
 import fr.pederobien.minecraftgameplateform.interfaces.dictionary.IMessageEvent;
 import fr.pederobien.minecraftgameplateform.utils.EventFactory;

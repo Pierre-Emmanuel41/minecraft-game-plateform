@@ -5,7 +5,7 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import fr.pederobien.minecraftdevelopmenttoolkit.managers.PlayerManager;
-import fr.pederobien.minecraftgameplateform.dictionary.EMessageCode;
+import fr.pederobien.minecraftgameplateform.dictionary.messages.EMessageCode;
 
 public class StartCommand extends AbstractGameCommand {
 
