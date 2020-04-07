@@ -4,7 +4,11 @@ import fr.pederobien.minecraftgameplateform.dictionary.Permission;
 import fr.pederobien.minecraftgameplateform.interfaces.dictionary.IMessageCode;
 
 public enum EWorldStructureMessageCode implements IMessageCode {
-	COMMON_CENTER__EXPLANATION, COMMON_CENTER__CENTER_DEFINED, COMMON_DIMENSION__BAD_DIMENSION_FORMAT, COMMON_DIMENSION__MISSING_DIMENSION;
+	// Code for common center command messages
+	COMMON_CENTER__EXPLANATION, COMMON_CENTER__CENTER_DEFINED,
+
+	// Code for common dimension command messages
+	COMMON_DIMENSION__BAD_DIMENSION_FORMAT, COMMON_DIMENSION__MISSING_DIMENSION;
 
 	private Permission permission;
 
