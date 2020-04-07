@@ -41,7 +41,7 @@ public abstract class CommonRename<T extends INominable> extends AbstractMapPers
 	 * @param oldName The old name of the object.
 	 * @param newName The new name of the object.
 	 */
-	protected abstract void onRename(CommandSender sender, String oldName, String newName);
+	protected abstract void onRenamed(CommandSender sender, String oldName, String newName);
 
 	@Override
 	public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
@@ -57,7 +57,7 @@ public abstract class CommonRename<T extends INominable> extends AbstractMapPers
 			// Keep the old name in memory
 			String oldName = get().getName();
 			get().setName(newName);
-			onRename(sender, oldName, newName);
+			onRenamed(sender, oldName, newName);
 		} catch (IndexOutOfBoundsException e) {
 			onNameIsMissing(sender, get().getName());
 			return false;
