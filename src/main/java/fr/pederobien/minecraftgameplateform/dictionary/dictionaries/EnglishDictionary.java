@@ -9,6 +9,7 @@ import fr.pederobien.minecraftgameplateform.dictionary.messages.common.CommonNew
 import fr.pederobien.minecraftgameplateform.dictionary.messages.common.Common_BadIntegerFormat;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.game.NoConfigurationSetted;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.game.PausingGame;
+import fr.pederobien.minecraftgameplateform.dictionary.messages.game.ResumingGame;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.game.StartingGame;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.game.StoppingGame;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.CommonCenter_CenterDefined;
@@ -56,6 +57,7 @@ public class EnglishDictionary extends AbstractDictionary {
 		// Code for game messages
 		register(StartingGame.ENGLISH);
 		register(PausingGame.ENGLISH);
+		register(ResumingGame.ENGLISH);
 		register(StoppingGame.ENGLISH);
 		register(NoConfigurationSetted.ENGLISH);
 	}

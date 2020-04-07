@@ -17,12 +17,14 @@ public class PauseCommand extends AbstractGameCommand {
 
 	@Override
 	protected boolean onGameCommand(CommandSender sender, Command command, String label, String[] args) {
-		sendMessageToPlayers(PlayerManager.getPlayers(), EGameMessageCode.PAUSING_GAME);
 
-		if (!isGameStatePause)
+		if (!isGameStatePause) {
+			sendMessageToPlayers(PlayerManager.getPlayers(), EGameMessageCode.PAUSING_GAME);
 			getGameConfigurationContext().pause();
-		else
+		} else {
+			sendMessageToPlayers(PlayerManager.getPlayers(), EGameMessageCode.RESUMING_GAME);
 			getGameConfigurationContext().relaunch();
+		}
 		isGameStatePause = !isGameStatePause;
 		return true;
 	}
