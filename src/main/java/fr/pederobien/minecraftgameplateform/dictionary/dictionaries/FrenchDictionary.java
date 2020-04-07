@@ -13,7 +13,7 @@ import fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.C
 import fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.CommonCenter_Explanation;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.CommonDimension_BadDimensionFormat;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.CommonDimension_MissingDimension;
-import fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.MissingCoordinates;
+import fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.Common_MissingCoordinates;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.spawn.DimensionSpawn_Defined;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.spawn.DimensionSpawn_Explanation;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.spawn.NewSpawn_Explanation;
@@ -30,7 +30,7 @@ public class FrenchDictionary extends AbstractDictionary {
 		// Code for common command messages
 		register(HelpExplanation.FRENCH);
 		register(BadIntegerFormat.FRENCH);
-		register(MissingCoordinates.FRENCH);
+		register(Common_MissingCoordinates.FRENCH);
 		register(CommonNew_TabComplete.FRENCH);
 		register(CommonNew_NameMustNotStartWithDefault.FRENCH);
 

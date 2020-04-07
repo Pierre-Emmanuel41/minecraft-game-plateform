@@ -3,7 +3,7 @@ package fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.AbstractMessage;
 import fr.pederobien.minecraftgameplateform.interfaces.dictionary.IMessage;
 
-public class MissingCoordinates extends AbstractMessage {
+public class Common_MissingCoordinates extends AbstractMessage {
 	/**
 	 * Message in French explains the coordinates are missing
 	 */
@@ -13,7 +13,7 @@ public class MissingCoordinates extends AbstractMessage {
 	 */
 	public static final IMessage ENGLISH = new English();
 
-	public MissingCoordinates() {
+	public Common_MissingCoordinates() {
 		super(EWorldStructureMessageCode.COMMON_MISSING_COORDINATES);
 	}
 
@@ -22,14 +22,14 @@ public class MissingCoordinates extends AbstractMessage {
 		return null;
 	}
 
-	private static class French extends MissingCoordinates {
+	private static class French extends Common_MissingCoordinates {
 		@Override
 		public String getMessage(String... args) {
 			return super.getMessage(args);
 		}
 	}
 
-	private static class English extends MissingCoordinates {
+	private static class English extends Common_MissingCoordinates {
 		@Override
 		public String getMessage(String... args) {
 			return super.getMessage(args);
