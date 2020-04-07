@@ -22,14 +22,14 @@ public class RenameSpawn_SpawnRenamed extends AbstractMessage {
 		return null;
 	}
 
-	private static class French extends NewSpawn_SpawnCreated {
+	private static class French extends RenameSpawn_SpawnRenamed {
 		@Override
 		public String getMessage(String... args) {
 			return "Spawn " + args[0] + " renommé en " + args[1];
 		}
 	}
 
-	private static class English extends NewSpawn_SpawnCreated {
+	private static class English extends RenameSpawn_SpawnRenamed {
 		@Override
 		public String getMessage(String... args) {
 			return "Spawn " + args[0] + " renamed as " + args[1];
