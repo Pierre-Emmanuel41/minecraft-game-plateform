@@ -24,6 +24,7 @@ import fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.s
 import fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.spawn.NewSpawn_NameAlreadyTaken;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.spawn.NewSpawn_NameIsMissing;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.spawn.NewSpawn_SpawnCreated;
+import fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.spawn.RenameSpawn_Explanation;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.spawn.SpawnParentExplanation;
 
 public class EnglishDictionary extends AbstractDictionary {
@@ -55,6 +56,7 @@ public class EnglishDictionary extends AbstractDictionary {
 		register(NewSpawn_SpawnCreated.ENGLISH);
 		register(DimensionSpawn_Explanation.ENGLISH);
 		register(DimensionSpawn_Defined.ENGLISH);
+		register(RenameSpawn_Explanation.ENGLISH);
 
 		// Code for game messages
 		register(StartingGame.ENGLISH);
