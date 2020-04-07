@@ -10,7 +10,7 @@ public class StartingGame extends AbstractMessage {
 	public static final IMessage FRENCH = new French();
 
 	/**
-	 * Message in French when a game is starting.
+	 * Message in English when a game is starting.
 	 */
 	public static final IMessage ENGLISH = new English();
 
