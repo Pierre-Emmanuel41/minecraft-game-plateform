@@ -25,14 +25,14 @@ public class Common_MissingCoordinates extends AbstractMessage {
 	private static class French extends Common_MissingCoordinates {
 		@Override
 		public String getMessage(String... args) {
-			return super.getMessage(args);
+			return "Impossible de définir les coordonnées, il manque <X> ou <Y> ou <Z>";
 		}
 	}
 
 	private static class English extends Common_MissingCoordinates {
 		@Override
 		public String getMessage(String... args) {
-			return super.getMessage(args);
+			return "Cannot define coordinates, <X> or <Y> or <Z> is missing";
 		}
 	}
 }
