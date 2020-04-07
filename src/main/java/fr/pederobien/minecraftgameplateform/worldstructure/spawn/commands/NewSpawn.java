@@ -9,7 +9,7 @@ import fr.pederobien.minecraftgameplateform.worldstructure.spawn.Spawn;
 
 public class NewSpawn extends CommonNew<ISpawn> {
 
-	public NewSpawn() {
+	protected NewSpawn() {
 		super(ESpawnMessageCode.NEW_SPAWN__EXPLANATION);
 	}
 

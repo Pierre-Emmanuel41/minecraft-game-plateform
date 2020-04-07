@@ -8,7 +8,7 @@ import fr.pederobien.minecraftgameplateform.interfaces.element.ISpawn;
 
 public class RenameSpawn extends CommonRename<ISpawn> {
 
-	public RenameSpawn() {
+	protected RenameSpawn() {
 		super(ESpawnMessageCode.RENAME_SPAWN__EXPLANATION);
 	}
 

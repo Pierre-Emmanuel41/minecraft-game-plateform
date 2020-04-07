@@ -8,7 +8,7 @@ import fr.pederobien.minecraftgameplateform.worldstructure.commands.CommonDimens
 
 public class DimensionSpawn extends CommonDimension<ISpawn> {
 
-	public DimensionSpawn() {
+	protected DimensionSpawn() {
 		super(ESpawnMessageCode.DIMENSION_SPAWN__EXPLANATION);
 	}
 
