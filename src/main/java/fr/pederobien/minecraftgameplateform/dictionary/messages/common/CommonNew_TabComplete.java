@@ -14,7 +14,7 @@ public class CommonNew_TabComplete extends AbstractMessage {
 	public static final IMessage ENGLISH = new English();
 
 	public CommonNew_TabComplete() {
-		super(ECommonCode.COMMON_NEW_TAB_COMPLETE);
+		super(ECommonCode.COMMON_NEW__TAB_COMPLETE);
 	}
 
 	@Override

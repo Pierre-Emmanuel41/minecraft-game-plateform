@@ -7,7 +7,7 @@ public enum ECommonCode implements IMessageCode {
 	COMMON_BAD_COORDINATES_FORMAT, COMMON_MISSING_COORDINATES,
 
 	// Code for common configuration command messages
-	COMMON_NEW_TAB_COMPLETE;
+	COMMON_NEW__TAB_COMPLETE;
 
 	private Permission permission;
 
