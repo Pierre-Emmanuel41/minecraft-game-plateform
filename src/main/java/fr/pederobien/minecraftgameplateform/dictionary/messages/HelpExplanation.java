@@ -1,7 +1,5 @@
-package fr.pederobien.minecraftgameplateform.dictionary.messages.explanations;
+package fr.pederobien.minecraftgameplateform.dictionary.messages;
 
-import fr.pederobien.minecraftgameplateform.dictionary.messages.AbstractMessage;
-import fr.pederobien.minecraftgameplateform.dictionary.messages.EMessageCode;
 import fr.pederobien.minecraftgameplateform.interfaces.dictionary.IMessage;
 
 public class HelpExplanation extends AbstractMessage {
