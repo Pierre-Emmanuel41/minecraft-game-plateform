@@ -2,7 +2,7 @@ package fr.pederobien.minecraftgameplateform.worldstructure.spawn.commands;
 
 import org.bukkit.command.CommandSender;
 
-import fr.pederobien.minecraftgameplateform.dictionary.messages.explanations.worldstructure.spawn.ESpawnMessageCode;
+import fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.spawn.ESpawnMessageCode;
 import fr.pederobien.minecraftgameplateform.interfaces.element.ISpawn;
 import fr.pederobien.minecraftgameplateform.worldstructure.commands.CommonDimension;
 

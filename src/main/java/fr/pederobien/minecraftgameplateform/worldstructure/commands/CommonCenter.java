@@ -7,7 +7,7 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 
 import fr.pederobien.minecraftgameplateform.dictionary.messages.common.ECommonCode;
-import fr.pederobien.minecraftgameplateform.dictionary.messages.explanations.worldstructure.EWorldStructureMessageCode;
+import fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.EWorldStructureMessageCode;
 import fr.pederobien.minecraftgameplateform.interfaces.element.IWorldStructure;
 
 public class CommonCenter<T extends IWorldStructure> extends AbstractWorldStructureEdition<T> {

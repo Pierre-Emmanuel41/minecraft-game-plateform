@@ -1,4 +1,4 @@
-package fr.pederobien.minecraftgameplateform.dictionary.messages.explanations.worldstructure.spawn;
+package fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.spawn;
 
 import fr.pederobien.minecraftgameplateform.dictionary.Permission;
 import fr.pederobien.minecraftgameplateform.interfaces.dictionary.IMessageCode;
