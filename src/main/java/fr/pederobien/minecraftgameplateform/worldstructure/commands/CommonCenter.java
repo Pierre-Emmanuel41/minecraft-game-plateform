@@ -13,7 +13,7 @@ import fr.pederobien.minecraftgameplateform.interfaces.element.IWorldStructure;
 public class CommonCenter<T extends IWorldStructure> extends AbstractWorldStructureEdition<T> {
 
 	public CommonCenter() {
-		super("center", EWorldStructureMessageCode.COMMON_CENTER_EXPLANATION);
+		super("center", EWorldStructureMessageCode.COMMON_CENTER__EXPLANATION);
 	}
 
 	@Override

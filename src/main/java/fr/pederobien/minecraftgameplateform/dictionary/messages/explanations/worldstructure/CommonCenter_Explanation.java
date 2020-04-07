@@ -3,7 +3,7 @@ package fr.pederobien.minecraftgameplateform.dictionary.messages.explanations.wo
 import fr.pederobien.minecraftgameplateform.dictionary.messages.AbstractMessage;
 import fr.pederobien.minecraftgameplateform.interfaces.dictionary.IMessage;
 
-public class CommonCenterExplanation extends AbstractMessage {
+public class CommonCenter_Explanation extends AbstractMessage {
 	/**
 	 * Message in French to explain what does the command "center" do.
 	 */
@@ -13,8 +13,8 @@ public class CommonCenterExplanation extends AbstractMessage {
 	 */
 	public static final IMessage ENGLISH = new English();
 
-	public CommonCenterExplanation() {
-		super(EWorldStructureMessageCode.COMMON_CENTER_EXPLANATION);
+	public CommonCenter_Explanation() {
+		super(EWorldStructureMessageCode.COMMON_CENTER__EXPLANATION);
 	}
 
 	@Override
@@ -22,14 +22,14 @@ public class CommonCenterExplanation extends AbstractMessage {
 		return null;
 	}
 
-	private static class French extends CommonCenterExplanation {
+	private static class French extends CommonCenter_Explanation {
 		@Override
 		public String getMessage(String... args) {
 			return "Pour définir le centre";
 		}
 	}
 
-	private static class English extends CommonCenterExplanation {
+	private static class English extends CommonCenter_Explanation {
 		@Override
 		public String getMessage(String... args) {
 			return "To set the center";

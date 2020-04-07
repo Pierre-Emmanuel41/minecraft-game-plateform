@@ -8,8 +8,8 @@ import fr.pederobien.minecraftgameplateform.dictionary.messages.common.CommonNew
 import fr.pederobien.minecraftgameplateform.dictionary.messages.common.CommonNew_TabComplete;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.common.MissingCoordinates;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.explanations.HelpExplanation;
-import fr.pederobien.minecraftgameplateform.dictionary.messages.explanations.worldstructure.CommonCenterExplanation;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.explanations.worldstructure.CommonCenter_CenterDefined;
+import fr.pederobien.minecraftgameplateform.dictionary.messages.explanations.worldstructure.CommonCenter_Explanation;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.explanations.worldstructure.CommonDimension_BadDimensionFormat;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.explanations.worldstructure.CommonDimension_MissingDimension;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.explanations.worldstructure.spawn.DimensionSpawn_Defined;
@@ -35,7 +35,7 @@ public class FrenchDictionary extends AbstractDictionary {
 		register(CommonNew_NameMustNotStartWithDefault.FRENCH);
 
 		// Code for common world structure command messages
-		register(CommonCenterExplanation.FRENCH);
+		register(CommonCenter_Explanation.FRENCH);
 		register(CommonCenter_CenterDefined.FRENCH);
 		register(CommonDimension_BadDimensionFormat.FRENCH);
 		register(CommonDimension_MissingDimension.FRENCH);
