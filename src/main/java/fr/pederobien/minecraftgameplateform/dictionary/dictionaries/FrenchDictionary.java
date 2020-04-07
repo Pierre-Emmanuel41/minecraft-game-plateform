@@ -27,8 +27,10 @@ public class FrenchDictionary extends AbstractDictionary {
 	public FrenchDictionary() {
 		super(Locale.FRANCE, Locale.FRENCH, Locale.CANADA_FRENCH);
 
-		// Code for common command messages
+		// Code for the explanation of the helper
 		register(HelpExplanation.FRENCH);
+
+		// Code for common command messages
 		register(Common_BadIntegerFormat.FRENCH);
 		register(Common_MissingCoordinates.FRENCH);
 		register(CommonNew_TabComplete.FRENCH);

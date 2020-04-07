@@ -27,8 +27,10 @@ public class EnglishDictionary extends AbstractDictionary {
 	public EnglishDictionary() {
 		super(Locale.UK, Locale.US, Locale.ENGLISH, Locale.CANADA);
 
-		// Code for command messages
+		// Code for the explanation of the helper
 		register(HelpExplanation.ENGLISH);
+
+		// Code for command messages
 		register(Common_BadIntegerFormat.ENGLISH);
 		register(Common_MissingCoordinates.ENGLISH);
 		register(CommonNew_TabComplete.ENGLISH);
