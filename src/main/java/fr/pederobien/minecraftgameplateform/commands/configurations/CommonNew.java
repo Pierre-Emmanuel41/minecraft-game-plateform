@@ -20,12 +20,15 @@ public abstract class CommonNew<T extends IUnmodifiableNominable> extends Abstra
 	/**
 	 * Method called when trying to create an object with a name already taken.
 	 * 
-	 * @param name The given name already taken.
+	 * @param sender The entity (generally a player) to send messages.
+	 * @param name   The given name already taken.
 	 */
 	protected abstract void onNameAlreadyTaken(CommandSender sender, String name);
 
 	/**
 	 * Method called when no name has been given to create the object.
+	 * 
+	 * @param sender The entity (generally a player) to send messages.
 	 */
 	protected abstract void onNameIsMissing(CommandSender sender);
 
@@ -41,7 +44,8 @@ public abstract class CommonNew<T extends IUnmodifiableNominable> extends Abstra
 	/**
 	 * Method called when the creation of a new object has been correctly done.
 	 * 
-	 * @param name The name of the created object.
+	 * @param sender The entity (generally a player) to send messages.
+	 * @param name   The name of the created object.
 	 */
 	protected abstract void onCreated(CommandSender sender, String name);
 
