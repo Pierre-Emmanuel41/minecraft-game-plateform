@@ -14,7 +14,7 @@ public class DimensionSpawn_Explanation extends AbstractMessage {
 	public static final IMessage ENGLISH = new English();
 
 	public DimensionSpawn_Explanation() {
-		super(ESpawnMessageCode.DIMENSION_SPAWN_EXPLANATION);
+		super(ESpawnMessageCode.DIMENSION_SPAWN__EXPLANATION);
 	}
 
 	@Override
