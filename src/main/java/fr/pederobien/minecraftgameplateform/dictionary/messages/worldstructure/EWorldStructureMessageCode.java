@@ -4,6 +4,9 @@ import fr.pederobien.minecraftgameplateform.dictionary.Permission;
 import fr.pederobien.minecraftgameplateform.interfaces.dictionary.IMessageCode;
 
 public enum EWorldStructureMessageCode implements IMessageCode {
+	// Code for common missing coordinates message
+	COMMON_MISSING_COORDINATES,
+
 	// Code for common center command messages
 	COMMON_CENTER__EXPLANATION, COMMON_CENTER__CENTER_DEFINED,
 

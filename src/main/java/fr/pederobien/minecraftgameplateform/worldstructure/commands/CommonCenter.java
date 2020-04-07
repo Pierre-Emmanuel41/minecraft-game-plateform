@@ -23,7 +23,7 @@ public class CommonCenter<T extends IWorldStructure> extends AbstractWorldStruct
 			sendMessageToSender(sender, EWorldStructureMessageCode.COMMON_CENTER__CENTER_DEFINED, getCenter().getX(), getCenter().getY(), getCenter().getZ());
 		} catch (IndexOutOfBoundsException e) {
 			// When X or Y or Z is missing
-			sendMessageToSender(sender, ECommonCode.COMMON_MISSING_COORDINATES);
+			sendMessageToSender(sender, EWorldStructureMessageCode.COMMON_MISSING_COORDINATES);
 			return false;
 		} catch (NumberFormatException e) {
 			// When the coordinates are not integer

@@ -1,4 +1,4 @@
-package fr.pederobien.minecraftgameplateform.dictionary.messages.common;
+package fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure;
 
 import fr.pederobien.minecraftgameplateform.dictionary.messages.AbstractMessage;
 import fr.pederobien.minecraftgameplateform.interfaces.dictionary.IMessage;
@@ -14,7 +14,7 @@ public class MissingCoordinates extends AbstractMessage {
 	public static final IMessage ENGLISH = new English();
 
 	public MissingCoordinates() {
-		super(ECommonCode.COMMON_MISSING_COORDINATES);
+		super(EWorldStructureMessageCode.COMMON_MISSING_COORDINATES);
 	}
 
 	@Override
