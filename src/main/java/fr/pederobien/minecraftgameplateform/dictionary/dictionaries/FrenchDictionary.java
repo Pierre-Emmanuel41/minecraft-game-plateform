@@ -8,6 +8,7 @@ import fr.pederobien.minecraftgameplateform.dictionary.messages.common.CommonNew
 import fr.pederobien.minecraftgameplateform.dictionary.messages.common.CommonNew_TabComplete;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.common.Common_BadIntegerFormat;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.game.NoConfigurationSetted;
+import fr.pederobien.minecraftgameplateform.dictionary.messages.game.PausingGame;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.game.StartingGame;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.CommonCenter_CenterDefined;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.CommonCenter_Explanation;
@@ -53,6 +54,7 @@ public class FrenchDictionary extends AbstractDictionary {
 
 		// Code for game messages
 		register(StartingGame.FRENCH);
+		register(PausingGame.FRENCH);
 		register(NoConfigurationSetted.FRENCH);
 	}
 }
