@@ -40,7 +40,7 @@ public class AbstractDictionary implements IDictionary {
 		try {
 			return message.getMessage(event.getArgs());
 		} catch (IndexOutOfBoundsException e) {
-			throw new NotEnoughArgumentsException(event, this);
+			throw new NotEnoughArgumentsException(event, this, message);
 		}
 	}
 
@@ -65,10 +65,10 @@ public class AbstractDictionary implements IDictionary {
 
 	@Override
 	public String toString() {
-		StringJoiner joiner = new StringJoiner(", ");
+		StringJoiner joiner = new StringJoiner(", ", "{Dictionary={languages={", "}}}");
 		for (Locale locale : locales)
 			joiner.add(locale.toString());
-		return "{Dictionary={languages={" + joiner + "}}}";
+		return joiner.toString();
 	}
 
 	private void updateMessageValues() {
