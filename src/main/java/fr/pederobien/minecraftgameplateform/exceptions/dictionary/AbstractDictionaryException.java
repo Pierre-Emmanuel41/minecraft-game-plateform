@@ -24,11 +24,9 @@ public abstract class AbstractDictionaryException extends MinecraftPlateformExce
 	public StringJoiner getInternalMessage(StringJoiner joiner) {
 		joiner.add("{Plugin=" + getEvent().getPlugin().getName() + "}");
 		joiner.add("{Code=" + getEvent().getCode() + "}");
-		joiner.add("{Args={");
-		StringJoiner joinerBis = new StringJoiner(" ");
+		StringJoiner joinerBis = new StringJoiner(" ", "{Args={", "}}");
 		for (String arg : getEvent().getArgs())
 			joinerBis.add(arg);
-		joinerBis.add("}");
 		return joiner.add(joinerBis.toString());
 	}
 }
