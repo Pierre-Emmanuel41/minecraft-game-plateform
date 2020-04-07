@@ -20,10 +20,11 @@ public abstract class CommonRename<T extends INominable> extends AbstractMapPers
 	/**
 	 * Method called when trying to rename an object with a name already taken.
 	 * 
-	 * @param sender The entity (generally a player) to send messages.
-	 * @param name   The given name already taken.
+	 * @param sender      The entity (generally a player) to send messages.
+	 * @param currentName The name of the current object.
+	 * @param newName     The name already taken.
 	 */
-	protected abstract void onNameAlreadyTaken(CommandSender sender, String name);
+	protected abstract void onNameAlreadyTaken(CommandSender sender, String currentName, String newName);
 
 	/**
 	 * Method called when no name has been given to rename the object.
@@ -49,7 +50,7 @@ public abstract class CommonRename<T extends INominable> extends AbstractMapPers
 
 			// Check if the name is already taken.
 			if (getPersistence().exist(newName)) {
-				onNameAlreadyTaken(sender, newName);
+				onNameAlreadyTaken(sender, get().getName(), newName);
 				return false;
 			}
 
