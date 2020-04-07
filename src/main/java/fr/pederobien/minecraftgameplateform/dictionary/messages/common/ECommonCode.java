@@ -6,8 +6,11 @@ import fr.pederobien.minecraftgameplateform.interfaces.dictionary.IMessageCode;
 public enum ECommonCode implements IMessageCode {
 	COMMON_BAD_INTEGER_FORMAT,
 
-	// Code for common configuration command messages
-	COMMON_NEW__TAB_COMPLETE, COMMON_NEW__NAME_MUST_NOT_START_WITH_DEFAULT;
+	// Code for common new command messages
+	COMMON_NEW__TAB_COMPLETE, COMMON_NEW__NAME_MUST_NOT_START_WITH_DEFAULT,
+
+	// Code for common rename command messages
+	COMMON_RENAME__TAB_COMPLETE;
 
 	private Permission permission;
 
