@@ -17,6 +17,7 @@ import fr.pederobien.minecraftgameplateform.dictionary.messages.explanations.wor
 import fr.pederobien.minecraftgameplateform.dictionary.messages.explanations.worldstructure.spawn.NewSpawn_Explanation;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.explanations.worldstructure.spawn.NewSpawn_NameAlreadyTaken;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.explanations.worldstructure.spawn.NewSpawn_NameIsMissing;
+import fr.pederobien.minecraftgameplateform.dictionary.messages.explanations.worldstructure.spawn.NewSpawn_SpawnCreated;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.explanations.worldstructure.spawn.SpawnParentExplanation;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.game.NoConfigurationSetted;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.game.StartingGame;
@@ -44,6 +45,7 @@ public class FrenchDictionary extends AbstractDictionary {
 		register(NewSpawn_Explanation.FRENCH);
 		register(NewSpawn_NameIsMissing.FRENCH);
 		register(NewSpawn_NameAlreadyTaken.FRENCH);
+		register(NewSpawn_SpawnCreated.FRENCH);
 		register(DimensionSpawn_Explanation.FRENCH);
 		register(DimensionSpawn_Defined.FRENCH);
 
