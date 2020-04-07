@@ -22,12 +22,12 @@ public abstract class CommonNew<T extends IUnmodifiableNominable> extends Abstra
 	 * 
 	 * @param name The given name already taken.
 	 */
-	protected abstract void onNameAlreadyTaken(String name);
+	protected abstract void onNameAlreadyTaken(CommandSender sender, String name);
 
 	/**
 	 * Method called when no name has been given to create the object.
 	 */
-	protected abstract void onNameIsMissing();
+	protected abstract void onNameIsMissing(CommandSender sender);
 
 	/**
 	 * Method called to create a new object <code>T</code>
@@ -43,7 +43,7 @@ public abstract class CommonNew<T extends IUnmodifiableNominable> extends Abstra
 	 * 
 	 * @param name The name of the created object.
 	 */
-	protected abstract void onCreated(String name);
+	protected abstract void onCreated(CommandSender sender, String name);
 
 	@Override
 	public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
@@ -52,7 +52,7 @@ public abstract class CommonNew<T extends IUnmodifiableNominable> extends Abstra
 
 			// Check if the name is already taken.
 			if (getPersistence().exist(name)) {
-				onNameAlreadyTaken(name);
+				onNameAlreadyTaken(sender, name);
 				return false;
 			}
 
@@ -67,9 +67,9 @@ public abstract class CommonNew<T extends IUnmodifiableNominable> extends Abstra
 
 			// Create a new object
 			getPersistence().set(create(name));
-			onCreated(name);
+			onCreated(sender, name);
 		} catch (IndexOutOfBoundsException e) {
-			onNameIsMissing();
+			onNameIsMissing(sender);
 			return false;
 		}
 		return true;
