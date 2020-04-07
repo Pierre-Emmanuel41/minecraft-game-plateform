@@ -8,10 +8,13 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
 import fr.pederobien.minecraftdevelopmenttoolkit.impl.AbstractGenericMapEdition;
+import fr.pederobien.minecraftgameplateform.interfaces.dictionary.IDictionaryManager;
 import fr.pederobien.minecraftgameplateform.interfaces.dictionary.IMessageCode;
 import fr.pederobien.minecraftgameplateform.interfaces.dictionary.IMessageEvent;
+import fr.pederobien.minecraftgameplateform.interfaces.dictionary.INotificationCenter;
 import fr.pederobien.minecraftgameplateform.interfaces.editions.IMapPersistenceEdition;
 import fr.pederobien.minecraftgameplateform.interfaces.editions.IParentPersistenceEdition;
+import fr.pederobien.minecraftgameplateform.interfaces.element.persistence.IPersistence;
 import fr.pederobien.minecraftgameplateform.interfaces.element.unmodifiable.IUnmodifiableNominable;
 import fr.pederobien.minecraftgameplateform.utils.EventFactory;
 import fr.pederobien.minecraftgameplateform.utils.Plateform;
@@ -24,19 +27,13 @@ public abstract class AbstractMapPersistenceEdition<T extends IUnmodifiableNomin
 	}
 
 	/**
-	 * Send a message to the given player. First create an {@link IMessageEvent} that is used to get messages into registered
-	 * dictionaries for the given Plugin.
+	 * Get the persistence coming from the parent of this edition. It is equivalent to call {@link #getParent()} and then
+	 * {@link IParentPersistenceEdition#getPersistence()}.
 	 * 
-	 * @param player The player to send a message.
-	 * @param plugin The plugin into the message is associated.
-	 * @param code   The code used to get the translation of the message in the player's language.
-	 * @param args   Arguments that could be useful to send dynamic messages.
-	 * 
-	 * @return The created message event.
+	 * @return The persistence used to save/load objects associated to the type <code>T</code>.
 	 */
-	protected void sendMessageToSender(CommandSender sender, IMessageCode code, String... args) {
-		if (sender instanceof Player)
-			sendMessage((Player) sender, code, args);
+	protected IPersistence<T> getPersistence() {
+		return getParent().getPersistence();
 	}
 
 	/**
@@ -51,27 +48,21 @@ public abstract class AbstractMapPersistenceEdition<T extends IUnmodifiableNomin
 	 * @return The created message event.
 	 */
 	protected void sendMessageToSender(CommandSender sender, IMessageCode code, Object... args) {
-		if (sender instanceof Player) {
-			String[] internalArgs = new String[args.length];
-			for (int i = 0; i < args.length; i++)
-				internalArgs[i] = args[i].toString();
-			sendMessage((Player) sender, code, internalArgs);
-		}
+		if (sender instanceof Player)
+			getNotificationCenter().sendMessage(messageEvent((Player) sender, code, args));
 	}
 
 	/**
-	 * Send a message to the given player. First create an {@link IMessageEvent} that is used to get messages into registered
-	 * dictionaries for the given Plugin.
+	 * Get a message corresponding to the given message code.
 	 * 
-	 * @param player The player to send a message.
-	 * @param plugin The plugin into the message is associated.
+	 * @param sender Generally a player, it is used to get a message in his language.
 	 * @param code   The code used to get the translation of the message in the player's language.
 	 * @param args   Arguments that could be useful to send dynamic messages.
 	 * 
-	 * @return The created message event.
+	 * @return The message associated to the specified code. If the sender is not a player, then it returns an empty string.
 	 */
-	protected void sendMessage(Player player, IMessageCode code, String... args) {
-		Plateform.getNotificationCenter().sendMessage(EventFactory.messageEvent(player, getParent().getPlugin(), code, args));
+	protected String getMessageFromDictionary(CommandSender sender, IMessageCode code, Object... args) {
+		return sender instanceof Player ? getMessage((Player) sender, code, args) : "";
 	}
 
 	/**
@@ -141,5 +132,36 @@ public abstract class AbstractMapPersistenceEdition<T extends IUnmodifiableNomin
 	 */
 	protected int getInt(String number) {
 		return Integer.parseInt(number);
+	}
+
+	/**
+	 * Verify the given string start with the specified beginning ignoring case. For example : <br>
+	 * <code>str = "IBeGinLIkeThis";<br>
+	 * beginning = "ibEginli";<br></code> The method return true.
+	 * 
+	 * @param str       The string to check.
+	 * @param beginning The beginning used as reference.
+	 * @return True if the string begin with the given beginning, false otherwise.
+	 */
+	protected boolean startWithIgnoreCase(String str, String beginning) {
+		return str.length() < beginning.length() ? false : str.substring(0, beginning.length()).equalsIgnoreCase(beginning);
+	}
+
+	/**
+	 * @return The notification center to send message to player(s) that are currently logged into the server.
+	 */
+	private INotificationCenter getNotificationCenter() {
+		return Plateform.getNotificationCenter();
+	}
+
+	private IMessageEvent messageEvent(Player player, IMessageCode code, Object... args) {
+		String[] internalArgs = new String[args.length];
+		for (int i = 0; i < args.length; i++)
+			internalArgs[i] = args[i].toString();
+		return EventFactory.messageEvent(player, getParent().getPlugin(), code, internalArgs);
+	}
+
+	private String getMessage(Player player, IMessageCode code, Object... args) {
+		return ((IDictionaryManager) getNotificationCenter().getDictionaryContext()).getMessage(messageEvent(player, code, args));
 	}
 }
