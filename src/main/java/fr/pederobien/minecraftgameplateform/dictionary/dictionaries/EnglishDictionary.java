@@ -4,11 +4,11 @@ import java.util.Locale;
 
 import fr.pederobien.minecraftgameplateform.dictionary.AbstractDictionary;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.HelpExplanation;
-import fr.pederobien.minecraftgameplateform.dictionary.messages.common.CommonNew_NameMustNotStartWithDefault;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.common.CommonNew_TabComplete;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.common.CommonRename_TabComplete;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.common.Common_ArgumentNotFound;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.common.Common_BadIntegerFormat;
+import fr.pederobien.minecraftgameplateform.dictionary.messages.common.Common_NameMustNotStartWithDefault;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.common.Common_NotAvailableArgument;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.common.Common_NotAvailableCommand;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.game.NoConfigurationSetted;
@@ -53,8 +53,8 @@ public class EnglishDictionary extends AbstractDictionary {
 		register(Common_ArgumentNotFound.ENGLISH);
 		register(Common_NotAvailableArgument.ENGLISH);
 		register(Common_NotAvailableCommand.ENGLISH);
+		register(Common_NameMustNotStartWithDefault.ENGLISH);
 		register(CommonNew_TabComplete.ENGLISH);
-		register(CommonNew_NameMustNotStartWithDefault.ENGLISH);
 		register(CommonRename_TabComplete.ENGLISH);
 
 		// Code for common world structure command messages

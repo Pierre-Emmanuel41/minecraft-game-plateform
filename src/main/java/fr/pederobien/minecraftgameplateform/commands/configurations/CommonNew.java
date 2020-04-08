@@ -62,7 +62,7 @@ public abstract class CommonNew<T extends IUnmodifiableNominable> extends Abstra
 
 			// The name of all new created object must not start with default.
 			if (startWithIgnoreCase(name, "default")) {
-				sendMessageToSender(sender, ECommonMessageCode.COMMON_NEW__NAME_MUST_NOT_START_WITH_DEFAULT, name);
+				sendMessageToSender(sender, ECommonMessageCode.COMMON_NAME_MUST_NOT_START_WITH_DEFAULT, name);
 				return false;
 			}
 
