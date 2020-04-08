@@ -16,6 +16,14 @@ public abstract class CommonDimension<T extends IWorldStructure> extends Abstrac
 		super("dimension", explanation);
 	}
 
+	/**
+	 * Method called when the dimension of the world structure have been correctly defined.
+	 * 
+	 * @param sender The entity (generally a player) to send messages.
+	 * @param width  The width of the structure (X).
+	 * @param height The height of the structure (Y).
+	 * @param depth  The depth of the structure (Z).
+	 */
 	protected abstract void onDimensionDefined(CommandSender sender, int width, int height, int depth);
 
 	@Override
