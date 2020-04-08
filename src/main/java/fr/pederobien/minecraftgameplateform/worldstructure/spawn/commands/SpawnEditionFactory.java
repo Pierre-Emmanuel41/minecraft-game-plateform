@@ -53,4 +53,11 @@ public class SpawnEditionFactory {
 	public static IMapPersistenceEdition<ISpawn> extractSpawn() {
 		return new ExtractSpawn();
 	}
+
+	/**
+	 * @return An edition to remove a spawn.
+	 */
+	public static IMapPersistenceEdition<ISpawn> removeSpawn() {
+		return new RemoveSpawn();
+	}
 }
