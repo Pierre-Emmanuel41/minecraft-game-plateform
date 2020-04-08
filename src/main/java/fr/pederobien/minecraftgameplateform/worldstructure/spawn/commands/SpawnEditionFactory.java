@@ -46,4 +46,11 @@ public class SpawnEditionFactory {
 	public static IMapPersistenceEdition<ISpawn> deleteSpawn() {
 		return new DeleteSpawn();
 	}
+
+	/**
+	 * @return An edition to extract blocks associated to the spawn dimensions.
+	 */
+	public static IMapPersistenceEdition<ISpawn> extractSpawn() {
+		return new ExtractSpawn();
+	}
 }
