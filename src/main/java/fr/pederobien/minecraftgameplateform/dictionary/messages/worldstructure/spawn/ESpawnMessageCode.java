@@ -19,7 +19,7 @@ public enum ESpawnMessageCode implements IMessageCode {
 	SAVE_SPAWN__EXPLANATION, SAVE_SPAWN__SPAWN_SAVED,
 
 	// Code for command list
-	LIST_SPAWN__EXPLANATION, LIST_SPAWN__NO_ELEMENT;
+	LIST_SPAWN__EXPLANATION, LIST_SPAWN__NO_ELEMENT, LIST_SPAWN__ONE_ELEMENT;
 	private Permission permission;
 
 	private ESpawnMessageCode() {
