@@ -7,6 +7,7 @@ import org.bukkit.plugin.Plugin;
 
 import fr.pederobien.minecraftdevelopmenttoolkit.exceptions.ArgumentNotFoundException;
 import fr.pederobien.minecraftdevelopmenttoolkit.exceptions.NotAvailableArgumentException;
+import fr.pederobien.minecraftdevelopmenttoolkit.exceptions.NotAvailableCommandException;
 import fr.pederobien.minecraftdevelopmenttoolkit.impl.AbstractGenericParentEdition;
 import fr.pederobien.minecraftdevelopmenttoolkit.interfaces.IGenericMapEdition;
 import fr.pederobien.minecraftdevelopmenttoolkit.interfaces.IGenericParentEdition;
@@ -39,6 +40,8 @@ public class AbstractParentPersistenceEdition<T extends IUnmodifiableNominable> 
 			sendMessageToSender(sender, ECommonMessageCode.COMMON_ARGUMENT_NOT_FOUND, e.getNotFoundArgument(), e.getLabel());
 		} catch (NotAvailableArgumentException e) {
 			sendMessageToSender(sender, ECommonMessageCode.COMMON_NOT_AVAILABLE_ARGUMENT, e.getArgument(), e.getLabel());
+		} catch (NotAvailableCommandException e) {
+			sendMessageToSender(sender, ECommonMessageCode.COMMON_NOT_AVAILABLE_COMMAND, e.getLabel());
 		}
 		return false;
 	}

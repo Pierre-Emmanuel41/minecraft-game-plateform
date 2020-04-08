@@ -10,6 +10,7 @@ import fr.pederobien.minecraftgameplateform.dictionary.messages.common.CommonRen
 import fr.pederobien.minecraftgameplateform.dictionary.messages.common.Common_ArgumentNotFound;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.common.Common_BadIntegerFormat;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.common.Common_NotAvailableArgument;
+import fr.pederobien.minecraftgameplateform.dictionary.messages.common.Common_NotAvailableCommand;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.game.NoConfigurationSetted;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.game.PausingGame;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.game.ResumingGame;
@@ -45,6 +46,7 @@ public class FrenchDictionary extends AbstractDictionary {
 		register(Common_MissingCoordinates.FRENCH);
 		register(Common_ArgumentNotFound.FRENCH);
 		register(Common_NotAvailableArgument.FRENCH);
+		register(Common_NotAvailableCommand.FRENCH);
 		register(CommonNew_TabComplete.FRENCH);
 		register(CommonNew_NameMustNotStartWithDefault.FRENCH);
 		register(CommonRename_TabComplete.FRENCH);
