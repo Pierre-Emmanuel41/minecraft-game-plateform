@@ -32,4 +32,11 @@ public class SpawnEditionFactory {
 	public static IMapPersistenceEdition<ISpawn> saveSpawn() {
 		return new SaveSpawn();
 	}
+
+	/**
+	 * @return An edition to display each existing spawn's name.
+	 */
+	public static IMapPersistenceEdition<ISpawn> listSpawn() {
+		return new ListSpawn();
+	}
 }
