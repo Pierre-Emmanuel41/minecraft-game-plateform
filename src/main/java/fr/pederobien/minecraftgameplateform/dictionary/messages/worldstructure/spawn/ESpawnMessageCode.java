@@ -16,7 +16,7 @@ public enum ESpawnMessageCode implements IMessageCode {
 	RENAME_SPAWN__EXPLANATION, RENAME_SPAWN__NAME_IS_MISSING, RENAME_SPAWN__NAME_ALREADY_TAKEN, RENAME_SPAWN__SPAWN_RENAMED,
 
 	// Code for command save
-	SAVE_SPAWN__EXPLANATION;
+	SAVE_SPAWN__EXPLANATION, SAVE_SPAWN__SPAWN_SAVED;
 	private Permission permission;
 
 	private ESpawnMessageCode() {
