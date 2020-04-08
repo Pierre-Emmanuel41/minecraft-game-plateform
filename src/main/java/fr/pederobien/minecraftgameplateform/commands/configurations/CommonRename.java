@@ -48,6 +48,12 @@ public abstract class CommonRename<T extends INominable> extends AbstractMapPers
 		try {
 			String newName = args[0];
 
+			// The name of all new created object must not start with default.
+			if (startWithIgnoreCase(newName, "default")) {
+				sendMessageToSender(sender, ECommonMessageCode.COMMON_NEW__NAME_MUST_NOT_START_WITH_DEFAULT, newName);
+				return false;
+			}
+
 			// Check if the name is already taken.
 			if (getPersistence().exist(newName)) {
 				onNameAlreadyTaken(sender, get().getName(), newName);
