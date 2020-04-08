@@ -71,7 +71,7 @@ public abstract class AbstractMapPersistenceEdition<T extends IUnmodifiableNomin
 	 * plus sign {@code '+'} ({@code '\u005Cu002B'}) to indicate a positive value. The resulting integer value is returned, exactly as
 	 * if the argument and the radix 10 were given as arguments to the {@link #parseInt(java.lang.String, int)} method.
 	 *
-	 * @param s a {@code String} containing the {@code int} representation to be parsed
+	 * @param number a {@code String} containing the {@code int} representation to be parsed
 	 * @return True if the given string contains a parsable integer, false otherwise.
 	 */
 	protected boolean isInt(String number) {
