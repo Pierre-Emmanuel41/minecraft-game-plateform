@@ -22,7 +22,7 @@ public enum ESpawnMessageCode implements IMessageCode {
 	LIST_SPAWN__EXPLANATION, LIST_SPAWN__NO_ELEMENT, LIST_SPAWN__ONE_ELEMENT, LIST_SPAWN__SEVERAL_ELEMENTS,
 
 	// Code for command delete
-	DELETE_SPAWN__EXPLANATION;
+	DELETE_SPAWN__EXPLANATION, DELETE_SPAWN__NAME_IS_MISSING;
 	private Permission permission;
 
 	private ESpawnMessageCode() {
