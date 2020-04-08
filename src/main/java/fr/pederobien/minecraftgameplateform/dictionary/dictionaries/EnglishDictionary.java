@@ -9,6 +9,7 @@ import fr.pederobien.minecraftgameplateform.dictionary.messages.common.CommonNew
 import fr.pederobien.minecraftgameplateform.dictionary.messages.common.CommonRename_TabComplete;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.common.Common_ArgumentNotFound;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.common.Common_BadIntegerFormat;
+import fr.pederobien.minecraftgameplateform.dictionary.messages.common.Common_NotAvailableArgument;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.game.NoConfigurationSetted;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.game.PausingGame;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.game.ResumingGame;
@@ -43,6 +44,7 @@ public class EnglishDictionary extends AbstractDictionary {
 		register(Common_BadIntegerFormat.ENGLISH);
 		register(Common_MissingCoordinates.ENGLISH);
 		register(Common_ArgumentNotFound.ENGLISH);
+		register(Common_NotAvailableArgument.ENGLISH);
 		register(CommonNew_TabComplete.ENGLISH);
 		register(CommonNew_NameMustNotStartWithDefault.ENGLISH);
 		register(CommonRename_TabComplete.ENGLISH);

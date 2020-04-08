@@ -4,7 +4,7 @@ import fr.pederobien.minecraftgameplateform.dictionary.Permission;
 import fr.pederobien.minecraftgameplateform.interfaces.dictionary.IMessageCode;
 
 public enum ECommonMessageCode implements IMessageCode {
-	COMMON_BAD_INTEGER_FORMAT, COMMON_ARGUMENT_NOT_FOUND,
+	COMMON_BAD_INTEGER_FORMAT, COMMON_ARGUMENT_NOT_FOUND, COMMON_NOT_AVAILABLE_ARGUMENT,
 
 	// Code for common new command messages
 	COMMON_NEW__TAB_COMPLETE, COMMON_NEW__NAME_MUST_NOT_START_WITH_DEFAULT,
