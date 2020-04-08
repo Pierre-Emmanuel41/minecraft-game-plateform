@@ -39,4 +39,11 @@ public class SpawnEditionFactory {
 	public static IMapPersistenceEdition<ISpawn> listSpawn() {
 		return new ListSpawn();
 	}
+
+	/**
+	 * @return An edition to delete spawn file.
+	 */
+	public static IMapPersistenceEdition<ISpawn> deleteSpawn() {
+		return new DeleteSpawn();
+	}
 }
