@@ -25,4 +25,11 @@ public class SpawnEditionFactory {
 	public static IMapPersistenceEdition<ISpawn> dimensionSpawn() {
 		return new DimensionSpawn();
 	}
+
+	/**
+	 * @return An edition to save a spawn.
+	 */
+	public static IMapPersistenceEdition<ISpawn> saveSpawn() {
+		return new SaveSpawn();
+	}
 }
