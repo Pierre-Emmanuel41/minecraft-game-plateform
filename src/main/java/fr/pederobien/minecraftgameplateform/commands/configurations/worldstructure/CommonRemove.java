@@ -9,7 +9,7 @@ import fr.pederobien.minecraftgameplateform.interfaces.element.IWorldStructure;
 public abstract class CommonRemove<T extends IWorldStructure> extends AbstractWorldStructureEdition<T> {
 
 	protected CommonRemove(IMessageCode explanation) {
-		super("remove", explanation);
+		super(EWorldStructureLabel.REMOVE, explanation);
 	}
 
 	/**

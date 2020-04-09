@@ -13,7 +13,7 @@ import fr.pederobien.minecraftgameplateform.interfaces.element.IWorldStructure;
 public abstract class CommonDimension<T extends IWorldStructure> extends AbstractWorldStructureEdition<T> {
 
 	public CommonDimension(IMessageCode explanation) {
-		super("dimension", explanation);
+		super(EWorldStructureLabel.DIMENSION, explanation);
 	}
 
 	/**

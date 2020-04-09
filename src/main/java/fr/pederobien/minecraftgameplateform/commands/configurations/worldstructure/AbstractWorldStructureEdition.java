@@ -2,13 +2,14 @@ package fr.pederobien.minecraftgameplateform.commands.configurations.worldstruct
 
 import org.bukkit.block.Block;
 
-import fr.pederobien.minecraftgameplateform.impl.editions.AbstractMapPersistenceEdition;
+import fr.pederobien.minecraftgameplateform.impl.editions.AbstractLabelEdition;
 import fr.pederobien.minecraftgameplateform.interfaces.dictionary.IMessageCode;
+import fr.pederobien.minecraftgameplateform.interfaces.element.ILabel;
 import fr.pederobien.minecraftgameplateform.interfaces.element.IWorldStructure;
 
-public abstract class AbstractWorldStructureEdition<T extends IWorldStructure> extends AbstractMapPersistenceEdition<T> {
+public abstract class AbstractWorldStructureEdition<T extends IWorldStructure> extends AbstractLabelEdition<T> {
 
-	protected AbstractWorldStructureEdition(String label, IMessageCode explanation) {
+	protected AbstractWorldStructureEdition(ILabel label, IMessageCode explanation) {
 		super(label, explanation);
 	}
 

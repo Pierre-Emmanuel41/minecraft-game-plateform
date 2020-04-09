@@ -9,7 +9,7 @@ import fr.pederobien.minecraftgameplateform.interfaces.element.IWorldStructure;
 public abstract class CommonExtract<T extends IWorldStructure> extends AbstractWorldStructureEdition<T> {
 
 	protected CommonExtract(IMessageCode explanation) {
-		super("extract", explanation);
+		super(EWorldStructureLabel.EXTRACT, explanation);
 	}
 
 	/**
