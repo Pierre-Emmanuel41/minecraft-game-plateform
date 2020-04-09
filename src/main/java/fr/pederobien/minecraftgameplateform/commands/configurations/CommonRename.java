@@ -7,14 +7,14 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 
 import fr.pederobien.minecraftgameplateform.dictionary.messages.common.ECommonMessageCode;
-import fr.pederobien.minecraftgameplateform.impl.editions.AbstractMapPersistenceEdition;
+import fr.pederobien.minecraftgameplateform.impl.editions.AbstractLabelEdition;
 import fr.pederobien.minecraftgameplateform.interfaces.dictionary.IMessageCode;
 import fr.pederobien.minecraftgameplateform.interfaces.element.INominable;
 
-public abstract class CommonRename<T extends INominable> extends AbstractMapPersistenceEdition<T> {
+public abstract class CommonRename<T extends INominable> extends AbstractLabelEdition<T> {
 
 	protected CommonRename(IMessageCode explanation) {
-		super("rename", explanation);
+		super(ECommonLabel.RENAME, explanation);
 	}
 
 	/**

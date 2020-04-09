@@ -6,15 +6,15 @@ import java.util.StringJoiner;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 
-import fr.pederobien.minecraftgameplateform.impl.editions.AbstractMapPersistenceEdition;
+import fr.pederobien.minecraftgameplateform.impl.editions.AbstractLabelEdition;
 import fr.pederobien.minecraftgameplateform.interfaces.dictionary.IMessageCode;
 import fr.pederobien.minecraftgameplateform.interfaces.element.persistence.IPersistence;
 import fr.pederobien.minecraftgameplateform.interfaces.element.unmodifiable.IUnmodifiableNominable;
 
-public abstract class CommonList<T extends IUnmodifiableNominable> extends AbstractMapPersistenceEdition<T> {
+public abstract class CommonList<T extends IUnmodifiableNominable> extends AbstractLabelEdition<T> {
 
 	protected CommonList(IMessageCode explanation) {
-		super("list", explanation);
+		super(ECommonLabel.LIST, explanation);
 	}
 
 	/**

@@ -6,14 +6,14 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 
 import fr.pederobien.minecraftgameplateform.dictionary.messages.common.ECommonMessageCode;
-import fr.pederobien.minecraftgameplateform.impl.editions.AbstractMapPersistenceEdition;
+import fr.pederobien.minecraftgameplateform.impl.editions.AbstractLabelEdition;
 import fr.pederobien.minecraftgameplateform.interfaces.dictionary.IMessageCode;
 import fr.pederobien.minecraftgameplateform.interfaces.element.unmodifiable.IUnmodifiableNominable;
 
-public abstract class CommonDelete<T extends IUnmodifiableNominable> extends AbstractMapPersistenceEdition<T> {
+public abstract class CommonDelete<T extends IUnmodifiableNominable> extends AbstractLabelEdition<T> {
 
 	protected CommonDelete(IMessageCode explanation) {
-		super("delete", explanation);
+		super(ECommonLabel.DELETE, explanation);
 	}
 
 	/**
