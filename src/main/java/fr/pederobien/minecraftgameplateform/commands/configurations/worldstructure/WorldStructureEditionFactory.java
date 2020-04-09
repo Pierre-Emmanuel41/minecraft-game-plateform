@@ -1,4 +1,4 @@
-package fr.pederobien.minecraftgameplateform.worldstructure.commands;
+package fr.pederobien.minecraftgameplateform.commands.configurations.worldstructure;
 
 import fr.pederobien.minecraftgameplateform.interfaces.editions.IMapPersistenceEdition;
 import fr.pederobien.minecraftgameplateform.interfaces.element.IWorldStructure;

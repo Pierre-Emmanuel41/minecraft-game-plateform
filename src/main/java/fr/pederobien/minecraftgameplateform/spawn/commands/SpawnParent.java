@@ -1,12 +1,12 @@
-package fr.pederobien.minecraftgameplateform.worldstructure.spawn.commands;
+package fr.pederobien.minecraftgameplateform.spawn.commands;
 
 import org.bukkit.plugin.Plugin;
 
+import fr.pederobien.minecraftgameplateform.commands.configurations.worldstructure.WorldStructureEditionFactory;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.spawn.ESpawnMessageCode;
 import fr.pederobien.minecraftgameplateform.impl.editions.AbstractParentPersistenceEdition;
 import fr.pederobien.minecraftgameplateform.interfaces.element.ISpawn;
-import fr.pederobien.minecraftgameplateform.worldstructure.commands.WorldStructureEditionFactory;
-import fr.pederobien.minecraftgameplateform.worldstructure.spawn.persistence.SpawnPersistence;
+import fr.pederobien.minecraftgameplateform.spawn.persistence.SpawnPersistence;
 
 public class SpawnParent extends AbstractParentPersistenceEdition<ISpawn> {
 

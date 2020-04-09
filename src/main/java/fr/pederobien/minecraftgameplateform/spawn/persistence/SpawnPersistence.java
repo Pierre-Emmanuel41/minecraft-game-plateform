@@ -1,4 +1,4 @@
-package fr.pederobien.minecraftgameplateform.worldstructure.spawn.persistence;
+package fr.pederobien.minecraftgameplateform.spawn.persistence;
 
 import java.nio.file.Paths;
 

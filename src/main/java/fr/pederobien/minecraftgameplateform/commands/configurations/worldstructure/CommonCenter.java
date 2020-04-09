@@ -1,4 +1,4 @@
-package fr.pederobien.minecraftgameplateform.worldstructure.commands;
+package fr.pederobien.minecraftgameplateform.commands.configurations.worldstructure;
 
 import java.util.Arrays;
 import java.util.List;

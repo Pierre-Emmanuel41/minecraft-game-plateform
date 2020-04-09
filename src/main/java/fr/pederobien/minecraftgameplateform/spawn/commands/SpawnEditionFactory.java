@@ -1,4 +1,4 @@
-package fr.pederobien.minecraftgameplateform.worldstructure.spawn.commands;
+package fr.pederobien.minecraftgameplateform.spawn.commands;
 
 import fr.pederobien.minecraftgameplateform.interfaces.editions.IMapPersistenceEdition;
 import fr.pederobien.minecraftgameplateform.interfaces.element.ISpawn;

@@ -1,10 +1,10 @@
-package fr.pederobien.minecraftgameplateform.worldstructure.spawn.commands;
+package fr.pederobien.minecraftgameplateform.spawn.commands;
 
 import org.bukkit.command.CommandSender;
 
+import fr.pederobien.minecraftgameplateform.commands.configurations.worldstructure.CommonDimension;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.spawn.ESpawnMessageCode;
 import fr.pederobien.minecraftgameplateform.interfaces.element.ISpawn;
-import fr.pederobien.minecraftgameplateform.worldstructure.commands.CommonDimension;
 
 public class DimensionSpawn extends CommonDimension<ISpawn> {
 

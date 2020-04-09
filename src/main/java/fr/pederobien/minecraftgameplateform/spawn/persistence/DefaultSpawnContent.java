@@ -1,4 +1,4 @@
-package fr.pederobien.minecraftgameplateform.worldstructure.spawn.persistence;
+package fr.pederobien.minecraftgameplateform.spawn.persistence;
 
 import fr.pederobien.minecraftgameplateform.impl.element.persistence.AbstractDefaultContent;
 

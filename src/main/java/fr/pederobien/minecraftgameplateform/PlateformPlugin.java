@@ -7,8 +7,8 @@ import fr.pederobien.minecraftgameplateform.commands.game.StartCommand;
 import fr.pederobien.minecraftgameplateform.commands.game.StopCommand;
 import fr.pederobien.minecraftgameplateform.dictionary.dictionaries.EnglishDictionary;
 import fr.pederobien.minecraftgameplateform.dictionary.dictionaries.FrenchDictionary;
+import fr.pederobien.minecraftgameplateform.spawn.commands.SpawnCommand;
 import fr.pederobien.minecraftgameplateform.utils.Plateform;
-import fr.pederobien.minecraftgameplateform.worldstructure.spawn.commands.SpawnCommand;
 
 public class PlateformPlugin extends JavaPlugin {
 

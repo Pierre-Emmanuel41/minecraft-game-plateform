@@ -1,4 +1,4 @@
-package fr.pederobien.minecraftgameplateform.worldstructure.spawn.persistence.loaders;
+package fr.pederobien.minecraftgameplateform.spawn.persistence.loaders;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,7 +11,7 @@ import fr.pederobien.minecraftgameplateform.impl.element.WorldBlock;
 import fr.pederobien.minecraftgameplateform.interfaces.element.ISpawn;
 import fr.pederobien.minecraftgameplateform.interfaces.element.IWorldBlock;
 import fr.pederobien.minecraftgameplateform.interfaces.element.persistence.xml.IXmlPersistenceLoader;
-import fr.pederobien.minecraftgameplateform.worldstructure.spawn.persistence.SpawnXmlTag;
+import fr.pederobien.minecraftgameplateform.spawn.persistence.SpawnXmlTag;
 
 public class SpawnLoaderV10 extends AbstractSpawnLoader {
 

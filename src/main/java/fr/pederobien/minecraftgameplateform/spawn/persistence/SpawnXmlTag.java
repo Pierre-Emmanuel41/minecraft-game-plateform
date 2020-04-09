@@ -1,4 +1,4 @@
-package fr.pederobien.minecraftgameplateform.worldstructure.spawn.persistence;
+package fr.pederobien.minecraftgameplateform.spawn.persistence;
 
 public enum SpawnXmlTag {
 	NAME("name"), DIMENSIONS("dimensions"), WIDTH("width"), HEIGHT("height"), DEPTH("depth"), CENTER("center"), X_COORDINATES("x"), Y_COORDINATES("y"),

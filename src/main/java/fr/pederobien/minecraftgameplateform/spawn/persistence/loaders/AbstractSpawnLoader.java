@@ -1,4 +1,4 @@
-package fr.pederobien.minecraftgameplateform.worldstructure.spawn.persistence.loaders;
+package fr.pederobien.minecraftgameplateform.spawn.persistence.loaders;
 
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
@@ -6,8 +6,8 @@ import org.w3c.dom.NodeList;
 import fr.pederobien.minecraftgameplateform.impl.element.persistence.AbstractPersistenceLoader;
 import fr.pederobien.minecraftgameplateform.interfaces.element.ISpawn;
 import fr.pederobien.minecraftgameplateform.interfaces.element.persistence.xml.IXmlPersistenceLoader;
-import fr.pederobien.minecraftgameplateform.worldstructure.spawn.Spawn;
-import fr.pederobien.minecraftgameplateform.worldstructure.spawn.persistence.SpawnXmlTag;
+import fr.pederobien.minecraftgameplateform.spawn.Spawn;
+import fr.pederobien.minecraftgameplateform.spawn.persistence.SpawnXmlTag;
 
 public abstract class AbstractSpawnLoader extends AbstractPersistenceLoader<ISpawn> implements IXmlPersistenceLoader<ISpawn> {
 

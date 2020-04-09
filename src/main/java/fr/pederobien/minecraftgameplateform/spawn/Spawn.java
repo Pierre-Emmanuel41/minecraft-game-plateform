@@ -1,4 +1,4 @@
-package fr.pederobien.minecraftgameplateform.worldstructure.spawn;
+package fr.pederobien.minecraftgameplateform.spawn;
 
 import java.util.StringJoiner;
 
