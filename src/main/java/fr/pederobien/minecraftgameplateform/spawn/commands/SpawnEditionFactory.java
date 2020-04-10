@@ -13,6 +13,13 @@ public class SpawnEditionFactory {
 	}
 
 	/**
+	 * @return An edition to define the center of the spawn.
+	 */
+	public static IMapPersistenceEdition<ISpawn> centerSpawn() {
+		return new CenterSpawn();
+	}
+
+	/**
 	 * @return An edition to rename a spawn.
 	 */
 	public static IMapPersistenceEdition<ISpawn> renameSpawn() {

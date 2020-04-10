@@ -7,9 +7,6 @@ public enum EWorldStructureMessageCode implements IMessageCode {
 	// Code for common missing coordinates message
 	COMMON_MISSING_COORDINATES,
 
-	// Code for common center command messages
-	COMMON_CENTER__EXPLANATION, COMMON_CENTER__CENTER_DEFINED,
-
 	// Code for common dimension command messages
 	COMMON_DIMENSION__BAD_DIMENSION_FORMAT, COMMON_DIMENSION__MISSING_DIMENSION;
 

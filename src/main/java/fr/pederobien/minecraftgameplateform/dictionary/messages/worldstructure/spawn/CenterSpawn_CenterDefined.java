@@ -1,9 +1,9 @@
-package fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure;
+package fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.spawn;
 
 import fr.pederobien.minecraftgameplateform.dictionary.messages.AbstractMessage;
 import fr.pederobien.minecraftgameplateform.interfaces.dictionary.IMessage;
 
-public class CommonCenter_CenterDefined extends AbstractMessage {
+public class CenterSpawn_CenterDefined extends AbstractMessage {
 	/**
 	 * Message in French explains the center has been correctly defined.
 	 */
@@ -13,8 +13,8 @@ public class CommonCenter_CenterDefined extends AbstractMessage {
 	 */
 	public static final IMessage ENGLISH = new English();
 
-	public CommonCenter_CenterDefined() {
-		super(EWorldStructureMessageCode.COMMON_CENTER__CENTER_DEFINED);
+	public CenterSpawn_CenterDefined() {
+		super(ESpawnMessageCode.CENTER_SPAWN__CENTER_DEFINED);
 	}
 
 	@Override
@@ -22,18 +22,17 @@ public class CommonCenter_CenterDefined extends AbstractMessage {
 		return null;
 	}
 
-	private static class French extends CommonCenter_CenterDefined {
+	private static class French extends CenterSpawn_CenterDefined {
 		@Override
 		public String getMessage(String... args) {
-			return "Centre défini en " + args[0] + " " + args[1] + " " + args[2];
+			return "Le centre du spawn est défini en " + args[0] + " " + args[1] + " " + args[2];
 		}
 	}
 
-	private static class English extends CommonCenter_CenterDefined {
+	private static class English extends CenterSpawn_CenterDefined {
 		@Override
 		public String getMessage(String... args) {
-			return "Center defined in " + args[0] + " " + args[1] + " " + args[2];
+			return "The spawn's center is defined in " + args[0] + " " + args[1] + " " + args[2];
 		}
 	}
-
 }

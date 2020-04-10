@@ -16,11 +16,11 @@ import fr.pederobien.minecraftgameplateform.dictionary.messages.game.PausingGame
 import fr.pederobien.minecraftgameplateform.dictionary.messages.game.ResumingGame;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.game.StartingGame;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.game.StoppingGame;
-import fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.CommonCenter_CenterDefined;
-import fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.CommonCenter_Explanation;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.CommonDimension_BadDimensionFormat;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.CommonDimension_MissingDimension;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.Common_MissingCoordinates;
+import fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.spawn.CenterSpawn_CenterDefined;
+import fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.spawn.CenterSpawn_Explanation;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.spawn.DeleteSpawn_Explanation;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.spawn.DeleteSpawn_NameIsMissing;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.spawn.DeleteSpawn_SpawnDeleted;
@@ -65,8 +65,6 @@ public class FrenchDictionary extends AbstractDictionary {
 		register(CommonRename_TabComplete.FRENCH);
 
 		// Code for common world structure command messages
-		register(CommonCenter_Explanation.FRENCH);
-		register(CommonCenter_CenterDefined.FRENCH);
 		register(CommonDimension_BadDimensionFormat.FRENCH);
 		register(CommonDimension_MissingDimension.FRENCH);
 
@@ -76,6 +74,8 @@ public class FrenchDictionary extends AbstractDictionary {
 		register(NewSpawn_NameIsMissing.FRENCH);
 		register(NewSpawn_NameAlreadyTaken.FRENCH);
 		register(NewSpawn_SpawnCreated.FRENCH);
+		register(CenterSpawn_Explanation.FRENCH);
+		register(CenterSpawn_CenterDefined.FRENCH);
 		register(DimensionSpawn_Explanation.FRENCH);
 		register(DimensionSpawn_Defined.FRENCH);
 		register(RenameSpawn_Explanation.FRENCH);

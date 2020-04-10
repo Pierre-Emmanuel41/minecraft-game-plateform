@@ -8,19 +8,31 @@ import org.bukkit.command.CommandSender;
 
 import fr.pederobien.minecraftgameplateform.dictionary.messages.common.ECommonMessageCode;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.EWorldStructureMessageCode;
+import fr.pederobien.minecraftgameplateform.interfaces.dictionary.IMessageCode;
 import fr.pederobien.minecraftgameplateform.interfaces.element.IWorldStructure;
 
-public class CommonCenter<T extends IWorldStructure> extends AbstractWorldStructureEdition<T> {
+public abstract class CommonCenter<T extends IWorldStructure> extends AbstractWorldStructureEdition<T> {
 
-	public CommonCenter() {
-		super(EWorldStructureLabel.CENTER, EWorldStructureMessageCode.COMMON_CENTER__EXPLANATION);
+	public CommonCenter(IMessageCode explanation) {
+		super(EWorldStructureLabel.CENTER, explanation);
 	}
+
+	/**
+	 * Method called just after setting the structure's center.
+	 * 
+	 * @param sender The entity (generally a player) to send messages.
+	 * @param name   The current structure's name.
+	 * @param x      The x-Coordinates of the center.
+	 * @param y      The y-Coordinates of the center.
+	 * @param z      The z-Coordinates of the center.
+	 */
+	protected abstract void onCenterDefined(CommandSender sender, String name, int x, int y, int z);
 
 	@Override
 	public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
 		try {
 			get().setCenter(args[0], args[1], args[2]);
-			sendMessageToSender(sender, EWorldStructureMessageCode.COMMON_CENTER__CENTER_DEFINED, getCenter().getX(), getCenter().getY(), getCenter().getZ());
+			onCenterDefined(sender, get().getName(), get().getCenter().getX(), get().getCenter().getY(), get().getCenter().getZ());
 		} catch (IndexOutOfBoundsException e) {
 			// When X or Y or Z is missing
 			sendMessageToSender(sender, EWorldStructureMessageCode.COMMON_MISSING_COORDINATES);
@@ -41,10 +53,10 @@ public class CommonCenter<T extends IWorldStructure> extends AbstractWorldStruct
 			return check(args[0], e -> isInt(e), Arrays.asList("<X> <Y> <Z>"));
 		case 2:
 			// Check if the second argument is an integer
-			return check(args[1], e -> isInt(e), Arrays.asList("<Y> <Z>"));
+			return check(args[1], e -> isInt(e), check(args[0], e -> isInt(e), Arrays.asList("<Y> <Z>")));
 		case 3:
 			// Check if the third argument is an integer
-			return check(args[2], e -> isInt(e), Arrays.asList("<Z>"));
+			return check(args[2], e -> isInt(e), check(args[1], e -> isInt(e), Arrays.asList("<Z>")));
 		}
 		return super.onTabComplete(sender, command, alias, args);
 	}

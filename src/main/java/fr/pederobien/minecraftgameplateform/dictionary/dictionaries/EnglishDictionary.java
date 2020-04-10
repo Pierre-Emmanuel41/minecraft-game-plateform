@@ -16,11 +16,11 @@ import fr.pederobien.minecraftgameplateform.dictionary.messages.game.PausingGame
 import fr.pederobien.minecraftgameplateform.dictionary.messages.game.ResumingGame;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.game.StartingGame;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.game.StoppingGame;
-import fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.CommonCenter_CenterDefined;
-import fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.CommonCenter_Explanation;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.CommonDimension_BadDimensionFormat;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.CommonDimension_MissingDimension;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.Common_MissingCoordinates;
+import fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.spawn.CenterSpawn_CenterDefined;
+import fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.spawn.CenterSpawn_Explanation;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.spawn.DeleteSpawn_Explanation;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.spawn.DeleteSpawn_NameIsMissing;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.spawn.DeleteSpawn_SpawnDeleted;
@@ -65,8 +65,6 @@ public class EnglishDictionary extends AbstractDictionary {
 		register(CommonRename_TabComplete.ENGLISH);
 
 		// Code for common world structure command messages
-		register(CommonCenter_Explanation.ENGLISH);
-		register(CommonCenter_CenterDefined.ENGLISH);
 		register(CommonDimension_BadDimensionFormat.ENGLISH);
 		register(CommonDimension_MissingDimension.ENGLISH);
 
@@ -76,6 +74,8 @@ public class EnglishDictionary extends AbstractDictionary {
 		register(NewSpawn_NameIsMissing.ENGLISH);
 		register(NewSpawn_NameAlreadyTaken.ENGLISH);
 		register(NewSpawn_SpawnCreated.ENGLISH);
+		register(CenterSpawn_Explanation.ENGLISH);
+		register(CenterSpawn_CenterDefined.ENGLISH);
 		register(DimensionSpawn_Explanation.ENGLISH);
 		register(DimensionSpawn_Defined.ENGLISH);
 		register(RenameSpawn_Explanation.ENGLISH);

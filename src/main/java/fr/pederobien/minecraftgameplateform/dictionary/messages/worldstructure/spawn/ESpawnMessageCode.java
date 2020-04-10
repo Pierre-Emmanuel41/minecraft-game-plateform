@@ -9,6 +9,9 @@ public enum ESpawnMessageCode implements IMessageCode {
 	// Code for command new
 	NEW_SPAWN__EXPLANATION, NEW_SPAWN__NAME_IS_MISSING, NEW_SPAWN__NAME_ALREADY_TAKEN, NEW_SPAWN__SPAWN_CREATED,
 
+	// Code for command center
+	CENTER_SPAWN__EXPLANATION, CENTER_SPAWN__CENTER_DEFINED,
+
 	// Code for command dimension
 	DIMENSION_SPAWN__EXPLANATION, DIMENSION_SPAWN__DEFINED,
 
