@@ -3,6 +3,7 @@ package fr.pederobien.minecraftgameplateform.impl.editions;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
+import java.util.List;
 
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
@@ -96,10 +97,12 @@ public abstract class AbstractMapPersistenceEdition<T extends IUnmodifiableNomin
 	 * if the argument and the radix 10 were given as arguments to the {@link #parseInt(java.lang.String, int)} method.
 	 *
 	 * @param number a {@code String} containing the {@code int} representation to be parsed
-	 * @return True if the given string contains a parsable integer, false otherwise.
+	 * @return True if the given string contains a parsable integer OR is empty, false otherwise.
 	 */
 	protected boolean isInt(String number) {
 		try {
+			if (number.equals(""))
+				return true;
 			Integer.parseInt(number);
 			return true;
 		} catch (NumberFormatException e) {
@@ -169,6 +172,32 @@ public abstract class AbstractMapPersistenceEdition<T extends IUnmodifiableNomin
 	 */
 	protected boolean startWithIgnoreCase(String str, String beginning) {
 		return str.length() < beginning.length() ? false : str.substring(0, beginning.length()).equalsIgnoreCase(beginning);
+	}
+
+	/**
+	 * Find all descendants of the parent whose label match on the given label and set their availability to true.
+	 * 
+	 * @param label The name of the label to match on.
+	 * 
+	 * @see IParentPersistenceEdition#getChildrenByLabelName(String)
+	 * @see #setAvailable(boolean)
+	 */
+	protected void setNewEditionAvailable(String label) {
+		List<IMapPersistenceEdition<T>> descendants = getParent().getChildrenByLabelName(label);
+		for (IMapPersistenceEdition<T> descendant : descendants)
+			descendant.setAvailable(true);
+	}
+
+	/**
+	 * Find all descendants of the parent for each label in the given array and set their availability to true.
+	 * 
+	 * @param labels An array to find different parent's descendants.
+	 * 
+	 * @see AbstractMapPersistenceEdition#setNewEditionAvailable(String)
+	 */
+	protected void setNewEditionsAvailable(String... labels) {
+		for (String label : labels)
+			setNewEditionAvailable(label);
 	}
 
 	/**
