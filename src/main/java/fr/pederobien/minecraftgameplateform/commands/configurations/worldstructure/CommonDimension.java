@@ -20,11 +20,12 @@ public abstract class CommonDimension<T extends IWorldStructure> extends Abstrac
 	 * Method called when the dimension of the world structure have been correctly defined.
 	 * 
 	 * @param sender The entity (generally a player) to send messages.
+	 * @param name   The name of the structure.
 	 * @param width  The width of the structure (X).
 	 * @param height The height of the structure (Y).
 	 * @param depth  The depth of the structure (Z).
 	 */
-	protected abstract void onDimensionDefined(CommandSender sender, int width, int height, int depth);
+	protected abstract void onDimensionDefined(CommandSender sender, String name, int width, int height, int depth);
 
 	@Override
 	public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
@@ -33,7 +34,7 @@ public abstract class CommonDimension<T extends IWorldStructure> extends Abstrac
 			get().setWidth(getInt(width));
 			get().setHeight(getInt(height));
 			get().setDepth(getInt(depth));
-			onDimensionDefined(sender, get().getWidth(), get().getHeight(), get().getDepth());
+			onDimensionDefined(sender, get().getName(), get().getWidth(), get().getHeight(), get().getDepth());
 		} catch (IndexOutOfBoundsException e) {
 			sendMessageToSender(sender, EWorldStructureMessageCode.COMMON_DIMENSION__MISSING_DIMENSION);
 		} catch (NumberFormatException e) {
@@ -48,9 +49,9 @@ public abstract class CommonDimension<T extends IWorldStructure> extends Abstrac
 		case 1:
 			return check(args[0], e -> isInt(e), Arrays.asList("<X> <Y> <Z>"));
 		case 2:
-			return check(args[1], e -> isInt(e), Arrays.asList("<Y> <Z>"));
+			return check(args[1], e -> isInt(e), check(args[0], e -> isInt(e), Arrays.asList("<Y> <Z>")));
 		case 3:
-			return check(args[2], e -> isInt(e), Arrays.asList("<Z>"));
+			return check(args[2], e -> isInt(e), check(args[1], e -> isInt(e), Arrays.asList("<Y> <Z>")));
 		}
 		return super.onTabComplete(sender, command, alias, args);
 	}
