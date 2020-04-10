@@ -1,5 +1,9 @@
 package fr.pederobien.minecraftgameplateform.impl.editions;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
+
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
@@ -9,27 +13,41 @@ import fr.pederobien.minecraftdevelopmenttoolkit.exceptions.ArgumentNotFoundExce
 import fr.pederobien.minecraftdevelopmenttoolkit.exceptions.NotAvailableArgumentException;
 import fr.pederobien.minecraftdevelopmenttoolkit.exceptions.NotAvailableCommandException;
 import fr.pederobien.minecraftdevelopmenttoolkit.impl.AbstractGenericParentEdition;
-import fr.pederobien.minecraftdevelopmenttoolkit.interfaces.IGenericMapEdition;
-import fr.pederobien.minecraftdevelopmenttoolkit.interfaces.IGenericParentEdition;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.common.ECommonMessageCode;
 import fr.pederobien.minecraftgameplateform.interfaces.dictionary.IMessageCode;
 import fr.pederobien.minecraftgameplateform.interfaces.dictionary.IMessageEvent;
 import fr.pederobien.minecraftgameplateform.interfaces.dictionary.INotificationCenter;
+import fr.pederobien.minecraftgameplateform.interfaces.editions.IMapPersistenceEdition;
 import fr.pederobien.minecraftgameplateform.interfaces.editions.IParentPersistenceEdition;
 import fr.pederobien.minecraftgameplateform.interfaces.element.persistence.IPersistence;
 import fr.pederobien.minecraftgameplateform.interfaces.element.unmodifiable.IUnmodifiableNominable;
 import fr.pederobien.minecraftgameplateform.utils.EventFactory;
 import fr.pederobien.minecraftgameplateform.utils.Plateform;
 
-public class AbstractParentPersistenceEdition<T extends IUnmodifiableNominable> extends AbstractGenericParentEdition<IMessageCode, T, IParentPersistenceEdition<T>>
-		implements IParentPersistenceEdition<T> {
+public abstract class AbstractParentPersistenceEdition<T extends IUnmodifiableNominable>
+		extends AbstractGenericParentEdition<IMessageCode, T, IParentPersistenceEdition<T>, IMapPersistenceEdition<T>> implements IParentPersistenceEdition<T> {
 	private IPersistence<T> persistence;
 	private Plugin plugin;
+	private List<IMapPersistenceEdition<T>> descendants;
 
 	public AbstractParentPersistenceEdition(String label, IMessageCode explanation, Plugin plugin, IPersistence<T> persistence) {
 		super(label, explanation, new ParentPersistenceHelper<T>(plugin));
 		this.persistence = persistence;
 		this.plugin = plugin;
+
+		descendants = new ArrayList<IMapPersistenceEdition<T>>();
+	}
+
+	@Override
+	public final IParentPersistenceEdition<T> setAvailable(boolean available) {
+		internalSetAvailable(available);
+		return this;
+	}
+
+	@Override
+	public final IParentPersistenceEdition<T> setModifiable(boolean modifiable) {
+		internalSetModifiable(modifiable);
+		return this;
 	}
 
 	@Override
@@ -47,17 +65,21 @@ public class AbstractParentPersistenceEdition<T extends IUnmodifiableNominable> 
 	}
 
 	@Override
-	public IGenericParentEdition<IMessageCode, T, IParentPersistenceEdition<T>> addEdition(IGenericMapEdition<IMessageCode, T, IParentPersistenceEdition<T>> elt) {
+	public final IParentPersistenceEdition<T> addEdition(IMapPersistenceEdition<T> elt) {
 		elt.setParent(this);
 		elt.setAvailable(false);
-		return super.addEdition(elt);
+		internalAdd(elt);
+		addToDescendant(elt);
+		return this;
 	}
 
 	@Override
-	public IGenericParentEdition<IMessageCode, T, IParentPersistenceEdition<T>> removeEdition(IGenericMapEdition<IMessageCode, T, IParentPersistenceEdition<T>> elt) {
+	public final IParentPersistenceEdition<T> removeEdition(IMapPersistenceEdition<T> elt) {
 		elt.setParent(null);
 		elt.setAvailable(true);
-		return super.removeEdition(elt);
+		internalRemove(elt);
+		removeFromDescendant(elt);
+		return this;
 	}
 
 	@Override
@@ -78,6 +100,11 @@ public class AbstractParentPersistenceEdition<T extends IUnmodifiableNominable> 
 	@Override
 	public Plugin getPlugin() {
 		return plugin;
+	}
+
+	@Override
+	public List<IMapPersistenceEdition<T>> getChildrenByLabelName(String labelName) {
+		return descendants.stream().filter(e -> e.getLabel().equals(labelName)).collect(Collectors.toList());
 	}
 
 	/**
@@ -105,5 +132,17 @@ public class AbstractParentPersistenceEdition<T extends IUnmodifiableNominable> 
 		for (int i = 0; i < args.length; i++)
 			internalArgs[i] = args[i].toString();
 		return EventFactory.messageEvent(player, getPlugin(), code, internalArgs);
+	}
+
+	private void addToDescendant(IMapPersistenceEdition<T> elt) {
+		for (IMapPersistenceEdition<T> e : elt.getChildren().values())
+			addToDescendant(e);
+		descendants.add(elt);
+	}
+
+	private void removeFromDescendant(IMapPersistenceEdition<T> elt) {
+		for (IMapPersistenceEdition<T> e : elt.getChildren().values())
+			removeFromDescendant(e);
+		descendants.remove(elt);
 	}
 }

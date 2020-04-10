@@ -19,11 +19,35 @@ import fr.pederobien.minecraftgameplateform.interfaces.element.unmodifiable.IUnm
 import fr.pederobien.minecraftgameplateform.utils.EventFactory;
 import fr.pederobien.minecraftgameplateform.utils.Plateform;
 
-public abstract class AbstractMapPersistenceEdition<T extends IUnmodifiableNominable> extends AbstractGenericMapEdition<IMessageCode, T, IParentPersistenceEdition<T>>
-		implements IMapPersistenceEdition<T> {
+public abstract class AbstractMapPersistenceEdition<T extends IUnmodifiableNominable>
+		extends AbstractGenericMapEdition<IMessageCode, T, IParentPersistenceEdition<T>, IMapPersistenceEdition<T>> implements IMapPersistenceEdition<T> {
 
 	protected AbstractMapPersistenceEdition(String label, IMessageCode explanation) {
 		super(label, explanation);
+	}
+
+	@Override
+	public final IMapPersistenceEdition<T> setAvailable(boolean available) {
+		internalSetAvailable(available);
+		return this;
+	}
+
+	@Override
+	public final IMapPersistenceEdition<T> setModifiable(boolean modifiable) {
+		internalSetModifiable(modifiable);
+		return this;
+	}
+
+	@Override
+	public final IMapPersistenceEdition<T> addEdition(IMapPersistenceEdition<T> elt) {
+		internalAdd(elt);
+		return this;
+	}
+
+	@Override
+	public final IMapPersistenceEdition<T> removeEdition(IMapPersistenceEdition<T> elt) {
+		internalRemove(elt);
+		return this;
 	}
 
 	/**
