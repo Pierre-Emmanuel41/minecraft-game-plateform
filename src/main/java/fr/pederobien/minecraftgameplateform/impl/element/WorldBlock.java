@@ -17,7 +17,7 @@ public class WorldBlock implements IWorldBlock {
 	}
 
 	public WorldBlock(String x, String y, String z, String blockData) {
-		this(Integer.parseInt(x), Integer.parseInt(y), Integer.parseInt(z), BukkitManager.createBlockData(blockData));
+		this(Integer.parseInt(x), Integer.parseInt(y), Integer.parseInt(z), blockData == null ? null : BukkitManager.createBlockData(blockData));
 	}
 
 	@Override

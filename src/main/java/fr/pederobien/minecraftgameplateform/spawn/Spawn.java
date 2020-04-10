@@ -13,7 +13,9 @@ import fr.pederobien.minecraftgameplateform.interfaces.element.IWorldBlock;
 import fr.pederobien.minecraftgameplateform.utils.DisplayHelper;
 
 public class Spawn extends AbstractWorldStructure implements ISpawn {
-	private IWorldBlock relativePlayerSpawn;
+	private static final Block DEFAULT_PLAYER_SPAWN = WorldManager.getFromSurfaceHighestBlockYAt(0, 0).getRelative(0, 1, 0);
+
+	private IWorldBlock playerSpawn;
 
 	public Spawn(String name) {
 		super(name);
@@ -21,12 +23,12 @@ public class Spawn extends AbstractWorldStructure implements ISpawn {
 
 	@Override
 	public Block getPlayerSpawn() {
-		return getBlockFromCenter(relativePlayerSpawn);
+		return playerSpawn == null ? DEFAULT_PLAYER_SPAWN : getBlockFromCenter(playerSpawn);
 	}
 
 	@Override
 	public IWorldBlock getRelativePlayerSpawn() {
-		return relativePlayerSpawn;
+		return playerSpawn == null ? new WorldBlock(0, 1, 0, null) : playerSpawn;
 	}
 
 	@Override
@@ -35,12 +37,12 @@ public class Spawn extends AbstractWorldStructure implements ISpawn {
 		int yOffset = Integer.parseInt(y) - getCenter().getY();
 		int zOffset = Integer.parseInt(z) - getCenter().getZ();
 		BlockData blockData = WorldManager.getBlockAt(getWorld(), xOffset, yOffset, zOffset).getBlockData();
-		relativePlayerSpawn = new WorldBlock(xOffset, yOffset, zOffset, blockData);
+		playerSpawn = new WorldBlock(xOffset, yOffset, zOffset, blockData);
 	}
 
 	@Override
-	public void setRelativePlayerSpawn(String x, String y, String z, String blockData) {
-		relativePlayerSpawn = new WorldBlock(x, y, z, blockData);
+	public void setRelativePlayerSpawn(String x, String y, String z) {
+		playerSpawn = new WorldBlock(x, y, z, null);
 	}
 
 	@Override
