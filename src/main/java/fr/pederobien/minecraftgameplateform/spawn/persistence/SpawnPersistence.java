@@ -9,6 +9,7 @@ import fr.pederobien.minecraftgameplateform.impl.element.persistence.xml.Abstrac
 import fr.pederobien.minecraftgameplateform.interfaces.element.ISpawn;
 import fr.pederobien.minecraftgameplateform.interfaces.element.IWorldBlock;
 import fr.pederobien.minecraftgameplateform.interfaces.element.persistence.IPersistence;
+import fr.pederobien.minecraftgameplateform.spawn.persistence.loaders.SpawnLoaderV10;
 
 public class SpawnPersistence extends AbstractXmlPersistence<ISpawn> {
 	private static final String ROOT_XML_DOCUMENT = "spawn";
@@ -16,6 +17,7 @@ public class SpawnPersistence extends AbstractXmlPersistence<ISpawn> {
 
 	private SpawnPersistence() {
 		super(ROOT.resolve(Paths.get("Spawns")), new DefaultSpawnContent());
+		register(new SpawnLoaderV10());
 	}
 
 	public static IPersistence<ISpawn> getInstance() {

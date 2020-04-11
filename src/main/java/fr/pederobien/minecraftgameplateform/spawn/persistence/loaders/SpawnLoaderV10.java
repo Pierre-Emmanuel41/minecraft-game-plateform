@@ -15,7 +15,7 @@ import fr.pederobien.minecraftgameplateform.spawn.persistence.SpawnXmlTag;
 
 public class SpawnLoaderV10 extends AbstractSpawnLoader {
 
-	protected SpawnLoaderV10() {
+	public SpawnLoaderV10() {
 		super(1.0);
 	}
 
@@ -23,7 +23,7 @@ public class SpawnLoaderV10 extends AbstractSpawnLoader {
 	public IXmlPersistenceLoader<ISpawn> load(Element root) {
 		// Getting the name of the spawn
 		Node name = getElementsByTagName(root, SpawnXmlTag.NAME).item(0);
-		get().setName(name.getNodeValue());
+		get().setName(name.getChildNodes().item(0).getNodeValue());
 
 		// Getting the dimensions of the spawn
 		Element dimensions = (Element) getElementsByTagName(root, SpawnXmlTag.DIMENSIONS).item(0);
