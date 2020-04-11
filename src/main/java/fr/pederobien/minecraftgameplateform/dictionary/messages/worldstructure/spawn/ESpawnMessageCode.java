@@ -31,7 +31,10 @@ public enum ESpawnMessageCode implements IMessageCode {
 	EXTRACT_SPAWN__EXPLANATION, EXTRACT_SPAWN__SPAWN_EXTRACTED,
 
 	// Code for command remove
-	REMOVE_SPAWN__EXPLANATION, REMOVE_SPAWN__SPAWN_REMOVED;
+	REMOVE_SPAWN__EXPLANATION, REMOVE_SPAWN__SPAWN_REMOVED,
+
+	// Code for command launch
+	LAUNCH_SPAWN__EXPLANATION;
 
 	private Permission permission;
 
