@@ -1,6 +1,8 @@
-package fr.pederobien.minecraftgameplateform.exceptions;
+package fr.pederobien.minecraftgameplateform.exceptions.persistence;
 
 import java.nio.file.Path;
+
+import fr.pederobien.minecraftgameplateform.exceptions.SimpleMessageException;
 
 public class IllegalPathException extends SimpleMessageException {
 	private static final long serialVersionUID = 1L;

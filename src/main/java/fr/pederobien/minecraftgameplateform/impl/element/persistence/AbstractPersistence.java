@@ -3,7 +3,7 @@ package fr.pederobien.minecraftgameplateform.impl.element.persistence;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
-import fr.pederobien.minecraftgameplateform.exceptions.IllegalPathException;
+import fr.pederobien.minecraftgameplateform.exceptions.persistence.IllegalPathException;
 import fr.pederobien.minecraftgameplateform.interfaces.element.persistence.IDefaultContent;
 import fr.pederobien.minecraftgameplateform.interfaces.element.persistence.IPersistence;
 import fr.pederobien.minecraftgameplateform.interfaces.element.unmodifiable.IUnmodifiableNominable;
