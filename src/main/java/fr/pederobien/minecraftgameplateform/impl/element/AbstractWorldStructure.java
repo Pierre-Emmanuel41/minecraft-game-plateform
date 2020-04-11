@@ -74,7 +74,7 @@ public class AbstractWorldStructure extends AbstractNominable implements IWorldS
 	public void launch() {
 		before.clear();
 		for (IWorldBlock block : blocks) {
-			before.add(new WorldBlock(block.getX(), block.getY(), block.getZ(), getBlockFromCenter(block.getX(), block.getX(), block.getX()).getBlockData()));
+			before.add(new WorldBlock(block.getX(), block.getY(), block.getZ(), getBlockFromCenter(block.getX(), block.getY(), block.getZ()).getBlockData()));
 			updateWorldBlock(block);
 		}
 	}
@@ -161,7 +161,7 @@ public class AbstractWorldStructure extends AbstractNominable implements IWorldS
 	 * @return Block at the given offsets
 	 */
 	protected Block getBlockFromCenter(IWorldBlock block) {
-		return getBlockFromCenter(block.getX(), block.getZ(), block.getY());
+		return getBlockFromCenter(block.getX(), block.getY(), block.getZ());
 	}
 
 	private void updateWorldBlock(IWorldBlock block) {
