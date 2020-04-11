@@ -30,6 +30,7 @@ import fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.s
 import fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.spawn.ExtractSpawn_SpawnExtracted;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.spawn.LaunchSpawn_Explanation;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.spawn.LaunchSpawn_SpawnDoesNotExist;
+import fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.spawn.LaunchSpawn_SpawnLaunched;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.spawn.ListSpawn_Explanation;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.spawn.ListSpawn_NoElement;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.spawn.ListSpawn_OneElement;
@@ -99,6 +100,7 @@ public class FrenchDictionary extends AbstractDictionary {
 		register(RemoveSpawn_SpawnRemoved.FRENCH);
 		register(LaunchSpawn_Explanation.FRENCH);
 		register(LaunchSpawn_SpawnDoesNotExist.FRENCH);
+		register(LaunchSpawn_SpawnLaunched.FRENCH);
 
 		// Code for game messages
 		register(StartingGame.FRENCH);
