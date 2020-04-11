@@ -57,7 +57,7 @@ public abstract class AbstractXmlPersistence<T extends IUnmodifiableNominable> e
 			// First: get the loader associated to the version found in the xml file.
 			// Second: call the method load(Node root) to create a object of type T with properties specified in the xml file.
 			// Third: set the object coming from the loader.
-			set(getLoaders().get(Double.parseDouble(version.getChildNodes().item(0).getNodeValue())).load(root).get());
+			set(getLoader(Double.parseDouble(version.getChildNodes().item(0).getNodeValue())).load(root).get());
 		} catch (IOException e) {
 
 		}

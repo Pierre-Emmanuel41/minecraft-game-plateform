@@ -2,6 +2,7 @@ package fr.pederobien.minecraftgameplateform.interfaces.element.persistence;
 
 import java.util.Map;
 
+import fr.pederobien.minecraftgameplateform.exceptions.persistence.LoaderNotFoundException;
 import fr.pederobien.minecraftgameplateform.interfaces.element.unmodifiable.IUnmodifiableNominable;
 
 public interface ILoadersPersistence<T extends IUnmodifiableNominable, U extends IPersistenceLoader<T>> extends IPersistence<T> {
@@ -29,4 +30,15 @@ public interface ILoadersPersistence<T extends IUnmodifiableNominable, U extends
 	 * @return A map that contains all registered loaders to this persistence. This map is unmodifiable.
 	 */
 	Map<Double, U> getLoaders();
+
+	/**
+	 * Get the loader associated to the given version.
+	 * 
+	 * @param version The version used to get the associated loader.
+	 * 
+	 * @return The associated loader.
+	 * 
+	 * @throws LoaderNotFoundException If there is no registered loader for the given version number
+	 */
+	U getLoader(Double version);
 }

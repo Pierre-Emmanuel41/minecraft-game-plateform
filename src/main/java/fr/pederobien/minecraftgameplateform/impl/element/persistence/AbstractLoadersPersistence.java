@@ -5,6 +5,7 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
+import fr.pederobien.minecraftgameplateform.exceptions.persistence.LoaderNotFoundException;
 import fr.pederobien.minecraftgameplateform.interfaces.element.persistence.IDefaultContent;
 import fr.pederobien.minecraftgameplateform.interfaces.element.persistence.ILoadersPersistence;
 import fr.pederobien.minecraftgameplateform.interfaces.element.persistence.IPersistenceLoader;
@@ -34,5 +35,13 @@ public abstract class AbstractLoadersPersistence<T extends IUnmodifiableNominabl
 	@Override
 	public Map<Double, U> getLoaders() {
 		return Collections.unmodifiableMap(loaders);
+	}
+
+	@Override
+	public U getLoader(Double version) {
+		U loader = loaders.get(version);
+		if (loader == null)
+			throw new LoaderNotFoundException(version);
+		return loader;
 	}
 }
