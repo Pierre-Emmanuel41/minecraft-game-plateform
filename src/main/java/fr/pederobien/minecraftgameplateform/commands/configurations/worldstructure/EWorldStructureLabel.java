@@ -3,7 +3,7 @@ package fr.pederobien.minecraftgameplateform.commands.configurations.worldstruct
 import fr.pederobien.minecraftgameplateform.interfaces.element.ILabel;
 
 public enum EWorldStructureLabel implements ILabel {
-	CENTER("center"), DIMENSION("dimension"), EXTRACT("extract"), REMOVE("remove");
+	CENTER("center"), DIMENSION("dimension"), EXTRACT("extract"), REMOVE("remove"), LAUNCH("launch");
 
 	private String label;
 
