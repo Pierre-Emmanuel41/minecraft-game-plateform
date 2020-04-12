@@ -79,6 +79,7 @@ public class FrenchDictionary extends AbstractDictionary {
 		register(NewSpawn_NameIsMissing.FRENCH);
 		register(NewSpawn_NameAlreadyTaken.FRENCH);
 		register(NewSpawn_SpawnCreated.FRENCH);
+		register(NewSpawn_Explanation.FRENCH);
 		register(CenterSpawn_Explanation.FRENCH);
 		register(CenterSpawn_CenterDefined.FRENCH);
 		register(DimensionSpawn_Explanation.FRENCH);
