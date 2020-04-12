@@ -2,6 +2,7 @@ package fr.pederobien.minecraftgameplateform.interfaces.element;
 
 import java.util.List;
 
+import fr.pederobien.minecraftgameplateform.exceptions.WorldNotFoundException;
 import fr.pederobien.minecraftgameplateform.exceptions.dictionary.WorldStructureDimensionException;
 import fr.pederobien.minecraftgameplateform.interfaces.element.unmodifiable.IUnmodifiableWorldStructure;
 
@@ -11,6 +12,8 @@ public interface IWorldStructure extends INominable, IUnmodifiableWorldStructure
 	 * Set the world in which the structure should be launched or extracted.
 	 * 
 	 * @param worldName The name of the world in which this structure should be launched or extracted.
+	 * 
+	 * @throws WorldNotFoundException If the given name correspond to any world.
 	 */
 	void setWorld(String worldName);
 

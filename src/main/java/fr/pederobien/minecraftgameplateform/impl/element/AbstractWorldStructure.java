@@ -10,6 +10,7 @@ import org.bukkit.World;
 import org.bukkit.block.Block;
 
 import fr.pederobien.minecraftdevelopmenttoolkit.managers.WorldManager;
+import fr.pederobien.minecraftgameplateform.exceptions.WorldNotFoundException;
 import fr.pederobien.minecraftgameplateform.exceptions.dictionary.WorldStructureDimensionException;
 import fr.pederobien.minecraftgameplateform.interfaces.element.IWorldBlock;
 import fr.pederobien.minecraftgameplateform.interfaces.element.IWorldStructure;
@@ -93,6 +94,8 @@ public class AbstractWorldStructure extends AbstractNominable implements IWorldS
 	@Override
 	public void setWorld(String worldName) {
 		this.world = WorldManager.getWorld(worldName);
+		if (world == null)
+			throw new WorldNotFoundException(worldName);
 		setCenter(getCenter().getX(), getCenter().getX(), getCenter().getX());
 	}
 
