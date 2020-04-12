@@ -43,7 +43,7 @@ public enum ESpawnMessageCode implements IMessageCode {
 	CURRENT_SPAWN__EXPLANATION, CURRENT_SPAWN__ON_CURRENT,
 
 	// Code for command player spawn
-	PLAYER_SPAWN__EXPLANATION;
+	PLAYER_SPAWN__EXPLANATION, PLAYER_SPAWN__PLAYER_SPAWN_DEFINED;
 
 	private Permission permission;
 
