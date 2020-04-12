@@ -16,16 +16,14 @@ import fr.pederobien.minecraftgameplateform.interfaces.element.IWorldStructure;
 import fr.pederobien.minecraftgameplateform.utils.DisplayHelper;
 
 public class AbstractWorldStructure extends AbstractNominable implements IWorldStructure {
-	private static final World DEFAULT_WORLD = WorldManager.SURFACE_WORLD;
-	private static final Block DEFAULT_CENTER = WorldManager.getHighestBlockYAt(DEFAULT_WORLD, 0, 0);
-	private static final Integer DEFAULT_WIDTH = 1;
-	private static final Integer DEFAULT_HEIGHT = 1;
-	private static final Integer DEFAULT_DEPTH = 1;
+	protected static final World DEFAULT_WORLD = WorldManager.SURFACE_WORLD;
+	protected static final Block DEFAULT_CENTER = WorldManager.getHighestBlockYAt(DEFAULT_WORLD, 0, 0);
+	protected static final Integer DEFAULT_WIDTH = 1, DEFAULT_HEIGHT = 1, DEFAULT_DEPTH = 1;
 
-	private World world;
-	private Block center;
-	private List<IWorldBlock> blocks, before;
-	private Integer width, height, depth;
+	protected World world;
+	protected Block center;
+	protected List<IWorldBlock> blocks, before;
+	protected Integer width, height, depth;
 
 	protected AbstractWorldStructure(String name) {
 		super(name);

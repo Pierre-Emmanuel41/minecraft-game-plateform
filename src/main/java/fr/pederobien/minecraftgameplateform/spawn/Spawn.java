@@ -49,12 +49,16 @@ public class Spawn extends AbstractWorldStructure implements ISpawn {
 	public String toString() {
 		StringJoiner joiner = new StringJoiner("\n");
 		joiner.add("Name : " + getName());
-		joiner.add("World : " + getWorld().getName());
-		joiner.add("Center : " + DisplayHelper.toString(getCenter()));
-		joiner.add("Spawn : " + DisplayHelper.toString(getPlayerSpawn()));
-		joiner.add("Width : " + getWidth() + " blocks");
-		joiner.add("Height : " + getWidth() + " blocks");
-		joiner.add("Depth : " + getWidth() + " blocks");
+		joiner.add("World : " + display(world, getWorld().getName()));
+		joiner.add("Center : " + display(center, DisplayHelper.toString(getCenter())));
+		joiner.add("Spawn : " + display(playerSpawn, DisplayHelper.toString(getPlayerSpawn())));
+		joiner.add("Width : " + display(width, getWidth() + " blocks"));
+		joiner.add("Height : " + display(height, getHeight() + " blocks"));
+		joiner.add("Depth : " + display(depth, getDepth() + " blocks"));
 		return joiner.toString();
+	}
+
+	private String display(Object object, String display) {
+		return object == null ? "Not defined" : display;
 	}
 }
