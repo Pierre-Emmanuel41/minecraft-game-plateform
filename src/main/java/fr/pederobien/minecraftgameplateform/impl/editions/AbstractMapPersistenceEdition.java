@@ -4,6 +4,7 @@ import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 import java.util.List;
+import java.util.StringJoiner;
 
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
@@ -198,6 +199,20 @@ public abstract class AbstractMapPersistenceEdition<T extends IUnmodifiableNomin
 	protected void setNewEditionsAvailable(String... labels) {
 		for (String label : labels)
 			setNewEditionAvailable(label);
+	}
+
+	/**
+	 * Concatenate each argument present into the given array like : elt1 + " " + elt2 + " " + elt3 +...
+	 * 
+	 * @param args The array that contains arguments.
+	 * 
+	 * @return The concatenation of each argument.
+	 */
+	protected String concatArgs(String[] args) {
+		StringJoiner joiner = new StringJoiner(" ");
+		for (String arg : args)
+			joiner.add(arg);
+		return joiner.toString();
 	}
 
 	/**
