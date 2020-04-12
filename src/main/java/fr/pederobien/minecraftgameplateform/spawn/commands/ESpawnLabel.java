@@ -3,7 +3,7 @@ package fr.pederobien.minecraftgameplateform.spawn.commands;
 import fr.pederobien.minecraftgameplateform.interfaces.element.ILabel;
 
 public enum ESpawnLabel implements ILabel {
-	PLAYER_SPAWN("playerspawn");
+	PLAYER_SPAWN("playerspawn"), RANDOM("random");
 
 	private String label;
 
