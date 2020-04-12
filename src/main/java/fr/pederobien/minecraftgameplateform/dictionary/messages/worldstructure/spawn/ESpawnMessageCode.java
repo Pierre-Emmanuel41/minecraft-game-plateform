@@ -43,7 +43,10 @@ public enum ESpawnMessageCode implements IMessageCode {
 	CURRENT_SPAWN__EXPLANATION, CURRENT_SPAWN__ON_CURRENT,
 
 	// Code for command player spawn
-	PLAYER_SPAWN__EXPLANATION, PLAYER_SPAWN__PLAYER_SPAWN_DEFINED;
+	PLAYER_SPAWN__EXPLANATION, PLAYER_SPAWN__PLAYER_SPAWN_DEFINED,
+
+	// Code for command random
+	RANDOM_SPAWN__EXPLANATION;
 
 	private Permission permission;
 
