@@ -25,14 +25,14 @@ public class WorldSpawn_WorldDoesNotExist extends AbstractMessage {
 	private static class French extends WorldSpawn_WorldDoesNotExist {
 		@Override
 		public String getMessage(String... args) {
-			return "Le nom " + args[0] + " ne fait référence à aucun monde";
+			return "Le nom \"" + args[0] + "\" ne fait référence à aucun monde";
 		}
 	}
 
 	private static class English extends WorldSpawn_WorldDoesNotExist {
 		@Override
 		public String getMessage(String... args) {
-			return "The name " + args[0] + " does not refer to any world";
+			return "The name \"" + args[0] + "\" does not refer to any world";
 		}
 	}
 }
