@@ -88,4 +88,11 @@ public class SpawnEditionFactory {
 	public static IMapPersistenceEdition<ISpawn> currentSpawn() {
 		return new CurrentSpawn();
 	}
+
+	/**
+	 * @return An edition to define the player's spawn in the the spawn.
+	 */
+	public static IMapPersistenceEdition<ISpawn> playerSpawn() {
+		return new PlayerSpawn();
+	}
 }
