@@ -41,6 +41,10 @@ public class SpawnPersistence extends AbstractXmlPersistence<ISpawn> {
 		version.appendChild(doc.createTextNode("" + CURRENT_VERSION));
 		root.appendChild(version);
 
+		Element world = createElement(doc, SpawnXmlTag.WORLD);
+		version.appendChild(doc.createTextNode(get().getWorld().getName()));
+		root.appendChild(world);
+
 		Element name = createElement(doc, SpawnXmlTag.NAME);
 		name.appendChild(doc.createTextNode(get().getName()));
 		root.appendChild(name);

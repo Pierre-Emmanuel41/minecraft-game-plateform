@@ -21,9 +21,13 @@ public class SpawnLoaderV10 extends AbstractSpawnLoader {
 
 	@Override
 	public IXmlPersistenceLoader<ISpawn> load(Element root) {
-		// Getting the name of the spawn
+		// Getting the spawn's name
 		Node name = getElementsByTagName(root, SpawnXmlTag.NAME).item(0);
 		get().setName(name.getChildNodes().item(0).getNodeValue());
+
+		// Getting the spawn's world
+		Node world = getElementsByTagName(root, SpawnXmlTag.WORLD).item(0);
+		get().setWorld(world.getChildNodes().item(0).getNodeValue());
 
 		// Getting the dimensions of the spawn
 		Element dimensions = (Element) getElementsByTagName(root, SpawnXmlTag.DIMENSIONS).item(0);
@@ -31,15 +35,15 @@ public class SpawnLoaderV10 extends AbstractSpawnLoader {
 		get().setHeight(getIntAttribute(dimensions, SpawnXmlTag.HEIGHT));
 		get().setDepth(getIntAttribute(dimensions, SpawnXmlTag.DEPTH));
 
-		// Getting the center of the spawn
+		// Getting the spawn's center
 		Element center = (Element) getElementsByTagName(root, SpawnXmlTag.CENTER).item(0);
 		get().setCenter(getXCoordinates(center), getYCoordinates(center), getZCoordinates(center));
 
-		// Getting the player spawn of the spawn
+		// Getting the spawn's player spawn
 		Element playerSpawn = (Element) getElementsByTagName(root, SpawnXmlTag.PLAYER_SPAWN).item(0);
 		get().setPlayerSpawn(getXCoordinates(playerSpawn), getYCoordinates(playerSpawn), getZCoordinates(playerSpawn));
 
-		// Getting blocks of the spawn
+		// Getting spawn's blocks
 		NodeList blocks = getElementsByTagName(root, SpawnXmlTag.BLOCK);
 		List<IWorldBlock> spawnBlocks = new ArrayList<IWorldBlock>();
 		for (int i = 0; i < blocks.getLength(); i++) {
