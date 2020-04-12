@@ -13,7 +13,14 @@ public class SpawnEditionFactory {
 	}
 
 	/**
-	 * @return An edition to define the center of the spawn.
+	 * @return An edition to define the spawn's world.
+	 */
+	public static IMapPersistenceEdition<ISpawn> worldSpawn() {
+		return new WorldSpawn();
+	}
+
+	/**
+	 * @return An edition to define the spawn's center.
 	 */
 	public static IMapPersistenceEdition<ISpawn> centerSpawn() {
 		return new CenterSpawn();
@@ -27,7 +34,7 @@ public class SpawnEditionFactory {
 	}
 
 	/**
-	 * @return An edition to set the dimension of a spawn.
+	 * @return An edition to set the spawn's dimension.
 	 */
 	public static IMapPersistenceEdition<ISpawn> dimensionSpawn() {
 		return new DimensionSpawn();
