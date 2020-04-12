@@ -33,6 +33,6 @@ public class NewSpawn extends CommonNew<ISpawn> {
 	@Override
 	protected void onCreated(CommandSender sender, String name) {
 		sendMessageToSender(sender, ESpawnMessageCode.NEW_SPAWN__SPAWN_CREATED, name);
-		setNewEditionsAvailable(EWorldStructureLabel.CENTER, ECommonLabel.CURRENT);
+		setNewEditionsAvailable(EWorldStructureLabel.WORLD, ECommonLabel.CURRENT);
 	}
 }
