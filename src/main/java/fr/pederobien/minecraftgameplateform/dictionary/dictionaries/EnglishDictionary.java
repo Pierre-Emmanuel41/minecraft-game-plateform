@@ -51,6 +51,7 @@ import fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.s
 import fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.spawn.SaveSpawn_SpawnSaved;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.spawn.SpawnParentExplanation;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.spawn.WorldSpawn_Explanation;
+import fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.spawn.WorldSpawn_WorldDefined;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.spawn.WorldSpawn_WorldDoesNotExist;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.spawn.WorldSpawn_WorldNameIsMissing;
 
@@ -85,6 +86,7 @@ public class EnglishDictionary extends AbstractDictionary {
 		register(WorldSpawn_Explanation.ENGLISH);
 		register(WorldSpawn_WorldNameIsMissing.ENGLISH);
 		register(WorldSpawn_WorldDoesNotExist.ENGLISH);
+		register(WorldSpawn_WorldDefined.ENGLISH);
 		register(CenterSpawn_Explanation.ENGLISH);
 		register(CenterSpawn_CenterDefined.ENGLISH);
 		register(DimensionSpawn_Explanation.ENGLISH);
