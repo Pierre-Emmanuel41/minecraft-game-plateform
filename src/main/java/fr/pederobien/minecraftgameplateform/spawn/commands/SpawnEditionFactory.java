@@ -95,4 +95,11 @@ public class SpawnEditionFactory {
 	public static IMapPersistenceEdition<ISpawn> playerSpawn() {
 		return new PlayerSpawn();
 	}
+
+	/**
+	 * @return An edition to launch randomly a spawn on the world.
+	 */
+	public static IMapPersistenceEdition<ISpawn> randomSpawn() {
+		return new RandomSpawn();
+	}
 }

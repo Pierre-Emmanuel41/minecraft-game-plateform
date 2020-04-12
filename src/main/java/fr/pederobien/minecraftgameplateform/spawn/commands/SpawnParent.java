@@ -25,5 +25,6 @@ public class SpawnParent extends AbstractParentPersistenceEdition<ISpawn> {
 		addEdition(SpawnEditionFactory.currentSpawn());
 		addEdition(SpawnEditionFactory.worldSpawn());
 		addEdition(SpawnEditionFactory.playerSpawn());
+		addEdition(SpawnEditionFactory.randomSpawn().setModifiable(false));
 	}
 }
