@@ -3,7 +3,6 @@ package fr.pederobien.minecraftgameplateform.spawn.commands;
 import org.bukkit.command.CommandSender;
 
 import fr.pederobien.minecraftgameplateform.commands.configurations.worldstructure.CommonDimension;
-import fr.pederobien.minecraftgameplateform.commands.configurations.worldstructure.EWorldStructureLabel;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.spawn.ESpawnMessageCode;
 import fr.pederobien.minecraftgameplateform.interfaces.element.ISpawn;
 
@@ -16,6 +15,6 @@ public class DimensionSpawn extends CommonDimension<ISpawn> {
 	@Override
 	protected void onDimensionDefined(CommandSender sender, String name, int width, int height, int depth) {
 		sendMessageToSender(sender, ESpawnMessageCode.DIMENSION_SPAWN__DEFINED, name, width, height, depth);
-		setNewEditionAvailable(EWorldStructureLabel.EXTRACT);
+		setNewEditionAvailable(ESpawnLabel.PLAYER_SPAWN);
 	}
 }

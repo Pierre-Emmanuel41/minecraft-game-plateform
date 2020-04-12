@@ -40,4 +40,30 @@ public abstract class AbstractLabelEdition<T extends IUnmodifiableNominable> ext
 			setNewEditionAvailable(label);
 	}
 
+	/**
+	 * Find all descendants of the parent whose label match on the given label and set their availability to false.
+	 * 
+	 * @param label The name of the label to match on.
+	 * 
+	 * @see IParentPersistenceEdition#getChildrenByLabelName(String)
+	 * @see #setAvailable(boolean)
+	 */
+	protected void setNewEditionNotAvailable(ILabel label) {
+		List<IMapPersistenceEdition<T>> descendants = getParent().getChildrenByLabelName(label.getLabel());
+		for (IMapPersistenceEdition<T> descendant : descendants)
+			descendant.setModifiable(true).setAvailable(false);
+	}
+
+	/**
+	 * Find all descendants of the parent for each label in the given array and set their availability to false.
+	 * 
+	 * @param labels An array to find different parent's descendants.
+	 * 
+	 * @see AbstractMapPersistenceEdition#setNewEditionAvailable(String)
+	 */
+	protected void setNewEditionsNotAvailable(ILabel... labels) {
+		for (ILabel label : labels)
+			setNewEditionAvailable(label);
+	}
+
 }
