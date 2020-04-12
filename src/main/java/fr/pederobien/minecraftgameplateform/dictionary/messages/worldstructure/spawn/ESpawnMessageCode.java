@@ -37,7 +37,7 @@ public enum ESpawnMessageCode implements IMessageCode {
 	LAUNCH_SPAWN__EXPLANATION, LAUNCH_SPAWN__SPAWN_DOES_NOT_EXIST, LAUNCH_SPAWN__SPAWN_LAUNCHED,
 
 	// Code for command current
-	CURRENT_SPAWN__EXPLANATION;
+	CURRENT_SPAWN__EXPLANATION, CURRENT_SPAWN__ON_CURRENT;
 
 	private Permission permission;
 
