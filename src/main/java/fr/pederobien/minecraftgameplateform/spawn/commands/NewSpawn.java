@@ -44,6 +44,6 @@ public class NewSpawn extends CommonNew<ISpawn> {
 			setNewEditionNotAvailable(label);
 		for (ILabel label : ESpawnLabel.values())
 			setNewEditionNotAvailable(label);
-		setNewEditionsAvailable(EWorldStructureLabel.WORLD, ECommonLabel.CURRENT);
+		setNewEditionsAvailable(EWorldStructureLabel.WORLD, ECommonLabel.CURRENT, ECommonLabel.RENAME);
 	}
 }
