@@ -54,6 +54,6 @@ public class PlayerSpawn extends AbstractWorldStructureEdition<ISpawn> {
 
 	private void onPlayerSpawnDefined(CommandSender sender, int x, int y, int z) {
 		sendMessageToSender(sender, ESpawnMessageCode.PLAYER_SPAWN__PLAYER_SPAWN_DEFINED, x, y, z);
-		setNewEditionAvailable(EWorldStructureLabel.EXTRACT);
+		setAvailableLabelEdition(EWorldStructureLabel.EXTRACT);
 	}
 }

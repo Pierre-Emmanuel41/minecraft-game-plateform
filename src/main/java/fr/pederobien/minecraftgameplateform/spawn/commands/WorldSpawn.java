@@ -26,6 +26,6 @@ public class WorldSpawn extends CommonWorld<ISpawn> {
 	@Override
 	protected void onWorldDefined(CommandSender sender, String name, String worldName) {
 		sendMessageToSender(sender, ESpawnMessageCode.WORLD_SPAWN__WORLD_DEFINED, name, worldName);
-		setNewEditionAvailable(EWorldStructureLabel.CENTER);
+		setAvailableLabelEdition(EWorldStructureLabel.CENTER);
 	}
 }

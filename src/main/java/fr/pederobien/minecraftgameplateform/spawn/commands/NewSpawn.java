@@ -39,11 +39,11 @@ public class NewSpawn extends CommonNew<ISpawn> {
 
 	private void initiateCommandsAvailable() {
 		for (ILabel label : ECommonLabel.values())
-			setNewEditionNotAvailable(label);
+			setNotAvailableLabelEdition(label);
 		for (ILabel label : EWorldStructureLabel.values())
-			setNewEditionNotAvailable(label);
+			setNotAvailableLabelEdition(label);
 		for (ILabel label : ESpawnLabel.values())
-			setNewEditionNotAvailable(label);
-		setNewEditionsAvailable(EWorldStructureLabel.WORLD, ECommonLabel.CURRENT, ECommonLabel.RENAME);
+			setNotAvailableLabelEdition(label);
+		setAvailableLabelEditions(EWorldStructureLabel.WORLD, ECommonLabel.CURRENT, ECommonLabel.RENAME);
 	}
 }

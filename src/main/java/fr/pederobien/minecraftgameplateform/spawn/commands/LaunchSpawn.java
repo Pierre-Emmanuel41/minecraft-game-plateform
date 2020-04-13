@@ -33,10 +33,10 @@ public class LaunchSpawn extends CommonLaunch<ISpawn> {
 
 	private void initiateCommandsAvailable() {
 		for (ILabel label : ECommonLabel.values())
-			setNewEditionsAvailable(label);
+			setAvailableLabelEditions(label);
 		for (ILabel label : EWorldStructureLabel.values())
-			setNewEditionsAvailable(label);
+			setAvailableLabelEditions(label);
 		for (ILabel label : ESpawnLabel.values())
-			setNewEditionsAvailable(label);
+			setAvailableLabelEditions(label);
 	}
 }

@@ -16,6 +16,6 @@ public class SaveSpawn extends CommonSave<ISpawn> {
 	@Override
 	protected void onSave(CommandSender sender, String name) {
 		sendMessageToSender(sender, ESpawnMessageCode.SAVE_SPAWN__SPAWN_SAVED, name);
-		setNewEditionAvailable(EWorldStructureLabel.LAUNCH);
+		setAvailableLabelEdition(EWorldStructureLabel.LAUNCH);
 	}
 }

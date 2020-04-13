@@ -3,7 +3,6 @@ package fr.pederobien.minecraftgameplateform.impl.editions;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
-import java.util.List;
 import java.util.StringJoiner;
 
 import org.bukkit.command.CommandSender;
@@ -194,10 +193,8 @@ public abstract class AbstractMapPersistenceEdition<T extends IUnmodifiableNomin
 	 * @see IParentPersistenceEdition#getChildrenByLabelName(String)
 	 * @see #setAvailable(boolean)
 	 */
-	protected void setNewEditionAvailable(String label) {
-		List<IMapPersistenceEdition<T>> descendants = getParent().getChildrenByLabelName(label);
-		for (IMapPersistenceEdition<T> descendant : descendants)
-			descendant.setAvailable(true);
+	protected void setAvailableEdition(String label) {
+		getParent().getChildrenByLabelName(label).forEach(descendant -> descendant.setAvailable(true));
 	}
 
 	/**
@@ -205,11 +202,35 @@ public abstract class AbstractMapPersistenceEdition<T extends IUnmodifiableNomin
 	 * 
 	 * @param labels An array to find different parent's descendants.
 	 * 
-	 * @see AbstractMapPersistenceEdition#setNewEditionAvailable(String)
+	 * @see AbstractMapPersistenceEdition#setAvailableEdition(String)
 	 */
-	protected void setNewEditionsAvailable(String... labels) {
+	protected void setAvailableEditions(String... labels) {
 		for (String label : labels)
-			setNewEditionAvailable(label);
+			setAvailableEdition(label);
+	}
+
+	/**
+	 * Find all descendants of the parent whose label match on the given label and set their availability to true.
+	 * 
+	 * @param label The name of the label to match on.
+	 * 
+	 * @see IParentPersistenceEdition#getChildrenByLabelName(String)
+	 * @see #setAvailable(boolean)
+	 */
+	protected void setNotAvailableEdition(String label) {
+		getParent().getChildrenByLabelName(label).forEach(descendant -> descendant.setModifiable(true).setAvailable(true).setModifiable(false));
+	}
+
+	/**
+	 * Find all descendants of the parent for each label in the given array and set their availability to true.
+	 * 
+	 * @param labels An array to find different parent's descendants.
+	 * 
+	 * @see AbstractMapPersistenceEdition#setAvailableEdition(String)
+	 */
+	protected void setNotAvailableEditions(String... labels) {
+		for (String label : labels)
+			setNotAvailableEdition(label);
 	}
 
 	/**

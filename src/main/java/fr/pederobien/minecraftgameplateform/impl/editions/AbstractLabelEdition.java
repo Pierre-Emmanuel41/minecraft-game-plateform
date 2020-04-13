@@ -1,9 +1,6 @@
 package fr.pederobien.minecraftgameplateform.impl.editions;
 
-import java.util.List;
-
 import fr.pederobien.minecraftgameplateform.interfaces.dictionary.IMessageCode;
-import fr.pederobien.minecraftgameplateform.interfaces.editions.IMapPersistenceEdition;
 import fr.pederobien.minecraftgameplateform.interfaces.editions.IParentPersistenceEdition;
 import fr.pederobien.minecraftgameplateform.interfaces.element.ILabel;
 import fr.pederobien.minecraftgameplateform.interfaces.element.unmodifiable.IUnmodifiableNominable;
@@ -22,10 +19,8 @@ public abstract class AbstractLabelEdition<T extends IUnmodifiableNominable> ext
 	 * @see IParentPersistenceEdition#getChildrenByLabelName(String)
 	 * @see #setAvailable(boolean)
 	 */
-	protected void setNewEditionAvailable(ILabel label) {
-		List<IMapPersistenceEdition<T>> descendants = getParent().getChildrenByLabelName(label.getLabel());
-		for (IMapPersistenceEdition<T> descendant : descendants)
-			descendant.setAvailable(true);
+	protected void setAvailableLabelEdition(ILabel label) {
+		setAvailableEdition(label.getLabel());
 	}
 
 	/**
@@ -33,11 +28,11 @@ public abstract class AbstractLabelEdition<T extends IUnmodifiableNominable> ext
 	 * 
 	 * @param labels An array to find different parent's descendants.
 	 * 
-	 * @see AbstractMapPersistenceEdition#setNewEditionAvailable(String)
+	 * @see AbstractMapPersistenceEdition#setAvailableEdition(String)
 	 */
-	protected void setNewEditionsAvailable(ILabel... labels) {
+	protected void setAvailableLabelEditions(ILabel... labels) {
 		for (ILabel label : labels)
-			setNewEditionAvailable(label);
+			setAvailableLabelEdition(label);
 	}
 
 	/**
@@ -48,10 +43,8 @@ public abstract class AbstractLabelEdition<T extends IUnmodifiableNominable> ext
 	 * @see IParentPersistenceEdition#getChildrenByLabelName(String)
 	 * @see #setAvailable(boolean)
 	 */
-	protected void setNewEditionNotAvailable(ILabel label) {
-		List<IMapPersistenceEdition<T>> descendants = getParent().getChildrenByLabelName(label.getLabel());
-		for (IMapPersistenceEdition<T> descendant : descendants)
-			descendant.setModifiable(true).setAvailable(false);
+	protected void setNotAvailableLabelEdition(ILabel label) {
+		setNotAvailableEdition(label.getLabel());
 	}
 
 	/**
@@ -59,11 +52,10 @@ public abstract class AbstractLabelEdition<T extends IUnmodifiableNominable> ext
 	 * 
 	 * @param labels An array to find different parent's descendants.
 	 * 
-	 * @see AbstractMapPersistenceEdition#setNewEditionAvailable(String)
+	 * @see AbstractMapPersistenceEdition#setAvailableEdition(String)
 	 */
-	protected void setNewEditionsNotAvailable(ILabel... labels) {
+	protected void setNotAvailableLabelEditions(ILabel... labels) {
 		for (ILabel label : labels)
-			setNewEditionAvailable(label);
+			setNotAvailableLabelEdition(label);
 	}
-
 }

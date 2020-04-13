@@ -16,6 +16,6 @@ public class ExtractSpawn extends CommonExtract<ISpawn> {
 	@Override
 	protected void onExtracted(CommandSender sender, String name) {
 		sendMessageToSender(sender, ESpawnMessageCode.EXTRACT_SPAWN__SPAWN_EXTRACTED, name);
-		setNewEditionAvailable(ECommonLabel.SAVE);
+		setAvailableLabelEdition(ECommonLabel.SAVE);
 	}
 }
