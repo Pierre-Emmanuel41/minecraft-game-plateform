@@ -127,11 +127,11 @@ public abstract class CommonLaunch<T extends IWorldStructure> extends AbstractWo
 	private List<String> checkCoordinates(String[] args) {
 		switch (args.length) {
 		case 1:
-			return check(args[0], e -> isInt(e), Arrays.asList("[<X> <Y> <Z>]"));
+			return check(args[0], e -> isNotStrictInt(e), Arrays.asList("[<X> <Y> <Z>]"));
 		case 2:
-			return check(args[1], e -> isInt(e), Arrays.asList("<Y> <Z>"));
+			return check(args[1], e -> isNotStrictInt(e), check(args[0], e -> isStrictInt(e), Arrays.asList("<Y> <Z>")));
 		case 3:
-			return check(args[2], e -> isInt(e), Arrays.asList("<Z>"));
+			return check(args[2], e -> isNotStrictInt(e), check(args[1], e -> isStrictInt(e), Arrays.asList("<Z>")));
 		}
 		return emptyList();
 	}

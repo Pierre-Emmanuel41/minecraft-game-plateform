@@ -48,13 +48,13 @@ public class RandomSpawn extends AbstractWorldStructureEdition<ISpawn> {
 		switch (args.length) {
 		case 1:
 			// Check if the first argument is an integer
-			return check(args[0], e -> isInt(e), Arrays.asList("<X> <Y> <Z>"));
+			return check(args[0], e -> isNotStrictInt(e), Arrays.asList("<X> <Y> <Z>"));
 		case 2:
 			// Check if the second argument is an integer
-			return check(args[1], e -> isInt(e), check(args[0], e -> isInt(e), Arrays.asList("<Y> <Z>")));
+			return check(args[1], e -> isNotStrictInt(e), check(args[0], e -> isStrictInt(e), Arrays.asList("<Y> <Z>")));
 		case 3:
 			// Check if the third argument is an integer
-			return check(args[2], e -> isInt(e), check(args[1], e -> isInt(e), Arrays.asList("<Z>")));
+			return check(args[2], e -> isNotStrictInt(e), check(args[1], e -> isStrictInt(e), Arrays.asList("<Z>")));
 		}
 		return super.onTabComplete(sender, command, alias, args);
 	}

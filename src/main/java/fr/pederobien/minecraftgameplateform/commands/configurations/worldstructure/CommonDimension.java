@@ -47,11 +47,11 @@ public abstract class CommonDimension<T extends IWorldStructure> extends Abstrac
 	public List<String> onTabComplete(CommandSender sender, Command command, String alias, String[] args) {
 		switch (args.length) {
 		case 1:
-			return check(args[0], e -> isInt(e), Arrays.asList("<X> <Y> <Z>"));
+			return check(args[0], e -> isNotStrictInt(e), Arrays.asList("<X> <Y> <Z>"));
 		case 2:
-			return check(args[1], e -> isInt(e), check(args[0], e -> isInt(e), Arrays.asList("<Y> <Z>")));
+			return check(args[1], e -> isNotStrictInt(e), check(args[0], e -> isStrictInt(e), Arrays.asList("<Y> <Z>")));
 		case 3:
-			return check(args[2], e -> isInt(e), check(args[1], e -> isInt(e), Arrays.asList("<Y> <Z>")));
+			return check(args[2], e -> isNotStrictInt(e), check(args[1], e -> isStrictInt(e), Arrays.asList("<Z>")));
 		}
 		return super.onTabComplete(sender, command, alias, args);
 	}
