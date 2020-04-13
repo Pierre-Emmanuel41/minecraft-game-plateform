@@ -17,11 +17,6 @@ public class NewSpawn_SpawnCreated extends AbstractMessage {
 		super(ESpawnMessageCode.NEW_SPAWN__SPAWN_CREATED);
 	}
 
-	@Override
-	public String getMessage(String... args) {
-		return null;
-	}
-
 	private static class French extends NewSpawn_SpawnCreated {
 		@Override
 		public String getMessage(String... args) {

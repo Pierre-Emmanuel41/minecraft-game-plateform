@@ -17,11 +17,6 @@ public class ResumingGame extends AbstractMessage {
 		super(EGameMessageCode.RESUMING_GAME);
 	}
 
-	@Override
-	public String getMessage(String... args) {
-		return null;
-	}
-
 	private static class French extends ResumingGame {
 		@Override
 		public String getMessage(String... args) {

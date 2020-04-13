@@ -17,11 +17,6 @@ public class RenameSpawn_NameAlreadyTaken extends AbstractMessage {
 		super(ESpawnMessageCode.RENAME_SPAWN__NAME_ALREADY_TAKEN);
 	}
 
-	@Override
-	public String getMessage(String... args) {
-		return null;
-	}
-
 	private static class French extends RenameSpawn_NameAlreadyTaken {
 		@Override
 		public String getMessage(String... args) {

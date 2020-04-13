@@ -17,11 +17,6 @@ public class LaunchSpawn_SpawnDoesNotExist extends AbstractMessage {
 		super(ESpawnMessageCode.LAUNCH_SPAWN__SPAWN_DOES_NOT_EXIST);
 	}
 
-	@Override
-	public String getMessage(String... args) {
-		return null;
-	}
-
 	private static class French extends LaunchSpawn_SpawnDoesNotExist {
 		@Override
 		public String getMessage(String... args) {

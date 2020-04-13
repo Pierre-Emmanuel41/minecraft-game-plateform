@@ -17,11 +17,6 @@ public class RenameSpawn_NameIsMissing extends AbstractMessage {
 		super(ESpawnMessageCode.RENAME_SPAWN__NAME_IS_MISSING);
 	}
 
-	@Override
-	public String getMessage(String... args) {
-		return null;
-	}
-
 	private static class French extends RenameSpawn_NameIsMissing {
 		@Override
 		public String getMessage(String... args) {

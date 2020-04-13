@@ -17,11 +17,6 @@ public class Common_MissingCoordinates extends AbstractMessage {
 		super(EWorldStructureMessageCode.COMMON_MISSING_COORDINATES);
 	}
 
-	@Override
-	public String getMessage(String... args) {
-		return null;
-	}
-
 	private static class French extends Common_MissingCoordinates {
 		@Override
 		public String getMessage(String... args) {

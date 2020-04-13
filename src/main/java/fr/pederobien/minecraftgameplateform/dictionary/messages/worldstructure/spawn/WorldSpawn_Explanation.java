@@ -17,11 +17,6 @@ public class WorldSpawn_Explanation extends AbstractMessage {
 		super(ESpawnMessageCode.WORLD_SPAWN__EXPLANATION);
 	}
 
-	@Override
-	public String getMessage(String... args) {
-		return null;
-	}
-
 	private static class French extends WorldSpawn_Explanation {
 		@Override
 		public String getMessage(String... args) {

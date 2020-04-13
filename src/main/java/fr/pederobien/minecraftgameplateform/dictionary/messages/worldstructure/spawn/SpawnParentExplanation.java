@@ -11,11 +11,6 @@ public class SpawnParentExplanation extends AbstractMessage {
 		super(ESpawnMessageCode.SPAWN_PARENT_EXPLANATION);
 	}
 
-	@Override
-	public String getMessage(String... args) {
-		return null;
-	}
-
 	private static class French extends SpawnParentExplanation {
 
 		@Override

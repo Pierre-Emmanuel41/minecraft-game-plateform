@@ -17,11 +17,6 @@ public class WorldSpawn_WorldNameIsMissing extends AbstractMessage {
 		super(ESpawnMessageCode.WORLD_SPAWN__WORLD_NAME_IS_MISSING);
 	}
 
-	@Override
-	public String getMessage(String... args) {
-		return null;
-	}
-
 	private static class French extends WorldSpawn_WorldNameIsMissing {
 		@Override
 		public String getMessage(String... args) {

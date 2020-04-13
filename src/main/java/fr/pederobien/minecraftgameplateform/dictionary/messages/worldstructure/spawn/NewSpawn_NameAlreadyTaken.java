@@ -17,11 +17,6 @@ public class NewSpawn_NameAlreadyTaken extends AbstractMessage {
 		super(ESpawnMessageCode.NEW_SPAWN__NAME_ALREADY_TAKEN);
 	}
 
-	@Override
-	public String getMessage(String... args) {
-		return null;
-	}
-
 	private static class French extends NewSpawn_NameAlreadyTaken {
 		@Override
 		public String getMessage(String... args) {

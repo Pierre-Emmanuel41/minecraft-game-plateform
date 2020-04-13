@@ -17,11 +17,6 @@ public class CommonDimension_BadDimensionFormat extends AbstractMessage {
 		super(EWorldStructureMessageCode.COMMON_DIMENSION__BAD_DIMENSION_FORMAT);
 	}
 
-	@Override
-	public String getMessage(String... args) {
-		return null;
-	}
-
 	private static class French extends CommonDimension_BadDimensionFormat {
 
 		@Override

@@ -17,11 +17,6 @@ public class StoppingGame extends AbstractMessage {
 		super(EGameMessageCode.STOPPING_GAME);
 	}
 
-	@Override
-	public String getMessage(String... args) {
-		return null;
-	}
-
 	private static class French extends StoppingGame {
 		@Override
 		public String getMessage(String... args) {

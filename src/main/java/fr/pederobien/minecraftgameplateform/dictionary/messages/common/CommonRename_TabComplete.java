@@ -17,11 +17,6 @@ public class CommonRename_TabComplete extends AbstractMessage {
 		super(ECommonMessageCode.COMMON_RENAME__TAB_COMPLETE);
 	}
 
-	@Override
-	public String getMessage(String... args) {
-		return null;
-	}
-
 	private static class French extends CommonRename_TabComplete {
 		@Override
 		public String getMessage(String... args) {

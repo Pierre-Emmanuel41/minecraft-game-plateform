@@ -17,11 +17,6 @@ public class NoConfigurationSetted extends AbstractMessage {
 		super(EGameMessageCode.NO_CONFIGURATION_SETTED);
 	}
 
-	@Override
-	public String getMessage(String... args) {
-		return null;
-	}
-
 	private static class French extends NoConfigurationSetted {
 
 		@Override

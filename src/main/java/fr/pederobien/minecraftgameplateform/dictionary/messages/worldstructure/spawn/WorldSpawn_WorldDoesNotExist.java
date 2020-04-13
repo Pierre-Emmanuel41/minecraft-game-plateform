@@ -17,11 +17,6 @@ public class WorldSpawn_WorldDoesNotExist extends AbstractMessage {
 		super(ESpawnMessageCode.WORLD_SPAWN__WORLD_DOES_NOT_EXIST);
 	}
 
-	@Override
-	public String getMessage(String... args) {
-		return null;
-	}
-
 	private static class French extends WorldSpawn_WorldDoesNotExist {
 		@Override
 		public String getMessage(String... args) {

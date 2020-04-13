@@ -17,11 +17,6 @@ public class Common_ArgumentNotFound extends AbstractMessage {
 		super(ECommonMessageCode.COMMON_ARGUMENT_NOT_FOUND);
 	}
 
-	@Override
-	public String getMessage(String... args) {
-		return null;
-	}
-
 	private static class French extends Common_ArgumentNotFound {
 		@Override
 		public String getMessage(String... args) {

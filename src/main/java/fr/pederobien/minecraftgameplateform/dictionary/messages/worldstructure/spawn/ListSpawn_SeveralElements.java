@@ -17,11 +17,6 @@ public class ListSpawn_SeveralElements extends AbstractMessage {
 		super(ESpawnMessageCode.LIST_SPAWN__SEVERAL_ELEMENTS);
 	}
 
-	@Override
-	public String getMessage(String... args) {
-		return null;
-	}
-
 	private static class French extends ListSpawn_SeveralElements {
 		@Override
 		public String getMessage(String... args) {

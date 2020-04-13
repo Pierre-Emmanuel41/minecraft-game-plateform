@@ -17,11 +17,6 @@ public class Common_NotAvailableCommand extends AbstractMessage {
 		super(ECommonMessageCode.COMMON_NOT_AVAILABLE_COMMAND);
 	}
 
-	@Override
-	public String getMessage(String... args) {
-		return null;
-	}
-
 	private static class French extends Common_NotAvailableCommand {
 		@Override
 		public String getMessage(String... args) {

@@ -17,11 +17,6 @@ public class Common_NameMustNotStartWithDefault extends AbstractMessage {
 		super(ECommonMessageCode.COMMON_NAME_MUST_NOT_START_WITH_DEFAULT);
 	}
 
-	@Override
-	public String getMessage(String... args) {
-		return null;
-	}
-
 	private static class French extends Common_NameMustNotStartWithDefault {
 		@Override
 		public String getMessage(String... args) {

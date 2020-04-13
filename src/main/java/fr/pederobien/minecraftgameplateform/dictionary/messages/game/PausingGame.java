@@ -18,11 +18,6 @@ public class PausingGame extends AbstractMessage {
 		super(EGameMessageCode.PAUSING_GAME);
 	}
 
-	@Override
-	public String getMessage(String... args) {
-		return null;
-	}
-
 	private static class French extends PausingGame {
 		@Override
 		public String getMessage(String... args) {

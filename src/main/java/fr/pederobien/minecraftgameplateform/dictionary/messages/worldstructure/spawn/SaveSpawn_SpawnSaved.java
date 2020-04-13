@@ -17,11 +17,6 @@ public class SaveSpawn_SpawnSaved extends AbstractMessage {
 		super(ESpawnMessageCode.SAVE_SPAWN__SPAWN_SAVED);
 	}
 
-	@Override
-	public String getMessage(String... args) {
-		return null;
-	}
-
 	private static class French extends SaveSpawn_SpawnSaved {
 		@Override
 		public String getMessage(String... args) {

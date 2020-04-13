@@ -17,11 +17,6 @@ public class ExtractSpawn_SpawnExtracted extends AbstractMessage {
 		super(ESpawnMessageCode.EXTRACT_SPAWN__SPAWN_EXTRACTED);
 	}
 
-	@Override
-	public String getMessage(String... args) {
-		return null;
-	}
-
 	private static class French extends ExtractSpawn_SpawnExtracted {
 		@Override
 		public String getMessage(String... args) {

@@ -17,11 +17,6 @@ public class RenameSpawn_Explanation extends AbstractMessage {
 		super(ESpawnMessageCode.RENAME_SPAWN__EXPLANATION);
 	}
 
-	@Override
-	public String getMessage(String... args) {
-		return null;
-	}
-
 	private static class French extends RenameSpawn_Explanation {
 		@Override
 		public String getMessage(String... args) {

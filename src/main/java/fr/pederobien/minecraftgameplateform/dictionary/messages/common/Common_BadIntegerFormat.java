@@ -17,11 +17,6 @@ public class Common_BadIntegerFormat extends AbstractMessage {
 		super(ECommonMessageCode.COMMON_BAD_INTEGER_FORMAT);
 	}
 
-	@Override
-	public String getMessage(String... args) {
-		return null;
-	}
-
 	private static class French extends Common_BadIntegerFormat {
 		@Override
 		public String getMessage(String... args) {

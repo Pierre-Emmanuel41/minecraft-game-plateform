@@ -17,11 +17,6 @@ public class PlayerSpawn_PlayerSpawnDefined extends AbstractMessage {
 		super(ESpawnMessageCode.PLAYER_SPAWN__PLAYER_SPAWN_DEFINED);
 	}
 
-	@Override
-	public String getMessage(String... args) {
-		return null;
-	}
-
 	private static class French extends PlayerSpawn_PlayerSpawnDefined {
 		@Override
 		public String getMessage(String... args) {

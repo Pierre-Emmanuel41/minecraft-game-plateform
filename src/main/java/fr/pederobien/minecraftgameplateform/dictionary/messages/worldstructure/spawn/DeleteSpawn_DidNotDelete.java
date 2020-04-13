@@ -17,11 +17,6 @@ public class DeleteSpawn_DidNotDelete extends AbstractMessage {
 		super(ESpawnMessageCode.DELETE_SPAWN__DIT_NOT_DELETE);
 	}
 
-	@Override
-	public String getMessage(String... args) {
-		return null;
-	}
-
 	private static class French extends DeleteSpawn_DidNotDelete {
 		@Override
 		public String getMessage(String... args) {

@@ -17,11 +17,6 @@ public class CommonNew_TabComplete extends AbstractMessage {
 		super(ECommonMessageCode.COMMON_NEW__TAB_COMPLETE);
 	}
 
-	@Override
-	public String getMessage(String... args) {
-		return null;
-	}
-
 	private static class French extends CommonNew_TabComplete {
 		@Override
 		public String getMessage(String... args) {

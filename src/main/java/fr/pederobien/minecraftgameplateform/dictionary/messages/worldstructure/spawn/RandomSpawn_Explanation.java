@@ -17,11 +17,6 @@ public class RandomSpawn_Explanation extends AbstractMessage {
 		super(ESpawnMessageCode.RANDOM_SPAWN__EXPLANATION);
 	}
 
-	@Override
-	public String getMessage(String... args) {
-		return null;
-	}
-
 	private static class French extends RandomSpawn_Explanation {
 		@Override
 		public String getMessage(String... args) {

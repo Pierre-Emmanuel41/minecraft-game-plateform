@@ -17,11 +17,6 @@ public class CommonDimension_MissingDimension extends AbstractMessage {
 		super(EWorldStructureMessageCode.COMMON_DIMENSION__MISSING_DIMENSION);
 	}
 
-	@Override
-	public String getMessage(String... args) {
-		return null;
-	}
-
 	private static class French extends CommonDimension_MissingDimension {
 
 		@Override

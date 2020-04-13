@@ -17,11 +17,6 @@ public class LaunchSpawn_SpawnLaunched extends AbstractMessage {
 		super(ESpawnMessageCode.LAUNCH_SPAWN__SPAWN_LAUNCHED);
 	}
 
-	@Override
-	public String getMessage(String... args) {
-		return null;
-	}
-
 	private static class French extends LaunchSpawn_SpawnLaunched {
 		@Override
 		public String getMessage(String... args) {

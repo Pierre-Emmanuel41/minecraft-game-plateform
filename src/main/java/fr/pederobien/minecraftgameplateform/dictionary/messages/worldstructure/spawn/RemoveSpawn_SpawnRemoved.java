@@ -17,11 +17,6 @@ public class RemoveSpawn_SpawnRemoved extends AbstractMessage {
 		super(ESpawnMessageCode.REMOVE_SPAWN__SPAWN_REMOVED);
 	}
 
-	@Override
-	public String getMessage(String... args) {
-		return null;
-	}
-
 	private static class French extends RemoveSpawn_SpawnRemoved {
 		@Override
 		public String getMessage(String... args) {

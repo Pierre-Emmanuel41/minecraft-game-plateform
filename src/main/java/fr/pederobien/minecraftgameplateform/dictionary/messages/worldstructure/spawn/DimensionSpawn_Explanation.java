@@ -17,11 +17,6 @@ public class DimensionSpawn_Explanation extends AbstractMessage {
 		super(ESpawnMessageCode.DIMENSION_SPAWN__EXPLANATION);
 	}
 
-	@Override
-	public String getMessage(String... args) {
-		return null;
-	}
-
 	private static class French extends DimensionSpawn_Explanation {
 
 		@Override

@@ -18,11 +18,6 @@ public class StartingGame extends AbstractMessage {
 		super(EGameMessageCode.STARTING_GAME);
 	}
 
-	@Override
-	public String getMessage(String... args) {
-		return null;
-	}
-
 	private static class French extends StartingGame {
 
 		@Override

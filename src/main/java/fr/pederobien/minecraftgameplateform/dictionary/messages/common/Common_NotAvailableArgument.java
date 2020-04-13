@@ -17,11 +17,6 @@ public class Common_NotAvailableArgument extends AbstractMessage {
 		super(ECommonMessageCode.COMMON_NOT_AVAILABLE_ARGUMENT);
 	}
 
-	@Override
-	public String getMessage(String... args) {
-		return null;
-	}
-
 	private static class French extends Common_NotAvailableArgument {
 		@Override
 		public String getMessage(String... args) {

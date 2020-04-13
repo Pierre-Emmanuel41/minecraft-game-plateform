@@ -17,11 +17,6 @@ public class CurrentSpawn_OnCurrent extends AbstractMessage {
 		super(ESpawnMessageCode.CURRENT_SPAWN__ON_CURRENT);
 	}
 
-	@Override
-	public String getMessage(String... args) {
-		return null;
-	}
-
 	private static class French extends CurrentSpawn_OnCurrent {
 		@Override
 		public String getMessage(String... args) {
