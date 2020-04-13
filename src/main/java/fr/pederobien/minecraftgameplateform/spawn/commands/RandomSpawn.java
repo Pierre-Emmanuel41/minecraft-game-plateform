@@ -11,6 +11,7 @@ import org.bukkit.command.CommandSender;
 import fr.pederobien.minecraftdevelopmenttoolkit.managers.BukkitManager;
 import fr.pederobien.minecraftgameplateform.commands.configurations.worldstructure.AbstractWorldStructureEdition;
 import fr.pederobien.minecraftgameplateform.commands.configurations.worldstructure.EWorldStructureLabel;
+import fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.EWorldStructureMessageCode;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.spawn.ESpawnMessageCode;
 import fr.pederobien.minecraftgameplateform.interfaces.element.ISpawn;
 
@@ -28,11 +29,17 @@ public class RandomSpawn extends AbstractWorldStructureEdition<ISpawn> {
 			get().remove();
 			getPersistence().save();
 		}
+
+		// Args : X + Y + Z
+		if (args.length < 3) {
+			sendMessageToSender(sender, EWorldStructureMessageCode.COMMON_MISSING_COORDINATES);
+			return false;
+		}
 		StringJoiner joiner = new StringJoiner(" ");
 		joiner.add("spawn").add(EWorldStructureLabel.LAUNCH.getLabel()).add(name);
 		for (String arg : args)
 			joiner.add(arg);
-		BukkitManager.dispatchCommand(joiner.toString());
+		BukkitManager.dispatchCommand(sender, joiner.toString());
 		return true;
 	}
 
