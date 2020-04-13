@@ -23,6 +23,7 @@ import fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.s
 import fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.spawn.CenterSpawn_Explanation;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.spawn.CurrentSpawn_Explanation;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.spawn.CurrentSpawn_OnCurrent;
+import fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.spawn.DeleteSpawn_DidNotDelete;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.spawn.DeleteSpawn_Explanation;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.spawn.DeleteSpawn_NameIsMissing;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.spawn.DeleteSpawn_SpawnDeleted;
@@ -107,6 +108,7 @@ public class FrenchDictionary extends AbstractDictionary {
 		register(DeleteSpawn_Explanation.FRENCH);
 		register(DeleteSpawn_NameIsMissing.FRENCH);
 		register(DeleteSpawn_SpawnDeleted.FRENCH);
+		register(DeleteSpawn_DidNotDelete.FRENCH);
 		register(ExtractSpawn_Explanation.FRENCH);
 		register(ExtractSpawn_SpawnExtracted.FRENCH);
 		register(RemoveSpawn_Explanation.FRENCH);

@@ -8,6 +8,7 @@ import org.bukkit.command.CommandSender;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.common.ECommonMessageCode;
 import fr.pederobien.minecraftgameplateform.impl.editions.AbstractLabelEdition;
 import fr.pederobien.minecraftgameplateform.interfaces.dictionary.IMessageCode;
+import fr.pederobien.minecraftgameplateform.interfaces.element.persistence.IPersistence;
 import fr.pederobien.minecraftgameplateform.interfaces.element.unmodifiable.IUnmodifiableNominable;
 
 public abstract class CommonDelete<T extends IUnmodifiableNominable> extends AbstractLabelEdition<T> {
@@ -15,6 +16,14 @@ public abstract class CommonDelete<T extends IUnmodifiableNominable> extends Abs
 	protected CommonDelete(IMessageCode explanation) {
 		super(ECommonLabel.DELETE, explanation);
 	}
+
+	/**
+	 * Method called when the method {@link IPersistence#delete(String)} returns false.
+	 * 
+	 * @param sender The entity (generally a player) to send messages.
+	 * @param name   The name used to delete the object's file.
+	 */
+	protected abstract void onDidNotDelete(CommandSender sender, String name);
 
 	/**
 	 * Method called when the file associated to the given name has been correctly deleted.
@@ -39,7 +48,10 @@ public abstract class CommonDelete<T extends IUnmodifiableNominable> extends Abs
 				sendMessageToSender(sender, ECommonMessageCode.COMMON_NAME_MUST_NOT_START_WITH_DEFAULT, name);
 				return false;
 			}
-			getPersistence().delete(name);
+			if (!getPersistence().delete(name)) {
+				onDidNotDelete(sender, name);
+				return false;
+			}
 			onDeleted(sender, name);
 		} catch (IndexOutOfBoundsException e) {
 			onNameIsMissing(sender);
