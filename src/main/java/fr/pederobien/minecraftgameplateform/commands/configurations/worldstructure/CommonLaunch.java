@@ -20,6 +20,13 @@ public abstract class CommonLaunch<T extends IWorldStructure> extends AbstractWo
 	}
 
 	/**
+	 * Method called when no argument has been furnished and no structure is defined.
+	 * 
+	 * @param sender The entity (generally a player) to send messages.
+	 */
+	protected abstract void onNoStructure(CommandSender sender);
+
+	/**
 	 * Method called when the structure has been correctly launched.
 	 * 
 	 * @param sender The entity (generally a player) to send messages.
@@ -46,6 +53,10 @@ public abstract class CommonLaunch<T extends IWorldStructure> extends AbstractWo
 
 		// Launching the current structure
 		if (args.length == 0) {
+			if (get() == null) {
+				onNoStructure(sender);
+				return false;
+			}
 			get().launch();
 			onLaunched(sender, get().getName(), get().getCenter().getX(), get().getCenter().getY(), get().getCenter().getZ());
 			return true;

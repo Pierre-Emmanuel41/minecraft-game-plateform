@@ -16,6 +16,11 @@ public class LaunchSpawn extends CommonLaunch<ISpawn> {
 	}
 
 	@Override
+	protected void onNoStructure(CommandSender sender) {
+		sendMessageToSender(sender, ESpawnMessageCode.LAUNCH_SPAWN__NO_CURRENT_SPAWN);
+	}
+
+	@Override
 	protected void onLaunched(CommandSender sender, String name, int x, int y, int z) {
 		sendMessageToSender(sender, ESpawnMessageCode.LAUNCH_SPAWN__SPAWN_LAUNCHED, name, x, y, z);
 		initiateCommandsAvailable();
