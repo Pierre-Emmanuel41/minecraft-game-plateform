@@ -36,7 +36,7 @@ public class RandomSpawn extends AbstractWorldStructureEdition<ISpawn> {
 			return false;
 		}
 		StringJoiner joiner = new StringJoiner(" ");
-		joiner.add("spawn").add(EWorldStructureLabel.LAUNCH.getLabel()).add(name);
+		joiner.add(getParent().getLabel()).add(EWorldStructureLabel.LAUNCH.getLabel()).add(name);
 		for (String arg : args)
 			joiner.add(arg);
 		BukkitManager.dispatchCommand(sender, joiner.toString());
