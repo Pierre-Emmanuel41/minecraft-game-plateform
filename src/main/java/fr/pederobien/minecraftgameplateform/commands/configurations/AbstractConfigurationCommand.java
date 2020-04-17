@@ -69,6 +69,7 @@ public class AbstractConfigurationCommand<T extends IUnmodifiableNominable> exte
 		try {
 			persistence.load(persistence.getDefaultContent().getName());
 			persistence.save();
+			persistence.set(null);
 		} catch (FileNotFoundException e) {
 
 		}
