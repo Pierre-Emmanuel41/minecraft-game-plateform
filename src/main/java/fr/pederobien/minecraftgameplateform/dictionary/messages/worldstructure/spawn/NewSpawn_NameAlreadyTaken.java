@@ -1,9 +1,9 @@
 package fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.spawn;
 
-import fr.pederobien.minecraftgameplateform.dictionary.messages.AbstractMessage;
+import fr.pederobien.minecraftgameplateform.dictionary.messages.AbstractDynamicMessage;
 import fr.pederobien.minecraftgameplateform.interfaces.dictionary.IMessage;
 
-public class NewSpawn_NameAlreadyTaken extends AbstractMessage {
+public class NewSpawn_NameAlreadyTaken extends AbstractDynamicMessage {
 	/**
 	 * Message in French explain the given name is already taken by another spawn.
 	 */
@@ -27,7 +27,7 @@ public class NewSpawn_NameAlreadyTaken extends AbstractMessage {
 	private static class English extends NewSpawn_NameAlreadyTaken {
 		@Override
 		public String getMessage(String... args) {
-			return "A spawn " + args[0] + " already exist";
+			return "A spawn " + args[0] + " already exists";
 		}
 	}
 }

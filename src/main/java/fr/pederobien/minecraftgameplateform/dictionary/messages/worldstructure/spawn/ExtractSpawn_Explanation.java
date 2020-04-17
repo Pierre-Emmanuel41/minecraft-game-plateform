@@ -1,9 +1,9 @@
 package fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.spawn;
 
-import fr.pederobien.minecraftgameplateform.dictionary.messages.AbstractMessage;
+import fr.pederobien.minecraftgameplateform.dictionary.messages.AbstractNotDynamicMessage;
 import fr.pederobien.minecraftgameplateform.interfaces.dictionary.IMessage;
 
-public class ExtractSpawn_Explanation extends AbstractMessage {
+public class ExtractSpawn_Explanation extends AbstractNotDynamicMessage {
 	/**
 	 * Message in French explain what does the command "extract" do.
 	 */
@@ -13,21 +13,19 @@ public class ExtractSpawn_Explanation extends AbstractMessage {
 	 */
 	public static final IMessage ENGLISH = new English();
 
-	public ExtractSpawn_Explanation() {
-		super(ESpawnMessageCode.EXTRACT_SPAWN__EXPLANATION);
+	public ExtractSpawn_Explanation(String message) {
+		super(ESpawnMessageCode.EXTRACT_SPAWN__EXPLANATION, message);
 	}
 
-	private static class French extends ExtractSpawn_Explanation {
-		@Override
-		public String getMessage(String... args) {
-			return "Pour extraire du monde les blocs du spawn";
+	private static class French extends DimensionSpawn_Explanation {
+		public French() {
+			super("Pour extraire du monde les blocs du spawn");
 		}
 	}
 
-	private static class English extends ExtractSpawn_Explanation {
-		@Override
-		public String getMessage(String... args) {
-			return "to extract from the world the spawn blocks";
+	private static class English extends DimensionSpawn_Explanation {
+		public English() {
+			super("to extract from the world spawn's blocks");
 		}
 	}
 }

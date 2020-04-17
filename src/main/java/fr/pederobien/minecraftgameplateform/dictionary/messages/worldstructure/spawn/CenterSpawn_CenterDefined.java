@@ -1,9 +1,9 @@
 package fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.spawn;
 
-import fr.pederobien.minecraftgameplateform.dictionary.messages.AbstractMessage;
+import fr.pederobien.minecraftgameplateform.dictionary.messages.AbstractDynamicMessage;
 import fr.pederobien.minecraftgameplateform.interfaces.dictionary.IMessage;
 
-public class CenterSpawn_CenterDefined extends AbstractMessage {
+public class CenterSpawn_CenterDefined extends AbstractDynamicMessage {
 	/**
 	 * Message in French explains the center has been correctly defined.
 	 */

@@ -1,9 +1,9 @@
 package fr.pederobien.minecraftgameplateform.dictionary.messages.common;
 
-import fr.pederobien.minecraftgameplateform.dictionary.messages.AbstractMessage;
+import fr.pederobien.minecraftgameplateform.dictionary.messages.AbstractDynamicMessage;
 import fr.pederobien.minecraftgameplateform.interfaces.dictionary.IMessage;
 
-public class Common_NotAvailableCommand extends AbstractMessage {
+public class Common_NotAvailableCommand extends AbstractDynamicMessage {
 	/**
 	 * Message in French explains the given command is not a available.
 	 */
@@ -20,14 +20,14 @@ public class Common_NotAvailableCommand extends AbstractMessage {
 	private static class French extends Common_NotAvailableCommand {
 		@Override
 		public String getMessage(String... args) {
-			return "La commande " + args[0] + " n'est pas disponible";
+			return "La commande \"" + args[0] + "\" n'est pas disponible";
 		}
 	}
 
 	private static class English extends Common_NotAvailableCommand {
 		@Override
 		public String getMessage(String... args) {
-			return "The command " + args[0] + " is not available";
+			return "The command \"" + args[0] + "\" is not available";
 		}
 	}
 }

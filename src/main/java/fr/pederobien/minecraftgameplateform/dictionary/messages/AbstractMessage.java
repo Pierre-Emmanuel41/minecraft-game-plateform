@@ -14,9 +14,4 @@ public abstract class AbstractMessage implements IMessage {
 	public IMessageCode getCode() {
 		return code;
 	}
-
-	@Override
-	public String getMessage(String... args) {
-		return "No message to return (maybe override the method getMessage)";
-	}
 }

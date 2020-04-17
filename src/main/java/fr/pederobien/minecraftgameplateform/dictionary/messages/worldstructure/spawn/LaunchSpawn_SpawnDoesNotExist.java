@@ -1,9 +1,9 @@
 package fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.spawn;
 
-import fr.pederobien.minecraftgameplateform.dictionary.messages.AbstractMessage;
+import fr.pederobien.minecraftgameplateform.dictionary.messages.AbstractDynamicMessage;
 import fr.pederobien.minecraftgameplateform.interfaces.dictionary.IMessage;
 
-public class LaunchSpawn_SpawnDoesNotExist extends AbstractMessage {
+public class LaunchSpawn_SpawnDoesNotExist extends AbstractDynamicMessage {
 	/**
 	 * Message in French when the given name does not refer to an existing spawn.
 	 */

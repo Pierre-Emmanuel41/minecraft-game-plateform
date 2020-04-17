@@ -1,9 +1,9 @@
 package fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.spawn;
 
-import fr.pederobien.minecraftgameplateform.dictionary.messages.AbstractMessage;
+import fr.pederobien.minecraftgameplateform.dictionary.messages.AbstractDynamicMessage;
 import fr.pederobien.minecraftgameplateform.interfaces.dictionary.IMessage;
 
-public class LaunchSpawn_SpawnLaunched extends AbstractMessage {
+public class LaunchSpawn_SpawnLaunched extends AbstractDynamicMessage {
 	/**
 	 * Message in French when the spawn has been correctly launch in the world.
 	 */

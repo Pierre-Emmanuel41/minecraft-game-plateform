@@ -1,9 +1,9 @@
 package fr.pederobien.minecraftgameplateform.dictionary.messages.common;
 
-import fr.pederobien.minecraftgameplateform.dictionary.messages.AbstractMessage;
+import fr.pederobien.minecraftgameplateform.dictionary.messages.AbstractNotDynamicMessage;
 import fr.pederobien.minecraftgameplateform.interfaces.dictionary.IMessage;
 
-public class Common_BadIntegerFormat extends AbstractMessage {
+public class Common_BadIntegerFormat extends AbstractNotDynamicMessage {
 	/**
 	 * Message in French explains the coordinates does not have the right format.
 	 */
@@ -13,21 +13,19 @@ public class Common_BadIntegerFormat extends AbstractMessage {
 	 */
 	public static final IMessage ENGLISH = new English();
 
-	public Common_BadIntegerFormat() {
-		super(ECommonMessageCode.COMMON_BAD_INTEGER_FORMAT);
+	public Common_BadIntegerFormat(String message) {
+		super(ECommonMessageCode.COMMON_BAD_INTEGER_FORMAT, message);
 	}
 
 	private static class French extends Common_BadIntegerFormat {
-		@Override
-		public String getMessage(String... args) {
-			return "Mauvais format, les arguments doivent être des entiers";
+		public French() {
+			super("Mauvais format, les arguments doivent être des entiers");
 		}
 	}
 
 	private static class English extends Common_BadIntegerFormat {
-		@Override
-		public String getMessage(String... args) {
-			return "Bad format, arguments should be integer";
+		public English() {
+			super("Bad format, arguments should be integer");
 		}
 	}
 }

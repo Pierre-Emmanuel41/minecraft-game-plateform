@@ -1,29 +1,31 @@
 package fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.spawn;
 
-import fr.pederobien.minecraftgameplateform.dictionary.messages.AbstractMessage;
+import fr.pederobien.minecraftgameplateform.dictionary.messages.AbstractNotDynamicMessage;
 import fr.pederobien.minecraftgameplateform.interfaces.dictionary.IMessage;
 
-public class SpawnParentExplanation extends AbstractMessage {
+public class SpawnParentExplanation extends AbstractNotDynamicMessage {
+	/**
+	 * Message in French explains what does the command "spawn" do.
+	 */
 	public static final IMessage FRENCH = new French();
+	/**
+	 * Message in English explains what does the command "spawn" do.
+	 */
 	public static final IMessage ENGLISH = new English();
 
-	public SpawnParentExplanation() {
-		super(ESpawnMessageCode.SPAWN_PARENT_EXPLANATION);
+	public SpawnParentExplanation(String message) {
+		super(ESpawnMessageCode.SPAWN_PARENT_EXPLANATION, message);
 	}
 
 	private static class French extends SpawnParentExplanation {
-
-		@Override
-		public String getMessage(String... args) {
-			return "Pour configurer un spawn";
+		public French() {
+			super("Pour configurer un spawn");
 		}
 	}
 
 	private static class English extends SpawnParentExplanation {
-
-		@Override
-		public String getMessage(String... args) {
-			return "To configure a spawn";
+		public English() {
+			super("To configure a spawn");
 		}
 	}
 }

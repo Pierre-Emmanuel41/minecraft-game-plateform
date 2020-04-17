@@ -1,9 +1,9 @@
 package fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.spawn;
 
-import fr.pederobien.minecraftgameplateform.dictionary.messages.AbstractMessage;
+import fr.pederobien.minecraftgameplateform.dictionary.messages.AbstractDynamicMessage;
 import fr.pederobien.minecraftgameplateform.interfaces.dictionary.IMessage;
 
-public class RenameSpawn_NameAlreadyTaken extends AbstractMessage {
+public class RenameSpawn_NameAlreadyTaken extends AbstractDynamicMessage {
 	/**
 	 * Message in French explain the given name is already taken by another spawn.
 	 */

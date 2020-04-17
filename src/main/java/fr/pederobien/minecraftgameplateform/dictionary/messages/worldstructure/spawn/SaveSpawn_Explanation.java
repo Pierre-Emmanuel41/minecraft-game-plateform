@@ -1,9 +1,9 @@
 package fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.spawn;
 
-import fr.pederobien.minecraftgameplateform.dictionary.messages.AbstractMessage;
+import fr.pederobien.minecraftgameplateform.dictionary.messages.AbstractNotDynamicMessage;
 import fr.pederobien.minecraftgameplateform.interfaces.dictionary.IMessage;
 
-public class SaveSpawn_Explanation extends AbstractMessage {
+public class SaveSpawn_Explanation extends AbstractNotDynamicMessage {
 	/**
 	 * Message in French explains what does the command "save" do.
 	 */
@@ -13,21 +13,19 @@ public class SaveSpawn_Explanation extends AbstractMessage {
 	 */
 	public static final IMessage ENGLISH = new English();
 
-	public SaveSpawn_Explanation() {
-		super(ESpawnMessageCode.SAVE_SPAWN__EXPLANATION);
+	public SaveSpawn_Explanation(String message) {
+		super(ESpawnMessageCode.SAVE_SPAWN__EXPLANATION, message);
 	}
 
 	private static class French extends SaveSpawn_Explanation {
-		@Override
-		public String getMessage(String... args) {
-			return "Pour sauvegarder le spawn courant";
+		public French() {
+			super("Pour sauvegarder le spawn courant");
 		}
 	}
 
 	private static class English extends SaveSpawn_Explanation {
-		@Override
-		public String getMessage(String... args) {
-			return "To save the current spawn";
+		public English() {
+			super("To save the current spawn");
 		}
 	}
 }

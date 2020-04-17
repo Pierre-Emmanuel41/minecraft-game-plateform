@@ -1,9 +1,9 @@
 package fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.spawn;
 
-import fr.pederobien.minecraftgameplateform.dictionary.messages.AbstractMessage;
+import fr.pederobien.minecraftgameplateform.dictionary.messages.AbstractDynamicMessage;
 import fr.pederobien.minecraftgameplateform.interfaces.dictionary.IMessage;
 
-public class PlayerSpawn_PlayerSpawnDefined extends AbstractMessage {
+public class PlayerSpawn_PlayerSpawnDefined extends AbstractDynamicMessage {
 	/**
 	 * Message in French when the player's spawn has been correctly defined.
 	 */

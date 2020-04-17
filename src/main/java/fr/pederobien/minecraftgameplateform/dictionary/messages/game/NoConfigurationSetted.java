@@ -1,9 +1,9 @@
 package fr.pederobien.minecraftgameplateform.dictionary.messages.game;
 
-import fr.pederobien.minecraftgameplateform.dictionary.messages.AbstractMessage;
+import fr.pederobien.minecraftgameplateform.dictionary.messages.AbstractNotDynamicMessage;
 import fr.pederobien.minecraftgameplateform.interfaces.dictionary.IMessage;
 
-public class NoConfigurationSetted extends AbstractMessage {
+public class NoConfigurationSetted extends AbstractNotDynamicMessage {
 	/**
 	 * Message in French when there is no game to launch.
 	 */
@@ -13,23 +13,19 @@ public class NoConfigurationSetted extends AbstractMessage {
 	 */
 	public static final IMessage ENGLISH = new English();
 
-	public NoConfigurationSetted() {
-		super(EGameMessageCode.NO_CONFIGURATION_SETTED);
+	public NoConfigurationSetted(String message) {
+		super(EGameMessageCode.NO_CONFIGURATION_SETTED, message);
 	}
 
 	private static class French extends NoConfigurationSetted {
-
-		@Override
-		public String getMessage(String... args) {
-			return "Aucune partie selectionnée";
+		public French() {
+			super("Aucune partie selectionnée");
 		}
 	}
 
 	private static class English extends NoConfigurationSetted {
-
-		@Override
-		public String getMessage(String... args) {
-			return "No game has been selected";
+		public English() {
+			super("No game has been selected");
 		}
 	}
 }

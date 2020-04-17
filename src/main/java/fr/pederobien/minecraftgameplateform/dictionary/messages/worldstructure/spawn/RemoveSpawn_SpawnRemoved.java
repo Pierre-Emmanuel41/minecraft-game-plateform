@@ -1,9 +1,9 @@
 package fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.spawn;
 
-import fr.pederobien.minecraftgameplateform.dictionary.messages.AbstractMessage;
+import fr.pederobien.minecraftgameplateform.dictionary.messages.AbstractDynamicMessage;
 import fr.pederobien.minecraftgameplateform.interfaces.dictionary.IMessage;
 
-public class RemoveSpawn_SpawnRemoved extends AbstractMessage {
+public class RemoveSpawn_SpawnRemoved extends AbstractDynamicMessage {
 	/**
 	 * Message in French when a spawn has been correctly removed from the world.
 	 */

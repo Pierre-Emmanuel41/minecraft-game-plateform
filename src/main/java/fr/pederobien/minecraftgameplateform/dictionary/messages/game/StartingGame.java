@@ -1,9 +1,9 @@
 package fr.pederobien.minecraftgameplateform.dictionary.messages.game;
 
-import fr.pederobien.minecraftgameplateform.dictionary.messages.AbstractMessage;
+import fr.pederobien.minecraftgameplateform.dictionary.messages.AbstractDynamicMessage;
 import fr.pederobien.minecraftgameplateform.interfaces.dictionary.IMessage;
 
-public class StartingGame extends AbstractMessage {
+public class StartingGame extends AbstractDynamicMessage {
 	/**
 	 * Message in French when a game is starting.
 	 */
@@ -22,7 +22,7 @@ public class StartingGame extends AbstractMessage {
 
 		@Override
 		public String getMessage(String... args) {
-			return "Lancement de la partie : " + args[0];
+			return "Lancement de " + args[0];
 		}
 	}
 
@@ -30,7 +30,7 @@ public class StartingGame extends AbstractMessage {
 
 		@Override
 		public String getMessage(String... args) {
-			return "Starting game : " + args[0];
+			return "Starting " + args[0];
 		}
 	}
 }

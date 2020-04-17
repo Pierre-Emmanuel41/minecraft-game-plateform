@@ -1,9 +1,9 @@
 package fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure;
 
-import fr.pederobien.minecraftgameplateform.dictionary.messages.AbstractMessage;
+import fr.pederobien.minecraftgameplateform.dictionary.messages.AbstractNotDynamicMessage;
 import fr.pederobien.minecraftgameplateform.interfaces.dictionary.IMessage;
 
-public class Common_MissingCoordinates extends AbstractMessage {
+public class Common_MissingCoordinates extends AbstractNotDynamicMessage {
 	/**
 	 * Message in French explains the coordinates are missing
 	 */
@@ -13,21 +13,19 @@ public class Common_MissingCoordinates extends AbstractMessage {
 	 */
 	public static final IMessage ENGLISH = new English();
 
-	public Common_MissingCoordinates() {
-		super(EWorldStructureMessageCode.COMMON_MISSING_COORDINATES);
+	public Common_MissingCoordinates(String message) {
+		super(EWorldStructureMessageCode.COMMON_MISSING_COORDINATES, message);
 	}
 
 	private static class French extends Common_MissingCoordinates {
-		@Override
-		public String getMessage(String... args) {
-			return "Impossible de définir les coordonnées, il manque <X> ou <Y> ou <Z>";
+		public French() {
+			super("Impossible de définir les coordonnées, il manque <X> ou <Y> ou <Z>");
 		}
 	}
 
 	private static class English extends Common_MissingCoordinates {
-		@Override
-		public String getMessage(String... args) {
-			return "Cannot define coordinates, <X> or <Y> or <Z> is missing";
+		public English(String... args) {
+			super("Cannot define coordinates, <X> or <Y> or <Z> is missing");
 		}
 	}
 }

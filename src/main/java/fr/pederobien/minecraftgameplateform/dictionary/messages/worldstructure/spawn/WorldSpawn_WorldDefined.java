@@ -1,9 +1,9 @@
 package fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.spawn;
 
-import fr.pederobien.minecraftgameplateform.dictionary.messages.AbstractMessage;
+import fr.pederobien.minecraftgameplateform.dictionary.messages.AbstractDynamicMessage;
 import fr.pederobien.minecraftgameplateform.interfaces.dictionary.IMessage;
 
-public class WorldSpawn_WorldDefined extends AbstractMessage {
+public class WorldSpawn_WorldDefined extends AbstractDynamicMessage {
 	/**
 	 * Message in French when the spawn's world has been correctly defined.
 	 */
@@ -20,7 +20,7 @@ public class WorldSpawn_WorldDefined extends AbstractMessage {
 	private static class French extends WorldSpawn_WorldDefined {
 		@Override
 		public String getMessage(String... args) {
-			return "Le monde du spawn " + args[0] + " est le " + args[1];
+			return "Le monde du spawn " + args[0] + " est " + args[1];
 		}
 	}
 

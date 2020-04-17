@@ -1,9 +1,9 @@
 package fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure;
 
-import fr.pederobien.minecraftgameplateform.dictionary.messages.AbstractMessage;
+import fr.pederobien.minecraftgameplateform.dictionary.messages.AbstractNotDynamicMessage;
 import fr.pederobien.minecraftgameplateform.interfaces.dictionary.IMessage;
 
-public class CommonDimension_BadDimensionFormat extends AbstractMessage {
+public class CommonDimension_BadDimensionFormat extends AbstractNotDynamicMessage {
 	/**
 	 * Message in French explains the dimensions does not have the right format.
 	 */
@@ -13,24 +13,19 @@ public class CommonDimension_BadDimensionFormat extends AbstractMessage {
 	 */
 	public static final IMessage ENGLISH = new English();
 
-	public CommonDimension_BadDimensionFormat() {
-		super(EWorldStructureMessageCode.COMMON_DIMENSION__BAD_DIMENSION_FORMAT);
+	public CommonDimension_BadDimensionFormat(String message) {
+		super(EWorldStructureMessageCode.COMMON_DIMENSION__BAD_DIMENSION_FORMAT, message);
 	}
 
 	private static class French extends CommonDimension_BadDimensionFormat {
-
-		@Override
-		public String getMessage(String... args) {
-			return "Mauvais format des dimensions, elles doivent être des entiers";
+		public French() {
+			super("Mauvais format des dimensions, elles doivent être des entiers");
 		}
 	}
 
 	private static class English extends CommonDimension_BadDimensionFormat {
-
-		@Override
-		public String getMessage(String... args) {
-			return "Bad dimensions format, they should be integer";
+		public English() {
+			super("Bad dimensions format, they should be integer");
 		}
 	}
-
 }

@@ -1,9 +1,9 @@
 package fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.spawn;
 
-import fr.pederobien.minecraftgameplateform.dictionary.messages.AbstractMessage;
+import fr.pederobien.minecraftgameplateform.dictionary.messages.AbstractDynamicMessage;
 import fr.pederobien.minecraftgameplateform.interfaces.dictionary.IMessage;
 
-public class DeleteSpawn_SpawnDeleted extends AbstractMessage {
+public class DeleteSpawn_SpawnDeleted extends AbstractDynamicMessage {
 	/**
 	 * Message in French when the file associated to the given spawn name has been correctly deleted.
 	 */
@@ -27,7 +27,7 @@ public class DeleteSpawn_SpawnDeleted extends AbstractMessage {
 	private static class English extends DeleteSpawn_SpawnDeleted {
 		@Override
 		public String getMessage(String... args) {
-			return "The " + args[0] + " spawn file has been deleted";
+			return "The " + args[0] + " spawn's file has been deleted";
 		}
 	}
 }

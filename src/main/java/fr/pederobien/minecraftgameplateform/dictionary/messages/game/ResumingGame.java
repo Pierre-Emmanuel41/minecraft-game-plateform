@@ -1,9 +1,9 @@
 package fr.pederobien.minecraftgameplateform.dictionary.messages.game;
 
-import fr.pederobien.minecraftgameplateform.dictionary.messages.AbstractMessage;
+import fr.pederobien.minecraftgameplateform.dictionary.messages.AbstractNotDynamicMessage;
 import fr.pederobien.minecraftgameplateform.interfaces.dictionary.IMessage;
 
-public class ResumingGame extends AbstractMessage {
+public class ResumingGame extends AbstractNotDynamicMessage {
 	/**
 	 * Message in French when a game is resuming.
 	 */
@@ -13,21 +13,19 @@ public class ResumingGame extends AbstractMessage {
 	 */
 	public static final IMessage ENGLISH = new English();
 
-	public ResumingGame() {
-		super(EGameMessageCode.RESUMING_GAME);
+	public ResumingGame(String message) {
+		super(EGameMessageCode.RESUMING_GAME, message);
 	}
 
 	private static class French extends ResumingGame {
-		@Override
-		public String getMessage(String... args) {
-			return "Reprise de la partie";
+		public French(String... args) {
+			super("Reprise de la partie");
 		}
 	}
 
 	private static class English extends ResumingGame {
-		@Override
-		public String getMessage(String... args) {
-			return "Resuming game";
+		public English(String... args) {
+			super("Resume");
 		}
 	}
 }

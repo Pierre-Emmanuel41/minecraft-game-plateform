@@ -1,9 +1,9 @@
 package fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.spawn;
 
-import fr.pederobien.minecraftgameplateform.dictionary.messages.AbstractMessage;
+import fr.pederobien.minecraftgameplateform.dictionary.messages.AbstractDynamicMessage;
 import fr.pederobien.minecraftgameplateform.interfaces.dictionary.IMessage;
 
-public class DimensionSpawn_Defined extends AbstractMessage {
+public class DimensionSpawn_Defined extends AbstractDynamicMessage {
 	/**
 	 * Message in French explains the dimensions of the spawn has been correctly defined.
 	 */
@@ -29,7 +29,7 @@ public class DimensionSpawn_Defined extends AbstractMessage {
 
 		@Override
 		public String getMessage(String... args) {
-			return "Dimensions of the spawn " + args[0] + " defined as X=" + args[1] + ", Y=" + args[2] + ", Z=" + args[3];
+			return args[0] + " spawn's dimensions are defined as X=" + args[1] + ", Y=" + args[2] + ", Z=" + args[3];
 		}
 	}
 }

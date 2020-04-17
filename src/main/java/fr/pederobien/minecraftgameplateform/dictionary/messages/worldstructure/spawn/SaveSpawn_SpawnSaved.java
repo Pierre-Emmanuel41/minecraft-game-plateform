@@ -1,9 +1,9 @@
 package fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.spawn;
 
-import fr.pederobien.minecraftgameplateform.dictionary.messages.AbstractMessage;
+import fr.pederobien.minecraftgameplateform.dictionary.messages.AbstractDynamicMessage;
 import fr.pederobien.minecraftgameplateform.interfaces.dictionary.IMessage;
 
-public class SaveSpawn_SpawnSaved extends AbstractMessage {
+public class SaveSpawn_SpawnSaved extends AbstractDynamicMessage {
 	/**
 	 * Message in French when a spawn has been correctly saved.
 	 */

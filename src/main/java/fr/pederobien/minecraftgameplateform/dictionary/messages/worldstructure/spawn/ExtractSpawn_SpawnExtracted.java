@@ -1,9 +1,9 @@
 package fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.spawn;
 
-import fr.pederobien.minecraftgameplateform.dictionary.messages.AbstractMessage;
+import fr.pederobien.minecraftgameplateform.dictionary.messages.AbstractDynamicMessage;
 import fr.pederobien.minecraftgameplateform.interfaces.dictionary.IMessage;
 
-public class ExtractSpawn_SpawnExtracted extends AbstractMessage {
+public class ExtractSpawn_SpawnExtracted extends AbstractDynamicMessage {
 	/**
 	 * Message in French when blocks associated to a spawn have been correctly extracted.
 	 */
@@ -27,7 +27,7 @@ public class ExtractSpawn_SpawnExtracted extends AbstractMessage {
 	private static class English extends ExtractSpawn_SpawnExtracted {
 		@Override
 		public String getMessage(String... args) {
-			return "The blocks from spawn " + args[0] + " have been extracted";
+			return args[0] + " spawn's blocks have been extracted";
 		}
 	}
 }

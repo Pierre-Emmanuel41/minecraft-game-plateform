@@ -1,9 +1,9 @@
 package fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.spawn;
 
-import fr.pederobien.minecraftgameplateform.dictionary.messages.AbstractMessage;
+import fr.pederobien.minecraftgameplateform.dictionary.messages.AbstractDynamicMessage;
 import fr.pederobien.minecraftgameplateform.interfaces.dictionary.IMessage;
 
-public class NewSpawn_SpawnCreated extends AbstractMessage {
+public class NewSpawn_SpawnCreated extends AbstractDynamicMessage {
 	/**
 	 * Message in French explains a spawn with the given name has been created.
 	 */
