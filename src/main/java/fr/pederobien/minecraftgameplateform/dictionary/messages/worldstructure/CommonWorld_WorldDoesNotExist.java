@@ -1,6 +1,7 @@
-package fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.spawn;
+package fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure;
 
 import fr.pederobien.minecraftgameplateform.dictionary.messages.AbstractDynamicMessage;
+import fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.spawn.ESpawnMessageCode;
 import fr.pederobien.minecraftgameplateform.interfaces.dictionary.IMessage;
 
 public class CommonWorld_WorldDoesNotExist extends AbstractDynamicMessage {
