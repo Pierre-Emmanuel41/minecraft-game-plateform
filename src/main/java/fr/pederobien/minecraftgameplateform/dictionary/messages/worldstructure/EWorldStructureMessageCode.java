@@ -4,11 +4,11 @@ import fr.pederobien.minecraftgameplateform.dictionary.Permission;
 import fr.pederobien.minecraftgameplateform.interfaces.dictionary.IMessageCode;
 
 public enum EWorldStructureMessageCode implements IMessageCode {
-	// Code for common missing coordinates message
 	COMMON_MISSING_COORDINATES,
 
-	// Code for common dimension command messages
-	COMMON_DIMENSION__BAD_DIMENSION_FORMAT, COMMON_DIMENSION__MISSING_DIMENSION;
+	COMMON_DIMENSION__BAD_DIMENSION_FORMAT, COMMON_DIMENSION__MISSING_DIMENSION,
+
+	COMMON_WORLD__WORLD_DOES_NOT_EXIST;
 
 	private Permission permission;
 

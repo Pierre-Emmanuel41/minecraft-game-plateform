@@ -1,7 +1,6 @@
 package fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure;
 
 import fr.pederobien.minecraftgameplateform.dictionary.messages.AbstractDynamicMessage;
-import fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.spawn.ESpawnMessageCode;
 import fr.pederobien.minecraftgameplateform.interfaces.dictionary.IMessage;
 
 public class CommonWorld_WorldDoesNotExist extends AbstractDynamicMessage {
@@ -15,7 +14,7 @@ public class CommonWorld_WorldDoesNotExist extends AbstractDynamicMessage {
 	public static final IMessage ENGLISH = new English();
 
 	public CommonWorld_WorldDoesNotExist() {
-		super(ESpawnMessageCode.WORLD_SPAWN__WORLD_DOES_NOT_EXIST);
+		super(EWorldStructureMessageCode.COMMON_WORLD__WORLD_DOES_NOT_EXIST);
 	}
 
 	private static class French extends CommonWorld_WorldDoesNotExist {

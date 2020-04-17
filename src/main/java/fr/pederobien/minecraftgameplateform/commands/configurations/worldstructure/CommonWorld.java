@@ -7,6 +7,7 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 
 import fr.pederobien.minecraftdevelopmenttoolkit.managers.WorldManager;
+import fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.EWorldStructureMessageCode;
 import fr.pederobien.minecraftgameplateform.exceptions.WorldNotFoundException;
 import fr.pederobien.minecraftgameplateform.impl.editions.AbstractLabelEdition;
 import fr.pederobien.minecraftgameplateform.interfaces.dictionary.IMessageCode;
@@ -24,14 +25,6 @@ public abstract class CommonWorld<T extends IWorldStructure> extends AbstractLab
 	 * @param sender The entity (generally a player) to send messages.
 	 */
 	protected abstract void onWorldNameIsMissing(CommandSender sender);
-
-	/**
-	 * Method called when the given name does not refer to any world.
-	 * 
-	 * @param sender The entity (generally a player) to send messages.
-	 * @param name   The name that refer to any world.
-	 */
-	protected abstract void onWorldDoesNotExist(CommandSender sender, String name);
 
 	/**
 	 * Method called when the world of this structure has been correctly defined.
@@ -53,7 +46,7 @@ public abstract class CommonWorld<T extends IWorldStructure> extends AbstractLab
 			onWorldNameIsMissing(sender);
 			return false;
 		} catch (WorldNotFoundException e) {
-			onWorldDoesNotExist(sender, e.getName());
+			sendMessageToSender(sender, EWorldStructureMessageCode.COMMON_WORLD__WORLD_DOES_NOT_EXIST, name);
 			return false;
 		}
 		return true;
