@@ -7,8 +7,10 @@ import java.util.List;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 
+import fr.pederobien.minecraftdevelopmenttoolkit.managers.WorldManager;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.common.ECommonMessageCode;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.EWorldStructureMessageCode;
+import fr.pederobien.minecraftgameplateform.exceptions.WorldNotFoundException;
 import fr.pederobien.minecraftgameplateform.interfaces.dictionary.IMessageCode;
 import fr.pederobien.minecraftgameplateform.interfaces.element.IWorldStructure;
 import fr.pederobien.minecraftgameplateform.interfaces.element.persistence.IPersistence;
@@ -27,123 +29,116 @@ public abstract class CommonLaunch<T extends IWorldStructure> extends AbstractWo
 	protected abstract void onNoStructure(CommandSender sender);
 
 	/**
-	 * Method called when the structure has been correctly launched.
+	 * Method called when any world name has been furnished.
 	 * 
 	 * @param sender The entity (generally a player) to send messages.
-	 * @param name   The name of structure.
-	 * @param x      The x-Coordinates of the structure's center.
-	 * @param y      The y-Coordinates of the structure's center.
-	 * @param z      The z-Coordinates of the structure's center.
+	 * @param world  The given name that correspond to nothing.
+	 * 
+	 * @see IPersistence#load(String)
 	 */
-	protected abstract void onLaunched(CommandSender sender, String name, int x, int y, int z);
+	protected abstract void onWorldIsMissing(CommandSender sender, String world);
 
 	/**
-	 * Method called when the given name does not refer to any existing structure in the folder of ther persistence.
+	 * Method called when the given name does not refer to any existing structure in the folder of their persistence.
 	 * 
 	 * @param sender The entity (generally a player) to send messages.
 	 * @param name   The given name that correspond to nothing.
 	 * 
 	 * @see IPersistence#load(String)
 	 */
-	protected abstract void onNotExist(CommandSender sender, String name);
+	protected abstract void onStructureDoesNotExist(CommandSender sender, String name);
+
+	/**
+	 * Method called when the structure has been correctly launched.
+	 * 
+	 * @param sender The entity (generally a player) to send messages.
+	 * @param name   The structure's name.
+	 * @param world  The world's name of structure.
+	 * @param x      The x-Coordinates of the structure's center.
+	 * @param y      The y-Coordinates of the structure's center.
+	 * @param z      The z-Coordinates of the structure's center.
+	 */
+	protected abstract void onLaunched(CommandSender sender, String name, String world, int x, int y, int z);
 
 	@Override
 	public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-		String name = "";
-
+		switch (args.length) {
 		// Launching the current structure
-		if (args.length == 0) {
+		case 0:
 			if (get() == null) {
 				onNoStructure(sender);
 				return false;
 			}
 			get().launch();
-			onLaunched(sender, get().getName(), get().getCenter().getX(), get().getCenter().getY(), get().getCenter().getZ());
+			onLaunched(sender, get().getName(), get().getWorld().getName(), get().getCenter().getX(), get().getCenter().getY(), get().getCenter().getZ());
 			return true;
-		}
-
-		// Launching another structure
-		if (args.length < 2) {
-			getPersistence().save();
-			try {
-				name = args[0];
-				getPersistence().load(name).get().launch();
-				onLaunched(sender, name, get().getCenter().getX(), get().getCenter().getY(), get().getCenter().getZ());
-				return true;
-			} catch (FileNotFoundException e) {
-				onNotExist(sender, name);
-				return false;
-			}
-		}
-
-		// Launching the current structure but changing center's coordinates
-		if (args.length < 4) {
-			try {
-				get().setCenter(args[0], args[1], args[2]);
-				get().launch();
-				onLaunched(sender, name, get().getCenter().getX(), get().getCenter().getY(), get().getCenter().getZ());
-				return true;
-			} catch (IndexOutOfBoundsException e) {
-				sendMessageToSender(sender, EWorldStructureMessageCode.COMMON_MISSING_COORDINATES);
-				return false;
-			} catch (NumberFormatException e) {
-				sendMessageToSender(sender, ECommonMessageCode.COMMON_BAD_INTEGER_FORMAT);
-				return false;
-			}
-		}
-
-		// Launching another structure and changing its center's coordinates
-		name = args[0];
-		getPersistence().save();
-		try {
-			getPersistence().load(name).get().setCenter(args[1], args[2], args[3]);
-			get().launch();
-			onLaunched(sender, name, get().getCenter().getX(), get().getCenter().getY(), get().getCenter().getZ());
-			return true;
-		} catch (FileNotFoundException e) {
-			onNotExist(sender, name);
-			return false;
-		} catch (IndexOutOfBoundsException e) {
-			sendMessageToSender(sender, EWorldStructureMessageCode.COMMON_MISSING_COORDINATES);
-			return false;
-		} catch (NumberFormatException e) {
-			sendMessageToSender(sender, ECommonMessageCode.COMMON_BAD_INTEGER_FORMAT);
-			return false;
+		default:
+			return launchAnOtherStructure(sender, command, label, args);
 		}
 	}
 
 	@Override
 	public List<String> onTabComplete(CommandSender sender, Command command, String alias, String[] args) {
-		List<String> list = getPersistence().list();
-
+		List<String> existingStructures = getPersistence().list();
+		List<String> worlds = Arrays.asList(WorldManager.SURFACE_WORLD.getName(), WorldManager.NETHER_WORLD.getName(), WorldManager.END_WORLD.getName());
 		switch (args.length) {
 		case 1:
-			// When there is a current structure defined
-			if (get() != null) {
-				// Adding possibility to define center's coordinates
-				list.add("[<X> <Y> <Z>]");
-
-				// When the current structure has not been saved yet
-				if (!list.contains(get().getName()))
-					list.add(get().getName());
-			}
-			return filter(list.stream(), args[0]);
+			return filter(existingStructures.stream(), args[0]);
+		case 2:
+			return filter(check(args[0], e -> existingStructures.contains(e), worlds).stream(), args[args.length - 1]);
 		default:
-			// First time
-			// If the first arguments is a spawn name then args start from 1
-			return checkCoordinates(extract(args, list.contains(args[0]) ? 1 : 0));
+			return filter(check(args[1], e -> worlds.contains(e), checkCoordinates(extract(args, 2))).stream(), args[args.length - 1]);
 		}
 	}
 
 	private List<String> checkCoordinates(String[] args) {
 		switch (args.length) {
 		case 1:
-			return check(args[0], e -> isNotStrictInt(e), Arrays.asList("[<X> <Y> <Z>]"));
+			return check(args[0], e -> isNotStrictInt(e), Arrays.asList("<X> <Y> <Z>"));
 		case 2:
 			return check(args[1], e -> isNotStrictInt(e), check(args[0], e -> isStrictInt(e), Arrays.asList("<Y> <Z>")));
 		case 3:
 			return check(args[2], e -> isNotStrictInt(e), check(args[1], e -> isStrictInt(e), Arrays.asList("<Z>")));
 		}
 		return emptyList();
+	}
+
+	private boolean launchAnOtherStructure(CommandSender sender, Command command, String label, String[] args) {
+		String name = "";
+		String world = "";
+		String x = "", y = "", z = "";
+		try {
+			name = args[0];
+			try {
+				world = args[1];
+			} catch (IndexOutOfBoundsException e) {
+				onWorldIsMissing(sender, world);
+				return false;
+			}
+			try {
+				x = args[2];
+				y = args[3];
+				z = args[4];
+			} catch (IndexOutOfBoundsException e) {
+				sendMessageToSender(sender, EWorldStructureMessageCode.COMMON_MISSING_COORDINATES);
+				return false;
+			}
+			getPersistence().save();
+			getPersistence().load(name);
+			get().setWorld(world);
+			get().setCenter(x, y, z);
+			get().launch();
+			onLaunched(sender, name, world, get().getCenter().getX(), get().getCenter().getY(), get().getCenter().getZ());
+		} catch (FileNotFoundException e) {
+			onStructureDoesNotExist(sender, name);
+			return false;
+		} catch (WorldNotFoundException e) {
+			sendMessageToSender(sender, EWorldStructureMessageCode.COMMON_WORLD__WORLD_DOES_NOT_EXIST, world);
+			return false;
+		} catch (NumberFormatException e) {
+			sendMessageToSender(sender, ECommonMessageCode.COMMON_BAD_INTEGER_FORMAT);
+			return false;
+		}
+		return true;
 	}
 }

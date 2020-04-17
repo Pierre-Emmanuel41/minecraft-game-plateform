@@ -21,14 +21,19 @@ public class LaunchSpawn extends CommonLaunch<ISpawn> {
 	}
 
 	@Override
-	protected void onLaunched(CommandSender sender, String name, int x, int y, int z) {
-		sendMessageToSender(sender, ESpawnMessageCode.LAUNCH_SPAWN__SPAWN_LAUNCHED, name, x, y, z);
-		initiateCommandsAvailable();
+	protected void onWorldIsMissing(CommandSender sender, String world) {
+		sendMessageToSender(sender, ESpawnMessageCode.LAUNCH_SPAWN__WORLD_IS_MISSING, world);
 	}
 
 	@Override
-	protected void onNotExist(CommandSender sender, String name) {
+	protected void onStructureDoesNotExist(CommandSender sender, String name) {
 		sendMessageToSender(sender, ESpawnMessageCode.LAUNCH_SPAWN__SPAWN_DOES_NOT_EXIST, name);
+	}
+
+	@Override
+	protected void onLaunched(CommandSender sender, String name, String world, int x, int y, int z) {
+		sendMessageToSender(sender, ESpawnMessageCode.LAUNCH_SPAWN__SPAWN_LAUNCHED, name, world, x, y, z);
+		initiateCommandsAvailable();
 	}
 
 	private void initiateCommandsAvailable() {

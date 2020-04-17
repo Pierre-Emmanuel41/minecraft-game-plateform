@@ -19,11 +19,6 @@ public class WorldSpawn extends CommonWorld<ISpawn> {
 	}
 
 	@Override
-	protected void onWorldDoesNotExist(CommandSender sender, String name) {
-		sendMessageToSender(sender, ESpawnMessageCode.WORLD_SPAWN__WORLD_DOES_NOT_EXIST, name);
-	}
-
-	@Override
 	protected void onWorldDefined(CommandSender sender, String name, String worldName) {
 		sendMessageToSender(sender, ESpawnMessageCode.WORLD_SPAWN__WORLD_DEFINED, name, worldName);
 		setAvailableLabelEdition(EWorldStructureLabel.CENTER);
