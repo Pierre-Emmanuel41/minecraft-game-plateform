@@ -9,9 +9,9 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 
 import fr.pederobien.minecraftdevelopmenttoolkit.managers.BukkitManager;
+import fr.pederobien.minecraftdevelopmenttoolkit.managers.WorldManager;
 import fr.pederobien.minecraftgameplateform.commands.configurations.worldstructure.AbstractWorldStructureEdition;
 import fr.pederobien.minecraftgameplateform.commands.configurations.worldstructure.EWorldStructureLabel;
-import fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.EWorldStructureMessageCode;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.spawn.ESpawnMessageCode;
 import fr.pederobien.minecraftgameplateform.interfaces.element.ISpawn;
 
@@ -30,9 +30,9 @@ public class RandomSpawn extends AbstractWorldStructureEdition<ISpawn> {
 			getPersistence().save();
 		}
 
-		// Args : X + Y + Z
-		if (args.length < 3) {
-			sendMessageToSender(sender, EWorldStructureMessageCode.COMMON_MISSING_COORDINATES);
+		// Args : world + X + Y + Z
+		if (args.length < 4) {
+			sendMessageToSender(sender, ESpawnMessageCode.RANDOM_SPAWN__WORLD_OR_COORDINATES_ARE_MISSING);
 			return false;
 		}
 		StringJoiner joiner = new StringJoiner(" ");
@@ -45,16 +45,19 @@ public class RandomSpawn extends AbstractWorldStructureEdition<ISpawn> {
 
 	@Override
 	public List<String> onTabComplete(CommandSender sender, Command command, String alias, String[] args) {
+		List<String> worlds = Arrays.asList(WorldManager.SURFACE_WORLD.getName(), WorldManager.NETHER_WORLD.getName(), WorldManager.END_WORLD.getName());
 		switch (args.length) {
 		case 1:
-			// Check if the first argument is an integer
-			return check(args[0], e -> isNotStrictInt(e), Arrays.asList("<X> <Y> <Z>"));
+			return filter(worlds.stream(), args[args.length - 1]);
 		case 2:
-			// Check if the second argument is an integer
-			return check(args[1], e -> isNotStrictInt(e), check(args[0], e -> isStrictInt(e), Arrays.asList("<Y> <Z>")));
+			// Check if the first argument is an integer
+			return check(args[1], e -> worlds.contains(e), Arrays.asList("<X> <Y> <Z>"));
 		case 3:
+			// Check if the second argument is an integer
+			return check(args[2], e -> isNotStrictInt(e), check(args[1], e -> isStrictInt(e), Arrays.asList("<Y> <Z>")));
+		case 4:
 			// Check if the third argument is an integer
-			return check(args[2], e -> isNotStrictInt(e), check(args[1], e -> isStrictInt(e), Arrays.asList("<Z>")));
+			return check(args[3], e -> isNotStrictInt(e), check(args[2], e -> isStrictInt(e), Arrays.asList("<Z>")));
 		}
 		return super.onTabComplete(sender, command, alias, args);
 	}
