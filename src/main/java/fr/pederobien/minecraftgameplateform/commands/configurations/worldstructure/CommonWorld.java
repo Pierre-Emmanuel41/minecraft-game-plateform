@@ -6,12 +6,12 @@ import java.util.List;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 
-import fr.pederobien.minecraftdevelopmenttoolkit.managers.WorldManager;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.EWorldStructureMessageCode;
 import fr.pederobien.minecraftgameplateform.exceptions.WorldNotFoundException;
 import fr.pederobien.minecraftgameplateform.impl.editions.AbstractLabelEdition;
 import fr.pederobien.minecraftgameplateform.interfaces.dictionary.IMessageCode;
 import fr.pederobien.minecraftgameplateform.interfaces.element.IWorldStructure;
+import fr.pederobien.minecraftmanagers.WorldManager;
 
 public abstract class CommonWorld<T extends IWorldStructure> extends AbstractLabelEdition<T> {
 

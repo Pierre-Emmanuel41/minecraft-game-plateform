@@ -9,12 +9,12 @@ import org.bukkit.Material;
 import org.bukkit.World;
 import org.bukkit.block.Block;
 
-import fr.pederobien.minecraftdevelopmenttoolkit.managers.WorldManager;
 import fr.pederobien.minecraftgameplateform.exceptions.WorldNotFoundException;
 import fr.pederobien.minecraftgameplateform.exceptions.dictionary.WorldStructureDimensionException;
 import fr.pederobien.minecraftgameplateform.interfaces.element.IWorldBlock;
 import fr.pederobien.minecraftgameplateform.interfaces.element.IWorldStructure;
 import fr.pederobien.minecraftgameplateform.utils.DisplayHelper;
+import fr.pederobien.minecraftmanagers.WorldManager;
 
 public class AbstractWorldStructure extends AbstractNominable implements IWorldStructure {
 	protected static final World DEFAULT_WORLD = WorldManager.SURFACE_WORLD;

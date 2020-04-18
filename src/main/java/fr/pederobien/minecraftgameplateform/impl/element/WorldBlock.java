@@ -2,8 +2,8 @@ package fr.pederobien.minecraftgameplateform.impl.element;
 
 import org.bukkit.block.data.BlockData;
 
-import fr.pederobien.minecraftdevelopmenttoolkit.managers.BukkitManager;
 import fr.pederobien.minecraftgameplateform.interfaces.element.IWorldBlock;
+import fr.pederobien.minecraftmanagers.BukkitManager;
 
 public class WorldBlock implements IWorldBlock {
 	private int x, y, z;

@@ -8,12 +8,12 @@ import java.util.StringJoiner;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 
-import fr.pederobien.minecraftdevelopmenttoolkit.managers.BukkitManager;
-import fr.pederobien.minecraftdevelopmenttoolkit.managers.WorldManager;
 import fr.pederobien.minecraftgameplateform.commands.configurations.worldstructure.AbstractWorldStructureEdition;
 import fr.pederobien.minecraftgameplateform.commands.configurations.worldstructure.EWorldStructureLabel;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.spawn.ESpawnMessageCode;
 import fr.pederobien.minecraftgameplateform.interfaces.element.ISpawn;
+import fr.pederobien.minecraftmanagers.BukkitManager;
+import fr.pederobien.minecraftmanagers.WorldManager;
 
 public class RandomSpawn extends AbstractWorldStructureEdition<ISpawn> {
 

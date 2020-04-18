@@ -5,12 +5,12 @@ import java.util.StringJoiner;
 import org.bukkit.block.Block;
 import org.bukkit.block.data.BlockData;
 
-import fr.pederobien.minecraftdevelopmenttoolkit.managers.WorldManager;
 import fr.pederobien.minecraftgameplateform.impl.element.AbstractWorldStructure;
 import fr.pederobien.minecraftgameplateform.impl.element.WorldBlock;
 import fr.pederobien.minecraftgameplateform.interfaces.element.ISpawn;
 import fr.pederobien.minecraftgameplateform.interfaces.element.IWorldBlock;
 import fr.pederobien.minecraftgameplateform.utils.DisplayHelper;
+import fr.pederobien.minecraftmanagers.WorldManager;
 
 public class Spawn extends AbstractWorldStructure implements ISpawn {
 	private static final Block DEFAULT_PLAYER_SPAWN = WorldManager.getFromSurfaceHighestBlockYAt(0, 0).getRelative(0, 1, 0);

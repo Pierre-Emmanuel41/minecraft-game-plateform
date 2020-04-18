@@ -4,13 +4,13 @@ import java.util.stream.Stream;
 
 import org.bukkit.entity.Player;
 
-import fr.pederobien.minecraftdevelopmenttoolkit.managers.BukkitManager;
-import fr.pederobien.minecraftdevelopmenttoolkit.managers.MessageManager;
-import fr.pederobien.minecraftdevelopmenttoolkit.managers.PlayerManager;
 import fr.pederobien.minecraftgameplateform.interfaces.dictionary.IDictionaryManager;
 import fr.pederobien.minecraftgameplateform.interfaces.dictionary.IMessageEvent;
 import fr.pederobien.minecraftgameplateform.interfaces.dictionary.INotificationCenter;
 import fr.pederobien.minecraftgameplateform.utils.EventFactory;
+import fr.pederobien.minecraftmanagers.BukkitManager;
+import fr.pederobien.minecraftmanagers.MessageManager;
+import fr.pederobien.minecraftmanagers.PlayerManager;
 
 public class NotificationCenter implements INotificationCenter {
 	private IDictionaryManager dictionaryManager;
