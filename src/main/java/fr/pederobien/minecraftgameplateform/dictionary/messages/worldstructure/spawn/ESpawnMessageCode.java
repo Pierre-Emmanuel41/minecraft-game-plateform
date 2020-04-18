@@ -1,7 +1,7 @@
 package fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.spawn;
 
-import fr.pederobien.minecraftgameplateform.dictionary.Permission;
-import fr.pederobien.minecraftgameplateform.interfaces.dictionary.IMessageCode;
+import fr.pederobien.minecraftdictionary.impl.Permission;
+import fr.pederobien.minecraftdictionary.interfaces.IMessageCode;
 
 public enum ESpawnMessageCode implements IMessageCode {
 	SPAWN_PARENT_EXPLANATION,

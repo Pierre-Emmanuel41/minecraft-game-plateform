@@ -7,18 +7,18 @@ import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.Plugin;
 
-import fr.pederobien.minecraftdevelopmenttoolkit.impl.AbstractHelper;
+import fr.pederobien.minecraftdevelopmenttoolkit.impl.messagecode.AbstractMessageCodeHelper;
 import fr.pederobien.minecraftdevelopmenttoolkit.interfaces.IGenericEdition;
+import fr.pederobien.minecraftdictionary.impl.EventFactory;
+import fr.pederobien.minecraftdictionary.interfaces.IDictionaryManager;
+import fr.pederobien.minecraftdictionary.interfaces.IMessageCode;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.EMessageCode;
-import fr.pederobien.minecraftgameplateform.interfaces.dictionary.IDictionaryManager;
-import fr.pederobien.minecraftgameplateform.interfaces.dictionary.IMessageCode;
 import fr.pederobien.minecraftgameplateform.interfaces.editions.IMapPersistenceEdition;
 import fr.pederobien.minecraftgameplateform.interfaces.editions.IParentPersistenceEdition;
 import fr.pederobien.minecraftgameplateform.interfaces.element.unmodifiable.IUnmodifiableNominable;
-import fr.pederobien.minecraftgameplateform.utils.EventFactory;
 import fr.pederobien.minecraftgameplateform.utils.Plateform;
 
-public class ParentPersistenceHelper<T extends IUnmodifiableNominable> extends AbstractHelper<IMessageCode, T, IParentPersistenceEdition<T>, IMapPersistenceEdition<T>> {
+public class ParentPersistenceHelper<T extends IUnmodifiableNominable> extends AbstractMessageCodeHelper<T, IParentPersistenceEdition<T>, IMapPersistenceEdition<T>> {
 	private Plugin plugin;
 
 	protected ParentPersistenceHelper(Plugin plugin) {

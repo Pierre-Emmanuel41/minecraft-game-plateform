@@ -1,7 +1,7 @@
 package fr.pederobien.minecraftgameplateform.dictionary.messages.game;
 
+import fr.pederobien.minecraftdictionary.interfaces.IMessage;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.AbstractNotDynamicMessage;
-import fr.pederobien.minecraftgameplateform.interfaces.dictionary.IMessage;
 
 public class StoppingGame extends AbstractNotDynamicMessage {
 	/**

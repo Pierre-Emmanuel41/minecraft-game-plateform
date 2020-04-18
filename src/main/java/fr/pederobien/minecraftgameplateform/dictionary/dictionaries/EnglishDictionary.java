@@ -2,7 +2,7 @@ package fr.pederobien.minecraftgameplateform.dictionary.dictionaries;
 
 import java.util.Locale;
 
-import fr.pederobien.minecraftgameplateform.dictionary.AbstractDictionary;
+import fr.pederobien.minecraftdictionary.impl.AbstractDictionary;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.HelpExplanation;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.common.CommonNew_TabComplete;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.common.CommonRename_TabComplete;

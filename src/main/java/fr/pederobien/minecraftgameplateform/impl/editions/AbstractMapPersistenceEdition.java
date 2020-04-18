@@ -8,20 +8,20 @@ import java.util.StringJoiner;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-import fr.pederobien.minecraftdevelopmenttoolkit.impl.AbstractGenericMapEdition;
-import fr.pederobien.minecraftgameplateform.interfaces.dictionary.IDictionaryManager;
-import fr.pederobien.minecraftgameplateform.interfaces.dictionary.IMessageCode;
-import fr.pederobien.minecraftgameplateform.interfaces.dictionary.IMessageEvent;
-import fr.pederobien.minecraftgameplateform.interfaces.dictionary.INotificationCenter;
+import fr.pederobien.minecraftdevelopmenttoolkit.impl.messagecode.AbstractMessageCodeMapEdition;
+import fr.pederobien.minecraftdictionary.impl.EventFactory;
+import fr.pederobien.minecraftdictionary.interfaces.IDictionaryManager;
+import fr.pederobien.minecraftdictionary.interfaces.IMessageCode;
+import fr.pederobien.minecraftdictionary.interfaces.IMessageEvent;
+import fr.pederobien.minecraftdictionary.interfaces.INotificationCenter;
 import fr.pederobien.minecraftgameplateform.interfaces.editions.IMapPersistenceEdition;
 import fr.pederobien.minecraftgameplateform.interfaces.editions.IParentPersistenceEdition;
 import fr.pederobien.minecraftgameplateform.interfaces.element.persistence.IPersistence;
 import fr.pederobien.minecraftgameplateform.interfaces.element.unmodifiable.IUnmodifiableNominable;
-import fr.pederobien.minecraftgameplateform.utils.EventFactory;
 import fr.pederobien.minecraftgameplateform.utils.Plateform;
 
 public abstract class AbstractMapPersistenceEdition<T extends IUnmodifiableNominable>
-		extends AbstractGenericMapEdition<IMessageCode, T, IParentPersistenceEdition<T>, IMapPersistenceEdition<T>> implements IMapPersistenceEdition<T> {
+		extends AbstractMessageCodeMapEdition<T, IParentPersistenceEdition<T>, IMapPersistenceEdition<T>> implements IMapPersistenceEdition<T> {
 
 	protected AbstractMapPersistenceEdition(String label, IMessageCode explanation) {
 		super(label, explanation);

@@ -1,7 +1,7 @@
 package fr.pederobien.minecraftgameplateform.dictionary.messages;
 
-import fr.pederobien.minecraftgameplateform.interfaces.dictionary.IMessage;
-import fr.pederobien.minecraftgameplateform.interfaces.dictionary.IMessageCode;
+import fr.pederobien.minecraftdictionary.interfaces.IMessage;
+import fr.pederobien.minecraftdictionary.interfaces.IMessageCode;
 
 public abstract class AbstractMessage implements IMessage {
 	private IMessageCode code;

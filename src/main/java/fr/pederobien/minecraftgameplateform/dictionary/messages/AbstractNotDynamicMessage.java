@@ -1,6 +1,6 @@
 package fr.pederobien.minecraftgameplateform.dictionary.messages;
 
-import fr.pederobien.minecraftgameplateform.interfaces.dictionary.IMessageCode;
+import fr.pederobien.minecraftdictionary.interfaces.IMessageCode;
 
 public class AbstractNotDynamicMessage extends AbstractMessage {
 	private String message;

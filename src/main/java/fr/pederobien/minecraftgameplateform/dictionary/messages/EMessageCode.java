@@ -1,7 +1,7 @@
 package fr.pederobien.minecraftgameplateform.dictionary.messages;
 
-import fr.pederobien.minecraftgameplateform.dictionary.Permission;
-import fr.pederobien.minecraftgameplateform.interfaces.dictionary.IMessageCode;
+import fr.pederobien.minecraftdictionary.impl.Permission;
+import fr.pederobien.minecraftdictionary.interfaces.IMessageCode;
 
 public enum EMessageCode implements IMessageCode {
 	// Code for command messages

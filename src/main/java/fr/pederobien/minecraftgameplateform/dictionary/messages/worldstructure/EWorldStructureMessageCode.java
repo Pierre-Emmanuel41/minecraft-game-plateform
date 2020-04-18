@@ -1,7 +1,7 @@
 package fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure;
 
-import fr.pederobien.minecraftgameplateform.dictionary.Permission;
-import fr.pederobien.minecraftgameplateform.interfaces.dictionary.IMessageCode;
+import fr.pederobien.minecraftdictionary.impl.Permission;
+import fr.pederobien.minecraftdictionary.interfaces.IMessageCode;
 
 public enum EWorldStructureMessageCode implements IMessageCode {
 	COMMON_MISSING_COORDINATES,

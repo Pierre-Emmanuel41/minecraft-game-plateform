@@ -1,7 +1,7 @@
 package fr.pederobien.minecraftgameplateform.dictionary.messages.common;
 
-import fr.pederobien.minecraftgameplateform.dictionary.Permission;
-import fr.pederobien.minecraftgameplateform.interfaces.dictionary.IMessageCode;
+import fr.pederobien.minecraftdictionary.impl.Permission;
+import fr.pederobien.minecraftdictionary.interfaces.IMessageCode;
 
 public enum ECommonMessageCode implements IMessageCode {
 	COMMON_BAD_INTEGER_FORMAT, COMMON_ARGUMENT_NOT_FOUND, COMMON_NOT_AVAILABLE_ARGUMENT, COMMON_NOT_AVAILABLE_COMMAND, COMMON_NAME_MUST_NOT_START_WITH_DEFAULT,

@@ -1,7 +1,7 @@
 package fr.pederobien.minecraftgameplateform.dictionary.messages.common;
 
+import fr.pederobien.minecraftdictionary.interfaces.IMessage;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.AbstractDynamicMessage;
-import fr.pederobien.minecraftgameplateform.interfaces.dictionary.IMessage;
 
 public class Common_NotAvailableCommand extends AbstractDynamicMessage {
 	/**

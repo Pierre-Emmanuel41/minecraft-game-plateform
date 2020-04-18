@@ -3,7 +3,7 @@ package fr.pederobien.minecraftgameplateform.interfaces.element;
 import java.util.List;
 
 import fr.pederobien.minecraftgameplateform.exceptions.WorldNotFoundException;
-import fr.pederobien.minecraftgameplateform.exceptions.dictionary.WorldStructureDimensionException;
+import fr.pederobien.minecraftgameplateform.exceptions.WorldStructureDimensionException;
 import fr.pederobien.minecraftgameplateform.interfaces.element.unmodifiable.IUnmodifiableWorldStructure;
 
 public interface IWorldStructure extends INominable, IUnmodifiableWorldStructure {

@@ -12,20 +12,20 @@ import org.bukkit.plugin.Plugin;
 import fr.pederobien.minecraftdevelopmenttoolkit.exceptions.ArgumentNotFoundException;
 import fr.pederobien.minecraftdevelopmenttoolkit.exceptions.NotAvailableArgumentException;
 import fr.pederobien.minecraftdevelopmenttoolkit.exceptions.NotAvailableCommandException;
-import fr.pederobien.minecraftdevelopmenttoolkit.impl.AbstractGenericParentEdition;
+import fr.pederobien.minecraftdevelopmenttoolkit.impl.messagecode.AbstractMessageCodeParentEdition;
+import fr.pederobien.minecraftdictionary.impl.EventFactory;
+import fr.pederobien.minecraftdictionary.interfaces.IMessageCode;
+import fr.pederobien.minecraftdictionary.interfaces.IMessageEvent;
+import fr.pederobien.minecraftdictionary.interfaces.INotificationCenter;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.common.ECommonMessageCode;
-import fr.pederobien.minecraftgameplateform.interfaces.dictionary.IMessageCode;
-import fr.pederobien.minecraftgameplateform.interfaces.dictionary.IMessageEvent;
-import fr.pederobien.minecraftgameplateform.interfaces.dictionary.INotificationCenter;
 import fr.pederobien.minecraftgameplateform.interfaces.editions.IMapPersistenceEdition;
 import fr.pederobien.minecraftgameplateform.interfaces.editions.IParentPersistenceEdition;
 import fr.pederobien.minecraftgameplateform.interfaces.element.persistence.IPersistence;
 import fr.pederobien.minecraftgameplateform.interfaces.element.unmodifiable.IUnmodifiableNominable;
-import fr.pederobien.minecraftgameplateform.utils.EventFactory;
 import fr.pederobien.minecraftgameplateform.utils.Plateform;
 
 public abstract class AbstractParentPersistenceEdition<T extends IUnmodifiableNominable>
-		extends AbstractGenericParentEdition<IMessageCode, T, IParentPersistenceEdition<T>, IMapPersistenceEdition<T>> implements IParentPersistenceEdition<T> {
+		extends AbstractMessageCodeParentEdition<T, IParentPersistenceEdition<T>, IMapPersistenceEdition<T>> implements IParentPersistenceEdition<T> {
 	private IPersistence<T> persistence;
 	private Plugin plugin;
 	private List<IMapPersistenceEdition<T>> descendants;

@@ -1,7 +1,7 @@
 package fr.pederobien.minecraftgameplateform.commands.configurations.worldstructure;
 
+import fr.pederobien.minecraftdictionary.interfaces.IMessageCode;
 import fr.pederobien.minecraftgameplateform.impl.editions.AbstractLabelEdition;
-import fr.pederobien.minecraftgameplateform.interfaces.dictionary.IMessageCode;
 import fr.pederobien.minecraftgameplateform.interfaces.element.ILabel;
 import fr.pederobien.minecraftgameplateform.interfaces.element.IWorldStructure;
 

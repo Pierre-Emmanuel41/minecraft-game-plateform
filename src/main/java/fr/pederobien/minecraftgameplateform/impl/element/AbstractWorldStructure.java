@@ -10,7 +10,7 @@ import org.bukkit.World;
 import org.bukkit.block.Block;
 
 import fr.pederobien.minecraftgameplateform.exceptions.WorldNotFoundException;
-import fr.pederobien.minecraftgameplateform.exceptions.dictionary.WorldStructureDimensionException;
+import fr.pederobien.minecraftgameplateform.exceptions.WorldStructureDimensionException;
 import fr.pederobien.minecraftgameplateform.interfaces.element.IWorldBlock;
 import fr.pederobien.minecraftgameplateform.interfaces.element.IWorldStructure;
 import fr.pederobien.minecraftgameplateform.utils.DisplayHelper;

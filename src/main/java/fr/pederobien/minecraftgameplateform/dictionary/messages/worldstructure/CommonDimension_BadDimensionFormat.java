@@ -1,7 +1,7 @@
 package fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure;
 
 import fr.pederobien.minecraftgameplateform.dictionary.messages.AbstractNotDynamicMessage;
-import fr.pederobien.minecraftgameplateform.interfaces.dictionary.IMessage;
+import fr.pederobien.minecraftdictionary.interfaces.IMessage;
 
 public class CommonDimension_BadDimensionFormat extends AbstractNotDynamicMessage {
 	/**

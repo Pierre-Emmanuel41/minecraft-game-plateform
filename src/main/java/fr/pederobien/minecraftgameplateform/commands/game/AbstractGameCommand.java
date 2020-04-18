@@ -7,11 +7,10 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import fr.pederobien.minecraftdictionary.impl.EventFactory;
+import fr.pederobien.minecraftdictionary.interfaces.IMessageCode;
 import fr.pederobien.minecraftgameplateform.commands.AbstractCommand;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.game.EGameMessageCode;
-import fr.pederobien.minecraftgameplateform.interfaces.dictionary.IMessageCode;
-import fr.pederobien.minecraftgameplateform.interfaces.dictionary.IMessageEvent;
-import fr.pederobien.minecraftgameplateform.utils.EventFactory;
 import fr.pederobien.minecraftgameplateform.utils.Plateform;
 
 public abstract class AbstractGameCommand extends AbstractCommand {
