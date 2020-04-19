@@ -89,4 +89,10 @@ public interface IPersistence<T extends IUnmodifiableNominable> {
 	 * @see Path#resolve(Path)
 	 */
 	Path getAbsolutePath(String name);
+
+	/**
+	 * @return The current version number of this persistence. This number is used to update the default content when version has
+	 *         changed.
+	 */
+	Double getVersion();
 }

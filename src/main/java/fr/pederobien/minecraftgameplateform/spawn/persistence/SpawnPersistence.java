@@ -13,7 +13,6 @@ import fr.pederobien.minecraftgameplateform.spawn.persistence.loaders.SpawnLoade
 
 public class SpawnPersistence extends AbstractXmlPersistence<ISpawn> {
 	private static final String ROOT_XML_DOCUMENT = "spawn";
-	private static final double CURRENT_VERSION = 1.0;
 
 	private SpawnPersistence() {
 		super(ROOT.resolve(Paths.get("Spawns")), new DefaultSpawnContent());
@@ -38,7 +37,7 @@ public class SpawnPersistence extends AbstractXmlPersistence<ISpawn> {
 		doc.appendChild(root);
 
 		Element version = createElement(doc, VERSION);
-		version.appendChild(doc.createTextNode("" + CURRENT_VERSION));
+		version.appendChild(doc.createTextNode("" + getVersion()));
 		root.appendChild(version);
 
 		Element name = createElement(doc, SpawnXmlTag.NAME);
@@ -74,6 +73,11 @@ public class SpawnPersistence extends AbstractXmlPersistence<ISpawn> {
 
 		saveDocument(doc, get().getName());
 		return true;
+	}
+
+	@Override
+	public Double getVersion() {
+		return 1.0;
 	}
 
 	private void addCoordinates(Element element, Object xCoordinate, Object yCoordinate, Object zCoordinate) {
