@@ -2,8 +2,9 @@ package fr.pederobien.minecraftgameplateform.impl.element.persistence;
 
 import java.nio.file.Path;
 import java.util.Collections;
-import java.util.HashMap;
 import java.util.Map;
+import java.util.NavigableMap;
+import java.util.TreeMap;
 
 import fr.pederobien.minecraftgameplateform.exceptions.persistence.LoaderNotFoundException;
 import fr.pederobien.minecraftgameplateform.interfaces.element.persistence.IDefaultContent;
@@ -13,11 +14,11 @@ import fr.pederobien.minecraftgameplateform.interfaces.element.unmodifiable.IUnm
 
 public abstract class AbstractLoadersPersistence<T extends IUnmodifiableNominable, U extends IPersistenceLoader<T>> extends AbstractPersistence<T>
 		implements ILoadersPersistence<T, U> {
-	private Map<Double, U> loaders;
+	private NavigableMap<Double, U> loaders;
 
 	protected AbstractLoadersPersistence(Path path, IDefaultContent defaultContent) {
 		super(path, defaultContent);
-		loaders = new HashMap<Double, U>();
+		loaders = new TreeMap<Double, U>();
 	}
 
 	@Override
@@ -43,5 +44,10 @@ public abstract class AbstractLoadersPersistence<T extends IUnmodifiableNominabl
 		if (loader == null)
 			throw new LoaderNotFoundException(version);
 		return loader;
+	}
+
+	@Override
+	public Double getVersion() {
+		return loaders.lastEntry().getKey();
 	}
 }

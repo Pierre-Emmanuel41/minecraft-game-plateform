@@ -75,11 +75,6 @@ public class SpawnPersistence extends AbstractXmlPersistence<ISpawn> {
 		return true;
 	}
 
-	@Override
-	public Double getVersion() {
-		return 1.0;
-	}
-
 	private void addCoordinates(Element element, Object xCoordinate, Object yCoordinate, Object zCoordinate) {
 		setAttribute(element, SpawnXmlTag.X_COORDINATES, xCoordinate);
 		setAttribute(element, SpawnXmlTag.Y_COORDINATES, yCoordinate);
