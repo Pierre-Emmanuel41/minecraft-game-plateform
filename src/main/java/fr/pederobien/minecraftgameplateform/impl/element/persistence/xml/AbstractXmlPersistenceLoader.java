@@ -1,6 +1,7 @@
 package fr.pederobien.minecraftgameplateform.impl.element.persistence.xml;
 
 import org.w3c.dom.Element;
+import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
 import fr.pederobien.minecraftgameplateform.impl.element.persistence.AbstractPersistenceLoader;
@@ -48,5 +49,39 @@ public abstract class AbstractXmlPersistenceLoader<T extends IUnmodifiableNomina
 	 */
 	protected int getIntAttribute(Element element, Object name) {
 		return toInt(getStringAttribute(element, name));
+	}
+
+	/**
+	 * Convert the result returned by {@link Element#getNodeValue()} into an integer.
+	 * 
+	 * @param node The node use to transform its value into an integer.
+	 * 
+	 * @return An integer.
+	 */
+	protected int getIntNodeValue(Node node) {
+		return toInt(node.getNodeValue());
+	}
+
+	/**
+	 * Convert the result returned by {@link #getStringAttribute(Element, Object)} into a double.
+	 * 
+	 * @param element The element used to search attributes.
+	 * @param name    The name of the attribute to retrieve.
+	 * 
+	 * @return An integer.
+	 */
+	protected double getDoubleAttribute(Element element, Object name) {
+		return toDouble(getStringAttribute(element, name));
+	}
+
+	/**
+	 * Convert the result returned by {@link Element#getNodeValue()} into a double.
+	 * 
+	 * @param node The node use to transform its value into an double.
+	 * 
+	 * @return A double.
+	 */
+	protected double getDoubleNodeValue(Node node) {
+		return toDouble(node.getNodeValue());
 	}
 }
