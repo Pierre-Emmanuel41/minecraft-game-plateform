@@ -6,11 +6,14 @@ import fr.pederobien.minecraftgameplateform.impl.element.GameConfigurationContex
 import fr.pederobien.minecraftgameplateform.interfaces.commands.ICommand;
 import fr.pederobien.minecraftgameplateform.interfaces.commands.ICommandHelper;
 import fr.pederobien.minecraftgameplateform.interfaces.element.IGameConfigurationContext;
+import fr.pederobien.minecraftgameplateform.internal.IPersistenceCenter;
+import fr.pederobien.minecraftgameplateform.internal.PersistenceCenter;
 
 public class Plateform {
 	private static IGameConfigurationContext context = GameConfigurationContext.getInstance();
-	private static INotificationCenter center = NotificationCenter.getInstance();
+	private static INotificationCenter notificationCenter = NotificationCenter.getInstance();
 	private static ICommandHelper helper = CommandHelper.getInstance();
+	private static IPersistenceCenter persistenceCenter = PersistenceCenter.getInstance();
 
 	public static String getVersion() {
 		return "v1.0-SNAPSHOT";
@@ -28,7 +31,7 @@ public class Plateform {
 	 * @return The notification center to send message to player(s) that are currently logged into the server.
 	 */
 	public static INotificationCenter getNotificationCenter() {
-		return center;
+		return notificationCenter;
 	}
 
 	/**
@@ -37,5 +40,13 @@ public class Plateform {
 	 */
 	public static ICommandHelper getCommandHelper() {
 		return helper;
+	}
+
+	/**
+	 * 
+	 * @return
+	 */
+	public static IPersistenceCenter getPersistenceCenter() {
+		return persistenceCenter;
 	}
 }

@@ -23,4 +23,9 @@ public class PlateformPlugin extends JavaPlugin {
 		Plateform.getNotificationCenter().getDictionaryContext().register(this, new EnglishDictionary());
 		Plateform.getNotificationCenter().getDictionaryContext().register(this, new FrenchDictionary());
 	}
+
+	@Override
+	public void onDisable() {
+		Plateform.getPersistenceCenter().save();
+	}
 }
