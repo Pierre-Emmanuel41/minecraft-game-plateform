@@ -37,4 +37,21 @@ public class AbstractPersistenceLoader<T extends IUnmodifiableNominable> impleme
 	protected int toInt(String number) {
 		return Integer.parseInt(number);
 	}
+
+	/**
+	 * Returns a new {@code double} initialized to the value represented by the specified {@code String}, as performed by the
+	 * {@code valueOf} method of class {@code Double}.
+	 *
+	 * @param s the string to be parsed.
+	 * 
+	 * @return the {@code double} value represented by the string argument.
+	 * 
+	 * @throws NullPointerException  if the string is null.
+	 * @throws NumberFormatException if the string does not contain a parsable {@code double}.
+	 * 
+	 * @see java.lang.Double#valueOf(String)
+	 */
+	protected double toDouble(String number) {
+		return Double.parseDouble(number);
+	}
 }
