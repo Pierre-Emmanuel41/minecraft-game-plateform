@@ -1,4 +1,6 @@
-package fr.pederobien.minecraftgameplateform.exceptions;
+package fr.pederobien.minecraftgameplateform.exceptions.worldstructure;
+
+import fr.pederobien.minecraftgameplateform.exceptions.SimpleMessageException;
 
 public class WorldStructureDimensionException extends SimpleMessageException {
 	private static final long serialVersionUID = 1L;

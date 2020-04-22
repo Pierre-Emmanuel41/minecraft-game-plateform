@@ -9,12 +9,10 @@ public abstract class MinecraftPlateformException extends RuntimeException {
 
 	@Override
 	public final String getMessage() {
-		StringJoiner joiner = new StringJoiner("\n", "\n", "");
+		StringJoiner joiner = new StringJoiner("\n");
 		joiner.add("Plateform version : " + Plateform.getVersion());
-		StringJoiner returnedJoiner = getInternalMessage(joiner);
-		if (!joiner.equals(returnedJoiner))
-			throw new InternalBadException(getClass().getName());
-		return returnedJoiner.toString();
+		joiner.add(getInternalMessage());
+		return joiner.toString();
 	}
 
 	/**
@@ -25,5 +23,5 @@ public abstract class MinecraftPlateformException extends RuntimeException {
 	 * @return The given string joiner. If the returned joiner is not the given joiner, the method {@link #getMessage()} will throw a
 	 *         {@link InternalBadException}.
 	 */
-	protected abstract StringJoiner getInternalMessage(StringJoiner joiner);
+	protected abstract String getInternalMessage();
 }

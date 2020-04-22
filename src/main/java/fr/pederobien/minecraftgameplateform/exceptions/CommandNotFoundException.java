@@ -29,10 +29,11 @@ public class CommandNotFoundException extends MinecraftPlateformException {
 	}
 
 	@Override
-	protected StringJoiner getInternalMessage(StringJoiner joiner) {
+	protected String getInternalMessage() {
+		StringJoiner joiner = new StringJoiner(", ");
 		joiner.add("Command not found in file plugin.yml");
 		joiner.add("{Plugin=" + getPlugin().getName() + "}");
 		joiner.add("{Command=" + getLabel() + "}");
-		return joiner;
+		return joiner.toString();
 	}
 }
