@@ -11,6 +11,7 @@ import fr.pederobien.minecraftgameplateform.dictionary.messages.common.Common_Ba
 import fr.pederobien.minecraftgameplateform.dictionary.messages.common.Common_NameMustNotStartWithDefault;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.common.Common_NotAvailableArgument;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.common.Common_NotAvailableCommand;
+import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.AsCurrent_Explanation;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.game.NoConfigurationSetted;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.game.PausingGame;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.game.ResumingGame;
@@ -134,5 +135,8 @@ public class EnglishDictionary extends AbstractDictionary {
 		register(ResumingGame.ENGLISH);
 		register(StoppingGame.ENGLISH);
 		register(NoConfigurationSetted.ENGLISH);
+
+		// Code for game configuration command messages
+		register(AsCurrent_Explanation.ENGLISH);
 	}
 }
