@@ -43,8 +43,7 @@ public class Plateform {
 	}
 
 	/**
-	 * 
-	 * @return
+	 * @return The center used to track persistence version update.
 	 */
 	public static IPersistenceCenter getPersistenceCenter() {
 		return persistenceCenter;
