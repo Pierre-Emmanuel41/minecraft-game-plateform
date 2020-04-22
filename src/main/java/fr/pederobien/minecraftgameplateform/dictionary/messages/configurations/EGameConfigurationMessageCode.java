@@ -5,7 +5,7 @@ import fr.pederobien.minecraftdictionary.interfaces.IMessageCode;
 
 public enum EGameConfigurationMessageCode implements IMessageCode {
 	// Code for command ascurrent
-	AS_CURRENT__EXPLANATION;
+	AS_CURRENT__EXPLANATION, AS_CURRENT__GAME_STYLE_DEFINED;
 
 	private Permission permission;
 

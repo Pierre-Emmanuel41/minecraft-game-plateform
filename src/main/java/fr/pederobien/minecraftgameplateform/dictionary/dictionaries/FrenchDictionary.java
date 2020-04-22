@@ -12,6 +12,7 @@ import fr.pederobien.minecraftgameplateform.dictionary.messages.common.Common_Na
 import fr.pederobien.minecraftgameplateform.dictionary.messages.common.Common_NotAvailableArgument;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.common.Common_NotAvailableCommand;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.AsCurrent_Explanation;
+import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.AsCurrent_GameStyleDefined;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.game.NoConfigurationSetted;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.game.PausingGame;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.game.ResumingGame;
@@ -137,5 +138,6 @@ public class FrenchDictionary extends AbstractDictionary {
 
 		// Code for game configuration command messages
 		register(AsCurrent_Explanation.FRENCH);
+		register(AsCurrent_GameStyleDefined.FRENCH);
 	}
 }
