@@ -59,7 +59,7 @@ public abstract class CommonLoad<T extends IGameConfiguration> extends AbstractG
 	}
 
 	/**
-	 * Get a concatenation of each team's name for this configuration. Each team's name are colored.
+	 * Get a concatenation of each team's name for this configuration. Each team's name is coloured.
 	 * 
 	 * @return A string that concatenate each team's name.
 	 */
