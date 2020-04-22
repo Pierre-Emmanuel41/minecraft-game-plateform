@@ -1,4 +1,4 @@
-package fr.pederobien.minecraftgameplateform.commands.configurations.worldstructure;
+package fr.pederobien.minecraftgameplateform.commands.worldstructure;
 
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;

@@ -1,19 +1,18 @@
-package fr.pederobien.minecraftgameplateform.commands.configurations;
+package fr.pederobien.minecraftgameplateform.commands;
 
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.command.TabCompleter;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import fr.pederobien.minecraftgameplateform.commands.AbstractCommand;
 import fr.pederobien.minecraftgameplateform.interfaces.editions.IParentPersistenceEdition;
 import fr.pederobien.minecraftgameplateform.interfaces.element.unmodifiable.IUnmodifiableNominable;
 import fr.pederobien.minecraftgameplateform.utils.Plateform;
 
-public class AbstractConfigurationCommand<T extends IUnmodifiableNominable> extends AbstractCommand {
+public class AbstractParentCommand<T extends IUnmodifiableNominable> extends AbstractCommand {
 	private IParentPersistenceEdition<T> parent;
 
-	protected AbstractConfigurationCommand(JavaPlugin plugin, IParentPersistenceEdition<T> parent) {
+	protected AbstractParentCommand(JavaPlugin plugin, IParentPersistenceEdition<T> parent) {
 		super(plugin, parent.getLabel());
 		this.parent = parent;
 		getCommandHelper().register(this);

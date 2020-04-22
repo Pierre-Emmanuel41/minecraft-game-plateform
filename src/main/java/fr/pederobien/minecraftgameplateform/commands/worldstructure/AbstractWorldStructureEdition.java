@@ -1,4 +1,4 @@
-package fr.pederobien.minecraftgameplateform.commands.configurations.worldstructure;
+package fr.pederobien.minecraftgameplateform.commands.worldstructure;
 
 import fr.pederobien.minecraftdictionary.interfaces.IMessageCode;
 import fr.pederobien.minecraftgameplateform.impl.editions.AbstractLabelEdition;

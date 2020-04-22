@@ -2,7 +2,7 @@ package fr.pederobien.minecraftgameplateform.spawn.commands;
 
 import org.bukkit.command.CommandSender;
 
-import fr.pederobien.minecraftgameplateform.commands.configurations.CommonDelete;
+import fr.pederobien.minecraftgameplateform.commands.common.CommonDelete;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.spawn.ESpawnMessageCode;
 import fr.pederobien.minecraftgameplateform.interfaces.element.ISpawn;
 

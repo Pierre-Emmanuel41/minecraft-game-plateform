@@ -2,8 +2,8 @@ package fr.pederobien.minecraftgameplateform.spawn.commands;
 
 import org.bukkit.command.CommandSender;
 
-import fr.pederobien.minecraftgameplateform.commands.configurations.ECommonLabel;
-import fr.pederobien.minecraftgameplateform.commands.configurations.worldstructure.CommonExtract;
+import fr.pederobien.minecraftgameplateform.commands.common.ECommonLabel;
+import fr.pederobien.minecraftgameplateform.commands.worldstructure.CommonExtract;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.spawn.ESpawnMessageCode;
 import fr.pederobien.minecraftgameplateform.interfaces.element.ISpawn;
 

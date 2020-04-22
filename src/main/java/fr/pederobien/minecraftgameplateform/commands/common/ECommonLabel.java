@@ -1,4 +1,4 @@
-package fr.pederobien.minecraftgameplateform.commands.configurations;
+package fr.pederobien.minecraftgameplateform.commands.common;
 
 import fr.pederobien.minecraftgameplateform.interfaces.element.ILabel;
 

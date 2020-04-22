@@ -1,4 +1,4 @@
-package fr.pederobien.minecraftgameplateform.commands.configurations.worldstructure;
+package fr.pederobien.minecraftgameplateform.commands.worldstructure;
 
 import java.io.FileNotFoundException;
 import java.util.Arrays;
