@@ -11,7 +11,7 @@ public enum EGameConfigurationMessageCode implements IMessageCode {
 	COMMON_LOAD__CONFIGURATION_DOES_NOT_EXIST,
 
 	// Code for command scoreboardrefresh
-	SCOREBOARD_REFRESH__EXPLANATION;
+	SCOREBOARD_REFRESH__EXPLANATION, SCOREBOARD_REFRESH__ON_TAB_COMPLETE;
 
 	private Permission permission;
 

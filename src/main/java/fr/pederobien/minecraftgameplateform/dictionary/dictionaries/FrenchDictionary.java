@@ -15,6 +15,7 @@ import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.A
 import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.AsCurrent_GameStyleDefined;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.CommonLoad_StyleDoesNotExist;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.ScoreboardRefresh_Explanation;
+import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.ScoreboardRefresh_OnTabComplete;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.game.NoConfigurationSetted;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.game.PausingGame;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.game.ResumingGame;
@@ -143,5 +144,6 @@ public class FrenchDictionary extends AbstractDictionary {
 		register(AsCurrent_GameStyleDefined.FRENCH);
 		register(CommonLoad_StyleDoesNotExist.FRENCH);
 		register(ScoreboardRefresh_Explanation.FRENCH);
+		register(ScoreboardRefresh_OnTabComplete.FRENCH);
 	}
 }
