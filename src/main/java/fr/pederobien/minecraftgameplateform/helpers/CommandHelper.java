@@ -1,4 +1,4 @@
-package fr.pederobien.minecraftgameplateform.utils;
+package fr.pederobien.minecraftgameplateform.helpers;
 
 import java.util.HashMap;
 import java.util.Map;

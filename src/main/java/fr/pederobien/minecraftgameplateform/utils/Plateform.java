@@ -2,6 +2,7 @@ package fr.pederobien.minecraftgameplateform.utils;
 
 import fr.pederobien.minecraftdictionary.impl.NotificationCenter;
 import fr.pederobien.minecraftdictionary.interfaces.INotificationCenter;
+import fr.pederobien.minecraftgameplateform.helpers.CommandHelper;
 import fr.pederobien.minecraftgameplateform.impl.element.GameConfigurationContext;
 import fr.pederobien.minecraftgameplateform.interfaces.commands.ICommand;
 import fr.pederobien.minecraftgameplateform.interfaces.commands.ICommandHelper;

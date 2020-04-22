@@ -5,11 +5,11 @@ import java.util.StringJoiner;
 import org.bukkit.block.Block;
 import org.bukkit.block.data.BlockData;
 
+import fr.pederobien.minecraftgameplateform.helpers.DisplayHelper;
 import fr.pederobien.minecraftgameplateform.impl.element.AbstractWorldStructure;
 import fr.pederobien.minecraftgameplateform.impl.element.WorldBlock;
 import fr.pederobien.minecraftgameplateform.interfaces.element.ISpawn;
 import fr.pederobien.minecraftgameplateform.interfaces.element.IWorldBlock;
-import fr.pederobien.minecraftgameplateform.utils.DisplayHelper;
 import fr.pederobien.minecraftmanagers.WorldManager;
 
 public class Spawn extends AbstractWorldStructure implements ISpawn {

@@ -11,9 +11,9 @@ import org.bukkit.block.Block;
 
 import fr.pederobien.minecraftgameplateform.exceptions.worldstructure.WorldNotFoundException;
 import fr.pederobien.minecraftgameplateform.exceptions.worldstructure.WorldStructureDimensionException;
+import fr.pederobien.minecraftgameplateform.helpers.DisplayHelper;
 import fr.pederobien.minecraftgameplateform.interfaces.element.IWorldBlock;
 import fr.pederobien.minecraftgameplateform.interfaces.element.IWorldStructure;
-import fr.pederobien.minecraftgameplateform.utils.DisplayHelper;
 import fr.pederobien.minecraftmanagers.WorldManager;
 
 public class AbstractWorldStructure extends AbstractNominable implements IWorldStructure {

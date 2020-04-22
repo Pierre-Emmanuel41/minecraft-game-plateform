@@ -10,7 +10,7 @@ import org.bukkit.entity.Player;
 import fr.pederobien.minecraftgameplateform.exceptions.configurations.TeamNotFoundException;
 import fr.pederobien.minecraftgameplateform.exceptions.configurations.TeamWithSameColorAlreadyExistsException;
 import fr.pederobien.minecraftgameplateform.exceptions.configurations.TeamWithSameNameAlreadyExistsException;
-import fr.pederobien.minecraftgameplateform.helper.TeamHelper;
+import fr.pederobien.minecraftgameplateform.helpers.TeamHelper;
 import fr.pederobien.minecraftgameplateform.interfaces.element.ITeam;
 import fr.pederobien.minecraftgameplateform.utils.EColor;
 
