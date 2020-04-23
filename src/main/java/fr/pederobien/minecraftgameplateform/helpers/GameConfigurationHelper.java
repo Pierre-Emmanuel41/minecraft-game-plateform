@@ -19,15 +19,18 @@ import fr.pederobien.minecraftgameplateform.interfaces.element.IGameConfiguratio
 import fr.pederobien.minecraftgameplateform.interfaces.element.ITeam;
 import fr.pederobien.minecraftgameplateform.interfaces.helpers.IGameConfigurationHelper;
 import fr.pederobien.minecraftgameplateform.utils.EColor;
+import fr.pederobien.minecraftmanagers.PlayerManager;
 import fr.pederobien.minecraftmanagers.TeamManager;
 
 public class GameConfigurationHelper implements IGameConfigurationHelper {
 	private IGameConfiguration configuration;
 	private List<EColor> alreadyUsedColors;
+	private List<Player> registeredPlayers;
 
 	public GameConfigurationHelper(IGameConfiguration configuration) {
 		this.configuration = configuration;
 		alreadyUsedColors = new ArrayList<EColor>();
+		registeredPlayers = new ArrayList<Player>();
 	}
 
 	@Override
@@ -94,11 +97,13 @@ public class GameConfigurationHelper implements IGameConfigurationHelper {
 	@Override
 	public void add(String teamName, Player player) {
 		checkTeamExist(teamName).addPlayer(player);
+		registeredPlayers.add(player);
 	}
 
 	@Override
 	public void remove(String teamName, Player player) {
 		checkTeamExist(teamName).removePlayer(player);
+		registeredPlayers.remove(player);
 	}
 
 	@Override
@@ -113,6 +118,11 @@ public class GameConfigurationHelper implements IGameConfigurationHelper {
 	@Override
 	public Stream<EColor> getAvailableColors() {
 		return Arrays.asList(EColor.values()).stream().filter(color -> !alreadyUsedColors.contains(color));
+	}
+
+	@Override
+	public Stream<Player> getFreePlayers() {
+		return PlayerManager.getPlayers().filter(player -> !registeredPlayers.contains(player));
 	}
 
 	private Stream<ITeam> getTeamsStream() {

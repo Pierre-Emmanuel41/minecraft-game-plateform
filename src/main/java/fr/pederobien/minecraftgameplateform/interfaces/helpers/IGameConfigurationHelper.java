@@ -147,4 +147,9 @@ public interface IGameConfigurationHelper {
 	 * @return A stream that contains all colours not already used by teams of this configuration.
 	 */
 	Stream<EColor> getAvailableColors();
+
+	/**
+	 * @return A stream that contains all players not registered into a team for this configuration.
+	 */
+	Stream<Player> getFreePlayers();
 }
