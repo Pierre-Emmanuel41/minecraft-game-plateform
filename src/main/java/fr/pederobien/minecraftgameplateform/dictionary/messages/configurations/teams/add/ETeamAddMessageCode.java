@@ -9,7 +9,7 @@ public enum ETeamAddMessageCode implements IMessageCode {
 	ADD_TEAM__TEAM_NAME_ALREADY_USED, ADD_TEAM__COLOR_ALREADY_USED, ADD_TEAM__TEAM_ADDED,
 
 	// Code for command add player
-	ADD_PLAYER__ANY_PLAYER_ADDED;
+	ADD_PLAYER__ANY_PLAYER_ADDED, ADD_PLAYER__ONE_PLAYER_ADDED;
 
 	private Permission permission;
 
