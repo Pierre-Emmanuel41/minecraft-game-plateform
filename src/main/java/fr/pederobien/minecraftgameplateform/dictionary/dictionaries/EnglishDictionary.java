@@ -20,6 +20,7 @@ import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.S
 import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.ScoreboardRefresh_OneTicDefined;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.ScoreboardRefresh_SeveralTicsDefined;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.ScoreboardRefresh_TicsNumberIsMissing;
+import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.teams.Add_Explanation;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.game.NoConfigurationSetted;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.game.PausingGame;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.game.ResumingGame;
@@ -154,5 +155,8 @@ public class EnglishDictionary extends AbstractDictionary {
 		register(ScoreboardRefresh_TicsNumberIsMissing.ENGLISH);
 		register(ScoreboardRefresh_OneTicDefined.ENGLISH);
 		register(ScoreboardRefresh_SeveralTicsDefined.ENGLISH);
+
+		// Code for game teams configuration command messages
+		register(Add_Explanation.ENGLISH);
 	}
 }
