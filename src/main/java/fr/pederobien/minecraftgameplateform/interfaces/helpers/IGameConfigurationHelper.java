@@ -30,6 +30,15 @@ public interface IGameConfigurationHelper {
 	ITeam create(String name, EColor color);
 
 	/**
+	 * Remove the team associated to the given name if it exist.
+	 * 
+	 * @param teamName The team's name.
+	 * 
+	 * @throws TeamNotFoundException If the team associated to the given name does not exists for this configuration.
+	 */
+	void remove(String teamName);
+
+	/**
 	 * Get the team in which the given player is registered. To do this, this method search the given player into each team of the
 	 * configuration.
 	 * 

@@ -22,9 +22,11 @@ import fr.pederobien.minecraftmanagers.TeamManager;
 
 public class GameConfigurationHelper implements IGameConfigurationHelper {
 	private IGameConfiguration configuration;
+	private List<EColor> alreadyUsedColors;
 
 	public GameConfigurationHelper(IGameConfiguration configuration) {
 		this.configuration = configuration;
+		alreadyUsedColors = new ArrayList<EColor>();
 	}
 
 	@Override
@@ -33,7 +35,15 @@ public class GameConfigurationHelper implements IGameConfigurationHelper {
 		checkColorIsNotUsed(color);
 		ITeam team = PlateformTeam.of(name, color);
 		configuration.add(team);
+		alreadyUsedColors.add(color);
 		return team;
+	}
+
+	@Override
+	public void remove(String teamName) {
+		ITeam team = checkTeamExist(teamName);
+		configuration.remove(team);
+		alreadyUsedColors.remove(team.getColor());
 	}
 
 	@Override
