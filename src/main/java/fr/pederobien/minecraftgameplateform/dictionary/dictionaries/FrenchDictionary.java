@@ -17,6 +17,8 @@ import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.C
 import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.ScoreboardRefresh_Explanation;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.ScoreboardRefresh_NegativeTicsNumber;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.ScoreboardRefresh_OnTabComplete;
+import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.ScoreboardRefresh_OneTicDefined;
+import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.ScoreboardRefresh_TicsNumberIsMissing;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.game.NoConfigurationSetted;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.game.PausingGame;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.game.ResumingGame;
@@ -147,5 +149,7 @@ public class FrenchDictionary extends AbstractDictionary {
 		register(ScoreboardRefresh_Explanation.FRENCH);
 		register(ScoreboardRefresh_OnTabComplete.FRENCH);
 		register(ScoreboardRefresh_NegativeTicsNumber.FRENCH);
+		register(ScoreboardRefresh_TicsNumberIsMissing.FRENCH);
+		register(ScoreboardRefresh_OneTicDefined.FRENCH);
 	}
 }
