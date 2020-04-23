@@ -24,6 +24,7 @@ import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.t
 import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.teams.add.AddTeam_ColorDoesNotExist;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.teams.add.AddTeam_ColorNameIsMissing;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.teams.add.AddTeam_Explanation;
+import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.teams.add.AddTeam_TeamNameForbidden;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.teams.add.AddTeam_TeamNameIsMissing;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.game.NoConfigurationSetted;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.game.PausingGame;
@@ -166,5 +167,6 @@ public class EnglishDictionary extends AbstractDictionary {
 		register(AddTeam_TeamNameIsMissing.ENGLISH);
 		register(AddTeam_ColorNameIsMissing.ENGLISH);
 		register(AddTeam_ColorDoesNotExist.ENGLISH);
+		register(AddTeam_TeamNameForbidden.ENGLISH);
 	}
 }

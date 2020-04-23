@@ -37,8 +37,8 @@ public class GameConfigurationHelper implements IGameConfigurationHelper {
 
 	@Override
 	public ITeam create(String name, EColor color) {
-		checkNameIsNotUsed(name);
 		checkNameNotForbidden(name);
+		checkNameIsNotUsed(name);
 		checkColorIsNotUsed(color);
 		ITeam team = PlateformTeam.of(name, color);
 		configuration.add(team);
