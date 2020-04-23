@@ -11,6 +11,7 @@ import java.util.stream.Stream;
 import org.bukkit.World;
 import org.bukkit.entity.Player;
 
+import fr.pederobien.minecraftgameplateform.exceptions.configurations.TeamNameForbiddenException;
 import fr.pederobien.minecraftgameplateform.exceptions.configurations.TeamNotFoundException;
 import fr.pederobien.minecraftgameplateform.exceptions.configurations.TeamWithSameColorAlreadyExistsException;
 import fr.pederobien.minecraftgameplateform.exceptions.configurations.TeamWithSameNameAlreadyExistsException;
@@ -23,6 +24,7 @@ import fr.pederobien.minecraftmanagers.PlayerManager;
 import fr.pederobien.minecraftmanagers.TeamManager;
 
 public class GameConfigurationHelper implements IGameConfigurationHelper {
+	private static final String FORBIDDEN_NAME = "all";
 	private IGameConfiguration configuration;
 	private List<EColor> alreadyUsedColors;
 	private List<Player> registeredPlayers;
@@ -36,6 +38,7 @@ public class GameConfigurationHelper implements IGameConfigurationHelper {
 	@Override
 	public ITeam create(String name, EColor color) {
 		checkNameIsNotUsed(name);
+		checkNameNotForbidden(name);
 		checkColorIsNotUsed(color);
 		ITeam team = PlateformTeam.of(name, color);
 		configuration.add(team);
@@ -144,6 +147,11 @@ public class GameConfigurationHelper implements IGameConfigurationHelper {
 		Optional<ITeam> optTeam = getTeam(name);
 		if (optTeam.isPresent())
 			throw new TeamWithSameNameAlreadyExistsException(configuration, optTeam.get());
+	}
+
+	private void checkNameNotForbidden(String name) {
+		if (name.equals(FORBIDDEN_NAME))
+			throw new TeamNameForbiddenException(configuration, FORBIDDEN_NAME);
 	}
 
 	private void checkColorIsNotUsed(EColor color) {

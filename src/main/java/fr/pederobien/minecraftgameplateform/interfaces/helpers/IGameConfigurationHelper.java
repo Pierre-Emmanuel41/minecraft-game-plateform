@@ -8,6 +8,7 @@ import java.util.stream.Stream;
 import org.bukkit.World;
 import org.bukkit.entity.Player;
 
+import fr.pederobien.minecraftgameplateform.exceptions.configurations.TeamNameForbiddenException;
 import fr.pederobien.minecraftgameplateform.exceptions.configurations.TeamNotFoundException;
 import fr.pederobien.minecraftgameplateform.exceptions.configurations.TeamWithSameColorAlreadyExistsException;
 import fr.pederobien.minecraftgameplateform.exceptions.configurations.TeamWithSameNameAlreadyExistsException;
@@ -26,6 +27,7 @@ public interface IGameConfigurationHelper {
 	 * @return The created team.
 	 * 
 	 * @throws TeamWithSameNameAlreadyExistsException  If the name is already used by another team.
+	 * @throws TeamNameForbiddenException              If the given name equals "all".
 	 * @throws TeamWithSameColorAlreadyExistsException If the color is already used by another team.
 	 */
 	ITeam create(String name, EColor color);
