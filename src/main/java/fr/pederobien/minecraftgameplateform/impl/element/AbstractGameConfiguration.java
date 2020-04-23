@@ -5,8 +5,6 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
-import org.bukkit.entity.Player;
-
 import fr.pederobien.minecraftgameplateform.interfaces.element.IGame;
 import fr.pederobien.minecraftgameplateform.interfaces.element.IGameConfiguration;
 import fr.pederobien.minecraftgameplateform.interfaces.element.ITeam;
@@ -44,14 +42,6 @@ public abstract class AbstractGameConfiguration extends AbstractNominable implem
 	@Override
 	public Long getScoreboardRefresh() {
 		return scoreboardRefresh == null ? DEFAULT_SCOREBOARD_REFRESH : scoreboardRefresh;
-	}
-
-	@Override
-	public List<Player> getRegisteredPlayers() {
-		List<Player> players = new ArrayList<Player>();
-		for (ITeam team : teams)
-			players.addAll(team.getPlayers());
-		return players;
 	}
 
 	@Override

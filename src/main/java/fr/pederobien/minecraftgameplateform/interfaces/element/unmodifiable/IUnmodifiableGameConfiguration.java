@@ -3,8 +3,6 @@ package fr.pederobien.minecraftgameplateform.interfaces.element.unmodifiable;
 import java.util.List;
 import java.util.Optional;
 
-import org.bukkit.entity.Player;
-
 import fr.pederobien.minecraftgameplateform.interfaces.element.IGame;
 import fr.pederobien.minecraftgameplateform.interfaces.element.ITeam;
 
@@ -33,9 +31,4 @@ public interface IUnmodifiableGameConfiguration extends IUnmodifiableNominable {
 	 * @return The refresh scoreboard period, in server ticks.
 	 */
 	Long getScoreboardRefresh();
-
-	/**
-	 * @return The list of each player registered in teams for this configuration. This list is unmodifiable.
-	 */
-	List<Player> getRegisteredPlayers();
 }

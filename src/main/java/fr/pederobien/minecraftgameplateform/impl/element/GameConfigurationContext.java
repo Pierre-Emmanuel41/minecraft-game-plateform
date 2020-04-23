@@ -3,8 +3,6 @@ package fr.pederobien.minecraftgameplateform.impl.element;
 import java.util.List;
 import java.util.Optional;
 
-import org.bukkit.entity.Player;
-
 import fr.pederobien.minecraftgameplateform.interfaces.element.IGame;
 import fr.pederobien.minecraftgameplateform.interfaces.element.IGameConfiguration;
 import fr.pederobien.minecraftgameplateform.interfaces.element.IGameConfigurationContext;
@@ -57,11 +55,6 @@ public class GameConfigurationContext implements IGameConfigurationContext {
 	@Override
 	public Long getScoreboardRefresh() {
 		return getGameConfiguration().getScoreboardRefresh();
-	}
-
-	@Override
-	public List<Player> getRegisteredPlayers() {
-		return getGameConfiguration().getRegisteredPlayers();
 	}
 
 	@Override
