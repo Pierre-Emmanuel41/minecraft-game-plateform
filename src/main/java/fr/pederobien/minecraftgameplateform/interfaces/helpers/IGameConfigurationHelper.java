@@ -3,6 +3,7 @@ package fr.pederobien.minecraftgameplateform.interfaces.helpers;
 import java.util.List;
 import java.util.Optional;
 import java.util.function.Predicate;
+import java.util.stream.Stream;
 
 import org.bukkit.World;
 import org.bukkit.entity.Player;
@@ -141,4 +142,9 @@ public interface IGameConfigurationHelper {
 	 * @throws TeamNotFoundException if the team does not exist for this configuration.
 	 */
 	void movePlayer(Player player, String teamName);
+
+	/**
+	 * @return A stream that contains all colours not already used by teams of this configuration.
+	 */
+	Stream<EColor> getAvailableColors();
 }

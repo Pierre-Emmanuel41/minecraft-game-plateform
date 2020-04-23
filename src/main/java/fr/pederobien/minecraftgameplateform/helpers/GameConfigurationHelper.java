@@ -1,6 +1,7 @@
 package fr.pederobien.minecraftgameplateform.helpers;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 import java.util.function.Predicate;
@@ -107,6 +108,11 @@ public class GameConfigurationHelper implements IGameConfigurationHelper {
 		if (oldTeam.isPresent())
 			oldTeam.get().removePlayer(player);
 		newTeam.addPlayer(player);
+	}
+
+	@Override
+	public Stream<EColor> getAvailableColors() {
+		return Arrays.asList(EColor.values()).stream().filter(color -> !alreadyUsedColors.contains(color));
 	}
 
 	private Stream<ITeam> getTeamsStream() {
