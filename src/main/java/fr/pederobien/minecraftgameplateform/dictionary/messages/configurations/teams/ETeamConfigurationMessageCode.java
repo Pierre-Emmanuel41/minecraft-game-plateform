@@ -5,7 +5,10 @@ import fr.pederobien.minecraftdictionary.interfaces.IMessageCode;
 
 public enum ETeamConfigurationMessageCode implements IMessageCode {
 	// Code for command add
-	ADD__EXPLANATION;
+	ADD__EXPLANATION,
+
+	// Code for command to add a player to a team
+	ADD_PLAYER__PLAYER_DOES_NOT_EXIST;
 
 	private Permission permission;
 
