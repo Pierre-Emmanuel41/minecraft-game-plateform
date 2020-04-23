@@ -26,6 +26,7 @@ import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.t
 import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.teams.add.AddTeam_ColorDoesNotExist;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.teams.add.AddTeam_ColorNameIsMissing;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.teams.add.AddTeam_Explanation;
+import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.teams.add.AddTeam_TeamAdded;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.teams.add.AddTeam_TeamNameAlreadyUsed;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.teams.add.AddTeam_TeamNameForbidden;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.teams.add.AddTeam_TeamNameIsMissing;
@@ -172,6 +173,7 @@ public class FrenchDictionary extends AbstractDictionary {
 		register(AddTeam_TeamNameForbidden.FRENCH);
 		register(AddTeam_TeamNameAlreadyUsed.FRENCH);
 		register(AddTeam_ColorAlreadyUsed.FRENCH);
+		register(AddTeam_TeamAdded.FRENCH);
 
 		register(AddPlayer_PlayerDoesNotExist.ENGLISH);
 	}

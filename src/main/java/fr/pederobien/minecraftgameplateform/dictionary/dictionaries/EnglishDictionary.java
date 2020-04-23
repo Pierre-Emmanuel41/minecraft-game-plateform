@@ -173,6 +173,7 @@ public class EnglishDictionary extends AbstractDictionary {
 		register(AddTeam_TeamNameForbidden.ENGLISH);
 		register(AddTeam_TeamNameAlreadyUsed.ENGLISH);
 		register(AddTeam_ColorAlreadyUsed.ENGLISH);
+		register(AddTeam_Explanation.ENGLISH);
 
 		register(AddPlayer_PlayerDoesNotExist.ENGLISH);
 	}
