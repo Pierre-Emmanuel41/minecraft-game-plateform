@@ -5,7 +5,7 @@ import fr.pederobien.minecraftdictionary.interfaces.IMessageCode;
 
 public enum ETeamAddMessageCode implements IMessageCode {
 	// Code for command add
-	ADD_TEAM__EXPLANATION, ADD_TEAM__TEAM_NAME_IS_MISSING, ADD_TEAM__COLOR_NAME_IS_MISSING;
+	ADD_TEAM__EXPLANATION, ADD_TEAM__TEAM_NAME_IS_MISSING, ADD_TEAM__COLOR_NAME_IS_MISSING, ADD_TEAM__COLOR_DOES_NOT_EXIST;
 
 	private Permission permission;
 
