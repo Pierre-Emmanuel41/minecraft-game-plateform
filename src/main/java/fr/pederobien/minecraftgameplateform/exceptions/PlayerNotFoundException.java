@@ -6,6 +6,7 @@ public class PlayerNotFoundException extends SimpleMessageException {
 
 	public PlayerNotFoundException(String playerName) {
 		super("The name \"" + playerName + "\" does not correspond to a player");
+		this.playerName = playerName;
 	}
 
 	/**
