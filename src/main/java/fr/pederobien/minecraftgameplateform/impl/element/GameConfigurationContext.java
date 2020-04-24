@@ -33,6 +33,11 @@ public class GameConfigurationContext implements IGameConfigurationContext {
 	}
 
 	@Override
+	public List<ITeam> clear() {
+		return getGameConfiguration().clear();
+	}
+
+	@Override
 	public void setScoreboardRefresh(long refresh) {
 		getGameConfiguration().setScoreboardRefresh(refresh);
 	}

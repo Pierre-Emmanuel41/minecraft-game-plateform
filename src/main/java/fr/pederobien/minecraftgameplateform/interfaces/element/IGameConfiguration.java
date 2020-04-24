@@ -1,5 +1,7 @@
 package fr.pederobien.minecraftgameplateform.interfaces.element;
 
+import java.util.List;
+
 import fr.pederobien.minecraftgameplateform.interfaces.element.unmodifiable.IUnmodifiableGameConfiguration;
 
 public interface IGameConfiguration extends IUnmodifiableGameConfiguration {
@@ -17,6 +19,13 @@ public interface IGameConfiguration extends IUnmodifiableGameConfiguration {
 	 * @param team The team to remove.
 	 */
 	void remove(ITeam team);
+
+	/**
+	 * Remove each registered team from this configuration.
+	 * 
+	 * @return The list of removed teams.
+	 */
+	List<ITeam> clear();
 
 	/**
 	 * Set the refresh scoreboard period, in server ticks.
