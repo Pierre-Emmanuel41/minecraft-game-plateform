@@ -239,11 +239,24 @@ public abstract class AbstractMapPersistenceEdition<T extends IUnmodifiableNomin
 	 * @param args The array that contains arguments.
 	 * 
 	 * @return The concatenation of each argument.
+	 * 
+	 * @see #concat(String[], CharSequence)
 	 */
-	protected String concatArgs(String[] args) {
-		StringJoiner joiner = new StringJoiner(" ");
-		for (String arg : args)
-			joiner.add(arg);
+	protected String concat(String[] args) {
+		return concat(args, " ");
+	}
+
+	/**
+	 * Concatenate each string in the <code>strings</code> array.
+	 * 
+	 * @param strings   An array that contains string to concatenate.
+	 * @param delimiter the sequence of characters to be used between each element added to the concatenation value.
+	 * @return The concatenation of each string.
+	 */
+	protected String concat(String[] strings, CharSequence delimiter) {
+		StringJoiner joiner = new StringJoiner(delimiter);
+		for (String string : strings)
+			joiner.add(string);
 		return joiner.toString();
 	}
 
