@@ -63,19 +63,23 @@ public class AbstractTeamConfigurationEdition<T extends IGameConfiguration> exte
 	}
 
 	/**
-	 * Find the player associated to each player's name in the <code>codeNames</code> and concatenate the name.
+	 * Find the player associated to each player's name in the <code>playerNames</code> and concatenate the name.
 	 * 
 	 * @param playerNames An array that contains player's name to concatenate.
 	 * @param delimiter   the sequence of characters to be used between each element added to the concatenation value.
+	 * @param players     A list used to add player associated to the name in the <code>PlayerNames</code>
 	 * @return The concatenation of each player's name.
 	 * 
 	 * @see #getPlayer(String)
 	 * @see StringJoiner
 	 */
-	protected String getPlayerNamesConcatenated(String[] playerNames, CharSequence delimiter) {
+	protected String getPlayerNamesConcatenated(String[] playerNames, CharSequence delimiter, List<Player> players) {
 		StringJoiner joiner = new StringJoiner(delimiter);
-		for (String playerName : playerNames)
-			joiner.add(getPlayer(playerName).getName());
+		for (String playerName : playerNames) {
+			Player player = getPlayer(playerName);
+			players.add(player);
+			joiner.add(player.getName());
+		}
 		return joiner.toString();
 	}
 }

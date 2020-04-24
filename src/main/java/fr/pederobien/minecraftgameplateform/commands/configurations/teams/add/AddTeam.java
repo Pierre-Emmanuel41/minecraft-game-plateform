@@ -1,10 +1,12 @@
 package fr.pederobien.minecraftgameplateform.commands.configurations.teams.add;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
+import org.bukkit.entity.Player;
 
 import fr.pederobien.minecraftgameplateform.commands.configurations.teams.AbstractTeamConfigurationEdition;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.common.ECommonMessageCode;
@@ -64,8 +66,11 @@ public class AddTeam<T extends IGameConfiguration> extends AbstractTeamConfigura
 
 		String[] playerNames = extract(args, 2);
 		String playerNamesConcatenated = null;
+		List<Player> players = new ArrayList<Player>();
 		try {
-			playerNamesConcatenated = getPlayerNamesConcatenated(playerNames, ", ");
+			playerNamesConcatenated = getPlayerNamesConcatenated(playerNames, ", ", players);
+			for (Player player : players)
+				team.addPlayer(player);
 		} catch (PlayerNotFoundException e) {
 			sendMessageToSender(sender, ETeamConfigurationMessageCode.ADD_PLAYER__PLAYER_DOES_NOT_EXIST, e.getPlayerName());
 			return false;
