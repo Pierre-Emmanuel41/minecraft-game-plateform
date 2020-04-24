@@ -182,6 +182,7 @@ public class FrenchDictionary extends AbstractDictionary {
 		register(AddPlayer_Explanation.FRENCH);
 		register(AddPlayer_TeamNameIsMissing.FRENCH);
 		register(AddPlayer_PlayerDoesNotExist.FRENCH);
+		register(AddPlayer_PlayerDoesNotExist.FRENCH);
 		register(AddPlayer_AnyPlayerAdded.FRENCH);
 		register(AddPlayer_OnePlayerAdded.FRENCH);
 		register(AddPlayer_SeveralPlayersAdded.FRENCH);
