@@ -57,6 +57,14 @@ public class GameConfigurationHelper implements IGameConfigurationHelper {
 	}
 
 	@Override
+	public List<ITeam> clear() {
+		List<ITeam> teams = new ArrayList<ITeam>();
+		configuration.getTeams().forEach(team -> teams.add(team));
+		teams.forEach(team -> synchronizedRemove(team));
+		return teams;
+	}
+
+	@Override
 	public Optional<ITeam> getTeam(Player player) {
 		return filterTeam(team -> team.getPlayers().contains(player));
 	}

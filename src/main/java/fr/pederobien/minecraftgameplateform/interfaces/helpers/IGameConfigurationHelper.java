@@ -60,6 +60,13 @@ public interface IGameConfigurationHelper {
 	List<ITeam> remove(String[] teamNames);
 
 	/**
+	 * Remove all registered teams for this configuration.
+	 * 
+	 * @return The list of removed teams.
+	 */
+	List<ITeam> clear();
+
+	/**
 	 * Get the team in which the given player is registered. To do this, this method search the given player into each team of the
 	 * configuration.
 	 * 
