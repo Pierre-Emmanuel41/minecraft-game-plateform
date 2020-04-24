@@ -98,15 +98,19 @@ public class GameConfigurationHelper implements IGameConfigurationHelper {
 	}
 
 	@Override
-	public void add(String teamName, Player player) {
-		checkTeamExist(teamName).addPlayer(player);
+	public ITeam add(String teamName, Player player) {
+		ITeam team = checkTeamExist(teamName);
+		team.addPlayer(player);
 		registeredPlayers.add(player);
+		return team;
 	}
 
 	@Override
-	public void remove(String teamName, Player player) {
-		checkTeamExist(teamName).removePlayer(player);
+	public ITeam remove(String teamName, Player player) {
+		ITeam team = checkTeamExist(teamName);
+		team.removePlayer(player);
 		registeredPlayers.remove(player);
+		return team;
 	}
 
 	@Override

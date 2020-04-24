@@ -116,11 +116,13 @@ public interface IGameConfigurationHelper {
 	 * @param teamName The name of the team that will get the given player.
 	 * @param player   The player to add to the team.
 	 * 
+	 * @return The team to which the player has been added.
+	 * 
 	 * @throws TeamNotFoundException If the team associated to the given name does not exists for this configuration.
 	 * 
 	 * @see TeamHelper#addPlayer(String, Player)
 	 */
-	void add(String teamName, Player player);
+	ITeam add(String teamName, Player player);
 
 	/**
 	 * Remove the given player from the team represented by the given name.
@@ -128,11 +130,13 @@ public interface IGameConfigurationHelper {
 	 * @param teamName The name of the team that will get the given player.
 	 * @param player   The player to add to the team.
 	 * 
+	 * @return The team from which the player has been removed.
+	 * 
 	 * @throws TeamNotFoundException If the team associated to the given name does not exists for this configuration.
 	 * 
 	 * @see TeamHelper#removePlayer(String, Player)
 	 */
-	void remove(String teamName, Player player);
+	ITeam remove(String teamName, Player player);
 
 	/**
 	 * Move the given player into the team associated to the specified <code>teamName</code>. If the player was already into a team,
