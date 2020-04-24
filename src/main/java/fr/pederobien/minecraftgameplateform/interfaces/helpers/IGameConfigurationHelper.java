@@ -42,9 +42,22 @@ public interface IGameConfigurationHelper {
 	 * 
 	 * @param teamName The team's name.
 	 * 
+	 * @return The removed team.
+	 * 
 	 * @throws TeamNotFoundException If the team associated to the given name does not exists for this configuration.
 	 */
-	void remove(String teamName);
+	ITeam remove(String teamName);
+
+	/**
+	 * Remove each team associated to the name in the <code>teamNames</code> if it exist.
+	 * 
+	 * @param teamNames The name of each team to remove.
+	 * 
+	 * @return The list of removed teams.
+	 * 
+	 * @throws TeamNotFoundException If a team associated to a name does not exists for this configuration.
+	 */
+	List<ITeam> remove(String[] teamNames);
 
 	/**
 	 * Get the team in which the given player is registered. To do this, this method search the given player into each team of the

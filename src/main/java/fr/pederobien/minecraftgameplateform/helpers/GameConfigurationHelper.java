@@ -40,17 +40,20 @@ public class GameConfigurationHelper implements IGameConfigurationHelper {
 		checkNameNotForbidden(name);
 		checkNameIsNotUsed(name);
 		checkColorIsNotUsed(color);
-		ITeam team = PlateformTeam.of(name, color);
-		configuration.add(team);
-		alreadyUsedColors.add(color);
-		return team;
+		return synchronizedAdd(name, color);
 	}
 
 	@Override
-	public void remove(String teamName) {
-		ITeam team = checkTeamExist(teamName);
-		configuration.remove(team);
-		alreadyUsedColors.remove(team.getColor());
+	public ITeam remove(String teamName) {
+		return synchronizedRemove(checkTeamExist(teamName));
+	}
+
+	@Override
+	public List<ITeam> remove(String[] teamNames) {
+		List<ITeam> teams = new ArrayList<ITeam>();
+		for (String teamName : teamNames)
+			teams.add(remove(teamName));
+		return teams;
 	}
 
 	@Override
@@ -195,6 +198,22 @@ public class GameConfigurationHelper implements IGameConfigurationHelper {
 	private ITeam synchronizedRemove(ITeam team, Player player) {
 		team.removePlayer(player);
 		registeredPlayers.remove(player);
+		return team;
+	}
+
+	private ITeam synchronizedAdd(String teamName, EColor color) {
+		ITeam team = PlateformTeam.of(teamName, color);
+		configuration.add(team);
+		alreadyUsedColors.add(color);
+		return team;
+	}
+
+	private ITeam synchronizedRemove(ITeam team) {
+		configuration.remove(team);
+		alreadyUsedColors.remove(team.getColor());
+		// Remove each player from the team and from the registered players list
+		for (Player player : team.getPlayers())
+			synchronizedRemove(team, player);
 		return team;
 	}
 }
