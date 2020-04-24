@@ -8,6 +8,7 @@ import java.util.stream.Stream;
 import org.bukkit.World;
 import org.bukkit.entity.Player;
 
+import fr.pederobien.minecraftgameplateform.exceptions.configurations.PlayerAlreadyRegisteredException;
 import fr.pederobien.minecraftgameplateform.exceptions.configurations.TeamNameForbiddenException;
 import fr.pederobien.minecraftgameplateform.exceptions.configurations.TeamNotFoundException;
 import fr.pederobien.minecraftgameplateform.exceptions.configurations.TeamWithSameColorAlreadyExistsException;
@@ -118,7 +119,8 @@ public interface IGameConfigurationHelper {
 	 * 
 	 * @return The team to which the player has been added.
 	 * 
-	 * @throws TeamNotFoundException If the team associated to the given name does not exists for this configuration.
+	 * @throws TeamNotFoundException            If the team associated to the given name does not exists for this configuration.
+	 * @throws PlayerAlreadyRegisteredException If the player is already registered in a team for this configuration.
 	 * 
 	 * @see TeamHelper#addPlayer(String, Player)
 	 */
@@ -132,7 +134,8 @@ public interface IGameConfigurationHelper {
 	 * 
 	 * @return The team to which the player has been added.
 	 * 
-	 * @throws TeamNotFoundException If the team associated to the given name does not exists for this configuration.
+	 * @throws TeamNotFoundException            If the team associated to the given name does not exists for this configuration.
+	 * @throws PlayerAlreadyRegisteredException If a player is already registered in a team for this configuration.
 	 * 
 	 * @see TeamHelper#addPlayer(String, Player)
 	 */

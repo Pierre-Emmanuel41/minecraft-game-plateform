@@ -11,6 +11,7 @@ import java.util.stream.Stream;
 import org.bukkit.World;
 import org.bukkit.entity.Player;
 
+import fr.pederobien.minecraftgameplateform.exceptions.configurations.PlayerAlreadyRegisteredException;
 import fr.pederobien.minecraftgameplateform.exceptions.configurations.TeamNameForbiddenException;
 import fr.pederobien.minecraftgameplateform.exceptions.configurations.TeamNotFoundException;
 import fr.pederobien.minecraftgameplateform.exceptions.configurations.TeamWithSameColorAlreadyExistsException;
@@ -99,14 +100,14 @@ public class GameConfigurationHelper implements IGameConfigurationHelper {
 
 	@Override
 	public ITeam add(String teamName, Player player) {
-		return synchronizedAdd(checkTeamExist(teamName), player);
+		return synchronizedAdd(checkTeamExist(teamName), checkPlayerNotAlreadyRegistered(player));
 	}
 
 	@Override
 	public ITeam add(String teamName, List<Player> players) {
 		ITeam team = checkTeamExist(teamName);
 		for (Player player : players)
-			synchronizedAdd(team, player);
+			synchronizedAdd(team, checkPlayerNotAlreadyRegistered(player));
 		return team;
 	}
 
@@ -177,6 +178,13 @@ public class GameConfigurationHelper implements IGameConfigurationHelper {
 		Optional<ITeam> optTeam = getTeam(color);
 		if (optTeam.isPresent())
 			throw new TeamWithSameColorAlreadyExistsException(configuration, optTeam.get());
+	}
+
+	private Player checkPlayerNotAlreadyRegistered(Player player) {
+		for (ITeam team : configuration.getTeams())
+			if (team.getPlayers().contains(player))
+				throw new PlayerAlreadyRegisteredException(configuration, team, player);
+		return player;
 	}
 
 	private ITeam synchronizedAdd(ITeam team, Player player) {
