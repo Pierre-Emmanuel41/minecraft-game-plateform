@@ -25,7 +25,6 @@ import fr.pederobien.minecraftmanagers.PlayerManager;
 import fr.pederobien.minecraftmanagers.TeamManager;
 
 public class GameConfigurationHelper implements IGameConfigurationHelper {
-	private static final String FORBIDDEN_NAME = "all";
 	private IGameConfiguration configuration;
 	private List<EColor> alreadyUsedColors;
 	private List<Player> registeredPlayers;

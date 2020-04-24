@@ -18,6 +18,10 @@ import fr.pederobien.minecraftgameplateform.interfaces.element.ITeam;
 import fr.pederobien.minecraftgameplateform.utils.EColor;
 
 public interface IGameConfigurationHelper {
+	/**
+	 * The forbidden name for a team.
+	 */
+	public static final String FORBIDDEN_NAME = "all";
 
 	/**
 	 * Create a team and add it to this configuration if and only if the name and the color are not already used.

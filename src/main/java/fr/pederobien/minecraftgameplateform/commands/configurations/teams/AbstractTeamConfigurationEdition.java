@@ -12,6 +12,7 @@ import fr.pederobien.minecraftgameplateform.exceptions.ColorNotFoundException;
 import fr.pederobien.minecraftgameplateform.exceptions.PlayerNotFoundException;
 import fr.pederobien.minecraftgameplateform.interfaces.element.IGameConfiguration;
 import fr.pederobien.minecraftgameplateform.interfaces.element.ILabel;
+import fr.pederobien.minecraftgameplateform.interfaces.element.ITeam;
 import fr.pederobien.minecraftgameplateform.interfaces.helpers.IGameConfigurationHelper;
 import fr.pederobien.minecraftgameplateform.utils.EColor;
 import fr.pederobien.minecraftmanagers.PlayerManager;
@@ -25,11 +26,11 @@ public class AbstractTeamConfigurationEdition<T extends IGameConfiguration> exte
 	/**
 	 * Remove players already mentioned from the stream returned by {@link IGameConfigurationHelper#getFreePlayers()}.
 	 * 
-	 * @param alreadyMentionnedPlayers A list that contains already mentioned players.
+	 * @param alreadyMentionedPlayers A list that contains already mentioned players.
 	 * @return A stream that contains free and not mentioned players.
 	 */
-	protected Stream<Player> getFreePlayers(List<String> alreadyMentionnedPlayers) {
-		return getGameConfigurationHelper().getFreePlayers().filter(player -> !alreadyMentionnedPlayers.contains(player.getName()));
+	protected Stream<Player> getFreePlayers(List<String> alreadyMentionedPlayers) {
+		return getGameConfigurationHelper().getFreePlayers().filter(player -> !alreadyMentionedPlayers.contains(player.getName()));
 	}
 
 	/**
@@ -81,5 +82,15 @@ public class AbstractTeamConfigurationEdition<T extends IGameConfiguration> exte
 			joiner.add(player.getName());
 		}
 		return joiner.toString();
+	}
+
+	/**
+	 * Remove teams already mentioned from the list returned by {@link IGameConfiguration#getTeams()}.
+	 * 
+	 * @param alreadyMentionedTeams A list that contains already mentioned teams.
+	 * @return A stream that contains not mentioned teams.
+	 */
+	protected Stream<ITeam> getFreeTeams(List<String> alreadyMentionedTeams) {
+		return get().getTeams().stream().filter(team -> !alreadyMentionedTeams.contains(team.getName()));
 	}
 }
