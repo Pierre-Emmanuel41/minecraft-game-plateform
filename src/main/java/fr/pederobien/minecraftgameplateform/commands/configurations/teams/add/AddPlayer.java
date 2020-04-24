@@ -12,6 +12,7 @@ import fr.pederobien.minecraftgameplateform.commands.configurations.teams.Abstra
 import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.teams.ETeamConfigurationMessageCode;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.teams.add.ETeamAddMessageCode;
 import fr.pederobien.minecraftgameplateform.exceptions.PlayerNotFoundException;
+import fr.pederobien.minecraftgameplateform.exceptions.configurations.PlayerAlreadyRegisteredException;
 import fr.pederobien.minecraftgameplateform.exceptions.configurations.TeamNotFoundException;
 import fr.pederobien.minecraftgameplateform.interfaces.element.IGameConfiguration;
 import fr.pederobien.minecraftgameplateform.interfaces.element.ITeam;
@@ -46,6 +47,8 @@ public class AddPlayer<T extends IGameConfiguration> extends AbstractTeamConfigu
 		} catch (TeamNotFoundException e) {
 			sendMessageToSender(sender, ETeamAddMessageCode.ADD_PLAYER__TEAM_DOES_NOT_EXIST, name, get().getName());
 			return false;
+		} catch (PlayerAlreadyRegisteredException e) {
+			sendMessageToSender(sender, ETeamAddMessageCode.ADD_PLAYER__PLAYER_ALREADY_REGISTERED, e.getAlreadyRegisteredPlayer(), team, e.getTeam());
 		}
 
 		switch (playerNames.length) {
