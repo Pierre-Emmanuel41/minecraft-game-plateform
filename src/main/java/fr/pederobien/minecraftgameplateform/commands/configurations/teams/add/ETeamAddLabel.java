@@ -3,7 +3,7 @@ package fr.pederobien.minecraftgameplateform.commands.configurations.teams.add;
 import fr.pederobien.minecraftgameplateform.interfaces.element.ILabel;
 
 public enum ETeamAddLabel implements ILabel {
-	TEAM("team");
+	TEAM("team"), PLAYER("player");
 
 	private String label;
 
