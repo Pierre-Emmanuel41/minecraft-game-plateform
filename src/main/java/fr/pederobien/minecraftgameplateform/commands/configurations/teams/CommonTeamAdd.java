@@ -9,5 +9,6 @@ public class CommonTeamAdd<T extends IGameConfiguration> extends AbstractTeamCon
 	protected CommonTeamAdd() {
 		super(ETeamConfigurationLabel.ADD, ETeamConfigurationMessageCode.ADD__EXPLANATION);
 		addEdition(AddFactory.addTeam());
+		addEdition(AddFactory.addPlayer());
 	}
 }

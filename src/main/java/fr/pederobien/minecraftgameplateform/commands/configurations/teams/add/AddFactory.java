@@ -6,9 +6,16 @@ import fr.pederobien.minecraftgameplateform.interfaces.element.IGameConfiguratio
 public class AddFactory {
 
 	/**
-	 * @return An edition to add teams to a configuration
+	 * @return An edition to add teams to a configuration.
 	 */
 	public static <T extends IGameConfiguration> IMapPersistenceEdition<T> addTeam() {
 		return new AddTeam<T>();
+	}
+
+	/**
+	 * @return An edition to add players to a team.
+	 */
+	public static <T extends IGameConfiguration> IMapPersistenceEdition<T> addPlayer() {
+		return new AddPlayer<>();
 	}
 }
