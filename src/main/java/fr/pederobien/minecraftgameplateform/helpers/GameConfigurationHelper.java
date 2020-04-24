@@ -99,17 +99,27 @@ public class GameConfigurationHelper implements IGameConfigurationHelper {
 
 	@Override
 	public ITeam add(String teamName, Player player) {
+		return synchronizedAdd(checkTeamExist(teamName), player);
+	}
+
+	@Override
+	public ITeam add(String teamName, List<Player> players) {
 		ITeam team = checkTeamExist(teamName);
-		team.addPlayer(player);
-		registeredPlayers.add(player);
+		for (Player player : players)
+			synchronizedAdd(team, player);
 		return team;
 	}
 
 	@Override
 	public ITeam remove(String teamName, Player player) {
+		return synchronizedRemove(checkTeamExist(teamName), player);
+	}
+
+	@Override
+	public ITeam remove(String teamName, List<Player> players) {
 		ITeam team = checkTeamExist(teamName);
-		team.removePlayer(player);
-		registeredPlayers.remove(player);
+		for (Player player : players)
+			synchronizedRemove(team, player);
 		return team;
 	}
 
@@ -167,5 +177,17 @@ public class GameConfigurationHelper implements IGameConfigurationHelper {
 		Optional<ITeam> optTeam = getTeam(color);
 		if (optTeam.isPresent())
 			throw new TeamWithSameColorAlreadyExistsException(configuration, optTeam.get());
+	}
+
+	private ITeam synchronizedAdd(ITeam team, Player player) {
+		team.addPlayer(player);
+		registeredPlayers.add(player);
+		return team;
+	}
+
+	private ITeam synchronizedRemove(ITeam team, Player player) {
+		team.removePlayer(player);
+		registeredPlayers.remove(player);
+		return team;
 	}
 }
