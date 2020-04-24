@@ -169,8 +169,8 @@ public class GameConfigurationHelper implements IGameConfigurationHelper {
 	}
 
 	private void checkNameNotForbidden(String name) {
-		if (name.equals(FORBIDDEN_NAME))
-			throw new TeamNameForbiddenException(configuration, FORBIDDEN_NAME);
+		if (name.equals(ALL))
+			throw new TeamNameForbiddenException(configuration, ALL);
 	}
 
 	private void checkColorIsNotUsed(EColor color) {
