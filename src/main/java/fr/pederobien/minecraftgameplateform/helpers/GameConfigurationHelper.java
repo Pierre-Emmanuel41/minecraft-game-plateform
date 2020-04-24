@@ -128,6 +128,11 @@ public class GameConfigurationHelper implements IGameConfigurationHelper {
 		return PlayerManager.getPlayers().filter(player -> !registeredPlayers.contains(player));
 	}
 
+	@Override
+	public Stream<String> getTeamNames(boolean colored) {
+		return getTeamsStream().map(team -> colored ? team.getColoredName() : team.getName());
+	}
+
 	private Stream<ITeam> getTeamsStream() {
 		return configuration.getTeams().stream();
 	}

@@ -154,4 +154,12 @@ public interface IGameConfigurationHelper {
 	 * @return A stream that contains all players not registered into a team for this configuration.
 	 */
 	Stream<Player> getFreePlayers();
+
+	/**
+	 * Get a stream that contains the name of each registered team for this configuration.
+	 * 
+	 * @param colored True if team's name are coloured, false otherwise.
+	 * @return A stream that contains each team's name.
+	 */
+	Stream<String> getTeamNames(boolean colored);
 }
