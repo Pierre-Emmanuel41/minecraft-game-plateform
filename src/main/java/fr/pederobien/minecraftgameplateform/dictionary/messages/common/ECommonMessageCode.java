@@ -10,7 +10,10 @@ public enum ECommonMessageCode implements IMessageCode {
 	COMMON_NEW__TAB_COMPLETE,
 
 	// Code for common rename command messages
-	COMMON_RENAME__TAB_COMPLETE;
+	COMMON_RENAME__TAB_COMPLETE,
+
+	// Code for common exception messages
+	COMMON__PLAYER_DOES_NOT_EXIST;
 
 	private Permission permission;
 

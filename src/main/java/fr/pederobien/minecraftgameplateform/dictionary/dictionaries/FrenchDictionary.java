@@ -11,6 +11,7 @@ import fr.pederobien.minecraftgameplateform.dictionary.messages.common.Common_Ba
 import fr.pederobien.minecraftgameplateform.dictionary.messages.common.Common_NameMustNotStartWithDefault;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.common.Common_NotAvailableArgument;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.common.Common_NotAvailableCommand;
+import fr.pederobien.minecraftgameplateform.dictionary.messages.common.Common_PlayerDoesNotExist;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.AsCurrent_Explanation;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.AsCurrent_GameStyleDefined;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.CommonLoad_StyleDoesNotExist;
@@ -20,7 +21,6 @@ import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.S
 import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.ScoreboardRefresh_OneTicDefined;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.ScoreboardRefresh_SeveralTicsDefined;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.ScoreboardRefresh_TicsNumberIsMissing;
-import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.teams.Common_PlayerDoesNotExist;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.teams.Add_Explanation;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.teams.Remove_Explanation;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.teams.Team_Explanation;

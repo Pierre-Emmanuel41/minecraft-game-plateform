@@ -3,7 +3,6 @@ package fr.pederobien.minecraftgameplateform.commands.configurations.teams.remov
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.StringJoiner;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -12,7 +11,7 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
 import fr.pederobien.minecraftgameplateform.commands.configurations.teams.AbstractTeamConfigurationEdition;
-import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.teams.ETeamConfigurationMessageCode;
+import fr.pederobien.minecraftgameplateform.dictionary.messages.common.ECommonMessageCode;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.teams.remove.ETeamRemoveMessageCode;
 import fr.pederobien.minecraftgameplateform.exceptions.PlayerNotFoundException;
 import fr.pederobien.minecraftgameplateform.interfaces.element.IGameConfiguration;
@@ -32,6 +31,7 @@ public class RemovePlayer<T extends IGameConfiguration> extends AbstractTeamConf
 			List<String> playerNames = getGameConfigurationHelper().clearPlayers().stream().map(player -> player.getName()).collect(Collectors.toList());
 			sendMessageToSender(sender, ETeamRemoveMessageCode.REMOVE_PLAYER__ALL_PLAYERS_REMOVED);
 			return true;
+
 		}
 
 		String playerNamesConcatenated = null;
@@ -40,7 +40,7 @@ public class RemovePlayer<T extends IGameConfiguration> extends AbstractTeamConf
 			playerNamesConcatenated = concat(getPlayerNames(players));
 			getGameConfigurationHelper().removePlayers(players);
 		} catch (PlayerNotFoundException e) {
-			sendMessageToSender(sender, ETeamConfigurationMessageCode.COMMON__PLAYER_DOES_NOT_EXIST, e.getPlayerName(), get().getName());
+			sendMessageToSender(sender, ECommonMessageCode.COMMON__PLAYER_DOES_NOT_EXIST, e.getPlayerName(), get().getName());
 			return false;
 		}
 
@@ -65,14 +65,5 @@ public class RemovePlayer<T extends IGameConfiguration> extends AbstractTeamConf
 		// If the first argument is all -> any player is proposed
 		// Else propose not already mentioned players
 		return filter(args[0].equals(IGameConfigurationHelper.ALL) ? ((List<String>) emptyList()).stream() : players, args[args.length - 1]);
-	}
-
-	private String remove(String[] playerNames, List<Player> players) {
-		StringJoiner joiner = new StringJoiner(", ");
-		for (String teamName : playerNames) {
-			players.add(getGameConfigurationHelper().remove(teamName));
-			joiner.add(teamName);
-		}
-		return joiner.toString();
 	}
 }

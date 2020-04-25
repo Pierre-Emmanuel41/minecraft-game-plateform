@@ -10,7 +10,6 @@ import org.bukkit.entity.Player;
 
 import fr.pederobien.minecraftgameplateform.commands.configurations.teams.AbstractTeamConfigurationEdition;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.common.ECommonMessageCode;
-import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.teams.ETeamConfigurationMessageCode;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.teams.add.ETeamAddMessageCode;
 import fr.pederobien.minecraftgameplateform.exceptions.ColorNotFoundException;
 import fr.pederobien.minecraftgameplateform.exceptions.PlayerNotFoundException;
@@ -73,7 +72,7 @@ public class AddTeam<T extends IGameConfiguration> extends AbstractTeamConfigura
 			for (Player player : players)
 				team.addPlayer(player);
 		} catch (PlayerNotFoundException e) {
-			sendMessageToSender(sender, ETeamConfigurationMessageCode.COMMON__PLAYER_DOES_NOT_EXIST, e.getPlayerName());
+			sendMessageToSender(sender, ECommonMessageCode.COMMON__PLAYER_DOES_NOT_EXIST, e.getPlayerName());
 			return false;
 		}
 

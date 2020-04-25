@@ -1,4 +1,4 @@
-package fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.teams;
+package fr.pederobien.minecraftgameplateform.dictionary.messages.common;
 
 import fr.pederobien.minecraftdictionary.interfaces.IMessage;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.AbstractDynamicMessage;
@@ -14,7 +14,7 @@ public class Common_PlayerDoesNotExist extends AbstractDynamicMessage {
 	public static final IMessage ENGLISH = new English();
 
 	public Common_PlayerDoesNotExist() {
-		super(ETeamConfigurationMessageCode.COMMON__PLAYER_DOES_NOT_EXIST);
+		super(ECommonMessageCode.COMMON__PLAYER_DOES_NOT_EXIST);
 	}
 
 	private static class French extends Common_PlayerDoesNotExist {

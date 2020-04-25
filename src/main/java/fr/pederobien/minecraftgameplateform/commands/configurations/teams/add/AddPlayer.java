@@ -9,7 +9,7 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
 import fr.pederobien.minecraftgameplateform.commands.configurations.teams.AbstractTeamConfigurationEdition;
-import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.teams.ETeamConfigurationMessageCode;
+import fr.pederobien.minecraftgameplateform.dictionary.messages.common.ECommonMessageCode;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.teams.add.ETeamAddMessageCode;
 import fr.pederobien.minecraftgameplateform.exceptions.PlayerNotFoundException;
 import fr.pederobien.minecraftgameplateform.exceptions.configurations.PlayerAlreadyRegisteredException;
@@ -43,7 +43,7 @@ public class AddPlayer<T extends IGameConfiguration> extends AbstractTeamConfigu
 			playerNamesConcatenated = concat(getPlayerNames(players));
 			team = getGameConfigurationHelper().add(name, players);
 		} catch (PlayerNotFoundException e) {
-			sendMessageToSender(sender, ETeamConfigurationMessageCode.COMMON__PLAYER_DOES_NOT_EXIST, e.getPlayerName());
+			sendMessageToSender(sender, ECommonMessageCode.COMMON__PLAYER_DOES_NOT_EXIST, e.getPlayerName());
 			return false;
 		} catch (TeamNotFoundException e) {
 			sendMessageToSender(sender, ETeamAddMessageCode.ADD_PLAYER__TEAM_DOES_NOT_EXIST, name, get().getName());
