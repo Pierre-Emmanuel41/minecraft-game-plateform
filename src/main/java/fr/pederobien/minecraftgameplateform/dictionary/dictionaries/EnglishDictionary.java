@@ -7,6 +7,7 @@ import fr.pederobien.minecraftgameplateform.dictionary.messages.HelpExplanation;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.common.CommonNew_TabComplete;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.common.CommonRename_TabComplete;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.common.Common_ArgumentNotFound;
+import fr.pederobien.minecraftgameplateform.dictionary.messages.common.Common_BadBooleanFormat;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.common.Common_BadIntegerFormat;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.common.Common_NameMustNotStartWithDefault;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.common.Common_NotAvailableArgument;
@@ -119,6 +120,7 @@ public class EnglishDictionary extends AbstractDictionary {
 		register(Common_NameMustNotStartWithDefault.ENGLISH);
 		register(CommonNew_TabComplete.ENGLISH);
 		register(CommonRename_TabComplete.ENGLISH);
+		register(Common_BadBooleanFormat.ENGLISH);
 
 		// Code for common world structure command messages
 		register(CommonDimension_BadDimensionFormat.ENGLISH);
