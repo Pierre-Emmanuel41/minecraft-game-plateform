@@ -49,7 +49,7 @@ public enum ESpawnMessageCode implements IMessageCode {
 	RANDOM_SPAWN__EXPLANATION, RANDOM_SPAWN__WORLD_OR_COORDINATES_ARE_MISSING,
 
 	// Code for command allowmobunderspawn
-	ALLOW_MOB_UNDER_SPAWN__EXPLANATION;
+	ALLOW_MOB_UNDER_SPAWN__EXPLANATION, ALLOW_MOB_UNDER_SPAWN__VALUE_IS_MISSING;
 
 	private Permission permission;
 

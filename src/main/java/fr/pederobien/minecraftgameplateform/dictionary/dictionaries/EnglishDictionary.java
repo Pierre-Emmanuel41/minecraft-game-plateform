@@ -61,6 +61,7 @@ import fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.C
 import fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.CommonWorld_WorldDoesNotExist;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.Common_MissingCoordinates;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.spawn.AllowMobsUnderSpawn_Explanation;
+import fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.spawn.AllowMobsUnderSpawn_ValueIsMissing;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.spawn.CenterSpawn_CenterDefined;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.spawn.CenterSpawn_Explanation;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.spawn.CurrentSpawn_Explanation;
@@ -170,6 +171,7 @@ public class EnglishDictionary extends AbstractDictionary {
 		register(RandomSpawn_Explanation.ENGLISH);
 		register(RandomSpawn_WorldOrCoordinatesAreMissing.ENGLISH);
 		register(AllowMobsUnderSpawn_Explanation.ENGLISH);
+		register(AllowMobsUnderSpawn_ValueIsMissing.ENGLISH);
 
 		// Code for game messages
 		register(StartingGame.ENGLISH);
