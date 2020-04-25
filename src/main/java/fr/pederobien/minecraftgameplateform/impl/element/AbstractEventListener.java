@@ -16,6 +16,7 @@ public abstract class AbstractEventListener implements IEventListener {
 	public final void register(Plugin plugin) {
 		if (isRegistered)
 			return;
+		isRegistered = true;
 		plugin.getServer().getPluginManager().registerEvents(this, plugin);
 	}
 
