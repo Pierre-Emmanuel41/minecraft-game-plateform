@@ -43,6 +43,7 @@ import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.t
 import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.teams.remove.RemovePlayer_AnyPlayerRemoved;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.teams.remove.RemovePlayer_Explanation;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.teams.remove.RemovePlayer_OnePlayerRemoved;
+import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.teams.remove.RemovePlayer_PlayerNotRegistered;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.teams.remove.RemovePlayer_SeveralPlayersRemoved;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.teams.remove.RemoveTeam_AllTeamsRemoved;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.teams.remove.RemoveTeam_AnyTeamRemoved;
@@ -212,6 +213,7 @@ public class FrenchDictionary extends AbstractDictionary {
 		register(RemoveTeam_SeveralTeamsRemoved.FRENCH);
 		register(RemovePlayer_Explanation.FRENCH);
 		register(RemovePlayer_AllPlayersRemoved.FRENCH);
+		register(RemovePlayer_PlayerNotRegistered.FRENCH);
 		register(RemovePlayer_AnyPlayerRemoved.FRENCH);
 		register(RemovePlayer_OnePlayerRemoved.FRENCH);
 		register(RemovePlayer_SeveralPlayersRemoved.FRENCH);
