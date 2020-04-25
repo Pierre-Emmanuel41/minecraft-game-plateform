@@ -59,6 +59,6 @@ public class Spawn extends AbstractWorldStructure implements ISpawn {
 	}
 
 	private String display(Object object, String display) {
-		return object == null ? "Not defined" : display;
+		return display.concat(object == null ? " (default value)" : "");
 	}
 }
