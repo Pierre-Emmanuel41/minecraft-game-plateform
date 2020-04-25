@@ -5,7 +5,7 @@ import fr.pederobien.minecraftdictionary.interfaces.IMessageCode;
 
 public enum ETeamRemoveMessageCode implements IMessageCode {
 	// Code command remove team
-	REMOVE_TEAM__EXPLANATION, REMOVE_TEAM__ALL_TEAMS_REMOVED, REMOVE_TEAM__TEAM_DOES_NOT_EXIST, REMOVE_TEAM__ANY_TEAM_REMOVED;
+	REMOVE_TEAM__EXPLANATION, REMOVE_TEAM__ALL_TEAMS_REMOVED, REMOVE_TEAM__TEAM_DOES_NOT_EXIST, REMOVE_TEAM__ANY_TEAM_REMOVED, REMOVE_TEAM__ONE_TEAM_REMOVED;
 
 	private Permission permission;
 
