@@ -8,6 +8,7 @@ import org.bukkit.block.data.BlockData;
 import fr.pederobien.minecraftgameplateform.helpers.DisplayHelper;
 import fr.pederobien.minecraftgameplateform.impl.element.AbstractWorldStructure;
 import fr.pederobien.minecraftgameplateform.impl.element.WorldBlock;
+import fr.pederobien.minecraftgameplateform.interfaces.element.IEventListener;
 import fr.pederobien.minecraftgameplateform.interfaces.element.ISpawn;
 import fr.pederobien.minecraftgameplateform.interfaces.element.IWorldBlock;
 import fr.pederobien.minecraftmanagers.WorldManager;
@@ -16,9 +17,11 @@ public class Spawn extends AbstractWorldStructure implements ISpawn {
 	private static final Block DEFAULT_PLAYER_SPAWN = WorldManager.getFromSurfaceHighestBlockYAt(0, 0).getRelative(0, 1, 0);
 
 	private IWorldBlock playerSpawn;
+	private IEventListener spawnEventListener;
 
 	public Spawn(String name) {
 		super(name);
+		spawnEventListener = new SpawnEventListener(this);
 	}
 
 	@Override
@@ -29,6 +32,11 @@ public class Spawn extends AbstractWorldStructure implements ISpawn {
 	@Override
 	public IWorldBlock getRelativePlayerSpawn() {
 		return playerSpawn == null ? new WorldBlock(0, 1, 0, null) : playerSpawn;
+	}
+
+	@Override
+	public IEventListener getListener() {
+		return spawnEventListener;
 	}
 
 	@Override

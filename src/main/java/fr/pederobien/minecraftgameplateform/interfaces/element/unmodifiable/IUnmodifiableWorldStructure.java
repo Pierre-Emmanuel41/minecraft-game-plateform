@@ -5,6 +5,7 @@ import java.util.List;
 import org.bukkit.World;
 import org.bukkit.block.Block;
 
+import fr.pederobien.minecraftgameplateform.interfaces.element.IEventListener;
 import fr.pederobien.minecraftgameplateform.interfaces.element.IWorldBlock;
 
 public interface IUnmodifiableWorldStructure extends IUnmodifiableNominable {
@@ -69,4 +70,9 @@ public interface IUnmodifiableWorldStructure extends IUnmodifiableNominable {
 	 *         list is empty.
 	 */
 	List<IWorldBlock> getBlocks();
+
+	/**
+	 * @return The listener that interact with minecraft events.
+	 */
+	IEventListener getListener();
 }
