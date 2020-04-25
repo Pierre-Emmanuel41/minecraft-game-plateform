@@ -3,7 +3,10 @@ package fr.pederobien.minecraftgameplateform.spawn.commands;
 import org.bukkit.command.CommandSender;
 
 import fr.pederobien.minecraftgameplateform.commands.common.CommonNew;
+import fr.pederobien.minecraftgameplateform.commands.common.ECommonLabel;
+import fr.pederobien.minecraftgameplateform.commands.worldstructure.EWorldStructureLabel;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.spawn.ESpawnMessageCode;
+import fr.pederobien.minecraftgameplateform.interfaces.element.ILabel;
 import fr.pederobien.minecraftgameplateform.interfaces.element.ISpawn;
 import fr.pederobien.minecraftgameplateform.spawn.Spawn;
 
@@ -31,5 +34,15 @@ public class NewSpawn extends CommonNew<ISpawn> {
 	@Override
 	protected void onCreated(CommandSender sender, String name) {
 		sendMessageToSender(sender, ESpawnMessageCode.NEW_SPAWN__SPAWN_CREATED, name);
+		setAllAvailable();
+	}
+
+	private void setAllAvailable() {
+		for (ILabel label : ECommonLabel.values())
+			setAvailableLabelEdition(label);
+		for (ILabel label : EWorldStructureLabel.values())
+			setAvailableLabelEdition(label);
+		for (ILabel laebl : ESpawnLabel.values())
+			setAvailableLabelEdition(laebl);
 	}
 }
