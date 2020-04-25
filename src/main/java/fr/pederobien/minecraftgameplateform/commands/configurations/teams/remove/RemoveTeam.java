@@ -56,13 +56,13 @@ public class RemoveTeam<T extends IGameConfiguration> extends AbstractTeamConfig
 	public List<String> onTabComplete(CommandSender sender, Command command, String alias, String[] args) {
 		Stream<String> teams = getFreeTeams(Arrays.asList(args)).map(team -> team.getName());
 
-		// Adding all to delete all registered team
+		// Adding all to delete all registered teams
 		if (args.length == 1)
 			return filter(Stream.concat(teams, Stream.of(IGameConfigurationHelper.ALL)), args[0]);
 
 		// If the first argument is all -> any team is proposed
 		// Else propose not already mentioned teams
-		return filter(args[0].equals(IGameConfigurationHelper.ALL) ? ((List<String>) emptyList()).stream() : teams, args[1]);
+		return filter(args[0].equals(IGameConfigurationHelper.ALL) ? ((List<String>) emptyList()).stream() : teams, args[args.length - 1]);
 	}
 
 	private String remove(String[] teamNames, List<ITeam> teams) {
