@@ -7,6 +7,7 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 
 import fr.pederobien.minecraftgameplateform.commands.worldstructure.AbstractWorldStructureEdition;
+import fr.pederobien.minecraftgameplateform.dictionary.messages.common.ECommonMessageCode;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.spawn.ESpawnMessageCode;
 import fr.pederobien.minecraftgameplateform.interfaces.element.ISpawn;
 
@@ -25,9 +26,12 @@ public class AllowMobsUnderSpawn extends AbstractWorldStructureEdition<ISpawn> {
 			else if (isAllowMobsUnderSpawn.equals("false"))
 				get().setAllowMobsUnderSpawn(false);
 			else {
+				sendMessageToSender(sender, ECommonMessageCode.COMMON__BAD_BOOLEAN_FORMAT);
 				return false;
 			}
+			sendMessageToSender(sender, ESpawnMessageCode.ALLOW_MOB_UNDER_SPAWN__DEFINED, get().isAllowMobsUnderSpawn());
 		} catch (IndexOutOfBoundsException e) {
+			sendMessageToSender(sender, ESpawnMessageCode.ALLOW_MOB_UNDER_SPAWN__VALUE_IS_MISSING);
 			return false;
 		}
 		return true;

@@ -102,4 +102,11 @@ public class SpawnEditionFactory {
 	public static IMapPersistenceEdition<ISpawn> randomSpawn() {
 		return new RandomSpawn();
 	}
+
+	/**
+	 * @return An edition to allow or not the spawn of mobs under a spawn.
+	 */
+	public static IMapPersistenceEdition<ISpawn> allowMobsUnderSpawn() {
+		return new AllowMobsUnderSpawn();
+	}
 }
