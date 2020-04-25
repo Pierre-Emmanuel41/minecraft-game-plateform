@@ -244,7 +244,7 @@ public abstract class AbstractMapPersistenceEdition<T extends IUnmodifiableNomin
 	 * @see #concat(String[], CharSequence)
 	 */
 	protected String concat(String[] args) {
-		return concat(args, " ");
+		return concat(args, ", ");
 	}
 
 	/**
@@ -272,6 +272,19 @@ public abstract class AbstractMapPersistenceEdition<T extends IUnmodifiableNomin
 	 */
 	protected String concat(List<String> strings, CharSequence delimiter) {
 		return concat(strings.toArray(new String[] {}), delimiter);
+	}
+
+	/**
+	 * Concatenate each string in the list <code>strings</code> using the delimiter ", ".
+	 * 
+	 * @param strings   The list that contains string to concatenate
+	 * @param delimiter the sequence of characters to be used between each element added to the concatenation value.
+	 * @return The concatenation of each string.
+	 * 
+	 * @see #concat(List, CharSequence)
+	 */
+	protected String concat(List<String> strings) {
+		return concat(strings, ", ");
 	}
 
 	/**
