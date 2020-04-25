@@ -60,7 +60,7 @@ import fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.C
 import fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.CommonDimension_MissingDimension;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.CommonWorld_WorldDoesNotExist;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.Common_MissingCoordinates;
-import fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.spawn.AllowMobUnderSpawn_Explanation;
+import fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.spawn.AllowMobsUnderSpawn_Explanation;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.spawn.CenterSpawn_CenterDefined;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.spawn.CenterSpawn_Explanation;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.spawn.CurrentSpawn_Explanation;
@@ -167,7 +167,7 @@ public class FrenchDictionary extends AbstractDictionary {
 		register(PlayerSpawn_PlayerSpawnDefined.FRENCH);
 		register(RandomSpawn_Explanation.FRENCH);
 		register(RandomSpawn_WorldOrCoordinatesAreMissing.FRENCH);
-		register(AllowMobUnderSpawn_Explanation.FRENCH);
+		register(AllowMobsUnderSpawn_Explanation.FRENCH);
 
 		// Code for game messages
 		register(StartingGame.FRENCH);
