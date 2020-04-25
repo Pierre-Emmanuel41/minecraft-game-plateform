@@ -18,6 +18,7 @@ public class Spawn extends AbstractWorldStructure implements ISpawn {
 
 	private IWorldBlock playerSpawn;
 	private IEventListener spawnEventListener;
+	private Boolean isAllowMobsUnderSpawn;
 
 	public Spawn(String name) {
 		super(name);
@@ -32,6 +33,11 @@ public class Spawn extends AbstractWorldStructure implements ISpawn {
 	@Override
 	public IWorldBlock getRelativePlayerSpawn() {
 		return playerSpawn == null ? new WorldBlock(0, 1, 0, null) : playerSpawn;
+	}
+
+	@Override
+	public boolean isAllowMobsUnderSpawn() {
+		return isAllowMobsUnderSpawn == null ? true : isAllowMobsUnderSpawn;
 	}
 
 	@Override
@@ -51,6 +57,11 @@ public class Spawn extends AbstractWorldStructure implements ISpawn {
 	@Override
 	public void setRelativePlayerSpawn(String x, String y, String z) {
 		playerSpawn = new WorldBlock(x, y, z, null);
+	}
+
+	@Override
+	public void setAllowMobsUnderSpawn(boolean isAllowMobsUnderSpawn) {
+		this.isAllowMobsUnderSpawn = isAllowMobsUnderSpawn;
 	}
 
 	@Override

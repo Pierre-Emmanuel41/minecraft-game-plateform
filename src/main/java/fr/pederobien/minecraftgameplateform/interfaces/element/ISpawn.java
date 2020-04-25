@@ -21,4 +21,11 @@ public interface ISpawn extends IUnmodifiableSpawn, IWorldStructure {
 	 * @param z The z-Coordinates of the block.
 	 */
 	void setRelativePlayerSpawn(String x, String y, String z);
+
+	/**
+	 * If mobs are allowed to spawn under the spawn, then set to true, false otherwise.
+	 * 
+	 * @param isAllowMobsUnderSpawn true to allow mobs to spawn under the spawn, false otherwise.
+	 */
+	void setAllowMobsUnderSpawn(boolean isAllowMobsUnderSpawn);
 }

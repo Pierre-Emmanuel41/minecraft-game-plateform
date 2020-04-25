@@ -20,4 +20,9 @@ public interface IUnmodifiableSpawn extends IUnmodifiableWorldStructure {
 	 * @return A virtual block above which players will spawn.
 	 */
 	IWorldBlock getRelativePlayerSpawn();
+
+	/**
+	 * @return True if mobs are allowed to spawn under the spawn, false otherwise.
+	 */
+	boolean isAllowMobsUnderSpawn();
 }
