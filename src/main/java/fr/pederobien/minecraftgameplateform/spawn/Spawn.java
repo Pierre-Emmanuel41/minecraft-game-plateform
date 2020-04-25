@@ -70,10 +70,11 @@ public class Spawn extends AbstractWorldStructure implements ISpawn {
 		joiner.add("Name : " + getName());
 		joiner.add("World : " + display(world, getWorld().getName()));
 		joiner.add("Center : " + display(center, DisplayHelper.toString(getCenter())));
-		joiner.add("Spawn : " + display(playerSpawn, DisplayHelper.toString(getPlayerSpawn())));
 		joiner.add("Width : " + display(width, getWidth() + " blocks"));
 		joiner.add("Height : " + display(height, getHeight() + " blocks"));
 		joiner.add("Depth : " + display(depth, getDepth() + " blocks"));
+		joiner.add("Player's spawn : " + display(playerSpawn, DisplayHelper.toString(getPlayerSpawn())));
+		joiner.add("Allow mobs under spawn : " + display(isAllowMobsUnderSpawn, "" + isAllowMobsUnderSpawn()));
 		return joiner.toString();
 	}
 
