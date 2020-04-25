@@ -54,4 +54,19 @@ public class AbstractPersistenceLoader<T extends IUnmodifiableNominable> impleme
 	protected double toDouble(String number) {
 		return Double.parseDouble(number);
 	}
+
+	/**
+	 * Parses the string argument as a boolean. The {@code boolean} returned represents the value {@code true} if the string argument
+	 * is not {@code null} and is equal, ignoring case, to the string {@code "true"}.
+	 * <p>
+	 * Example: {@code Boolean.parseBoolean("True")} returns {@code true}.<br>
+	 * Example: {@code Boolean.parseBoolean("yes")} returns {@code false}.
+	 *
+	 * @param bool the {@code String} containing the boolean representation to be parsed.
+	 * @return the boolean represented by the string argument.
+	 * @since 1.5
+	 */
+	protected boolean toBool(String bool) {
+		return Boolean.parseBoolean(bool);
+	}
 }

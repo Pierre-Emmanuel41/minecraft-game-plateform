@@ -52,17 +52,6 @@ public abstract class AbstractXmlPersistenceLoader<T extends IUnmodifiableNomina
 	}
 
 	/**
-	 * Convert the result returned by {@link Element#getNodeValue()} into an integer.
-	 * 
-	 * @param node The node use to transform its value into an integer.
-	 * 
-	 * @return An integer.
-	 */
-	protected int getIntNodeValue(Node node) {
-		return toInt(node.getNodeValue());
-	}
-
-	/**
 	 * Convert the result returned by {@link #getStringAttribute(Element, Object)} into a double.
 	 * 
 	 * @param element The element used to search attributes.
@@ -75,6 +64,29 @@ public abstract class AbstractXmlPersistenceLoader<T extends IUnmodifiableNomina
 	}
 
 	/**
+	 * Convert the result returned by {@link #getStringAttribute(Element, Object)} into a boolean.
+	 * 
+	 * @param element The element used to search attributes.
+	 * @param name    The name of the attribute to retrieve.
+	 * 
+	 * @return A boolean.
+	 */
+	protected boolean getBooleanAttribute(Element element, Object name) {
+		return toBool(getStringAttribute(element, name));
+	}
+
+	/**
+	 * Convert the result returned by {@link Element#getNodeValue()} into an integer.
+	 * 
+	 * @param node The node use to transform its value into an integer.
+	 * 
+	 * @return An integer.
+	 */
+	protected int getIntNodeValue(Node node) {
+		return toInt(node.getNodeValue());
+	}
+
+	/**
 	 * Convert the result returned by {@link Element#getNodeValue()} into a double.
 	 * 
 	 * @param node The node use to transform its value into an double.
@@ -83,5 +95,16 @@ public abstract class AbstractXmlPersistenceLoader<T extends IUnmodifiableNomina
 	 */
 	protected double getDoubleNodeValue(Node node) {
 		return toDouble(node.getNodeValue());
+	}
+
+	/**
+	 * Convert the result returned by {@link Element#getNodeValue()} into a boolean.
+	 * 
+	 * @param node The node use to transform its value into a boolean.
+	 * 
+	 * @return A boolean.
+	 */
+	protected boolean getBooleanNodeValue(Node node) {
+		return toBool(node.getNodeValue());
 	}
 }
