@@ -1,7 +1,6 @@
 package fr.pederobien.minecraftgameplateform.commands.common;
 
 import java.util.List;
-import java.util.StringJoiner;
 
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
@@ -58,19 +57,12 @@ public abstract class CommonList<T extends IUnmodifiableNominable> extends Abstr
 			onNoElement(sender);
 			break;
 		case 1:
-			onOneElement(sender, concat(list));
+			onOneElement(sender, concat(list, "\n"));
 			break;
 		default:
-			onSeveralElement(sender, concat(list));
+			onSeveralElement(sender, concat(list, "\n"));
 			break;
 		}
 		return true;
-	}
-
-	private String concat(List<String> list) {
-		StringJoiner joiner = new StringJoiner("\n");
-		for (String name : list)
-			joiner.add(name);
-		return joiner.toString();
 	}
 }
