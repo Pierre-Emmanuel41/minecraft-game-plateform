@@ -10,10 +10,27 @@ import fr.pederobien.minecraftgameplateform.commands.worldstructure.AbstractWorl
 import fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.spawn.ESpawnMessageCode;
 import fr.pederobien.minecraftgameplateform.interfaces.element.ISpawn;
 
-public class AllowMobUnderSpawn extends AbstractWorldStructureEdition<ISpawn> {
+public class AllowMobsUnderSpawn extends AbstractWorldStructureEdition<ISpawn> {
 
-	protected AllowMobUnderSpawn() {
+	protected AllowMobsUnderSpawn() {
 		super(ESpawnLabel.ALLOW_MOBS_UNDER_SPAWN, ESpawnMessageCode.ALLOW_MOB_UNDER_SPAWN__EXPLANATION);
+	}
+
+	@Override
+	public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
+		try {
+			String isAllowMobsUnderSpawn = args[0];
+			if (isAllowMobsUnderSpawn.equals("true"))
+				get().setAllowMobsUnderSpawn(true);
+			else if (isAllowMobsUnderSpawn.equals("false"))
+				get().setAllowMobsUnderSpawn(false);
+			else {
+				return false;
+			}
+		} catch (IndexOutOfBoundsException e) {
+			return false;
+		}
+		return true;
 	}
 
 	@Override
