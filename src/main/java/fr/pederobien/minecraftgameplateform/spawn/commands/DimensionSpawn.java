@@ -15,6 +15,5 @@ public class DimensionSpawn extends CommonDimension<ISpawn> {
 	@Override
 	protected void onDimensionDefined(CommandSender sender, String name, int width, int height, int depth) {
 		sendMessageToSender(sender, ESpawnMessageCode.DIMENSION_SPAWN__DEFINED, name, width, height, depth);
-		setAvailableLabelEdition(ESpawnLabel.PLAYER_SPAWN);
 	}
 }

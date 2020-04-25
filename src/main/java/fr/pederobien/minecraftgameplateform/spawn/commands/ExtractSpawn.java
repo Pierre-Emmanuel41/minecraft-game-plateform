@@ -2,7 +2,6 @@ package fr.pederobien.minecraftgameplateform.spawn.commands;
 
 import org.bukkit.command.CommandSender;
 
-import fr.pederobien.minecraftgameplateform.commands.common.ECommonLabel;
 import fr.pederobien.minecraftgameplateform.commands.worldstructure.CommonExtract;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.spawn.ESpawnMessageCode;
 import fr.pederobien.minecraftgameplateform.interfaces.element.ISpawn;
@@ -16,6 +15,5 @@ public class ExtractSpawn extends CommonExtract<ISpawn> {
 	@Override
 	protected void onExtracted(CommandSender sender, String name) {
 		sendMessageToSender(sender, ESpawnMessageCode.EXTRACT_SPAWN__SPAWN_EXTRACTED, name);
-		setAvailableLabelEdition(ECommonLabel.SAVE);
 	}
 }

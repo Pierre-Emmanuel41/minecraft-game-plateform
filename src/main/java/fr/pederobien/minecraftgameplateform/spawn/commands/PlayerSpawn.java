@@ -7,7 +7,6 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 
 import fr.pederobien.minecraftgameplateform.commands.worldstructure.AbstractWorldStructureEdition;
-import fr.pederobien.minecraftgameplateform.commands.worldstructure.EWorldStructureLabel;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.common.ECommonMessageCode;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.EWorldStructureMessageCode;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.spawn.ESpawnMessageCode;
@@ -54,6 +53,5 @@ public class PlayerSpawn extends AbstractWorldStructureEdition<ISpawn> {
 
 	private void onPlayerSpawnDefined(CommandSender sender, int x, int y, int z) {
 		sendMessageToSender(sender, ESpawnMessageCode.PLAYER_SPAWN__PLAYER_SPAWN_DEFINED, x, y, z);
-		setAvailableLabelEdition(EWorldStructureLabel.EXTRACT);
 	}
 }

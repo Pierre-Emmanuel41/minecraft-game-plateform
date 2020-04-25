@@ -2,11 +2,8 @@ package fr.pederobien.minecraftgameplateform.spawn.commands;
 
 import org.bukkit.command.CommandSender;
 
-import fr.pederobien.minecraftgameplateform.commands.common.ECommonLabel;
 import fr.pederobien.minecraftgameplateform.commands.worldstructure.CommonLaunch;
-import fr.pederobien.minecraftgameplateform.commands.worldstructure.EWorldStructureLabel;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.spawn.ESpawnMessageCode;
-import fr.pederobien.minecraftgameplateform.interfaces.element.ILabel;
 import fr.pederobien.minecraftgameplateform.interfaces.element.ISpawn;
 
 public class LaunchSpawn extends CommonLaunch<ISpawn> {
@@ -33,15 +30,5 @@ public class LaunchSpawn extends CommonLaunch<ISpawn> {
 	@Override
 	protected void onLaunched(CommandSender sender, String name, String world, int x, int y, int z) {
 		sendMessageToSender(sender, ESpawnMessageCode.LAUNCH_SPAWN__SPAWN_LAUNCHED, name, world, x, y, z);
-		initiateCommandsAvailable();
-	}
-
-	private void initiateCommandsAvailable() {
-		for (ILabel label : ECommonLabel.values())
-			setAvailableLabelEditions(label);
-		for (ILabel label : EWorldStructureLabel.values())
-			setAvailableLabelEditions(label);
-		for (ILabel label : ESpawnLabel.values())
-			setAvailableLabelEditions(label);
 	}
 }
