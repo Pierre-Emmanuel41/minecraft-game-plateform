@@ -3,6 +3,7 @@ package fr.pederobien.minecraftgameplateform.impl.element;
 import java.util.List;
 import java.util.Optional;
 
+import fr.pederobien.minecraftgameplateform.interfaces.element.IEventListener;
 import fr.pederobien.minecraftgameplateform.interfaces.element.IGame;
 import fr.pederobien.minecraftgameplateform.interfaces.element.IGameConfiguration;
 import fr.pederobien.minecraftgameplateform.interfaces.element.IGameConfigurationContext;
@@ -95,6 +96,11 @@ public class GameConfigurationContext implements IGameConfigurationContext {
 	@Override
 	public void relaunch() {
 		getGame().relaunch();
+	}
+
+	@Override
+	public IEventListener getListener() {
+		return getGame().getListener();
 	}
 
 	@Override

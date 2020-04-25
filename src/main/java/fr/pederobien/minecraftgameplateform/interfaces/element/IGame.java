@@ -26,4 +26,10 @@ public interface IGame {
 	 * Method called to relaunch the game when it is in pause.
 	 */
 	void relaunch();
+
+	/**
+	 * @return The listener that interact with minecraft events.
+	 * 
+	 */
+	IEventListener getListener();
 }
