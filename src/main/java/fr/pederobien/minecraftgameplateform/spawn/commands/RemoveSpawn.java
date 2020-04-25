@@ -15,5 +15,6 @@ public class RemoveSpawn extends CommonRemove<ISpawn> {
 	@Override
 	protected void onRemoved(CommandSender sender, String name, String world) {
 		sendMessageToSender(sender, ESpawnMessageCode.REMOVE_SPAWN__SPAWN_REMOVED, name, world);
+		get().getListener().setActivated(false);
 	}
 }
