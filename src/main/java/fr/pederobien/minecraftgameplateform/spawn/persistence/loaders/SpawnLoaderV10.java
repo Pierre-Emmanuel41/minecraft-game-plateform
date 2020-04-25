@@ -41,7 +41,7 @@ public class SpawnLoaderV10 extends AbstractSpawnLoader {
 
 		// Getting the spawn's player spawn
 		Element playerSpawn = (Element) getElementsByTagName(root, SpawnXmlTag.PLAYER_SPAWN).item(0);
-		get().setPlayerSpawn(getXCoordinates(playerSpawn), getYCoordinates(playerSpawn), getZCoordinates(playerSpawn));
+		get().setRelativePlayerSpawn(getXCoordinates(playerSpawn), getYCoordinates(playerSpawn), getZCoordinates(playerSpawn));
 
 		// Getting spawn's blocks
 		NodeList blocks = getElementsByTagName(root, SpawnXmlTag.BLOCK);
