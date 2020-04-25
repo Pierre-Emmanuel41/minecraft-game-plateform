@@ -55,6 +55,11 @@ public abstract class AbstractGameConfiguration extends AbstractNominable implem
 	}
 
 	@Override
+	public void remove(List<ITeam> teams) {
+		teams.removeAll(teams);
+	}
+
+	@Override
 	public List<ITeam> clear() {
 		List<ITeam> removedTeams = new ArrayList<ITeam>(teams);
 		teams.clear();

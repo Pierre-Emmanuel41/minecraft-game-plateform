@@ -33,6 +33,11 @@ public class GameConfigurationContext implements IGameConfigurationContext {
 	}
 
 	@Override
+	public void remove(List<ITeam> teams) {
+		getGameConfiguration().remove(teams);
+	}
+
+	@Override
 	public List<ITeam> clear() {
 		return getGameConfiguration().clear();
 	}
