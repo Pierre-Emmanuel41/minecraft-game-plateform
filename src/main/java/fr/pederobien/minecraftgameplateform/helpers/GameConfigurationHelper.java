@@ -154,6 +154,11 @@ public class GameConfigurationHelper implements IGameConfigurationHelper {
 	}
 
 	@Override
+	public Stream<Player> getNotFreePlayers() {
+		return getTeamsStream().map(team -> team.getPlayers().stream()).reduce(Stream.of(), (players, playersTeam) -> Stream.concat(players, playersTeam));
+	}
+
+	@Override
 	public Stream<String> getTeamNames(boolean colored) {
 		return getTeamsStream().map(team -> colored ? team.getColoredName() : team.getName());
 	}

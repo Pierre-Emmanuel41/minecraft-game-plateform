@@ -215,6 +215,11 @@ public interface IGameConfigurationHelper {
 	Stream<Player> getFreePlayers();
 
 	/**
+	 * @return A stream that contains all registered players in a team for this configuration.
+	 */
+	Stream<Player> getNotFreePlayers();
+
+	/**
 	 * Get a stream that contains the name of each registered team for this configuration.
 	 * 
 	 * @param colored True if team's name are coloured, false otherwise.

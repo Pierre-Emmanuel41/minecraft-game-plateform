@@ -37,6 +37,16 @@ public class AbstractTeamConfigurationEdition<T extends IGameConfiguration> exte
 	}
 
 	/**
+	 * Remove players already mentioned from the stream returned by {@link IGameConfigurationHelper#getNotFreePlayers()}.
+	 * 
+	 * @param alreadyMentionedPlayers A list that contains already mentioned players.
+	 * @return A stream that contains not free and not mentioned players.
+	 */
+	protected Stream<Player> getNotFreePlayers(List<String> alreadyMentionedPlayers) {
+		return getGameConfigurationHelper().getNotFreePlayers().filter(player -> !alreadyMentionedPlayers.contains(player.getName()));
+	}
+
+	/**
 	 * Find the player associated to the given name.
 	 * 
 	 * @param playerName The player's name.
