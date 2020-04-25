@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.StringJoiner;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 import org.bukkit.command.Command;
@@ -27,7 +28,8 @@ public class RemoveTeam<T extends IGameConfiguration> extends AbstractTeamConfig
 		List<ITeam> teams = new ArrayList<ITeam>();
 
 		if (args[0].equals(IGameConfigurationHelper.ALL)) {
-			sendMessageToSender(sender, ETeamRemoveMessageCode.REMOVE_TEAM__ALL_TEAMS_REMOVED, get().getName(), concat(getGameConfigurationHelper().clear(), ", "));
+			List<String> teamNames = getGameConfigurationHelper().clearTeams().stream().map(team -> team.getName()).collect(Collectors.toList());
+			sendMessageToSender(sender, ETeamRemoveMessageCode.REMOVE_TEAM__ALL_TEAMS_REMOVED, get().getName(), concat(teamNames, ", "));
 			return true;
 		}
 

@@ -3,7 +3,6 @@ package fr.pederobien.minecraftgameplateform.commands.configurations.teams;
 import java.util.List;
 import java.util.Optional;
 import java.util.StringJoiner;
-import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 import org.bukkit.entity.Player;
@@ -131,17 +130,6 @@ public class AbstractTeamConfigurationEdition<T extends IGameConfiguration> exte
 			joiner.add(team.getName());
 		}
 		return joiner.toString();
-	}
-
-	/**
-	 * Concatenate the name of each team in the list with the given delimiter.
-	 * 
-	 * @param teams     The list of team used to concatenate names.
-	 * @param delimiter the sequence of characters to be used between each element added to the concatenation value.
-	 * @return The concatenation of each team's name.
-	 */
-	protected String concat(List<ITeam> teams, CharSequence delimiter) {
-		return concat(teams.stream().map(t -> t.getName()).collect(Collectors.toList()).toArray(new String[] {}), delimiter);
 	}
 
 	/**

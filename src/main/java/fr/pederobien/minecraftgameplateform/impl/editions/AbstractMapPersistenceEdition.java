@@ -3,6 +3,7 @@ package fr.pederobien.minecraftgameplateform.impl.editions;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
+import java.util.List;
 import java.util.StringJoiner;
 
 import org.bukkit.command.CommandSender;
@@ -252,12 +253,25 @@ public abstract class AbstractMapPersistenceEdition<T extends IUnmodifiableNomin
 	 * @param strings   An array that contains string to concatenate.
 	 * @param delimiter the sequence of characters to be used between each element added to the concatenation value.
 	 * @return The concatenation of each string.
+	 * 
+	 * @see StringJoiner
 	 */
 	protected String concat(String[] strings, CharSequence delimiter) {
 		StringJoiner joiner = new StringJoiner(delimiter);
 		for (String string : strings)
 			joiner.add(string);
 		return joiner.toString();
+	}
+
+	/**
+	 * Concatenate each string in the list <code>strings</code> using the given delimiter.
+	 * 
+	 * @param strings   The list that contains string to concatenate
+	 * @param delimiter the sequence of characters to be used between each element added to the concatenation value.
+	 * @return The concatenation of each string.
+	 */
+	protected String concat(List<String> strings, CharSequence delimiter) {
+		return concat(strings.toArray(new String[] {}), delimiter);
 	}
 
 	/**
