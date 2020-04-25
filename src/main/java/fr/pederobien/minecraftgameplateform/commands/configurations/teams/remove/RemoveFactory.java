@@ -11,4 +11,11 @@ public class RemoveFactory {
 	public static <T extends IGameConfiguration> IMapPersistenceEdition<T> removeTeam() {
 		return new RemoveTeam<T>();
 	}
+
+	/**
+	 * @return An edition to remove players from a team.
+	 */
+	public static <T extends IGameConfiguration> IMapPersistenceEdition<T> removePlayer() {
+		return new RemovePlayer<T>();
+	}
 }

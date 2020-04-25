@@ -9,5 +9,6 @@ public class CommonTeamRemove<T extends IGameConfiguration> extends AbstractTeam
 	protected CommonTeamRemove() {
 		super(ETeamConfigurationLabel.REMOVE, ETeamConfigurationMessageCode.REMOVE__EXPLANATION);
 		addEdition(RemoveFactory.removeTeam());
+		addEdition(RemoveFactory.removePlayer());
 	}
 }
