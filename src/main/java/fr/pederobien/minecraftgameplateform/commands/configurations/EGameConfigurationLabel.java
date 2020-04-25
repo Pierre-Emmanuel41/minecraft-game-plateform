@@ -3,7 +3,7 @@ package fr.pederobien.minecraftgameplateform.commands.configurations;
 import fr.pederobien.minecraftgameplateform.interfaces.element.ILabel;
 
 public enum EGameConfigurationLabel implements ILabel {
-	AS_CURRENT("ascurrent"), LOAD("load"), SCOREBOARD_REFRESH("scoreboardrefresh");
+	AS_CURRENT("ascurrent"), LOAD("load"), SCOREBOARD_REFRESH("scoreboardrefresh"), TEAM("team");
 
 	private String label;
 
