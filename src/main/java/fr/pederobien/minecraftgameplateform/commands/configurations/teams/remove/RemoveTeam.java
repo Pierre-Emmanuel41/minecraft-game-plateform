@@ -26,7 +26,7 @@ public class RemoveTeam<T extends IGameConfiguration> extends AbstractTeamConfig
 		List<ITeam> teams = new ArrayList<ITeam>();
 
 		if (args[0].equals(IGameConfigurationHelper.ALL)) {
-			List<String> teamNames = getTeamNames(getGameConfigurationHelper().clearTeams());
+			List<String> teamNames = getTeamNames(getGameConfigurationHelper().clearTeams(), true);
 			sendMessageToSender(sender, ETeamRemoveMessageCode.REMOVE_TEAM__ALL_TEAMS_REMOVED, get().getName(), concat(teamNames, ", "));
 			return true;
 		}
@@ -34,7 +34,7 @@ public class RemoveTeam<T extends IGameConfiguration> extends AbstractTeamConfig
 		String teamNamesConcatenated = null;
 		try {
 			teams = getTeams(args);
-			teamNamesConcatenated = concat(getTeamNames(teams));
+			teamNamesConcatenated = concat(getTeamNames(teams, true));
 			get().remove(teams);
 		} catch (TeamNotFoundException e) {
 			sendMessageToSender(sender, ETeamRemoveMessageCode.REMOVE_TEAM__TEAM_DOES_NOT_EXIST, e.getTeamNotFoundName(), get().getName());

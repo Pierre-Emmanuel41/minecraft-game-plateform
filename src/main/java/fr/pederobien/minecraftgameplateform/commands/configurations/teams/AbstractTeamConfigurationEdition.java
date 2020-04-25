@@ -93,10 +93,11 @@ public class AbstractTeamConfigurationEdition<T extends IGameConfiguration> exte
 	/**
 	 * Get a list of string that correspond to the name of each team in the given list <code>teams</code>
 	 * 
-	 * @param teams The list of team used to get their name.
+	 * @param teams    The list of team used to get their name.
+	 * @param coloured True if each team's name is coloured, false otherwise.
 	 * @return The list of team's name.
 	 */
-	protected List<String> getTeamNames(List<ITeam> teams) {
-		return teams.stream().map(team -> team.getName()).collect(Collectors.toList());
+	protected List<String> getTeamNames(List<ITeam> teams, boolean coloured) {
+		return teams.stream().map(team -> coloured ? team.getColoredName() : team.getName()).collect(Collectors.toList());
 	}
 }
