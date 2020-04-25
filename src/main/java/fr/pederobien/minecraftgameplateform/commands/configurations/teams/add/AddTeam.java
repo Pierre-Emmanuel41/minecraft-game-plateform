@@ -68,7 +68,8 @@ public class AddTeam<T extends IGameConfiguration> extends AbstractTeamConfigura
 		String playerNamesConcatenated = null;
 		List<Player> players = new ArrayList<Player>();
 		try {
-			playerNamesConcatenated = getPlayerNamesConcatenated(playerNames, ", ", players);
+			players = getPlayers(playerNames);
+			playerNamesConcatenated = concat(getPlayerNames(players));
 			for (Player player : players)
 				team.addPlayer(player);
 		} catch (PlayerNotFoundException e) {

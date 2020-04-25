@@ -39,7 +39,8 @@ public class AddPlayer<T extends IGameConfiguration> extends AbstractTeamConfigu
 		List<Player> players = new ArrayList<Player>();
 
 		try {
-			playerNamesConcatenated = getPlayerNamesConcatenated(playerNames, ", ", players);
+			players = getPlayers(playerNames);
+			playerNamesConcatenated = concat(getPlayerNames(players));
 			team = getGameConfigurationHelper().add(name, players);
 		} catch (PlayerNotFoundException e) {
 			sendMessageToSender(sender, ETeamConfigurationMessageCode.ADD_PLAYER__PLAYER_DOES_NOT_EXIST, e.getPlayerName());

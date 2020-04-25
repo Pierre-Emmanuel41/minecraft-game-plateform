@@ -3,8 +3,6 @@ package fr.pederobien.minecraftgameplateform.commands.configurations.teams.remov
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.StringJoiner;
-import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 import org.bukkit.command.Command;
@@ -28,14 +26,16 @@ public class RemoveTeam<T extends IGameConfiguration> extends AbstractTeamConfig
 		List<ITeam> teams = new ArrayList<ITeam>();
 
 		if (args[0].equals(IGameConfigurationHelper.ALL)) {
-			List<String> teamNames = getGameConfigurationHelper().clearTeams().stream().map(team -> team.getName()).collect(Collectors.toList());
+			List<String> teamNames = getTeamNames(getGameConfigurationHelper().clearTeams());
 			sendMessageToSender(sender, ETeamRemoveMessageCode.REMOVE_TEAM__ALL_TEAMS_REMOVED, get().getName(), concat(teamNames, ", "));
 			return true;
 		}
 
-		String teamNames = null;
+		String teamNamesConcatenated = null;
 		try {
-			teamNames = remove(args, teams);
+			teams = getTeams(args);
+			teamNamesConcatenated = concat(getTeamNames(teams));
+			get().remove(teams);
 		} catch (TeamNotFoundException e) {
 			sendMessageToSender(sender, ETeamRemoveMessageCode.REMOVE_TEAM__TEAM_DOES_NOT_EXIST, e.getTeamNotFoundName(), get().getName());
 			return false;
@@ -46,10 +46,10 @@ public class RemoveTeam<T extends IGameConfiguration> extends AbstractTeamConfig
 			sendMessageToSender(sender, ETeamRemoveMessageCode.REMOVE_TEAM__ANY_TEAM_REMOVED, get().getName());
 			break;
 		case 1:
-			sendMessageToSender(sender, ETeamRemoveMessageCode.REMOVE_TEAM__ONE_TEAM_REMOVED, teamNames, get().getName());
+			sendMessageToSender(sender, ETeamRemoveMessageCode.REMOVE_TEAM__ONE_TEAM_REMOVED, teamNamesConcatenated, get().getName());
 			break;
 		default:
-			sendMessageToSender(sender, ETeamRemoveMessageCode.REMOVE_TEAM__SEVERAL_TEAMS_REMOVED, teamNames, get().getName());
+			sendMessageToSender(sender, ETeamRemoveMessageCode.REMOVE_TEAM__SEVERAL_TEAMS_REMOVED, teamNamesConcatenated, get().getName());
 			break;
 		}
 		return true;
@@ -65,14 +65,5 @@ public class RemoveTeam<T extends IGameConfiguration> extends AbstractTeamConfig
 		// If the first argument is all -> any team is proposed
 		// Else propose not already mentioned teams
 		return filter(args[0].equals(IGameConfigurationHelper.ALL) ? ((List<String>) emptyList()).stream() : teams, args[args.length - 1]);
-	}
-
-	private String remove(String[] teamNames, List<ITeam> teams) {
-		StringJoiner joiner = new StringJoiner(", ");
-		for (String teamName : teamNames) {
-			teams.add(getGameConfigurationHelper().remove(teamName));
-			joiner.add(teamName);
-		}
-		return joiner.toString();
 	}
 }
