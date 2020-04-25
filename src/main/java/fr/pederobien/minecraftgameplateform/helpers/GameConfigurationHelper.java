@@ -11,7 +11,9 @@ import java.util.stream.Stream;
 import org.bukkit.World;
 import org.bukkit.entity.Player;
 
+import fr.pederobien.minecraftgameplateform.exceptions.PlayerNotFoundException;
 import fr.pederobien.minecraftgameplateform.exceptions.configurations.PlayerAlreadyRegisteredException;
+import fr.pederobien.minecraftgameplateform.exceptions.configurations.PlayerNotRegisteredException;
 import fr.pederobien.minecraftgameplateform.exceptions.configurations.TeamNameForbiddenException;
 import fr.pederobien.minecraftgameplateform.exceptions.configurations.TeamNotFoundException;
 import fr.pederobien.minecraftgameplateform.exceptions.configurations.TeamWithSameColorAlreadyExistsException;
@@ -44,15 +46,15 @@ public class GameConfigurationHelper implements IGameConfigurationHelper {
 	}
 
 	@Override
-	public ITeam remove(String teamName) {
+	public ITeam removeTeam(String teamName) {
 		return synchronizedRemove(checkTeamExist(teamName));
 	}
 
 	@Override
-	public List<ITeam> remove(String[] teamNames) {
+	public List<ITeam> removeTeams(String[] teamNames) {
 		List<ITeam> teams = new ArrayList<ITeam>();
 		for (String teamName : teamNames)
-			teams.add(remove(teamName));
+			teams.add(removeTeam(teamName));
 		return teams;
 	}
 
@@ -119,6 +121,19 @@ public class GameConfigurationHelper implements IGameConfigurationHelper {
 	}
 
 	@Override
+	public ITeam add(String teamName, String playerName) {
+		return synchronizedAdd(checkTeamExist(teamName), checkPlayerNotAlreadyRegistered(checkPlayerExist(playerName)));
+	}
+
+	@Override
+	public ITeam add(String teamName, String[] playerNames) {
+		ITeam team = checkTeamExist(teamName);
+		for (String playerName : playerNames)
+			synchronizedAdd(team, checkPlayerNotAlreadyRegistered(checkPlayerExist(playerName)));
+		return team;
+	}
+
+	@Override
 	public ITeam add(String teamName, Player player) {
 		return synchronizedAdd(checkTeamExist(teamName), checkPlayerNotAlreadyRegistered(player));
 	}
@@ -132,16 +147,29 @@ public class GameConfigurationHelper implements IGameConfigurationHelper {
 	}
 
 	@Override
-	public ITeam remove(String teamName, Player player) {
-		return synchronizedRemove(checkTeamExist(teamName), player);
+	public ITeam removePlayer(String playerName) {
+		return removePlayer(checkPlayerExist(playerName));
 	}
 
 	@Override
-	public ITeam remove(String teamName, List<Player> players) {
-		ITeam team = checkTeamExist(teamName);
+	public List<ITeam> removePlayers(String[] players) {
+		List<ITeam> teams = new ArrayList<ITeam>();
+		for (String player : players)
+			teams.add(removePlayer(player));
+		return teams;
+	}
+
+	@Override
+	public ITeam removePlayer(Player player) {
+		return synchronizedRemove(checkPlayerRegistered(player), player);
+	}
+
+	@Override
+	public List<ITeam> removePlayers(List<Player> players) {
+		List<ITeam> teams = new ArrayList<ITeam>();
 		for (Player player : players)
-			synchronizedRemove(team, player);
-		return team;
+			teams.add(synchronizedRemove(checkPlayerRegistered(player), player));
+		return teams;
 	}
 
 	@Override
@@ -205,11 +233,25 @@ public class GameConfigurationHelper implements IGameConfigurationHelper {
 			throw new TeamWithSameColorAlreadyExistsException(configuration, optTeam.get());
 	}
 
+	private Player checkPlayerExist(String playerName) {
+		Player player = PlayerManager.getPlayer(playerName);
+		if (player == null)
+			throw new PlayerNotFoundException(playerName);
+		return player;
+	}
+
 	private Player checkPlayerNotAlreadyRegistered(Player player) {
 		for (ITeam team : configuration.getTeams())
 			if (team.getPlayers().contains(player))
 				throw new PlayerAlreadyRegisteredException(configuration, team, player);
 		return player;
+	}
+
+	private ITeam checkPlayerRegistered(Player player) {
+		Optional<ITeam> optTeam = getTeam(player);
+		if (!optTeam.isPresent())
+			throw new PlayerNotRegisteredException(configuration, player);
+		return optTeam.get();
 	}
 
 	private ITeam synchronizedAdd(ITeam team, Player player) {

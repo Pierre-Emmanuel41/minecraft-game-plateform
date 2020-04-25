@@ -8,7 +8,9 @@ import java.util.stream.Stream;
 import org.bukkit.World;
 import org.bukkit.entity.Player;
 
+import fr.pederobien.minecraftgameplateform.exceptions.PlayerNotFoundException;
 import fr.pederobien.minecraftgameplateform.exceptions.configurations.PlayerAlreadyRegisteredException;
+import fr.pederobien.minecraftgameplateform.exceptions.configurations.PlayerNotRegisteredException;
 import fr.pederobien.minecraftgameplateform.exceptions.configurations.TeamNameForbiddenException;
 import fr.pederobien.minecraftgameplateform.exceptions.configurations.TeamNotFoundException;
 import fr.pederobien.minecraftgameplateform.exceptions.configurations.TeamWithSameColorAlreadyExistsException;
@@ -46,7 +48,7 @@ public interface IGameConfigurationHelper {
 	 * 
 	 * @throws TeamNotFoundException If the team associated to the given name does not exists for this configuration.
 	 */
-	ITeam remove(String teamName);
+	ITeam removeTeam(String teamName);
 
 	/**
 	 * Remove each team associated to the name in the <code>teamNames</code> if it exist.
@@ -57,7 +59,7 @@ public interface IGameConfigurationHelper {
 	 * 
 	 * @throws TeamNotFoundException If a team associated to a name does not exists for this configuration.
 	 */
-	List<ITeam> remove(String[] teamNames);
+	List<ITeam> removeTeams(String[] teamNames);
 
 	/**
 	 * Remove all registered teams for this configuration.
@@ -145,13 +147,41 @@ public interface IGameConfigurationHelper {
 	/**
 	 * Add the given player to the team represented by the given name.
 	 * 
+	 * @param teamName   The name of the team that will get the given player.
+	 * @param playerName The player's name to add to the team.
+	 * 
+	 * @return The team to which the player has been added.
+	 * 
+	 * @throws TeamNotFoundException            If the team associated to the given name does not exists for this configuration.
+	 * @throws PlayerNotFoundException          If the player associated to the given name does not exist.
+	 * @throws PlayerAlreadyRegisteredException If the player is already registered in a team for this configuration.
+	 */
+	ITeam add(String teamName, String playerName);
+
+	/**
+	 * Add each player from the array <code>playerNames</code> to the team represented by the given name.
+	 * 
+	 * @param teamName    The name of the team that will get the given player.
+	 * @param playerNames The array that contains each player's name to add to the team.
+	 * 
+	 * @return The team to which the player has been added.
+	 * 
+	 * @throws TeamNotFoundException            If the team associated to the given name does not exists for this configuration.
+	 * @throws PlayerNotFoundException          If a player associated to a name does not exist.
+	 * @throws PlayerAlreadyRegisteredException If the player is already registered in a team for this configuration.
+	 */
+	ITeam add(String teamName, String[] playerNames);
+
+	/**
+	 * Add the given player to the team represented by the given name.
+	 * 
 	 * @param teamName The name of the team that will get the given player.
 	 * @param player   The player to add to the team.
 	 * 
 	 * @return The team to which the player has been added.
 	 * 
 	 * @throws TeamNotFoundException            If the team associated to the given name does not exists for this configuration.
-	 * @throws PlayerAlreadyRegisteredException If the player is already registered in a team for this configuration.
+	 * @throws PlayerAlreadyRegisteredException If a player is already registered in a team for this configuration.
 	 * 
 	 * @see TeamHelper#addPlayer(String, Player)
 	 */
@@ -173,32 +203,46 @@ public interface IGameConfigurationHelper {
 	ITeam add(String teamName, List<Player> players);
 
 	/**
-	 * Remove the given player from the team represented by the given name.
+	 * Remove the given player from its team.
 	 * 
-	 * @param teamName The name of the team that will get the given player.
-	 * @param player   The player to add to the team.
-	 * 
+	 * @param playerName The player's name to remove from its team.
 	 * @return The team from which the player has been removed.
 	 * 
-	 * @throws TeamNotFoundException If the team associated to the given name does not exists for this configuration.
-	 * 
-	 * @see TeamHelper#removePlayer(String, Player)
+	 * @throws PlayerNotFoundException      If the player associated to the given name does not exist.
+	 * @throws PlayerNotRegisteredException If the player is not registered in a team for this configuration.
 	 */
-	ITeam remove(String teamName, Player player);
+	ITeam removePlayer(String playerName);
 
 	/**
-	 * Remove each player present in the list <code>players</code> from the team represented by the given name.
+	 * Remove each player present in the list <code>playerNames</code> from their teams.
 	 * 
-	 * @param teamName The name of the team that will get the given player.
-	 * @param players  The list of players to remove from the team.
+	 * @param playerNames The list of players to remove from the team.
+	 * @return The list of teams from which players have been removed.
 	 * 
+	 * @throws PlayerNotFoundException      If a player associated to a name does not exist.
+	 * @throws PlayerNotRegisteredException If the player is not registered in a team for this configuration.
+	 */
+	List<ITeam> removePlayers(String[] playerNames);
+
+	/**
+	 * Remove the given player from its team.
+	 * 
+	 * @param player The player to remove from its team.
 	 * @return The team from which the player has been removed.
 	 * 
-	 * @throws TeamNotFoundException If the team associated to the given name does not exists for this configuration.
-	 * 
-	 * @see TeamHelper#removePlayer(String, Player)
+	 * @throws PlayerNotRegisteredException If the player is not registered in a team for this configuration.
 	 */
-	ITeam remove(String teamName, List<Player> players);
+	ITeam removePlayer(Player player);
+
+	/**
+	 * Remove each player present in the list <code>players</code> from their teams.
+	 * 
+	 * @param players The list of players to remove from the team.
+	 * @return The list of teams from which players have been removed.
+	 * 
+	 * @throws PlayerNotRegisteredException If the player is not registered in a team for this configuration.
+	 */
+	List<ITeam> removePlayers(List<Player> players);
 
 	/**
 	 * Move the given player into the team associated to the specified <code>teamName</code>. If the player was already into a team,
