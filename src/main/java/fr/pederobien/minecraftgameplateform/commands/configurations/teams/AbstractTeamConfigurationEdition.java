@@ -1,7 +1,9 @@
 package fr.pederobien.minecraftgameplateform.commands.configurations.teams;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.StringJoiner;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 import org.bukkit.entity.Player;
@@ -10,6 +12,7 @@ import fr.pederobien.minecraftdictionary.interfaces.IMessageCode;
 import fr.pederobien.minecraftgameplateform.commands.configurations.AbstractGameConfigurationEdition;
 import fr.pederobien.minecraftgameplateform.exceptions.ColorNotFoundException;
 import fr.pederobien.minecraftgameplateform.exceptions.PlayerNotFoundException;
+import fr.pederobien.minecraftgameplateform.exceptions.configurations.TeamNotFoundException;
 import fr.pederobien.minecraftgameplateform.interfaces.element.IGameConfiguration;
 import fr.pederobien.minecraftgameplateform.interfaces.element.ILabel;
 import fr.pederobien.minecraftgameplateform.interfaces.element.ITeam;
@@ -64,6 +67,21 @@ public class AbstractTeamConfigurationEdition<T extends IGameConfiguration> exte
 	}
 
 	/**
+	 * Find the team associated to the given name.
+	 * 
+	 * @param teamName The team's name.
+	 * @return The associated team if it exists.
+	 * 
+	 * @throws TeamNotFoundException If the name does not correspond to a team.
+	 */
+	protected ITeam getTeam(String teamName) {
+		Optional<ITeam> optTeam = get().getTeam(teamName);
+		if (!optTeam.isPresent())
+			throw new TeamNotFoundException(get(), teamName);
+		return optTeam.get();
+	}
+
+	/**
 	 * Find the player associated to each player's name in the <code>playerNames</code> and concatenate the name.
 	 * 
 	 * @param playerNames An array that contains player's name to concatenate.
@@ -82,6 +100,38 @@ public class AbstractTeamConfigurationEdition<T extends IGameConfiguration> exte
 			joiner.add(player.getName());
 		}
 		return joiner.toString();
+	}
+
+	/**
+	 * Find the team associated to each team's name in the <code>teamNames</code> and concatenate the name.
+	 * 
+	 * @param teamNames An array that contains team's name to concatenate.
+	 * @param delimiter the sequence of characters to be used between each element added to the concatenation value.
+	 * @param teams     A list used to add team associated to the name in the <code>PlayerNames</code>
+	 * @return The concatenation of each team's name.
+	 * 
+	 * @see #getTeam(String)
+	 * @see StringJoiner
+	 */
+	protected String concat(String[] teamNames, CharSequence delimiter, List<ITeam> teams) {
+		StringJoiner joiner = new StringJoiner(delimiter);
+		for (String teamName : teamNames) {
+			ITeam team = getTeam(teamName);
+			teams.add(team);
+			joiner.add(team.getName());
+		}
+		return joiner.toString();
+	}
+
+	/**
+	 * Concatenate the name of each team in the list with the given delimiter.
+	 * 
+	 * @param teams     The list of team used to concatenate names.
+	 * @param delimiter the sequence of characters to be used between each element added to the concatenation value.
+	 * @return The concatenation of each team's name.
+	 */
+	protected String concat(List<ITeam> teams, CharSequence delimiter) {
+		return concat(teams.stream().map(t -> t.getName()).collect(Collectors.toList()).toArray(new String[] {}), delimiter);
 	}
 
 	/**
