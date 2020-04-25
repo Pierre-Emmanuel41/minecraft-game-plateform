@@ -57,11 +57,21 @@ public class GameConfigurationHelper implements IGameConfigurationHelper {
 	}
 
 	@Override
-	public List<ITeam> clear() {
+	public List<ITeam> clearTeams() {
 		List<ITeam> teams = new ArrayList<ITeam>();
 		configuration.getTeams().forEach(team -> teams.add(team));
 		teams.forEach(team -> synchronizedRemove(team));
 		return teams;
+	}
+
+	@Override
+	public List<Player> clearPlayers() {
+		List<Player> players = new ArrayList<Player>();
+		configuration.getTeams().forEach(team -> team.getPlayers().forEach(player -> {
+			players.add(player);
+			synchronizedRemove(team, player);
+		}));
+		return players;
 	}
 
 	@Override
