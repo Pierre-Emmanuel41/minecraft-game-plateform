@@ -43,6 +43,10 @@ public class SpawnLoaderV10 extends AbstractSpawnLoader {
 		Element playerSpawn = (Element) getElementsByTagName(root, SpawnXmlTag.PLAYER_SPAWN).item(0);
 		get().setRelativePlayerSpawn(getXCoordinates(playerSpawn), getYCoordinates(playerSpawn), getZCoordinates(playerSpawn));
 
+		// Getting the allow mobs under spawn
+		Element allowMobsUnderSpawn = (Element) getElementsByTagName(root, SpawnXmlTag.ALLOW_MOBS_UNDER_SPAWN).item(0);
+		get().setAllowMobsUnderSpawn(getBooleanNodeValue(allowMobsUnderSpawn.getChildNodes().item(0)));
+
 		// Getting spawn's blocks
 		NodeList blocks = getElementsByTagName(root, SpawnXmlTag.BLOCK);
 		List<IWorldBlock> spawnBlocks = new ArrayList<IWorldBlock>();

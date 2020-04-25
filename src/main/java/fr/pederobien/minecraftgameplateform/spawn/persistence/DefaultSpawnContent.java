@@ -18,6 +18,7 @@ public class DefaultSpawnContent extends AbstractDefaultContent {
 				+ "  <dimensions depth=\"11\" height=\"3\" width=\"19\"/>\r\n"
 				+ "  <center x=\"0\" y=\"100\" z=\"0\"/>\r\n"
 				+ "  <playerspawn x=\"0\" y=\"1\" z=\"0\"/>\r\n"
+				+ "  <allowmobsunderspawn>true</allowmobsunderspawn>\r\n"
 				+ "  <blocks>\r\n"
 				+ "    <block blockdata=\"minecraft:barrier\" x=\"-9\" y=\"0\" z=\"-5\"/>\r\n"
 				+ "    <block blockdata=\"minecraft:barrier\" x=\"-9\" y=\"0\" z=\"-4\"/>\r\n"

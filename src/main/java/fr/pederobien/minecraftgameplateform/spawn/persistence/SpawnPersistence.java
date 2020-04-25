@@ -62,6 +62,10 @@ public class SpawnPersistence extends AbstractXmlPersistence<ISpawn> {
 		addCoordinates(playerSpawn, get().getRelativePlayerSpawn().getX(), get().getRelativePlayerSpawn().getY(), get().getRelativePlayerSpawn().getZ());
 		root.appendChild(playerSpawn);
 
+		Element allowMobsUnderSpawn = createElement(doc, SpawnXmlTag.ALLOW_MOBS_UNDER_SPAWN);
+		allowMobsUnderSpawn.appendChild(doc.createTextNode("" + get().isAllowMobsUnderSpawn()));
+		root.appendChild(allowMobsUnderSpawn);
+
 		Element blocks = createElement(doc, SpawnXmlTag.BLOCKS);
 		for (IWorldBlock b : get().getBlocks()) {
 			Element block = createElement(doc, SpawnXmlTag.BLOCK);
