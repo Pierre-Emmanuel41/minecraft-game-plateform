@@ -20,7 +20,7 @@ import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.S
 import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.ScoreboardRefresh_OneTicDefined;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.ScoreboardRefresh_SeveralTicsDefined;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.ScoreboardRefresh_TicsNumberIsMissing;
-import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.teams.AddPlayer_PlayerDoesNotExist;
+import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.teams.Common_PlayerDoesNotExist;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.teams.Add_Explanation;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.teams.Remove_Explanation;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.teams.Team_Explanation;
@@ -195,7 +195,7 @@ public class FrenchDictionary extends AbstractDictionary {
 		register(AddPlayer_Explanation.FRENCH);
 		register(AddPlayer_TeamNameIsMissing.FRENCH);
 		register(AddPlayer_TeamDoesNotExist.FRENCH);
-		register(AddPlayer_PlayerDoesNotExist.FRENCH);
+		register(Common_PlayerDoesNotExist.FRENCH);
 		register(AddPlayer_PlayerAlreadyRegistered.FRENCH);
 		register(AddPlayer_AnyPlayerAdded.FRENCH);
 		register(AddPlayer_OnePlayerAdded.FRENCH);

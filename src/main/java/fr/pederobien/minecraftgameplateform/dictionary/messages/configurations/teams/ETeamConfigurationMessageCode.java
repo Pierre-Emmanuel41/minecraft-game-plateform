@@ -10,8 +10,8 @@ public enum ETeamConfigurationMessageCode implements IMessageCode {
 	// Code for command remove
 	REMOVE__EXPLANATION,
 
-	// Code for command to add a player to a team
-	ADD_PLAYER__PLAYER_DOES_NOT_EXIST,
+	// Code for common exceptions
+	COMMON__PLAYER_DOES_NOT_EXIST,
 
 	// Code for command team
 	TEAM__EXPLANATION;

@@ -73,7 +73,7 @@ public class AddTeam<T extends IGameConfiguration> extends AbstractTeamConfigura
 			for (Player player : players)
 				team.addPlayer(player);
 		} catch (PlayerNotFoundException e) {
-			sendMessageToSender(sender, ETeamConfigurationMessageCode.ADD_PLAYER__PLAYER_DOES_NOT_EXIST, e.getPlayerName());
+			sendMessageToSender(sender, ETeamConfigurationMessageCode.COMMON__PLAYER_DOES_NOT_EXIST, e.getPlayerName());
 			return false;
 		}
 
