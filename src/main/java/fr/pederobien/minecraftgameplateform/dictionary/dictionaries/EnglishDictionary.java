@@ -60,9 +60,9 @@ import fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.C
 import fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.CommonDimension_MissingDimension;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.CommonWorld_WorldDoesNotExist;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.Common_MissingCoordinates;
-import fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.spawn.AllowMobsUnderSpawn_Defined;
-import fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.spawn.AllowMobsUnderSpawn_Explanation;
-import fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.spawn.AllowMobsUnderSpawn_ValueIsMissing;
+import fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.spawn.AllowMobsToSpawnUnderSpawn_Defined;
+import fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.spawn.AllowMobsToSpawnUnderSpawn_Explanation;
+import fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.spawn.AllowMobsToSpawnUnderSpawn_ValueIsMissing;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.spawn.CenterSpawn_CenterDefined;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.spawn.CenterSpawn_Explanation;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.spawn.CurrentSpawn_Explanation;
@@ -171,9 +171,9 @@ public class EnglishDictionary extends AbstractDictionary {
 		register(PlayerSpawn_PlayerSpawnDefined.ENGLISH);
 		register(RandomSpawn_Explanation.ENGLISH);
 		register(RandomSpawn_WorldOrCoordinatesAreMissing.ENGLISH);
-		register(AllowMobsUnderSpawn_Explanation.ENGLISH);
-		register(AllowMobsUnderSpawn_ValueIsMissing.ENGLISH);
-		register(AllowMobsUnderSpawn_Defined.ENGLISH);
+		register(AllowMobsToSpawnUnderSpawn_Explanation.ENGLISH);
+		register(AllowMobsToSpawnUnderSpawn_ValueIsMissing.ENGLISH);
+		register(AllowMobsToSpawnUnderSpawn_Defined.ENGLISH);
 
 		// Code for game messages
 		register(StartingGame.ENGLISH);
