@@ -25,6 +25,7 @@ public abstract class AbstractWorldStructure extends AbstractNominable implement
 	protected Block center;
 	protected List<IWorldBlock> blocks, before;
 	protected Integer width, height, depth;
+	private boolean isRemoved;
 
 	protected AbstractWorldStructure(String name) {
 		super(name);
@@ -76,6 +77,7 @@ public abstract class AbstractWorldStructure extends AbstractNominable implement
 			before.add(new WorldBlock(block.getX(), block.getY(), block.getZ(), getBlockFromCenter(block.getX(), block.getY(), block.getZ()).getBlockData()));
 			updateWorldBlock(block);
 		}
+		isRemoved = false;
 	}
 
 	@Override
@@ -84,11 +86,17 @@ public abstract class AbstractWorldStructure extends AbstractNominable implement
 			for (IWorldBlock block : blocks)
 				before.add(new WorldBlock(block.getX(), block.getX(), block.getX(), Material.AIR.createBlockData()));
 		before.forEach(block -> updateWorldBlock(block));
+		isRemoved = true;
 	}
 
 	@Override
 	public List<IWorldBlock> getBlocks() {
 		return Collections.unmodifiableList(blocks);
+	}
+
+	@Override
+	public boolean isRemoved() {
+		return isRemoved;
 	}
 
 	@Override

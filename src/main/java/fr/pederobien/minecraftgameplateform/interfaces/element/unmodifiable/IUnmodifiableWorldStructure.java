@@ -75,4 +75,9 @@ public interface IUnmodifiableWorldStructure extends IUnmodifiableNominable {
 	 * @return The listener that interact with minecraft events.
 	 */
 	IEventListener getListener();
+
+	/**
+	 * @return True if this structure is removed from the world, false otherwise.
+	 */
+	boolean isRemoved();
 }
