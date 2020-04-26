@@ -14,7 +14,7 @@ public class AllowMobsUnderSpawn_Defined extends AbstractDynamicMessage {
 	public static final IMessage ENGLISH = new English();
 
 	public AllowMobsUnderSpawn_Defined() {
-		super(ESpawnMessageCode.ALLOW_MOB_UNDER_SPAWN__DEFINED);
+		super(ESpawnMessageCode.ALLOW_MOB_TO_SPAWN_UNDER_SPAWN__DEFINED);
 	}
 
 	private static class French extends AllowMobsUnderSpawn_Defined {

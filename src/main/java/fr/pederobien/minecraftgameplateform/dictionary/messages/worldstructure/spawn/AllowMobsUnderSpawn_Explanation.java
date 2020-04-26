@@ -14,7 +14,7 @@ public class AllowMobsUnderSpawn_Explanation extends AbstractNotDynamicMessage {
 	public static final IMessage ENGLISH = new English();
 
 	public AllowMobsUnderSpawn_Explanation(String message) {
-		super(ESpawnMessageCode.ALLOW_MOB_UNDER_SPAWN__EXPLANATION, message);
+		super(ESpawnMessageCode.ALLOW_MOB_TO_SPAWN_UNDER_SPAWN__EXPLANATION, message);
 	}
 
 	private static class French extends AllowMobsUnderSpawn_Explanation {

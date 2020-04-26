@@ -3,7 +3,7 @@ package fr.pederobien.minecraftgameplateform.spawn.commands;
 import fr.pederobien.minecraftgameplateform.interfaces.element.ILabel;
 
 public enum ESpawnLabel implements ILabel {
-	PLAYER_SPAWN("playerspawn"), RANDOM("random"), ALLOW_MOBS_UNDER_SPAWN("allwomobsunderspawn");
+	PLAYER_SPAWN("playerspawn"), RANDOM("random"), ALLOW_MOBS_TO_SPAWN_UNDER_SPAWN("allowMobsToSpawnUnderSpawn");
 
 	private String label;
 

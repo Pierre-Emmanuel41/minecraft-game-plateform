@@ -14,7 +14,7 @@ import fr.pederobien.minecraftgameplateform.interfaces.element.ISpawn;
 public class AllowMobsUnderSpawn extends AbstractWorldStructureEdition<ISpawn> {
 
 	protected AllowMobsUnderSpawn() {
-		super(ESpawnLabel.ALLOW_MOBS_UNDER_SPAWN, ESpawnMessageCode.ALLOW_MOB_UNDER_SPAWN__EXPLANATION);
+		super(ESpawnLabel.ALLOW_MOBS_TO_SPAWN_UNDER_SPAWN, ESpawnMessageCode.ALLOW_MOB_TO_SPAWN_UNDER_SPAWN__EXPLANATION);
 	}
 
 	@Override
@@ -29,9 +29,9 @@ public class AllowMobsUnderSpawn extends AbstractWorldStructureEdition<ISpawn> {
 				sendMessageToSender(sender, ECommonMessageCode.COMMON__BAD_BOOLEAN_FORMAT);
 				return false;
 			}
-			sendMessageToSender(sender, ESpawnMessageCode.ALLOW_MOB_UNDER_SPAWN__DEFINED, get().isAllowMobsUnderSpawn());
+			sendMessageToSender(sender, ESpawnMessageCode.ALLOW_MOB_TO_SPAWN_UNDER_SPAWN__DEFINED, get().isAllowMobsUnderSpawn());
 		} catch (IndexOutOfBoundsException e) {
-			sendMessageToSender(sender, ESpawnMessageCode.ALLOW_MOB_UNDER_SPAWN__VALUE_IS_MISSING);
+			sendMessageToSender(sender, ESpawnMessageCode.ALLOW_MOB_TO_SPAWN_UNDER_SPAWN__VALUE_IS_MISSING);
 			return false;
 		}
 		return true;

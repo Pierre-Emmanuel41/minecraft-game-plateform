@@ -14,7 +14,7 @@ public class AllowMobsUnderSpawn_ValueIsMissing extends AbstractNotDynamicMessag
 	public static final IMessage ENGLISH = new English();
 
 	public AllowMobsUnderSpawn_ValueIsMissing(String message) {
-		super(ESpawnMessageCode.ALLOW_MOB_UNDER_SPAWN__VALUE_IS_MISSING, message);
+		super(ESpawnMessageCode.ALLOW_MOB_TO_SPAWN_UNDER_SPAWN__VALUE_IS_MISSING, message);
 	}
 
 	private static class French extends AllowMobsUnderSpawn_ValueIsMissing {
