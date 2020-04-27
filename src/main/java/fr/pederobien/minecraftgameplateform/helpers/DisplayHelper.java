@@ -3,6 +3,7 @@ package fr.pederobien.minecraftgameplateform.helpers;
 import java.time.LocalTime;
 import java.util.StringJoiner;
 
+import org.bukkit.Location;
 import org.bukkit.block.Block;
 
 public class DisplayHelper {
@@ -19,7 +20,7 @@ public class DisplayHelper {
 	}
 
 	/**
-	 * Protected method used to display the given block to minecraft player.
+	 * Method used to display the given block to minecraft player.
 	 * 
 	 * @param block The block to display.
 	 * 
@@ -29,12 +30,27 @@ public class DisplayHelper {
 		return join("X=" + block.getX(), "Y=" + block.getY(), "Z=" + block.getZ());
 	}
 
-	private static String join(String... toJoin) {
-		return join(" ", toJoin);
+	/**
+	 * Method used to display the given location to minecraft player.
+	 * 
+	 * @param location The location to display.
+	 * @param full     If should display pitch an yaw.
+	 * @return "X=" + location.getX() + " Y=" + location.getY() + " Z=" + location.getZ() + " Pitch=" + location.getPitch() + " Yaw="
+	 *         + location.getYaw();
+	 */
+	public static String toString(Location location, boolean full) {
+		StringJoiner joiner = new StringJoiner(" ");
+		join(joiner, "X=" + location.getX(), "Y=" + location.getY(), "Z=" + location.getZ());
+		if (full)
+			join(joiner, "Pitch=" + location.getPitch(), "Yaw=" + location.getYaw());
+		return joiner.toString();
 	}
 
-	private static String join(CharSequence delimiter, String... toJoin) {
-		StringJoiner joiner = new StringJoiner(" ");
+	private static String join(String... toJoin) {
+		return join(new StringJoiner(" "), toJoin);
+	}
+
+	private static String join(StringJoiner joiner, String... toJoin) {
 		for (String join : toJoin)
 			joiner.add(join);
 		return joiner.toString();
