@@ -11,6 +11,7 @@ import java.util.stream.Stream;
 import org.bukkit.World;
 import org.bukkit.entity.Player;
 
+import fr.pederobien.minecraftgameplateform.exceptions.ColorNotFoundException;
 import fr.pederobien.minecraftgameplateform.exceptions.PlayerNotFoundException;
 import fr.pederobien.minecraftgameplateform.exceptions.configurations.PlayerAlreadyRegisteredException;
 import fr.pederobien.minecraftgameplateform.exceptions.configurations.PlayerNotRegisteredException;
@@ -215,6 +216,15 @@ public class GameConfigurationHelper implements IGameConfigurationHelper {
 		return teamToRename;
 	}
 
+	@Override
+	public ITeam modifyTeamColor(String teamName, String newColor) {
+		ITeam team = checkTeamExist(teamName);
+		EColor color = checkColorExist(newColor);
+		checkColorIsNotUsed(color);
+		team.setColor(color);
+		return team;
+	}
+
 	private Stream<ITeam> getTeamsStream() {
 		return configuration.getTeams().stream();
 	}
@@ -239,6 +249,13 @@ public class GameConfigurationHelper implements IGameConfigurationHelper {
 	private void checkNameNotForbidden(String name) {
 		if (name.equals(ALL))
 			throw new TeamNameForbiddenException(configuration, ALL);
+	}
+
+	private EColor checkColorExist(String colorName) {
+		EColor color = EColor.getByColorName(colorName);
+		if (color == null)
+			throw new ColorNotFoundException(colorName);
+		return color;
 	}
 
 	private void checkColorIsNotUsed(EColor color) {

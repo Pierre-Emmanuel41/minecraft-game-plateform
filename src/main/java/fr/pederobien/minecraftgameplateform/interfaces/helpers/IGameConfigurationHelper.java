@@ -8,6 +8,7 @@ import java.util.stream.Stream;
 import org.bukkit.World;
 import org.bukkit.entity.Player;
 
+import fr.pederobien.minecraftgameplateform.exceptions.ColorNotFoundException;
 import fr.pederobien.minecraftgameplateform.exceptions.PlayerNotFoundException;
 import fr.pederobien.minecraftgameplateform.exceptions.configurations.PlayerAlreadyRegisteredException;
 import fr.pederobien.minecraftgameplateform.exceptions.configurations.PlayerNotRegisteredException;
@@ -289,9 +290,26 @@ public interface IGameConfigurationHelper {
 	 * @param oldName The team's name to rename.
 	 * @param newName The new team's name.
 	 * 
-	 * @throws TeamNotFoundException                  If The oldName does not exist for this configuration.
+	 * @return The team that has been renamed.
+	 * 
+	 * @throws TeamNotFoundException                  If the team associated to the given name does not exists for this configuration.
 	 * @throws TeamNameForbiddenException             If the new team's name is forbidden.
 	 * @throws TeamWithSameNameAlreadyExistsException If the new team's name is already used by another team for this configuration.
 	 */
 	ITeam renameTeam(String oldName, String newName);
+
+	/**
+	 * Change the colour of the team associated to the <code>teamName</code> by the <code>newColor</code>
+	 * 
+	 * @param teamName The team's name to change the colour.
+	 * @param newColor The new color's name of the team.
+	 * 
+	 * @return The team that has been updated.
+	 * 
+	 * @throws TeamNotFoundException                   If the team associated to the given name does not exists for this
+	 *                                                 configuration.
+	 * @throws ColorNotFoundException                  If the color's name does not correspond to an existing colour.
+	 * @throws TeamWithSameColorAlreadyExistsException If the colour is already used by another team.
+	 */
+	ITeam modifyTeamColor(String teamName, String newColor);
 }
