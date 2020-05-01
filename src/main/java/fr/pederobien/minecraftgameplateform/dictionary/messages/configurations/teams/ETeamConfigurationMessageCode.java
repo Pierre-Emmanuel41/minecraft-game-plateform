@@ -4,14 +4,17 @@ import fr.pederobien.minecraftdictionary.impl.Permission;
 import fr.pederobien.minecraftdictionary.interfaces.IMessageCode;
 
 public enum ETeamConfigurationMessageCode implements IMessageCode {
+	// Code for command team
+	TEAM__EXPLANATION,
+
 	// Code for command add
 	ADD__EXPLANATION,
 
 	// Code for command remove
 	REMOVE__EXPLANATION,
 
-	// Code for command team
-	TEAM__EXPLANATION;
+	// Code for command modify
+	MODIFY__EXPLANATION;
 
 	private Permission permission;
 

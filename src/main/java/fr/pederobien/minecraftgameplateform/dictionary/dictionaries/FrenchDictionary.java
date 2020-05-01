@@ -23,6 +23,7 @@ import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.S
 import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.ScoreboardRefresh_SeveralTicsDefined;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.ScoreboardRefresh_TicsNumberIsMissing;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.teams.Add_Explanation;
+import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.teams.Modify_Explanation;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.teams.Remove_Explanation;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.teams.Team_Explanation;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.teams.add.AddPlayer_AnyPlayerAdded;
@@ -225,5 +226,6 @@ public class FrenchDictionary extends AbstractDictionary {
 		register(RemovePlayer_AnyPlayerRemoved.FRENCH);
 		register(RemovePlayer_OnePlayerRemoved.FRENCH);
 		register(RemovePlayer_SeveralPlayersRemoved.FRENCH);
+		register(Modify_Explanation.FRENCH);
 	}
 }
