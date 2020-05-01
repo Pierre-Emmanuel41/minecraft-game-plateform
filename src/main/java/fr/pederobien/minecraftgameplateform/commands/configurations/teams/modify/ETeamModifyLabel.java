@@ -3,7 +3,7 @@ package fr.pederobien.minecraftgameplateform.commands.configurations.teams.modif
 import fr.pederobien.minecraftgameplateform.interfaces.element.ILabel;
 
 public enum ETeamModifyLabel implements ILabel {
-	NAME("name");
+	NAME("name"), COLOR("color");
 
 	private String label;
 
