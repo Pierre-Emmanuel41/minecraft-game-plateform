@@ -42,6 +42,7 @@ import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.t
 import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.teams.add.AddTeam_TeamNameForbidden;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.teams.add.AddTeam_TeamNameIsMissing;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.teams.modify.ModifyName_Explanation;
+import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.teams.modify.ModifyName_NameIsForbidden;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.teams.modify.ModifyName_NewNameIsMissing;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.teams.modify.ModifyName_OldNameIsMissing;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.teams.modify.ModifyName_TeamDoesNotExist;
@@ -235,5 +236,6 @@ public class FrenchDictionary extends AbstractDictionary {
 		register(ModifyName_OldNameIsMissing.FRENCH);
 		register(ModifyName_NewNameIsMissing.FRENCH);
 		register(ModifyName_TeamDoesNotExist.FRENCH);
+		register(ModifyName_NameIsForbidden.FRENCH);
 	}
 }
