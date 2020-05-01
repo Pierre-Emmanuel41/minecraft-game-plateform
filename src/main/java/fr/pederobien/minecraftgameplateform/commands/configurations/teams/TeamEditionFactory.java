@@ -25,4 +25,11 @@ public class TeamEditionFactory {
 	public static <T extends IGameConfiguration> IMapPersistenceEdition<T> commonTeamModify() {
 		return new CommonTeamModify<T>();
 	}
+
+	/**
+	 * @return An edition to display the teams of a configuration.
+	 */
+	public static <T extends IGameConfiguration> IMapPersistenceEdition<T> commonTeamList() {
+		return new CommonTeamList<T>();
+	}
 }
