@@ -9,7 +9,7 @@ public enum ETeamModifyMessageCode implements IMessageCode {
 	MODIFY_NAME__TEAM_NAME_ALREADY_USED, MODIFY_NAME__TEAM_RENAMED,
 
 	// Code for command modify color
-	MODIFY_COLOR__EXPLANATION;
+	MODIFY_COLOR__EXPLANATION, MODIFY_COLOR__TEAM_NAME_IS_MISSING;
 
 	private Permission permission;
 

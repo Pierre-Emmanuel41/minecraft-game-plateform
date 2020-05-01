@@ -41,6 +41,7 @@ import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.t
 import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.teams.add.AddTeam_TeamNameForbidden;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.teams.add.AddTeam_TeamNameIsMissing;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.teams.modify.ModifyColor_Explanation;
+import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.teams.modify.ModifyColor_TeamNameIsMissing;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.teams.modify.ModifyName_Explanation;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.teams.modify.ModifyName_NameIsForbidden;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.teams.modify.ModifyName_NewNameIsMissing;
@@ -243,5 +244,6 @@ public class EnglishDictionary extends AbstractDictionary {
 		register(ModifyName_TeamNameAlreadyUsed.ENGLISH);
 		register(ModifyName_TeamRenamed.ENGLISH);
 		register(ModifyColor_Explanation.ENGLISH);
+		register(ModifyColor_TeamNameIsMissing.ENGLISH);
 	}
 }
