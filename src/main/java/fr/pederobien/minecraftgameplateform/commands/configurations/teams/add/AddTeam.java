@@ -52,7 +52,7 @@ public class AddTeam<T extends IGameConfiguration> extends AbstractTeamConfigura
 			team = getGameConfigurationHelper().create(teamName, teamColor);
 			sendMessageToSender(sender, ETeamAddMessageCode.ADD_TEAM__TEAM_ADDED, team.getColoredName(), get().getName());
 		} catch (TeamNameForbiddenException e) {
-			sendMessageToSender(sender, ETeamAddMessageCode.ADD_TEAM__TEAM_NAME_FORBIDDEN, e.getForbiddenName());
+			sendMessageToSender(sender, ETeamAddMessageCode.ADD_TEAM__TEAM_NAME_FORBIDDEN, e.getForbiddenName(), get().getName());
 			return false;
 		} catch (TeamWithSameNameAlreadyExistsException e) {
 			sendMessageToSender(sender, ETeamAddMessageCode.ADD_TEAM__TEAM_NAME_ALREADY_USED, e.getAlreadyExistingTeam().getColoredName());

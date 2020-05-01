@@ -20,14 +20,14 @@ public class AddTeam_TeamNameForbidden extends AbstractDynamicMessage {
 	private static class French extends AddTeam_TeamNameForbidden {
 		@Override
 		public String getMessage(String... args) {
-			return "Le nom " + args[0] + " est interdit pour une équipe";
+			return "Impossible d'ajouter l'équipe " + args[0] + " à la configuration " + args[1] + ", ce nom  est interdit pour une équipe";
 		}
 	}
 
 	private static class English extends AddTeam_TeamNameForbidden {
 		@Override
 		public String getMessage(String... args) {
-			return "The name " + args[0] + " is forbidden for a team";
+			return "Cannot add team " + args[0] + " to configuration " + args[1] + ", this name is forbidden for a team";
 		}
 	}
 }
