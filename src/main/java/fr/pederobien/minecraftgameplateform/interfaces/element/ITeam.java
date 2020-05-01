@@ -5,7 +5,7 @@ import org.bukkit.entity.Player;
 import fr.pederobien.minecraftgameplateform.interfaces.element.unmodifiable.IUnmodifiableTeam;
 import fr.pederobien.minecraftgameplateform.utils.EColor;
 
-public interface ITeam extends IUnmodifiableTeam {
+public interface ITeam extends INominable, IUnmodifiableTeam {
 
 	/**
 	 * Set the color of this team.
