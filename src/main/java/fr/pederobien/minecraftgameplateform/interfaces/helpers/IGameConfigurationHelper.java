@@ -277,4 +277,16 @@ public interface IGameConfigurationHelper {
 	 * @return A stream that contains each team's name.
 	 */
 	Stream<String> getTeamNames(boolean colored);
+
+	/**
+	 * Change the name of the team associated to the <code>oldName</code> by the <code>newName</code>
+	 * 
+	 * @param oldName The team's name to rename.
+	 * @param newName The new team's name.
+	 * 
+	 * @throws TeamNotFoundException                  If The oldName does not exist for this configuration.
+	 * @throws TeamNameForbiddenException             If the new team's name is forbidden.
+	 * @throws TeamWithSameNameAlreadyExistsException If the new team's name is already used by another team for this configuration.
+	 */
+	ITeam renameTeam(String oldName, String newName);
 }

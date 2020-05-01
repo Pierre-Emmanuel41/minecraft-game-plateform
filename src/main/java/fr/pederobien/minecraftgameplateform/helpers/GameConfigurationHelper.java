@@ -201,6 +201,15 @@ public class GameConfigurationHelper implements IGameConfigurationHelper {
 		return getTeamsStream().map(team -> colored ? team.getColoredName() : team.getName());
 	}
 
+	@Override
+	public ITeam renameTeam(String oldName, String newName) {
+		ITeam teamToRename = checkTeamExist(oldName);
+		checkNameNotForbidden(newName);
+		checkNameIsNotUsed(newName);
+		teamToRename.setName(newName);
+		return teamToRename;
+	}
+
 	private Stream<ITeam> getTeamsStream() {
 		return configuration.getTeams().stream();
 	}
