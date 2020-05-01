@@ -279,6 +279,11 @@ public interface IGameConfigurationHelper {
 	Stream<String> getTeamNames(boolean colored);
 
 	/**
+	 * @return A stream that contains all colours not used by the registered teams for this configuration.
+	 */
+	Stream<EColor> getFreeColors();
+
+	/**
 	 * Change the name of the team associated to the <code>oldName</code> by the <code>newName</code>
 	 * 
 	 * @param oldName The team's name to rename.

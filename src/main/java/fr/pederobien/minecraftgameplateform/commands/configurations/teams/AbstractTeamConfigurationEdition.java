@@ -13,6 +13,7 @@ import fr.pederobien.minecraftgameplateform.interfaces.element.IGameConfiguratio
 import fr.pederobien.minecraftgameplateform.interfaces.element.ILabel;
 import fr.pederobien.minecraftgameplateform.interfaces.element.ITeam;
 import fr.pederobien.minecraftgameplateform.interfaces.helpers.IGameConfigurationHelper;
+import fr.pederobien.minecraftgameplateform.utils.EColor;
 
 public class AbstractTeamConfigurationEdition<T extends IGameConfiguration> extends AbstractGameConfigurationEdition<T> {
 
@@ -99,5 +100,17 @@ public class AbstractTeamConfigurationEdition<T extends IGameConfiguration> exte
 	 */
 	protected List<String> getTeamNames(List<ITeam> teams, boolean coloured) {
 		return teams.stream().map(team -> coloured ? team.getColoredName() : team.getName()).collect(Collectors.toList());
+	}
+
+	/**
+	 * Get a list of string that correspond to the name of each {@link EColor} not used by the registered teams for this
+	 * configuration.
+	 * 
+	 * @param coloured True if each color's name is coloured, false otherwise.
+	 * 
+	 * @return The list of free color's name.
+	 */
+	protected List<String> getFreeColorNames(boolean coloured) {
+		return getGameConfigurationHelper().getFreeColors().map(color -> coloured ? color.getName() : color.getColoredColorName()).collect(Collectors.toList());
 	}
 }
