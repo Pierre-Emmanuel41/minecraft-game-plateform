@@ -10,5 +10,6 @@ public class CommonTeam<T extends IGameConfiguration> extends AbstractGameConfig
 		super(EGameConfigurationLabel.TEAM, ETeamConfigurationMessageCode.TEAM__EXPLANATION);
 		addEdition(TeamEditionFactory.commonTeamAdd());
 		addEdition(TeamEditionFactory.commonTeamRemove());
+		addEdition(TeamEditionFactory.commonTeamModify());
 	}
 }

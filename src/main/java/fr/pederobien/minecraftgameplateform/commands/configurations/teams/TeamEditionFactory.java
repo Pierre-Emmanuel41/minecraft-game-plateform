@@ -18,4 +18,11 @@ public class TeamEditionFactory {
 	public static <T extends IGameConfiguration> IMapPersistenceEdition<T> commonTeamRemove() {
 		return new CommonTeamRemove<T>();
 	}
+
+	/**
+	 * @return An edition to modify team's characteristics.
+	 */
+	public static <T extends IGameConfiguration> IMapPersistenceEdition<T> commonTeamModify() {
+		return new CommonTeamModify<T>();
+	}
 }
