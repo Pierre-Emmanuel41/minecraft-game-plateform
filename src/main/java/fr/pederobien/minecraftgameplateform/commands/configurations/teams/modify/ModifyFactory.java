@@ -11,4 +11,11 @@ public class ModifyFactory {
 	public static <T extends IGameConfiguration> IMapPersistenceEdition<T> modifyName() {
 		return new ModifyName<T>();
 	}
+
+	/**
+	 * @return An edition to modify team's color.
+	 */
+	public static <T extends IGameConfiguration> IMapPersistenceEdition<T> modifyColor() {
+		return new ModifyColor<T>();
+	}
 }
