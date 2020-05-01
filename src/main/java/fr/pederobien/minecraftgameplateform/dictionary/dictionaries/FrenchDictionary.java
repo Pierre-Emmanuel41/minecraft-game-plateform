@@ -25,6 +25,7 @@ import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.S
 import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.teams.Add_Explanation;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.teams.List_AnyExistingTeam;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.teams.List_Explanation;
+import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.teams.List_OneExistingTeam;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.teams.Modify_Explanation;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.teams.Remove_Explanation;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.teams.Team_Explanation;
@@ -259,5 +260,6 @@ public class FrenchDictionary extends AbstractDictionary {
 		register(ModifyColor_ColorUpdated.FRENCH);
 		register(List_Explanation.FRENCH);
 		register(List_AnyExistingTeam.FRENCH);
+		register(List_OneExistingTeam.FRENCH);
 	}
 }

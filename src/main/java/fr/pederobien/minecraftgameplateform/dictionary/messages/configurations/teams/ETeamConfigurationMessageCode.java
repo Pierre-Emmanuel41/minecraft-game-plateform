@@ -17,7 +17,7 @@ public enum ETeamConfigurationMessageCode implements IMessageCode {
 	MODIFY__EXPLANATION,
 
 	// Code for command list
-	LIST__EXPLANATION, LIST__ANY_EXISTING_TEAM;
+	LIST__EXPLANATION, LIST__ANY_EXISTING_TEAM, LIST__ONE_EXISTING_TEAM;
 
 	private Permission permission;
 
