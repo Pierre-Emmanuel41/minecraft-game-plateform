@@ -6,7 +6,10 @@ import fr.pederobien.minecraftdictionary.interfaces.IMessageCode;
 public enum ETeamModifyMessageCode implements IMessageCode {
 	// Code for command modify name
 	MODIFY_NAME__EXPLANATION, MODIFY_NAME__OLD_NAME_IS_MISSING, MODIFY_NAME__NEW_NAME_IS_MISSING, MODIFY_NAME__TEAM_DOES_NOT_EXIST, MODIFY_NAME__TEAM_NAME_FORBIDDEN,
-	MODIFY_NAME__TEAM_NAME_ALREADY_USED, MODIFY_NAME__TEAM_RENAMED;
+	MODIFY_NAME__TEAM_NAME_ALREADY_USED, MODIFY_NAME__TEAM_RENAMED,
+
+	// Code for command modify color
+	MODIFY_COLOR__EXPLANATION;
 
 	private Permission permission;
 
