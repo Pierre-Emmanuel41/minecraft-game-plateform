@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
+import java.util.StringJoiner;
 
 import org.bukkit.entity.Player;
 
@@ -110,15 +111,10 @@ public class PlateformTeam extends AbstractNominable implements ITeam {
 
 	@Override
 	public String toString() {
-		StringBuilder builder = new StringBuilder(getName());
-		builder.append(" [");
-		for (int i = 0; i < players.size(); i++) {
-			builder.append(players.get(i).getName());
-			if (i < players.size() - 1)
-				builder.append(" ");
-		}
-		builder.append("]");
-		return getColor().getInColor(builder.toString());
+		StringJoiner players = new StringJoiner(" ", "[", "]");
+		for (Player player : getPlayers())
+			players.add(player.getName());
+		return getColor().getInColor(getName() + " " + players.toString());
 	}
 
 	private void updatePlayer(Player player, EColor color) {
