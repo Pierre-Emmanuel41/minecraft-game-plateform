@@ -23,6 +23,7 @@ import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.S
 import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.ScoreboardRefresh_SeveralTicsDefined;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.ScoreboardRefresh_TicsNumberIsMissing;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.teams.Add_Explanation;
+import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.teams.List_Explanation;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.teams.Modify_Explanation;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.teams.Remove_Explanation;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.teams.Team_Explanation;
@@ -255,5 +256,6 @@ public class EnglishDictionary extends AbstractDictionary {
 		register(ModifyColor_ColorDoesNotExist.ENGLISH);
 		register(ModifyColor_ColorAlreadyUsed.ENGLISH);
 		register(ModifyColor_ColorUpdated.ENGLISH);
+		register(List_Explanation.ENGLISH);
 	}
 }
