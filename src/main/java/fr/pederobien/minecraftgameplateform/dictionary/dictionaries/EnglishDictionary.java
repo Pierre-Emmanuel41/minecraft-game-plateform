@@ -45,6 +45,8 @@ import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.t
 import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.teams.modify.ModifyName_NewNameIsMissing;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.teams.modify.ModifyName_OldNameIsMissing;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.teams.modify.ModifyName_TeamDoesNotExist;
+import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.teams.modify.ModifyName_TeamNameAlreadyUsed;
+import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.teams.modify.ModifyName_TeamRenamed;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.teams.remove.RemovePlayer_AllPlayersRemoved;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.teams.remove.RemovePlayer_AnyPlayerRemoved;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.teams.remove.RemovePlayer_Explanation;
@@ -237,5 +239,7 @@ public class EnglishDictionary extends AbstractDictionary {
 		register(ModifyName_NewNameIsMissing.ENGLISH);
 		register(ModifyName_TeamDoesNotExist.ENGLISH);
 		register(ModifyName_NameIsForbidden.ENGLISH);
+		register(ModifyName_TeamNameAlreadyUsed.ENGLISH);
+		register(ModifyName_TeamRenamed.ENGLISH);
 	}
 }
