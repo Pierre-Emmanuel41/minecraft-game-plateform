@@ -5,7 +5,7 @@ import fr.pederobien.minecraftdictionary.interfaces.IMessageCode;
 
 public enum ETeamModifyMessageCode implements IMessageCode {
 	// Code for command modify name
-	MODIFY_NAME__EXPLANATION, MODIFY_NAME__OLD_NAME_IS_MISSING, MODIFY_NAME__NEW_NAME_IS_MISSING;
+	MODIFY_NAME__EXPLANATION, MODIFY_NAME__OLD_NAME_IS_MISSING, MODIFY_NAME__NEW_NAME_IS_MISSING, MODIFY_NAME__TEAM_DOES_NOT_EXIST;
 
 	private Permission permission;
 
