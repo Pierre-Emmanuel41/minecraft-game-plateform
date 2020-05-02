@@ -203,6 +203,12 @@ public class GameConfigurationHelper implements IGameConfigurationHelper {
 	}
 
 	@Override
+	public Stream<ITeam> getOtherTeams(String playerName) {
+		Player player = checkPlayerExist(playerName);
+		return getTeamsStream().filter(team -> !team.getPlayers().contains(player));
+	}
+
+	@Override
 	public Stream<EColor> getFreeColors() {
 		return getTeamsStream().map(team -> team.getColor()).filter(color -> !alreadyUsedColors.contains(color));
 	}

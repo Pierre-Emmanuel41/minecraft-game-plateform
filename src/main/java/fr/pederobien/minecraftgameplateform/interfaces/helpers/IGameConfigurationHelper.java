@@ -285,6 +285,17 @@ public interface IGameConfigurationHelper {
 	Stream<EColor> getFreeColors();
 
 	/**
+	 * Get a stream that contains all registered teams that does not contains the given player.
+	 * 
+	 * @param playerName The player's name used to filter the list of team for this configuration.
+	 * 
+	 * @return A stream that contains all teams except the team of the given player.
+	 * 
+	 * @throws PlayerNotFoundException If the player associated to the given name does not exist.
+	 */
+	Stream<ITeam> getOtherTeams(String playerName);
+
+	/**
 	 * Change the name of the team associated to the <code>oldName</code> by the <code>newName</code>
 	 * 
 	 * @param oldName The team's name to rename.

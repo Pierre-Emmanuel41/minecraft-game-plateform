@@ -9,6 +9,7 @@ import org.bukkit.entity.Player;
 
 import fr.pederobien.minecraftdictionary.interfaces.IMessageCode;
 import fr.pederobien.minecraftgameplateform.commands.configurations.AbstractGameConfigurationEdition;
+import fr.pederobien.minecraftgameplateform.exceptions.PlayerNotFoundException;
 import fr.pederobien.minecraftgameplateform.interfaces.element.IGameConfiguration;
 import fr.pederobien.minecraftgameplateform.interfaces.element.ILabel;
 import fr.pederobien.minecraftgameplateform.interfaces.element.ITeam;
@@ -49,6 +50,18 @@ public class AbstractTeamConfigurationEdition<T extends IGameConfiguration> exte
 	 */
 	protected Stream<ITeam> getFreeTeams(List<String> alreadyMentionedTeams) {
 		return get().getTeams().stream().filter(team -> !alreadyMentionedTeams.contains(team.getName()));
+	}
+
+	/**
+	 * Get a stream that contains the name of all registered teams that does not contains the given player.
+	 * 
+	 * @param playerName The player's name used to filter the list of team for this configuration
+	 * @return A stream that contains the name name of all teams except the team of the given player.
+	 * 
+	 * @throws PlayerNotFoundException If the player associated to the given name does not exist.
+	 */
+	protected Stream<String> getOtherTeamNames(String playerName) {
+		return getGameConfigurationHelper().getOtherTeams(playerName).map(team -> team.getName());
 	}
 
 	/**
