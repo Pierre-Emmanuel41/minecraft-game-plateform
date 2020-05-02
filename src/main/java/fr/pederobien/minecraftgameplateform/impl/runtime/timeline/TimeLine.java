@@ -1,12 +1,12 @@
 package fr.pederobien.minecraftgameplateform.impl.runtime.timeline;
 
 import java.time.LocalTime;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.function.Consumer;
 
+import fr.pederobien.minecraftgameplateform.impl.observer.Observable;
+import fr.pederobien.minecraftgameplateform.interfaces.observer.IObservable;
 import fr.pederobien.minecraftgameplateform.interfaces.runtime.task.IObservableTimeTask;
 import fr.pederobien.minecraftgameplateform.interfaces.runtime.task.ITimeTask;
 import fr.pederobien.minecraftgameplateform.interfaces.runtime.task.ITimeTaskObserver;
@@ -15,12 +15,12 @@ import fr.pederobien.minecraftgameplateform.interfaces.runtime.timeline.ITimeLin
 import fr.pederobien.minecraftgameplateform.interfaces.runtime.timeline.ITimeLinePeriodicObserver;
 
 public class TimeLine implements IObservableTimeLine, ITimeTaskObserver {
-	private Map<LocalTime, List<ITimeLineObserver>> punctualObservers;
-	private Map<LocalTime, List<ITimeLinePeriodicObserver>> periodicObservers;
+	private Map<LocalTime, IObservable<ITimeLineObserver>> punctual;
+	private Map<LocalTime, IObservable<ITimeLinePeriodicObserver>> periodic;
 
 	public TimeLine(IObservableTimeTask task) {
-		punctualObservers = new HashMap<LocalTime, List<ITimeLineObserver>>();
-		periodicObservers = new HashMap<LocalTime, List<ITimeLinePeriodicObserver>>();
+		punctual = new HashMap<LocalTime, IObservable<ITimeLineObserver>>();
+		periodic = new HashMap<LocalTime, IObservable<ITimeLinePeriodicObserver>>();
 
 		task.addObserver(this);
 	}
@@ -28,67 +28,65 @@ public class TimeLine implements IObservableTimeLine, ITimeTaskObserver {
 	@Override
 	public void timeChanged(ITimeTask task) {
 		// Notify all punctual observers of the time = task.getIncreasingTime()
-		notifyObservers(punctualObservers, task.getIncreasingTime(), obs -> obs.timeChanged(task.getIncreasingTime()));
+		notifyObservers(punctual, task.getIncreasingTime(), obs -> obs.timeChanged(task.getIncreasingTime()));
 
 		// Notify all periodic observers of the time = task.getIncreasingTime()
-		notifyObservers(periodicObservers, task.getIncreasingTime(), obs -> {
+		notifyObservers(periodic, task.getIncreasingTime(), obs -> {
 			obs.timeChanged(task.getIncreasingTime());
 			LocalTime nextNotifyTime = task.getIncreasingTime().plusSeconds(obs.getPeriod().toSecondOfDay());
 			obs.setNextNotifyTime(nextNotifyTime);
 
 			// the current observer is notified for the time @var= nextNotifyTime
-			addObserverToMap(periodicObservers, nextNotifyTime, obs);
+			addObserverToMap(periodic, nextNotifyTime, obs);
 		});
 
 		// Remove all observers for the key task.getIncreasingTime()
-		periodicObservers.remove(task.getIncreasingTime());
+		periodic.remove(task.getIncreasingTime());
 
 		// Notify each observer no matter the time that the current time has changed.
-		for (List<ITimeLinePeriodicObserver> list : periodicObservers.values())
-			for (ITimeLinePeriodicObserver obs : list)
-				obs.notifyCurrentTimeChanged();
+		for (IObservable<ITimeLinePeriodicObserver> observable : periodic.values())
+			observable.notifyObservers(obs -> obs.notifyCurrentTimeChanged());
 	}
 
 	@Override
 	public void addObserver(LocalTime time, ITimeLineObserver obs) {
-		addObserverToMap(punctualObservers, time, obs);
+		addObserverToMap(punctual, time, obs);
 	}
 
 	@Override
 	public void removeObserver(LocalTime time, ITimeLineObserver obs) {
-		removeObserverToMap(punctualObservers, time, obs);
+		removeObserverToMap(punctual, time, obs);
 	}
 
 	@Override
 	public void addObserver(LocalTime time, ITimeLinePeriodicObserver obs) {
-		addObserverToMap(periodicObservers, time, obs);
+		addObserverToMap(periodic, time, obs);
 	}
 
 	@Override
 	public void removeObserver(ITimeLinePeriodicObserver obs) {
-		removeObserverToMap(periodicObservers, obs.getNextNotifyTime(), obs);
+		removeObserverToMap(periodic, obs.getNextNotifyTime(), obs);
 	}
 
-	private <T extends ITimeLineObserver> void addObserverToMap(Map<LocalTime, List<T>> observers, LocalTime time, T obs) {
+	private <T extends ITimeLineObserver> void addObserverToMap(Map<LocalTime, IObservable<T>> observers, LocalTime time, T obs) {
 		if (observers.containsKey(time))
-			observers.get(time).add(obs);
+			observers.get(time).addObserver(obs);
 		else {
-			List<T> list = new ArrayList<T>();
-			list.add(obs);
-			observers.put(time, list);
+			IObservable<T> observable = new Observable<T>();
+			observable.addObserver(obs);
+			observers.put(time, observable);
 		}
 	}
 
-	private <T extends ITimeLineObserver> void removeObserverToMap(Map<LocalTime, List<T>> observers, LocalTime time, T obs) {
-		observers.get(time).remove(obs);
+	private <T extends ITimeLineObserver> void removeObserverToMap(Map<LocalTime, IObservable<T>> observers, LocalTime time, T obs) {
+		observers.get(time).removeObserver(obs);
 		if (observers.get(time).size() == 0)
 			observers.remove(time);
 	}
 
-	private <T extends ITimeLineObserver> void notifyObservers(Map<LocalTime, List<T>> observers, LocalTime time, Consumer<T> consumer) {
-		List<T> list = observers.get(time);
-		if (list != null)
-			for (T obs : list)
-				consumer.accept(obs);
+	private <T extends ITimeLineObserver> void notifyObservers(Map<LocalTime, IObservable<T>> observers, LocalTime time, Consumer<T> consumer) {
+		IObservable<T> observable = observers.get(time);
+		if (observable != null)
+			observable.notifyObservers(consumer);
 	}
 }
