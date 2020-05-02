@@ -1,29 +1,24 @@
 package fr.pederobien.minecraftgameplateform.impl.runtime.task;
 
 import java.time.LocalTime;
-import java.util.ArrayList;
-import java.util.List;
 
+import fr.pederobien.minecraftgameplateform.impl.observer.Observable;
 import fr.pederobien.minecraftgameplateform.impl.runtime.task.state.InitialTimeTaskState;
 import fr.pederobien.minecraftgameplateform.impl.runtime.task.state.PauseTimeTaskState;
 import fr.pederobien.minecraftgameplateform.impl.runtime.task.state.RunTimeTaskState;
-import fr.pederobien.minecraftgameplateform.interfaces.runtime.task.IObservableTimeTask;
+import fr.pederobien.minecraftgameplateform.interfaces.observer.IObservable;
 import fr.pederobien.minecraftgameplateform.interfaces.runtime.task.ITimeTask;
 import fr.pederobien.minecraftgameplateform.interfaces.runtime.task.ITimeTaskObserver;
 import fr.pederobien.minecraftgameplateform.interfaces.runtime.task.state.IStateTimeTask;
 import fr.pederobien.minecraftgameplateform.interfaces.runtime.task.state.ITimeTaskState;
 
-public class TimeTask implements IStateTimeTask, ITimeTask, IObservableTimeTask {
+public class TimeTask extends Observable<ITimeTaskObserver> implements IStateTimeTask, ITimeTask, IObservable<ITimeTaskObserver> {
 	private ITimeTaskState current;
 	private ITimeTaskState initial;
 	private ITimeTaskState run;
 	private ITimeTaskState pause;
 
-	private List<ITimeTaskObserver> observers;
-
 	public TimeTask(LocalTime time) {
-		observers = new ArrayList<ITimeTaskObserver>();
-
 		initial = new InitialTimeTaskState(this, time);
 		run = new RunTimeTaskState(this);
 		pause = new PauseTimeTaskState(this);
@@ -34,23 +29,7 @@ public class TimeTask implements IStateTimeTask, ITimeTask, IObservableTimeTask 
 	@Override
 	public void run() {
 		current.run();
-		notifyObservers();
-	}
-
-	@Override
-	public void addObserver(ITimeTaskObserver obs) {
-		observers.add(obs);
-	}
-
-	@Override
-	public void removeObserver(ITimeTaskObserver obs) {
-		observers.remove(obs);
-	}
-
-	@Override
-	public void notifyObservers() {
-		for (ITimeTaskObserver obs : observers)
-			obs.timeChanged(this);
+		notifyObservers(obs -> obs.timeChanged(this));
 	}
 
 	@Override

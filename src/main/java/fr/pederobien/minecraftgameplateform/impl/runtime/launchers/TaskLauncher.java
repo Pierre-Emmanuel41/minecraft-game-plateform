@@ -3,8 +3,9 @@ package fr.pederobien.minecraftgameplateform.impl.runtime.launchers;
 import java.time.LocalTime;
 
 import fr.pederobien.minecraftgameplateform.impl.runtime.task.TimeTask;
+import fr.pederobien.minecraftgameplateform.interfaces.observer.IObservable;
 import fr.pederobien.minecraftgameplateform.interfaces.runtime.launchers.ITaskLauncher;
-import fr.pederobien.minecraftgameplateform.interfaces.runtime.task.IObservableTimeTask;
+import fr.pederobien.minecraftgameplateform.interfaces.runtime.task.ITimeTaskObserver;
 
 public class TaskLauncher extends AbstractLauncher implements ITaskLauncher {
 	private TimeTask task;
@@ -29,7 +30,7 @@ public class TaskLauncher extends AbstractLauncher implements ITaskLauncher {
 	}
 
 	@Override
-	public IObservableTimeTask getTask() {
+	public IObservable<ITimeTaskObserver> getTask() {
 		return task;
 	}
 
