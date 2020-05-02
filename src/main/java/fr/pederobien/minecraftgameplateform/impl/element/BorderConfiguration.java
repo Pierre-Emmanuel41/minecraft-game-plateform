@@ -20,7 +20,7 @@ public class BorderConfiguration extends AbstractNominable implements IBorderCon
 	private Integer xCenter, zCenter, initialDiameter, finalDiameter;
 	private Double borderSpeed;
 
-	protected BorderConfiguration(String name) {
+	public BorderConfiguration(String name) {
 		super(name);
 	}
 
