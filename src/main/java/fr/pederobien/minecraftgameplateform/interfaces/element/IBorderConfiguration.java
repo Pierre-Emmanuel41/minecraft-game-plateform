@@ -1,8 +1,5 @@
 package fr.pederobien.minecraftgameplateform.interfaces.element;
 
-import org.bukkit.World;
-import org.bukkit.plugin.Plugin;
-
 import fr.pederobien.minecraftgameplateform.interfaces.element.unmodifiable.IUnmodifiableBorderConfiguration;
 
 public interface IBorderConfiguration extends INominable, IUnmodifiableBorderConfiguration {
@@ -10,16 +7,16 @@ public interface IBorderConfiguration extends INominable, IUnmodifiableBorderCon
 	/**
 	 * Set the plugin to which this border configuration is associated.
 	 * 
-	 * @param plugin The plugin to which this configuration is associated.
+	 * @param pluginName The plugin's name to which this configuration is associated.
 	 */
-	void setPlugin(Plugin plugin);
+	void setPlugin(String pluginName);
 
 	/**
 	 * Set the world in which this configuration is applied.
 	 * 
-	 * @param world The world in which the world border is applied.
+	 * @param world The world's name in which the world border is applied.
 	 */
-	void setWorld(World world);
+	void setWorld(String worldName);
 
 	/**
 	 * Set the x coordinate and the z coordinate of the world border center.
@@ -27,7 +24,7 @@ public interface IBorderConfiguration extends INominable, IUnmodifiableBorderCon
 	 * @param x The x-Coordinate of the center.
 	 * @param z The z-Coordinate of the center.
 	 */
-	void setBorderCenter(String x, String z);
+	void setBorderCenter(int x, int z);
 
 	/**
 	 * Set the initial world border diameter. This value is set in the world when starting a game.

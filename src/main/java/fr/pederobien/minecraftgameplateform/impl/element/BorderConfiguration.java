@@ -8,6 +8,7 @@ import org.bukkit.plugin.Plugin;
 
 import fr.pederobien.minecraftgameplateform.helpers.DisplayHelper;
 import fr.pederobien.minecraftgameplateform.interfaces.element.IBorderConfiguration;
+import fr.pederobien.minecraftgameplateform.utils.Plateform;
 import fr.pederobien.minecraftmanagers.WorldManager;
 
 public class BorderConfiguration extends AbstractNominable implements IBorderConfiguration {
@@ -57,18 +58,18 @@ public class BorderConfiguration extends AbstractNominable implements IBorderCon
 	}
 
 	@Override
-	public void setPlugin(Plugin plugin) {
-		this.plugin = plugin;
+	public void setPlugin(String pluginName) {
+		this.plugin = Plateform.getPluginManager().get(pluginName).get();
 	}
 
 	@Override
-	public void setWorld(World world) {
-		this.world = world;
+	public void setWorld(String worldName) {
+		this.world = WorldManager.getWorld(worldName);
 	}
 
 	@Override
-	public void setBorderCenter(String x, String z) {
-		this.center = WorldManager.getHighestBlockYAt(getWorld(), Integer.parseInt(x), Integer.parseInt(z));
+	public void setBorderCenter(int x, int z) {
+		this.center = WorldManager.getHighestBlockYAt(getWorld(), x, z);
 	}
 
 	@Override
