@@ -20,7 +20,7 @@ public enum ETeamConfigurationMessageCode implements IMessageCode {
 	LIST__EXPLANATION, LIST__ANY_EXISTING_TEAM, LIST__ONE_EXISTING_TEAM, LIST__SEVERAL_EXISTING_TEAMS,
 
 	// Code for command move
-	MOVE__EXPLANATION, MOVE__PLAYER_NAME_IS_MISSING;
+	MOVE__EXPLANATION, MOVE__PLAYER_NAME_IS_MISSING, MOVE__TEAM_NAME_IS_MISSING;
 
 	private Permission permission;
 
