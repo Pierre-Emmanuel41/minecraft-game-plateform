@@ -32,4 +32,11 @@ public class TeamEditionFactory {
 	public static <T extends IGameConfiguration> IMapPersistenceEdition<T> commonTeamList() {
 		return new CommonTeamList<T>();
 	}
+
+	/**
+	 * @return An edition to move a player from its initial team to another team.
+	 */
+	public static <T extends IGameConfiguration> IMapPersistenceEdition<T> commonTeamMove() {
+		return new CommonTeamMove<T>();
+	}
 }
