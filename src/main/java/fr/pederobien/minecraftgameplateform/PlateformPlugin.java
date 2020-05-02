@@ -20,6 +20,8 @@ public class PlateformPlugin extends JavaPlugin {
 
 		new SpawnCommand(this);
 
+		Plateform.getPluginManager().register(this);
+
 		Plateform.getNotificationCenter().getDictionaryContext().register(this, new EnglishDictionary());
 		Plateform.getNotificationCenter().getDictionaryContext().register(this, new FrenchDictionary());
 	}

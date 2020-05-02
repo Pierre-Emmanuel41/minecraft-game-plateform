@@ -9,20 +9,33 @@ import fr.pederobien.minecraftgameplateform.interfaces.commands.ICommand;
 import fr.pederobien.minecraftgameplateform.interfaces.commands.ICommandHelper;
 import fr.pederobien.minecraftgameplateform.interfaces.element.IGameConfiguration;
 import fr.pederobien.minecraftgameplateform.interfaces.element.IGameConfigurationContext;
+import fr.pederobien.minecraftgameplateform.interfaces.element.IPluginManager;
 import fr.pederobien.minecraftgameplateform.interfaces.helpers.IConfigurationHelperManager;
 import fr.pederobien.minecraftgameplateform.interfaces.helpers.IGameConfigurationHelper;
 import fr.pederobien.minecraftgameplateform.internal.IPersistenceCenter;
 import fr.pederobien.minecraftgameplateform.internal.PersistenceCenter;
 
 public class Plateform {
+	private static final String MINECRAFT_GAME_PLATEFORM = "minecraft-game-plateform";
 	private static IGameConfigurationContext gameContext = GameConfigurationContext.getInstance();
 	private static INotificationCenter notificationCenter = NotificationCenter.getInstance();
 	private static ICommandHelper commandHelper = CommandHelper.getInstance();
 	private static IPersistenceCenter persistenceCenter = PersistenceCenter.getInstance();
 	private static IConfigurationHelperManager configurationHelperManager = ConfigurationHelperManager.getInstance();
+	private static IPluginManager pluginManager = PluginManager.getInstance();
 
+	/**
+	 * @return The version of this plugin.
+	 */
 	public static String getVersion() {
 		return "v1.0-SNAPSHOT";
+	}
+
+	/**
+	 * @return The name of this plugin.
+	 */
+	public static String getName() {
+		return MINECRAFT_GAME_PLATEFORM;
 	}
 
 	/**
@@ -60,5 +73,12 @@ public class Plateform {
 	 */
 	public static IGameConfigurationHelper getOrCreateConfigurationHelper(IGameConfiguration configuration) {
 		return configurationHelperManager.getOrCreateHelper(configuration);
+	}
+
+	/**
+	 * @return The manager used to have access to all registered plugins to this plugin.
+	 */
+	public static IPluginManager getPluginManager() {
+		return pluginManager;
 	}
 }
