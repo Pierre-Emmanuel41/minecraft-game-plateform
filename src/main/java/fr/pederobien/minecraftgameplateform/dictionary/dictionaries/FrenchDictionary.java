@@ -31,6 +31,7 @@ import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.t
 import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.teams.Move_Explanation;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.teams.Move_PlayerDoesNotExist;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.teams.Move_PlayerNameIsMissing;
+import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.teams.Move_PlayerNotRegistered;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.teams.Move_TeamNameIsMissing;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.teams.Remove_Explanation;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.teams.Team_Explanation;
@@ -271,5 +272,6 @@ public class FrenchDictionary extends AbstractDictionary {
 		register(Move_PlayerNameIsMissing.FRENCH);
 		register(Move_TeamNameIsMissing.FRENCH);
 		register(Move_PlayerDoesNotExist.FRENCH);
+		register(Move_PlayerNotRegistered.FRENCH);
 	}
 }
