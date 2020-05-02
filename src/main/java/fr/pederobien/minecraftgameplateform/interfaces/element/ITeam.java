@@ -3,6 +3,7 @@ package fr.pederobien.minecraftgameplateform.interfaces.element;
 import org.bukkit.entity.Player;
 
 import fr.pederobien.minecraftgameplateform.interfaces.element.unmodifiable.IUnmodifiableTeam;
+import fr.pederobien.minecraftgameplateform.interfaces.observer.IObsTeam;
 import fr.pederobien.minecraftgameplateform.utils.EColor;
 
 public interface ITeam extends INominable, IUnmodifiableTeam {
@@ -45,4 +46,18 @@ public interface ITeam extends INominable, IUnmodifiableTeam {
 	 * @return The clone of this team.
 	 */
 	ITeam clone();
+
+	/**
+	 * Append an observer for this team.
+	 * 
+	 * @param obs The observer to add.
+	 */
+	void addObserver(IObsTeam obs);
+
+	/**
+	 * Removes the given observers from the list of observer for this team.
+	 * 
+	 * @param obs The observer to remove.
+	 */
+	void removeObserver(IObsTeam obs);
 }

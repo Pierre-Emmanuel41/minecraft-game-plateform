@@ -11,13 +11,17 @@ import java.util.function.Consumer;
 import org.bukkit.entity.Player;
 import org.bukkit.scoreboard.Team;
 
+import fr.pederobien.minecraftgameplateform.impl.observer.Observable;
 import fr.pederobien.minecraftgameplateform.interfaces.element.ITeam;
+import fr.pederobien.minecraftgameplateform.interfaces.observer.IObsTeam;
+import fr.pederobien.minecraftgameplateform.interfaces.observer.IObservable;
 import fr.pederobien.minecraftgameplateform.utils.EColor;
 import fr.pederobien.minecraftmanagers.TeamManager;
 
 public class PlateformTeam extends AbstractNominable implements ITeam {
 	private EColor color;
 	private List<Player> players;
+	private IObservable<IObsTeam> observable;
 	private boolean isCopy;
 	private Team serverTeam;
 
@@ -25,6 +29,7 @@ public class PlateformTeam extends AbstractNominable implements ITeam {
 		super(name);
 
 		players = new ArrayList<Player>();
+		observable = new Observable<IObsTeam>();
 
 		setColor(color);
 		this.isCopy = isCopy;
@@ -88,26 +93,28 @@ public class PlateformTeam extends AbstractNominable implements ITeam {
 	@Override
 	public void setColor(EColor color) {
 		Objects.requireNonNull(color, "The color is null");
+		EColor oldColor = getColor();
 		this.color = color;
-		synchronizeWithServerTeam(serverTeam -> serverTeam.setColor(color.getChatColor()));
+		synchronizeWithServerTeam(serverTeam -> serverTeam.setColor(color.getChatColor()), obs -> obs.onColorChanged(this, oldColor, getColor()));
 	}
 
 	@Override
 	public void addPlayer(Player player) {
 		players.add(player);
-		synchronizeWithServerTeam(serverTeam -> serverTeam.addEntry(player.getName()));
+		synchronizeWithServerTeam(serverTeam -> serverTeam.addEntry(player.getName()), obs -> obs.onPlayerAdded(this, player));
 	}
 
 	@Override
 	public void removePlayer(Player player) {
 		players.remove(player);
-		synchronizeWithServerTeam(serverTeam -> serverTeam.removeEntry(player.getName()));
+		synchronizeWithServerTeam(serverTeam -> serverTeam.removeEntry(player.getName()), obs -> obs.onPlayerRemoved(this, player));
 	}
 
 	@Override
 	public void clear() {
-		for (Player player : players)
-			synchronizeWithServerTeam(serverTeam -> serverTeam.removeEntry(player.getName()));
+		for (Player player : players) {
+			synchronizeWithServerTeam(serverTeam -> serverTeam.removeEntry(player.getName()), obs -> obs.onPlayerRemoved(this, player));
+		}
 		players.clear();
 	}
 
@@ -116,7 +123,18 @@ public class PlateformTeam extends AbstractNominable implements ITeam {
 		ITeam team = new PlateformTeam(getName(), getColor(), true);
 		for (Player player : getPlayers())
 			team.addPlayer(player);
+		observable.notifyObservers(obs -> obs.onClone(this));
 		return team;
+	}
+
+	@Override
+	public void addObserver(IObsTeam obs) {
+		observable.addObserver(obs);
+	}
+
+	@Override
+	public void removeObserver(IObsTeam obs) {
+		observable.removeObserver(obs);
 	}
 
 	@Override
@@ -127,8 +145,16 @@ public class PlateformTeam extends AbstractNominable implements ITeam {
 		return getColor().getInColor(getName() + " " + players.toString());
 	}
 
-	private void synchronizeWithServerTeam(Consumer<Team> consumer) {
-		if (isCreatedOnServer() && !isCopy)
-			consumer.accept(serverTeam);
+	/**
+	 * Update the server team with the consumer <code>team</code> and notify observers of this team with the consumer <code>obs</code>
+	 * 
+	 * @param team The consumer used to update the server team.
+	 * @param obs  The consumer used to notify observers oh this team.
+	 */
+	private void synchronizeWithServerTeam(Consumer<Team> team, Consumer<IObsTeam> obs) {
+		if (isCreatedOnServer() && !isCopy) {
+			team.accept(serverTeam);
+			observable.notifyObservers(obs);
+		}
 	}
 }
