@@ -29,6 +29,7 @@ import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.t
 import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.teams.List_SeveralExistingTeams;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.teams.Modify_Explanation;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.teams.Move_Explanation;
+import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.teams.Move_PlayerDoesNotExist;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.teams.Move_PlayerNameIsMissing;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.teams.Move_TeamNameIsMissing;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.teams.Remove_Explanation;
@@ -269,5 +270,6 @@ public class EnglishDictionary extends AbstractDictionary {
 		register(Move_Explanation.ENGLISH);
 		register(Move_PlayerNameIsMissing.ENGLISH);
 		register(Move_TeamNameIsMissing.ENGLISH);
+		register(Move_PlayerDoesNotExist.ENGLISH);
 	}
 }
