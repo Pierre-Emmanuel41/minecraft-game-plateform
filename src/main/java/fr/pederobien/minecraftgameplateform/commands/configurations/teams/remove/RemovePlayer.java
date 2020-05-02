@@ -72,6 +72,6 @@ public class RemovePlayer<T extends IGameConfiguration> extends AbstractTeamConf
 
 		// If the first argument is all -> any player is proposed
 		// Else propose not already mentioned players
-		return filter(args[0].equals(IGameConfigurationHelper.ALL) ? ((List<String>) emptyList()).stream() : players, args[args.length - 1]);
+		return filter(args[0].equals(IGameConfigurationHelper.ALL) ? emptyStream() : players, args[args.length - 1]);
 	}
 }

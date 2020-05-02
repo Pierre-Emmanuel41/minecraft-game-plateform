@@ -64,6 +64,6 @@ public class RemoveTeam<T extends IGameConfiguration> extends AbstractTeamConfig
 
 		// If the first argument is all -> any team is proposed
 		// Else propose not already mentioned teams
-		return filter(args[0].equals(IGameConfigurationHelper.ALL) ? ((List<String>) emptyList()).stream() : teams, args[args.length - 1]);
+		return filter(args[0].equals(IGameConfigurationHelper.ALL) ? emptyStream() : teams, args[args.length - 1]);
 	}
 }
