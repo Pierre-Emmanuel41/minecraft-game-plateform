@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.StringJoiner;
+import java.util.function.Consumer;
 
 import org.bukkit.entity.Player;
 import org.bukkit.scoreboard.Team;
@@ -18,6 +19,7 @@ public class PlateformTeam extends AbstractNominable implements ITeam {
 	private EColor color;
 	private List<Player> players;
 	private boolean isCopy;
+	private Team serverTeam;
 
 	private PlateformTeam(String name, EColor color, boolean isCopy) {
 		super(name);
@@ -75,31 +77,37 @@ public class PlateformTeam extends AbstractNominable implements ITeam {
 
 	@Override
 	public boolean isCreatedOnServer() {
-		return getServerTeam().isPresent();
+		Optional<Team> optTeam = getServerTeam();
+		if (optTeam.isPresent()) {
+			serverTeam = optTeam.get();
+			return true;
+		}
+		return false;
 	}
 
 	@Override
 	public void setColor(EColor color) {
 		Objects.requireNonNull(color, "The color is null");
 		this.color = color;
+		synchronizeWithServerTeam(serverTeam -> serverTeam.setColor(color.getChatColor()));
 	}
 
 	@Override
 	public void addPlayer(Player player) {
-		updatePlayer(player, getColor());
 		players.add(player);
+		synchronizeWithServerTeam(serverTeam -> serverTeam.addEntry(player.getName()));
 	}
 
 	@Override
 	public void removePlayer(Player player) {
-		updatePlayer(player, EColor.RESET);
 		players.remove(player);
+		synchronizeWithServerTeam(serverTeam -> serverTeam.removeEntry(player.getName()));
 	}
 
 	@Override
 	public void clear() {
 		for (Player player : players)
-			updatePlayer(player, EColor.RESET);
+			synchronizeWithServerTeam(serverTeam -> serverTeam.removeEntry(player.getName()));
 		players.clear();
 	}
 
@@ -119,9 +127,8 @@ public class PlateformTeam extends AbstractNominable implements ITeam {
 		return getColor().getInColor(getName() + " " + players.toString());
 	}
 
-	private void updatePlayer(Player player, EColor color) {
-		if (isCopy)
-			return;
-		player.setDisplayName(color.getInColor(player.getName()));
+	private void synchronizeWithServerTeam(Consumer<Team> consumer) {
+		if (isCreatedOnServer() && !isCopy)
+			consumer.accept(serverTeam);
 	}
 }
