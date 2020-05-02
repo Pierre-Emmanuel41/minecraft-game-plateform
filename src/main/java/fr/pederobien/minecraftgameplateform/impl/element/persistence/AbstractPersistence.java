@@ -14,8 +14,7 @@ public abstract class AbstractPersistence<T extends IUnmodifiableNominable> impl
 	private IDefaultContent defaultContent;
 
 	protected AbstractPersistence(Path path, IDefaultContent defaultContent) {
-		checkPath(path);
-		this.path = path;
+		setPath(path);
 		this.defaultContent = defaultContent;
 	}
 
@@ -27,6 +26,11 @@ public abstract class AbstractPersistence<T extends IUnmodifiableNominable> impl
 	@Override
 	public IDefaultContent getDefaultContent() {
 		return defaultContent;
+	}
+
+	protected void setPath(Path path) {
+		checkPath(path);
+		this.path = path;
 	}
 
 	private void checkPath(Path path) {
