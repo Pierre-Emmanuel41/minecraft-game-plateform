@@ -27,12 +27,14 @@ public class Observable<T> implements IObservable<T> {
 
 	@Override
 	public void notifyObservers(Consumer<T> consumer) {
-		internalNotify(observers.stream(), consumer);
+		if (size() > 0)
+			internalNotify(observers.stream(), consumer);
 	}
 
 	@Override
 	public void notifyObservers(Predicate<T> predicate, Consumer<T> consumer) {
-		internalNotify(observers.stream().filter(predicate), consumer);
+		if (size() > 0)
+			internalNotify(observers.stream().filter(predicate), consumer);
 	}
 
 	@Override
