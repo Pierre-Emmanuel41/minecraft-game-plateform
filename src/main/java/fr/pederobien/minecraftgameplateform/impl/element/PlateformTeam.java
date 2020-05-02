@@ -4,23 +4,25 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 import java.util.StringJoiner;
 
 import org.bukkit.entity.Player;
+import org.bukkit.scoreboard.Team;
 
 import fr.pederobien.minecraftgameplateform.interfaces.element.ITeam;
 import fr.pederobien.minecraftgameplateform.utils.EColor;
+import fr.pederobien.minecraftmanagers.TeamManager;
 
 public class PlateformTeam extends AbstractNominable implements ITeam {
 	private EColor color;
 	private List<Player> players;
-	private boolean isCreatedOnServer, isCopy;
+	private boolean isCopy;
 
 	private PlateformTeam(String name, EColor color, boolean isCopy) {
 		super(name);
 
 		players = new ArrayList<Player>();
-		isCreatedOnServer = false;
 
 		setColor(color);
 		this.isCopy = isCopy;
@@ -67,8 +69,13 @@ public class PlateformTeam extends AbstractNominable implements ITeam {
 	}
 
 	@Override
+	public Optional<Team> getServerTeam() {
+		return TeamManager.getTeam(getName());
+	}
+
+	@Override
 	public boolean isCreatedOnServer() {
-		return isCreatedOnServer;
+		return getServerTeam().isPresent();
 	}
 
 	@Override
@@ -94,11 +101,6 @@ public class PlateformTeam extends AbstractNominable implements ITeam {
 		for (Player player : players)
 			updatePlayer(player, EColor.RESET);
 		players.clear();
-	}
-
-	@Override
-	public void setCreatedOnServer(boolean isCreatedOnServer) {
-		this.isCreatedOnServer = isCreatedOnServer;
 	}
 
 	@Override

@@ -22,8 +22,8 @@ public class TeamHelper {
 	 * 
 	 * @param team The team to create on the server.
 	 */
-	public static void createTeamOnServer(ITeam team) {
-		TeamManager.createTeam(team.getName(), team.getColor().getChatColor(), team.getPlayers().stream());
+	public static Team createTeamOnServer(ITeam team) {
+		return TeamManager.createTeam(team.getName(), team.getColor().getChatColor(), team.getPlayers().stream());
 	}
 
 	/**
@@ -33,8 +33,8 @@ public class TeamHelper {
 	 * 
 	 * @see #createTeamOnServer(ITeam)
 	 */
-	public static void createTeamsOnServer(Stream<ITeam> teams) {
-		teams.peek(team -> createTeamOnServer(team));
+	public static Stream<Team> createTeamsOnServer(Stream<ITeam> teams) {
+		return teams.peek(team -> createTeamOnServer(team)).map(team -> team.getServerTeam().get());
 	}
 
 	/**
