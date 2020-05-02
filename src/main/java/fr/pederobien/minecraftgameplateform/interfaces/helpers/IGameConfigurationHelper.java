@@ -16,6 +16,7 @@ import fr.pederobien.minecraftgameplateform.exceptions.configurations.TeamNameFo
 import fr.pederobien.minecraftgameplateform.exceptions.configurations.TeamNotFoundException;
 import fr.pederobien.minecraftgameplateform.exceptions.configurations.TeamWithSameColorAlreadyExistsException;
 import fr.pederobien.minecraftgameplateform.exceptions.configurations.TeamWithSameNameAlreadyExistsException;
+import fr.pederobien.minecraftgameplateform.exceptions.configurations.TeamsAreTheSameException;
 import fr.pederobien.minecraftgameplateform.helpers.TeamHelper;
 import fr.pederobien.minecraftgameplateform.interfaces.element.ITeam;
 import fr.pederobien.minecraftgameplateform.utils.EColor;
@@ -252,21 +253,25 @@ public interface IGameConfigurationHelper {
 	 * @param playerName The player'name to move from its team to the other.
 	 * @param teamName   The new team's name of the player.
 	 * 
+	 * @return The new player's team.
+	 * 
 	 * @throws PlayerNotFoundException      If the player associated to the given name does not exist.
 	 * @throws PlayerNotRegisteredException If the player is not registered in a team for this configuration.
-	 * @throws TeamNotFoundException        if the team does not exist for this configuration.
+	 * @throws TeamNotFoundException        If the team does not exist for this configuration.
+	 * @throws TeamsAreTheSameException     If the actual player's team is the target team.
 	 */
 	ITeam movePlayer(String playerName, String teamName);
 
 	/**
 	 * Move the given player into the specified team. If the player was already into a team, he is removed from its older team.
 	 * 
-	 * @param player The player to move from its team to another.
-	 * @param team   The new player's team.
+	 * @param player     The player to move from its team to another.
+	 * @param targetTeam The new player's team.
 	 * 
 	 * @throws PlayerNotRegisteredException If the player is not registered in a team for this configuration.
+	 * @throws TeamsAreTheSameException     If the actual player's team is the target team.
 	 */
-	void movePlayer(Player player, ITeam team);
+	void movePlayer(Player player, ITeam targetTeam);
 
 	/**
 	 * @return A stream that contains all colours not already used by teams of this configuration.

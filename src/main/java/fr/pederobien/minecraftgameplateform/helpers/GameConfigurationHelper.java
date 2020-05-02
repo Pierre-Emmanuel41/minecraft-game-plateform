@@ -19,6 +19,7 @@ import fr.pederobien.minecraftgameplateform.exceptions.configurations.TeamNameFo
 import fr.pederobien.minecraftgameplateform.exceptions.configurations.TeamNotFoundException;
 import fr.pederobien.minecraftgameplateform.exceptions.configurations.TeamWithSameColorAlreadyExistsException;
 import fr.pederobien.minecraftgameplateform.exceptions.configurations.TeamWithSameNameAlreadyExistsException;
+import fr.pederobien.minecraftgameplateform.exceptions.configurations.TeamsAreTheSameException;
 import fr.pederobien.minecraftgameplateform.impl.element.PlateformTeam;
 import fr.pederobien.minecraftgameplateform.interfaces.element.IGameConfiguration;
 import fr.pederobien.minecraftgameplateform.interfaces.element.ITeam;
@@ -176,16 +177,15 @@ public class GameConfigurationHelper implements IGameConfigurationHelper {
 	@Override
 	public ITeam movePlayer(String playerName, String teamName) {
 		Player player = checkPlayerExist(playerName);
-		checkPlayerRegistered(player).removePlayer(player);
-		ITeam team = checkTeamExist(teamName);
-		team.addPlayer(player);
-		return team;
+		ITeam initialTeam = checkTeamExist(teamName);
+		ITeam targetTeam = checkPlayerRegistered(player);
+		return movePlayer(initialTeam, targetTeam, player);
 	}
 
 	@Override
-	public void movePlayer(Player player, ITeam team) {
-		checkPlayerRegistered(player).removePlayer(player);
-		team.addPlayer(player);
+	public void movePlayer(Player player, ITeam targetTeam) {
+		ITeam initialTeam = checkPlayerRegistered(player);
+		movePlayer(initialTeam, targetTeam, player);
 	}
 
 	@Override
@@ -297,6 +297,11 @@ public class GameConfigurationHelper implements IGameConfigurationHelper {
 		return optTeam.get();
 	}
 
+	private void checkTeamAreDifferent(ITeam initialTeam, ITeam targetTeam) {
+		if (initialTeam.equals(targetTeam))
+			throw new TeamsAreTheSameException(configuration, initialTeam, targetTeam);
+	}
+
 	private ITeam synchronizedAdd(ITeam team, Player player) {
 		team.addPlayer(player);
 		registeredPlayers.add(player);
@@ -323,5 +328,12 @@ public class GameConfigurationHelper implements IGameConfigurationHelper {
 		for (Player player : team.getPlayers())
 			synchronizedRemove(team, player);
 		return team;
+	}
+
+	private ITeam movePlayer(ITeam initialTeam, ITeam targetTeam, Player player) {
+		checkTeamAreDifferent(initialTeam, targetTeam);
+		initialTeam.removePlayer(player);
+		targetTeam.addPlayer(player);
+		return targetTeam;
 	}
 }
