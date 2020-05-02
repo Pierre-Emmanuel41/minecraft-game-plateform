@@ -15,9 +15,9 @@ import fr.pederobien.minecraftgameplateform.internal.IPersistenceCenter;
 import fr.pederobien.minecraftgameplateform.internal.PersistenceCenter;
 
 public class Plateform {
-	private static IGameConfigurationContext context = GameConfigurationContext.getInstance();
+	private static IGameConfigurationContext gameContext = GameConfigurationContext.getInstance();
 	private static INotificationCenter notificationCenter = NotificationCenter.getInstance();
-	private static ICommandHelper helper = CommandHelper.getInstance();
+	private static ICommandHelper commandHelper = CommandHelper.getInstance();
 	private static IPersistenceCenter persistenceCenter = PersistenceCenter.getInstance();
 	private static IConfigurationHelperManager configurationHelperManager = ConfigurationHelperManager.getInstance();
 
@@ -30,7 +30,7 @@ public class Plateform {
 	 *         configuration of this context.
 	 */
 	public static IGameConfigurationContext getGameConfigurationContext() {
-		return context;
+		return gameContext;
 	}
 
 	/**
@@ -45,7 +45,7 @@ public class Plateform {
 	 *         it is possible to not display it by setting {@link ICommand#setAvailable(boolean)} to false.
 	 */
 	public static ICommandHelper getCommandHelper() {
-		return helper;
+		return commandHelper;
 	}
 
 	/**
