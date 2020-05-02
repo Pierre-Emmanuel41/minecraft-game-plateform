@@ -35,6 +35,11 @@ public class Observable<T> implements IObservable<T> {
 		internalNotify(observers.stream().filter(predicate), consumer);
 	}
 
+	@Override
+	public int size() {
+		return observers.size();
+	}
+
 	private void internalNotify(Stream<T> observers, Consumer<T> consumer) {
 		observers.peek(consumer);
 	}

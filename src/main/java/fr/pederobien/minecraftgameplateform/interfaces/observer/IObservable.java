@@ -39,4 +39,9 @@ public interface IObservable<T> {
 	 * @param consumer  The consumer used to know which method should be called on each observer.
 	 */
 	void notifyObservers(Predicate<T> predicate, Consumer<T> consumer);
+
+	/**
+	 * @return The number of observers for this observable object.
+	 */
+	int size();
 }
