@@ -246,15 +246,27 @@ public interface IGameConfigurationHelper {
 	List<ITeam> removePlayers(List<Player> players);
 
 	/**
-	 * Move the given player into the team associated to the specified <code>teamName</code>. If the player was already into a team,
-	 * he is removed from its older team.
+	 * Move the player associated to the given <code>playerName</code> into the team associated to the specified
+	 * <code>teamName</code>. If the player was already into a team, he is removed from its older team.
 	 * 
-	 * @param player   The player to add.
-	 * @param teamName The team's name of the player's team.
+	 * @param playerName The player'name to move from its team to the other.
+	 * @param teamName   The new team's name of the player.
 	 * 
-	 * @throws TeamNotFoundException if the team does not exist for this configuration.
+	 * @throws PlayerNotFoundException      If the player associated to the given name does not exist.
+	 * @throws PlayerNotRegisteredException If the player is not registered in a team for this configuration.
+	 * @throws TeamNotFoundException        if the team does not exist for this configuration.
 	 */
-	void movePlayer(Player player, String teamName);
+	ITeam movePlayer(String playerName, String teamName);
+
+	/**
+	 * Move the given player into the specified team. If the player was already into a team, he is removed from its older team.
+	 * 
+	 * @param player The player to move from its team to another.
+	 * @param team   The new player's team.
+	 * 
+	 * @throws PlayerNotRegisteredException If the player is not registered in a team for this configuration.
+	 */
+	void movePlayer(Player player, ITeam team);
 
 	/**
 	 * @return A stream that contains all colours not already used by teams of this configuration.
