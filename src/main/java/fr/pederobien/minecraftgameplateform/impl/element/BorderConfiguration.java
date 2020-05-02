@@ -4,6 +4,7 @@ import java.util.StringJoiner;
 
 import org.bukkit.World;
 import org.bukkit.block.Block;
+import org.bukkit.plugin.Plugin;
 
 import fr.pederobien.minecraftgameplateform.helpers.DisplayHelper;
 import fr.pederobien.minecraftgameplateform.interfaces.element.IBorderConfiguration;
@@ -15,6 +16,7 @@ public class BorderConfiguration extends AbstractNominable implements IBorderCon
 	private static final Integer DEFAULT_FINAL_DIAMETER = 30;
 	private static final Double DEFAULT_BORDER_SPEED = 1.0;
 
+	private Plugin plugin;
 	private World world;
 	private Block center;
 	private Integer xCenter, zCenter, initialDiameter, finalDiameter;
@@ -22,6 +24,11 @@ public class BorderConfiguration extends AbstractNominable implements IBorderCon
 
 	public BorderConfiguration(String name) {
 		super(name);
+	}
+
+	@Override
+	public Plugin getPlugin() {
+		return plugin;
 	}
 
 	@Override
@@ -47,6 +54,11 @@ public class BorderConfiguration extends AbstractNominable implements IBorderCon
 	@Override
 	public Double getBorderSpeed() {
 		return borderSpeed == null ? DEFAULT_BORDER_SPEED : borderSpeed;
+	}
+
+	@Override
+	public void setPlugin(Plugin plugin) {
+		this.plugin = plugin;
 	}
 
 	@Override
@@ -83,6 +95,7 @@ public class BorderConfiguration extends AbstractNominable implements IBorderCon
 		joiner.add("Initial diameter : " + display(initialDiameter, getInitialBorderDiameter() + " blocks"));
 		joiner.add("Final diameter : " + display(finalDiameter, getFinalBorderDiameter() + " blocks"));
 		joiner.add("Speed : " + display(borderSpeed, getBorderSpeed() + " block/s"));
+		joiner.add("Plugin : " + plugin == null ? "none" : getPlugin().getName());
 		return joiner.toString();
 	}
 

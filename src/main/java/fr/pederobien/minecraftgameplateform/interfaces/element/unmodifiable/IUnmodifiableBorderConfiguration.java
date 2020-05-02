@@ -2,8 +2,14 @@ package fr.pederobien.minecraftgameplateform.interfaces.element.unmodifiable;
 
 import org.bukkit.World;
 import org.bukkit.block.Block;
+import org.bukkit.plugin.Plugin;
 
 public interface IUnmodifiableBorderConfiguration extends IUnmodifiableNominable {
+
+	/**
+	 * @return The plugin to which this border configuration is associated.
+	 */
+	Plugin getPlugin();
 
 	/**
 	 * @return The world on which this configuration is applied.

@@ -1,10 +1,18 @@
 package fr.pederobien.minecraftgameplateform.interfaces.element;
 
 import org.bukkit.World;
+import org.bukkit.plugin.Plugin;
 
 import fr.pederobien.minecraftgameplateform.interfaces.element.unmodifiable.IUnmodifiableBorderConfiguration;
 
 public interface IBorderConfiguration extends INominable, IUnmodifiableBorderConfiguration {
+
+	/**
+	 * Set the plugin to which this border configuration is associated.
+	 * 
+	 * @param plugin The plugin to which this configuration is associated.
+	 */
+	void setPlugin(Plugin plugin);
 
 	/**
 	 * Set the world in which this configuration is applied.
