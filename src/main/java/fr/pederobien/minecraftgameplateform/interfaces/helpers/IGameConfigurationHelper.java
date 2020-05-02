@@ -253,14 +253,14 @@ public interface IGameConfigurationHelper {
 	 * @param playerName The player'name to move from its team to the other.
 	 * @param teamName   The new team's name of the player.
 	 * 
-	 * @return The new player's team.
+	 * @return An array of team that contains the initial team (the first) and the target team (the second).
 	 * 
 	 * @throws PlayerNotFoundException      If the player associated to the given name does not exist.
 	 * @throws PlayerNotRegisteredException If the player is not registered in a team for this configuration.
 	 * @throws TeamNotFoundException        If the team does not exist for this configuration.
 	 * @throws TeamsAreTheSameException     If the actual player's team is the target team.
 	 */
-	ITeam movePlayer(String playerName, String teamName);
+	ITeam[] movePlayer(String playerName, String teamName);
 
 	/**
 	 * Move the given player into the specified team. If the player was already into a team, he is removed from its older team.

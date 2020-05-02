@@ -175,7 +175,7 @@ public class GameConfigurationHelper implements IGameConfigurationHelper {
 	}
 
 	@Override
-	public ITeam movePlayer(String playerName, String teamName) {
+	public ITeam[] movePlayer(String playerName, String teamName) {
 		Player player = checkPlayerExist(playerName);
 		ITeam initialTeam = checkTeamExist(teamName);
 		ITeam targetTeam = checkPlayerRegistered(player);
@@ -330,10 +330,13 @@ public class GameConfigurationHelper implements IGameConfigurationHelper {
 		return team;
 	}
 
-	private ITeam movePlayer(ITeam initialTeam, ITeam targetTeam, Player player) {
+	private ITeam[] movePlayer(ITeam initialTeam, ITeam targetTeam, Player player) {
 		checkTeamAreDifferent(initialTeam, targetTeam);
+		ITeam[] teams = new ITeam[2];
 		initialTeam.removePlayer(player);
 		targetTeam.addPlayer(player);
-		return targetTeam;
+		teams[0] = initialTeam;
+		teams[1] = targetTeam;
+		return teams;
 	}
 }
