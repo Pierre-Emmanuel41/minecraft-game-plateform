@@ -7,7 +7,7 @@ public enum EBorderMessageCode implements IMessageCode {
 	BORDER__EXPLANATION,
 
 	// Code for command new
-	NEW_BORDER__EXPLANATION, NEW_BORDER__NAME_IS_MISSING;
+	NEW_BORDER__EXPLANATION, NEW_BORDER__NAME_IS_MISSING, NEW_BORDER__NAME_ALREADY_TAKEN;
 
 	private Permission permission;
 
