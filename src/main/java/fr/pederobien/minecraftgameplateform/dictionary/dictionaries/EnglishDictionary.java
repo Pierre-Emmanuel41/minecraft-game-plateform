@@ -2,7 +2,7 @@ package fr.pederobien.minecraftgameplateform.dictionary.dictionaries;
 
 import java.util.Locale;
 
-import fr.pederobien.minecraftgameplateform.dictionary.messages.border.EBorderMessages;
+import fr.pederobien.minecraftgameplateform.border.messages.EBorderMessages;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.common.ECommonMessages;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.EGameConfigurationMessages;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.teams.ETeamConfigurationMessages;

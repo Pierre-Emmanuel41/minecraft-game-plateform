@@ -1,4 +1,4 @@
-package fr.pederobien.minecraftgameplateform.dictionary.messages.border;
+package fr.pederobien.minecraftgameplateform.border.messages;
 
 import fr.pederobien.minecraftdictionary.impl.Permission;
 import fr.pederobien.minecraftdictionary.interfaces.IMessageCode;
