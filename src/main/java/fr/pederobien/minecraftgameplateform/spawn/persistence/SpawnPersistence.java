@@ -1,7 +1,5 @@
 package fr.pederobien.minecraftgameplateform.spawn.persistence;
 
-import java.nio.file.Paths;
-
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
@@ -10,12 +8,13 @@ import fr.pederobien.minecraftgameplateform.interfaces.element.ISpawn;
 import fr.pederobien.minecraftgameplateform.interfaces.element.IWorldBlock;
 import fr.pederobien.minecraftgameplateform.interfaces.element.persistence.IPersistence;
 import fr.pederobien.minecraftgameplateform.spawn.persistence.loaders.SpawnLoaderV10;
+import fr.pederobien.minecraftgameplateform.utils.Plateform;
 
 public class SpawnPersistence extends AbstractXmlPersistence<ISpawn> {
 	private static final String ROOT_XML_DOCUMENT = "spawn";
 
 	private SpawnPersistence() {
-		super(ROOT.resolve(Paths.get("Spawns")), new DefaultSpawnContent());
+		super(Plateform.ROOT.resolve("Spawns"), new DefaultSpawnContent());
 		register(new SpawnLoaderV10());
 	}
 

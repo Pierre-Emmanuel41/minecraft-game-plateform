@@ -1,6 +1,5 @@
 package fr.pederobien.minecraftgameplateform.internal.persistence;
 
-import java.nio.file.Paths;
 import java.util.Map;
 
 import org.w3c.dom.Document;
@@ -10,12 +9,13 @@ import fr.pederobien.minecraftgameplateform.impl.element.persistence.AbstractDef
 import fr.pederobien.minecraftgameplateform.impl.element.persistence.xml.AbstractXmlPersistence;
 import fr.pederobien.minecraftgameplateform.internal.IPersistenceCenter;
 import fr.pederobien.minecraftgameplateform.internal.persistence.loaders.PersistenceCenterLoaderV10;
+import fr.pederobien.minecraftgameplateform.utils.Plateform;
 
 public class PersistenceCenterPersistence extends AbstractXmlPersistence<IPersistenceCenter> {
 	private static final String ROOT_XML_DOCUMENT = "register";
 
 	public PersistenceCenterPersistence(IPersistenceCenter persistenceRegister) {
-		super(ROOT.resolve(Paths.get("Internal")), new PersistenceRegisterDefaultContent());
+		super(Plateform.ROOT.resolve("Internal"), new PersistenceRegisterDefaultContent());
 		register(new PersistenceCenterLoaderV10(persistenceRegister));
 		set(persistenceRegister);
 	}

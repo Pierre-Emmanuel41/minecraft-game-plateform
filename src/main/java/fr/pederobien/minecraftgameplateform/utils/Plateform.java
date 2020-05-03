@@ -19,6 +19,9 @@ import fr.pederobien.minecraftgameplateform.internal.IPersistenceCenter;
 import fr.pederobien.minecraftgameplateform.internal.PersistenceCenter;
 
 public class Plateform {
+	/**
+	 * Path to folder plugins/minecraft-game-plateform
+	 */
 	public static final Path ROOT = Paths.get("plugins", "minecraft-game-plateform");
 	private static final String MINECRAFT_GAME_PLATEFORM = "minecraft-game-plateform";
 	private static IGameConfigurationContext gameContext = GameConfigurationContext.getInstance();

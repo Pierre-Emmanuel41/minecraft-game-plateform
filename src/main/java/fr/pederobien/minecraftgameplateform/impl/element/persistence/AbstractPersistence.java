@@ -9,7 +9,6 @@ import fr.pederobien.minecraftgameplateform.interfaces.element.unmodifiable.IUnm
 import fr.pederobien.minecraftgameplateform.utils.Plateform;
 
 public abstract class AbstractPersistence<T extends IUnmodifiableNominable> implements IPersistence<T> {
-	protected static final Path ROOT = Plateform.ROOT;
 	private Path path;
 	private IDefaultContent defaultContent;
 
@@ -39,7 +38,7 @@ public abstract class AbstractPersistence<T extends IUnmodifiableNominable> impl
 	}
 
 	private void checkPath(Path path) {
-		if (!path.startsWith(ROOT))
+		if (!path.startsWith(Plateform.ROOT))
 			throw new IllegalPathException(path);
 	}
 }
