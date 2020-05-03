@@ -1,4 +1,4 @@
-package fr.pederobien.minecraftgameplateform.impl.element;
+package fr.pederobien.minecraftgameplateform.border;
 
 import java.util.StringJoiner;
 
@@ -7,6 +7,7 @@ import org.bukkit.block.Block;
 import org.bukkit.plugin.Plugin;
 
 import fr.pederobien.minecraftgameplateform.helpers.DisplayHelper;
+import fr.pederobien.minecraftgameplateform.impl.element.AbstractNominable;
 import fr.pederobien.minecraftgameplateform.interfaces.element.IBorderConfiguration;
 import fr.pederobien.minecraftgameplateform.utils.Plateform;
 import fr.pederobien.minecraftmanagers.WorldManager;
