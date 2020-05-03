@@ -2,6 +2,7 @@ package fr.pederobien.minecraftgameplateform.dictionary.dictionaries;
 
 import java.util.Locale;
 
+import fr.pederobien.minecraftgameplateform.dictionary.messages.border.EBorderMessages;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.common.ECommonMessages;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.EGameConfigurationMessages;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.teams.ETeamConfigurationMessages;
@@ -19,7 +20,7 @@ public class FrenchDictionary extends AbstractPlateformDictionary {
 		super(Locale.FRANCE, Locale.FRENCH, Locale.CANADA_FRENCH);
 
 		register(ECommonMessages.FRENCH, EGameMessages.FRENCH, EWorldStructureMessages.FRENCH, ESpawnMessages.FRENCH, EGameConfigurationMessages.FRENCH);
-		register(ETeamConfigurationMessages.FRENCH, ETeamAddMessages.FRENCH, ETeamRemoveMessages.FRENCH, ETeamModifyMessages.FRENCH);
+		register(ETeamConfigurationMessages.FRENCH, ETeamAddMessages.FRENCH, ETeamRemoveMessages.FRENCH, ETeamModifyMessages.FRENCH, EBorderMessages.FRENCH);
 
 	}
 }
