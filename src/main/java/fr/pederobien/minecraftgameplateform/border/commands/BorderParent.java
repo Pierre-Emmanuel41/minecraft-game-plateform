@@ -11,5 +11,7 @@ public class BorderParent extends AbstractParentPersistenceEdition<IBorderConfig
 
 	public BorderParent(Plugin plugin) {
 		super("border", EBorderMessageCode.BORDER__EXPLANATION, plugin, BorderPersistence.getInstance(plugin));
+
+		addEdition(BorderEditionsFactory.newBorder().setModifiable(false));
 	}
 }
