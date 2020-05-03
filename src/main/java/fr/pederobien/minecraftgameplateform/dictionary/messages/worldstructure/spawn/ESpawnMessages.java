@@ -5,8 +5,9 @@ import java.util.Collections;
 import java.util.List;
 
 import fr.pederobien.minecraftdictionary.interfaces.IMessage;
+import fr.pederobien.minecraftgameplateform.interfaces.IMessages;
 
-public enum ESpawnMessages {
+public enum ESpawnMessages implements IMessages {
 	FRENCH, ENGLISH;
 
 	private List<IMessage> messages;
@@ -15,11 +16,13 @@ public enum ESpawnMessages {
 		messages = new ArrayList<IMessage>();
 	}
 
+	@Override
 	public void add(IMessage message) {
 		if (!messages.contains(message))
 			messages.add(message);
 	}
 
+	@Override
 	public List<IMessage> getMessages() {
 		return Collections.unmodifiableList(messages);
 	}
