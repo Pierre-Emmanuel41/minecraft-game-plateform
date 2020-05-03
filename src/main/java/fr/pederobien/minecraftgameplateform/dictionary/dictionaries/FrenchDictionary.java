@@ -72,11 +72,7 @@ import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.t
 import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.teams.remove.RemoveTeam_OneTeamRemoved;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.teams.remove.RemoveTeam_SeveralTeamsRemoved;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.teams.remove.RemoveTeam_TeamDoesNotExist;
-import fr.pederobien.minecraftgameplateform.dictionary.messages.game.NoConfigurationSetted;
-import fr.pederobien.minecraftgameplateform.dictionary.messages.game.PausingGame;
-import fr.pederobien.minecraftgameplateform.dictionary.messages.game.ResumingGame;
-import fr.pederobien.minecraftgameplateform.dictionary.messages.game.StartingGame;
-import fr.pederobien.minecraftgameplateform.dictionary.messages.game.StoppingGame;
+import fr.pederobien.minecraftgameplateform.dictionary.messages.game.EGameMessages;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.CommonDimension_BadDimensionFormat;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.CommonDimension_MissingDimension;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.CommonWorld_WorldDoesNotExist;
@@ -136,6 +132,10 @@ public class FrenchDictionary extends AbstractDictionary {
 		for (IMessage message : ECommonMessages.FRENCH.getMessages())
 			register(message);
 
+		// Code for game messages
+		for (IMessage message : EGameMessages.FRENCH.getMessages())
+			register(message);
+
 		// Code for common world structure command messages
 		register(CommonDimension_BadDimensionFormat.FRENCH);
 		register(CommonDimension_MissingDimension.FRENCH);
@@ -186,13 +186,6 @@ public class FrenchDictionary extends AbstractDictionary {
 		register(AllowMobsToSpawnUnderSpawn_Explanation.FRENCH);
 		register(AllowMobsToSpawnUnderSpawn_ValueIsMissing.FRENCH);
 		register(AllowMobsToSpawnUnderSpawn_Defined.FRENCH);
-
-		// Code for game messages
-		register(StartingGame.FRENCH);
-		register(PausingGame.FRENCH);
-		register(ResumingGame.FRENCH);
-		register(StoppingGame.FRENCH);
-		register(NoConfigurationSetted.FRENCH);
 
 		// Code for game configuration command messages
 		register(AsCurrent_Explanation.FRENCH);
