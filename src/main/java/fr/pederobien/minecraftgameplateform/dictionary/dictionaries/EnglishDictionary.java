@@ -6,15 +6,7 @@ import fr.pederobien.minecraftdictionary.impl.AbstractDictionary;
 import fr.pederobien.minecraftdictionary.interfaces.IMessage;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.HelpExplanation;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.common.ECommonMessages;
-import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.AsCurrent_Explanation;
-import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.AsCurrent_GameStyleDefined;
-import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.CommonLoad_StyleDoesNotExist;
-import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.ScoreboardRefresh_Explanation;
-import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.ScoreboardRefresh_NegativeTicsNumber;
-import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.ScoreboardRefresh_OnTabComplete;
-import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.ScoreboardRefresh_OneTicDefined;
-import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.ScoreboardRefresh_SeveralTicsDefined;
-import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.ScoreboardRefresh_TicsNumberIsMissing;
+import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.EGameConfigurationMessages;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.teams.Add_Explanation;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.teams.List_AnyExistingTeam;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.teams.List_Explanation;
@@ -100,15 +92,8 @@ public class EnglishDictionary extends AbstractDictionary {
 			register(message);
 
 		// Code for game configuration command messages
-		register(AsCurrent_Explanation.ENGLISH);
-		register(AsCurrent_GameStyleDefined.ENGLISH);
-		register(CommonLoad_StyleDoesNotExist.ENGLISH);
-		register(ScoreboardRefresh_Explanation.ENGLISH);
-		register(ScoreboardRefresh_OnTabComplete.ENGLISH);
-		register(ScoreboardRefresh_NegativeTicsNumber.ENGLISH);
-		register(ScoreboardRefresh_TicsNumberIsMissing.ENGLISH);
-		register(ScoreboardRefresh_OneTicDefined.ENGLISH);
-		register(ScoreboardRefresh_SeveralTicsDefined.ENGLISH);
+		for (IMessage message : EGameConfigurationMessages.ENGLISH.getMessages())
+			register(message);
 
 		// Code for game teams configuration command messages
 		register(Team_Explanation.ENGLISH);

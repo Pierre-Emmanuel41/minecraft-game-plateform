@@ -1,20 +1,13 @@
 package fr.pederobien.minecraftgameplateform.dictionary.messages.configurations;
 
-import fr.pederobien.minecraftdictionary.interfaces.IMessage;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.AbstractNotDynamicMessage;
 
 public class ScoreboardRefresh_OnTabComplete extends AbstractNotDynamicMessage {
-	/**
-	 * Message in French explains what does the command scoreboardrefresh is waiting for.
-	 */
-	public static final IMessage FRENCH = new French();
-	/**
-	 * Message in English explains what does the command scoreboardrefresh is waiting for.
-	 */
-	public static final IMessage ENGLISH = new English();
 
 	public ScoreboardRefresh_OnTabComplete(String message) {
 		super(EGameConfigurationMessageCode.SCOREBOARD_REFRESH__ON_TAB_COMPLETE, message);
+		EGameConfigurationMessages.FRENCH.add(new French());
+		EGameConfigurationMessages.ENGLISH.add(new English());
 	}
 
 	private static class French extends ScoreboardRefresh_OnTabComplete {

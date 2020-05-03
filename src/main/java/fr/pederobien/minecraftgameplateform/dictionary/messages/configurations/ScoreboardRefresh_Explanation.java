@@ -1,20 +1,13 @@
 package fr.pederobien.minecraftgameplateform.dictionary.messages.configurations;
 
-import fr.pederobien.minecraftdictionary.interfaces.IMessage;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.AbstractNotDynamicMessage;
 
 public class ScoreboardRefresh_Explanation extends AbstractNotDynamicMessage {
-	/**
-	 * Message in French explains what does the command "scoreboardrefresh" do.
-	 */
-	public static final IMessage FRENCH = new French();
-	/**
-	 * Message in English explains what does the command "scoreboardrefresh" do.
-	 */
-	public static final IMessage ENGLISH = new English();
 
 	public ScoreboardRefresh_Explanation(String message) {
 		super(EGameConfigurationMessageCode.SCOREBOARD_REFRESH__EXPLANATION, message);
+		EGameConfigurationMessages.FRENCH.add(new French());
+		EGameConfigurationMessages.ENGLISH.add(new English());
 	}
 
 	private static class French extends ScoreboardRefresh_Explanation {

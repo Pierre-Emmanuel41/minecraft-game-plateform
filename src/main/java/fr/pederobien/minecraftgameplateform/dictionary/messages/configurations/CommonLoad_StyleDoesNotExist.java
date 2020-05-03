@@ -1,20 +1,13 @@
 package fr.pederobien.minecraftgameplateform.dictionary.messages.configurations;
 
-import fr.pederobien.minecraftdictionary.interfaces.IMessage;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.AbstractDynamicMessage;
 
 public class CommonLoad_StyleDoesNotExist extends AbstractDynamicMessage {
-	/**
-	 * Message in French when the given name does not correspond to an existing game configuration.
-	 */
-	public static final IMessage FRENCH = new French();
-	/**
-	 * Message in English when the given name does not correspond to an existing game configuration.
-	 */
-	public static final IMessage ENGLISH = new English();
 
 	public CommonLoad_StyleDoesNotExist() {
 		super(EGameConfigurationMessageCode.COMMON_LOAD__CONFIGURATION_DOES_NOT_EXIST);
+		EGameConfigurationMessages.FRENCH.add(new French());
+		EGameConfigurationMessages.ENGLISH.add(new English());
 	}
 
 	private static class French extends CommonLoad_StyleDoesNotExist {

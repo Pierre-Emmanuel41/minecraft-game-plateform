@@ -1,20 +1,13 @@
 package fr.pederobien.minecraftgameplateform.dictionary.messages.configurations;
 
-import fr.pederobien.minecraftdictionary.interfaces.IMessage;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.AbstractNotDynamicMessage;
 
 public class ScoreboardRefresh_TicsNumberIsMissing extends AbstractNotDynamicMessage {
-	/**
-	 * Message in French when the number of server's tics for the scoreboard refresh has not been furnished.
-	 */
-	public static final IMessage FRENCH = new French();
-	/**
-	 * Message in English when the number of server's tics for the scoreboard refresh has not been furnished.
-	 */
-	public static final IMessage ENGLISH = new English();
 
 	public ScoreboardRefresh_TicsNumberIsMissing(String message) {
 		super(EGameConfigurationMessageCode.SCOREBOARD_REFRESH__TICS_NUMBER_IS_MISSING, message);
+		EGameConfigurationMessages.FRENCH.add(new French());
+		EGameConfigurationMessages.ENGLISH.add(new English());
 	}
 
 	private static class French extends ScoreboardRefresh_TicsNumberIsMissing {
