@@ -25,18 +25,7 @@ import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.t
 import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.teams.Team_Explanation;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.teams.add.ETeamAddMessages;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.teams.modify.ETeamModifyMessages;
-import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.teams.remove.RemovePlayer_AllPlayersRemoved;
-import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.teams.remove.RemovePlayer_AnyPlayerRemoved;
-import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.teams.remove.RemovePlayer_Explanation;
-import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.teams.remove.RemovePlayer_OnePlayerRemoved;
-import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.teams.remove.RemovePlayer_PlayerNotRegistered;
-import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.teams.remove.RemovePlayer_SeveralPlayersRemoved;
-import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.teams.remove.RemoveTeam_AllTeamsRemoved;
-import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.teams.remove.RemoveTeam_AnyTeamRemoved;
-import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.teams.remove.RemoveTeam_Explanation;
-import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.teams.remove.RemoveTeam_OneTeamRemoved;
-import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.teams.remove.RemoveTeam_SeveralTeamsRemoved;
-import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.teams.remove.RemoveTeam_TeamDoesNotExist;
+import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.teams.remove.ETeamRemoveMessages;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.game.EGameMessages;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.EWorldStructureMessages;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.spawn.ESpawnMessages;
@@ -78,21 +67,12 @@ public class EnglishDictionary extends AbstractDictionary {
 			register(message);
 
 		register(Remove_Explanation.ENGLISH);
-		register(RemoveTeam_Explanation.ENGLISH);
-		register(RemoveTeam_AllTeamsRemoved.ENGLISH);
-		register(RemoveTeam_TeamDoesNotExist.ENGLISH);
-		register(RemoveTeam_AnyTeamRemoved.ENGLISH);
-		register(RemoveTeam_OneTeamRemoved.ENGLISH);
-		register(RemoveTeam_SeveralTeamsRemoved.ENGLISH);
-		register(RemovePlayer_Explanation.ENGLISH);
-		register(RemovePlayer_AllPlayersRemoved.ENGLISH);
-		register(RemovePlayer_PlayerNotRegistered.ENGLISH);
-		register(RemovePlayer_AnyPlayerRemoved.ENGLISH);
-		register(RemovePlayer_OnePlayerRemoved.ENGLISH);
-		register(RemovePlayer_SeveralPlayersRemoved.ENGLISH);
-		register(Modify_Explanation.ENGLISH);
+		// Code for team remove command messages
+		for (IMessage message : ETeamRemoveMessages.ENGLISH.getMessages())
+			register(message);
 
-		// Code for team add command messages
+		register(Modify_Explanation.ENGLISH);
+		// Code for team modify command messages
 		for (IMessage message : ETeamModifyMessages.ENGLISH.getMessages())
 			register(message);
 
