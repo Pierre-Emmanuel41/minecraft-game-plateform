@@ -1,20 +1,13 @@
 package fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.teams.modify;
 
-import fr.pederobien.minecraftdictionary.interfaces.IMessage;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.AbstractDynamicMessage;
 
 public class ModifyName_TeamDoesNotExist extends AbstractDynamicMessage {
-	/**
-	 * Message in French when the team's name does not correspond to an existing team.
-	 */
-	public static final IMessage FRENCH = new French();
-	/**
-	 * Message in English when the team's name does not correspond to an existing team.
-	 */
-	public static final IMessage ENGLISH = new English();
 
 	public ModifyName_TeamDoesNotExist() {
 		super(ETeamModifyMessageCode.MODIFY_NAME__TEAM_DOES_NOT_EXIST);
+		ETeamModifyMessages.FRENCH.add(new French());
+		ETeamModifyMessages.ENGLISH.add(new English());
 	}
 
 	private static class French extends ModifyName_TeamDoesNotExist {

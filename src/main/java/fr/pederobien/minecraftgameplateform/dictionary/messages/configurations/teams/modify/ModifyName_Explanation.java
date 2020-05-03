@@ -1,20 +1,13 @@
 package fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.teams.modify;
 
-import fr.pederobien.minecraftdictionary.interfaces.IMessage;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.AbstractNotDynamicMessage;
 
 public class ModifyName_Explanation extends AbstractNotDynamicMessage {
-	/**
-	 * Message in French explains what does the command "team modify name" do.
-	 */
-	public static final IMessage FRENCH = new French();
-	/**
-	 * Message in English explains what does the command "team modify name" do.
-	 */
-	public static final IMessage ENGLISH = new English();
 
 	public ModifyName_Explanation(String message) {
 		super(ETeamModifyMessageCode.MODIFY_NAME__EXPLANATION, message);
+		ETeamModifyMessages.FRENCH.add(new French());
+		ETeamModifyMessages.ENGLISH.add(new English());
 	}
 
 	private static class French extends ModifyName_Explanation {

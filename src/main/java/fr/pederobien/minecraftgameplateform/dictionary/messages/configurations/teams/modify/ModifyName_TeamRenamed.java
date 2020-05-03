@@ -1,20 +1,13 @@
 package fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.teams.modify;
 
-import fr.pederobien.minecraftdictionary.interfaces.IMessage;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.AbstractDynamicMessage;
 
 public class ModifyName_TeamRenamed extends AbstractDynamicMessage {
-	/**
-	 * Message in French when the team has been renamed successfully.
-	 */
-	public static final IMessage FRENCH = new French();
-	/**
-	 * Message in English when the team has been renamed successfully.
-	 */
-	public static final IMessage ENGLISH = new English();
 
 	public ModifyName_TeamRenamed() {
 		super(ETeamModifyMessageCode.MODIFY_NAME__TEAM_RENAMED);
+		ETeamModifyMessages.FRENCH.add(new French());
+		ETeamModifyMessages.ENGLISH.add(new English());
 	}
 
 	private static class French extends ModifyName_TeamRenamed {

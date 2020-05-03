@@ -1,20 +1,13 @@
 package fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.teams.modify;
 
-import fr.pederobien.minecraftdictionary.interfaces.IMessage;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.AbstractDynamicMessage;
 
 public class ModifyName_NameIsForbidden extends AbstractDynamicMessage {
-	/**
-	 * Message in French when the new team's name is a forbidden name.
-	 */
-	public static final IMessage FRENCH = new French();
-	/**
-	 * Message in English when the new team's name is a forbidden name.
-	 */
-	public static final IMessage ENGLISH = new English();
 
 	public ModifyName_NameIsForbidden() {
 		super(ETeamModifyMessageCode.MODIFY_NAME__TEAM_NAME_FORBIDDEN);
+		ETeamModifyMessages.FRENCH.add(new French());
+		ETeamModifyMessages.ENGLISH.add(new English());
 	}
 
 	private static class French extends ModifyName_NameIsForbidden {

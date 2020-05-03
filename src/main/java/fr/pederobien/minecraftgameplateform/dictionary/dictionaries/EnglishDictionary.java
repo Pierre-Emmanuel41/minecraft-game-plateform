@@ -24,20 +24,7 @@ import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.t
 import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.teams.Remove_Explanation;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.teams.Team_Explanation;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.teams.add.ETeamAddMessages;
-import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.teams.modify.ModifyColor_ColorAlreadyUsed;
-import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.teams.modify.ModifyColor_ColorDoesNotExist;
-import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.teams.modify.ModifyColor_ColorNameIsMissing;
-import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.teams.modify.ModifyColor_ColorUpdated;
-import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.teams.modify.ModifyColor_Explanation;
-import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.teams.modify.ModifyColor_TeamDoesNotExist;
-import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.teams.modify.ModifyColor_TeamNameIsMissing;
-import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.teams.modify.ModifyName_Explanation;
-import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.teams.modify.ModifyName_NameIsForbidden;
-import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.teams.modify.ModifyName_NewNameIsMissing;
-import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.teams.modify.ModifyName_OldNameIsMissing;
-import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.teams.modify.ModifyName_TeamDoesNotExist;
-import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.teams.modify.ModifyName_TeamNameAlreadyUsed;
-import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.teams.modify.ModifyName_TeamRenamed;
+import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.teams.modify.ETeamModifyMessages;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.teams.remove.RemovePlayer_AllPlayersRemoved;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.teams.remove.RemovePlayer_AnyPlayerRemoved;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.teams.remove.RemovePlayer_Explanation;
@@ -104,20 +91,11 @@ public class EnglishDictionary extends AbstractDictionary {
 		register(RemovePlayer_OnePlayerRemoved.ENGLISH);
 		register(RemovePlayer_SeveralPlayersRemoved.ENGLISH);
 		register(Modify_Explanation.ENGLISH);
-		register(ModifyName_Explanation.ENGLISH);
-		register(ModifyName_OldNameIsMissing.ENGLISH);
-		register(ModifyName_NewNameIsMissing.ENGLISH);
-		register(ModifyName_TeamDoesNotExist.ENGLISH);
-		register(ModifyName_NameIsForbidden.ENGLISH);
-		register(ModifyName_TeamNameAlreadyUsed.ENGLISH);
-		register(ModifyName_TeamRenamed.ENGLISH);
-		register(ModifyColor_Explanation.ENGLISH);
-		register(ModifyColor_TeamNameIsMissing.ENGLISH);
-		register(ModifyColor_ColorNameIsMissing.ENGLISH);
-		register(ModifyColor_TeamDoesNotExist.ENGLISH);
-		register(ModifyColor_ColorDoesNotExist.ENGLISH);
-		register(ModifyColor_ColorAlreadyUsed.ENGLISH);
-		register(ModifyColor_ColorUpdated.ENGLISH);
+
+		// Code for team add command messages
+		for (IMessage message : ETeamModifyMessages.ENGLISH.getMessages())
+			register(message);
+
 		register(List_Explanation.ENGLISH);
 		register(List_AnyExistingTeam.ENGLISH);
 		register(List_OneExistingTeam.ENGLISH);

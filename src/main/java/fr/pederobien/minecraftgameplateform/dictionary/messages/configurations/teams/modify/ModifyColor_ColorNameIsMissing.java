@@ -1,20 +1,13 @@
 package fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.teams.modify;
 
-import fr.pederobien.minecraftdictionary.interfaces.IMessage;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.AbstractDynamicMessage;
 
 public class ModifyColor_ColorNameIsMissing extends AbstractDynamicMessage {
-	/**
-	 * Message in French when the new color's name has not been furnished to modify the team's colour.
-	 */
-	public static final IMessage FRENCH = new French();
-	/**
-	 * Message in English when the new color's name has not been furnished to modify the team's colour.
-	 */
-	public static final IMessage ENGLISH = new English();
 
 	public ModifyColor_ColorNameIsMissing() {
 		super(ETeamModifyMessageCode.MODIFY_COLOR__COLOR_NAME_IS_MISSING);
+		ETeamModifyMessages.FRENCH.add(new French());
+		ETeamModifyMessages.ENGLISH.add(new English());
 	}
 
 	private static class French extends ModifyColor_ColorNameIsMissing {
