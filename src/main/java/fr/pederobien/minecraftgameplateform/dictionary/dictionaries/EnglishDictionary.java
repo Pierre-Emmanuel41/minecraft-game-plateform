@@ -9,7 +9,7 @@ import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.t
 import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.teams.add.ETeamAddMessages;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.teams.modify.ETeamModifyMessages;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.teams.remove.ETeamRemoveMessages;
-import fr.pederobien.minecraftgameplateform.dictionary.messages.game.EGameMessages;
+import fr.pederobien.minecraftgameplateform.dictionary.messages.game.EnglishGameMessages;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.EWorldStructureMessages;
 import fr.pederobien.minecraftgameplateform.impl.element.AbstractPlateformDictionary;
 import fr.pederobien.minecraftgameplateform.spawn.messages.ESpawnMessages;
@@ -19,9 +19,10 @@ public class EnglishDictionary extends AbstractPlateformDictionary {
 	public EnglishDictionary() {
 		super(Locale.UK, Locale.US, Locale.ENGLISH, Locale.CANADA);
 
-		register(EGameMessages.ENGLISH, EWorldStructureMessages.ENGLISH, ESpawnMessages.ENGLISH, EGameConfigurationMessages.ENGLISH);
+		register(EWorldStructureMessages.ENGLISH, ESpawnMessages.ENGLISH, EGameConfigurationMessages.ENGLISH);
 		register(ETeamConfigurationMessages.ENGLISH, ETeamAddMessages.ENGLISH, ETeamRemoveMessages.ENGLISH, ETeamModifyMessages.ENGLISH, EBorderMessages.ENGLISH);
 
 		EnglishCommonMessages.setDictionary(this);
+		EnglishGameMessages.setDictionary(this);
 	}
 }
