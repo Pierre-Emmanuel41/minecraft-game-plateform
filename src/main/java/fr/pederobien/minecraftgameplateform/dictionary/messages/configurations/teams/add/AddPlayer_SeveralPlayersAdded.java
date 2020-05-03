@@ -1,20 +1,13 @@
 package fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.teams.add;
 
-import fr.pederobien.minecraftdictionary.interfaces.IMessage;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.AbstractDynamicMessage;
 
 public class AddPlayer_SeveralPlayersAdded extends AbstractDynamicMessage {
-	/**
-	 * Message in French when several players have been added to a team.
-	 */
-	public static final IMessage FRENCH = new French();
-	/**
-	 * Message in English when several players have been added to a team.
-	 */
-	public static final IMessage ENGLISH = new English();
 
 	public AddPlayer_SeveralPlayersAdded() {
 		super(ETeamAddMessageCode.ADD_PLAYER__SEVERAL_PLAYERS_ADDED);
+		ETeamAddMessages.FRENCH.add(new French());
+		ETeamAddMessages.ENGLISH.add(new English());
 	}
 
 	private static class French extends AddPlayer_SeveralPlayersAdded {

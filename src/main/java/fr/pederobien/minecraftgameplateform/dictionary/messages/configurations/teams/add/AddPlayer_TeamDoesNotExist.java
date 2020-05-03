@@ -1,20 +1,13 @@
 package fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.teams.add;
 
-import fr.pederobien.minecraftdictionary.interfaces.IMessage;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.AbstractDynamicMessage;
 
 public class AddPlayer_TeamDoesNotExist extends AbstractDynamicMessage {
-	/**
-	 * Message in French when adding players to a not existing team.
-	 */
-	public static final IMessage FRENCH = new French();
-	/**
-	 * Message in English when adding players to a not existing team.
-	 */
-	public static final IMessage ENGLISH = new English();
 
 	public AddPlayer_TeamDoesNotExist() {
 		super(ETeamAddMessageCode.ADD_PLAYER__TEAM_DOES_NOT_EXIST);
+		ETeamAddMessages.FRENCH.add(new French());
+		ETeamAddMessages.ENGLISH.add(new English());
 	}
 
 	private static class French extends AddPlayer_TeamDoesNotExist {

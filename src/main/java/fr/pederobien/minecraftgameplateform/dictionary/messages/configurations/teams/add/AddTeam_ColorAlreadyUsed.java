@@ -1,20 +1,13 @@
 package fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.teams.add;
 
-import fr.pederobien.minecraftdictionary.interfaces.IMessage;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.AbstractDynamicMessage;
 
 public class AddTeam_ColorAlreadyUsed extends AbstractDynamicMessage {
-	/**
-	 * Message in French when the colour associated to the name is already used by another team.
-	 */
-	public static final IMessage FRENCH = new French();
-	/**
-	 * Message in English when the colour associated to the name is already used by another team.
-	 */
-	public static final IMessage ENGLISH = new English();
 
 	public AddTeam_ColorAlreadyUsed() {
 		super(ETeamAddMessageCode.ADD_TEAM__COLOR_ALREADY_USED);
+		ETeamAddMessages.FRENCH.add(new French());
+		ETeamAddMessages.ENGLISH.add(new English());
 	}
 
 	private static class French extends AddTeam_ColorAlreadyUsed {

@@ -1,20 +1,13 @@
 package fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.teams.add;
 
-import fr.pederobien.minecraftdictionary.interfaces.IMessage;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.AbstractDynamicMessage;
 
 public class AddTeam_ColorDoesNotExist extends AbstractDynamicMessage {
-	/**
-	 * Message in French when the color's name does not correspond to a colour.
-	 */
-	public static final IMessage FRENCH = new French();
-	/**
-	 * Message in English when the color's name does not correspond to a colour.
-	 */
-	public static final IMessage ENGLISH = new English();
 
 	public AddTeam_ColorDoesNotExist() {
 		super(ETeamAddMessageCode.ADD_TEAM__COLOR_DOES_NOT_EXIST);
+		ETeamAddMessages.FRENCH.add(new French());
+		ETeamAddMessages.ENGLISH.add(new English());
 	}
 
 	private static class French extends AddTeam_ColorDoesNotExist {
