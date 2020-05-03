@@ -4,8 +4,6 @@ import fr.pederobien.minecraftdictionary.impl.Permission;
 import fr.pederobien.minecraftdictionary.interfaces.IMessageCode;
 
 public enum EWorldStructureMessageCode implements IMessageCode {
-	COMMON_MISSING_COORDINATES,
-
 	COMMON_DIMENSION__BAD_DIMENSION_FORMAT, COMMON_DIMENSION__MISSING_DIMENSION,
 
 	COMMON_WORLD__WORLD_DOES_NOT_EXIST;

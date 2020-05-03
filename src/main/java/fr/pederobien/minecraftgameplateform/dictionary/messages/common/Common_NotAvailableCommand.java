@@ -1,17 +1,13 @@
 package fr.pederobien.minecraftgameplateform.dictionary.messages.common;
 
-import fr.pederobien.minecraftdictionary.interfaces.IMessage;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.AbstractDynamicMessage;
 
 public class Common_NotAvailableCommand extends AbstractDynamicMessage {
-	/**
-	 * Message in English explains the given command is not a available.
-	 */
-	public static final IMessage ENGLISH = new English();
 
 	public Common_NotAvailableCommand() {
 		super(ECommonMessageCode.COMMON_NOT_AVAILABLE_COMMAND);
 		ECommonMessages.FRENCH.add(new French());
+		ECommonMessages.ENGLISH.add(new English());
 	}
 
 	private static class French extends Common_NotAvailableCommand {

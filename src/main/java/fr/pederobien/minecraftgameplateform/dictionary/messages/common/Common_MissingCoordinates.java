@@ -1,20 +1,13 @@
-package fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure;
+package fr.pederobien.minecraftgameplateform.dictionary.messages.common;
 
 import fr.pederobien.minecraftgameplateform.dictionary.messages.AbstractNotDynamicMessage;
-import fr.pederobien.minecraftdictionary.interfaces.IMessage;
 
 public class Common_MissingCoordinates extends AbstractNotDynamicMessage {
-	/**
-	 * Message in French explains the coordinates are missing
-	 */
-	public static final IMessage FRENCH = new French();
-	/**
-	 * Message in English explains the coordinates are missing
-	 */
-	public static final IMessage ENGLISH = new English();
 
 	public Common_MissingCoordinates(String message) {
-		super(EWorldStructureMessageCode.COMMON_MISSING_COORDINATES, message);
+		super(ECommonMessageCode.COMMON_MISSING_COORDINATES, message);
+		ECommonMessages.FRENCH.add(new French());
+		ECommonMessages.ENGLISH.add(new English());
 	}
 
 	private static class French extends Common_MissingCoordinates {

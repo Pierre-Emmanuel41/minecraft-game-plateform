@@ -8,7 +8,6 @@ import org.bukkit.command.CommandSender;
 
 import fr.pederobien.minecraftgameplateform.commands.worldstructure.AbstractWorldStructureEdition;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.common.ECommonMessageCode;
-import fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.EWorldStructureMessageCode;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.spawn.ESpawnMessageCode;
 import fr.pederobien.minecraftgameplateform.interfaces.element.ISpawn;
 
@@ -25,7 +24,7 @@ public class PlayerSpawn extends AbstractWorldStructureEdition<ISpawn> {
 			onPlayerSpawnDefined(sender, get().getPlayerSpawn().getX(), get().getPlayerSpawn().getY(), get().getPlayerSpawn().getZ());
 		} catch (IndexOutOfBoundsException e) {
 			// When X or Y or Z is missing
-			sendMessageToSender(sender, EWorldStructureMessageCode.COMMON_MISSING_COORDINATES);
+			sendMessageToSender(sender, ECommonMessageCode.COMMON_MISSING_COORDINATES);
 			return false;
 		} catch (NumberFormatException e) {
 			// When the coordinates are not integer

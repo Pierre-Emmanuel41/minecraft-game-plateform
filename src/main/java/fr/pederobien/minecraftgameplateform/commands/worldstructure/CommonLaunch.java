@@ -120,7 +120,7 @@ public abstract class CommonLaunch<T extends IWorldStructure> extends AbstractWo
 				y = args[3];
 				z = args[4];
 			} catch (IndexOutOfBoundsException e) {
-				sendMessageToSender(sender, EWorldStructureMessageCode.COMMON_MISSING_COORDINATES);
+				sendMessageToSender(sender, ECommonMessageCode.COMMON_MISSING_COORDINATES);
 				return false;
 			}
 			getPersistence().save();

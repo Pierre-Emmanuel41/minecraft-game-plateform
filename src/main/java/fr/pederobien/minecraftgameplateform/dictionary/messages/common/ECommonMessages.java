@@ -7,7 +7,7 @@ import java.util.List;
 import fr.pederobien.minecraftdictionary.interfaces.IMessage;
 
 public enum ECommonMessages {
-	FRENCH;
+	FRENCH, ENGLISH;
 
 	private List<IMessage> messages;
 

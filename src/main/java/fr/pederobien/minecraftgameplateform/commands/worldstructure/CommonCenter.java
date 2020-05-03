@@ -8,7 +8,6 @@ import org.bukkit.command.CommandSender;
 
 import fr.pederobien.minecraftdictionary.interfaces.IMessageCode;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.common.ECommonMessageCode;
-import fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.EWorldStructureMessageCode;
 import fr.pederobien.minecraftgameplateform.interfaces.element.IWorldStructure;
 
 public abstract class CommonCenter<T extends IWorldStructure> extends AbstractWorldStructureEdition<T> {
@@ -35,7 +34,7 @@ public abstract class CommonCenter<T extends IWorldStructure> extends AbstractWo
 			onCenterDefined(sender, get().getName(), get().getCenter().getX(), get().getCenter().getY(), get().getCenter().getZ());
 		} catch (IndexOutOfBoundsException e) {
 			// When X or Y or Z is missing
-			sendMessageToSender(sender, EWorldStructureMessageCode.COMMON_MISSING_COORDINATES);
+			sendMessageToSender(sender, ECommonMessageCode.COMMON_MISSING_COORDINATES);
 			return false;
 		} catch (NumberFormatException e) {
 			// When the coordinates are not integer
