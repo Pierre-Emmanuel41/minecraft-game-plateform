@@ -1,20 +1,13 @@
 package fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.spawn;
 
-import fr.pederobien.minecraftdictionary.interfaces.IMessage;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.AbstractNotDynamicMessage;
 
 public class AllowMobsToSpawnUnderSpawn_ValueIsMissing extends AbstractNotDynamicMessage {
-	/**
-	 * Message in French when the value is missing to allow the spawn of mobs under the spawn.
-	 */
-	public static final IMessage FRENCH = new French();
-	/**
-	 * Message in English when the value is missing to allow the spawn of mobs under the spawn.
-	 */
-	public static final IMessage ENGLISH = new English();
 
 	public AllowMobsToSpawnUnderSpawn_ValueIsMissing(String message) {
 		super(ESpawnMessageCode.ALLOW_MOB_TO_SPAWN_UNDER_SPAWN__VALUE_IS_MISSING, message);
+		ESpawnMessages.FRENCH.add(new French());
+		ESpawnMessages.ENGLISH.add(new English());
 	}
 
 	private static class French extends AllowMobsToSpawnUnderSpawn_ValueIsMissing {

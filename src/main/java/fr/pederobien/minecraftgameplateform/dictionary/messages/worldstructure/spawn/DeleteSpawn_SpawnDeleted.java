@@ -1,20 +1,13 @@
 package fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.spawn;
 
 import fr.pederobien.minecraftgameplateform.dictionary.messages.AbstractDynamicMessage;
-import fr.pederobien.minecraftdictionary.interfaces.IMessage;
 
 public class DeleteSpawn_SpawnDeleted extends AbstractDynamicMessage {
-	/**
-	 * Message in French when the file associated to the given spawn name has been correctly deleted.
-	 */
-	public static final IMessage FRENCH = new French();
-	/**
-	 * Message in English when the file associated to the given spawn name has been correctly deleted.
-	 */
-	public static final IMessage ENGLISH = new English();
 
 	public DeleteSpawn_SpawnDeleted() {
 		super(ESpawnMessageCode.DELETE_SPAWN__SPAWN_DELETED);
+		ESpawnMessages.FRENCH.add(new French());
+		ESpawnMessages.ENGLISH.add(new English());
 	}
 
 	private static class French extends DeleteSpawn_SpawnDeleted {

@@ -73,50 +73,7 @@ import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.t
 import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.teams.remove.RemoveTeam_TeamDoesNotExist;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.game.EGameMessages;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.EWorldStructureMessages;
-import fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.spawn.AllowMobsToSpawnUnderSpawn_Defined;
-import fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.spawn.AllowMobsToSpawnUnderSpawn_Explanation;
-import fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.spawn.AllowMobsToSpawnUnderSpawn_ValueIsMissing;
-import fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.spawn.CenterSpawn_CenterDefined;
-import fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.spawn.CenterSpawn_Explanation;
-import fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.spawn.CurrentSpawn_Explanation;
-import fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.spawn.CurrentSpawn_OnCurrent;
-import fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.spawn.DeleteSpawn_DidNotDelete;
-import fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.spawn.DeleteSpawn_Explanation;
-import fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.spawn.DeleteSpawn_NameIsMissing;
-import fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.spawn.DeleteSpawn_SpawnDeleted;
-import fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.spawn.DimensionSpawn_Defined;
-import fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.spawn.DimensionSpawn_Explanation;
-import fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.spawn.ExtractSpawn_Explanation;
-import fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.spawn.ExtractSpawn_SpawnExtracted;
-import fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.spawn.LaunchSpawn_Explanation;
-import fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.spawn.LaunchSpawn_NoCurrentSpawn;
-import fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.spawn.LaunchSpawn_SpawnDoesNotExist;
-import fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.spawn.LaunchSpawn_SpawnLaunched;
-import fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.spawn.LaunchSpawn_WorldIsMissing;
-import fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.spawn.ListSpawn_Explanation;
-import fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.spawn.ListSpawn_NoElement;
-import fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.spawn.ListSpawn_OneElement;
-import fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.spawn.ListSpawn_SeveralElements;
-import fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.spawn.NewSpawn_Explanation;
-import fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.spawn.NewSpawn_NameAlreadyTaken;
-import fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.spawn.NewSpawn_NameIsMissing;
-import fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.spawn.NewSpawn_SpawnCreated;
-import fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.spawn.PlayerSpawn_Explanation;
-import fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.spawn.PlayerSpawn_PlayerSpawnDefined;
-import fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.spawn.RandomSpawn_Explanation;
-import fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.spawn.RandomSpawn_WorldOrCoordinatesAreMissing;
-import fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.spawn.RemoveSpawn_Explanation;
-import fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.spawn.RemoveSpawn_SpawnRemoved;
-import fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.spawn.RenameSpawn_Explanation;
-import fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.spawn.RenameSpawn_NameAlreadyTaken;
-import fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.spawn.RenameSpawn_NameIsMissing;
-import fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.spawn.RenameSpawn_SpawnRenamed;
-import fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.spawn.SaveSpawn_Explanation;
-import fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.spawn.SaveSpawn_SpawnSaved;
-import fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.spawn.SpawnParentExplanation;
-import fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.spawn.WorldSpawn_Explanation;
-import fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.spawn.WorldSpawn_WorldDefined;
-import fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.spawn.WorldSpawn_WorldNameIsMissing;
+import fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.spawn.ESpawnMessages;
 
 public class EnglishDictionary extends AbstractDictionary {
 
@@ -139,50 +96,8 @@ public class EnglishDictionary extends AbstractDictionary {
 			register(message);
 
 		// Code for spawn command messages
-		register(SpawnParentExplanation.ENGLISH);
-		register(NewSpawn_Explanation.ENGLISH);
-		register(NewSpawn_NameIsMissing.ENGLISH);
-		register(NewSpawn_NameAlreadyTaken.ENGLISH);
-		register(NewSpawn_SpawnCreated.ENGLISH);
-		register(WorldSpawn_Explanation.ENGLISH);
-		register(WorldSpawn_WorldNameIsMissing.ENGLISH);
-		register(WorldSpawn_WorldDefined.ENGLISH);
-		register(CenterSpawn_Explanation.ENGLISH);
-		register(CenterSpawn_CenterDefined.ENGLISH);
-		register(DimensionSpawn_Explanation.ENGLISH);
-		register(DimensionSpawn_Defined.ENGLISH);
-		register(RenameSpawn_Explanation.ENGLISH);
-		register(RenameSpawn_NameAlreadyTaken.ENGLISH);
-		register(RenameSpawn_NameIsMissing.ENGLISH);
-		register(RenameSpawn_SpawnRenamed.ENGLISH);
-		register(SaveSpawn_Explanation.ENGLISH);
-		register(SaveSpawn_SpawnSaved.ENGLISH);
-		register(ListSpawn_Explanation.ENGLISH);
-		register(ListSpawn_NoElement.ENGLISH);
-		register(ListSpawn_OneElement.ENGLISH);
-		register(ListSpawn_SeveralElements.ENGLISH);
-		register(DeleteSpawn_Explanation.ENGLISH);
-		register(DeleteSpawn_NameIsMissing.ENGLISH);
-		register(DeleteSpawn_SpawnDeleted.ENGLISH);
-		register(DeleteSpawn_DidNotDelete.ENGLISH);
-		register(ExtractSpawn_Explanation.ENGLISH);
-		register(ExtractSpawn_SpawnExtracted.ENGLISH);
-		register(RemoveSpawn_Explanation.ENGLISH);
-		register(RemoveSpawn_SpawnRemoved.ENGLISH);
-		register(LaunchSpawn_Explanation.ENGLISH);
-		register(LaunchSpawn_NoCurrentSpawn.ENGLISH);
-		register(LaunchSpawn_WorldIsMissing.ENGLISH);
-		register(LaunchSpawn_SpawnDoesNotExist.ENGLISH);
-		register(LaunchSpawn_SpawnLaunched.ENGLISH);
-		register(CurrentSpawn_Explanation.ENGLISH);
-		register(CurrentSpawn_OnCurrent.ENGLISH);
-		register(PlayerSpawn_Explanation.ENGLISH);
-		register(PlayerSpawn_PlayerSpawnDefined.ENGLISH);
-		register(RandomSpawn_Explanation.ENGLISH);
-		register(RandomSpawn_WorldOrCoordinatesAreMissing.ENGLISH);
-		register(AllowMobsToSpawnUnderSpawn_Explanation.ENGLISH);
-		register(AllowMobsToSpawnUnderSpawn_ValueIsMissing.ENGLISH);
-		register(AllowMobsToSpawnUnderSpawn_Defined.ENGLISH);
+		for (IMessage message : ESpawnMessages.ENGLISH.getMessages())
+			register(message);
 
 		// Code for game configuration command messages
 		register(AsCurrent_Explanation.ENGLISH);

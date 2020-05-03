@@ -1,20 +1,13 @@
 package fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.spawn;
 
 import fr.pederobien.minecraftgameplateform.dictionary.messages.AbstractDynamicMessage;
-import fr.pederobien.minecraftdictionary.interfaces.IMessage;
 
 public class CurrentSpawn_OnCurrent extends AbstractDynamicMessage {
-	/**
-	 * Message in French to display current spawn's characteristics.
-	 */
-	public static final IMessage FRENCH = new French();
-	/**
-	 * Message in English to display current spawn's characteristics.
-	 */
-	public static final IMessage ENGLISH = new English();
 
 	public CurrentSpawn_OnCurrent() {
 		super(ESpawnMessageCode.CURRENT_SPAWN__ON_CURRENT);
+		ESpawnMessages.FRENCH.add(new French());
+		ESpawnMessages.ENGLISH.add(new English());
 	}
 
 	private static class French extends CurrentSpawn_OnCurrent {

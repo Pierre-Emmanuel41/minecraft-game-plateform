@@ -1,20 +1,13 @@
 package fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.spawn;
 
 import fr.pederobien.minecraftgameplateform.dictionary.messages.AbstractNotDynamicMessage;
-import fr.pederobien.minecraftdictionary.interfaces.IMessage;
 
 public class RandomSpawn_WorldOrCoordinatesAreMissing extends AbstractNotDynamicMessage {
-	/**
-	 * Message in French when the world's name or the center's coordinates are missing to launch randomly a spawn.
-	 */
-	public static final IMessage FRENCH = new French();
-	/**
-	 * Message in English when the world's name or the center's coordinates are missing to launch randomly a spawn.
-	 */
-	public static final IMessage ENGLISH = new English();
 
 	public RandomSpawn_WorldOrCoordinatesAreMissing(String message) {
 		super(ESpawnMessageCode.RANDOM_SPAWN__WORLD_OR_COORDINATES_ARE_MISSING, message);
+		ESpawnMessages.FRENCH.add(new French());
+		ESpawnMessages.ENGLISH.add(new English());
 	}
 
 	private static class French extends RandomSpawn_WorldOrCoordinatesAreMissing {

@@ -1,20 +1,13 @@
 package fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.spawn;
 
-import fr.pederobien.minecraftdictionary.interfaces.IMessage;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.AbstractDynamicMessage;
 
 public class AllowMobsToSpawnUnderSpawn_Defined extends AbstractDynamicMessage {
-	/**
-	 * Message in French when the game rule allowMobsUnderSpawn has been correctly defined.
-	 */
-	public static final IMessage FRENCH = new French();
-	/**
-	 * Message in English when the game rule allowMobsUnderSpawn has been correctly defined.
-	 */
-	public static final IMessage ENGLISH = new English();
 
 	public AllowMobsToSpawnUnderSpawn_Defined() {
 		super(ESpawnMessageCode.ALLOW_MOB_TO_SPAWN_UNDER_SPAWN__DEFINED);
+		ESpawnMessages.FRENCH.add(new French());
+		ESpawnMessages.ENGLISH.add(new English());
 	}
 
 	private static class French extends AllowMobsToSpawnUnderSpawn_Defined {

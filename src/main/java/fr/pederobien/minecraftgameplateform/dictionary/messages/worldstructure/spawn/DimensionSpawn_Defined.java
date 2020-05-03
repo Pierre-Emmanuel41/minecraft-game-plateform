@@ -1,20 +1,13 @@
 package fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.spawn;
 
 import fr.pederobien.minecraftgameplateform.dictionary.messages.AbstractDynamicMessage;
-import fr.pederobien.minecraftdictionary.interfaces.IMessage;
 
 public class DimensionSpawn_Defined extends AbstractDynamicMessage {
-	/**
-	 * Message in French explains the dimensions of the spawn has been correctly defined.
-	 */
-	public static final IMessage FRENCH = new French();
-	/**
-	 * Message in English explains the dimensions of the spawn has been correctly defined.
-	 */
-	public static final IMessage ENGLISH = new English();
 
 	public DimensionSpawn_Defined() {
 		super(ESpawnMessageCode.DIMENSION_SPAWN__DEFINED);
+		ESpawnMessages.FRENCH.add(new French());
+		ESpawnMessages.ENGLISH.add(new English());
 	}
 
 	private static class French extends DimensionSpawn_Defined {

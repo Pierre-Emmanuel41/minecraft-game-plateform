@@ -1,20 +1,13 @@
 package fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.spawn;
 
 import fr.pederobien.minecraftgameplateform.dictionary.messages.AbstractDynamicMessage;
-import fr.pederobien.minecraftdictionary.interfaces.IMessage;
 
 public class RenameSpawn_NameAlreadyTaken extends AbstractDynamicMessage {
-	/**
-	 * Message in French explain the given name is already taken by another spawn.
-	 */
-	public static final IMessage FRENCH = new French();
-	/**
-	 * Message in English explain the given name is already taken by another spawn.
-	 */
-	public static final IMessage ENGLISH = new English();
 
 	public RenameSpawn_NameAlreadyTaken() {
 		super(ESpawnMessageCode.RENAME_SPAWN__NAME_ALREADY_TAKEN);
+		ESpawnMessages.FRENCH.add(new French());
+		ESpawnMessages.ENGLISH.add(new English());
 	}
 
 	private static class French extends RenameSpawn_NameAlreadyTaken {

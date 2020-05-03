@@ -1,20 +1,13 @@
 package fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.spawn;
 
 import fr.pederobien.minecraftgameplateform.dictionary.messages.AbstractNotDynamicMessage;
-import fr.pederobien.minecraftdictionary.interfaces.IMessage;
 
 public class PlayerSpawn_Explanation extends AbstractNotDynamicMessage {
-	/**
-	 * Message in French explains what does the command "playerspawn" does.
-	 */
-	public static final IMessage FRENCH = new French();
-	/**
-	 * Message in English explains what does the command "playerspawn" does.
-	 */
-	public static final IMessage ENGLISH = new English();
 
 	public PlayerSpawn_Explanation(String message) {
 		super(ESpawnMessageCode.PLAYER_SPAWN__EXPLANATION, message);
+		ESpawnMessages.FRENCH.add(new French());
+		ESpawnMessages.ENGLISH.add(new English());
 	}
 
 	private static class French extends PlayerSpawn_Explanation {
