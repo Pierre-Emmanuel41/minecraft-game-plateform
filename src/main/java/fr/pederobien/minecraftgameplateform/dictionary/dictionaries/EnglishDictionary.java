@@ -72,9 +72,7 @@ import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.t
 import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.teams.remove.RemoveTeam_SeveralTeamsRemoved;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.teams.remove.RemoveTeam_TeamDoesNotExist;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.game.EGameMessages;
-import fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.CommonDimension_BadDimensionFormat;
-import fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.CommonDimension_MissingDimension;
-import fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.CommonWorld_WorldDoesNotExist;
+import fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.EWorldStructureMessages;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.spawn.AllowMobsToSpawnUnderSpawn_Defined;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.spawn.AllowMobsToSpawnUnderSpawn_Explanation;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.spawn.AllowMobsToSpawnUnderSpawn_ValueIsMissing;
@@ -137,8 +135,8 @@ public class EnglishDictionary extends AbstractDictionary {
 			register(message);
 
 		// Code for common world structure command messages
-		register(CommonDimension_BadDimensionFormat.ENGLISH);
-		register(CommonDimension_MissingDimension.ENGLISH);
+		for (IMessage message : EWorldStructureMessages.ENGLISH.getMessages())
+			register(message);
 
 		// Code for spawn command messages
 		register(SpawnParentExplanation.ENGLISH);
@@ -148,7 +146,6 @@ public class EnglishDictionary extends AbstractDictionary {
 		register(NewSpawn_SpawnCreated.ENGLISH);
 		register(WorldSpawn_Explanation.ENGLISH);
 		register(WorldSpawn_WorldNameIsMissing.ENGLISH);
-		register(CommonWorld_WorldDoesNotExist.ENGLISH);
 		register(WorldSpawn_WorldDefined.ENGLISH);
 		register(CenterSpawn_Explanation.ENGLISH);
 		register(CenterSpawn_CenterDefined.ENGLISH);

@@ -73,9 +73,7 @@ import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.t
 import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.teams.remove.RemoveTeam_SeveralTeamsRemoved;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.teams.remove.RemoveTeam_TeamDoesNotExist;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.game.EGameMessages;
-import fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.CommonDimension_BadDimensionFormat;
-import fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.CommonDimension_MissingDimension;
-import fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.CommonWorld_WorldDoesNotExist;
+import fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.EWorldStructureMessages;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.spawn.AllowMobsToSpawnUnderSpawn_Defined;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.spawn.AllowMobsToSpawnUnderSpawn_Explanation;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.spawn.AllowMobsToSpawnUnderSpawn_ValueIsMissing;
@@ -137,8 +135,8 @@ public class FrenchDictionary extends AbstractDictionary {
 			register(message);
 
 		// Code for common world structure command messages
-		register(CommonDimension_BadDimensionFormat.FRENCH);
-		register(CommonDimension_MissingDimension.FRENCH);
+		for (IMessage message : EWorldStructureMessages.FRENCH.getMessages())
+			register(message);
 
 		// Code for spawn command messages
 		register(SpawnParentExplanation.FRENCH);
@@ -148,7 +146,6 @@ public class FrenchDictionary extends AbstractDictionary {
 		register(NewSpawn_SpawnCreated.FRENCH);
 		register(NewSpawn_Explanation.FRENCH);
 		register(WorldSpawn_WorldNameIsMissing.FRENCH);
-		register(CommonWorld_WorldDoesNotExist.FRENCH);
 		register(WorldSpawn_WorldDefined.FRENCH);
 		register(CenterSpawn_Explanation.FRENCH);
 		register(CenterSpawn_CenterDefined.FRENCH);
