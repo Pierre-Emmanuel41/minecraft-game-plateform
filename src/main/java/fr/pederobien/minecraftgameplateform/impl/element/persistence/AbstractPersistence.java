@@ -12,6 +12,10 @@ public abstract class AbstractPersistence<T extends IUnmodifiableNominable> impl
 	private Path path;
 	private IDefaultContent defaultContent;
 
+	protected AbstractPersistence(IDefaultContent defaultContent) {
+		this(Plateform.ROOT, defaultContent);
+	}
+
 	protected AbstractPersistence(Path path, IDefaultContent defaultContent) {
 		setInternalPath(path);
 		this.defaultContent = defaultContent;

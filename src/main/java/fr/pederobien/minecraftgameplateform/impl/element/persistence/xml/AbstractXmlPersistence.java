@@ -36,6 +36,10 @@ public abstract class AbstractXmlPersistence<T extends IUnmodifiableNominable> e
 	private DocumentBuilder builder;
 	private T elt;
 
+	protected AbstractXmlPersistence(IDefaultContent defaultContent) {
+		super(defaultContent);
+	}
+
 	protected AbstractXmlPersistence(Path path, IDefaultContent defaultContent) {
 		super(path, defaultContent);
 

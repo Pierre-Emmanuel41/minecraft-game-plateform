@@ -16,6 +16,10 @@ public abstract class AbstractLoadersPersistence<T extends IUnmodifiableNominabl
 		implements ILoadersPersistence<T, U> {
 	private NavigableMap<Double, U> loaders;
 
+	protected AbstractLoadersPersistence(IDefaultContent defaultContent) {
+		super(defaultContent);
+	}
+
 	protected AbstractLoadersPersistence(Path path, IDefaultContent defaultContent) {
 		super(path, defaultContent);
 		loaders = new TreeMap<Double, U>();
