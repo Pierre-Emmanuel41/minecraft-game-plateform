@@ -5,16 +5,13 @@ import fr.pederobien.minecraftgameplateform.dictionary.messages.AbstractDynamicM
 
 public class Common_PlayerDoesNotExist extends AbstractDynamicMessage {
 	/**
-	 * Message in French when the player's name does not correspond to a player.
-	 */
-	public static final IMessage FRENCH = new French();
-	/**
 	 * Message in English when the player's name does not correspond to a player.
 	 */
 	public static final IMessage ENGLISH = new English();
 
 	public Common_PlayerDoesNotExist() {
 		super(ECommonMessageCode.COMMON__PLAYER_DOES_NOT_EXIST);
+		ECommonMessages.FRENCH.add(new French());
 	}
 
 	private static class French extends Common_PlayerDoesNotExist {

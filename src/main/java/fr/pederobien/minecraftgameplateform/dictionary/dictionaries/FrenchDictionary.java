@@ -3,16 +3,9 @@ package fr.pederobien.minecraftgameplateform.dictionary.dictionaries;
 import java.util.Locale;
 
 import fr.pederobien.minecraftdictionary.impl.AbstractDictionary;
+import fr.pederobien.minecraftdictionary.interfaces.IMessage;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.HelpExplanation;
-import fr.pederobien.minecraftgameplateform.dictionary.messages.common.CommonNew_TabComplete;
-import fr.pederobien.minecraftgameplateform.dictionary.messages.common.CommonRename_TabComplete;
-import fr.pederobien.minecraftgameplateform.dictionary.messages.common.Common_ArgumentNotFound;
-import fr.pederobien.minecraftgameplateform.dictionary.messages.common.Common_BadBooleanFormat;
-import fr.pederobien.minecraftgameplateform.dictionary.messages.common.Common_BadIntegerFormat;
-import fr.pederobien.minecraftgameplateform.dictionary.messages.common.Common_NameMustNotStartWithDefault;
-import fr.pederobien.minecraftgameplateform.dictionary.messages.common.Common_NotAvailableArgument;
-import fr.pederobien.minecraftgameplateform.dictionary.messages.common.Common_NotAvailableCommand;
-import fr.pederobien.minecraftgameplateform.dictionary.messages.common.Common_PlayerDoesNotExist;
+import fr.pederobien.minecraftgameplateform.dictionary.messages.common.ECommonMessages;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.AsCurrent_Explanation;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.AsCurrent_GameStyleDefined;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.CommonLoad_StyleDoesNotExist;
@@ -87,7 +80,6 @@ import fr.pederobien.minecraftgameplateform.dictionary.messages.game.StoppingGam
 import fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.CommonDimension_BadDimensionFormat;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.CommonDimension_MissingDimension;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.CommonWorld_WorldDoesNotExist;
-import fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.Common_MissingCoordinates;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.spawn.AllowMobsToSpawnUnderSpawn_Defined;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.spawn.AllowMobsToSpawnUnderSpawn_Explanation;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.spawn.AllowMobsToSpawnUnderSpawn_ValueIsMissing;
@@ -141,15 +133,8 @@ public class FrenchDictionary extends AbstractDictionary {
 		register(HelpExplanation.FRENCH);
 
 		// Code for common command messages
-		register(Common_BadIntegerFormat.FRENCH);
-		register(Common_MissingCoordinates.FRENCH);
-		register(Common_ArgumentNotFound.FRENCH);
-		register(Common_NotAvailableArgument.FRENCH);
-		register(Common_NotAvailableCommand.FRENCH);
-		register(Common_NameMustNotStartWithDefault.FRENCH);
-		register(CommonNew_TabComplete.FRENCH);
-		register(CommonRename_TabComplete.FRENCH);
-		register(Common_BadBooleanFormat.FRENCH);
+		for (IMessage message : ECommonMessages.FRENCH.getMessages())
+			register(message);
 
 		// Code for common world structure command messages
 		register(CommonDimension_BadDimensionFormat.FRENCH);
@@ -234,7 +219,6 @@ public class FrenchDictionary extends AbstractDictionary {
 		register(AddPlayer_Explanation.FRENCH);
 		register(AddPlayer_TeamNameIsMissing.FRENCH);
 		register(AddPlayer_TeamDoesNotExist.FRENCH);
-		register(Common_PlayerDoesNotExist.FRENCH);
 		register(AddPlayer_PlayerAlreadyRegistered.FRENCH);
 		register(AddPlayer_AnyPlayerAdded.FRENCH);
 		register(AddPlayer_OnePlayerAdded.FRENCH);

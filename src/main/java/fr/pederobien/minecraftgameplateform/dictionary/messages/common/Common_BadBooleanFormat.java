@@ -5,16 +5,13 @@ import fr.pederobien.minecraftgameplateform.dictionary.messages.AbstractNotDynam
 
 public class Common_BadBooleanFormat extends AbstractNotDynamicMessage {
 	/**
-	 * Message in French when an argument cannot be parse into a boolean.
-	 */
-	public static final IMessage FRENCH = new French();
-	/**
 	 * Message in English when an argument cannot be parse into a boolean.
 	 */
 	public static final IMessage ENGLISH = new English();
 
 	public Common_BadBooleanFormat(String message) {
 		super(ECommonMessageCode.COMMON__BAD_BOOLEAN_FORMAT, message);
+		ECommonMessages.FRENCH.add(new French());
 	}
 
 	private static class French extends Common_BadBooleanFormat {

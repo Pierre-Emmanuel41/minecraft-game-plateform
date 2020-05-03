@@ -5,16 +5,13 @@ import fr.pederobien.minecraftgameplateform.dictionary.messages.AbstractDynamicM
 
 public class Common_NotAvailableArgument extends AbstractDynamicMessage {
 	/**
-	 * Message in French explains the given argument is not a available for a command.
-	 */
-	public static final IMessage FRENCH = new French();
-	/**
 	 * Message in English explains the given argument is not a available for a command.
 	 */
 	public static final IMessage ENGLISH = new English();
 
 	public Common_NotAvailableArgument() {
 		super(ECommonMessageCode.COMMON_NOT_AVAILABLE_ARGUMENT);
+		ECommonMessages.FRENCH.add(new French());
 	}
 
 	private static class French extends Common_NotAvailableArgument {

@@ -5,16 +5,13 @@ import fr.pederobien.minecraftgameplateform.dictionary.messages.AbstractDynamicM
 
 public class Common_NameMustNotStartWithDefault extends AbstractDynamicMessage {
 	/**
-	 * Message in French explains the name must not start with "default"
-	 */
-	public static final IMessage FRENCH = new French();
-	/**
 	 * Message in English explains the name must not start with "default"
 	 */
 	public static final IMessage ENGLISH = new English();
 
 	public Common_NameMustNotStartWithDefault() {
 		super(ECommonMessageCode.COMMON_NAME_MUST_NOT_START_WITH_DEFAULT);
+		ECommonMessages.FRENCH.add(new French());
 	}
 
 	private static class French extends Common_NameMustNotStartWithDefault {

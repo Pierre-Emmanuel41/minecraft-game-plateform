@@ -5,16 +5,13 @@ import fr.pederobien.minecraftgameplateform.dictionary.messages.AbstractDynamicM
 
 public class Common_ArgumentNotFound extends AbstractDynamicMessage {
 	/**
-	 * Message in French explains the given argument is an undefined argument.
-	 */
-	public static final IMessage FRENCH = new French();
-	/**
 	 * Message in English explains the given argument is an undefined argument.
 	 */
 	public static final IMessage ENGLISH = new English();
 
 	public Common_ArgumentNotFound() {
 		super(ECommonMessageCode.COMMON_ARGUMENT_NOT_FOUND);
+		ECommonMessages.FRENCH.add(new French());
 	}
 
 	private static class French extends Common_ArgumentNotFound {
