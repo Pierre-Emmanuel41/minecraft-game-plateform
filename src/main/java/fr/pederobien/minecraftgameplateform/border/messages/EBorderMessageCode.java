@@ -4,8 +4,10 @@ import fr.pederobien.minecraftdictionary.impl.Permission;
 import fr.pederobien.minecraftdictionary.interfaces.IMessageCode;
 
 public enum EBorderMessageCode implements IMessageCode {
-	// Code for command border
-	BORDER__EXPLANATION;
+	BORDER__EXPLANATION,
+
+	// Code for command new
+	NEW_BORDER__EXPLANATION;
 
 	private Permission permission;
 
