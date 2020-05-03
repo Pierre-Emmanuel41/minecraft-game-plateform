@@ -2,7 +2,6 @@ package fr.pederobien.minecraftgameplateform.border.persistence;
 
 import java.nio.file.Path;
 
-import org.bukkit.plugin.Plugin;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
@@ -15,13 +14,13 @@ import fr.pederobien.minecraftgameplateform.utils.Plateform;
 public class BorderPersistence extends AbstractXmlPersistence<IBorderConfiguration> {
 	private static final String ROOT_XML_DOCUMENT = "border";
 
-	private BorderPersistence(Plugin plugin) {
+	private BorderPersistence() {
 		super(new DefaultBorderContent());
 		register(new BorderLoaderV10());
 	}
 
-	public static IPersistence<IBorderConfiguration> getInstance(Plugin plugin) {
-		return new BorderPersistence(plugin);
+	public static IPersistence<IBorderConfiguration> getInstance() {
+		return new BorderPersistence();
 	}
 
 	@Override

@@ -10,7 +10,7 @@ import fr.pederobien.minecraftgameplateform.interfaces.element.IBorderConfigurat
 public class BorderParent extends AbstractParentPersistenceEdition<IBorderConfiguration> {
 
 	public BorderParent(Plugin plugin) {
-		super("border", EBorderMessageCode.BORDER__EXPLANATION, plugin, BorderPersistence.getInstance(plugin));
+		super("border", EBorderMessageCode.BORDER__EXPLANATION, plugin, BorderPersistence.getInstance());
 
 		addEdition(BorderEditionsFactory.newBorder().setModifiable(false));
 	}

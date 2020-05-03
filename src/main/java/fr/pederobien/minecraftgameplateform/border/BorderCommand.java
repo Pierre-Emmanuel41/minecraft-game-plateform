@@ -8,7 +8,7 @@ import fr.pederobien.minecraftgameplateform.interfaces.element.IBorderConfigurat
 
 public class BorderCommand extends AbstractParentCommand<IBorderConfiguration> {
 
-	protected BorderCommand(JavaPlugin plugin) {
+	public BorderCommand(JavaPlugin plugin) {
 		super(plugin, new BorderParent(plugin));
 	}
 }
