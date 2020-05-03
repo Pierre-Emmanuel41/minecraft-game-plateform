@@ -15,6 +15,13 @@ public interface IPersistence<T extends IUnmodifiableNominable> {
 	Path getPath();
 
 	/**
+	 * Set the path to the folder in which this persistence should save its data.
+	 * 
+	 * @param path The path to the folder.
+	 */
+	void setPath(Path path);
+
+	/**
 	 * @return The default content to save when the plugin is enabled.
 	 */
 	IDefaultContent getDefaultContent();

@@ -14,7 +14,7 @@ public abstract class AbstractPersistence<T extends IUnmodifiableNominable> impl
 	private IDefaultContent defaultContent;
 
 	protected AbstractPersistence(Path path, IDefaultContent defaultContent) {
-		setPath(path);
+		setInternalPath(path);
 		this.defaultContent = defaultContent;
 	}
 
@@ -28,7 +28,12 @@ public abstract class AbstractPersistence<T extends IUnmodifiableNominable> impl
 		return defaultContent;
 	}
 
-	protected void setPath(Path path) {
+	@Override
+	public void setPath(Path path) {
+		throw new UnsupportedOperationException("This method cannot be called");
+	}
+
+	protected void setInternalPath(Path path) {
 		checkPath(path);
 		this.path = path;
 	}
