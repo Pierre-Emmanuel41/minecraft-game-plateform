@@ -4,7 +4,7 @@ import java.util.Locale;
 
 import fr.pederobien.minecraftdictionary.impl.AbstractDictionary;
 import fr.pederobien.minecraftdictionary.interfaces.IMessage;
-import fr.pederobien.minecraftgameplateform.interfaces.IMessages;
+import fr.pederobien.minecraftgameplateform.interfaces.element.IMessages;
 
 public class AbstractPlateformDictionary extends AbstractDictionary {
 

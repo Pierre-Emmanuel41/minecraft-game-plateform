@@ -5,7 +5,7 @@ import java.util.Collections;
 import java.util.List;
 
 import fr.pederobien.minecraftdictionary.interfaces.IMessage;
-import fr.pederobien.minecraftgameplateform.interfaces.IMessages;
+import fr.pederobien.minecraftgameplateform.interfaces.element.IMessages;
 
 public enum EBorderMessages implements IMessages {
 	FRENCH, ENGLISH;

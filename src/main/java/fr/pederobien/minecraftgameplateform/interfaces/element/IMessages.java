@@ -1,4 +1,4 @@
-package fr.pederobien.minecraftgameplateform.interfaces;
+package fr.pederobien.minecraftgameplateform.interfaces.element;
 
 import java.util.List;
 
