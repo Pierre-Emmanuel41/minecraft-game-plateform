@@ -1,5 +1,8 @@
 package fr.pederobien.minecraftgameplateform.utils;
 
+import java.nio.file.Path;
+import java.nio.file.Paths;
+
 import fr.pederobien.minecraftdictionary.impl.NotificationCenter;
 import fr.pederobien.minecraftdictionary.interfaces.INotificationCenter;
 import fr.pederobien.minecraftgameplateform.helpers.CommandHelper;
@@ -16,6 +19,7 @@ import fr.pederobien.minecraftgameplateform.internal.IPersistenceCenter;
 import fr.pederobien.minecraftgameplateform.internal.PersistenceCenter;
 
 public class Plateform {
+	public static final Path ROOT = Paths.get("plugins", "minecraft-game-plateform");
 	private static final String MINECRAFT_GAME_PLATEFORM = "minecraft-game-plateform";
 	private static IGameConfigurationContext gameContext = GameConfigurationContext.getInstance();
 	private static INotificationCenter notificationCenter = NotificationCenter.getInstance();
