@@ -1,13 +1,14 @@
 package fr.pederobien.minecraftgameplateform.dictionary.messages.common;
 
+import fr.pederobien.minecraftdictionary.interfaces.IMessage;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.AbstractNotDynamicMessage;
 
 public class CommonHelp_Explanation extends AbstractNotDynamicMessage {
+	public static final IMessage FRENCH = new French();
+	public static final IMessage ENGLISH = new English();
 
 	public CommonHelp_Explanation(String message) {
 		super(ECommonMessageCode.COMMON_HELP__EXPLANATION, message);
-		ECommonMessages.FRENCH.add(new French());
-		ECommonMessages.ENGLISH.add(new English());
 	}
 
 	private static class French extends CommonHelp_Explanation {
