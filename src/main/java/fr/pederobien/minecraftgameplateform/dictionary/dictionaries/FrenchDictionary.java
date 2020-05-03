@@ -7,22 +7,7 @@ import fr.pederobien.minecraftdictionary.interfaces.IMessage;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.HelpExplanation;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.common.ECommonMessages;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.EGameConfigurationMessages;
-import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.teams.Add_Explanation;
-import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.teams.List_AnyExistingTeam;
-import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.teams.List_Explanation;
-import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.teams.List_OneExistingTeam;
-import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.teams.List_SeveralExistingTeams;
-import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.teams.Modify_Explanation;
-import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.teams.Move_Explanation;
-import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.teams.Move_PlayerDoesNotExist;
-import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.teams.Move_PlayerMoved;
-import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.teams.Move_PlayerNameIsMissing;
-import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.teams.Move_PlayerNotRegistered;
-import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.teams.Move_TeamDoesNotExist;
-import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.teams.Move_TeamNameIsMissing;
-import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.teams.Move_TeamsAreTheSame;
-import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.teams.Remove_Explanation;
-import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.teams.Team_Explanation;
+import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.teams.ETeamConfigurationMessages;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.teams.add.ETeamAddMessages;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.teams.modify.ETeamModifyMessages;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.teams.remove.ETeamRemoveMessages;
@@ -59,34 +44,19 @@ public class FrenchDictionary extends AbstractDictionary {
 			register(message);
 
 		// Code for game teams configuration command messages
-		register(Team_Explanation.FRENCH);
-		register(Add_Explanation.FRENCH);
+		for (IMessage message : ETeamConfigurationMessages.FRENCH.getMessages())
+			register(message);
 
 		// Code for team add command messages
 		for (IMessage message : ETeamAddMessages.FRENCH.getMessages())
 			register(message);
 
-		register(Remove_Explanation.FRENCH);
 		// Code for team remove command messages
 		for (IMessage message : ETeamRemoveMessages.ENGLISH.getMessages())
 			register(message);
 
-		register(Modify_Explanation.FRENCH);
 		// Code for team add command messages
 		for (IMessage message : ETeamModifyMessages.FRENCH.getMessages())
 			register(message);
-
-		register(List_Explanation.FRENCH);
-		register(List_AnyExistingTeam.FRENCH);
-		register(List_OneExistingTeam.FRENCH);
-		register(List_SeveralExistingTeams.FRENCH);
-		register(Move_Explanation.FRENCH);
-		register(Move_PlayerNameIsMissing.FRENCH);
-		register(Move_TeamNameIsMissing.FRENCH);
-		register(Move_PlayerDoesNotExist.FRENCH);
-		register(Move_PlayerNotRegistered.FRENCH);
-		register(Move_TeamDoesNotExist.FRENCH);
-		register(Move_TeamsAreTheSame.FRENCH);
-		register(Move_PlayerMoved.FRENCH);
 	}
 }

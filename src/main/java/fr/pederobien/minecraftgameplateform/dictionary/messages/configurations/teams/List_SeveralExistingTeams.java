@@ -1,20 +1,13 @@
 package fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.teams;
 
-import fr.pederobien.minecraftdictionary.interfaces.IMessage;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.AbstractDynamicMessage;
 
 public class List_SeveralExistingTeams extends AbstractDynamicMessage {
-	/**
-	 * Message in French when there is several existing team for a configuration.
-	 */
-	public static final IMessage FRENCH = new French();
-	/**
-	 * Message in French when there is several existing team for a configuration.
-	 */
-	public static final IMessage ENGLISH = new English();
 
 	public List_SeveralExistingTeams() {
 		super(ETeamConfigurationMessageCode.LIST__SEVERAL_EXISTING_TEAMS);
+		ETeamConfigurationMessages.FRENCH.add(new French());
+		ETeamConfigurationMessages.ENGLISH.add(new English());
 	}
 
 	private static class French extends List_SeveralExistingTeams {
