@@ -1,13 +1,14 @@
 package fr.pederobien.minecraftgameplateform.dictionary.messages.game;
 
+import fr.pederobien.minecraftdictionary.interfaces.IMessage;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.AbstractDynamicMessage;
 
 public class StartingGame extends AbstractDynamicMessage {
+	public static final IMessage FRENCH = new French();
+	public static final IMessage ENGLISH = new English();
 
 	protected StartingGame() {
 		super(EGameMessageCode.STARTING_GAME);
-		EGameMessages.FRENCH.add(new French());
-		EGameMessages.ENGLISH.add(new English());
 	}
 
 	private static class French extends StartingGame {
