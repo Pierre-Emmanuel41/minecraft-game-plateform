@@ -12,13 +12,13 @@ public class Border_Explanation extends AbstractNotDynamicMessage {
 
 	private static class French extends Border_Explanation {
 		public French() {
-			super("Pour définir une nouvelle configuration de bordure");
+			super("Pour configurer une bordure");
 		}
 	}
 
 	private static class English extends Border_Explanation {
 		public English() {
-			super("To define a new border configuration");
+			super("To configure a border");
 		}
 	}
 }
