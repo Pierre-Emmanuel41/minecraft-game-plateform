@@ -1,13 +1,14 @@
 package fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure;
 
+import fr.pederobien.minecraftdictionary.interfaces.IMessage;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.AbstractDynamicMessage;
 
 public class CommonWorld_WorldDoesNotExist extends AbstractDynamicMessage {
+	public static final IMessage FRENCH = new French();
+	public static final IMessage ENGLISH = new English();
 
 	public CommonWorld_WorldDoesNotExist() {
 		super(EWorldStructureMessageCode.COMMON_WORLD__WORLD_DOES_NOT_EXIST);
-		EWorldStructureMessages.FRENCH.add(new French());
-		EWorldStructureMessages.ENGLISH.add(new English());
 	}
 
 	private static class French extends CommonWorld_WorldDoesNotExist {
