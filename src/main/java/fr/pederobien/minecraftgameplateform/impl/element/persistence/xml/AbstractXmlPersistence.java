@@ -29,6 +29,7 @@ import fr.pederobien.minecraftgameplateform.interfaces.element.persistence.IDefa
 import fr.pederobien.minecraftgameplateform.interfaces.element.persistence.IPersistence;
 import fr.pederobien.minecraftgameplateform.interfaces.element.persistence.xml.IXmlPersistenceLoader;
 import fr.pederobien.minecraftgameplateform.interfaces.element.unmodifiable.IUnmodifiableNominable;
+import fr.pederobien.minecraftgameplateform.utils.Plateform;
 
 public abstract class AbstractXmlPersistence<T extends IUnmodifiableNominable> extends AbstractLoadersPersistence<T, IXmlPersistenceLoader<T>> {
 	private static final String EXTENSION = ".xml";
@@ -37,7 +38,7 @@ public abstract class AbstractXmlPersistence<T extends IUnmodifiableNominable> e
 	private T elt;
 
 	protected AbstractXmlPersistence(IDefaultContent defaultContent) {
-		super(defaultContent);
+		this(Plateform.ROOT, defaultContent);
 	}
 
 	protected AbstractXmlPersistence(Path path, IDefaultContent defaultContent) {

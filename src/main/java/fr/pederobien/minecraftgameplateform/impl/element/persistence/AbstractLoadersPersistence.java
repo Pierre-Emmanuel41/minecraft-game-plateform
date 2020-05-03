@@ -11,13 +11,14 @@ import fr.pederobien.minecraftgameplateform.interfaces.element.persistence.IDefa
 import fr.pederobien.minecraftgameplateform.interfaces.element.persistence.ILoadersPersistence;
 import fr.pederobien.minecraftgameplateform.interfaces.element.persistence.IPersistenceLoader;
 import fr.pederobien.minecraftgameplateform.interfaces.element.unmodifiable.IUnmodifiableNominable;
+import fr.pederobien.minecraftgameplateform.utils.Plateform;
 
 public abstract class AbstractLoadersPersistence<T extends IUnmodifiableNominable, U extends IPersistenceLoader<T>> extends AbstractPersistence<T>
 		implements ILoadersPersistence<T, U> {
 	private NavigableMap<Double, U> loaders;
 
 	protected AbstractLoadersPersistence(IDefaultContent defaultContent) {
-		super(defaultContent);
+		this(Plateform.ROOT, defaultContent);
 	}
 
 	protected AbstractLoadersPersistence(Path path, IDefaultContent defaultContent) {
