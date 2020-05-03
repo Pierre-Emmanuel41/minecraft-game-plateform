@@ -12,7 +12,7 @@ import fr.pederobien.minecraftdevelopmenttoolkit.interfaces.IGenericEdition;
 import fr.pederobien.minecraftdictionary.impl.EventFactory;
 import fr.pederobien.minecraftdictionary.interfaces.IDictionaryManager;
 import fr.pederobien.minecraftdictionary.interfaces.IMessageCode;
-import fr.pederobien.minecraftgameplateform.dictionary.messages.EMessageCode;
+import fr.pederobien.minecraftgameplateform.dictionary.messages.common.ECommonMessageCode;
 import fr.pederobien.minecraftgameplateform.interfaces.editions.IMapPersistenceEdition;
 import fr.pederobien.minecraftgameplateform.interfaces.editions.IParentPersistenceEdition;
 import fr.pederobien.minecraftgameplateform.interfaces.element.unmodifiable.IUnmodifiableNominable;
@@ -22,7 +22,7 @@ public class ParentPersistenceHelper<T extends IUnmodifiableNominable> extends A
 	private Plugin plugin;
 
 	protected ParentPersistenceHelper(Plugin plugin) {
-		super(EMessageCode.HELP_EXPLANATION);
+		super(ECommonMessageCode.COMMON_HELP__EXPLANATION);
 		this.plugin = plugin;
 	}
 
