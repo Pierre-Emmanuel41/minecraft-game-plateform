@@ -8,8 +8,8 @@ import org.bukkit.command.CommandSender;
 
 import fr.pederobien.minecraftgameplateform.commands.worldstructure.AbstractWorldStructureEdition;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.common.ECommonMessageCode;
-import fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.spawn.ESpawnMessageCode;
 import fr.pederobien.minecraftgameplateform.interfaces.element.ISpawn;
+import fr.pederobien.minecraftgameplateform.spawn.messages.ESpawnMessageCode;
 
 public class PlayerSpawn extends AbstractWorldStructureEdition<ISpawn> {
 

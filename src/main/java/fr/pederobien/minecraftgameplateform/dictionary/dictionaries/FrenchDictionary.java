@@ -11,8 +11,8 @@ import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.t
 import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.teams.remove.ETeamRemoveMessages;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.game.EGameMessages;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.EWorldStructureMessages;
-import fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.spawn.ESpawnMessages;
 import fr.pederobien.minecraftgameplateform.impl.AbstractPlateformDictionary;
+import fr.pederobien.minecraftgameplateform.spawn.messages.ESpawnMessages;
 
 public class FrenchDictionary extends AbstractPlateformDictionary {
 

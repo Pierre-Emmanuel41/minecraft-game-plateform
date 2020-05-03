@@ -5,10 +5,10 @@ import org.bukkit.command.CommandSender;
 import fr.pederobien.minecraftgameplateform.commands.common.CommonNew;
 import fr.pederobien.minecraftgameplateform.commands.common.ECommonLabel;
 import fr.pederobien.minecraftgameplateform.commands.worldstructure.EWorldStructureLabel;
-import fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.spawn.ESpawnMessageCode;
 import fr.pederobien.minecraftgameplateform.interfaces.element.ILabel;
 import fr.pederobien.minecraftgameplateform.interfaces.element.ISpawn;
 import fr.pederobien.minecraftgameplateform.spawn.Spawn;
+import fr.pederobien.minecraftgameplateform.spawn.messages.ESpawnMessageCode;
 
 public class NewSpawn extends CommonNew<ISpawn> {
 
