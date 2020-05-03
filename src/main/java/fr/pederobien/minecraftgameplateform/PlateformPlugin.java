@@ -14,13 +14,13 @@ public class PlateformPlugin extends JavaPlugin {
 
 	@Override
 	public void onEnable() {
+		Plateform.getPluginManager().register(this);
+
 		new StartCommand(this);
 		new PauseCommand(this);
 		new StopCommand(this);
 
 		new SpawnCommand(this);
-
-		Plateform.getPluginManager().register(this);
 
 		Plateform.getNotificationCenter().getDictionaryContext().register(this, new EnglishDictionary());
 		Plateform.getNotificationCenter().getDictionaryContext().register(this, new FrenchDictionary());

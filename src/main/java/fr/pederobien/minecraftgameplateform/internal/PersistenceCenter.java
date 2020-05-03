@@ -12,6 +12,7 @@ import fr.pederobien.minecraftgameplateform.impl.element.AbstractNominable;
 import fr.pederobien.minecraftgameplateform.interfaces.element.persistence.IPersistence;
 import fr.pederobien.minecraftgameplateform.interfaces.element.unmodifiable.IUnmodifiableNominable;
 import fr.pederobien.minecraftgameplateform.internal.persistence.PersistenceCenterPersistence;
+import fr.pederobien.minecraftgameplateform.utils.Plateform;
 
 public class PersistenceCenter extends AbstractNominable implements IPersistenceCenter {
 	private Map<String, Double> versions;
@@ -49,12 +50,11 @@ public class PersistenceCenter extends AbstractNominable implements IPersistence
 	@Override
 	public <T extends IUnmodifiableNominable> void registerOrUpdate(IPersistence<T> persistence) {
 		Double version = versions.get(persistence.getClass().getName());
-
 		if (version == null) {
-			System.out.println("Registering persistence");
+			Plateform.getPlugin().getLogger().info("Registering persistence " + persistence.getClass());
 			register(persistence);
 		} else if (!version.equals(persistence.getVersion())) {
-			System.out.println("Updating persistence");
+			Plateform.getPlugin().getLogger().info("Updating persistence " + persistence.getClass());
 			update(persistence);
 		}
 	}
