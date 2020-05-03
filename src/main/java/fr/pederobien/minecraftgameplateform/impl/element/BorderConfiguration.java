@@ -59,7 +59,7 @@ public class BorderConfiguration extends AbstractNominable implements IBorderCon
 
 	@Override
 	public void setPlugin(String pluginName) {
-		this.plugin = Plateform.getPluginManager().get(pluginName).get();
+		this.plugin = Plateform.getPluginManager().getPlugin(pluginName).get();
 	}
 
 	@Override

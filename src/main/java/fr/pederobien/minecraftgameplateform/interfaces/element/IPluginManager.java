@@ -4,6 +4,7 @@ import java.util.Optional;
 import java.util.stream.Stream;
 
 import org.bukkit.plugin.Plugin;
+import org.bukkit.plugin.java.JavaPlugin;
 
 public interface IPluginManager {
 
@@ -45,7 +46,17 @@ public interface IPluginManager {
 	 * 
 	 * @return An optional that contains the plugin, an empty optional if any plugin with the specified name is registered.
 	 */
-	Optional<Plugin> get(String pluginName);
+	Optional<Plugin> getPlugin(String pluginName);
+
+	/**
+	 * Get the plugin associated to the given <code>pluginName</code> if it exists as {@link JavaPlugin}.
+	 * 
+	 * @param pluginName The plugin's name to get the associated plugin.
+	 * 
+	 * @return An optional that contains the plugin as java plugin , an empty optional if any plugin with the specified name is
+	 *         registered.
+	 */
+	Optional<JavaPlugin> getJavaPlugin(String pluginName);
 
 	/**
 	 * @return A stream that contains all registered plugins exception the minecraft-game-plateform.

@@ -6,6 +6,7 @@ import java.util.Optional;
 import java.util.stream.Stream;
 
 import org.bukkit.plugin.Plugin;
+import org.bukkit.plugin.java.JavaPlugin;
 
 import fr.pederobien.minecraftgameplateform.interfaces.element.IPluginManager;
 
@@ -42,12 +43,18 @@ public class PluginManager implements IPluginManager {
 
 	@Override
 	public boolean isRegistered(String pluginName) {
-		return get(pluginName).isPresent();
+		return getPlugin(pluginName).isPresent();
 	}
 
 	@Override
-	public Optional<Plugin> get(String pluginName) {
+	public Optional<Plugin> getPlugin(String pluginName) {
 		return plugins.stream().filter(plugin -> plugin.getName().equals(pluginName)).findFirst();
+	}
+
+	@Override
+	public Optional<JavaPlugin> getJavaPlugin(String pluginName) {
+		Optional<Plugin> optPlugin = getPlugin(pluginName);
+		return optPlugin.isPresent() ? Optional.of((JavaPlugin) optPlugin.get()) : Optional.empty();
 	}
 
 	@Override
