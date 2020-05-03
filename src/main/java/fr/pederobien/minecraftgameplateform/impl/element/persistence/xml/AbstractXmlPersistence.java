@@ -23,6 +23,7 @@ import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.xml.sax.SAXException;
 
+import fr.pederobien.minecraftdevelopmenttoolkit.utils.FileWriterHelper;
 import fr.pederobien.minecraftgameplateform.impl.element.persistence.AbstractLoadersPersistence;
 import fr.pederobien.minecraftgameplateform.interfaces.element.persistence.IDefaultContent;
 import fr.pederobien.minecraftgameplateform.interfaces.element.persistence.IPersistence;
@@ -125,6 +126,7 @@ public abstract class AbstractXmlPersistence<T extends IUnmodifiableNominable> e
 	 */
 	protected boolean saveDocument(Document doc, String name) {
 		try {
+			FileWriterHelper.mkdirs(getPath());
 			Transformer transformer = TransformerFactory.newInstance().newTransformer();
 			transformer.setOutputProperty(OutputKeys.INDENT, "yes");
 			transformer.setOutputProperty("{http://xml.apache.org/xslt}indent-amount", "2");
