@@ -1,13 +1,14 @@
 package fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.teams.remove;
 
+import fr.pederobien.minecraftdictionary.interfaces.IMessage;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.AbstractDynamicMessage;
 
 public class RemoveTeam_AllTeamsRemoved extends AbstractDynamicMessage {
+	public static final IMessage FRENCH = new French();
+	public static final IMessage ENGLISH = new English();
 
 	public RemoveTeam_AllTeamsRemoved() {
 		super(ETeamRemoveMessageCode.REMOVE_TEAM__ALL_TEAMS_REMOVED);
-		ETeamRemoveMessages.FRENCH.add(new French());
-		ETeamRemoveMessages.ENGLISH.add(new English());
 	}
 
 	private static class French extends RemoveTeam_AllTeamsRemoved {
