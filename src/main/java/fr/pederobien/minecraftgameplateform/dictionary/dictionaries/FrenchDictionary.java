@@ -2,7 +2,7 @@ package fr.pederobien.minecraftgameplateform.dictionary.dictionaries;
 
 import java.util.Locale;
 
-import fr.pederobien.minecraftgameplateform.border.messages.EBorderMessages;
+import fr.pederobien.minecraftgameplateform.border.messages.FrenchBorderMessages;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.common.FrenchCommonMessages;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.FrenchGameConfigurationMessages;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.teams.FrenchTeamConfigurationMessages;
@@ -19,8 +19,6 @@ public class FrenchDictionary extends AbstractPlateformDictionary {
 	public FrenchDictionary() {
 		super(Locale.FRANCE, Locale.FRENCH, Locale.CANADA_FRENCH);
 
-		register(EBorderMessages.FRENCH);
-
 		FrenchCommonMessages.setDictionary(this);
 		FrenchGameMessages.setDictionary(this);
 		FrenchWorldStructureMessages.setDictionary(this);
@@ -30,5 +28,6 @@ public class FrenchDictionary extends AbstractPlateformDictionary {
 		FrenchTeamRemoveMessages.setDictionary(this);
 		FrenchTeamModifyMessages.setDictionary(this);
 		FrenchSpawnMessages.setDictionary(this);
+		FrenchBorderMessages.setDictionary(this);
 	}
 }

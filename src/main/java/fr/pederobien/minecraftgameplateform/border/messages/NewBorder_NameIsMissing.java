@@ -1,13 +1,14 @@
 package fr.pederobien.minecraftgameplateform.border.messages;
 
+import fr.pederobien.minecraftdictionary.interfaces.IMessage;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.AbstractNotDynamicMessage;
 
 public class NewBorder_NameIsMissing extends AbstractNotDynamicMessage {
+	public static final IMessage FRENCH = new French();
+	public static final IMessage ENGLISH = new English();
 
 	public NewBorder_NameIsMissing(String message) {
 		super(EBorderMessageCode.NEW_BORDER__NAME_IS_MISSING, message);
-		EBorderMessages.FRENCH.add(new French());
-		EBorderMessages.ENGLISH.add(new English());
 	}
 
 	private static class French extends NewBorder_NameIsMissing {

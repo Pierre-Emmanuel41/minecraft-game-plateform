@@ -1,13 +1,14 @@
 package fr.pederobien.minecraftgameplateform.border.messages;
 
+import fr.pederobien.minecraftdictionary.interfaces.IMessage;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.AbstractDynamicMessage;
 
 public class NewBorder_BorderCreated extends AbstractDynamicMessage {
+	public static final IMessage FRENCH = new French();
+	public static final IMessage ENGLISH = new English();
 
 	public NewBorder_BorderCreated() {
 		super(EBorderMessageCode.NEW_BORDER__BORDER_CREATED);
-		EBorderMessages.FRENCH.add(new French());
-		EBorderMessages.ENGLISH.add(new English());
 	}
 
 	private static class French extends NewBorder_BorderCreated {
