@@ -1,13 +1,14 @@
 package fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.teams.add;
 
+import fr.pederobien.minecraftdictionary.interfaces.IMessage;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.AbstractNotDynamicMessage;
 
 public class AddPlayer_TeamNameIsMissing extends AbstractNotDynamicMessage {
+	public static final IMessage FRENCH = new French();
+	public static final IMessage ENGLISH = new English();
 
 	public AddPlayer_TeamNameIsMissing(String message) {
 		super(ETeamAddMessageCode.ADD_PLAYER__TEAM_NAME_IS_MISSING, message);
-		ETeamAddMessages.FRENCH.add(new French());
-		ETeamAddMessages.ENGLISH.add(new English());
 	}
 
 	private static class French extends AddPlayer_TeamNameIsMissing {
