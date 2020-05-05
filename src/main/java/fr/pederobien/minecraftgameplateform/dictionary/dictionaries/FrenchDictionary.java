@@ -7,7 +7,7 @@ import fr.pederobien.minecraftgameplateform.dictionary.messages.common.FrenchCom
 import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.FrenchGameConfigurationMessages;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.teams.FrenchTeamConfigurationMessages;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.teams.add.FrenchTeamAddMessages;
-import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.teams.modify.ETeamModifyMessages;
+import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.teams.modify.FrenchTeamModifyMessages;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.teams.remove.FrenchTeamRemoveMessages;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.game.FrenchGameMessages;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.FrenchWorldStructureMessages;
@@ -20,7 +20,7 @@ public class FrenchDictionary extends AbstractPlateformDictionary {
 		super(Locale.FRANCE, Locale.FRENCH, Locale.CANADA_FRENCH);
 
 		register(ESpawnMessages.FRENCH);
-		register(ETeamModifyMessages.FRENCH, EBorderMessages.FRENCH);
+		register(EBorderMessages.FRENCH);
 
 		FrenchCommonMessages.setDictionary(this);
 		FrenchGameMessages.setDictionary(this);
@@ -29,5 +29,6 @@ public class FrenchDictionary extends AbstractPlateformDictionary {
 		FrenchTeamConfigurationMessages.setDictionary(this);
 		FrenchTeamAddMessages.setDictionary(this);
 		FrenchTeamRemoveMessages.setDictionary(this);
+		FrenchTeamModifyMessages.setDictionary(this);
 	}
 }

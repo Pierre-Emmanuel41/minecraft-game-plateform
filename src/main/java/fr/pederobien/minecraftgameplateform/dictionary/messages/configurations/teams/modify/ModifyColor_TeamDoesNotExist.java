@@ -1,13 +1,14 @@
 package fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.teams.modify;
 
+import fr.pederobien.minecraftdictionary.interfaces.IMessage;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.AbstractDynamicMessage;
 
 public class ModifyColor_TeamDoesNotExist extends AbstractDynamicMessage {
+	public static final IMessage FRENCH = new French();
+	public static final IMessage ENGLISH = new English();
 
 	public ModifyColor_TeamDoesNotExist() {
 		super(ETeamModifyMessageCode.MODIFY_COLOR__TEAM_DOES_NOT_EXIST);
-		ETeamModifyMessages.FRENCH.add(new French());
-		ETeamModifyMessages.ENGLISH.add(new English());
 	}
 
 	private static class French extends ModifyColor_TeamDoesNotExist {

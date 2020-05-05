@@ -1,13 +1,14 @@
 package fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.teams.modify;
 
+import fr.pederobien.minecraftdictionary.interfaces.IMessage;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.AbstractNotDynamicMessage;
 
 public class ModifyName_OldNameIsMissing extends AbstractNotDynamicMessage {
+	public static final IMessage FRENCH = new French();
+	public static final IMessage ENGLISH = new English();
 
 	public ModifyName_OldNameIsMissing(String message) {
 		super(ETeamModifyMessageCode.MODIFY_NAME__OLD_NAME_IS_MISSING, message);
-		ETeamModifyMessages.FRENCH.add(new French());
-		ETeamModifyMessages.ENGLISH.add(new English());
 	}
 
 	private static class French extends ModifyName_OldNameIsMissing {
