@@ -24,7 +24,9 @@ public enum FrenchCommonMessages {
 
 	COMMON_RENAME_TAB_COMPLETE(CommonRename_TabComplete.FRENCH),
 
-	COMMON_PLAYER_DOES_NOT_EXIST(Common_PlayerDoesNotExist.FRENCH);
+	COMMON_PLAYER_DOES_NOT_EXIST(Common_PlayerDoesNotExist.FRENCH),
+
+	WORLD_DOES_NOT_EXIST(CommonWorld_WorldDoesNotExist.FRENCH);
 
 	private IMessage source;
 

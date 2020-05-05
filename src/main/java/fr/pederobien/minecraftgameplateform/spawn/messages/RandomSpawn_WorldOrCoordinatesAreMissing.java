@@ -1,13 +1,14 @@
 package fr.pederobien.minecraftgameplateform.spawn.messages;
 
+import fr.pederobien.minecraftdictionary.interfaces.IMessage;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.AbstractNotDynamicMessage;
 
 public class RandomSpawn_WorldOrCoordinatesAreMissing extends AbstractNotDynamicMessage {
+	public static final IMessage FRENCH = new French();
+	public static final IMessage ENGLISH = new English();
 
 	public RandomSpawn_WorldOrCoordinatesAreMissing(String message) {
 		super(ESpawnMessageCode.RANDOM_SPAWN__WORLD_OR_COORDINATES_ARE_MISSING, message);
-		ESpawnMessages.FRENCH.add(new French());
-		ESpawnMessages.ENGLISH.add(new English());
 	}
 
 	private static class French extends RandomSpawn_WorldOrCoordinatesAreMissing {

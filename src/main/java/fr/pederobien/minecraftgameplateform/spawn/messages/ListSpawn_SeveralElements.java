@@ -1,13 +1,14 @@
 package fr.pederobien.minecraftgameplateform.spawn.messages;
 
+import fr.pederobien.minecraftdictionary.interfaces.IMessage;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.AbstractDynamicMessage;
 
 public class ListSpawn_SeveralElements extends AbstractDynamicMessage {
+	public static final IMessage FRENCH = new French();
+	public static final IMessage ENGLISH = new English();
 
 	public ListSpawn_SeveralElements() {
 		super(ESpawnMessageCode.LIST_SPAWN__SEVERAL_ELEMENTS);
-		ESpawnMessages.FRENCH.add(new French());
-		ESpawnMessages.ENGLISH.add(new English());
 	}
 
 	private static class French extends ListSpawn_SeveralElements {

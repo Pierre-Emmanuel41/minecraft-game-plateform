@@ -24,7 +24,9 @@ public enum EnglishCommonMessages {
 
 	COMMON_RENAME_TAB_COMPLETE(CommonRename_TabComplete.ENGLISH),
 
-	COMMON_PLAYER_DOES_NOT_EXIST(Common_PlayerDoesNotExist.ENGLISH);
+	COMMON_PLAYER_DOES_NOT_EXIST(Common_PlayerDoesNotExist.ENGLISH),
+
+	WORLD_DOES_NOT_EXIST(CommonWorld_WorldDoesNotExist.ENGLISH);
 
 	private IMessage source;
 

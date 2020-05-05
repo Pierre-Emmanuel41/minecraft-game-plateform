@@ -1,13 +1,14 @@
 package fr.pederobien.minecraftgameplateform.spawn.messages;
 
+import fr.pederobien.minecraftdictionary.interfaces.IMessage;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.AbstractDynamicMessage;
 
 public class DeleteSpawn_DidNotDelete extends AbstractDynamicMessage {
+	public static final IMessage FRENCH = new French();
+	public static final IMessage ENGLISH = new English();
 
 	public DeleteSpawn_DidNotDelete() {
 		super(ESpawnMessageCode.DELETE_SPAWN__DIT_NOT_DELETE);
-		ESpawnMessages.FRENCH.add(new French());
-		ESpawnMessages.ENGLISH.add(new English());
 	}
 
 	private static class French extends DeleteSpawn_DidNotDelete {

@@ -1,13 +1,14 @@
 package fr.pederobien.minecraftgameplateform.spawn.messages;
 
+import fr.pederobien.minecraftdictionary.interfaces.IMessage;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.AbstractNotDynamicMessage;
 
 public class WorldSpawn_WorldNameIsMissing extends AbstractNotDynamicMessage {
+	public static final IMessage FRENCH = new French();
+	public static final IMessage ENGLISH = new English();
 
 	public WorldSpawn_WorldNameIsMissing(String message) {
 		super(ESpawnMessageCode.WORLD_SPAWN__WORLD_NAME_IS_MISSING, message);
-		ESpawnMessages.FRENCH.add(new French());
-		ESpawnMessages.ENGLISH.add(new English());
 	}
 
 	private static class French extends WorldSpawn_WorldNameIsMissing {

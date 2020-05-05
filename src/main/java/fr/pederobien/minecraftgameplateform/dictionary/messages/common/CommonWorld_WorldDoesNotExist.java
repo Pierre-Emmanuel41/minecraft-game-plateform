@@ -1,7 +1,8 @@
-package fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure;
+package fr.pederobien.minecraftgameplateform.dictionary.messages.common;
 
 import fr.pederobien.minecraftdictionary.interfaces.IMessage;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.AbstractDynamicMessage;
+import fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.EWorldStructureMessageCode;
 
 public class CommonWorld_WorldDoesNotExist extends AbstractDynamicMessage {
 	public static final IMessage FRENCH = new French();

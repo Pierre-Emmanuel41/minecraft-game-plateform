@@ -12,14 +12,13 @@ import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.t
 import fr.pederobien.minecraftgameplateform.dictionary.messages.game.FrenchGameMessages;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.FrenchWorldStructureMessages;
 import fr.pederobien.minecraftgameplateform.impl.element.AbstractPlateformDictionary;
-import fr.pederobien.minecraftgameplateform.spawn.messages.ESpawnMessages;
+import fr.pederobien.minecraftgameplateform.spawn.messages.FrenchSpawnMessages;
 
 public class FrenchDictionary extends AbstractPlateformDictionary {
 
 	public FrenchDictionary() {
 		super(Locale.FRANCE, Locale.FRENCH, Locale.CANADA_FRENCH);
 
-		register(ESpawnMessages.FRENCH);
 		register(EBorderMessages.FRENCH);
 
 		FrenchCommonMessages.setDictionary(this);
@@ -30,5 +29,6 @@ public class FrenchDictionary extends AbstractPlateformDictionary {
 		FrenchTeamAddMessages.setDictionary(this);
 		FrenchTeamRemoveMessages.setDictionary(this);
 		FrenchTeamModifyMessages.setDictionary(this);
+		FrenchSpawnMessages.setDictionary(this);
 	}
 }

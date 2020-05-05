@@ -6,9 +6,7 @@ import fr.pederobien.minecraftdictionary.interfaces.IMessage;
 public enum FrenchWorldStructureMessages {
 	BAD_DIMENSION_FORMAT(CommonDimension_BadDimensionFormat.FRENCH),
 
-	MISSING_DIMENSION(CommonDimension_MissingDimension.FRENCH),
-
-	WORLD_DOES_NOT_EXIST(CommonWorld_WorldDoesNotExist.FRENCH);
+	MISSING_DIMENSION(CommonDimension_MissingDimension.FRENCH);
 
 	private IMessage source;
 
