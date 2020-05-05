@@ -12,14 +12,13 @@ import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.t
 import fr.pederobien.minecraftgameplateform.dictionary.messages.game.EnglishGameMessages;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.EnglishWorldStructureMessages;
 import fr.pederobien.minecraftgameplateform.impl.element.AbstractPlateformDictionary;
-import fr.pederobien.minecraftgameplateform.spawn.messages.ESpawnMessages;
+import fr.pederobien.minecraftgameplateform.spawn.messages.EnglishSpawnMessages;
 
 public class EnglishDictionary extends AbstractPlateformDictionary {
 
 	public EnglishDictionary() {
 		super(Locale.UK, Locale.US, Locale.ENGLISH, Locale.CANADA);
 
-		register(ESpawnMessages.ENGLISH);
 		register(EBorderMessages.ENGLISH);
 
 		EnglishCommonMessages.setDictionary(this);
@@ -30,5 +29,6 @@ public class EnglishDictionary extends AbstractPlateformDictionary {
 		EnglishTeamAddMessages.setDictionary(this);
 		EnglishTeamRemoveMessages.setDictionary(this);
 		EnglishTeamModifyMessages.setDictionary(this);
+		EnglishSpawnMessages.setDictionary(this);
 	}
 }
