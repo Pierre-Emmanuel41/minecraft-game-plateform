@@ -11,4 +11,11 @@ public class BorderEditionsFactory {
 	public static IMapPersistenceEdition<IBorderConfiguration> newBorder() {
 		return new NewBorder();
 	}
+
+	/**
+	 * @return An edition to display current border's characteristics.
+	 */
+	public static IMapPersistenceEdition<IBorderConfiguration> currentBorder() {
+		return new CurrentBorder();
+	}
 }
