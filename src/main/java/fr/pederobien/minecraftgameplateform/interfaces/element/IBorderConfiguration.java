@@ -5,6 +5,23 @@ import fr.pederobien.minecraftgameplateform.interfaces.element.unmodifiable.IUnm
 public interface IBorderConfiguration extends INominable, IUnmodifiableBorderConfiguration {
 
 	/**
+	 * Add a contributor for this world border configuration. This new contributor can modify this world border configuration.
+	 * 
+	 * @param contributorName The contributor's name for this configuration.
+	 */
+	void add(String contributorName);
+
+	/**
+	 * Remove the contributor from the list of contributor for this configuration. When removed, the former contributor cannot modify
+	 * this configuration any more.
+	 * 
+	 * @param contributorName The contributor's name to remove.
+	 * 
+	 * @return True if the contributor was found and removed, false otherwise.
+	 */
+	boolean remove(String contributorName);
+
+	/**
 	 * Set the world in which this configuration is applied.
 	 * 
 	 * @param world The world's name in which the world border is applied.

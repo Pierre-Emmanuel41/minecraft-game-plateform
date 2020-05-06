@@ -1,6 +1,9 @@
 package fr.pederobien.minecraftgameplateform.border;
 
+import java.util.Collections;
+import java.util.List;
 import java.util.StringJoiner;
+import java.util.stream.Collectors;
 
 import org.bukkit.World;
 import org.bukkit.block.Block;
@@ -8,6 +11,7 @@ import org.bukkit.block.Block;
 import fr.pederobien.minecraftgameplateform.helpers.DisplayHelper;
 import fr.pederobien.minecraftgameplateform.impl.element.AbstractNominable;
 import fr.pederobien.minecraftgameplateform.interfaces.element.IBorderConfiguration;
+import fr.pederobien.minecraftmanagers.BukkitManager;
 import fr.pederobien.minecraftmanagers.WorldManager;
 
 public class BorderConfiguration extends AbstractNominable implements IBorderConfiguration {
@@ -20,9 +24,16 @@ public class BorderConfiguration extends AbstractNominable implements IBorderCon
 	private Block center;
 	private Integer xCenter, zCenter, initialDiameter, finalDiameter;
 	private Double borderSpeed;
+	private List<String> contributors;
 
 	public BorderConfiguration(String name) {
 		super(name);
+		contributors = BukkitManager.getOperators().stream().map(player -> player.getName()).collect(Collectors.toList());
+	}
+
+	@Override
+	public List<String> getContributors() {
+		return Collections.unmodifiableList(contributors);
 	}
 
 	@Override
@@ -48,6 +59,18 @@ public class BorderConfiguration extends AbstractNominable implements IBorderCon
 	@Override
 	public Double getBorderSpeed() {
 		return borderSpeed == null ? DEFAULT_BORDER_SPEED : borderSpeed;
+	}
+
+	@Override
+	public void add(String contributorName) {
+		if (contributors.contains(contributorName))
+			return;
+		contributors.add(contributorName);
+	}
+
+	@Override
+	public boolean remove(String contributorName) {
+		return contributors.remove(contributorName);
 	}
 
 	@Override
