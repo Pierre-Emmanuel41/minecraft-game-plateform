@@ -12,7 +12,9 @@ public enum EnglishBorderMessages {
 
 	NEW_BORDER_NAME_ALREADY_TAKEN(NewBorder_NameAlreadyTaken.ENGLISH),
 
-	NEW_BORDER_BORDER_CREATED(NewBorder_BorderCreated.ENGLISH);
+	NEW_BORDER_BORDER_CREATED(NewBorder_BorderCreated.ENGLISH),
+
+	CURRENT_BORDER_EXPLANATION(CurrentBorder_Explanation.ENGLISH);
 
 	private IMessage source;
 

@@ -12,7 +12,9 @@ public enum FrenchBorderMessages {
 
 	NEW_BORDER_NAME_ALREADY_TAKEN(NewBorder_NameAlreadyTaken.FRENCH),
 
-	NEW_BORDER_BORDER_CREATED(NewBorder_BorderCreated.FRENCH);
+	NEW_BORDER_BORDER_CREATED(NewBorder_BorderCreated.FRENCH),
+
+	CURRENT_BORDER_EXPLANATION(CurrentBorder_Explanation.FRENCH);
 
 	private IMessage source;
 
