@@ -74,6 +74,11 @@ public class BorderConfiguration extends AbstractNominable implements IBorderCon
 	}
 
 	@Override
+	public void setContributors(List<String> contributors) {
+		this.contributors = contributors;
+	}
+
+	@Override
 	public void setWorld(String worldName) {
 		this.world = WorldManager.getWorld(worldName);
 	}
@@ -102,6 +107,7 @@ public class BorderConfiguration extends AbstractNominable implements IBorderCon
 	public String toString() {
 		StringJoiner joiner = new StringJoiner("\n");
 		joiner.add("Name : " + getName());
+		joiner.add("Contributors : " + showContributors());
 		joiner.add("World : " + display(world, getWorld().getName()));
 		joiner.add("Center : " + display(center, DisplayHelper.toString(getBorderCenter())));
 		joiner.add("Initial diameter : " + display(initialDiameter, getInitialBorderDiameter() + " blocks"));
@@ -112,5 +118,12 @@ public class BorderConfiguration extends AbstractNominable implements IBorderCon
 
 	private String display(Object object, String display) {
 		return display.concat(object == null ? " (default value)" : "");
+	}
+
+	private String showContributors() {
+		StringJoiner joiner = new StringJoiner(" ");
+		for (String contributor : contributors)
+			joiner.add(contributor);
+		return joiner.toString();
 	}
 }

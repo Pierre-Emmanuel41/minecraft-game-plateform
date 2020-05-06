@@ -1,7 +1,11 @@
 package fr.pederobien.minecraftgameplateform.border.persistence.loaders;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
 
 import fr.pederobien.minecraftgameplateform.border.persistence.BorderXmlTag;
 import fr.pederobien.minecraftgameplateform.interfaces.element.IBorderConfiguration;
@@ -18,6 +22,14 @@ public class BorderLoaderV10 extends AbstractBorderLoader {
 		// Getting configuration's name
 		Node name = getElementsByTagName(root, BorderXmlTag.NAME).item(0);
 		get().setName(name.getChildNodes().item(0).getNodeValue());
+
+		// Getting contributors
+		NodeList contributors = getElementsByTagName(root, BorderXmlTag.CONTRIBUTOR);
+		List<String> contributorNames = new ArrayList<String>();
+		for (int i = 0; i < contributors.getLength(); i++) {
+			contributorNames.add(getStringAttribute((Element) contributors.item(i), BorderXmlTag.NAME));
+		}
+		get().setContributors(contributorNames);
 
 		// Getting world's name
 		Node world = getElementsByTagName(root, BorderXmlTag.WORLD).item(0);

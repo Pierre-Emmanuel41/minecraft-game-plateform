@@ -1,5 +1,7 @@
 package fr.pederobien.minecraftgameplateform.interfaces.element;
 
+import java.util.List;
+
 import fr.pederobien.minecraftgameplateform.interfaces.element.unmodifiable.IUnmodifiableBorderConfiguration;
 
 public interface IBorderConfiguration extends INominable, IUnmodifiableBorderConfiguration {
@@ -20,6 +22,13 @@ public interface IBorderConfiguration extends INominable, IUnmodifiableBorderCon
 	 * @return True if the contributor was found and removed, false otherwise.
 	 */
 	boolean remove(String contributorName);
+
+	/**
+	 * Set the contributors for this border configuration. Only those contributors can modify it.
+	 * 
+	 * @param contributors The list of contributor's name that can modify this configuration.
+	 */
+	void setContributors(List<String> contributors);
 
 	/**
 	 * Set the world in which this configuration is applied.
