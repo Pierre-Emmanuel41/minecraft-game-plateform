@@ -14,7 +14,9 @@ public enum FrenchBorderMessages {
 
 	NEW_BORDER_BORDER_CREATED(NewBorder_BorderCreated.FRENCH),
 
-	CURRENT_BORDER_EXPLANATION(CurrentBorder_Explanation.FRENCH);
+	CURRENT_BORDER_EXPLANATION(CurrentBorder_Explanation.FRENCH),
+
+	CURRENT_BORDER_ON_CURRENT(CurrentBorder_OnCurrent.FRENCH);
 
 	private IMessage source;
 

@@ -10,7 +10,7 @@ public enum EBorderMessageCode implements IMessageCode {
 	NEW_BORDER__EXPLANATION, NEW_BORDER__NAME_IS_MISSING, NEW_BORDER__NAME_ALREADY_TAKEN, NEW_BORDER__BORDER_CREATED,
 
 	// Code for command current
-	CURRENT_BORDER__EXPLANATION;
+	CURRENT_BORDER__EXPLANATION, CURRENT_BORDER__ON_CURRENT;
 
 	private Permission permission;
 

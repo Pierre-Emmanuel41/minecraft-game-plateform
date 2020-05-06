@@ -14,7 +14,9 @@ public enum EnglishBorderMessages {
 
 	NEW_BORDER_BORDER_CREATED(NewBorder_BorderCreated.ENGLISH),
 
-	CURRENT_BORDER_EXPLANATION(CurrentBorder_Explanation.ENGLISH);
+	CURRENT_BORDER_EXPLANATION(CurrentBorder_Explanation.ENGLISH),
+
+	CURENT_BORDER_ON_CURRENT(CurrentBorder_OnCurrent.ENGLISH);
 
 	private IMessage source;
 
