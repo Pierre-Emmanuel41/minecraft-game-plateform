@@ -102,4 +102,10 @@ public interface IPersistence<T extends IUnmodifiableNominable> {
 	 *         changed.
 	 */
 	Double getVersion();
+
+	/**
+	 * @return True if the default content should be update whenever the associated file exists, false otherwise. This method should
+	 *         be used when persistence is under development.
+	 */
+	boolean forceUpdate();
 }

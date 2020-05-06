@@ -29,15 +29,15 @@ public class BorderLoaderV10 extends AbstractBorderLoader {
 
 		// Getting initial diameter
 		Node initialDiameter = getElementsByTagName(root, BorderXmlTag.INITIAL_DIAMETER).item(0);
-		get().setInitialBorderDiameter(getIntNodeValue(initialDiameter));
+		get().setInitialBorderDiameter(getIntNodeValue(initialDiameter.getChildNodes().item(0)));
 
 		// Getting final diameter
 		Node finalDiameter = getElementsByTagName(root, BorderXmlTag.FINAL_DIAMETER).item(0);
-		get().setFinalBorderDiameter(getIntNodeValue(finalDiameter));
+		get().setFinalBorderDiameter(getIntNodeValue(finalDiameter.getChildNodes().item(0)));
 
 		// Getting border speed
 		Node borderSpeed = getElementsByTagName(root, BorderXmlTag.BORDER_SPEED).item(0);
-		get().setBorderSpeed(getDoubleNodeValue(borderSpeed));
+		get().setBorderSpeed(getDoubleNodeValue(borderSpeed.getChildNodes().item(0)));
 		return this;
 	}
 }

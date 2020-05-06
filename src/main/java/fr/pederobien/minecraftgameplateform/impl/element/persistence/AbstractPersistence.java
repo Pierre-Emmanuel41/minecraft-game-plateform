@@ -36,6 +36,11 @@ public abstract class AbstractPersistence<T extends IUnmodifiableNominable> impl
 		throw new UnsupportedOperationException("This method cannot be called");
 	}
 
+	@Override
+	public boolean forceUpdate() {
+		return false;
+	}
+
 	protected void setInternalPath(Path path) {
 		checkPath(path);
 		this.path = path;

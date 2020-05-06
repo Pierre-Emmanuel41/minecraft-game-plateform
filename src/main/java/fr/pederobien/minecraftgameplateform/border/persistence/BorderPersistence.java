@@ -63,4 +63,9 @@ public class BorderPersistence extends AbstractXmlPersistence<IBorderConfigurati
 		saveDocument(doc, get().getName());
 		return false;
 	}
+
+	@Override
+	public boolean forceUpdate() {
+		return true;
+	}
 }

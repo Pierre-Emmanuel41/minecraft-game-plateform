@@ -53,7 +53,7 @@ public class PersistenceCenter extends AbstractNominable implements IPersistence
 		if (version == null) {
 			Plateform.getPlugin().getLogger().info("Registering persistence " + persistence.getClass());
 			register(persistence);
-		} else if (!version.equals(persistence.getVersion())) {
+		} else if (persistence.forceUpdate() || !version.equals(persistence.getVersion())) {
 			Plateform.getPlugin().getLogger().info("Updating persistence " + persistence.getClass());
 			update(persistence);
 		}

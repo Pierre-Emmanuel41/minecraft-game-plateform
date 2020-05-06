@@ -22,7 +22,7 @@ public class BorderConfiguration extends AbstractNominable implements IBorderCon
 
 	private World world;
 	private Block center;
-	private Integer xCenter, zCenter, initialDiameter, finalDiameter;
+	private Integer initialDiameter, finalDiameter;
 	private Double borderSpeed;
 	private List<String> contributors;
 
@@ -43,7 +43,7 @@ public class BorderConfiguration extends AbstractNominable implements IBorderCon
 
 	@Override
 	public Block getBorderCenter() {
-		return center == null ? WorldManager.getHighestBlockYAt(getWorld(), 0, 0) : WorldManager.getHighestBlockYAt(getWorld(), xCenter, zCenter);
+		return center == null ? WorldManager.getHighestBlockYAt(getWorld(), 0, 0) : center;
 	}
 
 	@Override
