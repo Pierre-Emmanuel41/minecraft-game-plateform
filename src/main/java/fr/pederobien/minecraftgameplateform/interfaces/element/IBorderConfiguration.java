@@ -1,39 +1,8 @@
 package fr.pederobien.minecraftgameplateform.interfaces.element;
 
-import java.util.List;
-
-import fr.pederobien.minecraftgameplateform.exceptions.PlayerNotFoundException;
-import fr.pederobien.minecraftgameplateform.exceptions.PlayerNotOperatorException;
 import fr.pederobien.minecraftgameplateform.interfaces.element.unmodifiable.IUnmodifiableBorderConfiguration;
 
 public interface IBorderConfiguration extends INominable, IUnmodifiableBorderConfiguration {
-
-	/**
-	 * Add a contributor for this world border configuration. This new contributor can modify this world border configuration.
-	 * 
-	 * @param contributorName The contributor's name for this configuration.
-	 * 
-	 * @throws PlayerNotFoundException    If the player associated to the given name does not exist.
-	 * @throws PlayerNotOperatorException If the player is not an operator.
-	 */
-	void add(String contributorName);
-
-	/**
-	 * Remove the contributor from the list of contributor for this configuration. When removed, the former contributor cannot modify
-	 * this configuration any more.
-	 * 
-	 * @param contributorName The contributor's name to remove.
-	 * 
-	 * @return True if the contributor was found and removed, false otherwise.
-	 */
-	boolean remove(String contributorName);
-
-	/**
-	 * Set the contributors for this border configuration. Only those contributors can modify it.
-	 * 
-	 * @param contributors The list of contributor's name that can modify this configuration.
-	 */
-	void setContributors(List<String> contributors);
 
 	/**
 	 * Set the world in which this configuration is applied.

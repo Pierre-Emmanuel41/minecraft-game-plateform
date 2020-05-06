@@ -39,14 +39,6 @@ public class BorderPersistence extends AbstractXmlPersistence<IBorderConfigurati
 		name.appendChild(doc.createTextNode(get().getName()));
 		root.appendChild(name);
 
-		Element contributors = createElement(doc, BorderXmlTag.CONTRIBUTORS);
-		for (String contributorName : get().getContributors()) {
-			Element contributor = createElement(doc, BorderXmlTag.CONTRIBUTOR);
-			setAttribute(contributor, BorderXmlTag.NAME, contributorName);
-			contributors.appendChild(contributor);
-		}
-		root.appendChild(contributors);
-
 		Element world = createElement(doc, BorderXmlTag.WORLD);
 		world.appendChild(doc.createTextNode(get().getWorld().getName()));
 		root.appendChild(world);
