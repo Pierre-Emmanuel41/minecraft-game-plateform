@@ -2,6 +2,7 @@ package fr.pederobien.minecraftgameplateform;
 
 import org.bukkit.plugin.java.JavaPlugin;
 
+import fr.pederobien.minecraftgameplateform.border.BorderCommand;
 import fr.pederobien.minecraftgameplateform.commands.game.PauseCommand;
 import fr.pederobien.minecraftgameplateform.commands.game.StartCommand;
 import fr.pederobien.minecraftgameplateform.commands.game.StopCommand;
@@ -21,6 +22,7 @@ public class PlateformPlugin extends JavaPlugin {
 		new StopCommand(this);
 
 		new SpawnCommand(this);
+		new BorderCommand(this);
 
 		Plateform.getNotificationCenter().getDictionaryContext().register(this, new EnglishDictionary());
 		Plateform.getNotificationCenter().getDictionaryContext().register(this, new FrenchDictionary());

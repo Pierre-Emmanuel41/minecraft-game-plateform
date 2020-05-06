@@ -17,4 +17,6 @@ commands:
   spawn:
     description: This command is used to manipulate a spawn before starting a game.
     permission: PlateformPlugin.yml
-  
+  border:
+    description: This command is used to manipulate a border configurations.
+    permission: PlateformPlugin.yml  

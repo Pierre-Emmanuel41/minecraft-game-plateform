@@ -10,8 +10,8 @@ public class DefaultBorderContent extends AbstractDefaultContent {
 
 	@Override
 	public String getDefaultContent() {
-		return "<?xml version=\"1.0\" encoding=\"UTF-8\"?>"
-				+ "  <border>\r\n"
+		return "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n"
+				+ "<border>\r\n"
 				+ "  <version>1.0</version>\r\n"
 				+ "  <name>DefaultBorder</name>\r\n"
 				+ "  <world>world</world>\r\n"
