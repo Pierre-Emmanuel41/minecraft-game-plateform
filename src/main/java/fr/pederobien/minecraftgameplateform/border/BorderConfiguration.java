@@ -7,11 +7,15 @@ import java.util.stream.Collectors;
 
 import org.bukkit.World;
 import org.bukkit.block.Block;
+import org.bukkit.entity.Player;
 
+import fr.pederobien.minecraftgameplateform.exceptions.PlayerNotFoundException;
+import fr.pederobien.minecraftgameplateform.exceptions.PlayerNotOperatorException;
 import fr.pederobien.minecraftgameplateform.helpers.DisplayHelper;
 import fr.pederobien.minecraftgameplateform.impl.element.AbstractNominable;
 import fr.pederobien.minecraftgameplateform.interfaces.element.IBorderConfiguration;
 import fr.pederobien.minecraftmanagers.BukkitManager;
+import fr.pederobien.minecraftmanagers.PlayerManager;
 import fr.pederobien.minecraftmanagers.WorldManager;
 
 public class BorderConfiguration extends AbstractNominable implements IBorderConfiguration {
@@ -65,7 +69,7 @@ public class BorderConfiguration extends AbstractNominable implements IBorderCon
 	public void add(String contributorName) {
 		if (contributors.contains(contributorName))
 			return;
-		contributors.add(contributorName);
+		checkContributor(contributorName);
 	}
 
 	@Override
@@ -75,7 +79,9 @@ public class BorderConfiguration extends AbstractNominable implements IBorderCon
 
 	@Override
 	public void setContributors(List<String> contributors) {
-		this.contributors = contributors;
+		this.contributors.clear();
+		for (String contributor : contributors)
+			checkContributor(contributor);
 	}
 
 	@Override
@@ -125,5 +131,14 @@ public class BorderConfiguration extends AbstractNominable implements IBorderCon
 		for (String contributor : contributors)
 			joiner.add(contributor);
 		return joiner.toString();
+	}
+
+	private void checkContributor(String contributorName) {
+		Player player = PlayerManager.getPlayer(contributorName);
+		if (player == null)
+			throw new PlayerNotFoundException(contributorName);
+		if (!PlayerManager.getPlayer(contributorName).isOp())
+			throw new PlayerNotOperatorException(player);
+		contributors.add(contributorName);
 	}
 }

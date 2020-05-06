@@ -26,9 +26,8 @@ public class BorderLoaderV10 extends AbstractBorderLoader {
 		// Getting contributors
 		NodeList contributors = getElementsByTagName(root, BorderXmlTag.CONTRIBUTOR);
 		List<String> contributorNames = new ArrayList<String>();
-		for (int i = 0; i < contributors.getLength(); i++) {
+		for (int i = 0; i < contributors.getLength(); i++)
 			contributorNames.add(getStringAttribute((Element) contributors.item(i), BorderXmlTag.NAME));
-		}
 		get().setContributors(contributorNames);
 
 		// Getting world's name

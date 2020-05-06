@@ -2,6 +2,8 @@ package fr.pederobien.minecraftgameplateform.interfaces.element;
 
 import java.util.List;
 
+import fr.pederobien.minecraftgameplateform.exceptions.PlayerNotFoundException;
+import fr.pederobien.minecraftgameplateform.exceptions.PlayerNotOperatorException;
 import fr.pederobien.minecraftgameplateform.interfaces.element.unmodifiable.IUnmodifiableBorderConfiguration;
 
 public interface IBorderConfiguration extends INominable, IUnmodifiableBorderConfiguration {
@@ -10,6 +12,9 @@ public interface IBorderConfiguration extends INominable, IUnmodifiableBorderCon
 	 * Add a contributor for this world border configuration. This new contributor can modify this world border configuration.
 	 * 
 	 * @param contributorName The contributor's name for this configuration.
+	 * 
+	 * @throws PlayerNotFoundException    If the player associated to the given name does not exist.
+	 * @throws PlayerNotOperatorException If the player is not an operator.
 	 */
 	void add(String contributorName);
 
