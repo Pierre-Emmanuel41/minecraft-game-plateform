@@ -14,7 +14,6 @@ public class DefaultBorderContent extends AbstractDefaultContent {
 				+ "  <border>\r\n"
 				+ "  <version>1.0</version>\r\n"
 				+ "  <name>DefaultBorder</name>\r\n"
-				+ "  <plugin/>\r\n"
 				+ "  <world>world</world>\r\n"
 				+ "  <center x=\"0\" z=\"0\"/>\r\n"
 				+ "  <initialdiameter>2000</initialdiameter>\r\n"

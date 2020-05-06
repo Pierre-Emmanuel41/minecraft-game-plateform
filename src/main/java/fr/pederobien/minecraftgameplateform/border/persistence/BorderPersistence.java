@@ -1,7 +1,5 @@
 package fr.pederobien.minecraftgameplateform.border.persistence;
 
-import java.nio.file.Path;
-
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
@@ -15,7 +13,7 @@ public class BorderPersistence extends AbstractXmlPersistence<IBorderConfigurati
 	private static final String ROOT_XML_DOCUMENT = "border";
 
 	private BorderPersistence() {
-		super(new DefaultBorderContent());
+		super(Plateform.ROOT.resolve("Borders"), new DefaultBorderContent());
 		register(new BorderLoaderV10());
 	}
 
@@ -41,10 +39,6 @@ public class BorderPersistence extends AbstractXmlPersistence<IBorderConfigurati
 		name.appendChild(doc.createTextNode(get().getName()));
 		root.appendChild(name);
 
-		Element plugin = createElement(doc, BorderXmlTag.PLUGIN);
-		plugin.appendChild(doc.createTextNode(get().getPlugin().getName()));
-		root.appendChild(plugin);
-
 		Element world = createElement(doc, BorderXmlTag.WORLD);
 		world.appendChild(doc.createTextNode(get().getWorld().getName()));
 		root.appendChild(world);
@@ -68,10 +62,5 @@ public class BorderPersistence extends AbstractXmlPersistence<IBorderConfigurati
 
 		saveDocument(doc, get().getName());
 		return false;
-	}
-
-	@Override
-	public Path getPath() {
-		return Plateform.ROOT.resolve(get().getPlugin().getName()).resolve("Borders");
 	}
 }

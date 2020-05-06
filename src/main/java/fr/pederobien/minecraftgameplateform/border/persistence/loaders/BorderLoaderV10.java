@@ -19,10 +19,6 @@ public class BorderLoaderV10 extends AbstractBorderLoader {
 		Node name = getElementsByTagName(root, BorderXmlTag.NAME).item(0);
 		get().setName(name.getChildNodes().item(0).getNodeValue());
 
-		// Getting plugin's name
-		Node plugin = getElementsByTagName(root, BorderXmlTag.PLUGIN).item(0);
-		get().setPlugin(plugin.getChildNodes().item(0).getNodeValue());
-
 		// Getting world's name
 		Node world = getElementsByTagName(root, BorderXmlTag.WORLD).item(0);
 		get().setWorld(world.getChildNodes().item(0).getNodeValue());

@@ -5,13 +5,6 @@ import fr.pederobien.minecraftgameplateform.interfaces.element.unmodifiable.IUnm
 public interface IBorderConfiguration extends INominable, IUnmodifiableBorderConfiguration {
 
 	/**
-	 * Set the plugin to which this border configuration is associated.
-	 * 
-	 * @param pluginName The plugin's name to which this configuration is associated.
-	 */
-	void setPlugin(String pluginName);
-
-	/**
 	 * Set the world in which this configuration is applied.
 	 * 
 	 * @param world The world's name in which the world border is applied.
