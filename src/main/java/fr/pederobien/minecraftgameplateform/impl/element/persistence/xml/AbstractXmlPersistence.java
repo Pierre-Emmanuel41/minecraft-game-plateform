@@ -191,7 +191,7 @@ public abstract class AbstractXmlPersistence<T extends IUnmodifiableNominable> e
 
 	/**
 	 * @param element The element used to add a new attribute.
-	 * @param name    The name of the attribute to create or alter.
+	 * @param tag     The name of the attribute to create or alter.
 	 * @param value   Value to set in string form.
 	 * 
 	 * @see #setAttribute(Element, String, String)
