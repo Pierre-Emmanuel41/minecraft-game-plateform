@@ -18,7 +18,9 @@ public enum FrenchBorderMessages {
 
 	CURRENT_BORDER_ON_CURRENT(CurrentBorder_OnCurrent.FRENCH),
 
-	WORLD_BORDER_EXPLANATION(WorldBorder_Explanation.FRENCH);
+	WORLD_BORDER_EXPLANATION(WorldBorder_Explanation.FRENCH),
+
+	WORLD_BORDER_WORLD_NAME_IS_MISSING(WorldBorder_WorldNameIsMissing.ENGLISH);
 
 	private IMessage source;
 
