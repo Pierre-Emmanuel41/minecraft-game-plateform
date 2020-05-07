@@ -9,7 +9,7 @@ public interface IBorderConfiguration extends INominable, IUnmodifiableBorderCon
 	/**
 	 * Set the world in which this configuration is applied.
 	 * 
-	 * @param world The world's name in which the world border is applied.
+	 * @param worldName The world's name in which the world border is applied.
 	 */
 	void setWorld(String worldName);
 
