@@ -22,6 +22,8 @@ public enum EnglishBorderMessages {
 
 	DELETE_BORDER_NAME_IS_MISSING(DeleteBorder_NameIsMissing.ENGLISH),
 
+	DELETE_BORDER_DID_NOT_DELETE(DeleteBorder_DidNotDelete.ENGLISH),
+
 	WORLD_BORDER_EXPLANATION(WorldBorder_Explanation.ENGLISH),
 
 	WORLD_BORDER_WORLD_NAME_IS_MISSING(WorldBorder_WorldNameIsMissing.ENGLISH),
