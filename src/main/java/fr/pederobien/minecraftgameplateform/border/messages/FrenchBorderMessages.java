@@ -28,6 +28,8 @@ public enum FrenchBorderMessages {
 
 	LIST_BORDER_EXPLANATION(ListBorder_Explanation.FRENCH),
 
+	LIST_BORDERR_NO_ELEMENT(ListBorder_NoElement.FRENCH),
+
 	WORLD_BORDER_EXPLANATION(WorldBorder_Explanation.FRENCH),
 
 	WORLD_BORDER_WORLD_NAME_IS_MISSING(WorldBorder_WorldNameIsMissing.FRENCH),

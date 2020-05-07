@@ -28,6 +28,8 @@ public enum EnglishBorderMessages {
 
 	LIST_BORDER_EXPLANATION(ListBorder_Explanation.ENGLISH),
 
+	LIST_BORDER_NO_ELEMENT(ListBorder_NoElement.ENGLISH),
+
 	WORLD_BORDER_EXPLANATION(WorldBorder_Explanation.ENGLISH),
 
 	WORLD_BORDER_WORLD_NAME_IS_MISSING(WorldBorder_WorldNameIsMissing.ENGLISH),
