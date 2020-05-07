@@ -7,6 +7,7 @@ import fr.pederobien.minecraftgameplateform.border.messages.EBorderMessageCode;
 import fr.pederobien.minecraftgameplateform.commands.common.CommonNew;
 import fr.pederobien.minecraftgameplateform.commands.common.ECommonLabel;
 import fr.pederobien.minecraftgameplateform.interfaces.element.IBorderConfiguration;
+import fr.pederobien.minecraftgameplateform.interfaces.element.ILabel;
 
 public class NewBorder extends CommonNew<IBorderConfiguration> {
 
@@ -32,6 +33,13 @@ public class NewBorder extends CommonNew<IBorderConfiguration> {
 	@Override
 	protected void onCreated(CommandSender sender, String name) {
 		sendMessageToSender(sender, EBorderMessageCode.NEW_BORDER__BORDER_CREATED, name);
-		setAvailableLabelEdition(ECommonLabel.CURRENT);
+		setAllAvailable();
+	}
+
+	private void setAllAvailable() {
+		for (ILabel label : ECommonLabel.values())
+			setAvailableLabelEdition(label);
+		for (ILabel label : EBorderLabel.values())
+			setAvailableLabelEdition(label);
 	}
 }
