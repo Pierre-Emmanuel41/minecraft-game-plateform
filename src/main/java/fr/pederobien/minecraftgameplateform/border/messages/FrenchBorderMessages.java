@@ -16,7 +16,9 @@ public enum FrenchBorderMessages {
 
 	CURRENT_BORDER_EXPLANATION(CurrentBorder_Explanation.FRENCH),
 
-	CURRENT_BORDER_ON_CURRENT(CurrentBorder_OnCurrent.FRENCH);
+	CURRENT_BORDER_ON_CURRENT(CurrentBorder_OnCurrent.FRENCH),
+
+	WORLD_BORDER_EXPLANATION(WorldBorder_Explanation.FRENCH);
 
 	private IMessage source;
 
