@@ -32,6 +32,8 @@ public enum FrenchBorderMessages {
 
 	LIST_BORDER_ONE_ELEMENT(ListBorder_OneElement.FRENCH),
 
+	LIST_BORDER_SEVERAL_ELEMENTS(ListBorder_SeveralElements.FRENCH),
+
 	WORLD_BORDER_EXPLANATION(WorldBorder_Explanation.FRENCH),
 
 	WORLD_BORDER_WORLD_NAME_IS_MISSING(WorldBorder_WorldNameIsMissing.FRENCH),
