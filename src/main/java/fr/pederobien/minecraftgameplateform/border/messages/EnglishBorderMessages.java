@@ -16,7 +16,7 @@ public enum EnglishBorderMessages {
 
 	CURRENT_BORDER_EXPLANATION(CurrentBorder_Explanation.ENGLISH),
 
-	CURENT_BORDER_ON_CURRENT(CurrentBorder_OnCurrent.ENGLISH),
+	CURRENT_BORDER_ON_CURRENT(CurrentBorder_OnCurrent.ENGLISH),
 
 	DELETE_BORDER_EXPLANATION(DeleteBorder_Explanation.ENGLISH),
 
@@ -29,6 +29,8 @@ public enum EnglishBorderMessages {
 	LIST_BORDER_EXPLANATION(ListBorder_Explanation.ENGLISH),
 
 	LIST_BORDER_NO_ELEMENT(ListBorder_NoElement.ENGLISH),
+
+	LIST_BORDER_ONE_ELEMENT(ListBorder_OneElement.ENGLISH),
 
 	WORLD_BORDER_EXPLANATION(WorldBorder_Explanation.ENGLISH),
 

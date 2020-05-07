@@ -28,7 +28,9 @@ public enum FrenchBorderMessages {
 
 	LIST_BORDER_EXPLANATION(ListBorder_Explanation.FRENCH),
 
-	LIST_BORDERR_NO_ELEMENT(ListBorder_NoElement.FRENCH),
+	LIST_BORDER_NO_ELEMENT(ListBorder_NoElement.FRENCH),
+
+	LIST_BORDER_ONE_ELEMENT(ListBorder_OneElement.FRENCH),
 
 	WORLD_BORDER_EXPLANATION(WorldBorder_Explanation.FRENCH),
 
