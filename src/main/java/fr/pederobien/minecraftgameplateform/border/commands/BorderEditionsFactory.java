@@ -18,4 +18,11 @@ public class BorderEditionsFactory {
 	public static IMapPersistenceEdition<IBorderConfiguration> currentBorder() {
 		return new CurrentBorder();
 	}
+
+	/**
+	 * @return An edition to set the world in which the border is applied.
+	 */
+	public static IMapPersistenceEdition<IBorderConfiguration> worldBorder() {
+		return new WorldBorder();
+	}
 }
