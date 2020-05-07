@@ -29,7 +29,7 @@ public abstract class CommonDelete<T extends IUnmodifiableNominable> extends Abs
 	 * Method called when the file associated to the given name has been correctly deleted.
 	 * 
 	 * @param sender The entity (generally a player) to send messages.
-	 * @param name   The name of the deleted spawn.
+	 * @param name   The name of the deleted object.
 	 */
 	protected abstract void onDeleted(CommandSender sender, String name);
 
