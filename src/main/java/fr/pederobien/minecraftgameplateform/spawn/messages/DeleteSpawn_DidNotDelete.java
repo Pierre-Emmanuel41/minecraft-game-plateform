@@ -14,14 +14,14 @@ public class DeleteSpawn_DidNotDelete extends AbstractDynamicMessage {
 	private static class French extends DeleteSpawn_DidNotDelete {
 		@Override
 		public String getMessage(String... args) {
-			return "La suppresion du fichier " + args[0] + " n'a pas pu s'effectuer correctement";
+			return "La suppresion du spawn " + args[0] + " n'a pas pu s'effectuer correctement";
 		}
 	}
 
 	private static class English extends DeleteSpawn_DidNotDelete {
 		@Override
 		public String getMessage(String... args) {
-			return "The deletion of the file " + args[0] + " was not successful";
+			return "The deletion of spawn " + args[0] + " was not successful";
 		}
 	}
 }
