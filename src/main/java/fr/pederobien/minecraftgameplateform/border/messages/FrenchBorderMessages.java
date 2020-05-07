@@ -18,6 +18,8 @@ public enum FrenchBorderMessages {
 
 	CURRENT_BORDER_ON_CURRENT(CurrentBorder_OnCurrent.FRENCH),
 
+	DELETE_BORDER_EXPLANATION(DeleteBorder_Explanation.FRENCH),
+
 	WORLD_BORDER_EXPLANATION(WorldBorder_Explanation.FRENCH),
 
 	WORLD_BORDER_WORLD_NAME_IS_MISSING(WorldBorder_WorldNameIsMissing.FRENCH),

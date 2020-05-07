@@ -18,6 +18,8 @@ public enum EnglishBorderMessages {
 
 	CURENT_BORDER_ON_CURRENT(CurrentBorder_OnCurrent.ENGLISH),
 
+	DELETE_BORDER_EXPLANATION(DeleteBorder_Explanation.ENGLISH),
+
 	WORLD_BORDER_EXPLANATION(WorldBorder_Explanation.ENGLISH),
 
 	WORLD_BORDER_WORLD_NAME_IS_MISSING(WorldBorder_WorldNameIsMissing.ENGLISH),
