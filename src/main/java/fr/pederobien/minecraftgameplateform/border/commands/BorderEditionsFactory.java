@@ -27,6 +27,13 @@ public class BorderEditionsFactory {
 	}
 
 	/**
+	 * @return An edition to display each existing border's name.
+	 */
+	public static IMapPersistenceEdition<IBorderConfiguration> listBorder() {
+		return new ListBorder();
+	}
+
+	/**
 	 * @return An edition to set the world in which the border is applied.
 	 */
 	public static IMapPersistenceEdition<IBorderConfiguration> worldBorder() {
