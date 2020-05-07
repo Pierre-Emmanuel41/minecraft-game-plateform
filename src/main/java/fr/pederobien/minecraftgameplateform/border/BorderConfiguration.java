@@ -1,5 +1,6 @@
 package fr.pederobien.minecraftgameplateform.border;
 
+import java.time.LocalTime;
 import java.util.StringJoiner;
 
 import org.bukkit.World;
@@ -15,11 +16,13 @@ public class BorderConfiguration extends AbstractNominable implements IBorderCon
 	private static final Integer DEFAULT_INITIAL_DIAMETER = 2000;
 	private static final Integer DEFAULT_FINAL_DIAMETER = 30;
 	private static final Double DEFAULT_BORDER_SPEED = 1.0;
+	private static final LocalTime DEFAULT_START_TIME = LocalTime.of(2, 0, 0);
 
 	private World world;
 	private Block center;
 	private Integer initialDiameter, finalDiameter;
 	private Double borderSpeed;
+	private LocalTime startTime;
 
 	public BorderConfiguration(String name) {
 		super(name);
@@ -51,6 +54,11 @@ public class BorderConfiguration extends AbstractNominable implements IBorderCon
 	}
 
 	@Override
+	public LocalTime getStartTime() {
+		return startTime == null ? DEFAULT_START_TIME : startTime;
+	}
+
+	@Override
 	public void setWorld(String worldName) {
 		this.world = WorldManager.getWorld(worldName);
 	}
@@ -76,6 +84,11 @@ public class BorderConfiguration extends AbstractNominable implements IBorderCon
 	}
 
 	@Override
+	public void setStartTime(LocalTime startTime) {
+		this.startTime = startTime;
+	}
+
+	@Override
 	public String toString() {
 		StringJoiner joiner = new StringJoiner("\n");
 		joiner.add("Name : " + getName());
@@ -84,6 +97,7 @@ public class BorderConfiguration extends AbstractNominable implements IBorderCon
 		joiner.add("Initial diameter : " + display(initialDiameter, getInitialBorderDiameter() + " blocks"));
 		joiner.add("Final diameter : " + display(finalDiameter, getFinalBorderDiameter() + " blocks"));
 		joiner.add("Speed : " + display(borderSpeed, getBorderSpeed() + " block/s"));
+		joiner.add("Start time : " + display(startTime, DisplayHelper.toString(getStartTime())));
 		return joiner.toString();
 	}
 

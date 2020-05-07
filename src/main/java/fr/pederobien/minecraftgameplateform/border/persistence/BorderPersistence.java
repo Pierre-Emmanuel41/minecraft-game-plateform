@@ -60,6 +60,10 @@ public class BorderPersistence extends AbstractXmlPersistence<IBorderConfigurati
 		borderSpeed.appendChild(doc.createTextNode(get().getBorderSpeed().toString()));
 		root.appendChild(borderSpeed);
 
+		Element startTime = createElement(doc, BorderXmlTag.START_TIME);
+		startTime.appendChild(doc.createTextNode(get().getStartTime().toString()));
+		root.appendChild(startTime);
+
 		saveDocument(doc, get().getName());
 		return false;
 	}

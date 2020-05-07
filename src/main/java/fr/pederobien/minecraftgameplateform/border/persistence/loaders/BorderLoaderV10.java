@@ -38,6 +38,10 @@ public class BorderLoaderV10 extends AbstractBorderLoader {
 		// Getting border speed
 		Node borderSpeed = getElementsByTagName(root, BorderXmlTag.BORDER_SPEED).item(0);
 		get().setBorderSpeed(getDoubleNodeValue(borderSpeed.getChildNodes().item(0)));
+
+		// Getting start time
+		Node startTime = getElementsByTagName(root, BorderXmlTag.START_TIME).item(0);
+		get().setStartTime(getLocalTimeNodeValue(startTime.getChildNodes().item(0)));
 		return this;
 	}
 }

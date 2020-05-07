@@ -2,7 +2,7 @@ package fr.pederobien.minecraftgameplateform.border.persistence;
 
 public enum BorderXmlTag {
 	NAME("name"), WORLD("world"), CENTER("center"), X_COORDINATE("x"), Z_COORDINATE("z"), INITIAL_DIAMETER("initialdiameter"), FINAL_DIAMETER("finaldiameter"),
-	BORDER_SPEED("borderspeed");
+	BORDER_SPEED("borderspeed"), START_TIME("starttime");
 
 	private String name;
 

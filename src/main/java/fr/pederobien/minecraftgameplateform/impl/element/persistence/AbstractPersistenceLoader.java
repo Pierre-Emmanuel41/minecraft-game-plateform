@@ -1,5 +1,8 @@
 package fr.pederobien.minecraftgameplateform.impl.element.persistence;
 
+import java.time.LocalTime;
+import java.time.format.DateTimeParseException;
+
 import fr.pederobien.minecraftgameplateform.interfaces.element.persistence.IPersistenceLoader;
 import fr.pederobien.minecraftgameplateform.interfaces.element.unmodifiable.IUnmodifiableNominable;
 
@@ -68,5 +71,20 @@ public class AbstractPersistenceLoader<T extends IUnmodifiableNominable> impleme
 	 */
 	protected boolean toBool(String bool) {
 		return Boolean.parseBoolean(bool);
+	}
+
+	/**
+	 * Obtains an instance of {@code LocalTime} from a text string such as {@code 10:15}.
+	 * <p>
+	 * The string must represent a valid time and is parsed using {@link java.time.format.DateTimeFormatter#ISO_LOCAL_TIME}.
+	 *
+	 * @param text the text to parse such as "10:15:30", not null.
+	 * 
+	 * @return the parsed local time, not null.
+	 * 
+	 * @throws DateTimeParseException if the text cannot be parsed.
+	 */
+	protected LocalTime toLocalTime(String time) {
+		return LocalTime.parse(time);
 	}
 }

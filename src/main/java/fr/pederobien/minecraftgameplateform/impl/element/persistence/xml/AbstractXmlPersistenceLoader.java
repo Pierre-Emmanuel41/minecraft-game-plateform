@@ -1,5 +1,7 @@
 package fr.pederobien.minecraftgameplateform.impl.element.persistence.xml;
 
+import java.time.LocalTime;
+
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
@@ -76,6 +78,18 @@ public abstract class AbstractXmlPersistenceLoader<T extends IUnmodifiableNomina
 	}
 
 	/**
+	 * Convert the result returned by {@link #getStringAttribute(Element, Object)} into a {@link LocalTime}.
+	 * 
+	 * @param element The element used to search attributes.
+	 * @param name    The name of the attribute to retrieve.
+	 * 
+	 * @return A LocalTime.
+	 */
+	protected LocalTime getLocalTimeAttribute(Element element, Object name) {
+		return toLocalTime(getStringAttribute(element, name));
+	}
+
+	/**
 	 * Convert the result returned by {@link Element#getNodeValue()} into an integer.
 	 * 
 	 * @param node The node use to transform its value into an integer.
@@ -106,5 +120,16 @@ public abstract class AbstractXmlPersistenceLoader<T extends IUnmodifiableNomina
 	 */
 	protected boolean getBooleanNodeValue(Node node) {
 		return toBool(node.getNodeValue());
+	}
+
+	/**
+	 * Convert the result returned by {@link Element#getNodeValue()} into a {@link LocalTime}.
+	 * 
+	 * @param node The node use to transform its value into a local time.
+	 * 
+	 * @return A local time.
+	 */
+	protected LocalTime getLocalTimeNodeValue(Node node) {
+		return toLocalTime(node.getNodeValue());
 	}
 }

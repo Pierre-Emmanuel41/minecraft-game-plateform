@@ -1,5 +1,7 @@
 package fr.pederobien.minecraftgameplateform.interfaces.element.unmodifiable;
 
+import java.time.LocalTime;
+
 import org.bukkit.World;
 import org.bukkit.block.Block;
 
@@ -30,4 +32,12 @@ public interface IUnmodifiableBorderConfiguration extends IUnmodifiableNominable
 	 *         border speed on minecraft world correspond to this speed divided by 2.
 	 */
 	Double getBorderSpeed();
+
+	/**
+	 * @return The time at which the border associated to this configuration moves from its initial diameter to its final diameter. If
+	 *         this time correspond to 0h 0m 0s then the border moves when a game starts.
+	 * 
+	 * @see LocalTime#of(int, int, int)
+	 */
+	LocalTime getStartTime();
 }
