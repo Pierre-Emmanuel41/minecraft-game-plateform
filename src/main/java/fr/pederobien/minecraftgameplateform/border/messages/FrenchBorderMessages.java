@@ -26,6 +26,8 @@ public enum FrenchBorderMessages {
 
 	DELETE_BORDER_BORDER_DELETED(DeleteBorder_BorderDeleted.FRENCH),
 
+	LIST_BORDER_EXPLANATION(ListBorder_Explanation.FRENCH),
+
 	WORLD_BORDER_EXPLANATION(WorldBorder_Explanation.FRENCH),
 
 	WORLD_BORDER_WORLD_NAME_IS_MISSING(WorldBorder_WorldNameIsMissing.FRENCH),
