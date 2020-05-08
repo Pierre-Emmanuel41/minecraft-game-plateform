@@ -8,7 +8,7 @@ public class Common_PlayerDoesNotExist extends AbstractDynamicMessage {
 	public static final IMessage ENGLISH = new English();
 
 	public Common_PlayerDoesNotExist() {
-		super(ECommonMessageCode.COMMON__PLAYER_DOES_NOT_EXIST);
+		super(ECommonMessageCode.COMMON_PLAYER_DOES_NOT_EXIST);
 	}
 
 	private static class French extends Common_PlayerDoesNotExist {

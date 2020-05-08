@@ -26,7 +26,7 @@ public class AllowMobsUnderSpawn extends AbstractWorldStructureEdition<ISpawn> {
 			else if (isAllowMobsUnderSpawn.equals("false"))
 				get().setAllowMobsUnderSpawn(false);
 			else {
-				sendMessageToSender(sender, ECommonMessageCode.COMMON__BAD_BOOLEAN_FORMAT);
+				sendMessageToSender(sender, ECommonMessageCode.COMMON_BAD_BOOLEAN_FORMAT);
 				return false;
 			}
 			sendMessageToSender(sender, ESpawnMessageCode.ALLOW_MOB_TO_SPAWN_UNDER_SPAWN__DEFINED, get().isAllowMobsUnderSpawn());

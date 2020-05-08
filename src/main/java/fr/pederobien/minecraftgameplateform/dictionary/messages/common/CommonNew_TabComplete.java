@@ -8,7 +8,7 @@ public class CommonNew_TabComplete extends AbstractNotDynamicMessage {
 	public static final IMessage ENGLISH = new English();
 
 	public CommonNew_TabComplete(String message) {
-		super(ECommonMessageCode.COMMON_NEW__TAB_COMPLETE, message);
+		super(ECommonMessageCode.COMMON_NEW_TAB_COMPLETE, message);
 	}
 
 	private static class French extends CommonNew_TabComplete {

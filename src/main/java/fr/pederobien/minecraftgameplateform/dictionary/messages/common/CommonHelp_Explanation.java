@@ -8,7 +8,7 @@ public class CommonHelp_Explanation extends AbstractNotDynamicMessage {
 	public static final IMessage ENGLISH = new English();
 
 	public CommonHelp_Explanation(String message) {
-		super(ECommonMessageCode.COMMON_HELP__EXPLANATION, message);
+		super(ECommonMessageCode.COMMON_HELP_EXPLANATION, message);
 	}
 
 	private static class French extends CommonHelp_Explanation {

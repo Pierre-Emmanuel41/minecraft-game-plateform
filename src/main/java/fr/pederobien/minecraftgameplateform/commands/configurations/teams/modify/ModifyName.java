@@ -59,7 +59,7 @@ public class ModifyName<T extends IGameConfiguration> extends AbstractTeamConfig
 		case 1:
 			return filter(getGameConfigurationHelper().getTeamNames(false), args[0]);
 		case 2:
-			return Arrays.asList(getMessageFromDictionary(sender, ECommonMessageCode.COMMON_RENAME__TAB_COMPLETE));
+			return Arrays.asList(getMessageFromDictionary(sender, ECommonMessageCode.COMMON_RENAME_TAB_COMPLETE));
 		}
 		return super.onTabComplete(sender, command, alias, args);
 	}

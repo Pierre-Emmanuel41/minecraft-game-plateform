@@ -74,7 +74,7 @@ public abstract class CommonRename<T extends INominable> extends AbstractLabelEd
 	@Override
 	public List<String> onTabComplete(CommandSender sender, Command command, String alias, String[] args) {
 		if (args.length == 1)
-			return Arrays.asList(getMessageFromDictionary(sender, ECommonMessageCode.COMMON_RENAME__TAB_COMPLETE));
+			return Arrays.asList(getMessageFromDictionary(sender, ECommonMessageCode.COMMON_RENAME_TAB_COMPLETE));
 		return super.onTabComplete(sender, command, alias, args);
 	}
 }

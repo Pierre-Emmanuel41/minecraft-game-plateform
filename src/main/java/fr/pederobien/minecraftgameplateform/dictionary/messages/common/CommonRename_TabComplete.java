@@ -8,7 +8,7 @@ public class CommonRename_TabComplete extends AbstractNotDynamicMessage {
 	public static final IMessage ENGLISH = new English();
 
 	public CommonRename_TabComplete(String message) {
-		super(ECommonMessageCode.COMMON_RENAME__TAB_COMPLETE, message);
+		super(ECommonMessageCode.COMMON_RENAME_TAB_COMPLETE, message);
 	}
 
 	private static class French extends CommonRename_TabComplete {

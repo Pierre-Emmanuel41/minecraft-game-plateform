@@ -22,7 +22,7 @@ public class ParentPersistenceHelper<T extends IUnmodifiableNominable> extends A
 	private Plugin plugin;
 
 	protected ParentPersistenceHelper(Plugin plugin) {
-		super(ECommonMessageCode.COMMON_HELP__EXPLANATION);
+		super(ECommonMessageCode.COMMON_HELP_EXPLANATION);
 		this.plugin = plugin;
 	}
 

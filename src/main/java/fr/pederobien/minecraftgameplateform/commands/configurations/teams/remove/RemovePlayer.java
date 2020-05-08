@@ -40,7 +40,7 @@ public class RemovePlayer<T extends IGameConfiguration> extends AbstractTeamConf
 			playerNamesConcatenated = concat(getPlayerNames(players));
 			teams = getGameConfigurationHelper().removePlayers(players);
 		} catch (PlayerNotFoundException e) {
-			sendMessageToSender(sender, ECommonMessageCode.COMMON__PLAYER_DOES_NOT_EXIST, e.getPlayerName(), get().getName());
+			sendMessageToSender(sender, ECommonMessageCode.COMMON_PLAYER_DOES_NOT_EXIST, e.getPlayerName(), get().getName());
 			return false;
 		} catch (PlayerNotRegisteredException e) {
 			sendMessageToSender(sender, ETeamRemoveMessageCode.REMOVE_PLAYER__PLAYER_NOT_REGISTERED, e.getNotRegisteredPlayer().getName(), get().getName());

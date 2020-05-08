@@ -8,7 +8,7 @@ public class Common_BadBooleanFormat extends AbstractNotDynamicMessage {
 	public static final IMessage ENGLISH = new English();
 
 	public Common_BadBooleanFormat(String message) {
-		super(ECommonMessageCode.COMMON__BAD_BOOLEAN_FORMAT, message);
+		super(ECommonMessageCode.COMMON_BAD_BOOLEAN_FORMAT, message);
 	}
 
 	private static class French extends Common_BadBooleanFormat {

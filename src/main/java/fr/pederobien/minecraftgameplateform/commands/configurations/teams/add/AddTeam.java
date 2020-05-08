@@ -72,7 +72,7 @@ public class AddTeam<T extends IGameConfiguration> extends AbstractTeamConfigura
 			for (Player player : players)
 				team.addPlayer(player);
 		} catch (PlayerNotFoundException e) {
-			sendMessageToSender(sender, ECommonMessageCode.COMMON__PLAYER_DOES_NOT_EXIST, e.getPlayerName());
+			sendMessageToSender(sender, ECommonMessageCode.COMMON_PLAYER_DOES_NOT_EXIST, e.getPlayerName());
 			return false;
 		}
 
@@ -94,7 +94,7 @@ public class AddTeam<T extends IGameConfiguration> extends AbstractTeamConfigura
 	public List<String> onTabComplete(CommandSender sender, Command command, String alias, String[] args) {
 		switch (args.length) {
 		case 1:
-			return Arrays.asList(getMessageFromDictionary(sender, ECommonMessageCode.COMMON_NEW__TAB_COMPLETE));
+			return Arrays.asList(getMessageFromDictionary(sender, ECommonMessageCode.COMMON_NEW_TAB_COMPLETE));
 		case 2:
 			return filter(getGameConfigurationHelper().getAvailableColors().map(color -> color.getName()), args[1]);
 		}
