@@ -48,6 +48,13 @@ public class BorderEditionsFactory {
 	}
 
 	/**
+	 * @return An edition to save a border.
+	 */
+	public static IMapPersistenceEdition<IBorderConfiguration> saveBorder() {
+		return new SaveBorder();
+	}
+
+	/**
 	 * @return An edition to set the world in which the border is applied.
 	 */
 	public static IMapPersistenceEdition<IBorderConfiguration> worldBorder() {
