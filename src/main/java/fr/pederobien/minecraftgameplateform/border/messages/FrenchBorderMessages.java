@@ -42,6 +42,8 @@ public enum FrenchBorderMessages {
 
 	RENAME_BORDER_EXPLANATION(RenameBorder_Explanation.FRENCH),
 
+	RENAME_BORDER_NAME_IS_MISSING(RenameBorder_NameIsMissing.FRENCH),
+
 	WORLD_BORDER_EXPLANATION(WorldBorder_Explanation.FRENCH),
 
 	WORLD_BORDER_WORLD_NAME_IS_MISSING(WorldBorder_WorldNameIsMissing.FRENCH),
