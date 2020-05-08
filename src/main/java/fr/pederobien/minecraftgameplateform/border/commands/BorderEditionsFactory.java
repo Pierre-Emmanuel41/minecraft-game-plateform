@@ -20,6 +20,13 @@ public class BorderEditionsFactory {
 	}
 
 	/**
+	 * @return An edition to load a world border configuration.
+	 */
+	public static IMapPersistenceEdition<IBorderConfiguration> loadBorder() {
+		return new LoadBorder();
+	}
+
+	/**
 	 * @return An edition to delete a border's file.
 	 */
 	public static IMapPersistenceEdition<IBorderConfiguration> deleteBorder() {
