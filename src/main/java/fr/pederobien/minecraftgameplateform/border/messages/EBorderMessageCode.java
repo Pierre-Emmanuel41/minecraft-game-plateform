@@ -21,6 +21,9 @@ public enum EBorderMessageCode implements IMessageCode {
 	// Code for command list
 	LIST_BORDER__EXPLANATION, LIST_BORDER__NO_ELEMENT, LIST_BORDER__ONE_ELEMENT, LIST_BORDER__SEVERAL_ELEMENTS,
 
+	// Code for command rename
+	RENAME_BORDER__EXPLANATION,
+
 	// Code for command world
 	WORLD_BORDER__EXPLANATION, WORLD_BORDER__WORLD_NAME_IS_MISSING, WORLD_BORDER__WORLD_DEFINED;
 
