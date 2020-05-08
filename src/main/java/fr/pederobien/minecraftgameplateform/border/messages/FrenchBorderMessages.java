@@ -22,6 +22,8 @@ public enum FrenchBorderMessages {
 
 	LOAD_BORDER_NAME_IS_MISSING(LoadBorder_NameIsMissing.FRENCH),
 
+	LOAD_BORDER_BORDER_LOADED(LoadBorder_BorderLoaded.FRENCH),
+
 	DELETE_BORDER_EXPLANATION(DeleteBorder_Explanation.FRENCH),
 
 	DELETE_BORDER_NAME_IS_MISSING(DeleteBorder_NameIsMissing.FRENCH),
