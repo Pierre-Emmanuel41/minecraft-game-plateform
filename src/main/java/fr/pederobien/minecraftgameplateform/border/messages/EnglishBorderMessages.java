@@ -48,6 +48,8 @@ public enum EnglishBorderMessages {
 
 	RENAME_BORDER_BORDER_RENAMED(RenameBorder_BorderRenamed.ENGLISH),
 
+	SAVE_BORDER_EXPLANATION(SaveBorder_Explanation.ENGLISH),
+
 	WORLD_BORDER_EXPLANATION(WorldBorder_Explanation.ENGLISH),
 
 	WORLD_BORDER_WORLD_NAME_IS_MISSING(WorldBorder_WorldNameIsMissing.ENGLISH),
