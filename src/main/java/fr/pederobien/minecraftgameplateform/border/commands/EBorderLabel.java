@@ -3,7 +3,7 @@ package fr.pederobien.minecraftgameplateform.border.commands;
 import fr.pederobien.minecraftgameplateform.interfaces.element.ILabel;
 
 public enum EBorderLabel implements ILabel {
-	WORLD("world");
+	WORLD("world"), CENTER("center");
 
 	private String label;
 
