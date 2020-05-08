@@ -52,4 +52,11 @@ public interface IBorderConfiguration extends INominable, IUnmodifiableBorderCon
 	 * @see LocalTime#of(int, int, int)
 	 */
 	void setStartTime(LocalTime startTime);
+
+	/**
+	 * Set the time to move the border. Using this method update the border speed.
+	 * 
+	 * @param timeToMoveTheBorder The time it take to move the border from its initial diameter to its final diameter.
+	 */
+	void setTimeToMoveTheBorder(LocalTime timeToMoveTheBorder);
 }

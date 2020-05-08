@@ -59,6 +59,11 @@ public class BorderConfiguration extends AbstractNominable implements IBorderCon
 	}
 
 	@Override
+	public LocalTime getTimeToMoveTheBorder() {
+		return LocalTime.of(0, 0, 0).plusSeconds(new Double(getDistance() / getBorderSpeed()).longValue());
+	}
+
+	@Override
 	public void setWorld(String worldName) {
 		this.world = WorldManager.getWorld(worldName);
 	}
@@ -89,6 +94,11 @@ public class BorderConfiguration extends AbstractNominable implements IBorderCon
 	}
 
 	@Override
+	public void setTimeToMoveTheBorder(LocalTime timeToMoveTheBorder) {
+		setBorderSpeed(getDistance() / ((Integer) timeToMoveTheBorder.toSecondOfDay()).doubleValue());
+	}
+
+	@Override
 	public String toString() {
 		StringJoiner joiner = new StringJoiner("\n");
 		joiner.add("Name : " + getName());
@@ -97,11 +107,16 @@ public class BorderConfiguration extends AbstractNominable implements IBorderCon
 		joiner.add("Initial diameter : " + display(initialDiameter, getInitialBorderDiameter() + " blocks"));
 		joiner.add("Final diameter : " + display(finalDiameter, getFinalBorderDiameter() + " blocks"));
 		joiner.add("Speed : " + display(borderSpeed, getBorderSpeed() + " block/s"));
+		joiner.add("Time to move the border : " + DisplayHelper.toString(getTimeToMoveTheBorder()));
 		joiner.add("Start time : " + display(startTime, DisplayHelper.toString(getStartTime())));
 		return joiner.toString();
 	}
 
 	private String display(Object object, String display) {
 		return display.concat(object == null ? " (default value)" : "");
+	}
+
+	private Double getDistance() {
+		return (double) Math.abs(getInitialBorderDiameter() - getFinalBorderDiameter());
 	}
 }
