@@ -66,7 +66,7 @@ public abstract class AbstractMapPersistenceEdition<T extends IUnmodifiableNomin
 	 * Send a message to the given player. First create an {@link IMessageEvent} that is used to get messages into registered
 	 * dictionaries for the given Plugin.
 	 * 
-	 * @param player The player to send a message.
+	 * @param sender Generally a player, it is used to get a message in his language.
 	 * @param plugin The plugin into the message is associated.
 	 * @param code   The code used to get the translation of the message in the player's language.
 	 * @param args   Arguments that could be useful to send dynamic messages.
