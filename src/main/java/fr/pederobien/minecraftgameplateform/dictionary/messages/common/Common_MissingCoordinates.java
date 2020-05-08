@@ -13,13 +13,13 @@ public class Common_MissingCoordinates extends AbstractNotDynamicMessage {
 
 	private static class French extends Common_MissingCoordinates {
 		public French() {
-			super("Impossible de définir les coordonnées, il manque <X> ou <Y> ou <Z>");
+			super("Impossible de définir les coordonnées, il manque une ou plusieurs coordonnées");
 		}
 	}
 
 	private static class English extends Common_MissingCoordinates {
 		public English(String... args) {
-			super("Cannot define coordinates, <X> or <Y> or <Z> is missing");
+			super("Cannot define coordinates, one or more coordinates are missing");
 		}
 	}
 }
