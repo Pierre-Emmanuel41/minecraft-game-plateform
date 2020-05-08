@@ -56,7 +56,9 @@ public enum EnglishBorderMessages {
 
 	WORLD_BORDER_WORLD_NAME_IS_MISSING(WorldBorder_WorldNameIsMissing.ENGLISH),
 
-	WORLD_BORDER_WORLD_DEFINED(WorldBorder_WorldDefined.ENGLISH);
+	WORLD_BORDER_WORLD_DEFINED(WorldBorder_WorldDefined.ENGLISH),
+
+	CENTER_BORDER_EXPLANATION(CenterBorder_Explanation.ENGLISH);
 
 	private IMessage source;
 

@@ -56,7 +56,9 @@ public enum FrenchBorderMessages {
 
 	WORLD_BORDER_WORLD_NAME_IS_MISSING(WorldBorder_WorldNameIsMissing.FRENCH),
 
-	WORLD_BORDER_WORLD_DEFINED(WorldBorder_WorldDefined.FRENCH);
+	WORLD_BORDER_WORLD_DEFINED(WorldBorder_WorldDefined.FRENCH),
+
+	CENTER_BORDER_EXPLANATION(CenterBorder_Explanation.FRENCH);
 
 	private IMessage source;
 
