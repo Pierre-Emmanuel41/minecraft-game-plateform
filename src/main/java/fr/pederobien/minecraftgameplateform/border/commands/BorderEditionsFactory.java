@@ -60,4 +60,11 @@ public class BorderEditionsFactory {
 	public static IMapPersistenceEdition<IBorderConfiguration> worldBorder() {
 		return new WorldBorder();
 	}
+
+	/**
+	 * @return An edition to set the border's center.
+	 */
+	public static IMapPersistenceEdition<IBorderConfiguration> centerBorder() {
+		return new CenterBorder();
+	}
 }
