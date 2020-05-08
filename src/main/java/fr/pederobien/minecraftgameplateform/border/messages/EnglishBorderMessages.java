@@ -20,6 +20,8 @@ public enum EnglishBorderMessages {
 
 	LOAD_BORDER_EXPLANATION(LoadBorder_Explanation.ENGLISH),
 
+	LOAD_BORDER_NAME_IS_MISSING(LoadBorder_NameIsMissing.ENGLISH),
+
 	DELETE_BORDER_EXPLANATION(DeleteBorder_Explanation.ENGLISH),
 
 	DELETE_BORDER_NAME_IS_MISSING(DeleteBorder_NameIsMissing.ENGLISH),
