@@ -1,21 +1,20 @@
-package fr.pederobien.minecraftgameplateform.commands.configurations;
+package fr.pederobien.minecraftgameplateform.commands.common;
 
 import java.io.FileNotFoundException;
 import java.util.List;
-import java.util.StringJoiner;
 
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 
 import fr.pederobien.minecraftdictionary.interfaces.IMessageCode;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.EGameConfigurationMessageCode;
-import fr.pederobien.minecraftgameplateform.interfaces.element.IGameConfiguration;
-import fr.pederobien.minecraftgameplateform.interfaces.element.ITeam;
+import fr.pederobien.minecraftgameplateform.impl.editions.AbstractLabelEdition;
+import fr.pederobien.minecraftgameplateform.interfaces.element.unmodifiable.IUnmodifiableNominable;
 
-public abstract class CommonLoad<T extends IGameConfiguration> extends AbstractGameConfigurationEdition<T> {
+public abstract class CommonLoad<T extends IUnmodifiableNominable> extends AbstractLabelEdition<T> {
 
 	protected CommonLoad(IMessageCode explanation) {
-		super(EGameConfigurationLabel.LOAD, explanation);
+		super(ECommonLabel.LOAD, explanation);
 	}
 
 	/**
@@ -56,17 +55,5 @@ public abstract class CommonLoad<T extends IGameConfiguration> extends AbstractG
 		if (args.length == 1)
 			return filter(getPersistence().list().stream(), args[0]);
 		return super.onTabComplete(sender, command, alias, args);
-	}
-
-	/**
-	 * Get a concatenation of each team's name for this configuration. Each team's name is coloured.
-	 * 
-	 * @return A string that concatenate each team's name.
-	 */
-	protected String getTeamNamesWithColor() {
-		StringJoiner joiner = new StringJoiner(" ");
-		for (ITeam team : get().getTeams())
-			joiner.add(team.getColoredName());
-		return joiner.toString();
 	}
 }
