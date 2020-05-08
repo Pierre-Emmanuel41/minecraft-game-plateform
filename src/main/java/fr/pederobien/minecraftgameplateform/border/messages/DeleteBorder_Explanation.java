@@ -2,7 +2,6 @@ package fr.pederobien.minecraftgameplateform.border.messages;
 
 import fr.pederobien.minecraftdictionary.interfaces.IMessage;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.AbstractNotDynamicMessage;
-import fr.pederobien.minecraftgameplateform.spawn.messages.DeleteSpawn_Explanation;
 
 public class DeleteBorder_Explanation extends AbstractNotDynamicMessage {
 	public static final IMessage FRENCH = new French();
@@ -12,13 +11,13 @@ public class DeleteBorder_Explanation extends AbstractNotDynamicMessage {
 		super(EBorderMessageCode.DELETE_BORDER__EXPLANATION, message);
 	}
 
-	private static class French extends DeleteSpawn_Explanation {
+	private static class French extends DeleteBorder_Explanation {
 		public French() {
 			super("Pour supprimer le fichier d'une bordure");
 		}
 	}
 
-	private static class English extends DeleteSpawn_Explanation {
+	private static class English extends DeleteBorder_Explanation {
 		public English() {
 			super("To delete a border's file");
 		}
