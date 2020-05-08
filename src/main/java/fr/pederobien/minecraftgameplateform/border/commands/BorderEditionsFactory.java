@@ -41,6 +41,13 @@ public class BorderEditionsFactory {
 	}
 
 	/**
+	 * @return An edition to rename a border.
+	 */
+	public static IMapPersistenceEdition<IBorderConfiguration> renameBorder() {
+		return new RenameBorder();
+	}
+
+	/**
 	 * @return An edition to set the world in which the border is applied.
 	 */
 	public static IMapPersistenceEdition<IBorderConfiguration> worldBorder() {

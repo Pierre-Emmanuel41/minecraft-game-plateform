@@ -17,6 +17,7 @@ public class BorderParent extends AbstractParentPersistenceEdition<IBorderConfig
 		addEdition(BorderEditionsFactory.loadBorder().setModifiable(false));
 		addEdition(BorderEditionsFactory.deleteBorder().setModifiable(false));
 		addEdition(BorderEditionsFactory.listBorder().setModifiable(false));
+		addEdition(BorderEditionsFactory.renameBorder());
 		addEdition(BorderEditionsFactory.worldBorder());
 	}
 }
