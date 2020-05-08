@@ -12,6 +12,9 @@ public enum EBorderMessageCode implements IMessageCode {
 	// Code for command current
 	CURRENT_BORDER__EXPLANATION, CURRENT_BORDER__ON_CURRENT,
 
+	// Code for command load
+	LOAD_BORDER__EXPLANATION,
+
 	// Code for command delete
 	DELETE_BORDER__EXPLANATION, DELETE_BORDER__NAME_IS_MISSING, DELETE_BORDER__DID_NOT_DELETED, DELETE_BORDER__BORDER_DELETED,
 
