@@ -31,7 +31,7 @@ public enum EBorderMessageCode implements IMessageCode {
 	WORLD_BORDER__EXPLANATION, WORLD_BORDER__WORLD_NAME_IS_MISSING, WORLD_BORDER__WORLD_DEFINED,
 
 	// Code for command center
-	CENTER_BORDER__EXPLANATION;
+	CENTER_BORDER__EXPLANATION, CENTER_BORDER__CENTER_DEFINED;
 
 	private Permission permission;
 

@@ -58,7 +58,9 @@ public enum EnglishBorderMessages {
 
 	WORLD_BORDER_WORLD_DEFINED(WorldBorder_WorldDefined.ENGLISH),
 
-	CENTER_BORDER_EXPLANATION(CenterBorder_Explanation.ENGLISH);
+	CENTER_BORDER_EXPLANATION(CenterBorder_Explanation.ENGLISH),
+
+	CENTER_BORDER_CENTER_DEFINED(CenterBorder_CenterDefined.ENGLISH);
 
 	private IMessage source;
 
