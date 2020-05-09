@@ -42,7 +42,7 @@ public enum EBorderMessageCode implements IMessageCode {
 	FINAL_BORDER_DIAMETER__DIAMETER_DEFINED,
 
 	// Code for command speed
-	SPEED_BORDER__EXPLANATION;
+	SPEED_BORDER__EXPLANATION, SPEED_BORDER__ON_TAB_COMPLETE;
 
 	private Permission permission;
 

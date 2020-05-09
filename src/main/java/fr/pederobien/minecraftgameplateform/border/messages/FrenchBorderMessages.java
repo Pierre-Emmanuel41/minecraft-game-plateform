@@ -82,7 +82,9 @@ public enum FrenchBorderMessages {
 
 	FINAL_BORDER_DIAMETER_DIAMETER_DEFINED(FinalBorderDiameter_DiameterDefined.FRENCH),
 
-	SPEED_BORDER_EXPLANATION(SpeedBorder_Explanation.FRENCH);
+	SPEED_BORDER_EXPLANATION(SpeedBorder_Explanation.FRENCH),
+
+	SPEED_BORDER_ON_TAB_COMPLETE(SpeedBorder_OnTabComplete.FRENCH);
 
 	private IMessage source;
 
