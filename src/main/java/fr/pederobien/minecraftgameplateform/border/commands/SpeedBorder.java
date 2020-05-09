@@ -26,7 +26,7 @@ public class SpeedBorder extends AbstractLabelEdition<IBorderConfiguration> {
 				return false;
 			}
 			get().setBorderSpeed(speed);
-			sendMessageToSender(sender, EBorderMessageCode.SPEED_BORDER__SPEED_DEFINED, get().getName(), get().getBorderSpeed(), toString(get().getTimeToMove()));
+			sendMessageToSender(sender, EBorderMessageCode.SPEED_BORDER__SPEED_DEFINED, get().getName(), get().getBorderSpeed(), toString(get().getMoveTime()));
 			return true;
 		} catch (IndexOutOfBoundsException e) {
 			sendMessageToSender(sender, EBorderMessageCode.SPEED_BORDER__SPEED_IS_MISSING);

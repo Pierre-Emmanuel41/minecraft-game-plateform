@@ -59,7 +59,7 @@ public class BorderConfiguration extends AbstractNominable implements IBorderCon
 	}
 
 	@Override
-	public LocalTime getTimeToMove() {
+	public LocalTime getMoveTime() {
 		return LocalTime.of(0, 0, 0).plusSeconds(new Double(getDistance() / getBorderSpeed()).longValue());
 	}
 
@@ -94,7 +94,7 @@ public class BorderConfiguration extends AbstractNominable implements IBorderCon
 	}
 
 	@Override
-	public void setTimeToMove(LocalTime timeToMoveTheBorder) {
+	public void setMoveTime(LocalTime timeToMoveTheBorder) {
 		setBorderSpeed(getDistance() / ((Integer) timeToMoveTheBorder.toSecondOfDay()).doubleValue());
 	}
 
@@ -107,7 +107,7 @@ public class BorderConfiguration extends AbstractNominable implements IBorderCon
 		joiner.add("Initial diameter : " + display(initialDiameter, getInitialBorderDiameter() + " blocks"));
 		joiner.add("Final diameter : " + display(finalDiameter, getFinalBorderDiameter() + " blocks"));
 		joiner.add("Speed : " + display(borderSpeed, getBorderSpeed() + " block/s"));
-		joiner.add("Time to move the border : " + DisplayHelper.toString(getTimeToMove()));
+		joiner.add("Move time : " + DisplayHelper.toString(getMoveTime()));
 		joiner.add("Start time : " + display(startTime, DisplayHelper.toString(getStartTime())));
 		return joiner.toString();
 	}

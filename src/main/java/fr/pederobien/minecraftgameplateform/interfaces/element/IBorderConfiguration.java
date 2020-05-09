@@ -56,7 +56,7 @@ public interface IBorderConfiguration extends INominable, IUnmodifiableBorderCon
 	/**
 	 * Set the time to move the border. Using this method update the border speed.
 	 * 
-	 * @param timeToMoveTheBorder The time it take to move the border from its initial diameter to its final diameter.
+	 * @param moveTime The time it take to move the border from its initial diameter to its final diameter.
 	 */
-	void setTimeToMove(LocalTime timeToMoveTheBorder);
+	void setMoveTime(LocalTime moveTime);
 }
