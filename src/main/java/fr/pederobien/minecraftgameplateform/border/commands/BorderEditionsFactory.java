@@ -67,4 +67,11 @@ public class BorderEditionsFactory {
 	public static IMapPersistenceEdition<IBorderConfiguration> centerBorder() {
 		return new CenterBorder();
 	}
+
+	/**
+	 * @return An edition to set the initial border diameter.
+	 */
+	public static IMapPersistenceEdition<IBorderConfiguration> initialBorderDiameter() {
+		return new InitialBorderDiameter();
+	}
 }
