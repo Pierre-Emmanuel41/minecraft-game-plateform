@@ -17,7 +17,7 @@ import fr.pederobien.minecraftgameplateform.interfaces.element.IWorldStructure;
 import fr.pederobien.minecraftmanagers.WorldManager;
 
 public abstract class AbstractWorldStructure extends AbstractNominable implements IWorldStructure {
-	protected static final World DEFAULT_WORLD = WorldManager.SURFACE_WORLD;
+	protected static final World DEFAULT_WORLD = WorldManager.OVERWORLD;
 	protected static final Block DEFAULT_CENTER = WorldManager.getHighestBlockYAt(DEFAULT_WORLD, 0, 0);
 	protected static final Integer DEFAULT_WIDTH = 1, DEFAULT_HEIGHT = 1, DEFAULT_DEPTH = 1;
 

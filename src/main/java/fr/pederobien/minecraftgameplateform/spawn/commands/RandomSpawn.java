@@ -45,7 +45,7 @@ public class RandomSpawn extends AbstractWorldStructureEdition<ISpawn> {
 
 	@Override
 	public List<String> onTabComplete(CommandSender sender, Command command, String alias, String[] args) {
-		List<String> worlds = Arrays.asList(WorldManager.SURFACE_WORLD.getName(), WorldManager.NETHER_WORLD.getName(), WorldManager.END_WORLD.getName());
+		List<String> worlds = WorldManager.getWorldNormalisedNames();
 		switch (args.length) {
 		case 1:
 			return filter(worlds.stream(), args[args.length - 1]);

@@ -14,7 +14,7 @@ import fr.pederobien.minecraftgameplateform.interfaces.element.IWorldBlock;
 import fr.pederobien.minecraftmanagers.WorldManager;
 
 public class Spawn extends AbstractWorldStructure implements ISpawn {
-	private static final Block DEFAULT_PLAYER_SPAWN = WorldManager.getFromSurfaceHighestBlockYAt(0, 0).getRelative(0, 1, 0);
+	private static final Block DEFAULT_PLAYER_SPAWN = WorldManager.getFromOverworldHighestBlockYAt(0, 0).getRelative(0, 1, 0);
 
 	private IWorldBlock playerSpawn;
 	private IEventListener spawnEventListener;

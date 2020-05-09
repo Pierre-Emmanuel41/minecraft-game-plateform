@@ -12,7 +12,7 @@ import fr.pederobien.minecraftgameplateform.interfaces.element.IBorderConfigurat
 import fr.pederobien.minecraftmanagers.WorldManager;
 
 public class BorderConfiguration extends AbstractNominable implements IBorderConfiguration {
-	private static final World DEFAULT_WORLD = WorldManager.SURFACE_WORLD;
+	private static final World DEFAULT_WORLD = WorldManager.OVERWORLD;
 	private static final Integer DEFAULT_INITIAL_DIAMETER = 2000;
 	private static final Integer DEFAULT_FINAL_DIAMETER = 30;
 	private static final Double DEFAULT_BORDER_SPEED = 1.0;

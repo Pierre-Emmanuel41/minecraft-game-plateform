@@ -1,6 +1,5 @@
 package fr.pederobien.minecraftgameplateform.border.commands;
 
-import java.util.Arrays;
 import java.util.List;
 
 import org.bukkit.command.Command;
@@ -39,7 +38,7 @@ public class WorldBorder extends AbstractLabelEdition<IBorderConfiguration> {
 	@Override
 	public List<String> onTabComplete(CommandSender sender, Command command, String alias, String[] args) {
 		if (args.length == 1)
-			return filter(Arrays.asList(WorldManager.SURFACE_WORLD.getName(), WorldManager.NETHER_WORLD.getName(), WorldManager.END_WORLD.getName()).stream(), args[0]);
+			return filter(WorldManager.getWorldNormalisedNames().stream(), args[0]);
 		return super.onTabComplete(sender, command, alias, args);
 	}
 }

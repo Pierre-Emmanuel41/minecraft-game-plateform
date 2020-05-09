@@ -79,7 +79,7 @@ public abstract class CommonLaunch<T extends IWorldStructure> extends AbstractWo
 	@Override
 	public List<String> onTabComplete(CommandSender sender, Command command, String alias, String[] args) {
 		List<String> existingStructures = getPersistence().list();
-		List<String> worlds = Arrays.asList(WorldManager.SURFACE_WORLD.getName(), WorldManager.NETHER_WORLD.getName(), WorldManager.END_WORLD.getName());
+		List<String> worlds = WorldManager.getWorldNormalisedNames();
 		switch (args.length) {
 		case 1:
 			return filter(existingStructures.stream(), args[0]);

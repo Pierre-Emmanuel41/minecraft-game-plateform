@@ -1,6 +1,5 @@
 package fr.pederobien.minecraftgameplateform.commands.worldstructure;
 
-import java.util.Arrays;
 import java.util.List;
 
 import org.bukkit.command.Command;
@@ -41,7 +40,7 @@ public abstract class CommonWorld<T extends IWorldStructure> extends AbstractLab
 		try {
 			name = args[0];
 			get().setWorld(name);
-			onWorldDefined(sender, get().getName(), name);
+			onWorldDefined(sender, get().getName(), WorldManager.getWorldNameNormalised(get().getWorld()));
 		} catch (IndexOutOfBoundsException e) {
 			onWorldNameIsMissing(sender);
 			return false;
@@ -55,7 +54,7 @@ public abstract class CommonWorld<T extends IWorldStructure> extends AbstractLab
 	@Override
 	public List<String> onTabComplete(CommandSender sender, Command command, String alias, String[] args) {
 		if (args.length == 1)
-			return filter(Arrays.asList(WorldManager.SURFACE_WORLD.getName(), WorldManager.NETHER_WORLD.getName(), WorldManager.END_WORLD.getName()).stream(), args[0]);
+			return filter(WorldManager.getWorldNormalisedNames().stream(), args[0]);
 		return super.onTabComplete(sender, command, alias, args);
 	}
 }
