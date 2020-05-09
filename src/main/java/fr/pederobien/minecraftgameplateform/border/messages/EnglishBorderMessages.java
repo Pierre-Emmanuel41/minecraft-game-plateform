@@ -94,7 +94,9 @@ public enum EnglishBorderMessages {
 
 	START_TIME_BORDER_EXPLANATION(StartTimeBorder_Explanation.ENGLISH),
 
-	START_TIME_BORDER_TIME_IS_MISSING(StartTimeBorder_TimeIsMissing.ENGLISH);
+	START_TIME_BORDER_TIME_IS_MISSING(StartTimeBorder_TimeIsMissing.ENGLISH),
+
+	START_TIME_BORDER_BORDER_MOVES_AT_THE_BEGINNING(StartTimeBorder_BorderMovesAtTheBeginning.ENGLISH);
 
 	private IMessage source;
 

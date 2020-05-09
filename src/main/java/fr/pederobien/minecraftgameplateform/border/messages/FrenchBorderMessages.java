@@ -94,7 +94,9 @@ public enum FrenchBorderMessages {
 
 	START_TIME_BORDER_EXPLANATION(StartTimeBorder_Explanation.FRENCH),
 
-	START_TIME_BORDER_TIME_IS_MISSING(StartTimeBorder_TimeIsMissing.ENGLISH);
+	START_TIME_BORDER_TIME_IS_MISSING(StartTimeBorder_TimeIsMissing.FRENCH),
+
+	START_TIME_BORDER_BORDER_MOVES_AT_THE_BEGINNING(StartTimeBorder_BorderMovesAtTheBeginning.FRENCH);
 
 	private IMessage source;
 
