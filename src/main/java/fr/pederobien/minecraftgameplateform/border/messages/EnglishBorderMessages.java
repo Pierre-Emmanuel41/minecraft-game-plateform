@@ -60,7 +60,9 @@ public enum EnglishBorderMessages {
 
 	CENTER_BORDER_EXPLANATION(CenterBorder_Explanation.ENGLISH),
 
-	CENTER_BORDER_CENTER_DEFINED(CenterBorder_CenterDefined.ENGLISH);
+	CENTER_BORDER_CENTER_DEFINED(CenterBorder_CenterDefined.ENGLISH),
+
+	INITIAL_BORDER_DIAMETER_EXPLANATION(InitialBorderDiameter_Explanation.ENGLISH);
 
 	private IMessage source;
 

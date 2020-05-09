@@ -60,7 +60,9 @@ public enum FrenchBorderMessages {
 
 	CENTER_BORDER_EXPLANATION(CenterBorder_Explanation.FRENCH),
 
-	CENTER_BORDER_CENTER_DEFINED(CenterBorder_CenterDefined.FRENCH);
+	CENTER_BORDER_CENTER_DEFINED(CenterBorder_CenterDefined.FRENCH),
+
+	INITIAL_BORDER_DIAMETER_EXPLANATION(InitialBorderDiameter_Explanation.FRENCH);
 
 	private IMessage source;
 
