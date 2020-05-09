@@ -66,7 +66,9 @@ public enum EnglishBorderMessages {
 
 	INITIAL_BORDER_DIAMETER_ON_TAB_COMPLETE(InitialBorderDiameter_OnTabComplete.ENGLISH),
 
-	INITIAL_BORDER_DIAMETER_DIAMETER_IS_MISSING(InitialBorderDiameter_DiameterIsMissing.ENGLISH);
+	INITIAL_BORDER_DIAMETER_DIAMETER_IS_MISSING(InitialBorderDiameter_DiameterIsMissing.ENGLISH),
+
+	INITIAL_BORDER_DIAMETER_NEGATIVE_DIAMETER(InitialBorderDiameter_NegativeDiameter.ENGLISH);
 
 	private IMessage source;
 
