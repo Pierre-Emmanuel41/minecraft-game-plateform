@@ -123,6 +123,43 @@ public abstract class AbstractMapPersistenceEdition<T extends IUnmodifiableNomin
 	}
 
 	/**
+	 * Parses the string argument as a signed decimal double.
+	 *
+	 * @param number the string to be parsed.
+	 * 
+	 * @return True if the given string contains a parsable double OR is empty, false otherwise.
+	 * 
+	 * @throws NullPointerException  if the string is null.
+	 * @throws NumberFormatException if the string does not contain a parsable {@code double}.
+	 * 
+	 * @see java.lang.Double#valueOf(String)
+	 */
+	protected boolean isNotStrictDouble(String number) {
+		return number.equals("") || isStrictDouble(number);
+	}
+
+	/**
+	 * Parses the string argument as a signed decimal double.
+	 *
+	 * @param number the string to be parsed.
+	 * 
+	 * @return True if the given string contains a parsable double false otherwise.
+	 * 
+	 * @throws NullPointerException  if the string is null.
+	 * @throws NumberFormatException if the string does not contain a parsable {@code double}.
+	 * 
+	 * @see java.lang.Double#valueOf(String)
+	 */
+	protected boolean isStrictDouble(String number) {
+		try {
+			Double.parseDouble(number);
+		} catch (NumberFormatException e) {
+			return false;
+		}
+		return true;
+	}
+
+	/**
 	 * Parses the string argument as a {@link LocalTime}.
 	 * <p>
 	 * The string must represent a valid time and is parsed using {@link java.time.format.DateTimeFormatter#ISO_LOCAL_TIME}.
