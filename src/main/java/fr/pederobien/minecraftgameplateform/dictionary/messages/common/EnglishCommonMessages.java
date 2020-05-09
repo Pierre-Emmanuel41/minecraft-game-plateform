@@ -4,7 +4,7 @@ import fr.pederobien.minecraftdictionary.interfaces.IDictionary;
 import fr.pederobien.minecraftdictionary.interfaces.IMessage;
 
 public enum EnglishCommonMessages {
-	HELP_EXPLANATION(CommonHelp_Explanation.ENGLISH),
+	HELP_EXPLANATION(Common_HelpExplanation.ENGLISH),
 
 	COMMON_BAD_INTEGER_FORMAT5(Common_BadIntegerFormat.ENGLISH),
 
@@ -22,13 +22,13 @@ public enum EnglishCommonMessages {
 
 	COMMON_MISSING_COORDINATES(Common_MissingCoordinates.ENGLISH),
 
-	COMMON_NEW_TAB_COMPLETE(CommonNew_TabComplete.ENGLISH),
+	COMMON_NEW_TAB_COMPLETE(Common_NewTabComplete.ENGLISH),
 
-	COMMON_RENAME_TAB_COMPLETE(CommonRename_TabComplete.ENGLISH),
+	COMMON_RENAME_TAB_COMPLETE(Common_RenameTabComplete.ENGLISH),
 
 	COMMON_PLAYER_DOES_NOT_EXIST(Common_PlayerDoesNotExist.ENGLISH),
 
-	WORLD_DOES_NOT_EXIST(CommonWorld_WorldDoesNotExist.ENGLISH),
+	WORLD_DOES_NOT_EXIST(Common_WorldDoesNotExist.ENGLISH),
 
 	COMMON_TIME_ON_TAB_COMPLETE(Common_TimeTabComplete.ENGLISH);
 
