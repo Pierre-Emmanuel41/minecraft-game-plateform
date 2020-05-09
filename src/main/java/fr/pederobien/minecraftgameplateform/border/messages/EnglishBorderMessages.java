@@ -62,7 +62,9 @@ public enum EnglishBorderMessages {
 
 	CENTER_BORDER_CENTER_DEFINED(CenterBorder_CenterDefined.ENGLISH),
 
-	INITIAL_BORDER_DIAMETER_EXPLANATION(InitialBorderDiameter_Explanation.ENGLISH);
+	INITIAL_BORDER_DIAMETER_EXPLANATION(InitialBorderDiameter_Explanation.ENGLISH),
+
+	INITIAL_BORDER_DIAMETER_ON_TAB_COMPLETE(InitialBorderDiameter_OnTabComplete.ENGLISH);
 
 	private IMessage source;
 

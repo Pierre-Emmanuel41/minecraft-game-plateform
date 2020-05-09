@@ -34,7 +34,7 @@ public enum EBorderMessageCode implements IMessageCode {
 	CENTER_BORDER__EXPLANATION, CENTER_BORDER__CENTER_DEFINED,
 
 	// Code for command initialDiameter
-	INITIAL_BORDER_DIAMETER__EXPLANATION;
+	INITIAL_BORDER_DIAMETER__EXPLANATION, INITIAL_BORDER_DIAMETER__ON_TAB_COMPLETE;
 
 	private Permission permission;
 
