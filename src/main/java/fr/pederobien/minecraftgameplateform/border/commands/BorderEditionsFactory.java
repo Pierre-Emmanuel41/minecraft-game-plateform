@@ -88,4 +88,11 @@ public class BorderEditionsFactory {
 	public static IMapPersistenceEdition<IBorderConfiguration> speedBorder() {
 		return new SpeedBorder();
 	}
+
+	/**
+	 * @return An edition to set the time after which the border moves from its initial diameter to its final diameter.
+	 */
+	public static IMapPersistenceEdition<IBorderConfiguration> startTimeBorder() {
+		return new StartTimeBorder();
+	}
 }
