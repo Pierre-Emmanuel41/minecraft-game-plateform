@@ -104,7 +104,9 @@ public enum FrenchBorderMessages {
 
 	MOVE_TIME_BORDER_TIME_IS_MISSING(MoveTimeBorder_TimeIsMissing.FRENCH),
 
-	MOVE_TIME_BORDER_INSTANTLY_MOVE(MoveTimeBorder_InstantlyMove.FRENCH);
+	MOVE_TIME_BORDER_INSTANTLY_MOVE(MoveTimeBorder_InstantlyMove.FRENCH),
+
+	MOVE_TIME_BORDER_MOVE_TIME_DEFINED(MoveTimeBorder_MoveTimeDefined.FRENCH);
 
 	private IMessage source;
 
