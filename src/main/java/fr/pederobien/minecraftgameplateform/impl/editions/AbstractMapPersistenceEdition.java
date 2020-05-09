@@ -128,9 +128,21 @@ public abstract class AbstractMapPersistenceEdition<T extends IUnmodifiableNomin
 	 * The string must represent a valid time and is parsed using {@link java.time.format.DateTimeFormatter#ISO_LOCAL_TIME}.
 	 *
 	 * @param text the text to parse such as "10:15:30", not null.
+	 * @return True if the given string contains a parsable time OR is empty, false otherwise.
+	 */
+	protected boolean isNotStrictTime(String time) {
+		return time.equals("") || isStrictTime(time);
+	}
+
+	/**
+	 * Parses the string argument as a {@link LocalTime}.
+	 * <p>
+	 * The string must represent a valid time and is parsed using {@link java.time.format.DateTimeFormatter#ISO_LOCAL_TIME}.
+	 *
+	 * @param text the text to parse such as "10:15:30", not null.
 	 * @return True if the given string contains a parsable time, false otherwise.
 	 */
-	protected boolean isTime(String time) {
+	protected boolean isStrictTime(String time) {
 		try {
 			LocalTime.parse(time);
 			return true;
@@ -146,9 +158,22 @@ public abstract class AbstractMapPersistenceEdition<T extends IUnmodifiableNomin
 	 *
 	 * @param time      the text to parse, not null.
 	 * @param formatter the formatter to use, not null.
+	 * @return True if the given string contains a parsable time OR is empty, false otherwise.
+	 */
+	protected boolean isNotStrictTime(String time, DateTimeFormatter formatter) {
+		return time.equals("") || isStrictTime(time, formatter);
+	}
+
+	/**
+	 * Parses the string argument as a {@link LocalTime}.
+	 * <p>
+	 * The text is parsed using the formatter, returning a time.
+	 *
+	 * @param time      the text to parse, not null.
+	 * @param formatter the formatter to use, not null.
 	 * @return True if the given string contains a parsable time, false otherwise.
 	 */
-	protected boolean isTime(String time, DateTimeFormatter formatter) {
+	protected boolean isStrictTime(String time, DateTimeFormatter formatter) {
 		try {
 			LocalTime.parse(time, formatter);
 			return true;
