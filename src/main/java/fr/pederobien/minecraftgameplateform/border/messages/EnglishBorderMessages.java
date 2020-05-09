@@ -98,7 +98,9 @@ public enum EnglishBorderMessages {
 
 	START_TIME_BORDER_BORDER_MOVES_AT_THE_BEGINNING(StartTimeBorder_BorderMovesAtTheBeginning.ENGLISH),
 
-	START_TIME_BORDER_START_TIME_DEFINED(StartTimeBorder_StartTimeDefined.ENGLISH);
+	START_TIME_BORDER_START_TIME_DEFINED(StartTimeBorder_StartTimeDefined.ENGLISH),
+
+	MOVE_TIME_BORDER_EXPLANATION(MoveTimeBorder_Explanation.ENGLISH);
 
 	private IMessage source;
 
