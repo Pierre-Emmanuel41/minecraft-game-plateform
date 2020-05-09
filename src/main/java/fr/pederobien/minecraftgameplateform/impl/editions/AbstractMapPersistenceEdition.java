@@ -6,6 +6,8 @@ import java.time.format.DateTimeParseException;
 import java.util.List;
 import java.util.StringJoiner;
 
+import org.bukkit.Location;
+import org.bukkit.block.Block;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
@@ -15,6 +17,7 @@ import fr.pederobien.minecraftdictionary.interfaces.IDictionaryManager;
 import fr.pederobien.minecraftdictionary.interfaces.IMessageCode;
 import fr.pederobien.minecraftdictionary.interfaces.IMessageEvent;
 import fr.pederobien.minecraftdictionary.interfaces.INotificationCenter;
+import fr.pederobien.minecraftgameplateform.helpers.DisplayHelper;
 import fr.pederobien.minecraftgameplateform.interfaces.editions.IMapPersistenceEdition;
 import fr.pederobien.minecraftgameplateform.interfaces.editions.IParentPersistenceEdition;
 import fr.pederobien.minecraftgameplateform.interfaces.element.persistence.IPersistence;
@@ -347,6 +350,40 @@ public abstract class AbstractMapPersistenceEdition<T extends IUnmodifiableNomin
 	 */
 	protected String concat(List<String> strings) {
 		return concat(strings, ", ");
+	}
+
+	/**
+	 * Method used to display the given block to minecraft player.
+	 * 
+	 * @param block The block to display.
+	 * 
+	 * @return "X=" + block.getX() + " Y=" + block.getY() + " Z=" + block.getZ();
+	 */
+	protected String toString(Block block) {
+		return DisplayHelper.toString(block);
+	}
+
+	/**
+	 * Method used to display the given time to minecraft player.
+	 * 
+	 * @param time The time to display.
+	 * 
+	 * @return time.getHour() + "h " + time.getMinute() + "m " + time.getSecond() + "s";
+	 */
+	protected String toString(LocalTime time) {
+		return DisplayHelper.toString(time);
+	}
+
+	/**
+	 * Method used to display the given location to minecraft player.
+	 * 
+	 * @param location The location to display.
+	 * @param full     If should display pitch an yaw.
+	 * @return "X=" + location.getX() + " Y=" + location.getY() + " Z=" + location.getZ() + " Pitch=" + location.getPitch() + " Yaw="
+	 *         + location.getYaw();
+	 */
+	protected String toString(Location location, boolean full) {
+		return DisplayHelper.toString(location, full);
 	}
 
 	/**
