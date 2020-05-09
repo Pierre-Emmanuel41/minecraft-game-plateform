@@ -28,7 +28,9 @@ public enum FrenchCommonMessages {
 
 	COMMON_PLAYER_DOES_NOT_EXIST(Common_PlayerDoesNotExist.FRENCH),
 
-	WORLD_DOES_NOT_EXIST(CommonWorld_WorldDoesNotExist.FRENCH);
+	WORLD_DOES_NOT_EXIST(CommonWorld_WorldDoesNotExist.FRENCH),
+
+	COMMON_TIME_TAB_COMPLETE(Common_TimeTabComplete.FRENCH);
 
 	private IMessage source;
 
