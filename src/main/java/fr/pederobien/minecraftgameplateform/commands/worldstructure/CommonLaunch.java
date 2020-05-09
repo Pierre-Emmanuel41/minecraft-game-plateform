@@ -9,7 +9,6 @@ import org.bukkit.command.CommandSender;
 
 import fr.pederobien.minecraftdictionary.interfaces.IMessageCode;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.common.ECommonMessageCode;
-import fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.EWorldStructureMessageCode;
 import fr.pederobien.minecraftgameplateform.exceptions.worldstructure.WorldNotFoundException;
 import fr.pederobien.minecraftgameplateform.interfaces.element.IWorldStructure;
 import fr.pederobien.minecraftgameplateform.interfaces.element.persistence.IPersistence;
@@ -133,7 +132,7 @@ public abstract class CommonLaunch<T extends IWorldStructure> extends AbstractWo
 			onStructureDoesNotExist(sender, name);
 			return false;
 		} catch (WorldNotFoundException e) {
-			sendMessageToSender(sender, EWorldStructureMessageCode.COMMON_WORLD__WORLD_DOES_NOT_EXIST, world);
+			sendMessageToSender(sender, ECommonMessageCode.COMMON_WORLD_DOES_NOT_EXIST, world);
 			return false;
 		} catch (NumberFormatException e) {
 			sendMessageToSender(sender, ECommonMessageCode.COMMON_BAD_INTEGER_FORMAT);

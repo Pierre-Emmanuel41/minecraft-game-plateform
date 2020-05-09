@@ -7,7 +7,7 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 
 import fr.pederobien.minecraftgameplateform.border.messages.EBorderMessageCode;
-import fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.EWorldStructureMessageCode;
+import fr.pederobien.minecraftgameplateform.dictionary.messages.common.ECommonMessageCode;
 import fr.pederobien.minecraftgameplateform.exceptions.worldstructure.WorldNotFoundException;
 import fr.pederobien.minecraftgameplateform.impl.editions.AbstractLabelEdition;
 import fr.pederobien.minecraftgameplateform.interfaces.element.IBorderConfiguration;
@@ -31,7 +31,7 @@ public class WorldBorder extends AbstractLabelEdition<IBorderConfiguration> {
 			sendMessageToSender(sender, EBorderMessageCode.WORLD_BORDER__WORLD_NAME_IS_MISSING);
 			return false;
 		} catch (WorldNotFoundException e) {
-			sendMessageToSender(sender, EWorldStructureMessageCode.COMMON_WORLD__WORLD_DOES_NOT_EXIST, name);
+			sendMessageToSender(sender, ECommonMessageCode.COMMON_WORLD_DOES_NOT_EXIST, name);
 			return false;
 		}
 	}
