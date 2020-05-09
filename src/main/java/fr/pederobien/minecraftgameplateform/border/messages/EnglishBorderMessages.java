@@ -70,7 +70,17 @@ public enum EnglishBorderMessages {
 
 	INITIAL_BORDER_DIAMETER_NEGATIVE_DIAMETER(InitialBorderDiameter_NegativeDiameter.ENGLISH),
 
-	INITIAL_BORDER_DIAMETER_DIAMETER_DEFINED(InitialBorderDiameter_DiameterDefined.ENGLISH);
+	INITIAL_BORDER_DIAMETER_DIAMETER_DEFINED(InitialBorderDiameter_DiameterDefined.ENGLISH),
+
+	FINAL_BORDER_DIAMETER_EXPLANATION(FinalBorderDiameter_Explanation.ENGLISH),
+
+	FINAL_BORDER_DIAMETER_ON_TAB_COMPLETE(FinalBorderDiameter_OnTabComplete.ENGLISH),
+
+	FINAL_BORDER_DIAMETER_DIAMETER_IS_MISSING(FinalBorderDiameter_DiameterIsMissing.ENGLISH),
+
+	FINAL_BORDER_DIAMETER_NEGATIVE_DIAMETER(FinalBorderDiameter_NegativeDiameter.ENGLISH),
+
+	FINAL_BORDER_DIAMETER_DIAMETER_DEFINED(FinalBorderDiameter_DiameterDefined.ENGLISH);
 
 	private IMessage source;
 

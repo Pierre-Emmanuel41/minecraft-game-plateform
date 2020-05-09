@@ -74,4 +74,11 @@ public class BorderEditionsFactory {
 	public static IMapPersistenceEdition<IBorderConfiguration> initialBorderDiameter() {
 		return new InitialBorderDiameter();
 	}
+
+	/**
+	 * @return An edition to set the final border diameter.
+	 */
+	public static final IMapPersistenceEdition<IBorderConfiguration> finalBorderDiameter() {
+		return new FinalBorderDiameter();
+	}
 }

@@ -70,7 +70,17 @@ public enum FrenchBorderMessages {
 
 	INITIAL_BORDER_DIAMETER_NEGATIVE_DIAMETER(InitialBorderDiameter_NegativeDiameter.FRENCH),
 
-	INITIAL_BORDER_DIAMETER_DIAMETER_DEFINED(InitialBorderDiameter_DiameterDefined.FRENCH);
+	INITIAL_BORDER_DIAMETER_DIAMETER_DEFINED(InitialBorderDiameter_DiameterDefined.FRENCH),
+
+	FINAL_BORDER_DIAMETER_EXPLANATION(FinalBorderDiameter_Explanation.FRENCH),
+
+	FINAL_BORDER_DIAMETER_ON_TAB_COMPLETE(FinalBorderDiameter_OnTabComplete.FRENCH),
+
+	FINAL_BORDER_DIAMETER_DIAMETER_IS_MISSING(FinalBorderDiameter_DiameterIsMissing.FRENCH),
+
+	FINAL_BORDER_DIAMETER_NEGATIVE_DIAMETER(FinalBorderDiameter_NegativeDiameter.FRENCH),
+
+	FINAL_BORDER_DIAMETER_DIAMETER_DEFINED(FinalBorderDiameter_DiameterDefined.FRENCH);
 
 	private IMessage source;
 
