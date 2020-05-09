@@ -68,7 +68,9 @@ public enum EnglishBorderMessages {
 
 	INITIAL_BORDER_DIAMETER_DIAMETER_IS_MISSING(InitialBorderDiameter_DiameterIsMissing.ENGLISH),
 
-	INITIAL_BORDER_DIAMETER_NEGATIVE_DIAMETER(InitialBorderDiameter_NegativeDiameter.ENGLISH);
+	INITIAL_BORDER_DIAMETER_NEGATIVE_DIAMETER(InitialBorderDiameter_NegativeDiameter.ENGLISH),
+
+	INITIAL_BORDER_DIAMETER_DIAMETER_DEFINED(InitialBorderDiameter_DiameterDefined.ENGLISH);
 
 	private IMessage source;
 
