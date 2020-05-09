@@ -78,7 +78,14 @@ public class BorderEditionsFactory {
 	/**
 	 * @return An edition to set the final border diameter.
 	 */
-	public static final IMapPersistenceEdition<IBorderConfiguration> finalBorderDiameter() {
+	public static IMapPersistenceEdition<IBorderConfiguration> finalBorderDiameter() {
 		return new FinalBorderDiameter();
+	}
+
+	/**
+	 * @return An edition to set the border's speed.
+	 */
+	public static IMapPersistenceEdition<IBorderConfiguration> speedBorder() {
+		return new SpeedBorder();
 	}
 }
