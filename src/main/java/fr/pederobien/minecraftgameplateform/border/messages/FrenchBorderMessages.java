@@ -64,7 +64,9 @@ public enum FrenchBorderMessages {
 
 	INITIAL_BORDER_DIAMETER_EXPLANATION(InitialBorderDiameter_Explanation.FRENCH),
 
-	INITIAL_BORDER_DIAMETER_ON_TAB_COMPLETE(InitialBorderDiameter_OnTabComplete.FRENCH);
+	INITIAL_BORDER_DIAMETER_ON_TAB_COMPLETE(InitialBorderDiameter_OnTabComplete.FRENCH),
+
+	INITIAL_BORDER_DIAMETER_DIAMETER_IS_MISSING(InitialBorderDiameter_DiameterIsMissing.FRENCH);
 
 	private IMessage source;
 
