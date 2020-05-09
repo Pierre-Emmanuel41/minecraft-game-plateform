@@ -14,14 +14,14 @@ public class StartTimeBorder_BorderMovesAtTheBeginning extends AbstractDynamicMe
 	private static class French extends StartTimeBorder_BorderMovesAtTheBeginning {
 		@Override
 		public String getMessage(String... args) {
-			return "La bordure " + args[0] + " se déplacera dés le début de la partie dans le monde " + args[1];
+			return "La bordure " + args[0] + " se déplacera dés le début de la partie";
 		}
 	}
 
 	private static class English extends StartTimeBorder_BorderMovesAtTheBeginning {
 		@Override
 		public String getMessage(String... args) {
-			return "The border " + args[0] + " will move from the start of the game in world " + args[1];
+			return "The border " + args[0] + " will move from the start of the game";
 		}
 	}
 }
