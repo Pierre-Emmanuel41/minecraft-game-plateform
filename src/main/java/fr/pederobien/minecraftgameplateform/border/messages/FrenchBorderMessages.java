@@ -86,7 +86,9 @@ public enum FrenchBorderMessages {
 
 	SPEED_BORDER_ON_TAB_COMPLETE(SpeedBorder_OnTabComplete.FRENCH),
 
-	SPEED_BORDER_SPEED_IS_MISSING(SpeedBorder_SpeedIsMissing.FRENCH);
+	SPEED_BORDER_SPEED_IS_MISSING(SpeedBorder_SpeedIsMissing.FRENCH),
+
+	SPEED_BORDER_SPEED_IS_NEGATIVE(SpeedBorder_SpeedIsNegative.FRENCH);
 
 	private IMessage source;
 

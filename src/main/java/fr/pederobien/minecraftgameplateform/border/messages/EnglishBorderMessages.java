@@ -86,7 +86,9 @@ public enum EnglishBorderMessages {
 
 	SPEED_BORDER_ON_TAB_COMPLETE(SpeedBorder_OnTabComplete.ENGLISH),
 
-	SPEED_BORDER_SPEED_IS_MISSING(SpeedBorder_SpeedIsMissing.ENGLISH);
+	SPEED_BORDER_SPEED_IS_MISSING(SpeedBorder_SpeedIsMissing.ENGLISH),
+
+	SPEED_BORDER_SPEED_IS_NEGATIVE(SpeedBorder_SpeedIsNegative.ENGLISH);
 
 	private IMessage source;
 
