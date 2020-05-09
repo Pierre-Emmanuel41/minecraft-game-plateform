@@ -90,7 +90,9 @@ public enum EnglishBorderMessages {
 
 	SPEED_BORDER_SPEED_IS_NEGATIVE(SpeedBorder_SpeedIsNegative.ENGLISH),
 
-	SPEED_BORDER_SPEED_DEFINED(SpeedBorder_SpeedDefined.ENGLISH);
+	SPEED_BORDER_SPEED_DEFINED(SpeedBorder_SpeedDefined.ENGLISH),
+
+	START_TIME_BORDER_EXPLANATION(StartTimeBorder_Explanation.ENGLISH);
 
 	private IMessage source;
 

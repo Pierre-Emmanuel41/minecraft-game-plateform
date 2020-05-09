@@ -90,7 +90,9 @@ public enum FrenchBorderMessages {
 
 	SPEED_BORDER_SPEED_IS_NEGATIVE(SpeedBorder_SpeedIsNegative.FRENCH),
 
-	SPEED_BORDER_SPEED_DEFINED(SpeedBorder_SpeedDefined.FRENCH);
+	SPEED_BORDER_SPEED_DEFINED(SpeedBorder_SpeedDefined.FRENCH),
+
+	START_TIME_BORDER_EXPLANATION(StartTimeBorder_Explanation.FRENCH);
 
 	private IMessage source;
 
