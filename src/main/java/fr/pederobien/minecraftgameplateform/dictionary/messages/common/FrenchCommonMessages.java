@@ -6,7 +6,9 @@ import fr.pederobien.minecraftdictionary.interfaces.IMessage;
 public enum FrenchCommonMessages {
 	HELP_EXPLANATION(CommonHelp_Explanation.FRENCH),
 
-	COMMON_BAD_INTEGER_FORMAT5(Common_BadIntegerFormat.FRENCH),
+	COMMON_BAD_INTEGER_FORMAT(Common_BadIntegerFormat.FRENCH),
+
+	COMMON_BAD_DOUBLE_FORMAT(Common_BadDoubleFormat.FRENCH),
 
 	COMMON_BAD_BOOLEAN_FORMAT(Common_BadBooleanFormat.FRENCH),
 

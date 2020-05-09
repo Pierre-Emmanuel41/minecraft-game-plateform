@@ -8,6 +8,8 @@ public enum EnglishCommonMessages {
 
 	COMMON_BAD_INTEGER_FORMAT5(Common_BadIntegerFormat.ENGLISH),
 
+	COMMON_BAD_DOUBLE_FORMATS(Common_BadDoubleFormat.ENGLISH),
+
 	COMMON_BAD_BOOLEAN_FORMAT(Common_BadBooleanFormat.ENGLISH),
 
 	COMMON_ARGUMENT_NOT_FOUND(Common_ArgumentNotFound.ENGLISH),
