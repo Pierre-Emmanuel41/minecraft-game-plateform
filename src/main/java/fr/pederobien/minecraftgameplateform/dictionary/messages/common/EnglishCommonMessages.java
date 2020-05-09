@@ -12,6 +12,8 @@ public enum EnglishCommonMessages {
 
 	COMMON_BAD_BOOLEAN_FORMAT(Common_BadBooleanFormat.ENGLISH),
 
+	COMMON_BAD_TIME_FORMAT(Common_BadTimeFormat.ENGLISH),
+
 	COMMON_ARGUMENT_NOT_FOUND(Common_ArgumentNotFound.ENGLISH),
 
 	COMMON_NOT_AVAILABLE_ARGUMENT(Common_NotAvailableArgument.ENGLISH),

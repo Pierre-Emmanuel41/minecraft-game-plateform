@@ -12,6 +12,8 @@ public enum FrenchCommonMessages {
 
 	COMMON_BAD_BOOLEAN_FORMAT(Common_BadBooleanFormat.FRENCH),
 
+	COMMON_BAD_TIME_FORMAT(Common_BadTimeFormat.FRENCH),
+
 	COMMON_ARGUMENT_NOT_FOUND(Common_ArgumentNotFound.FRENCH),
 
 	COMMON_NOT_AVAILABLE_ARGUMENT(Common_NotAvailableArgument.FRENCH),
