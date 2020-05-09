@@ -95,4 +95,11 @@ public class BorderEditionsFactory {
 	public static IMapPersistenceEdition<IBorderConfiguration> startTimeBorder() {
 		return new StartTimeBorder();
 	}
+
+	/**
+	 * @return An edition to set the time it take to move the border from its initial diameter to its final diameter.
+	 */
+	public static IMapPersistenceEdition<IBorderConfiguration> moveTimeBorder() {
+		return new MoveTimeBorder();
+	}
 }

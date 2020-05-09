@@ -25,5 +25,6 @@ public class BorderParent extends AbstractParentPersistenceEdition<IBorderConfig
 		addEdition(BorderEditionsFactory.finalBorderDiameter());
 		addEdition(BorderEditionsFactory.speedBorder());
 		addEdition(BorderEditionsFactory.startTimeBorder());
+		addEdition(BorderEditionsFactory.moveTimeBorder());
 	}
 }
