@@ -44,5 +44,5 @@ public interface IUnmodifiableBorderConfiguration extends IUnmodifiableNominable
 	/**
 	 * @return The time it take to move the border from its initial diameter to its final diameter.
 	 */
-	LocalTime getTimeToMoveTheBorder();
+	LocalTime getTimeToMove();
 }

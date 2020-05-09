@@ -58,5 +58,5 @@ public interface IBorderConfiguration extends INominable, IUnmodifiableBorderCon
 	 * 
 	 * @param timeToMoveTheBorder The time it take to move the border from its initial diameter to its final diameter.
 	 */
-	void setTimeToMoveTheBorder(LocalTime timeToMoveTheBorder);
+	void setTimeToMove(LocalTime timeToMoveTheBorder);
 }
