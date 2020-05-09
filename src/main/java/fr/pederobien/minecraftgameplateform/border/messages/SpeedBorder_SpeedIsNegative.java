@@ -13,13 +13,13 @@ public class SpeedBorder_SpeedIsNegative extends AbstractNotDynamicMessage {
 
 	private static class French extends SpeedBorder_SpeedIsNegative {
 		public French() {
-			super("Impossible de définir la vitesse de la bordure, la vitesse doit être positive");
+			super("Impossible de définir la vitesse de la bordure, la vitesse doit être strictement positive");
 		}
 	}
 
 	private static class English extends SpeedBorder_SpeedIsNegative {
 		public English() {
-			super("Cannot set the border's speed, the speed must be positive");
+			super("Cannot set the border's speed, the speed must be strictly positive");
 		}
 	}
 }

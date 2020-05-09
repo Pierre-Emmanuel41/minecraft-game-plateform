@@ -21,7 +21,7 @@ public class SpeedBorder extends AbstractLabelEdition<IBorderConfiguration> {
 	public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
 		try {
 			double speed = Double.parseDouble(args[0]);
-			if (speed < 0) {
+			if (speed <= 0) {
 				sendMessageToSender(sender, EBorderMessageCode.SPEED_BORDER__SPEED_IS_NEGATIVE);
 				return false;
 			}
