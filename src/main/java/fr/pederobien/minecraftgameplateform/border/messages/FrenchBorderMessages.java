@@ -92,7 +92,9 @@ public enum FrenchBorderMessages {
 
 	SPEED_BORDER_SPEED_DEFINED(SpeedBorder_SpeedDefined.FRENCH),
 
-	START_TIME_BORDER_EXPLANATION(StartTimeBorder_Explanation.FRENCH);
+	START_TIME_BORDER_EXPLANATION(StartTimeBorder_Explanation.FRENCH),
+
+	START_TIME_BORDER_TIME_IS_MISSING(StartTimeBorder_TimeIsMissing.ENGLISH);
 
 	private IMessage source;
 

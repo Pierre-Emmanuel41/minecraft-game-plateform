@@ -92,7 +92,9 @@ public enum EnglishBorderMessages {
 
 	SPEED_BORDER_SPEED_DEFINED(SpeedBorder_SpeedDefined.ENGLISH),
 
-	START_TIME_BORDER_EXPLANATION(StartTimeBorder_Explanation.ENGLISH);
+	START_TIME_BORDER_EXPLANATION(StartTimeBorder_Explanation.ENGLISH),
+
+	START_TIME_BORDER_TIME_IS_MISSING(StartTimeBorder_TimeIsMissing.ENGLISH);
 
 	private IMessage source;
 
