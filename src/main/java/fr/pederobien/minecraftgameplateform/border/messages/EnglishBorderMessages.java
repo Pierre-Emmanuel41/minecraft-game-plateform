@@ -102,7 +102,9 @@ public enum EnglishBorderMessages {
 
 	MOVE_TIME_BORDER_EXPLANATION(MoveTimeBorder_Explanation.ENGLISH),
 
-	MOVE_TIME_BORDER_TIME_IS_MISSING(MoveTimeBorder_TimeIsMissing.ENGLISH);
+	MOVE_TIME_BORDER_TIME_IS_MISSING(MoveTimeBorder_TimeIsMissing.ENGLISH),
+
+	MOVE_TIME_BORDER_INSTANTLY_MOVE(MoveTimeBorder_InstantlyMove.ENGLISH);
 
 	private IMessage source;
 
