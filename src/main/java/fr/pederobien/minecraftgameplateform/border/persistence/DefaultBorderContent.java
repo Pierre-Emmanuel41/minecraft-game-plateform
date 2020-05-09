@@ -19,6 +19,7 @@ public class DefaultBorderContent extends AbstractDefaultContent {
 				+ "  <initialdiameter>2000</initialdiameter>\r\n"
 				+ "  <finaldiameter>30</finaldiameter>\r\n"
 				+ "  <borderspeed>1.0</borderspeed>\r\n"
+				+ "  <starttime>02:00</starttime>\r\n"
 				+ "</border>";
 	}
 }
