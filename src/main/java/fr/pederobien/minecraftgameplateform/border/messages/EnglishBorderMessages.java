@@ -80,7 +80,9 @@ public enum EnglishBorderMessages {
 
 	FINAL_BORDER_DIAMETER_NEGATIVE_DIAMETER(FinalBorderDiameter_NegativeDiameter.ENGLISH),
 
-	FINAL_BORDER_DIAMETER_DIAMETER_DEFINED(FinalBorderDiameter_DiameterDefined.ENGLISH);
+	FINAL_BORDER_DIAMETER_DIAMETER_DEFINED(FinalBorderDiameter_DiameterDefined.ENGLISH),
+
+	SPEED_BORDER_EXPLANATION(SpeedBorder_Explanation.ENGLISH);
 
 	private IMessage source;
 

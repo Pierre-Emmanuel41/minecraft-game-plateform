@@ -80,7 +80,9 @@ public enum FrenchBorderMessages {
 
 	FINAL_BORDER_DIAMETER_NEGATIVE_DIAMETER(FinalBorderDiameter_NegativeDiameter.FRENCH),
 
-	FINAL_BORDER_DIAMETER_DIAMETER_DEFINED(FinalBorderDiameter_DiameterDefined.FRENCH);
+	FINAL_BORDER_DIAMETER_DIAMETER_DEFINED(FinalBorderDiameter_DiameterDefined.FRENCH),
+
+	SPEED_BORDER_EXPLANATION(SpeedBorder_Explanation.FRENCH);
 
 	private IMessage source;
 
