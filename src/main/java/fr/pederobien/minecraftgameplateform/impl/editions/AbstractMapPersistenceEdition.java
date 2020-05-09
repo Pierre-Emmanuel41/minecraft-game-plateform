@@ -101,7 +101,7 @@ public abstract class AbstractMapPersistenceEdition<T extends IUnmodifiableNomin
 	 * @return True if the given string contains a parsable integer OR is empty, false otherwise.
 	 */
 	protected boolean isNotStrictInt(String number) {
-		return number.equals("") || isStrictInt(number);
+		return number.equals("") || number.equals("-") || isStrictInt(number);
 	}
 
 	/**
@@ -135,7 +135,7 @@ public abstract class AbstractMapPersistenceEdition<T extends IUnmodifiableNomin
 	 * @see java.lang.Double#valueOf(String)
 	 */
 	protected boolean isNotStrictDouble(String number) {
-		return number.equals("") || isStrictDouble(number);
+		return number.equals("") || number.equals("-") || isStrictDouble(number);
 	}
 
 	/**
