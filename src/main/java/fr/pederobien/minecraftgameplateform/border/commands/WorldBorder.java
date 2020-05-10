@@ -24,7 +24,7 @@ public class WorldBorder extends AbstractLabelEdition<IBorderConfiguration> {
 		try {
 			name = args[0];
 			get().setWorld(name);
-			sendMessageToSender(sender, EBorderMessageCode.WORLD_BORDER__WORLD_DEFINED, get().getName(), get().getWorld().getName());
+			sendMessageToSender(sender, EBorderMessageCode.WORLD_BORDER__WORLD_DEFINED, get().getName(), WorldManager.getWorldNameNormalised(get().getWorld()));
 			return true;
 		} catch (IndexOutOfBoundsException e) {
 			sendMessageToSender(sender, EBorderMessageCode.WORLD_BORDER__WORLD_NAME_IS_MISSING);

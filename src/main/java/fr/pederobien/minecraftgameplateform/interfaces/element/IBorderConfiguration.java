@@ -2,6 +2,7 @@ package fr.pederobien.minecraftgameplateform.interfaces.element;
 
 import java.time.LocalTime;
 
+import fr.pederobien.minecraftgameplateform.exceptions.worldstructure.WorldNotFoundException;
 import fr.pederobien.minecraftgameplateform.interfaces.element.unmodifiable.IUnmodifiableBorderConfiguration;
 
 public interface IBorderConfiguration extends INominable, IUnmodifiableBorderConfiguration {
@@ -10,6 +11,8 @@ public interface IBorderConfiguration extends INominable, IUnmodifiableBorderCon
 	 * Set the world in which this configuration is applied.
 	 * 
 	 * @param worldName The world's name in which the world border is applied.
+	 * 
+	 * @throws WorldNotFoundException If the given world name does not correspond to a world.
 	 */
 	void setWorld(String worldName);
 

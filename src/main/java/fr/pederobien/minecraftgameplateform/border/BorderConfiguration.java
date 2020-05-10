@@ -6,6 +6,7 @@ import java.util.StringJoiner;
 import org.bukkit.World;
 import org.bukkit.block.Block;
 
+import fr.pederobien.minecraftgameplateform.exceptions.worldstructure.WorldNotFoundException;
 import fr.pederobien.minecraftgameplateform.helpers.DisplayHelper;
 import fr.pederobien.minecraftgameplateform.impl.element.AbstractNominable;
 import fr.pederobien.minecraftgameplateform.interfaces.element.IBorderConfiguration;
@@ -65,7 +66,10 @@ public class BorderConfiguration extends AbstractNominable implements IBorderCon
 
 	@Override
 	public void setWorld(String worldName) {
-		this.world = WorldManager.getWorld(worldName);
+		World worldTemp = WorldManager.getWorld(worldName);
+		if (worldTemp == null)
+			throw new WorldNotFoundException(worldName);
+		this.world = worldTemp;
 	}
 
 	@Override
