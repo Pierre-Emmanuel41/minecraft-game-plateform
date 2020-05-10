@@ -13,7 +13,7 @@ public class StartTimeBorder_TimeIsMissing extends AbstractNotDynamicMessage {
 
 	private static class French extends StartTimeBorder_TimeIsMissing {
 		public French() {
-			super("Impossible de définir le temps au bout duquel la bordure se déplace, le manque le temps");
+			super("Impossible de définir le temps au bout duquel la bordure se déplace, il manque le temps");
 		}
 	}
 
