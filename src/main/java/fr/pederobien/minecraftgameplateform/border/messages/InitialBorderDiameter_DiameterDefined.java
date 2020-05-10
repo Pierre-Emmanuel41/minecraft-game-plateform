@@ -8,7 +8,7 @@ public class InitialBorderDiameter_DiameterDefined extends AbstractDynamicMessag
 	public static final IMessage ENGLISH = new English();
 
 	public InitialBorderDiameter_DiameterDefined() {
-		super(EBorderMessageCode.INITIAL_BORDER_DIAMETER__NEGATIVE_DIAMETER);
+		super(EBorderMessageCode.INITIAL_BORDER_DIAMETER__DIAMETER_DEFINED);
 	}
 
 	private static class French extends InitialBorderDiameter_DiameterDefined {

@@ -8,7 +8,7 @@ public class FinalBorderDiameter_DiameterDefined extends AbstractDynamicMessage 
 	public static final IMessage ENGLISH = new English();
 
 	public FinalBorderDiameter_DiameterDefined() {
-		super(EBorderMessageCode.FINAL_BORDER_DIAMETER__NEGATIVE_DIAMETER);
+		super(EBorderMessageCode.FINAL_BORDER_DIAMETER__DIAMETER_DEFINED);
 	}
 
 	private static class French extends FinalBorderDiameter_DiameterDefined {
