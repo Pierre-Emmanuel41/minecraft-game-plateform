@@ -11,13 +11,13 @@ public class Common_BadTimeFormat extends AbstractNotDynamicMessage {
 		super(ECommonMessageCode.COMMON_BAD_TIME_FORMAT, message);
 	}
 
-	private static class French extends Common_BadIntegerFormat {
+	private static class French extends Common_BadTimeFormat {
 		public French() {
 			super("Mauvais format, le temps doit respecter le schéma hh:mm:ss");
 		}
 	}
 
-	private static class English extends Common_BadIntegerFormat {
+	private static class English extends Common_BadTimeFormat {
 		public English() {
 			super("Bad format, the time must respect the schema hh:mm:ss");
 		}

@@ -11,13 +11,13 @@ public class Common_BadDoubleFormat extends AbstractNotDynamicMessage {
 		super(ECommonMessageCode.COMMON_BAD_DOUBLE_FORMAT, message);
 	}
 
-	private static class French extends Common_BadIntegerFormat {
+	private static class French extends Common_BadDoubleFormat {
 		public French() {
 			super("Mauvais format, les arguments doivent être des doubles");
 		}
 	}
 
-	private static class English extends Common_BadIntegerFormat {
+	private static class English extends Common_BadDoubleFormat {
 		public English() {
 			super("Bad format, arguments should be doubles");
 		}
