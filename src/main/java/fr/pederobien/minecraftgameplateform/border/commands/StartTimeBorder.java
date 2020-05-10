@@ -23,7 +23,7 @@ public class StartTimeBorder extends AbstractLabelEdition<IBorderConfiguration> 
 	public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
 		try {
 			get().setStartTime(LocalTime.parse(args[0]));
-			if (get().getStartTime().getHour() == 0 || get().getStartTime().getMinute() == 0 || get().getStartTime().getSecond() == 0) {
+			if (get().getStartTime().getHour() == 0 && get().getStartTime().getMinute() == 0 && get().getStartTime().getSecond() == 0) {
 				sendMessageToSender(sender, EBorderMessageCode.START_TIME_BORDER__BORDER_MOVES_AT_THE_BEGINNING, get().getName());
 				return true;
 			}
