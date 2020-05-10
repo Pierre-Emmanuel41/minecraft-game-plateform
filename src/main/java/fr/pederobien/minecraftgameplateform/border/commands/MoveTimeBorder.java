@@ -23,7 +23,7 @@ public class MoveTimeBorder extends AbstractLabelEdition<IBorderConfiguration> {
 	public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
 		try {
 			get().setMoveTime(LocalTime.parse(args[0]));
-			if (get().getStartTime().getHour() == 0 && get().getStartTime().getMinute() == 0 && get().getStartTime().getSecond() == 0) {
+			if (get().getMoveTime().getHour() == 0 && get().getMoveTime().getMinute() == 0 && get().getMoveTime().getSecond() == 0) {
 				sendMessageToSender(sender, EBorderMessageCode.MOVE_TIME_BORDER__INSTANTLY_MOVE, get().getName());
 				return true;
 			}
@@ -35,7 +35,7 @@ public class MoveTimeBorder extends AbstractLabelEdition<IBorderConfiguration> {
 			return false;
 		}
 
-		sendMessageToSender(sender, EBorderMessageCode.MOVE_TIME_BORDER__MOVE_TIME_DEFINED, get().getName(), toString(get().getMoveTime()));
+		sendMessageToSender(sender, EBorderMessageCode.MOVE_TIME_BORDER__MOVE_TIME_DEFINED, get().getName(), toString(get().getMoveTime()), get().getBorderSpeed());
 		return true;
 	}
 
