@@ -1,5 +1,6 @@
 package fr.pederobien.minecraftgameplateform.helpers;
 
+import java.text.DecimalFormat;
 import java.time.LocalTime;
 import java.util.StringJoiner;
 
@@ -7,6 +8,7 @@ import org.bukkit.Location;
 import org.bukkit.block.Block;
 
 public class DisplayHelper {
+	private static DecimalFormat decimalFormat = new DecimalFormat();
 
 	/**
 	 * Method used to display the given time to minecraft player.
@@ -44,6 +46,32 @@ public class DisplayHelper {
 		if (full)
 			join(joiner, "Pitch=" + location.getPitch(), "Yaw=" + location.getYaw());
 		return joiner.toString();
+	}
+
+	/**
+	 * Format the given number using the pattern "#.##".
+	 * 
+	 * @param number The number to format.
+	 * @return The formatted number.
+	 * 
+	 * @see #format(String, double)
+	 */
+	public static String format(double number) {
+		return format("#.##", number);
+	}
+
+	/**
+	 * Format the given number using the specified pattern.
+	 * 
+	 * @param pattern The pattern used to format the number.
+	 * @param number  The number to format.
+	 * @return The formatted number.
+	 * 
+	 * @see DecimalFormat#format(double)
+	 */
+	public static String format(String pattern, double number) {
+		decimalFormat.applyPattern(pattern);
+		return decimalFormat.format(number);
 	}
 
 	private static String join(String... toJoin) {

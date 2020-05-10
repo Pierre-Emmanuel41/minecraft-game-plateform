@@ -110,7 +110,7 @@ public class BorderConfiguration extends AbstractNominable implements IBorderCon
 		joiner.add("Center : " + display(center, DisplayHelper.toString(getBorderCenter())));
 		joiner.add("Initial diameter : " + display(initialDiameter, getInitialBorderDiameter() + " blocks"));
 		joiner.add("Final diameter : " + display(finalDiameter, getFinalBorderDiameter() + " blocks"));
-		joiner.add("Speed : " + display(borderSpeed, getBorderSpeed() + " block/s"));
+		joiner.add("Speed : " + display(borderSpeed, DisplayHelper.format(getBorderSpeed()) + " block/s"));
 		joiner.add("Start time : " + display(startTime, DisplayHelper.toString(getStartTime())));
 		joiner.add("Move time : " + DisplayHelper.toString(getMoveTime()));
 		joiner.add("End time : " + getStartTime().plusSeconds(getMoveTime().toSecondOfDay()));

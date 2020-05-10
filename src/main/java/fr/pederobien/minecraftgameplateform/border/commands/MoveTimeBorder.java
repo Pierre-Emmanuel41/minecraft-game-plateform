@@ -10,6 +10,7 @@ import org.bukkit.command.CommandSender;
 
 import fr.pederobien.minecraftgameplateform.border.messages.EBorderMessageCode;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.common.ECommonMessageCode;
+import fr.pederobien.minecraftgameplateform.helpers.DisplayHelper;
 import fr.pederobien.minecraftgameplateform.impl.editions.AbstractLabelEdition;
 import fr.pederobien.minecraftgameplateform.interfaces.element.IBorderConfiguration;
 
@@ -34,8 +35,8 @@ public class MoveTimeBorder extends AbstractLabelEdition<IBorderConfiguration> {
 			sendMessageToSender(sender, ECommonMessageCode.COMMON_BAD_TIME_FORMAT);
 			return false;
 		}
-
-		sendMessageToSender(sender, EBorderMessageCode.MOVE_TIME_BORDER__MOVE_TIME_DEFINED, get().getName(), toString(get().getMoveTime()), get().getBorderSpeed());
+		sendMessageToSender(sender, EBorderMessageCode.MOVE_TIME_BORDER__MOVE_TIME_DEFINED, get().getName(), toString(get().getMoveTime()),
+				DisplayHelper.format(get().getBorderSpeed()));
 		return true;
 	}
 
