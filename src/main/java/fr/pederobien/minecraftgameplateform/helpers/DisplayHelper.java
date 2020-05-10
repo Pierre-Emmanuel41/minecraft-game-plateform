@@ -18,7 +18,14 @@ public class DisplayHelper {
 	 * @return time.getHour() + "h " + time.getMinute() + "m " + time.getSecond() + "s";
 	 */
 	public static String toString(LocalTime time) {
-		return join(time.getHour() + "h", time.getMinute() + "m", time.getSecond() + "s");
+		StringJoiner joiner = new StringJoiner(" ");
+		if (time.getHour() != 0)
+			joiner.add(time.getHour() + "h");
+		if (time.getMinute() != 0)
+			joiner.add(time.getMinute() + "m");
+		if (time.getSecond() != 0)
+			joiner.add(time.getSecond() + "s");
+		return joiner.toString();
 	}
 
 	/**
