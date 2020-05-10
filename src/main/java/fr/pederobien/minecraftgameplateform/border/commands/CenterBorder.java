@@ -22,12 +22,14 @@ public class CenterBorder extends AbstractLabelEdition<IBorderConfiguration> {
 		try {
 			get().setBorderCenter(Integer.parseInt(args[0]), Integer.parseInt(args[1]));
 			sendMessageToSender(sender, EBorderMessageCode.CENTER_BORDER__CENTER_DEFINED, get().getBorderCenter().getX(), get().getBorderCenter().getZ());
+			return true;
 		} catch (IndexOutOfBoundsException e) {
 			sendMessageToSender(sender, ECommonMessageCode.COMMON_MISSING_COORDINATES);
+			return false;
 		} catch (NumberFormatException e) {
 			sendMessageToSender(sender, ECommonMessageCode.COMMON_BAD_INTEGER_FORMAT);
+			return false;
 		}
-		return true;
 	}
 
 	@Override
