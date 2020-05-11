@@ -2,6 +2,7 @@ package fr.pederobien.minecraftgameplateform.dictionary.dictionaries;
 
 import java.util.Locale;
 
+import fr.pederobien.minecraftgameplateform.border.messages.EnglishBorderMessages;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.common.EnglishCommonMessages;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.EnglishGameConfigurationMessages;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.teams.EnglishTeamConfigurationMessages;
@@ -27,6 +28,6 @@ public class EnglishDictionary extends AbstractPlateformDictionary {
 		EnglishTeamRemoveMessages.setDictionary(this);
 		EnglishTeamModifyMessages.setDictionary(this);
 		EnglishSpawnMessages.setDictionary(this);
-		EnglishSpawnMessages.setDictionary(this);
+		EnglishBorderMessages.setDictionary(this);
 	}
 }
