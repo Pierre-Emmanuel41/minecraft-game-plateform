@@ -1,13 +1,12 @@
 package fr.pederobien.minecraftgameplateform.internal;
 
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
+import fr.pederobien.minecraftdevelopmenttoolkit.utils.FileWriterHelper;
 import fr.pederobien.minecraftgameplateform.impl.element.AbstractNominable;
 import fr.pederobien.minecraftgameplateform.interfaces.element.persistence.IMinecraftPersistence;
 import fr.pederobien.minecraftgameplateform.internal.persistence.PersistenceCenterPersistence;
@@ -66,12 +65,9 @@ public class PersistenceCenter extends AbstractNominable implements IPersistence
 	}
 
 	private <T extends IUnmodifiableNominable> void register(IMinecraftPersistence<T> persistence) {
-		File file = persistence.getPath().toFile();
-		if (!file.exists())
-			file.mkdirs();
-
+		FileWriterHelper.mkdirs(persistence.getPath());
 		versions.put(persistence.getClass().getName(), persistence.getVersion());
-		write(persistence.getAbsolutePath(persistence.getDefaultContent().getName()).toFile(), persistence.getDefaultContent().getDefaultContent());
+		FileWriterHelper.write(persistence.getAbsolutePath(persistence.getDefaultContent().getName()), persistence.getDefaultContent().getDefaultContent());
 	}
 
 	private <T extends IUnmodifiableNominable> void update(IMinecraftPersistence<T> persistence) {
@@ -80,29 +76,8 @@ public class PersistenceCenter extends AbstractNominable implements IPersistence
 			persistence.save();
 			persistence.set(null);
 			versions.put(persistence.getClass().getName(), persistence.getVersion());
-		} catch (IOException e) {
-
-		}
-	}
-
-	private void write(File file, String toWrite) {
-		BufferedWriter writer = null;
-		try {
-			if (!file.exists())
-				file.createNewFile();
-
-			// Writing default content
-			writer = new BufferedWriter(new FileWriter(file));
-			writer.write(toWrite);
-		} catch (IOException e) {
-			e.printStackTrace();
-		} finally {
-			try {
-				if (writer != null)
-					writer.close();
-			} catch (IOException e) {
-
-			}
+		} catch (FileNotFoundException e) {
+			FileWriterHelper.write(persistence.getAbsolutePath(persistence.getDefaultContent().getName()), persistence.getDefaultContent().getDefaultContent());
 		}
 	}
 }
