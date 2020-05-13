@@ -4,12 +4,12 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
 import fr.pederobien.minecraftgameplateform.border.persistence.loaders.BorderLoaderV10;
-import fr.pederobien.minecraftgameplateform.impl.element.persistence.xml.AbstractXmlPersistence;
+import fr.pederobien.minecraftgameplateform.impl.element.persistence.AbstractMinecraftPersistence;
 import fr.pederobien.minecraftgameplateform.interfaces.element.IBorderConfiguration;
-import fr.pederobien.minecraftgameplateform.interfaces.element.persistence.IPersistence;
+import fr.pederobien.minecraftgameplateform.interfaces.element.persistence.IMinecraftPersistence;
 import fr.pederobien.minecraftgameplateform.utils.Plateform;
 
-public class BorderPersistence extends AbstractXmlPersistence<IBorderConfiguration> {
+public class BorderPersistence extends AbstractMinecraftPersistence<IBorderConfiguration> {
 	private static final String ROOT_XML_DOCUMENT = "border";
 
 	private BorderPersistence() {
@@ -17,7 +17,7 @@ public class BorderPersistence extends AbstractXmlPersistence<IBorderConfigurati
 		register(new BorderLoaderV10());
 	}
 
-	public static IPersistence<IBorderConfiguration> getInstance() {
+	public static IMinecraftPersistence<IBorderConfiguration> getInstance() {
 		return new BorderPersistence();
 	}
 

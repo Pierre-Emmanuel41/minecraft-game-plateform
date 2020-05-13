@@ -5,6 +5,8 @@ import java.time.LocalTime;
 import org.bukkit.World;
 import org.bukkit.block.Block;
 
+import fr.pederobien.persistence.interfaces.IUnmodifiableNominable;
+
 public interface IUnmodifiableBorderConfiguration extends IUnmodifiableNominable {
 
 	/**

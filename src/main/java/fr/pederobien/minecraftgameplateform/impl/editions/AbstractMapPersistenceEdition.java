@@ -20,9 +20,9 @@ import fr.pederobien.minecraftdictionary.interfaces.INotificationCenter;
 import fr.pederobien.minecraftgameplateform.helpers.DisplayHelper;
 import fr.pederobien.minecraftgameplateform.interfaces.editions.IMapPersistenceEdition;
 import fr.pederobien.minecraftgameplateform.interfaces.editions.IParentPersistenceEdition;
-import fr.pederobien.minecraftgameplateform.interfaces.element.persistence.IPersistence;
-import fr.pederobien.minecraftgameplateform.interfaces.element.unmodifiable.IUnmodifiableNominable;
+import fr.pederobien.minecraftgameplateform.interfaces.element.persistence.IMinecraftPersistence;
 import fr.pederobien.minecraftgameplateform.utils.Plateform;
+import fr.pederobien.persistence.interfaces.IUnmodifiableNominable;
 
 public abstract class AbstractMapPersistenceEdition<T extends IUnmodifiableNominable>
 		extends AbstractMessageCodeMapEdition<T, IParentPersistenceEdition<T>, IMapPersistenceEdition<T>> implements IMapPersistenceEdition<T> {
@@ -61,7 +61,7 @@ public abstract class AbstractMapPersistenceEdition<T extends IUnmodifiableNomin
 	 * 
 	 * @return The persistence used to save/load objects associated to the type <code>T</code>.
 	 */
-	protected IPersistence<T> getPersistence() {
+	protected IMinecraftPersistence<T> getPersistence() {
 		return getParent().getPersistence();
 	}
 

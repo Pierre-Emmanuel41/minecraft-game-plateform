@@ -3,8 +3,8 @@ package fr.pederobien.minecraftgameplateform.internal;
 import java.util.Map;
 
 import fr.pederobien.minecraftgameplateform.interfaces.element.INominable;
-import fr.pederobien.minecraftgameplateform.interfaces.element.persistence.IPersistence;
-import fr.pederobien.minecraftgameplateform.interfaces.element.unmodifiable.IUnmodifiableNominable;
+import fr.pederobien.minecraftgameplateform.interfaces.element.persistence.IMinecraftPersistence;
+import fr.pederobien.persistence.interfaces.IUnmodifiableNominable;
 
 public interface IPersistenceCenter extends INominable {
 
@@ -26,7 +26,7 @@ public interface IPersistenceCenter extends INominable {
 	 * 
 	 * @param persistence
 	 */
-	<T extends IUnmodifiableNominable> void registerOrUpdate(IPersistence<T> persistence);
+	<T extends IUnmodifiableNominable> void registerOrUpdate(IMinecraftPersistence<T> persistence);
 
 	/**
 	 * Save this center.

@@ -7,6 +7,7 @@ import org.bukkit.block.Block;
 
 import fr.pederobien.minecraftgameplateform.interfaces.element.IEventListener;
 import fr.pederobien.minecraftgameplateform.interfaces.element.IWorldBlock;
+import fr.pederobien.persistence.interfaces.IUnmodifiableNominable;
 
 public interface IUnmodifiableWorldStructure extends IUnmodifiableNominable {
 

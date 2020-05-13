@@ -1,8 +1,8 @@
 package fr.pederobien.minecraftgameplateform.border.persistence.loaders;
 
 import fr.pederobien.minecraftgameplateform.border.BorderConfiguration;
-import fr.pederobien.minecraftgameplateform.impl.element.persistence.xml.AbstractXmlPersistenceLoader;
 import fr.pederobien.minecraftgameplateform.interfaces.element.IBorderConfiguration;
+import fr.pederobien.persistence.impl.xml.AbstractXmlPersistenceLoader;
 
 public abstract class AbstractBorderLoader extends AbstractXmlPersistenceLoader<IBorderConfiguration> {
 

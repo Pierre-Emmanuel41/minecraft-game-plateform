@@ -10,8 +10,8 @@ import org.w3c.dom.NodeList;
 import fr.pederobien.minecraftgameplateform.impl.element.WorldBlock;
 import fr.pederobien.minecraftgameplateform.interfaces.element.ISpawn;
 import fr.pederobien.minecraftgameplateform.interfaces.element.IWorldBlock;
-import fr.pederobien.minecraftgameplateform.interfaces.element.persistence.xml.IXmlPersistenceLoader;
 import fr.pederobien.minecraftgameplateform.spawn.persistence.SpawnXmlTag;
+import fr.pederobien.persistence.interfaces.xml.IXmlPersistenceLoader;
 
 public class SpawnLoaderV10 extends AbstractSpawnLoader {
 

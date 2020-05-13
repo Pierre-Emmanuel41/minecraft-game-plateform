@@ -4,26 +4,21 @@ import java.nio.file.Path;
 
 import fr.pederobien.minecraftgameplateform.exceptions.persistence.IllegalPathException;
 import fr.pederobien.minecraftgameplateform.interfaces.element.persistence.IDefaultContent;
-import fr.pederobien.minecraftgameplateform.interfaces.element.persistence.IPersistence;
-import fr.pederobien.minecraftgameplateform.interfaces.element.unmodifiable.IUnmodifiableNominable;
+import fr.pederobien.minecraftgameplateform.interfaces.element.persistence.IMinecraftPersistence;
 import fr.pederobien.minecraftgameplateform.utils.Plateform;
+import fr.pederobien.persistence.impl.xml.AbstractXmlPersistence;
+import fr.pederobien.persistence.interfaces.IUnmodifiableNominable;
 
-public abstract class AbstractPersistence<T extends IUnmodifiableNominable> implements IPersistence<T> {
-	private Path path;
+public abstract class AbstractMinecraftPersistence<T extends IUnmodifiableNominable> extends AbstractXmlPersistence<T> implements IMinecraftPersistence<T> {
 	private IDefaultContent defaultContent;
 
-	protected AbstractPersistence(IDefaultContent defaultContent) {
+	protected AbstractMinecraftPersistence(IDefaultContent defaultContent) {
 		this(Plateform.ROOT, defaultContent);
 	}
 
-	protected AbstractPersistence(Path path, IDefaultContent defaultContent) {
-		setInternalPath(path);
+	protected AbstractMinecraftPersistence(Path path, IDefaultContent defaultContent) {
+		super(path);
 		this.defaultContent = defaultContent;
-	}
-
-	@Override
-	public Path getPath() {
-		return path;
 	}
 
 	@Override
@@ -31,19 +26,9 @@ public abstract class AbstractPersistence<T extends IUnmodifiableNominable> impl
 		return defaultContent;
 	}
 
-	@Override
-	public void setPath(Path path) {
-		throw new UnsupportedOperationException("This method cannot be called");
-	}
-
-	@Override
-	public boolean forceUpdate() {
-		return false;
-	}
-
 	protected void setInternalPath(Path path) {
 		checkPath(path);
-		this.path = path;
+		super.setInternalPath(path);
 	}
 
 	private void checkPath(Path path) {

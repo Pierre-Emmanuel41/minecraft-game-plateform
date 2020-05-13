@@ -11,7 +11,7 @@ import fr.pederobien.minecraftdictionary.interfaces.IMessageCode;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.common.ECommonMessageCode;
 import fr.pederobien.minecraftgameplateform.exceptions.worldstructure.WorldNotFoundException;
 import fr.pederobien.minecraftgameplateform.interfaces.element.IWorldStructure;
-import fr.pederobien.minecraftgameplateform.interfaces.element.persistence.IPersistence;
+import fr.pederobien.minecraftgameplateform.interfaces.element.persistence.IMinecraftPersistence;
 import fr.pederobien.minecraftmanagers.WorldManager;
 
 public abstract class CommonLaunch<T extends IWorldStructure> extends AbstractWorldStructureEdition<T> {
@@ -33,7 +33,7 @@ public abstract class CommonLaunch<T extends IWorldStructure> extends AbstractWo
 	 * @param sender The entity (generally a player) to send messages.
 	 * @param world  The given name that correspond to nothing.
 	 * 
-	 * @see IPersistence#load(String)
+	 * @see IMinecraftPersistence#load(String)
 	 */
 	protected abstract void onWorldIsMissing(CommandSender sender, String world);
 
@@ -43,7 +43,7 @@ public abstract class CommonLaunch<T extends IWorldStructure> extends AbstractWo
 	 * @param sender The entity (generally a player) to send messages.
 	 * @param name   The given name that correspond to nothing.
 	 * 
-	 * @see IPersistence#load(String)
+	 * @see IMinecraftPersistence#load(String)
 	 */
 	protected abstract void onStructureDoesNotExist(CommandSender sender, String name);
 

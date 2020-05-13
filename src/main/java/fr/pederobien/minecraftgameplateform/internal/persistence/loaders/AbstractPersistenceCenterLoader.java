@@ -1,7 +1,7 @@
 package fr.pederobien.minecraftgameplateform.internal.persistence.loaders;
 
-import fr.pederobien.minecraftgameplateform.impl.element.persistence.xml.AbstractXmlPersistenceLoader;
 import fr.pederobien.minecraftgameplateform.internal.IPersistenceCenter;
+import fr.pederobien.persistence.impl.xml.AbstractXmlPersistenceLoader;
 
 public abstract class AbstractPersistenceCenterLoader extends AbstractXmlPersistenceLoader<IPersistenceCenter> {
 

@@ -3,9 +3,9 @@ package fr.pederobien.minecraftgameplateform.internal.persistence.loaders;
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
 
-import fr.pederobien.minecraftgameplateform.interfaces.element.persistence.xml.IXmlPersistenceLoader;
 import fr.pederobien.minecraftgameplateform.internal.IPersistenceCenter;
 import fr.pederobien.minecraftgameplateform.internal.persistence.PersistenceXmlTag;
+import fr.pederobien.persistence.interfaces.xml.IXmlPersistenceLoader;
 
 public class PersistenceCenterLoaderV10 extends AbstractPersistenceCenterLoader {
 

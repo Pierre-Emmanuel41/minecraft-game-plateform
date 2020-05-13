@@ -7,8 +7,8 @@ import org.bukkit.command.CommandSender;
 
 import fr.pederobien.minecraftdictionary.interfaces.IMessageCode;
 import fr.pederobien.minecraftgameplateform.impl.editions.AbstractLabelEdition;
-import fr.pederobien.minecraftgameplateform.interfaces.element.persistence.IPersistence;
-import fr.pederobien.minecraftgameplateform.interfaces.element.unmodifiable.IUnmodifiableNominable;
+import fr.pederobien.minecraftgameplateform.interfaces.element.persistence.IMinecraftPersistence;
+import fr.pederobien.persistence.interfaces.IUnmodifiableNominable;
 
 public abstract class CommonList<T extends IUnmodifiableNominable> extends AbstractLabelEdition<T> {
 
@@ -17,15 +17,15 @@ public abstract class CommonList<T extends IUnmodifiableNominable> extends Abstr
 	}
 
 	/**
-	 * Method called when the list returned by the method {@link IPersistence#list()} contains no element. This method should be never
-	 * called because there is minimum the default object file.
+	 * Method called when the list returned by the method {@link IMinecraftPersistence#list()} contains no element. This method should
+	 * be never called because there is minimum the default object file.
 	 * 
 	 * @param sender The entity (generally a player) to send messages.
 	 */
 	protected abstract void onNoElement(CommandSender sender);
 
 	/**
-	 * Method called when the list returned by the method {@link IPersistence#list()} contains one element.
+	 * Method called when the list returned by the method {@link IMinecraftPersistence#list()} contains one element.
 	 * 
 	 * @param sender The entity (generally a player) to send messages.
 	 * @param name   The name of the element.
@@ -33,8 +33,8 @@ public abstract class CommonList<T extends IUnmodifiableNominable> extends Abstr
 	protected abstract void onOneElement(CommandSender sender, String name);
 
 	/**
-	 * Method called when the list returned by the method {@link IPersistence#list()} contains more than one element. The name of each
-	 * element are gathered into one string with delimiter equal "\n". For example, with name1, name2, name3 :<br>
+	 * Method called when the list returned by the method {@link IMinecraftPersistence#list()} contains more than one element. The
+	 * name of each element are gathered into one string with delimiter equal "\n". For example, with name1, name2, name3 :<br>
 	 * <br>
 	 * <code>name1\n<br>
 	 * name2\n<br>

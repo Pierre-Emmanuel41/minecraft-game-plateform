@@ -8,8 +8,8 @@ import org.bukkit.command.CommandSender;
 import fr.pederobien.minecraftdictionary.interfaces.IMessageCode;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.common.ECommonMessageCode;
 import fr.pederobien.minecraftgameplateform.impl.editions.AbstractLabelEdition;
-import fr.pederobien.minecraftgameplateform.interfaces.element.persistence.IPersistence;
-import fr.pederobien.minecraftgameplateform.interfaces.element.unmodifiable.IUnmodifiableNominable;
+import fr.pederobien.minecraftgameplateform.interfaces.element.persistence.IMinecraftPersistence;
+import fr.pederobien.persistence.interfaces.IUnmodifiableNominable;
 
 public abstract class CommonDelete<T extends IUnmodifiableNominable> extends AbstractLabelEdition<T> {
 
@@ -18,7 +18,7 @@ public abstract class CommonDelete<T extends IUnmodifiableNominable> extends Abs
 	}
 
 	/**
-	 * Method called when the method {@link IPersistence#delete(String)} returns false.
+	 * Method called when the method {@link IMinecraftPersistence#delete(String)} returns false.
 	 * 
 	 * @param sender The entity (generally a player) to send messages.
 	 * @param name   The name used to delete the object's file.

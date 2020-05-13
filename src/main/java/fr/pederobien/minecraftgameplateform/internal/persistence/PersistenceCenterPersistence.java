@@ -6,12 +6,12 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
 import fr.pederobien.minecraftgameplateform.impl.element.persistence.AbstractDefaultContent;
-import fr.pederobien.minecraftgameplateform.impl.element.persistence.xml.AbstractXmlPersistence;
+import fr.pederobien.minecraftgameplateform.impl.element.persistence.AbstractMinecraftPersistence;
 import fr.pederobien.minecraftgameplateform.internal.IPersistenceCenter;
 import fr.pederobien.minecraftgameplateform.internal.persistence.loaders.PersistenceCenterLoaderV10;
 import fr.pederobien.minecraftgameplateform.utils.Plateform;
 
-public class PersistenceCenterPersistence extends AbstractXmlPersistence<IPersistenceCenter> {
+public class PersistenceCenterPersistence extends AbstractMinecraftPersistence<IPersistenceCenter> {
 	private static final String ROOT_XML_DOCUMENT = "register";
 
 	public PersistenceCenterPersistence(IPersistenceCenter persistenceRegister) {

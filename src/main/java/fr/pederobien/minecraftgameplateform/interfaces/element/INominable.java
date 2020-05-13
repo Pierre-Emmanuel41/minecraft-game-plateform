@@ -1,6 +1,6 @@
 package fr.pederobien.minecraftgameplateform.interfaces.element;
 
-import fr.pederobien.minecraftgameplateform.interfaces.element.unmodifiable.IUnmodifiableNominable;
+import fr.pederobien.persistence.interfaces.IUnmodifiableNominable;
 
 public interface INominable extends IUnmodifiableNominable {
 

@@ -3,14 +3,14 @@ package fr.pederobien.minecraftgameplateform.spawn.persistence;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
-import fr.pederobien.minecraftgameplateform.impl.element.persistence.xml.AbstractXmlPersistence;
+import fr.pederobien.minecraftgameplateform.impl.element.persistence.AbstractMinecraftPersistence;
 import fr.pederobien.minecraftgameplateform.interfaces.element.ISpawn;
 import fr.pederobien.minecraftgameplateform.interfaces.element.IWorldBlock;
-import fr.pederobien.minecraftgameplateform.interfaces.element.persistence.IPersistence;
+import fr.pederobien.minecraftgameplateform.interfaces.element.persistence.IMinecraftPersistence;
 import fr.pederobien.minecraftgameplateform.spawn.persistence.loaders.SpawnLoaderV10;
 import fr.pederobien.minecraftgameplateform.utils.Plateform;
 
-public class SpawnPersistence extends AbstractXmlPersistence<ISpawn> {
+public class SpawnPersistence extends AbstractMinecraftPersistence<ISpawn> {
 	private static final String ROOT_XML_DOCUMENT = "spawn";
 
 	private SpawnPersistence() {
@@ -18,12 +18,12 @@ public class SpawnPersistence extends AbstractXmlPersistence<ISpawn> {
 		register(new SpawnLoaderV10());
 	}
 
-	public static IPersistence<ISpawn> getInstance() {
+	public static IMinecraftPersistence<ISpawn> getInstance() {
 		return SingletonHolder.PERSISTENCE;
 	}
 
 	private static class SingletonHolder {
-		public static final IPersistence<ISpawn> PERSISTENCE = new SpawnPersistence();
+		public static final IMinecraftPersistence<ISpawn> PERSISTENCE = new SpawnPersistence();
 	}
 
 	@Override

@@ -9,24 +9,25 @@ import java.util.HashMap;
 import java.util.Map;
 
 import fr.pederobien.minecraftgameplateform.impl.element.AbstractNominable;
-import fr.pederobien.minecraftgameplateform.interfaces.element.persistence.IPersistence;
-import fr.pederobien.minecraftgameplateform.interfaces.element.unmodifiable.IUnmodifiableNominable;
+import fr.pederobien.minecraftgameplateform.interfaces.element.persistence.IMinecraftPersistence;
 import fr.pederobien.minecraftgameplateform.internal.persistence.PersistenceCenterPersistence;
 import fr.pederobien.minecraftgameplateform.utils.Plateform;
+import fr.pederobien.persistence.interfaces.IUnmodifiableNominable;
 
 public class PersistenceCenter extends AbstractNominable implements IPersistenceCenter {
 	private Map<String, Double> versions;
-	private IPersistence<IPersistenceCenter> persistence;
+	private IMinecraftPersistence<IPersistenceCenter> centerPersistence;
 
 	private PersistenceCenter() {
 		super("register");
 		versions = new HashMap<String, Double>();
 		try {
-			persistence = new PersistenceCenterPersistence(this).load(getName());
+			centerPersistence = new PersistenceCenterPersistence(this);
+			centerPersistence.load(getName());
 		} catch (IOException e) {
 
 		}
-		registerOrUpdate(persistence);
+		registerOrUpdate(centerPersistence);
 	}
 
 	public static IPersistenceCenter getInstance() {
@@ -48,7 +49,7 @@ public class PersistenceCenter extends AbstractNominable implements IPersistence
 	}
 
 	@Override
-	public <T extends IUnmodifiableNominable> void registerOrUpdate(IPersistence<T> persistence) {
+	public <T extends IUnmodifiableNominable> void registerOrUpdate(IMinecraftPersistence<T> persistence) {
 		Double version = versions.get(persistence.getClass().getName());
 		if (version == null) {
 			Plateform.getPlugin().getLogger().info("Registering persistence " + persistence.getClass());
@@ -61,10 +62,10 @@ public class PersistenceCenter extends AbstractNominable implements IPersistence
 
 	@Override
 	public void save() {
-		persistence.save();
+		centerPersistence.save();
 	}
 
-	private <T extends IUnmodifiableNominable> void register(IPersistence<T> persistence) {
+	private <T extends IUnmodifiableNominable> void register(IMinecraftPersistence<T> persistence) {
 		File file = persistence.getPath().toFile();
 		if (!file.exists())
 			file.mkdirs();
@@ -73,7 +74,7 @@ public class PersistenceCenter extends AbstractNominable implements IPersistence
 		write(persistence.getAbsolutePath(persistence.getDefaultContent().getName()).toFile(), persistence.getDefaultContent().getDefaultContent());
 	}
 
-	private <T extends IUnmodifiableNominable> void update(IPersistence<T> persistence) {
+	private <T extends IUnmodifiableNominable> void update(IMinecraftPersistence<T> persistence) {
 		try {
 			persistence.load(persistence.getDefaultContent().getName());
 			persistence.save();

@@ -5,7 +5,7 @@ import org.bukkit.command.CommandSender;
 
 import fr.pederobien.minecraftdictionary.interfaces.IMessageCode;
 import fr.pederobien.minecraftgameplateform.impl.editions.AbstractLabelEdition;
-import fr.pederobien.minecraftgameplateform.interfaces.element.unmodifiable.IUnmodifiableNominable;
+import fr.pederobien.persistence.interfaces.IUnmodifiableNominable;
 
 public abstract class CommonSave<T extends IUnmodifiableNominable> extends AbstractLabelEdition<T> {
 

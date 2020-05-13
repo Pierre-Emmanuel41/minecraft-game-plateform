@@ -8,6 +8,7 @@ import org.bukkit.scoreboard.Team;
 
 import fr.pederobien.minecraftgameplateform.interfaces.element.ITeam;
 import fr.pederobien.minecraftgameplateform.utils.EColor;
+import fr.pederobien.persistence.interfaces.IUnmodifiableNominable;
 
 public interface IUnmodifiableTeam extends IUnmodifiableNominable {
 

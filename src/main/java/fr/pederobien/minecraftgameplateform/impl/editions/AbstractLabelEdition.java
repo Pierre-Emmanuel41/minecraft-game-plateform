@@ -3,7 +3,7 @@ package fr.pederobien.minecraftgameplateform.impl.editions;
 import fr.pederobien.minecraftdictionary.interfaces.IMessageCode;
 import fr.pederobien.minecraftgameplateform.interfaces.editions.IParentPersistenceEdition;
 import fr.pederobien.minecraftgameplateform.interfaces.element.ILabel;
-import fr.pederobien.minecraftgameplateform.interfaces.element.unmodifiable.IUnmodifiableNominable;
+import fr.pederobien.persistence.interfaces.IUnmodifiableNominable;
 
 public abstract class AbstractLabelEdition<T extends IUnmodifiableNominable> extends AbstractMapPersistenceEdition<T> {
 

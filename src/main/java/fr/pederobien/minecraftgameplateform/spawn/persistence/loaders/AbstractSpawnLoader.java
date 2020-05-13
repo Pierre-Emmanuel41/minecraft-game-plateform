@@ -2,11 +2,11 @@ package fr.pederobien.minecraftgameplateform.spawn.persistence.loaders;
 
 import org.w3c.dom.Element;
 
-import fr.pederobien.minecraftgameplateform.impl.element.persistence.xml.AbstractXmlPersistenceLoader;
 import fr.pederobien.minecraftgameplateform.interfaces.element.ISpawn;
-import fr.pederobien.minecraftgameplateform.interfaces.element.persistence.xml.IXmlPersistenceLoader;
 import fr.pederobien.minecraftgameplateform.spawn.Spawn;
 import fr.pederobien.minecraftgameplateform.spawn.persistence.SpawnXmlTag;
+import fr.pederobien.persistence.impl.xml.AbstractXmlPersistenceLoader;
+import fr.pederobien.persistence.interfaces.xml.IXmlPersistenceLoader;
 
 public abstract class AbstractSpawnLoader extends AbstractXmlPersistenceLoader<ISpawn> implements IXmlPersistenceLoader<ISpawn> {
 

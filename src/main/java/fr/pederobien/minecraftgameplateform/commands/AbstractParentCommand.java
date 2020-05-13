@@ -6,8 +6,8 @@ import org.bukkit.command.TabCompleter;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import fr.pederobien.minecraftgameplateform.interfaces.editions.IParentPersistenceEdition;
-import fr.pederobien.minecraftgameplateform.interfaces.element.unmodifiable.IUnmodifiableNominable;
 import fr.pederobien.minecraftgameplateform.utils.Plateform;
+import fr.pederobien.persistence.interfaces.IUnmodifiableNominable;
 
 public class AbstractParentCommand<T extends IUnmodifiableNominable> extends AbstractCommand {
 	private IParentPersistenceEdition<T> parent;

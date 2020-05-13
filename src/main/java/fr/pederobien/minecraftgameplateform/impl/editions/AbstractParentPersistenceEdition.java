@@ -20,19 +20,19 @@ import fr.pederobien.minecraftdictionary.interfaces.INotificationCenter;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.common.ECommonMessageCode;
 import fr.pederobien.minecraftgameplateform.interfaces.editions.IMapPersistenceEdition;
 import fr.pederobien.minecraftgameplateform.interfaces.editions.IParentPersistenceEdition;
-import fr.pederobien.minecraftgameplateform.interfaces.element.persistence.IPersistence;
-import fr.pederobien.minecraftgameplateform.interfaces.element.unmodifiable.IUnmodifiableNominable;
+import fr.pederobien.minecraftgameplateform.interfaces.element.persistence.IMinecraftPersistence;
 import fr.pederobien.minecraftgameplateform.utils.Plateform;
+import fr.pederobien.persistence.interfaces.IUnmodifiableNominable;
 
 public abstract class AbstractParentPersistenceEdition<T extends IUnmodifiableNominable>
 		extends AbstractMessageCodeParentEdition<T, IParentPersistenceEdition<T>, IMapPersistenceEdition<T>> implements IParentPersistenceEdition<T> {
-	private IPersistence<T> persistence;
+	private IMinecraftPersistence<T> minecraftPersistence;
 	private Plugin plugin;
 	private List<IMapPersistenceEdition<T>> descendants;
 
-	public AbstractParentPersistenceEdition(String label, IMessageCode explanation, Plugin plugin, IPersistence<T> persistence) {
+	public AbstractParentPersistenceEdition(String label, IMessageCode explanation, Plugin plugin, IMinecraftPersistence<T> persistence) {
 		super(label, explanation, new ParentPersistenceHelper<T>(plugin));
-		this.persistence = persistence;
+		this.minecraftPersistence = persistence;
 		this.plugin = plugin;
 
 		descendants = new ArrayList<IMapPersistenceEdition<T>>();
@@ -93,8 +93,8 @@ public abstract class AbstractParentPersistenceEdition<T extends IUnmodifiableNo
 	}
 
 	@Override
-	public IPersistence<T> getPersistence() {
-		return persistence;
+	public IMinecraftPersistence<T> getPersistence() {
+		return minecraftPersistence;
 	}
 
 	@Override

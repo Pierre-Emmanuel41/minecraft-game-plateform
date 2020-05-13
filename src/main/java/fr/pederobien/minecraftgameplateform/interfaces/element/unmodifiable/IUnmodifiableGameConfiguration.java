@@ -5,6 +5,7 @@ import java.util.Optional;
 
 import fr.pederobien.minecraftgameplateform.interfaces.element.IGame;
 import fr.pederobien.minecraftgameplateform.interfaces.element.ITeam;
+import fr.pederobien.persistence.interfaces.IUnmodifiableNominable;
 
 public interface IUnmodifiableGameConfiguration extends IUnmodifiableNominable {
 
