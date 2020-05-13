@@ -11,13 +11,13 @@ public class ExtractSpawn_Explanation extends AbstractNotDynamicMessage {
 		super(ESpawnMessageCode.EXTRACT_SPAWN__EXPLANATION, message);
 	}
 
-	private static class French extends DimensionSpawn_Explanation {
+	private static class French extends ExtractSpawn_Explanation {
 		public French() {
 			super("Pour extraire du monde les blocs du spawn");
 		}
 	}
 
-	private static class English extends DimensionSpawn_Explanation {
+	private static class English extends ExtractSpawn_Explanation {
 		public English() {
 			super("to extract from the world spawn's blocks");
 		}
