@@ -1,7 +1,7 @@
 package fr.pederobien.minecraftgameplateform.dictionary.messages.game;
 
-import fr.pederobien.minecraftdictionary.interfaces.IDictionary;
-import fr.pederobien.minecraftdictionary.interfaces.IMessage;
+import fr.pederobien.dictionary.interfaces.IDictionary;
+import fr.pederobien.minecraftdictionary.interfaces.IMinecraftMessage;
 
 public enum EnglishGameMessages {
 	STARTING_GAME(StartingGame.ENGLISH),
@@ -14,9 +14,9 @@ public enum EnglishGameMessages {
 
 	STOPPING_GAME(StoppingGame.ENGLISH);
 
-	private IMessage source;
+	private IMinecraftMessage source;
 
-	private EnglishGameMessages(IMessage source) {
+	private EnglishGameMessages(IMinecraftMessage source) {
 		this.source = source;
 	}
 
@@ -33,7 +33,7 @@ public enum EnglishGameMessages {
 	/**
 	 * @return The message associated to this field.
 	 */
-	public IMessage getSource() {
+	public IMinecraftMessage getSource() {
 		return source;
 	}
 }

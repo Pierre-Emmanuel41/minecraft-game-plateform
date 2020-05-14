@@ -5,14 +5,14 @@ import java.util.List;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 
-import fr.pederobien.minecraftdictionary.interfaces.IMessageCode;
+import fr.pederobien.minecraftdictionary.interfaces.IMinecraftMessageCode;
 import fr.pederobien.minecraftgameplateform.impl.editions.AbstractLabelEdition;
 import fr.pederobien.minecraftgameplateform.interfaces.element.persistence.IMinecraftPersistence;
 import fr.pederobien.persistence.interfaces.IUnmodifiableNominable;
 
 public abstract class CommonList<T extends IUnmodifiableNominable> extends AbstractLabelEdition<T> {
 
-	protected CommonList(IMessageCode explanation) {
+	protected CommonList(IMinecraftMessageCode explanation) {
 		super(ECommonLabel.LIST, explanation);
 	}
 

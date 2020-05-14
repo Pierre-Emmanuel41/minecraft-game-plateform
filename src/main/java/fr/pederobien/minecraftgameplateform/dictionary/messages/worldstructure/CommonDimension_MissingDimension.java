@@ -1,11 +1,11 @@
 package fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure;
 
-import fr.pederobien.minecraftdictionary.interfaces.IMessage;
+import fr.pederobien.minecraftdictionary.interfaces.IMinecraftMessage;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.AbstractNotDynamicMessage;
 
 public class CommonDimension_MissingDimension extends AbstractNotDynamicMessage {
-	public static final IMessage FRENCH = new French();
-	public static final IMessage ENGLISH = new English();
+	public static final IMinecraftMessage FRENCH = new French();
+	public static final IMinecraftMessage ENGLISH = new English();
 
 	public CommonDimension_MissingDimension(String message) {
 		super(EWorldStructureMessageCode.COMMON_DIMENSION__MISSING_DIMENSION, message);

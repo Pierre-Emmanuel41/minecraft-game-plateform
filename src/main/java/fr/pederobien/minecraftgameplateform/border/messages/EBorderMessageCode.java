@@ -1,9 +1,9 @@
 package fr.pederobien.minecraftgameplateform.border.messages;
 
 import fr.pederobien.minecraftdictionary.impl.Permission;
-import fr.pederobien.minecraftdictionary.interfaces.IMessageCode;
+import fr.pederobien.minecraftdictionary.interfaces.IMinecraftMessageCode;
 
-public enum EBorderMessageCode implements IMessageCode {
+public enum EBorderMessageCode implements IMinecraftMessageCode {
 	BORDER__EXPLANATION,
 
 	// Code for command new
@@ -58,6 +58,11 @@ public enum EBorderMessageCode implements IMessageCode {
 
 	private EBorderMessageCode(Permission permission) {
 		this.permission = permission;
+	}
+
+	@Override
+	public String value() {
+		return toString();
 	}
 
 	@Override

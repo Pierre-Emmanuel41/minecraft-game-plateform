@@ -1,11 +1,11 @@
 package fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.teams.add;
 
-import fr.pederobien.minecraftdictionary.interfaces.IMessage;
+import fr.pederobien.minecraftdictionary.interfaces.IMinecraftMessage;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.AbstractDynamicMessage;
 
 public class AddTeam_ColorNameIsMissing extends AbstractDynamicMessage {
-	public static final IMessage FRENCH = new French();
-	public static final IMessage ENGLISH = new English();
+	public static final IMinecraftMessage FRENCH = new French();
+	public static final IMinecraftMessage ENGLISH = new English();
 
 	public AddTeam_ColorNameIsMissing() {
 		super(ETeamAddMessageCode.ADD_TEAM__COLOR_NAME_IS_MISSING);

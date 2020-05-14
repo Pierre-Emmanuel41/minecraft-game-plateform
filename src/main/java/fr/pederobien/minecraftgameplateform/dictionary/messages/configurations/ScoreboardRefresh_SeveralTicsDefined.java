@@ -1,11 +1,11 @@
 package fr.pederobien.minecraftgameplateform.dictionary.messages.configurations;
 
-import fr.pederobien.minecraftdictionary.interfaces.IMessage;
+import fr.pederobien.minecraftdictionary.interfaces.IMinecraftMessage;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.AbstractDynamicMessage;
 
 public class ScoreboardRefresh_SeveralTicsDefined extends AbstractDynamicMessage {
-	public static final IMessage FRENCH = new French();
-	public static final IMessage ENGLISH = new English();
+	public static final IMinecraftMessage FRENCH = new French();
+	public static final IMinecraftMessage ENGLISH = new English();
 
 	public ScoreboardRefresh_SeveralTicsDefined() {
 		super(EGameConfigurationMessageCode.SCOREBOARD_REFRESH__SEVERAL_TICS_DEFINED);

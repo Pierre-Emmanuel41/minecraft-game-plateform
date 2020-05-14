@@ -1,7 +1,7 @@
 package fr.pederobien.minecraftgameplateform.dictionary.messages.configurations;
 
-import fr.pederobien.minecraftdictionary.interfaces.IDictionary;
-import fr.pederobien.minecraftdictionary.interfaces.IMessage;
+import fr.pederobien.dictionary.interfaces.IDictionary;
+import fr.pederobien.minecraftdictionary.interfaces.IMinecraftMessage;
 
 public enum EnglishGameConfigurationMessages {
 	AS_CURRENT_EXPLANATION(AsCurrent_Explanation.ENGLISH),
@@ -22,9 +22,9 @@ public enum EnglishGameConfigurationMessages {
 
 	SCOREBOARD_REFRESH_SEVERAL_TICS_DEFINED(ScoreboardRefresh_SeveralTicsDefined.ENGLISH);
 
-	private IMessage source;
+	private IMinecraftMessage source;
 
-	private EnglishGameConfigurationMessages(IMessage source) {
+	private EnglishGameConfigurationMessages(IMinecraftMessage source) {
 		this.source = source;
 	}
 
@@ -41,7 +41,7 @@ public enum EnglishGameConfigurationMessages {
 	/**
 	 * @return The message associated to this field.
 	 */
-	public IMessage getSource() {
+	public IMinecraftMessage getSource() {
 		return source;
 	}
 }

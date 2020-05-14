@@ -1,16 +1,16 @@
 package fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure;
 
-import fr.pederobien.minecraftdictionary.interfaces.IDictionary;
-import fr.pederobien.minecraftdictionary.interfaces.IMessage;
+import fr.pederobien.dictionary.interfaces.IDictionary;
+import fr.pederobien.minecraftdictionary.interfaces.IMinecraftMessage;
 
 public enum FrenchWorldStructureMessages {
 	BAD_DIMENSION_FORMAT(CommonDimension_BadDimensionFormat.FRENCH),
 
 	MISSING_DIMENSION(CommonDimension_MissingDimension.FRENCH);
 
-	private IMessage source;
+	private IMinecraftMessage source;
 
-	private FrenchWorldStructureMessages(IMessage source) {
+	private FrenchWorldStructureMessages(IMinecraftMessage source) {
 		this.source = source;
 	}
 
@@ -27,7 +27,7 @@ public enum FrenchWorldStructureMessages {
 	/**
 	 * @return The message associated to this field.
 	 */
-	public IMessage getSource() {
+	public IMinecraftMessage getSource() {
 		return source;
 	}
 }

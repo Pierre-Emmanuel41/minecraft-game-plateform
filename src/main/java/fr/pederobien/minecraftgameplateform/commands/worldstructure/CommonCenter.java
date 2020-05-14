@@ -6,13 +6,13 @@ import java.util.List;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 
-import fr.pederobien.minecraftdictionary.interfaces.IMessageCode;
+import fr.pederobien.minecraftdictionary.interfaces.IMinecraftMessageCode;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.common.ECommonMessageCode;
 import fr.pederobien.minecraftgameplateform.interfaces.element.IWorldStructure;
 
 public abstract class CommonCenter<T extends IWorldStructure> extends AbstractWorldStructureEdition<T> {
 
-	public CommonCenter(IMessageCode explanation) {
+	public CommonCenter(IMinecraftMessageCode explanation) {
 		super(EWorldStructureLabel.CENTER, explanation);
 	}
 

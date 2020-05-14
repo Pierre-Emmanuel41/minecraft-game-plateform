@@ -1,10 +1,11 @@
 package fr.pederobien.minecraftgameplateform.dictionary.messages;
 
-import fr.pederobien.minecraftdictionary.interfaces.IMessageCode;
+import fr.pederobien.minecraftdictionary.impl.AbstractMinecraftMessage;
+import fr.pederobien.minecraftdictionary.interfaces.IMinecraftMessageCode;
 
-public class AbstractDynamicMessage extends AbstractMessage {
+public class AbstractDynamicMessage extends AbstractMinecraftMessage {
 
-	public AbstractDynamicMessage(IMessageCode code) {
+	public AbstractDynamicMessage(IMinecraftMessageCode code) {
 		super(code);
 	}
 

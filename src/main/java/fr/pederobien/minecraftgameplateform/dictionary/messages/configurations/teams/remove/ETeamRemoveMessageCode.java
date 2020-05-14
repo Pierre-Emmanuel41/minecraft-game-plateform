@@ -1,9 +1,9 @@
 package fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.teams.remove;
 
 import fr.pederobien.minecraftdictionary.impl.Permission;
-import fr.pederobien.minecraftdictionary.interfaces.IMessageCode;
+import fr.pederobien.minecraftdictionary.interfaces.IMinecraftMessageCode;
 
-public enum ETeamRemoveMessageCode implements IMessageCode {
+public enum ETeamRemoveMessageCode implements IMinecraftMessageCode {
 	// Code for command remove team
 	REMOVE_TEAM__EXPLANATION, REMOVE_TEAM__ALL_TEAMS_REMOVED(Permission.ALL), REMOVE_TEAM__TEAM_DOES_NOT_EXIST, REMOVE_TEAM__ANY_TEAM_REMOVED,
 	REMOVE_TEAM__ONE_TEAM_REMOVED(Permission.ALL), REMOVE_TEAM__SEVERAL_TEAMS_REMOVED(Permission.ALL),
@@ -20,6 +20,11 @@ public enum ETeamRemoveMessageCode implements IMessageCode {
 
 	private ETeamRemoveMessageCode(Permission permission) {
 		this.permission = permission;
+	}
+
+	@Override
+	public String value() {
+		return toString();
 	}
 
 	@Override

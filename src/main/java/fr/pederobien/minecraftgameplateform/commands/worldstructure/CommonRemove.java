@@ -3,12 +3,12 @@ package fr.pederobien.minecraftgameplateform.commands.worldstructure;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 
-import fr.pederobien.minecraftdictionary.interfaces.IMessageCode;
+import fr.pederobien.minecraftdictionary.interfaces.IMinecraftMessageCode;
 import fr.pederobien.minecraftgameplateform.interfaces.element.IWorldStructure;
 
 public abstract class CommonRemove<T extends IWorldStructure> extends AbstractWorldStructureEdition<T> {
 
-	protected CommonRemove(IMessageCode explanation) {
+	protected CommonRemove(IMinecraftMessageCode explanation) {
 		super(EWorldStructureLabel.REMOVE, explanation);
 	}
 

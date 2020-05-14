@@ -6,14 +6,14 @@ import java.util.List;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 
-import fr.pederobien.minecraftdictionary.interfaces.IMessageCode;
+import fr.pederobien.minecraftdictionary.interfaces.IMinecraftMessageCode;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.common.ECommonMessageCode;
 import fr.pederobien.minecraftgameplateform.impl.editions.AbstractLabelEdition;
 import fr.pederobien.minecraftgameplateform.interfaces.element.INominable;
 
 public abstract class CommonRename<T extends INominable> extends AbstractLabelEdition<T> {
 
-	protected CommonRename(IMessageCode explanation) {
+	protected CommonRename(IMinecraftMessageCode explanation) {
 		super(ECommonLabel.RENAME, explanation);
 	}
 

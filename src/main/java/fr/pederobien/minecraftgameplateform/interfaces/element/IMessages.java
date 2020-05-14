@@ -2,8 +2,8 @@ package fr.pederobien.minecraftgameplateform.interfaces.element;
 
 import java.util.List;
 
-import fr.pederobien.minecraftdictionary.interfaces.IDictionary;
-import fr.pederobien.minecraftdictionary.interfaces.IMessage;
+import fr.pederobien.dictionary.interfaces.IDictionary;
+import fr.pederobien.minecraftdictionary.interfaces.IMinecraftMessage;
 
 public interface IMessages {
 
@@ -12,12 +12,12 @@ public interface IMessages {
 	 * 
 	 * @param message The message to add.
 	 */
-	void add(IMessage message);
+	void add(IMinecraftMessage message);
 
 	/**
 	 * @return The list of registered messages. This list is unmodifiable.
 	 */
-	List<IMessage> getMessages();
+	List<IMinecraftMessage> getMessages();
 
 	/**
 	 * Set the dictionary to which this messages is associated. When a message is added, it is also added to the given dictionary

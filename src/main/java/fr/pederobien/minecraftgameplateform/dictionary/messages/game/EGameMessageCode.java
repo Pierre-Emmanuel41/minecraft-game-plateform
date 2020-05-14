@@ -1,9 +1,9 @@
 package fr.pederobien.minecraftgameplateform.dictionary.messages.game;
 
 import fr.pederobien.minecraftdictionary.impl.Permission;
-import fr.pederobien.minecraftdictionary.interfaces.IMessageCode;
+import fr.pederobien.minecraftdictionary.interfaces.IMinecraftMessageCode;
 
-public enum EGameMessageCode implements IMessageCode {
+public enum EGameMessageCode implements IMinecraftMessageCode {
 	// Code for game messages
 	STARTING_GAME, NO_CONFIGURATION_SETTED, PAUSING_GAME, RESUMING_GAME, STOPPING_GAME;
 
@@ -15,6 +15,11 @@ public enum EGameMessageCode implements IMessageCode {
 
 	private EGameMessageCode(Permission permission) {
 		this.permission = permission;
+	}
+
+	@Override
+	public String value() {
+		return toString();
 	}
 
 	@Override

@@ -3,13 +3,13 @@ package fr.pederobien.minecraftgameplateform.commands.common;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 
-import fr.pederobien.minecraftdictionary.interfaces.IMessageCode;
+import fr.pederobien.minecraftdictionary.interfaces.IMinecraftMessageCode;
 import fr.pederobien.minecraftgameplateform.impl.editions.AbstractLabelEdition;
 import fr.pederobien.persistence.interfaces.IUnmodifiableNominable;
 
 public abstract class CommonSave<T extends IUnmodifiableNominable> extends AbstractLabelEdition<T> {
 
-	protected CommonSave(IMessageCode explanation) {
+	protected CommonSave(IMinecraftMessageCode explanation) {
 		super(ECommonLabel.SAVE, explanation);
 	}
 

@@ -6,7 +6,7 @@ import java.nio.file.Paths;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import fr.pederobien.minecraftdictionary.impl.NotificationCenter;
-import fr.pederobien.minecraftdictionary.interfaces.INotificationCenter;
+import fr.pederobien.minecraftdictionary.interfaces.IMinecraftNotificationCenter;
 import fr.pederobien.minecraftgameplateform.helpers.CommandHelper;
 import fr.pederobien.minecraftgameplateform.helpers.ConfigurationHelperManager;
 import fr.pederobien.minecraftgameplateform.impl.element.GameConfigurationContext;
@@ -51,7 +51,7 @@ public class Plateform {
 	/**
 	 * @return The notification center to send message to player(s) that are currently logged into the server.
 	 */
-	public static INotificationCenter getNotificationCenter() {
+	public static IMinecraftNotificationCenter getNotificationCenter() {
 		return NotificationCenter.getInstance();
 	}
 

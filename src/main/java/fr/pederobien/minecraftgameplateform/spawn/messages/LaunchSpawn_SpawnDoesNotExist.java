@@ -1,11 +1,11 @@
 package fr.pederobien.minecraftgameplateform.spawn.messages;
 
-import fr.pederobien.minecraftdictionary.interfaces.IMessage;
+import fr.pederobien.minecraftdictionary.interfaces.IMinecraftMessage;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.AbstractDynamicMessage;
 
 public class LaunchSpawn_SpawnDoesNotExist extends AbstractDynamicMessage {
-	public static final IMessage FRENCH = new French();
-	public static final IMessage ENGLISH = new English();
+	public static final IMinecraftMessage FRENCH = new French();
+	public static final IMinecraftMessage ENGLISH = new English();
 
 	public LaunchSpawn_SpawnDoesNotExist() {
 		super(ESpawnMessageCode.LAUNCH_SPAWN__SPAWN_DOES_NOT_EXIST);

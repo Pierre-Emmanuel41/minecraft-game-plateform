@@ -1,13 +1,13 @@
 package fr.pederobien.minecraftgameplateform.impl.editions;
 
-import fr.pederobien.minecraftdictionary.interfaces.IMessageCode;
+import fr.pederobien.minecraftdictionary.interfaces.IMinecraftMessageCode;
 import fr.pederobien.minecraftgameplateform.interfaces.editions.IParentPersistenceEdition;
 import fr.pederobien.minecraftgameplateform.interfaces.element.ILabel;
 import fr.pederobien.persistence.interfaces.IUnmodifiableNominable;
 
 public abstract class AbstractLabelEdition<T extends IUnmodifiableNominable> extends AbstractMapPersistenceEdition<T> {
 
-	protected AbstractLabelEdition(ILabel label, IMessageCode explanation) {
+	protected AbstractLabelEdition(ILabel label, IMinecraftMessageCode explanation) {
 		super(label.getLabel(), explanation);
 	}
 

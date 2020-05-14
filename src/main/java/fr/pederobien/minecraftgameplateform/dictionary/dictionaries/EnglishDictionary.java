@@ -2,6 +2,7 @@ package fr.pederobien.minecraftgameplateform.dictionary.dictionaries;
 
 import java.util.Locale;
 
+import fr.pederobien.dictionary.impl.AbstractDictionary;
 import fr.pederobien.minecraftgameplateform.border.messages.EnglishBorderMessages;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.common.EnglishCommonMessages;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.EnglishGameConfigurationMessages;
@@ -11,10 +12,9 @@ import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.t
 import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.teams.remove.EnglishTeamRemoveMessages;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.game.EnglishGameMessages;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.worldstructure.EnglishWorldStructureMessages;
-import fr.pederobien.minecraftgameplateform.impl.element.AbstractPlateformDictionary;
 import fr.pederobien.minecraftgameplateform.spawn.messages.EnglishSpawnMessages;
 
-public class EnglishDictionary extends AbstractPlateformDictionary {
+public class EnglishDictionary extends AbstractDictionary {
 
 	public EnglishDictionary() {
 		super(Locale.UK, Locale.US, Locale.ENGLISH, Locale.CANADA);

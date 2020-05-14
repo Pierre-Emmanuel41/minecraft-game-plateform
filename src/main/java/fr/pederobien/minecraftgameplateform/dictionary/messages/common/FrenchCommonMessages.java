@@ -1,7 +1,7 @@
 package fr.pederobien.minecraftgameplateform.dictionary.messages.common;
 
-import fr.pederobien.minecraftdictionary.interfaces.IDictionary;
-import fr.pederobien.minecraftdictionary.interfaces.IMessage;
+import fr.pederobien.dictionary.interfaces.IDictionary;
+import fr.pederobien.minecraftdictionary.interfaces.IMinecraftMessage;
 
 public enum FrenchCommonMessages {
 	HELP_EXPLANATION(Common_HelpExplanation.FRENCH),
@@ -34,9 +34,9 @@ public enum FrenchCommonMessages {
 
 	COMMON_TIME_TAB_COMPLETE(Common_TimeTabComplete.FRENCH);
 
-	private IMessage source;
+	private IMinecraftMessage source;
 
-	private FrenchCommonMessages(IMessage source) {
+	private FrenchCommonMessages(IMinecraftMessage source) {
 		this.source = source;
 	}
 
@@ -53,7 +53,7 @@ public enum FrenchCommonMessages {
 	/**
 	 * @return The message associated to this field.
 	 */
-	public IMessage getSource() {
+	public IMinecraftMessage getSource() {
 		return source;
 	}
 }

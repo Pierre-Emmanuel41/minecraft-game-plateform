@@ -1,7 +1,7 @@
 package fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.teams.remove;
 
-import fr.pederobien.minecraftdictionary.interfaces.IDictionary;
-import fr.pederobien.minecraftdictionary.interfaces.IMessage;
+import fr.pederobien.dictionary.interfaces.IDictionary;
+import fr.pederobien.minecraftdictionary.interfaces.IMinecraftMessage;
 
 public enum EnglishTeamRemoveMessages {
 	REMOVE_TEAM_EXPLANATION(RemoveTeam_Explanation.ENGLISH),
@@ -28,9 +28,9 @@ public enum EnglishTeamRemoveMessages {
 
 	REMOVE_PLAYER_SEVERAL_PLAYERS_REMOVED(RemovePlayer_SeveralPlayersRemoved.ENGLISH);
 
-	private IMessage source;
+	private IMinecraftMessage source;
 
-	private EnglishTeamRemoveMessages(IMessage source) {
+	private EnglishTeamRemoveMessages(IMinecraftMessage source) {
 		this.source = source;
 	}
 
@@ -47,7 +47,7 @@ public enum EnglishTeamRemoveMessages {
 	/**
 	 * @return The message associated to this field.
 	 */
-	public IMessage getSource() {
+	public IMinecraftMessage getSource() {
 		return source;
 	}
 }

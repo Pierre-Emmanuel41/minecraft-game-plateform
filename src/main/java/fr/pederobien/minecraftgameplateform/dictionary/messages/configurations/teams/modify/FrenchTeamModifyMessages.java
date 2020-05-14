@@ -1,7 +1,7 @@
 package fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.teams.modify;
 
-import fr.pederobien.minecraftdictionary.interfaces.IDictionary;
-import fr.pederobien.minecraftdictionary.interfaces.IMessage;
+import fr.pederobien.dictionary.interfaces.IDictionary;
+import fr.pederobien.minecraftdictionary.interfaces.IMinecraftMessage;
 
 public enum FrenchTeamModifyMessages {
 	MODIFY_NAME_EXPLANATION(ModifyName_Explanation.FRENCH),
@@ -32,9 +32,9 @@ public enum FrenchTeamModifyMessages {
 
 	MODIFY_COLOR_COLOR_UPDATED(ModifyColor_ColorUpdated.FRENCH);
 
-	private IMessage source;
+	private IMinecraftMessage source;
 
-	private FrenchTeamModifyMessages(IMessage source) {
+	private FrenchTeamModifyMessages(IMinecraftMessage source) {
 		this.source = source;
 	}
 
@@ -51,7 +51,7 @@ public enum FrenchTeamModifyMessages {
 	/**
 	 * @return The message associated to this field.
 	 */
-	public IMessage getSource() {
+	public IMinecraftMessage getSource() {
 		return source;
 	}
 }

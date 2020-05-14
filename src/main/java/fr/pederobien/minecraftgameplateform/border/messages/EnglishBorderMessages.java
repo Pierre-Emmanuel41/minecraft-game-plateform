@@ -1,7 +1,7 @@
 package fr.pederobien.minecraftgameplateform.border.messages;
 
-import fr.pederobien.minecraftdictionary.interfaces.IDictionary;
-import fr.pederobien.minecraftdictionary.interfaces.IMessage;
+import fr.pederobien.dictionary.interfaces.IDictionary;
+import fr.pederobien.minecraftdictionary.interfaces.IMinecraftMessage;
 
 public enum EnglishBorderMessages {
 	BORDER_EXPLANATION(Border_Explanation.ENGLISH),
@@ -108,9 +108,9 @@ public enum EnglishBorderMessages {
 
 	MOVE_TIME_BORDER_MOVE_TIME_DEFINED(MoveTimeBorder_MoveTimeDefined.ENGLISH);
 
-	private IMessage source;
+	private IMinecraftMessage source;
 
-	private EnglishBorderMessages(IMessage source) {
+	private EnglishBorderMessages(IMinecraftMessage source) {
 		this.source = source;
 	}
 
@@ -127,7 +127,7 @@ public enum EnglishBorderMessages {
 	/**
 	 * @return The message associated to this field.
 	 */
-	public IMessage getSource() {
+	public IMinecraftMessage getSource() {
 		return source;
 	}
 }

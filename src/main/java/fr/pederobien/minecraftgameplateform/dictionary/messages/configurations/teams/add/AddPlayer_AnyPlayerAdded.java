@@ -1,11 +1,11 @@
 package fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.teams.add;
 
-import fr.pederobien.minecraftdictionary.interfaces.IMessage;
+import fr.pederobien.minecraftdictionary.interfaces.IMinecraftMessage;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.AbstractNotDynamicMessage;
 
 public class AddPlayer_AnyPlayerAdded extends AbstractNotDynamicMessage {
-	public static final IMessage FRENCH = new French();
-	public static final IMessage ENGLISH = new English();
+	public static final IMinecraftMessage FRENCH = new French();
+	public static final IMinecraftMessage ENGLISH = new English();
 
 	public AddPlayer_AnyPlayerAdded(String message) {
 		super(ETeamAddMessageCode.ADD_PLAYER__ANY_PLAYER_ADDED, message);

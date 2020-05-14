@@ -1,9 +1,9 @@
 package fr.pederobien.minecraftgameplateform.dictionary.messages.configurations;
 
 import fr.pederobien.minecraftdictionary.impl.Permission;
-import fr.pederobien.minecraftdictionary.interfaces.IMessageCode;
+import fr.pederobien.minecraftdictionary.interfaces.IMinecraftMessageCode;
 
-public enum EGameConfigurationMessageCode implements IMessageCode {
+public enum EGameConfigurationMessageCode implements IMinecraftMessageCode {
 	// Code for command ascurrent
 	AS_CURRENT__EXPLANATION, AS_CURRENT__GAME_STYLE_DEFINED,
 
@@ -22,6 +22,11 @@ public enum EGameConfigurationMessageCode implements IMessageCode {
 
 	private EGameConfigurationMessageCode(Permission permission) {
 		this.permission = permission;
+	}
+
+	@Override
+	public String value() {
+		return toString();
 	}
 
 	@Override

@@ -1,11 +1,11 @@
 package fr.pederobien.minecraftgameplateform.border.messages;
 
-import fr.pederobien.minecraftdictionary.interfaces.IMessage;
+import fr.pederobien.minecraftdictionary.interfaces.IMinecraftMessage;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.AbstractNotDynamicMessage;
 
 public class CenterBorder_Explanation extends AbstractNotDynamicMessage {
-	public static final IMessage FRENCH = new French();
-	public static final IMessage ENGLISH = new English();
+	public static final IMinecraftMessage FRENCH = new French();
+	public static final IMinecraftMessage ENGLISH = new English();
 
 	public CenterBorder_Explanation(String message) {
 		super(EBorderMessageCode.CENTER_BORDER__EXPLANATION, message);

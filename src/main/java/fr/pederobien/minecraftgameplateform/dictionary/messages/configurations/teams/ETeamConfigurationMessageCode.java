@@ -1,9 +1,9 @@
 package fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.teams;
 
 import fr.pederobien.minecraftdictionary.impl.Permission;
-import fr.pederobien.minecraftdictionary.interfaces.IMessageCode;
+import fr.pederobien.minecraftdictionary.interfaces.IMinecraftMessageCode;
 
-public enum ETeamConfigurationMessageCode implements IMessageCode {
+public enum ETeamConfigurationMessageCode implements IMinecraftMessageCode {
 	// Code for command team
 	TEAM__EXPLANATION,
 
@@ -27,6 +27,11 @@ public enum ETeamConfigurationMessageCode implements IMessageCode {
 
 	private ETeamConfigurationMessageCode() {
 		this(Permission.OPERATORS);
+	}
+
+	@Override
+	public String value() {
+		return toString();
 	}
 
 	private ETeamConfigurationMessageCode(Permission permission) {

@@ -1,11 +1,11 @@
 package fr.pederobien.minecraftgameplateform.border.messages;
 
-import fr.pederobien.minecraftdictionary.interfaces.IMessage;
+import fr.pederobien.minecraftdictionary.interfaces.IMinecraftMessage;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.AbstractDynamicMessage;
 
 public class FinalBorderDiameter_NegativeDiameter extends AbstractDynamicMessage {
-	public static final IMessage FRENCH = new French();
-	public static final IMessage ENGLISH = new English();
+	public static final IMinecraftMessage FRENCH = new French();
+	public static final IMinecraftMessage ENGLISH = new English();
 
 	public FinalBorderDiameter_NegativeDiameter() {
 		super(EBorderMessageCode.FINAL_BORDER_DIAMETER__NEGATIVE_DIAMETER);

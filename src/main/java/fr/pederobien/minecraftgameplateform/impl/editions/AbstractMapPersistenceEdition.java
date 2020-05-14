@@ -11,12 +11,12 @@ import org.bukkit.block.Block;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
+import fr.pederobien.dictionary.interfaces.IDictionaryManager;
 import fr.pederobien.minecraftdevelopmenttoolkit.impl.messagecode.AbstractMessageCodeMapEdition;
-import fr.pederobien.minecraftdictionary.impl.EventFactory;
-import fr.pederobien.minecraftdictionary.interfaces.IDictionaryManager;
-import fr.pederobien.minecraftdictionary.interfaces.IMessageCode;
-import fr.pederobien.minecraftdictionary.interfaces.IMessageEvent;
-import fr.pederobien.minecraftdictionary.interfaces.INotificationCenter;
+import fr.pederobien.minecraftdictionary.impl.MinecraftMessageEvent;
+import fr.pederobien.minecraftdictionary.interfaces.IMinecraftMessageCode;
+import fr.pederobien.minecraftdictionary.interfaces.IMinecraftMessageEvent;
+import fr.pederobien.minecraftdictionary.interfaces.IMinecraftNotificationCenter;
 import fr.pederobien.minecraftgameplateform.helpers.DisplayHelper;
 import fr.pederobien.minecraftgameplateform.interfaces.editions.IMapPersistenceEdition;
 import fr.pederobien.minecraftgameplateform.interfaces.editions.IParentPersistenceEdition;
@@ -27,7 +27,7 @@ import fr.pederobien.persistence.interfaces.IUnmodifiableNominable;
 public abstract class AbstractMapPersistenceEdition<T extends IUnmodifiableNominable>
 		extends AbstractMessageCodeMapEdition<T, IParentPersistenceEdition<T>, IMapPersistenceEdition<T>> implements IMapPersistenceEdition<T> {
 
-	protected AbstractMapPersistenceEdition(String label, IMessageCode explanation) {
+	protected AbstractMapPersistenceEdition(String label, IMinecraftMessageCode explanation) {
 		super(label, explanation);
 	}
 
@@ -66,7 +66,7 @@ public abstract class AbstractMapPersistenceEdition<T extends IUnmodifiableNomin
 	}
 
 	/**
-	 * Send a message to the given player. First create an {@link IMessageEvent} that is used to get messages into registered
+	 * Send a message to the given player. First create an {@link IMinecraftMessageEvent} that is used to get messages into registered
 	 * dictionaries for the given Plugin.
 	 * 
 	 * @param sender Generally a player, it is used to get a message in his language.
@@ -76,7 +76,7 @@ public abstract class AbstractMapPersistenceEdition<T extends IUnmodifiableNomin
 	 * 
 	 * @return The created message event.
 	 */
-	protected void sendMessageToSender(CommandSender sender, IMessageCode code, Object... args) {
+	protected void sendMessageToSender(CommandSender sender, IMinecraftMessageCode code, Object... args) {
 		if (sender instanceof Player)
 			getNotificationCenter().sendMessage(messageEvent((Player) sender, code, args));
 	}
@@ -90,7 +90,7 @@ public abstract class AbstractMapPersistenceEdition<T extends IUnmodifiableNomin
 	 * 
 	 * @return The message associated to the specified code. If the sender is not a player, then it returns an empty string.
 	 */
-	protected String getMessageFromDictionary(CommandSender sender, IMessageCode code, Object... args) {
+	protected String getMessageFromDictionary(CommandSender sender, IMinecraftMessageCode code, Object... args) {
 		return sender instanceof Player ? getMessage((Player) sender, code, args) : "";
 	}
 
@@ -389,18 +389,18 @@ public abstract class AbstractMapPersistenceEdition<T extends IUnmodifiableNomin
 	/**
 	 * @return The notification center to send message to player(s) that are currently logged into the server.
 	 */
-	private INotificationCenter getNotificationCenter() {
+	private IMinecraftNotificationCenter getNotificationCenter() {
 		return Plateform.getNotificationCenter();
 	}
 
-	private IMessageEvent messageEvent(Player player, IMessageCode code, Object... args) {
+	private IMinecraftMessageEvent messageEvent(Player player, IMinecraftMessageCode code, Object... args) {
 		String[] internalArgs = new String[args.length];
 		for (int i = 0; i < args.length; i++)
 			internalArgs[i] = args[i].toString();
-		return EventFactory.messageEvent(player, getParent().getPlugin(), code, internalArgs);
+		return new MinecraftMessageEvent(player, code, internalArgs);
 	}
 
-	private String getMessage(Player player, IMessageCode code, Object... args) {
+	private String getMessage(Player player, IMinecraftMessageCode code, Object... args) {
 		return ((IDictionaryManager) getNotificationCenter().getDictionaryContext()).getMessage(messageEvent(player, code, args));
 	}
 }

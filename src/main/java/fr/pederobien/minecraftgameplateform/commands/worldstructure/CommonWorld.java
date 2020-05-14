@@ -5,7 +5,7 @@ import java.util.List;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 
-import fr.pederobien.minecraftdictionary.interfaces.IMessageCode;
+import fr.pederobien.minecraftdictionary.interfaces.IMinecraftMessageCode;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.common.ECommonMessageCode;
 import fr.pederobien.minecraftgameplateform.exceptions.worldstructure.WorldNotFoundException;
 import fr.pederobien.minecraftgameplateform.impl.editions.AbstractLabelEdition;
@@ -14,7 +14,7 @@ import fr.pederobien.minecraftmanagers.WorldManager;
 
 public abstract class CommonWorld<T extends IWorldStructure> extends AbstractLabelEdition<T> {
 
-	protected CommonWorld(IMessageCode explanation) {
+	protected CommonWorld(IMinecraftMessageCode explanation) {
 		super(EWorldStructureLabel.WORLD, explanation);
 	}
 

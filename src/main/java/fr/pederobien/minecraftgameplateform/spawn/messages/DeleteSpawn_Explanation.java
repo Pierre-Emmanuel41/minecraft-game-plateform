@@ -1,11 +1,11 @@
 package fr.pederobien.minecraftgameplateform.spawn.messages;
 
-import fr.pederobien.minecraftdictionary.interfaces.IMessage;
+import fr.pederobien.minecraftdictionary.interfaces.IMinecraftMessage;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.AbstractNotDynamicMessage;
 
 public class DeleteSpawn_Explanation extends AbstractNotDynamicMessage {
-	public static final IMessage FRENCH = new French();
-	public static final IMessage ENGLISH = new English();
+	public static final IMinecraftMessage FRENCH = new French();
+	public static final IMinecraftMessage ENGLISH = new English();
 
 	public DeleteSpawn_Explanation(String message) {
 		super(ESpawnMessageCode.DELETE_SPAWN__EXPLANATION, message);

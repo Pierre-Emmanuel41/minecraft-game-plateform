@@ -1,7 +1,7 @@
 package fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.teams;
 
-import fr.pederobien.minecraftdictionary.interfaces.IDictionary;
-import fr.pederobien.minecraftdictionary.interfaces.IMessage;
+import fr.pederobien.dictionary.interfaces.IDictionary;
+import fr.pederobien.minecraftdictionary.interfaces.IMinecraftMessage;
 
 public enum EnglishTeamConfigurationMessages {
 	TEAM_EXPLANATION(Team_Explanation.ENGLISH),
@@ -36,9 +36,9 @@ public enum EnglishTeamConfigurationMessages {
 
 	TEAM_MOVE_PLAYER_MOVED(Move_PlayerMoved.ENGLISH);
 
-	private IMessage source;
+	private IMinecraftMessage source;
 
-	private EnglishTeamConfigurationMessages(IMessage source) {
+	private EnglishTeamConfigurationMessages(IMinecraftMessage source) {
 		this.source = source;
 	}
 
@@ -55,7 +55,7 @@ public enum EnglishTeamConfigurationMessages {
 	/**
 	 * @return The message associated to this field.
 	 */
-	public IMessage getSource() {
+	public IMinecraftMessage getSource() {
 		return source;
 	}
 }

@@ -24,8 +24,8 @@ public class PlateformPlugin extends JavaPlugin {
 		new SpawnCommand(this);
 		new BorderCommand(this);
 
-		Plateform.getNotificationCenter().getDictionaryContext().register(this, new EnglishDictionary());
-		Plateform.getNotificationCenter().getDictionaryContext().register(this, new FrenchDictionary());
+		Plateform.getNotificationCenter().getDictionaryContext().register(new EnglishDictionary());
+		Plateform.getNotificationCenter().getDictionaryContext().register(new FrenchDictionary());
 	}
 
 	@Override

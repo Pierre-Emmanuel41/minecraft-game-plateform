@@ -1,7 +1,7 @@
 package fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.teams.add;
 
-import fr.pederobien.minecraftdictionary.interfaces.IDictionary;
-import fr.pederobien.minecraftdictionary.interfaces.IMessage;
+import fr.pederobien.dictionary.interfaces.IDictionary;
+import fr.pederobien.minecraftdictionary.interfaces.IMinecraftMessage;
 
 public enum FrenchTeamAddMessages {
 	ADD_TEAM_EXPLANATION(AddTeam_Explanation.FRENCH),
@@ -34,9 +34,9 @@ public enum FrenchTeamAddMessages {
 
 	ADD_PLAYER_SEVERAL_PLAYERS_ADDED(AddPlayer_SeveralPlayersAdded.FRENCH);
 
-	private IMessage source;
+	private IMinecraftMessage source;
 
-	private FrenchTeamAddMessages(IMessage source) {
+	private FrenchTeamAddMessages(IMinecraftMessage source) {
 		this.source = source;
 	}
 
@@ -53,7 +53,7 @@ public enum FrenchTeamAddMessages {
 	/**
 	 * @return The message associated to this field.
 	 */
-	public IMessage getSource() {
+	public IMinecraftMessage getSource() {
 		return source;
 	}
 }

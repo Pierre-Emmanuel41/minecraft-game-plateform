@@ -1,7 +1,7 @@
 package fr.pederobien.minecraftgameplateform.spawn.messages;
 
-import fr.pederobien.minecraftdictionary.interfaces.IDictionary;
-import fr.pederobien.minecraftdictionary.interfaces.IMessage;
+import fr.pederobien.dictionary.interfaces.IDictionary;
+import fr.pederobien.minecraftdictionary.interfaces.IMinecraftMessage;
 
 public enum FrenchSpawnMessages {
 	SPAWN_PARENT_EXPLANATION(SpawnParent_Explanation.FRENCH),
@@ -92,9 +92,9 @@ public enum FrenchSpawnMessages {
 
 	ALLOW_MOB_TO_SPAWN_UNDER_SPAWN_DEFINED(AllowMobsToSpawnUnderSpawn_Defined.FRENCH);
 
-	private IMessage source;
+	private IMinecraftMessage source;
 
-	private FrenchSpawnMessages(IMessage source) {
+	private FrenchSpawnMessages(IMinecraftMessage source) {
 		this.source = source;
 	}
 
@@ -111,7 +111,7 @@ public enum FrenchSpawnMessages {
 	/**
 	 * @return The message associated to this field.
 	 */
-	public IMessage getSource() {
+	public IMinecraftMessage getSource() {
 		return source;
 	}
 }

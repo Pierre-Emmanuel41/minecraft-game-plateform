@@ -7,7 +7,7 @@ import java.util.stream.Stream;
 
 import org.bukkit.entity.Player;
 
-import fr.pederobien.minecraftdictionary.interfaces.IMessageCode;
+import fr.pederobien.minecraftdictionary.interfaces.IMinecraftMessageCode;
 import fr.pederobien.minecraftgameplateform.commands.configurations.AbstractGameConfigurationEdition;
 import fr.pederobien.minecraftgameplateform.exceptions.PlayerNotFoundException;
 import fr.pederobien.minecraftgameplateform.interfaces.element.IGameConfiguration;
@@ -18,7 +18,7 @@ import fr.pederobien.minecraftgameplateform.utils.EColor;
 
 public class AbstractTeamConfigurationEdition<T extends IGameConfiguration> extends AbstractGameConfigurationEdition<T> {
 
-	protected AbstractTeamConfigurationEdition(ILabel label, IMessageCode explanation) {
+	protected AbstractTeamConfigurationEdition(ILabel label, IMinecraftMessageCode explanation) {
 		super(label, explanation);
 	}
 

@@ -13,10 +13,10 @@ import fr.pederobien.minecraftdevelopmenttoolkit.exceptions.ArgumentNotFoundExce
 import fr.pederobien.minecraftdevelopmenttoolkit.exceptions.NotAvailableArgumentException;
 import fr.pederobien.minecraftdevelopmenttoolkit.exceptions.NotAvailableCommandException;
 import fr.pederobien.minecraftdevelopmenttoolkit.impl.messagecode.AbstractMessageCodeParentEdition;
-import fr.pederobien.minecraftdictionary.impl.EventFactory;
-import fr.pederobien.minecraftdictionary.interfaces.IMessageCode;
-import fr.pederobien.minecraftdictionary.interfaces.IMessageEvent;
-import fr.pederobien.minecraftdictionary.interfaces.INotificationCenter;
+import fr.pederobien.minecraftdictionary.impl.MinecraftMessageEvent;
+import fr.pederobien.minecraftdictionary.interfaces.IMinecraftMessageCode;
+import fr.pederobien.minecraftdictionary.interfaces.IMinecraftMessageEvent;
+import fr.pederobien.minecraftdictionary.interfaces.IMinecraftNotificationCenter;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.common.ECommonMessageCode;
 import fr.pederobien.minecraftgameplateform.interfaces.editions.IMapPersistenceEdition;
 import fr.pederobien.minecraftgameplateform.interfaces.editions.IParentPersistenceEdition;
@@ -30,8 +30,8 @@ public abstract class AbstractParentPersistenceEdition<T extends IUnmodifiableNo
 	private Plugin plugin;
 	private List<IMapPersistenceEdition<T>> descendants;
 
-	public AbstractParentPersistenceEdition(String label, IMessageCode explanation, Plugin plugin, IMinecraftPersistence<T> persistence) {
-		super(label, explanation, new ParentPersistenceHelper<T>(plugin));
+	public AbstractParentPersistenceEdition(String label, IMinecraftMessageCode explanation, Plugin plugin, IMinecraftPersistence<T> persistence) {
+		super(label, explanation, new ParentPersistenceHelper<T>());
 		this.minecraftPersistence = persistence;
 		this.plugin = plugin;
 
@@ -108,7 +108,7 @@ public abstract class AbstractParentPersistenceEdition<T extends IUnmodifiableNo
 	}
 
 	/**
-	 * Send a message to the given player. First create an {@link IMessageEvent} that is used to get messages into registered
+	 * Send a message to the given player. First create an {@link IMinecraftMessageEvent} that is used to get messages into registered
 	 * dictionaries for the given Plugin.
 	 * 
 	 * @param player The player to send a message.
@@ -118,20 +118,20 @@ public abstract class AbstractParentPersistenceEdition<T extends IUnmodifiableNo
 	 * 
 	 * @return The created message event.
 	 */
-	protected void sendMessageToSender(CommandSender sender, IMessageCode code, Object... args) {
+	protected void sendMessageToSender(CommandSender sender, IMinecraftMessageCode code, Object... args) {
 		if (sender instanceof Player)
 			getNotificationCenter().sendMessage(messageEvent((Player) sender, code, args));
 	}
 
-	private INotificationCenter getNotificationCenter() {
+	private IMinecraftNotificationCenter getNotificationCenter() {
 		return Plateform.getNotificationCenter();
 	}
 
-	private IMessageEvent messageEvent(Player player, IMessageCode code, Object... args) {
+	private IMinecraftMessageEvent messageEvent(Player player, IMinecraftMessageCode code, Object... args) {
 		String[] internalArgs = new String[args.length];
 		for (int i = 0; i < args.length; i++)
 			internalArgs[i] = args[i].toString();
-		return EventFactory.messageEvent(player, getPlugin(), code, internalArgs);
+		return new MinecraftMessageEvent(player, code, internalArgs);
 	}
 
 	private void addToDescendant(IMapPersistenceEdition<T> elt) {

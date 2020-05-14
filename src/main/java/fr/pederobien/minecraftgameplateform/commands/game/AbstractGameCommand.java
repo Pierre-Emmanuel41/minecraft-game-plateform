@@ -7,8 +7,9 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import fr.pederobien.minecraftdictionary.impl.EventFactory;
-import fr.pederobien.minecraftdictionary.interfaces.IMessageCode;
+import fr.pederobien.minecraftdictionary.impl.MinecraftMessageEvent;
+import fr.pederobien.minecraftdictionary.interfaces.IMinecraftMessageCode;
+import fr.pederobien.minecraftdictionary.interfaces.IMinecraftMessageEvent;
 import fr.pederobien.minecraftgameplateform.commands.AbstractCommand;
 import fr.pederobien.minecraftgameplateform.dictionary.messages.game.EGameMessageCode;
 import fr.pederobien.minecraftgameplateform.utils.Plateform;
@@ -32,7 +33,7 @@ public abstract class AbstractGameCommand extends AbstractCommand {
 	}
 
 	/**
-	 * Send a message to the given player. First create an {@link IMessageEvent} that is used to get messages into registered
+	 * Send a message to the given player. First create an {@link IMinecraftMessageEvent} that is used to get messages into registered
 	 * dictionaries for the given Plugin.
 	 * 
 	 * @param player The player to send a message.
@@ -41,21 +42,21 @@ public abstract class AbstractGameCommand extends AbstractCommand {
 	 * 
 	 * @return The created message event.
 	 */
-	protected void sendMessageToSender(CommandSender sender, IMessageCode code, String... args) {
+	protected void sendMessageToSender(CommandSender sender, IMinecraftMessageCode code, String... args) {
 		if (sender instanceof Player)
 			sendMessage((Player) sender, code, args);
 	}
 
 	/**
-	 * Send a message to the given player. First create an {@link IMessageEvent} that is used to get messages into registered
+	 * Send a message to the given player. First create an {@link IMinecraftMessageEvent} that is used to get messages into registered
 	 * dictionaries for the given Plugin.
 	 * 
 	 * @param player The player to send a message.
 	 * @param code   The code used to get the translation of the message in the player's language.
 	 * @param args   Arguments that could be useful to send dynamic messages.
 	 */
-	protected void sendMessage(Player player, IMessageCode code, String... args) {
-		Plateform.getNotificationCenter().sendMessage(EventFactory.messageEvent(player, getPlugin(), code, args));
+	protected void sendMessage(Player player, IMinecraftMessageCode code, String... args) {
+		Plateform.getNotificationCenter().sendMessage(new MinecraftMessageEvent(player, code, args));
 	}
 
 	/**
@@ -65,7 +66,7 @@ public abstract class AbstractGameCommand extends AbstractCommand {
 	 * @param code    The code used to get the translation of the message in the player's language.
 	 * @param args    Arguments that could be useful to send dynamic messages.
 	 */
-	protected void sendMessageToPlayers(Stream<Player> players, IMessageCode code, String... args) {
+	protected void sendMessageToPlayers(Stream<Player> players, IMinecraftMessageCode code, String... args) {
 		players.peek(player -> sendMessage(player, code, args));
 	}
 }

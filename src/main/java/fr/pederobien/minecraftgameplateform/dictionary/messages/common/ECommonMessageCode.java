@@ -1,9 +1,9 @@
 package fr.pederobien.minecraftgameplateform.dictionary.messages.common;
 
 import fr.pederobien.minecraftdictionary.impl.Permission;
-import fr.pederobien.minecraftdictionary.interfaces.IMessageCode;
+import fr.pederobien.minecraftdictionary.interfaces.IMinecraftMessageCode;
 
-public enum ECommonMessageCode implements IMessageCode {
+public enum ECommonMessageCode implements IMinecraftMessageCode {
 	COMMON_HELP_EXPLANATION,
 
 	// Code for common bad format
@@ -26,6 +26,11 @@ public enum ECommonMessageCode implements IMessageCode {
 
 	private ECommonMessageCode(Permission permission) {
 		this.permission = permission;
+	}
+
+	@Override
+	public String value() {
+		return toString();
 	}
 
 	@Override

@@ -1,9 +1,9 @@
 package fr.pederobien.minecraftgameplateform.spawn.messages;
 
 import fr.pederobien.minecraftdictionary.impl.Permission;
-import fr.pederobien.minecraftdictionary.interfaces.IMessageCode;
+import fr.pederobien.minecraftdictionary.interfaces.IMinecraftMessageCode;
 
-public enum ESpawnMessageCode implements IMessageCode {
+public enum ESpawnMessageCode implements IMinecraftMessageCode {
 	SPAWN_PARENT_EXPLANATION,
 
 	// Code for command new
@@ -59,6 +59,11 @@ public enum ESpawnMessageCode implements IMessageCode {
 
 	private ESpawnMessageCode(Permission permission) {
 		this.permission = permission;
+	}
+
+	@Override
+	public String value() {
+		return toString();
 	}
 
 	@Override
