@@ -13,14 +13,14 @@ public class NewBorder_NameAlreadyTaken extends AbstractDynamicMessage {
 
 	private static class French extends NewBorder_NameAlreadyTaken {
 		@Override
-		public String getMessage(String... args) {
+		public String getMessage(Object... args) {
 			return "Une bordure " + args[0] + " existe déjà";
 		}
 	}
 
 	private static class English extends NewBorder_NameAlreadyTaken {
 		@Override
-		public String getMessage(String... args) {
+		public String getMessage(Object... args) {
 			return "A border " + args[0] + " already exists";
 		}
 	}

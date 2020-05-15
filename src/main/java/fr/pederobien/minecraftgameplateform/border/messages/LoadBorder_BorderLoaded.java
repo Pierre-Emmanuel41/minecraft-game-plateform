@@ -13,14 +13,14 @@ public class LoadBorder_BorderLoaded extends AbstractDynamicMessage {
 
 	private static class French extends LoadBorder_BorderLoaded {
 		@Override
-		public String getMessage(String... args) {
+		public String getMessage(Object... args) {
 			return "La bordure " + args[0] + " a été chargée";
 		}
 	}
 
 	private static class English extends LoadBorder_BorderLoaded {
 		@Override
-		public String getMessage(String... args) {
+		public String getMessage(Object... args) {
 			return "The border " + args[0] + " has been loaded";
 		}
 	}

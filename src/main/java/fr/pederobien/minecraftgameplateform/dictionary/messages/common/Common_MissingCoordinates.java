@@ -18,7 +18,7 @@ public class Common_MissingCoordinates extends AbstractNotDynamicMessage {
 	}
 
 	private static class English extends Common_MissingCoordinates {
-		public English(String... args) {
+		public English() {
 			super("Cannot define coordinates, one or more coordinates are missing");
 		}
 	}

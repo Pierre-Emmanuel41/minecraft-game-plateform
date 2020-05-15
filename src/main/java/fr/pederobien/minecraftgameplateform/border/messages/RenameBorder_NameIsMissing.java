@@ -13,14 +13,14 @@ public class RenameBorder_NameIsMissing extends AbstractDynamicMessage {
 
 	private static class French extends RenameBorder_NameIsMissing {
 		@Override
-		public String getMessage(String... args) {
+		public String getMessage(Object... args) {
 			return "Impossible de renommer la bordure " + args[0] + ", il manque le nom";
 		}
 	}
 
 	private static class English extends RenameBorder_NameIsMissing {
 		@Override
-		public String getMessage(String... args) {
+		public String getMessage(Object... args) {
 			return "Cannot rename border " + args[0] + ", the name is missing";
 		}
 	}

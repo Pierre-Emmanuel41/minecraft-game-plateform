@@ -13,14 +13,14 @@ public class ModifyColor_ColorDoesNotExist extends AbstractDynamicMessage {
 
 	private static class French extends ModifyColor_ColorDoesNotExist {
 		@Override
-		public String getMessage(String... args) {
+		public String getMessage(Object... args) {
 			return "Impossible de modifier la couleur de l'équipe " + args[0] + ", la couleur \"" + args[1] + "\" n'existe pas";
 		}
 	}
 
 	private static class English extends ModifyColor_ColorDoesNotExist {
 		@Override
-		public String getMessage(String... args) {
+		public String getMessage(Object... args) {
 			return "Cannot modify the color of team " + args[0] + ", the color \"" + args[1] + "\" n'existe pas";
 		}
 	}

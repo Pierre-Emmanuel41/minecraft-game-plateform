@@ -13,14 +13,14 @@ public class MoveTimeBorder_MoveTimeDefined extends AbstractDynamicMessage {
 
 	private static class French extends MoveTimeBorder_MoveTimeDefined {
 		@Override
-		public String getMessage(String... args) {
+		public String getMessage(Object... args) {
 			return "La bordure " + args[0] + " se déplacera à son diamètre final en " + args[1] + " à la vitesse de " + args[2] + " bloc/s";
 		}
 	}
 
 	private static class English extends MoveTimeBorder_MoveTimeDefined {
 		@Override
-		public String getMessage(String... args) {
+		public String getMessage(Object... args) {
 			return "The border " + args[0] + " will move to its final diameter in " + args[1] + " with speed " + args[2] + " block/s";
 		}
 	}

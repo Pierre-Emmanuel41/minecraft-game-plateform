@@ -13,14 +13,14 @@ public class ModifyColor_ColorUpdated extends AbstractDynamicMessage {
 
 	private static class French extends ModifyColor_ColorUpdated {
 		@Override
-		public String getMessage(String... args) {
+		public String getMessage(Object... args) {
 			return "La couleur de l'équipe " + args[0] + " a été mise à jour pour la configuration " + args[1];
 		}
 	}
 
 	private static class English extends ModifyColor_ColorUpdated {
 		@Override
-		public String getMessage(String... args) {
+		public String getMessage(Object... args) {
 			return "The color of team " + args[0] + " has been updated for configuration " + args[1];
 		}
 	}

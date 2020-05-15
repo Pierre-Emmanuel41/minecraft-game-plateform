@@ -26,9 +26,10 @@ public abstract class AbstractMinecraftPersistence<T extends IUnmodifiableNomina
 		return defaultContent;
 	}
 
-	protected void setInternalPath(Path path) {
+	@Override
+	public void setPath(Path path) {
 		checkPath(path);
-		super.setInternalPath(path);
+		super.setPath(path);
 	}
 
 	private void checkPath(Path path) {

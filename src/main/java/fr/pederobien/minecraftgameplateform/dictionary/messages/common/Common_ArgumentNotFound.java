@@ -13,14 +13,14 @@ public class Common_ArgumentNotFound extends AbstractDynamicMessage {
 
 	private static class French extends Common_ArgumentNotFound {
 		@Override
-		public String getMessage(String... args) {
+		public String getMessage(Object... args) {
 			return "Argument \"" + args[0] + "\" non défini pour la commande " + args[1];
 		}
 	}
 
 	private static class English extends Common_ArgumentNotFound {
 		@Override
-		public String getMessage(String... args) {
+		public String getMessage(Object... args) {
 			return "Argument \"" + args[0] + "\" undefined for command " + args[1];
 		}
 	}

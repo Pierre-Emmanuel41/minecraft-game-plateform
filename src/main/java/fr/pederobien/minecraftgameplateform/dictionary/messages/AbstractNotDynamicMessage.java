@@ -12,7 +12,7 @@ public class AbstractNotDynamicMessage extends AbstractMinecraftMessage {
 	}
 
 	@Override
-	public String getMessage(String... args) {
+	public String getMessage(Object... args) {
 		return message;
 	}
 }

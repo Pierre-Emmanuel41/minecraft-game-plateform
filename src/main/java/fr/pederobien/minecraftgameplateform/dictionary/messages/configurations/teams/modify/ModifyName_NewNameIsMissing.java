@@ -13,14 +13,14 @@ public class ModifyName_NewNameIsMissing extends AbstractDynamicMessage {
 
 	private static class French extends ModifyName_NewNameIsMissing {
 		@Override
-		public String getMessage(String... args) {
+		public String getMessage(Object... args) {
 			return "Impossible de renommer l'équipe " + args[0] + ", il manque le nouveau nom de l'équipe";
 		}
 	}
 
 	private static class English extends ModifyName_NewNameIsMissing {
 		@Override
-		public String getMessage(String... args) {
+		public String getMessage(Object... args) {
 			return "Cannot rename team " + args[0] + ", the new team's name is missing";
 		}
 	}

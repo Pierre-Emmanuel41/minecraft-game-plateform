@@ -13,14 +13,14 @@ public class AsCurrent_GameStyleDefined extends AbstractDynamicMessage {
 
 	private static class French extends AsCurrent_GameStyleDefined {
 		@Override
-		public String getMessage(String... args) {
+		public String getMessage(Object... args) {
 			return "Style " + args[0] + " défini en tant que style à lancer avec la commande startgame";
 		}
 	}
 
 	private static class English extends AsCurrent_GameStyleDefined {
 		@Override
-		public String getMessage(String... args) {
+		public String getMessage(Object... args) {
 			return "Style " + args[0] + " defined as style to run with command startgame";
 		}
 	}

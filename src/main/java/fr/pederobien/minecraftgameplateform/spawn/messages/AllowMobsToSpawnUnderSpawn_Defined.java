@@ -13,14 +13,14 @@ public class AllowMobsToSpawnUnderSpawn_Defined extends AbstractDynamicMessage {
 
 	private static class French extends AllowMobsToSpawnUnderSpawn_Defined {
 		@Override
-		public String getMessage(String... args) {
+		public String getMessage(Object... args) {
 			return "La règle allowMobsUnderSpawn est définie sur : " + args[0];
 		}
 	}
 
 	private static class English extends AllowMobsToSpawnUnderSpawn_Defined {
 		@Override
-		public String getMessage(String... args) {
+		public String getMessage(Object... args) {
 			return "The rule allowMobsUnderSpawn is defined as : " + args[1];
 		}
 	}

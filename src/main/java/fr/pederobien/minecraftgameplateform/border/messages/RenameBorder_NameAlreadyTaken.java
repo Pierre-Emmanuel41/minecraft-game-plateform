@@ -13,14 +13,14 @@ public class RenameBorder_NameAlreadyTaken extends AbstractDynamicMessage {
 
 	private static class French extends RenameBorder_NameAlreadyTaken {
 		@Override
-		public String getMessage(String... args) {
+		public String getMessage(Object... args) {
 			return "Impossible de renommer la bordure " + args[0] + " en " + args[1] + ", une bordure du même nom existe déjà";
 		}
 	}
 
 	private static class English extends RenameBorder_NameAlreadyTaken {
 		@Override
-		public String getMessage(String... args) {
+		public String getMessage(Object... args) {
 			return "Cannot rename border " + args[0] + " as " + args[1] + ", a border with the same name already exist";
 		}
 	}

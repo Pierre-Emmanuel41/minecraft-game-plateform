@@ -13,14 +13,14 @@ public class RemoveTeam_OneTeamRemoved extends AbstractDynamicMessage {
 
 	private static class French extends RemoveTeam_OneTeamRemoved {
 		@Override
-		public String getMessage(String... args) {
+		public String getMessage(Object... args) {
 			return "L'équipe " + args[0] + " a été supprimée de la configuration " + args[1];
 		}
 	}
 
 	private static class English extends RemoveTeam_OneTeamRemoved {
 		@Override
-		public String getMessage(String... args) {
+		public String getMessage(Object... args) {
 			return "The team " + args[0] + " has been removed from configuration " + args[1];
 		}
 	}

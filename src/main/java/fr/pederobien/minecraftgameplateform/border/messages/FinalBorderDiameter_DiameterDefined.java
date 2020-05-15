@@ -13,14 +13,14 @@ public class FinalBorderDiameter_DiameterDefined extends AbstractDynamicMessage 
 
 	private static class French extends FinalBorderDiameter_DiameterDefined {
 		@Override
-		public String getMessage(String... args) {
+		public String getMessage(Object... args) {
 			return "Le diamètre final de la bordure " + args[0] + " est de " + args[1] + " bloc(s)";
 		}
 	}
 
 	private static class English extends FinalBorderDiameter_DiameterDefined {
 		@Override
-		public String getMessage(String... args) {
+		public String getMessage(Object... args) {
 			return "The final diameter of border " + args[0] + " is " + args[1] + " block(s)";
 		}
 	}

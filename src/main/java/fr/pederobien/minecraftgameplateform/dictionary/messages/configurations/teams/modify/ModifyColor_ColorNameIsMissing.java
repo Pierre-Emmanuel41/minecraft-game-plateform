@@ -13,14 +13,14 @@ public class ModifyColor_ColorNameIsMissing extends AbstractDynamicMessage {
 
 	private static class French extends ModifyColor_ColorNameIsMissing {
 		@Override
-		public String getMessage(String... args) {
+		public String getMessage(Object... args) {
 			return "Impossible de modifier la couleur de l'équipe " + args[0] + ", il manque le nom de la nouvelle couleur";
 		}
 	}
 
 	private static class English extends ModifyColor_ColorNameIsMissing {
 		@Override
-		public String getMessage(String... args) {
+		public String getMessage(Object... args) {
 			return "Cannot modify the color of team " + args[0] + ", the new color's name is missing";
 		}
 	}

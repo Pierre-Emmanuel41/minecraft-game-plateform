@@ -13,14 +13,14 @@ public class Common_NotAvailableCommand extends AbstractDynamicMessage {
 
 	private static class French extends Common_NotAvailableCommand {
 		@Override
-		public String getMessage(String... args) {
+		public String getMessage(Object... args) {
 			return "La commande \"" + args[0] + "\" n'est pas disponible";
 		}
 	}
 
 	private static class English extends Common_NotAvailableCommand {
 		@Override
-		public String getMessage(String... args) {
+		public String getMessage(Object... args) {
 			return "The command \"" + args[0] + "\" is not available";
 		}
 	}

@@ -13,14 +13,14 @@ public class CurrentBorder_OnCurrent extends AbstractDynamicMessage {
 
 	private static class French extends CurrentBorder_OnCurrent {
 		@Override
-		public String getMessage(String... args) {
+		public String getMessage(Object... args) {
 			return "Caractéristiques de la bordure courante :\n" + args[0];
 		}
 	}
 
 	private static class English extends CurrentBorder_OnCurrent {
 		@Override
-		public String getMessage(String... args) {
+		public String getMessage(Object... args) {
 			return "Current border's characteristics :\n" + args[0];
 		}
 	}

@@ -13,14 +13,14 @@ public class DeleteBorder_BorderDeleted extends AbstractDynamicMessage {
 
 	private static class French extends DeleteBorder_BorderDeleted {
 		@Override
-		public String getMessage(String... args) {
+		public String getMessage(Object... args) {
 			return "Le fichier de la bordure " + args[0] + " a été supprimé";
 		}
 	}
 
 	private static class English extends DeleteBorder_BorderDeleted {
 		@Override
-		public String getMessage(String... args) {
+		public String getMessage(Object... args) {
 			return "The " + args[0] + " border's file has been deleted";
 		}
 	}

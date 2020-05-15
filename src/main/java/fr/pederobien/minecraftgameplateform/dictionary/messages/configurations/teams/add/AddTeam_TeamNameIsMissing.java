@@ -13,14 +13,14 @@ public class AddTeam_TeamNameIsMissing extends AbstractDynamicMessage {
 
 	private static class French extends AddTeam_TeamNameIsMissing {
 		@Override
-		public String getMessage(String... args) {
+		public String getMessage(Object... args) {
 			return "Impossible d'ajouter une équipe à la configuration " + args[0] + ", il manque le nom de l'équipe";
 		}
 	}
 
 	private static class English extends AddTeam_TeamNameIsMissing {
 		@Override
-		public String getMessage(String... args) {
+		public String getMessage(Object... args) {
 			return "Cannot add a team to the configuration " + args[0] + ", the team's name is missing";
 		}
 	}

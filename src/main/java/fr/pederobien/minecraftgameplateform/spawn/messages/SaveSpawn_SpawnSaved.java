@@ -13,14 +13,14 @@ public class SaveSpawn_SpawnSaved extends AbstractDynamicMessage {
 
 	private static class French extends SaveSpawn_SpawnSaved {
 		@Override
-		public String getMessage(String... args) {
+		public String getMessage(Object... args) {
 			return "Spawn " + args[0] + " sauvegardé";
 		}
 	}
 
 	private static class English extends SaveSpawn_SpawnSaved {
 		@Override
-		public String getMessage(String... args) {
+		public String getMessage(Object... args) {
 			return "Spawn " + args[0] + " saved";
 		}
 	}

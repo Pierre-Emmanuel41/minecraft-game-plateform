@@ -13,14 +13,14 @@ public class MoveTimeBorder_InstantlyMove extends AbstractDynamicMessage {
 
 	private static class French extends MoveTimeBorder_InstantlyMove {
 		@Override
-		public String getMessage(String... args) {
+		public String getMessage(Object... args) {
 			return "La bordure " + args[0] + " se déplacera instantanément à son diamètre final";
 		}
 	}
 
 	private static class English extends MoveTimeBorder_InstantlyMove {
 		@Override
-		public String getMessage(String... args) {
+		public String getMessage(Object... args) {
 			return "The border " + args[0] + " will instantly moves to its final diameter";
 		}
 	}

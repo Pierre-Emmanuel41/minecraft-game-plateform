@@ -13,14 +13,14 @@ public class CurrentSpawn_OnCurrent extends AbstractDynamicMessage {
 
 	private static class French extends CurrentSpawn_OnCurrent {
 		@Override
-		public String getMessage(String... args) {
+		public String getMessage(Object... args) {
 			return "Caractéristiques du spawn courant :\n" + args[0];
 		}
 	}
 
 	private static class English extends CurrentSpawn_OnCurrent {
 		@Override
-		public String getMessage(String... args) {
+		public String getMessage(Object... args) {
 			return "Current spawn's characteristics :\n" + args[0];
 		}
 	}

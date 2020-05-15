@@ -13,14 +13,14 @@ public class ModifyName_TeamDoesNotExist extends AbstractDynamicMessage {
 
 	private static class French extends ModifyName_TeamDoesNotExist {
 		@Override
-		public String getMessage(String... args) {
+		public String getMessage(Object... args) {
 			return "Impossible de renommer l'équipe\"" + args[0] + "\", elle n'existe pas pour la configuration " + args[1];
 		}
 	}
 
 	private static class English extends ModifyName_TeamDoesNotExist {
 		@Override
-		public String getMessage(String... args) {
+		public String getMessage(Object... args) {
 			return "Cannot rename team \"" + args[0] + "\", it does not exists for configuration " + args[1];
 		}
 	}

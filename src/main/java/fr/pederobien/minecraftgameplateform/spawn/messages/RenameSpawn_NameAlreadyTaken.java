@@ -13,14 +13,14 @@ public class RenameSpawn_NameAlreadyTaken extends AbstractDynamicMessage {
 
 	private static class French extends RenameSpawn_NameAlreadyTaken {
 		@Override
-		public String getMessage(String... args) {
+		public String getMessage(Object... args) {
 			return "Impossible de renommer le spawn " + args[0] + " en " + args[1] + ", un spawn du même nom existe déjà";
 		}
 	}
 
 	private static class English extends RenameSpawn_NameAlreadyTaken {
 		@Override
-		public String getMessage(String... args) {
+		public String getMessage(Object... args) {
 			return "Cannot rename spawn " + args[0] + " as " + args[1] + ", a spawn with the same name already exist";
 		}
 	}

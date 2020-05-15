@@ -13,14 +13,14 @@ public class Common_PlayerDoesNotExist extends AbstractDynamicMessage {
 
 	private static class French extends Common_PlayerDoesNotExist {
 		@Override
-		public String getMessage(String... args) {
+		public String getMessage(Object... args) {
 			return args[0] + " n'existe pas";
 		}
 	}
 
 	private static class English extends Common_PlayerDoesNotExist {
 		@Override
-		public String getMessage(String... args) {
+		public String getMessage(Object... args) {
 			return args[0] + " does not exist";
 		}
 	}

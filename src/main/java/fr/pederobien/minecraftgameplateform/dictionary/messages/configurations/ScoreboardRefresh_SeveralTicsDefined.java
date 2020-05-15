@@ -13,14 +13,14 @@ public class ScoreboardRefresh_SeveralTicsDefined extends AbstractDynamicMessage
 
 	private static class French extends ScoreboardRefresh_SeveralTicsDefined {
 		@Override
-		public String getMessage(String... args) {
+		public String getMessage(Object... args) {
 			return "Le scoreboard est rafraichit tous les " + args[0] + " tics serveur";
 		}
 	}
 
 	private static class English extends ScoreboardRefresh_SeveralTicsDefined {
 		@Override
-		public String getMessage(String... args) {
+		public String getMessage(Object... args) {
 			return "Scoreboard is refreshed each " + args[0] + " server tics";
 		}
 	}

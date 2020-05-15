@@ -13,14 +13,14 @@ public class FinalBorderDiameter_DiameterIsMissing extends AbstractDynamicMessag
 
 	private static class French extends FinalBorderDiameter_DiameterIsMissing {
 		@Override
-		public String getMessage(String... args) {
+		public String getMessage(Object... args) {
 			return "Impossible de définir le diamètre final de la bordure " + args[0] + ", il manque le diamètre";
 		}
 	}
 
 	private static class English extends FinalBorderDiameter_DiameterIsMissing {
 		@Override
-		public String getMessage(String... args) {
+		public String getMessage(Object... args) {
 			return "Cannot set the final diameter of border " + args[0] + ", the diameter is missing";
 		}
 	}

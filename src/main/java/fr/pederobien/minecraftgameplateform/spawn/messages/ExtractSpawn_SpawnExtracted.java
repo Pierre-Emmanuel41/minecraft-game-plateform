@@ -13,14 +13,14 @@ public class ExtractSpawn_SpawnExtracted extends AbstractDynamicMessage {
 
 	private static class French extends ExtractSpawn_SpawnExtracted {
 		@Override
-		public String getMessage(String... args) {
+		public String getMessage(Object... args) {
 			return "Les blocks du spawn " + args[0] + " ont été extrait";
 		}
 	}
 
 	private static class English extends ExtractSpawn_SpawnExtracted {
 		@Override
-		public String getMessage(String... args) {
+		public String getMessage(Object... args) {
 			return args[0] + " spawn's blocks have been extracted";
 		}
 	}

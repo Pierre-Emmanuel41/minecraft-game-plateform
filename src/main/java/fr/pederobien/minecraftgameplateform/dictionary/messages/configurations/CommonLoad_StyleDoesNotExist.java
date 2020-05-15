@@ -13,14 +13,14 @@ public class CommonLoad_StyleDoesNotExist extends AbstractDynamicMessage {
 
 	private static class French extends CommonLoad_StyleDoesNotExist {
 		@Override
-		public String getMessage(String... args) {
+		public String getMessage(Object... args) {
 			return "Impossible de charger la configuration " + args[0] + ", cette configuration n'existe pas";
 		}
 	}
 
 	private static class English extends CommonLoad_StyleDoesNotExist {
 		@Override
-		public String getMessage(String... args) {
+		public String getMessage(Object... args) {
 			return "Cannot load configuration " + args[0] + ", this configuration does not exist";
 		}
 	}

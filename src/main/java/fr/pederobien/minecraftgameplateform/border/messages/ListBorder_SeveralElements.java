@@ -13,14 +13,14 @@ public class ListBorder_SeveralElements extends AbstractDynamicMessage {
 
 	private static class French extends ListBorder_SeveralElements {
 		@Override
-		public String getMessage(String... args) {
+		public String getMessage(Object... args) {
 			return "Liste des bordures existantes :\n" + args[0];
 		}
 	}
 
 	private static class English extends ListBorder_SeveralElements {
 		@Override
-		public String getMessage(String... args) {
+		public String getMessage(Object... args) {
 			return "List of existing borders :\n" + args[0];
 		}
 	}

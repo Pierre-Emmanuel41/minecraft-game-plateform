@@ -13,14 +13,14 @@ public class AddTeam_TeamAdded extends AbstractDynamicMessage {
 
 	private static class French extends AddTeam_TeamAdded {
 		@Override
-		public String getMessage(String... args) {
+		public String getMessage(Object... args) {
 			return "Equipe " + args[0] + " ajoutée pour la configuration " + args[1];
 		}
 	}
 
 	private static class English extends AddTeam_TeamAdded {
 		@Override
-		public String getMessage(String... args) {
+		public String getMessage(Object... args) {
 			return "Team " + args[0] + " has been added for configuration " + args[1];
 		}
 	}

@@ -13,14 +13,14 @@ public class RenameBorder_BorderRenamed extends AbstractDynamicMessage {
 
 	private static class French extends RenameBorder_BorderRenamed {
 		@Override
-		public String getMessage(String... args) {
+		public String getMessage(Object... args) {
 			return "Bordure " + args[0] + " renommée en " + args[1];
 		}
 	}
 
 	private static class English extends RenameBorder_BorderRenamed {
 		@Override
-		public String getMessage(String... args) {
+		public String getMessage(Object... args) {
 			return "Border " + args[0] + " renamed as " + args[1];
 		}
 	}

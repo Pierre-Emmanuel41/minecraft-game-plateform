@@ -13,14 +13,14 @@ public class DeleteBorder_DidNotDelete extends AbstractDynamicMessage {
 
 	private static class French extends DeleteBorder_DidNotDelete {
 		@Override
-		public String getMessage(String... args) {
+		public String getMessage(Object... args) {
 			return "La suppresion de la bordure " + args[0] + " n'a pas pu s'effectuer correctement";
 		}
 	}
 
 	private static class English extends DeleteBorder_DidNotDelete {
 		@Override
-		public String getMessage(String... args) {
+		public String getMessage(Object... args) {
 			return "The deletion of border " + args[0] + " was not successful";
 		}
 	}

@@ -131,7 +131,7 @@ public abstract class AbstractParentPersistenceEdition<T extends IUnmodifiableNo
 		String[] internalArgs = new String[args.length];
 		for (int i = 0; i < args.length; i++)
 			internalArgs[i] = args[i].toString();
-		return new MinecraftMessageEvent(player, code, internalArgs);
+		return new MinecraftMessageEvent(player, code, (Object[]) internalArgs);
 	}
 
 	private void addToDescendant(IMapPersistenceEdition<T> elt) {

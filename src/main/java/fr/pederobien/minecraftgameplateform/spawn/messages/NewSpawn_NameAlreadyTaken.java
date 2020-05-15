@@ -13,14 +13,14 @@ public class NewSpawn_NameAlreadyTaken extends AbstractDynamicMessage {
 
 	private static class French extends NewSpawn_NameAlreadyTaken {
 		@Override
-		public String getMessage(String... args) {
+		public String getMessage(Object... args) {
 			return "Un spawn " + args[0] + " existe déjà";
 		}
 	}
 
 	private static class English extends NewSpawn_NameAlreadyTaken {
 		@Override
-		public String getMessage(String... args) {
+		public String getMessage(Object... args) {
 			return "A spawn " + args[0] + " already exists";
 		}
 	}

@@ -13,14 +13,14 @@ public class InitialBorderDiameter_DiameterIsMissing extends AbstractDynamicMess
 
 	private static class French extends InitialBorderDiameter_DiameterIsMissing {
 		@Override
-		public String getMessage(String... args) {
+		public String getMessage(Object... args) {
 			return "Impossible de définir le diamètre initial de la bordure " + args[0] + ", il manque le diamètre";
 		}
 	}
 
 	private static class English extends InitialBorderDiameter_DiameterIsMissing {
 		@Override
-		public String getMessage(String... args) {
+		public String getMessage(Object... args) {
 			return "Cannot set the initial diameter of border " + args[0] + ", the diameter is missing";
 		}
 	}

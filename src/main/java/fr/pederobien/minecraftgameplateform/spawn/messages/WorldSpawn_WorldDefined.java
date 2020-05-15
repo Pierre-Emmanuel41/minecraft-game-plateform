@@ -13,14 +13,14 @@ public class WorldSpawn_WorldDefined extends AbstractDynamicMessage {
 
 	private static class French extends WorldSpawn_WorldDefined {
 		@Override
-		public String getMessage(String... args) {
+		public String getMessage(Object... args) {
 			return "Le monde du spawn " + args[0] + " est " + args[1];
 		}
 	}
 
 	private static class English extends WorldSpawn_WorldDefined {
 		@Override
-		public String getMessage(String... args) {
+		public String getMessage(Object... args) {
 			return "The " + args[0] + " spawn's world is " + args[1];
 		}
 	}

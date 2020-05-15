@@ -17,7 +17,7 @@ import fr.pederobien.minecraftgameplateform.spawn.messages.FrenchSpawnMessages;
 public class FrenchDictionary extends AbstractDictionary {
 
 	public FrenchDictionary() {
-		super(Locale.FRANCE, Locale.FRENCH, Locale.CANADA_FRENCH);
+		super("FrenchPlateformDictionary", Locale.FRANCE, Locale.FRENCH, Locale.CANADA_FRENCH);
 
 		FrenchCommonMessages.setDictionary(this);
 		FrenchGameMessages.setDictionary(this);

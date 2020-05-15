@@ -13,14 +13,14 @@ public class SpeedBorder_SpeedDefined extends AbstractDynamicMessage {
 
 	private static class French extends SpeedBorder_SpeedDefined {
 		@Override
-		public String getMessage(String... args) {
+		public String getMessage(Object... args) {
 			return "la vitesse de la bordure " + args[0] + " est défini à " + args[1] + " bloc/s, temps de déplacement : " + args[2];
 		}
 	}
 
 	private static class English extends SpeedBorder_SpeedDefined {
 		@Override
-		public String getMessage(String... args) {
+		public String getMessage(Object... args) {
 			return "The speed of border " + args[0] + " is " + args[1] + " block/s, time to move the border :  " + args[2];
 		}
 	}

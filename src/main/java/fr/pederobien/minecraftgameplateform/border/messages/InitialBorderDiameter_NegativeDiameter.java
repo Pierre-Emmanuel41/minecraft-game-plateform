@@ -13,14 +13,14 @@ public class InitialBorderDiameter_NegativeDiameter extends AbstractDynamicMessa
 
 	public static class French extends InitialBorderDiameter_NegativeDiameter {
 		@Override
-		public String getMessage(String... args) {
+		public String getMessage(Object... args) {
 			return "Impossible de définir le diamètre initial de la bordure " + args[0] + ", le diamètre est négatif";
 		}
 	}
 
 	public static class English extends InitialBorderDiameter_NegativeDiameter {
 		@Override
-		public String getMessage(String... args) {
+		public String getMessage(Object... args) {
 			return "Cannot set the initial diameter of border " + args[0] + ", the diameter is negative";
 		}
 	}

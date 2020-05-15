@@ -13,14 +13,14 @@ public class RenameSpawn_NameIsMissing extends AbstractDynamicMessage {
 
 	private static class French extends RenameSpawn_NameIsMissing {
 		@Override
-		public String getMessage(String... args) {
+		public String getMessage(Object... args) {
 			return "Impossible de renommer le spawn " + args[0] + ", il manque le nom";
 		}
 	}
 
 	private static class English extends RenameSpawn_NameIsMissing {
 		@Override
-		public String getMessage(String... args) {
+		public String getMessage(Object... args) {
 			return "Cannot rename the spawn " + args[0] + ", the name is missing";
 		}
 	}

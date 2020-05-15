@@ -13,14 +13,14 @@ public class AddPlayer_OnePlayerAdded extends AbstractDynamicMessage {
 
 	private static class French extends AddPlayer_OnePlayerAdded {
 		@Override
-		public String getMessage(String... args) {
+		public String getMessage(Object... args) {
 			return "Le joueur " + args[0] + " a été ajouté à l'équipe " + args[1];
 		}
 	}
 
 	private static class English extends AddPlayer_OnePlayerAdded {
 		@Override
-		public String getMessage(String... args) {
+		public String getMessage(Object... args) {
 			return "The player " + args[0] + " has been added to team " + args[1];
 		}
 	}

@@ -13,14 +13,14 @@ public class InitialBorderDiameter_DiameterDefined extends AbstractDynamicMessag
 
 	private static class French extends InitialBorderDiameter_DiameterDefined {
 		@Override
-		public String getMessage(String... args) {
+		public String getMessage(Object... args) {
 			return "Le diamètre initial de la bordure " + args[0] + " est de " + args[1] + " bloc(s)";
 		}
 	}
 
 	private static class English extends InitialBorderDiameter_DiameterDefined {
 		@Override
-		public String getMessage(String... args) {
+		public String getMessage(Object... args) {
 			return "The initial diameter of border " + args[0] + " is " + args[1] + " block(s)";
 		}
 	}

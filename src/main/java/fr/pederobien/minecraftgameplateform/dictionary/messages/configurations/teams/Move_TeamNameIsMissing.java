@@ -13,14 +13,14 @@ public class Move_TeamNameIsMissing extends AbstractDynamicMessage {
 
 	private static class French extends Move_TeamNameIsMissing {
 		@Override
-		public String getMessage(String... args) {
+		public String getMessage(Object... args) {
 			return "Impossible de changer l'équipe du joueur " + args[0] + ", il manque le nom de la nouvelle équipe";
 		}
 	}
 
 	private static class English extends Move_TeamNameIsMissing {
 		@Override
-		public String getMessage(String... args) {
+		public String getMessage(Object... args) {
 			return "Cannot change the team of player " + args[0] + ", the new team's name is missing";
 		}
 	}

@@ -13,14 +13,14 @@ public class RemoveTeam_TeamDoesNotExist extends AbstractDynamicMessage {
 
 	private static class French extends RemoveTeam_TeamDoesNotExist {
 		@Override
-		public String getMessage(String... args) {
+		public String getMessage(Object... args) {
 			return "Impossible de supprimer l'équipe \"" + args[0] + "\" de la configuration " + args[1] + ", elle n'existe pas";
 		}
 	}
 
 	private static class English extends RemoveTeam_TeamDoesNotExist {
 		@Override
-		public String getMessage(String... args) {
+		public String getMessage(Object... args) {
 			return "Cannot remove team \"" + args[0] + "\" from configuration " + args[1] + ", it does not exist";
 		}
 	}

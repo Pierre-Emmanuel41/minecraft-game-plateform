@@ -13,14 +13,14 @@ public class WorldBorder_WorldDefined extends AbstractDynamicMessage {
 
 	private static class French extends WorldBorder_WorldDefined {
 		@Override
-		public String getMessage(String... args) {
+		public String getMessage(Object... args) {
 			return "Le monde de la bordure " + args[0] + " est " + args[1];
 		}
 	}
 
 	private static class English extends WorldBorder_WorldDefined {
 		@Override
-		public String getMessage(String... args) {
+		public String getMessage(Object... args) {
 			return "The " + args[0] + " border's world is " + args[1];
 		}
 	}

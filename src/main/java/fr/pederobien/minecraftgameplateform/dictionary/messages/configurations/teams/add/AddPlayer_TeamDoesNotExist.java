@@ -13,14 +13,14 @@ public class AddPlayer_TeamDoesNotExist extends AbstractDynamicMessage {
 
 	private static class French extends AddPlayer_TeamDoesNotExist {
 		@Override
-		public String getMessage(String... args) {
+		public String getMessage(Object... args) {
 			return "Impossible d'ajouter des joueurs à l'équipe \"" + args[0] + "\", elle n'existe pas dans la configuration " + args[1];
 		}
 	}
 
 	private static class English extends AddPlayer_TeamDoesNotExist {
 		@Override
-		public String getMessage(String... args) {
+		public String getMessage(Object... args) {
 			return "Cannot add players to team \"" + args[0] + "\", it does not exist for configuration " + args[1];
 		}
 	}

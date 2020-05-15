@@ -13,14 +13,14 @@ public class NewBorder_BorderCreated extends AbstractDynamicMessage {
 
 	private static class French extends NewBorder_BorderCreated {
 		@Override
-		public String getMessage(String... args) {
+		public String getMessage(Object... args) {
 			return "Bordure " + args[0] + " créée";
 		}
 	}
 
 	private static class English extends NewBorder_BorderCreated {
 		@Override
-		public String getMessage(String... args) {
+		public String getMessage(Object... args) {
 			return "Border " + args[0] + " created";
 		}
 	}

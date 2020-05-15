@@ -13,14 +13,14 @@ public class NewSpawn_SpawnCreated extends AbstractDynamicMessage {
 
 	private static class French extends NewSpawn_SpawnCreated {
 		@Override
-		public String getMessage(String... args) {
+		public String getMessage(Object... args) {
 			return "Spawn " + args[0] + " créé";
 		}
 	}
 
 	private static class English extends NewSpawn_SpawnCreated {
 		@Override
-		public String getMessage(String... args) {
+		public String getMessage(Object... args) {
 			return "Spawn " + args[0] + " created";
 		}
 	}

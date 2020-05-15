@@ -13,14 +13,14 @@ public class StartTimeBorder_StartTimeDefined extends AbstractDynamicMessage {
 
 	private static class French extends StartTimeBorder_StartTimeDefined {
 		@Override
-		public String getMessage(String... args) {
+		public String getMessage(Object... args) {
 			return "La bordure " + args[0] + " se déplacera après " + args[1] + " de jeu";
 		}
 	}
 
 	private static class English extends StartTimeBorder_StartTimeDefined {
 		@Override
-		public String getMessage(String... args) {
+		public String getMessage(Object... args) {
 			return "The border " + args[0] + " will move after " + args[1] + " of play";
 		}
 	}

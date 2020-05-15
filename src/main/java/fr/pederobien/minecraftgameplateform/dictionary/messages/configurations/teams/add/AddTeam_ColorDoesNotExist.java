@@ -13,14 +13,14 @@ public class AddTeam_ColorDoesNotExist extends AbstractDynamicMessage {
 
 	private static class French extends AddTeam_ColorDoesNotExist {
 		@Override
-		public String getMessage(String... args) {
+		public String getMessage(Object... args) {
 			return "Impossible d'ajouter l'équipe \"" + args[0] + "\" à la configuration " + args[1] + ", \"" + args[2] + "\" n'est pas une couleur";
 		}
 	}
 
 	private static class English extends AddTeam_ColorDoesNotExist {
 		@Override
-		public String getMessage(String... args) {
+		public String getMessage(Object... args) {
 			return "Cannot add team \"" + args[0] + "\" to the configuration " + args[1] + ", \"" + args[2] + "\" is not a colour";
 		}
 	}

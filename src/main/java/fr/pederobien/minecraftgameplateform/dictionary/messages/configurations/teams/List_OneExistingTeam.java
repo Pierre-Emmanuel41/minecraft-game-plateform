@@ -13,14 +13,14 @@ public class List_OneExistingTeam extends AbstractDynamicMessage {
 
 	private static class French extends List_OneExistingTeam {
 		@Override
-		public String getMessage(String... args) {
+		public String getMessage(Object... args) {
 			return "Il y a une équipe enregistrée pour la configuration " + args[0] + ":\n" + args[1];
 		}
 	}
 
 	private static class English extends List_OneExistingTeam {
 		@Override
-		public String getMessage(String... args) {
+		public String getMessage(Object... args) {
 			return "There is one registered team for configuration " + args[0] + " :\n" + args[1];
 		}
 	}

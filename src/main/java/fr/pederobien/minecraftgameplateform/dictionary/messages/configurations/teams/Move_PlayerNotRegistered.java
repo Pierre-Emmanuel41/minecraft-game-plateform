@@ -13,14 +13,14 @@ public class Move_PlayerNotRegistered extends AbstractDynamicMessage {
 
 	private static class French extends Move_PlayerNotRegistered {
 		@Override
-		public String getMessage(String... args) {
+		public String getMessage(Object... args) {
 			return "Impossible de changer l'équipe du joueur " + args[0] + ", ce joueur n'est pas dans une équipe";
 		}
 	}
 
 	private static class English extends Move_PlayerNotRegistered {
 		@Override
-		public String getMessage(String... args) {
+		public String getMessage(Object... args) {
 			return "Cannot change the team of player " + args[0] + ", this player is not registered in a team";
 		}
 	}

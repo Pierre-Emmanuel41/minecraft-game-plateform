@@ -13,14 +13,14 @@ public class Common_WorldDoesNotExist extends AbstractDynamicMessage {
 
 	private static class French extends Common_WorldDoesNotExist {
 		@Override
-		public String getMessage(String... args) {
+		public String getMessage(Object... args) {
 			return "Le nom \"" + args[0] + "\" ne fait référence à aucun monde";
 		}
 	}
 
 	private static class English extends Common_WorldDoesNotExist {
 		@Override
-		public String getMessage(String... args) {
+		public String getMessage(Object... args) {
 			return "The name \"" + args[0] + "\" does not refer to any world";
 		}
 	}

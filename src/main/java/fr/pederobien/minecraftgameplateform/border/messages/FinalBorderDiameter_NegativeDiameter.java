@@ -13,14 +13,14 @@ public class FinalBorderDiameter_NegativeDiameter extends AbstractDynamicMessage
 
 	public static class French extends FinalBorderDiameter_NegativeDiameter {
 		@Override
-		public String getMessage(String... args) {
+		public String getMessage(Object... args) {
 			return "Impossible de définir le diamètre final de la bordure " + args[0] + ", le diamètre est négatif";
 		}
 	}
 
 	public static class English extends FinalBorderDiameter_NegativeDiameter {
 		@Override
-		public String getMessage(String... args) {
+		public String getMessage(Object... args) {
 			return "Cannot set the final diameter of border " + args[0] + ", the diameter is negative";
 		}
 	}

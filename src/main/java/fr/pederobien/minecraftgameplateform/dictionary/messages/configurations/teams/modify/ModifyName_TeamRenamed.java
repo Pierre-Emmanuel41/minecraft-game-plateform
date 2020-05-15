@@ -13,14 +13,14 @@ public class ModifyName_TeamRenamed extends AbstractDynamicMessage {
 
 	private static class French extends ModifyName_TeamRenamed {
 		@Override
-		public String getMessage(String... args) {
+		public String getMessage(Object... args) {
 			return "L'équipe " + args[0] + " a été renommée en " + args[1];
 		}
 	}
 
 	private static class English extends ModifyName_TeamRenamed {
 		@Override
-		public String getMessage(String... args) {
+		public String getMessage(Object... args) {
 			return "The team " + args[0] + " has been renamed as " + args[1];
 		}
 	}

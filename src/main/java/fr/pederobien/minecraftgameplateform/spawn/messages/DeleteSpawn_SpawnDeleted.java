@@ -13,14 +13,14 @@ public class DeleteSpawn_SpawnDeleted extends AbstractDynamicMessage {
 
 	private static class French extends DeleteSpawn_SpawnDeleted {
 		@Override
-		public String getMessage(String... args) {
+		public String getMessage(Object... args) {
 			return "Le fichier du spawn " + args[0] + " a été supprimé";
 		}
 	}
 
 	private static class English extends DeleteSpawn_SpawnDeleted {
 		@Override
-		public String getMessage(String... args) {
+		public String getMessage(Object... args) {
 			return "The " + args[0] + " spawn's file has been deleted";
 		}
 	}

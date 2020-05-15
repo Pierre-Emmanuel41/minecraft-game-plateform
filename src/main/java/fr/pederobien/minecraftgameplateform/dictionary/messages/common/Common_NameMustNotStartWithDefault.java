@@ -13,14 +13,14 @@ public class Common_NameMustNotStartWithDefault extends AbstractDynamicMessage {
 
 	private static class French extends Common_NameMustNotStartWithDefault {
 		@Override
-		public String getMessage(String... args) {
+		public String getMessage(Object... args) {
 			return args[0] + " ne doit pas commencer par 'default' (insensible à la casse)";
 		}
 	}
 
 	private static class English extends Common_NameMustNotStartWithDefault {
 		@Override
-		public String getMessage(String... args) {
+		public String getMessage(Object... args) {
 			return args[0] + " must not start with 'default' (ignoring case)";
 		}
 	}

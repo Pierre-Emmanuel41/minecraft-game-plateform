@@ -13,14 +13,14 @@ public class SaveBorder_BorderSaved extends AbstractDynamicMessage {
 
 	private static class French extends SaveBorder_BorderSaved {
 		@Override
-		public String getMessage(String... args) {
+		public String getMessage(Object... args) {
 			return "Bordure " + args[0] + " sauvegardée";
 		}
 	}
 
 	private static class English extends SaveBorder_BorderSaved {
 		@Override
-		public String getMessage(String... args) {
+		public String getMessage(Object... args) {
 			return "Border " + args[0] + " saved";
 		}
 	}

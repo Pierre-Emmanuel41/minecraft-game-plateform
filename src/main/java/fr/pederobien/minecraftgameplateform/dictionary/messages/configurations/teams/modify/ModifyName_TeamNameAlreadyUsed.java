@@ -13,14 +13,14 @@ public class ModifyName_TeamNameAlreadyUsed extends AbstractDynamicMessage {
 
 	private static class French extends ModifyName_TeamNameAlreadyUsed {
 		@Override
-		public String getMessage(String... args) {
+		public String getMessage(Object... args) {
 			return "Impossible de renommer l'équipe " + args[0] + " en " + args[1] + ", ce nom est déjà utilisé";
 		}
 	}
 
 	private static class English extends ModifyName_TeamNameAlreadyUsed {
 		@Override
-		public String getMessage(String... args) {
+		public String getMessage(Object... args) {
 			return "Cannot rename team " + args[0] + " as " + args[1] + ", this name is already used";
 		}
 	}

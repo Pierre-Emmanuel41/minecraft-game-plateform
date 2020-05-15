@@ -13,14 +13,14 @@ public class RemovePlayer_SeveralPlayersRemoved extends AbstractDynamicMessage {
 
 	private static class French extends RemovePlayer_SeveralPlayersRemoved {
 		@Override
-		public String getMessage(String... args) {
+		public String getMessage(Object... args) {
 			return "Les joueurs " + args[0] + " ont été supprimés des équipes " + args[1];
 		}
 	}
 
 	private static class English extends RemovePlayer_SeveralPlayersRemoved {
 		@Override
-		public String getMessage(String... args) {
+		public String getMessage(Object... args) {
 			return "Players " + args[0] + " have been removed from teams " + args[1];
 		}
 	}

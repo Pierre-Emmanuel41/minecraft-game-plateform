@@ -13,14 +13,14 @@ public class Move_TeamsAreTheSame extends AbstractDynamicMessage {
 
 	private static class French extends Move_TeamsAreTheSame {
 		@Override
-		public String getMessage(String... args) {
+		public String getMessage(Object... args) {
 			return "Le joueur " + args[0] + " est déjà dans l'équipe " + args[1];
 		}
 	}
 
 	private static class English extends Move_TeamsAreTheSame {
 		@Override
-		public String getMessage(String... args) {
+		public String getMessage(Object... args) {
 			return "The player " + args[0] + " is already in team " + args[1];
 		}
 	}

@@ -56,7 +56,7 @@ public abstract class AbstractGameCommand extends AbstractCommand {
 	 * @param args   Arguments that could be useful to send dynamic messages.
 	 */
 	protected void sendMessage(Player player, IMinecraftMessageCode code, String... args) {
-		Plateform.getNotificationCenter().sendMessage(new MinecraftMessageEvent(player, code, args));
+		Plateform.getNotificationCenter().sendMessage(new MinecraftMessageEvent(player, code, (Object[]) args));
 	}
 
 	/**

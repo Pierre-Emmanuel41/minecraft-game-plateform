@@ -13,14 +13,14 @@ public class AddTeam_TeamNameAlreadyUsed extends AbstractDynamicMessage {
 
 	private static class French extends AddTeam_TeamNameAlreadyUsed {
 		@Override
-		public String getMessage(String... args) {
+		public String getMessage(Object... args) {
 			return "Impossible d'ajouter l'équipe " + args[0] + " to configuration " + args[1] + ", cette équipe existe déjà";
 		}
 	}
 
 	private static class English extends AddTeam_TeamNameAlreadyUsed {
 		@Override
-		public String getMessage(String... args) {
+		public String getMessage(Object... args) {
 			return "Cannot add team " + args[0] + " to configuration " + args[1] + ", this team already exists";
 		}
 	}

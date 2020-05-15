@@ -13,14 +13,14 @@ public class Move_PlayerDoesNotExist extends AbstractDynamicMessage {
 
 	private static class French extends Move_PlayerDoesNotExist {
 		@Override
-		public String getMessage(String... args) {
+		public String getMessage(Object... args) {
 			return "Impossible de modifier l'équipe du joueur \"" + args[0] + "\", ce joueur n'existe pas";
 		}
 	}
 
 	private static class English extends Move_PlayerDoesNotExist {
 		@Override
-		public String getMessage(String... args) {
+		public String getMessage(Object... args) {
 			return "Cannot change the team of player \"" + args[0] + "\", this player does not exist";
 		}
 	}

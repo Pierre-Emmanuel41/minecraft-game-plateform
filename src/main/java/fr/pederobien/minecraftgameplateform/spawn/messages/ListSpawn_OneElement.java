@@ -13,14 +13,14 @@ public class ListSpawn_OneElement extends AbstractDynamicMessage {
 
 	private static class French extends ListSpawn_OneElement {
 		@Override
-		public String getMessage(String... args) {
+		public String getMessage(Object... args) {
 			return "Il existe un spawn : " + args[0];
 		}
 	}
 
 	private static class English extends ListSpawn_OneElement {
 		@Override
-		public String getMessage(String... args) {
+		public String getMessage(Object... args) {
 			return "One existing spawn : " + args[0];
 		}
 	}

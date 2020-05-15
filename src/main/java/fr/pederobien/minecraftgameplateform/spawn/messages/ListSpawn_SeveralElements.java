@@ -13,14 +13,14 @@ public class ListSpawn_SeveralElements extends AbstractDynamicMessage {
 
 	private static class French extends ListSpawn_SeveralElements {
 		@Override
-		public String getMessage(String... args) {
+		public String getMessage(Object... args) {
 			return "Liste des spawns existants :\n" + args[0];
 		}
 	}
 
 	private static class English extends ListSpawn_SeveralElements {
 		@Override
-		public String getMessage(String... args) {
+		public String getMessage(Object... args) {
 			return "List of existing spawns :\n" + args[0];
 		}
 	}

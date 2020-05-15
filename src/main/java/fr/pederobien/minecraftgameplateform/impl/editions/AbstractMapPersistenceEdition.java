@@ -397,7 +397,7 @@ public abstract class AbstractMapPersistenceEdition<T extends IUnmodifiableNomin
 		String[] internalArgs = new String[args.length];
 		for (int i = 0; i < args.length; i++)
 			internalArgs[i] = args[i].toString();
-		return new MinecraftMessageEvent(player, code, internalArgs);
+		return new MinecraftMessageEvent(player, code, (Object[]) internalArgs);
 	}
 
 	private String getMessage(Player player, IMinecraftMessageCode code, Object... args) {

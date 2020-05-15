@@ -14,7 +14,7 @@ public class StartingGame extends AbstractDynamicMessage {
 	private static class French extends StartingGame {
 
 		@Override
-		public String getMessage(String... args) {
+		public String getMessage(Object... args) {
 			return "Lancement de " + args[0];
 		}
 	}
@@ -22,7 +22,7 @@ public class StartingGame extends AbstractDynamicMessage {
 	private static class English extends StartingGame {
 
 		@Override
-		public String getMessage(String... args) {
+		public String getMessage(Object... args) {
 			return "Starting " + args[0];
 		}
 	}

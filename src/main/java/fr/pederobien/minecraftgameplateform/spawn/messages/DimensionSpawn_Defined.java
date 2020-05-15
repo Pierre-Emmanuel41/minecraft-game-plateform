@@ -14,7 +14,7 @@ public class DimensionSpawn_Defined extends AbstractDynamicMessage {
 	private static class French extends DimensionSpawn_Defined {
 
 		@Override
-		public String getMessage(String... args) {
+		public String getMessage(Object... args) {
 			return "Les dimensions du spawn " + args[0] + " sont X=" + args[1] + ", Y=" + args[2] + ", Z=" + args[3];
 		}
 	}
@@ -22,7 +22,7 @@ public class DimensionSpawn_Defined extends AbstractDynamicMessage {
 	private static class English extends DimensionSpawn_Defined {
 
 		@Override
-		public String getMessage(String... args) {
+		public String getMessage(Object... args) {
 			return args[0] + " spawn's dimensions are defined as X=" + args[1] + ", Y=" + args[2] + ", Z=" + args[3];
 		}
 	}

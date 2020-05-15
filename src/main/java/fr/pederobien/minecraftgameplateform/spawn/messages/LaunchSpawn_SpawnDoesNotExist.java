@@ -13,14 +13,14 @@ public class LaunchSpawn_SpawnDoesNotExist extends AbstractDynamicMessage {
 
 	private static class French extends LaunchSpawn_SpawnDoesNotExist {
 		@Override
-		public String getMessage(String... args) {
+		public String getMessage(Object... args) {
 			return "Impossible de charger le spawn " + args[0] + ", le spawn n’existe pas";
 		}
 	}
 
 	private static class English extends LaunchSpawn_SpawnDoesNotExist {
 		@Override
-		public String getMessage(String... args) {
+		public String getMessage(Object... args) {
 			return "Cannot launch the spawn " + args[0] + ", it does not exist";
 		}
 	}

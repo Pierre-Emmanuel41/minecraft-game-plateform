@@ -12,13 +12,13 @@ public class ResumingGame extends AbstractNotDynamicMessage {
 	}
 
 	private static class French extends ResumingGame {
-		public French(String... args) {
+		public French(Object... args) {
 			super("Reprise de la partie");
 		}
 	}
 
 	private static class English extends ResumingGame {
-		public English(String... args) {
+		public English(Object... args) {
 			super("Resume");
 		}
 	}

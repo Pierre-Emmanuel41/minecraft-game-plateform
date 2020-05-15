@@ -17,7 +17,7 @@ import fr.pederobien.minecraftgameplateform.spawn.messages.EnglishSpawnMessages;
 public class EnglishDictionary extends AbstractDictionary {
 
 	public EnglishDictionary() {
-		super(Locale.UK, Locale.US, Locale.ENGLISH, Locale.CANADA);
+		super("EnglishPlateformDictionary", Locale.UK, Locale.US, Locale.ENGLISH, Locale.CANADA);
 
 		EnglishCommonMessages.setDictionary(this);
 		EnglishGameMessages.setDictionary(this);
