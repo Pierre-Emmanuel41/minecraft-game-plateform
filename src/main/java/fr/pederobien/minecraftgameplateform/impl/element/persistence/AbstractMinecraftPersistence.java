@@ -1,6 +1,9 @@
 package fr.pederobien.minecraftgameplateform.impl.element.persistence;
 
+import java.io.IOException;
 import java.nio.file.Path;
+
+import org.w3c.dom.Document;
 
 import fr.pederobien.minecraftgameplateform.exceptions.persistence.IllegalPathException;
 import fr.pederobien.minecraftgameplateform.interfaces.element.persistence.IDefaultContent;
@@ -19,6 +22,11 @@ public abstract class AbstractMinecraftPersistence<T extends IUnmodifiableNomina
 	protected AbstractMinecraftPersistence(Path path, IDefaultContent defaultContent) {
 		super(path);
 		this.defaultContent = defaultContent;
+	}
+
+	@Override
+	protected Document createDoc(Object... objects) throws IOException {
+		return parseFromFileName((String) objects[0]);
 	}
 
 	@Override
