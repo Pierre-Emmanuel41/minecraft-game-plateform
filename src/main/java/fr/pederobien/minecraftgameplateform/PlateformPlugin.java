@@ -15,7 +15,7 @@ public class PlateformPlugin extends JavaPlugin {
 
 	@Override
 	public void onEnable() {
-		Plateform.getPluginManager().register(this);
+		Plateform.setPlugin(this);
 
 		new StartCommand(this);
 		new PauseCommand(this);
@@ -31,5 +31,6 @@ public class PlateformPlugin extends JavaPlugin {
 	@Override
 	public void onDisable() {
 		Plateform.getPersistenceCenter().save();
+		Plateform.reset(this);
 	}
 }

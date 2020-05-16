@@ -3,10 +3,11 @@ package fr.pederobien.minecraftgameplateform.utils;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
-import org.bukkit.plugin.java.JavaPlugin;
+import org.bukkit.plugin.Plugin;
 
 import fr.pederobien.minecraftdictionary.impl.NotificationCenter;
 import fr.pederobien.minecraftdictionary.interfaces.IMinecraftNotificationCenter;
+import fr.pederobien.minecraftgameplateform.PlateformPlugin;
 import fr.pederobien.minecraftgameplateform.helpers.CommandHelper;
 import fr.pederobien.minecraftgameplateform.helpers.ConfigurationHelperManager;
 import fr.pederobien.minecraftgameplateform.impl.element.GameConfigurationContext;
@@ -24,20 +25,28 @@ public class Plateform {
 	 * Path to folder plugins/minecraft-game-plateform
 	 */
 	public static final Path ROOT = Paths.get("plugins", "minecraft-game-plateform");
-	private static final String MINECRAFT_GAME_PLATEFORM = "minecraft-game-plateform";
+
+	private static Plugin plugin;
 
 	/**
 	 * @return The version of this plugin.
 	 */
 	public static String getVersion() {
-		return "v1.0-SNAPSHOT";
+		return getPlugin().getDescription().getVersion();
 	}
 
 	/**
 	 * @return The name of this plugin.
 	 */
 	public static String getName() {
-		return MINECRAFT_GAME_PLATEFORM;
+		return getPlugin().getDescription().getName();
+	}
+
+	/**
+	 * @return The jar's name of this plugin.
+	 */
+	public static String getMinecraftPluginName() {
+		return getName().concat("-").concat(getVersion()).concat("-jwd").concat(".jar");
 	}
 
 	/**
@@ -87,7 +96,33 @@ public class Plateform {
 	/**
 	 * @return The plugin associated to this plateform.
 	 */
-	public static JavaPlugin getPlugin() {
-		return getPluginManager().getJavaPlugin(getName()).get();
+	public static Plugin getPlugin() {
+		return plugin;
+	}
+
+	/**
+	 * Set the plugin associated to this plateform.
+	 * 
+	 * @param plugin The minecraft plugin represented by this plateform.
+	 */
+	public static void setPlugin(Plugin plugin) {
+		if (Plateform.plugin != null)
+			throw new UnsupportedOperationException("The plugin is already defined for this plateform");
+		Plateform.plugin = plugin;
+		getPluginManager().register(plugin);
+	}
+
+	/**
+	 * Reset the plugin associated to this plateform. If this method is called by another plugin than the PlateformPlugin, an
+	 * UnsupportedOperationException is thrown.
+	 * 
+	 * @param plugin The plugin that call the reset.
+	 * 
+	 * @see UnsupportedOperationException
+	 */
+	public static void reset(Plugin plugin) {
+		if (!(plugin instanceof PlateformPlugin))
+			throw new UnsupportedOperationException("The plugin can only be reset by PlateformPlugin");
+		Plateform.plugin = null;
 	}
 }
