@@ -39,8 +39,8 @@ public class GameConfigurationContext implements IGameConfigurationContext {
 	}
 
 	@Override
-	public List<ITeam> clear() {
-		return getGameConfiguration().clear();
+	public List<ITeam> clearTeams() {
+		return getGameConfiguration().clearTeams();
 	}
 
 	@Override
