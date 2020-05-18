@@ -8,7 +8,6 @@ import fr.pederobien.minecraftgameplateform.commands.worldstructure.EWorldStruct
 import fr.pederobien.minecraftgameplateform.interfaces.element.ILabel;
 import fr.pederobien.minecraftgameplateform.interfaces.element.ISpawn;
 import fr.pederobien.minecraftgameplateform.spawn.Spawn;
-import fr.pederobien.minecraftgameplateform.spawn.messages.ESpawnMessageCode;
 
 public class NewSpawn extends CommonNew<ISpawn> {
 

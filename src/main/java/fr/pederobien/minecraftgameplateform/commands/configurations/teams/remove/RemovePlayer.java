@@ -10,8 +10,8 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
 import fr.pederobien.minecraftgameplateform.commands.configurations.teams.AbstractTeamConfigurationEdition;
-import fr.pederobien.minecraftgameplateform.dictionary.messages.common.ECommonMessageCode;
-import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.teams.remove.ETeamRemoveMessageCode;
+import fr.pederobien.minecraftgameplateform.dictionary.ECommonMessageCode;
+import fr.pederobien.minecraftgameplateform.dictionary.ETeamRemoveMessageCode;
 import fr.pederobien.minecraftgameplateform.exceptions.PlayerNotFoundException;
 import fr.pederobien.minecraftgameplateform.exceptions.configurations.PlayerNotRegisteredException;
 import fr.pederobien.minecraftgameplateform.interfaces.element.IGameConfiguration;

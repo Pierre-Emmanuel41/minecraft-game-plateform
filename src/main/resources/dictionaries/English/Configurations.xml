@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dictionary>
+	<name>Common</name>
+	<version>1.0</version>
+	<locales>
+		<locale>en</locale>
+		<locale>en-EN</locale>
+		<locale>en-UK</locale>
+		<locale>en-CA</locale>
+	</locales>
+	<messages>
+		<message>
+			<code>AS_CURRENT__EXPLANATION</code>
+			<value>To set this game configuration as configuration to run through command startgame</value>
+		</message>
+		<message>
+			<code>AS_CURRENT__GAME_STYLE_DEFINED</code>
+			<value>Configuration %s defined as configuration to run through command startgame</value>
+		</message>
+		<message>
+			<code>COMMON_LOAD__CONFIGURATION_DOES_NOT_EXIST</code>
+			<value>Cannot load configuration %s, this configuration does not exist</value>
+		</message>
+		<message>
+			<code>SCOREBOARD_REFRESH__EXPLANATION</code>
+			<value>To set the number of server’s tic after which the scoreboard of each player is refreshed</value>
+		</message>
+		<message>
+			<code>SCOREBOARD_REFRESH__ON_TAB_COMPLETE</code>
+			<value>&lt;number of server tics (integer)&gt;</value>
+		</message>
+		<message>
+			<code>SCOREBOARD_REFRESH__NEGATIVE_TICS_NUMBER</code>
+			<value>The number of tics must be strictly positive</value>
+		</message>
+		<message>
+			<code>SCOREBOARD_REFRESH__TICS_NUMBER_IS_MISSING</code>
+			<value>Cannot set the scoreboard refresh frequency, the number of server's tics is missing</value>
+		</message>
+		<message>
+			<code>SCOREBOARD_REFRESH__ONE_TICK_DEFINED</code>
+			<value>The player's scoreboard is refreshed each server ticK</value>
+		</message>
+		<message>
+			<code>SCOREBOARD_REFRESH__SEVERAL_TICS_DEFINED</code>
+			<value>Scoreboard is refreshed each %o server tics</value>
+		</message>
+
+		<message>
+			<code>TEAM__EXPLANATION</code>
+			<value>To manage the teams of a configuration</value>
+		</message>
+		<message>
+			<code>ADD__EXPLANATION</code>
+			<value>To add a team to this configuration or a player to a team</value>
+		</message>
+		<message>
+			<code>REMOVE__EXPLANATION</code>
+			<value>To remove a team from this configuration or a player from a team</value>
+		</message>
+		<message>
+			<code>MODIFY__EXPLANATION</code>
+			<value>To modify team's characteristics</value>
+		</message>
+		<message>
+			<code>LIST__EXPLANATION</code>
+			<value>To display the teams of a configuration</value>
+		</message>
+		<message>
+			<code permission="ALL">LIST__ANY_EXISTING_TEAM</code>
+			<value>There is any team for configuration %s</value>
+		</message>
+		<message>
+			<code permission="ALL">LIST__ONE_EXISTING_TEAM</code>
+			<value>There is one registered team for configuration %s:\n%s</value>
+		</message>
+		<message>
+			<code permission="ALL">LIST__SEVERAL_EXISTING_TEAMS</code>
+			<value>List of teams for configuration %s:\n%s</value>
+		</message>
+		<message>
+			<code>MOVE__EXPLANATION</code>
+			<value>To move a player to another team</value>
+		</message>
+		<message>
+			<code>MOVE__PLAYER_NAME_IS_MISSING</code>
+			<value>Cannot change the team of a player, the player's name is missing</value>
+		</message>
+		<message>
+			<code>MOVE__TEAM_NAME_IS_MISSING</code>
+			<value>Cannot change the team of player %s, the new team's name is missing</value>
+		</message>
+		<message>
+			<code>MOVE__PLAYER_DOES_NOT_EXIST</code>
+			<value>Cannot change the team of player "%s", this player does not exist</value>
+		</message>
+		<message>
+			<code>MOVE__PLAYER_NOT_REGISTERED</code>
+			<value>Cannot change the team of player %s, this player is not registered in a team</value>
+		</message>
+		<message>
+			<code>MOVE__TEAM_DOES_NOT_EXIST</code>
+			<value>Cannot change the team of player %s, the team "%s" does not exist for configuration %s</value>
+		</message>
+		<message>
+			<code>MOVE__TEAMS_ARE_THE_SAME</code>
+			<value>The player %s is already in team %s</value>
+		</message>
+		<message>
+			<code>MOVE__PLAYER_MOVED</code>
+			<value>The player %s has been moved in team %s, former team : %s</value>
+		</message>
+		
+		<message>
+			<code>ADD_TEAM__EXPLANATION</code>
+			<value>To add a team to this configuration</value>
+		</message>
+		<message>
+			<code>ADD_TEAM__TEAM_NAME_IS_MISSING</code>
+			<value>Cannot add a team to the configuration %s, the team's name is missing</value>
+		</message>
+		<message>
+			<code>ADD_TEAM__COLOR_NAME_IS_MISSING</code>
+			<value>Cannot add team "%s" to the configuration %s, the color is missing</value>
+		</message>
+		<message>
+			<code>ADD_TEAM__COLOR_DOES_NOT_EXIST</code>
+			<value>Cannot add team "%s" to the configuration %s, "%s" is not a colour</value>
+		</message>
+		<message>
+			<code>ADD_TEAM__TEAM_NAME_FORBIDDEN</code>
+			<value>Cannot add team %s to configuration %s, this name is forbidden for a team</value>
+		</message>
+		<message>
+			<code>ADD_TEAM__TEAM_NAME_ALREADY_USED</code>
+			<value>Cannot add team %s to configuration %s, this team already exists</value>
+		</message>
+		<message>
+			<code>ADD_TEAM__COLOR_ALREADY_USED</code>
+			<value>The color %s is already used by team %s</value>
+		</message>
+		<message>
+			<code>ADD_TEAM__TEAM_ADDED</code>
+			<value>Team %s has been added to configuration %s</value>
+		</message>
+		<message>
+			<code>ADD_PLAYER__EXPLANATION</code>
+			<value>To add players to a team</value>
+		</message>
+		<message>
+			<code>ADD_PLAYER__TEAM_NAME_IS_MISSING</code>
+			<value>Cannot add players to a team, the team's name is missing</value>
+		</message>
+		<message>
+			<code>ADD_PLAYER__TEAM_DOES_NOT_EXIST</code>
+			<value>Cannot add players to team "%s", it does not exist in configuration %s</value>
+		</message>
+		<message>
+			<code>ADD_PLAYER__PLAYER_ALREADY_REGISTERED</code>
+			<value>Cannot add player "%s" to team %s, this player is already registered in team %s</value>
+		</message>
+		<message>
+			<code>ADD_PLAYER__ANY_PLAYER_ADDED</code>
+			<value>Any player has been added</value>
+		</message>
+		<message>
+			<code>ADD_PLAYER__ONE_PLAYER_ADDED</code>
+			<value>The player %s has been added to team %s</value>
+		</message>
+		<message>
+			<code>ADD_PLAYER__SEVERAL_PLAYERS_ADDED</code>
+			<value>Players %s have been added to team %s</value>
+		</message>
+		
+		<message>
+			<code>MODIFY_NAME__EXPLANATION</code>
+			<value>To rename a team</value>
+		</message>
+		<message>
+			<code>MODIFY_NAME__OLD_NAME_IS_MISSING</code>
+			<value>Cannot rename a team, team's name to rename is missing</value>
+		</message>
+		<message>
+			<code>MODIFY_NAME__NEW_NAME_IS_MISSING</code>
+			<value>Cannot rename team %s, the new team's name is missing</value>
+		</message>
+		<message>
+			<code>MODIFY_NAME__TEAM_DOES_NOT_EXIST</code>
+			<value>Cannot rename team "%s", this team does not exists in configuration %s</value>
+		</message>
+		<message>
+			<code>MODIFY_NAME__TEAM_NAME_FORBIDDEN</code>
+			<value>Cannot rename team %s as %s, this name is forbidden for a team</value>
+		</message>
+		<message>
+			<code>MODIFY_NAME__TEAM_NAME_ALREADY_USED</code>
+			<value>Cannot rename team %s as %s, this name is already used</value>
+		</message>
+		<message>
+			<code>MODIFY_NAME__TEAM_RENAMED</code>
+			<value>The team %s has been renamed as %s</value>
+		</message>
+		<message>
+			<code>MODIFY_COLOR__EXPLANATION</code>
+			<value>To modify the color of a team</value>
+		</message>
+		<message>
+			<code>MODIFY_COLOR__TEAM_NAME_IS_MISSING</code>
+			<value>Cannot modify team's color, the team's name is missing</value>
+		</message>
+		<message>
+			<code>MODIFY_COLOR__COLOR_NAME_IS_MISSING</code>
+			<value>Cannot modify the color of team %s, the new color's name is missing</value>
+		</message>
+		<message>
+			<code>MODIFY_COLOR__TEAM_DOES_NOT_EXIST</code>
+			<value>Cannot modify the color of team %, it does not exist for configuration %s</value>
+		</message>
+		<message>
+			<code>MODIFY_COLOR__COLOR_ALREADY_USED</code>
+			<value>Cannot modify the color of team %s, the color %s is already used by team %s</value>
+		</message>
+		<message>
+			<code>MODIFY_COLOR__COLOR_UPDATED</code>
+			<value>The color of team %s has been updated for configuration %s</value>
+		</message>
+		
+		<message>
+			<code>REMOVE_TEAM__EXPLANATION</code>
+			<value>To remove a team from this configuration</value>
+		</message>
+		<message>
+			<code>REMOVE_TEAM__ALL_TEAMS_REMOVED</code>
+			<value>All teams from configuration %s have been removed : %s</value>
+		</message>
+		<message>
+			<code>REMOVE_TEAM__TEAM_DOES_NOT_EXIST</code>
+			<value>Cannot remove team "%s" from configuration %s, this team does not exist</value>
+		</message>
+		<message>
+			<code>REMOVE_TEAM__ANY_TEAM_REMOVED</code>
+			<value>Any team has been removed from configuration %s</value>
+		</message>
+		<message>
+			<code>REMOVE_TEAM__ONE_TEAM_REMOVED</code>
+			<value>The team %s has been removed from configuration %s</value>
+		</message>
+		<message>
+			<code>REMOVE_TEAM__SEVERAL_TEAMS_REMOVED</code>
+			<value>Teams %s haven been removed from configuration %s</value>
+		</message>
+		<message>
+			<code>REMOVE_PLAYER__EXPLANATION</code>
+			<value>To remove a player from a team</value>
+		</message>
+		<message>
+			<code>REMOVE_PLAYER__ALL_PLAYERS_REMOVED</code>
+			<value>All players have been removed from their teams</value>
+		</message>
+		<message>
+			<code>REMOVE_PLAYER__PLAYER_NOT_REGISTERED</code>
+			<value>Cannot remove player "%s" from a team, he is not registered for configuration %s</value>
+		</message>
+		<message>
+			<code>REMOVE_PLAYER__ANY_PLAYER_REMOVED</code>
+			<value>Any player has been removed</value>
+		</message>
+		<message>
+			<code>REMOVE_PLAYER__ONE_PLAYER_REMOVED</code>
+			<value>Player %s has been removed from team %s</value>
+		</message>
+		<message>
+			<code>REMOVE_PLAYER__SEVERAL_PLAYERS_REMOVED</code>
+			<value>Players %s have been removed from teams %s</value>
+		</message>
+		
+	</messages>
+</dictionary>

@@ -2,7 +2,6 @@ package fr.pederobien.minecraftgameplateform.border.commands;
 
 import org.bukkit.command.CommandSender;
 
-import fr.pederobien.minecraftgameplateform.border.messages.EBorderMessageCode;
 import fr.pederobien.minecraftgameplateform.commands.common.CommonDelete;
 import fr.pederobien.minecraftgameplateform.interfaces.element.IBorderConfiguration;
 

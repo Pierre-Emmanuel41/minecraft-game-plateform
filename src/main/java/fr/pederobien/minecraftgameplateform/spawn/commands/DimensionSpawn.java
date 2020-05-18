@@ -4,7 +4,6 @@ import org.bukkit.command.CommandSender;
 
 import fr.pederobien.minecraftgameplateform.commands.worldstructure.CommonDimension;
 import fr.pederobien.minecraftgameplateform.interfaces.element.ISpawn;
-import fr.pederobien.minecraftgameplateform.spawn.messages.ESpawnMessageCode;
 
 public class DimensionSpawn extends CommonDimension<ISpawn> {
 

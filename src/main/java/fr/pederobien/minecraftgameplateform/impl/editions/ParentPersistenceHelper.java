@@ -11,7 +11,7 @@ import fr.pederobien.minecraftdevelopmenttoolkit.impl.messagecode.AbstractMessag
 import fr.pederobien.minecraftdevelopmenttoolkit.interfaces.IGenericEdition;
 import fr.pederobien.minecraftdictionary.impl.MinecraftMessageEvent;
 import fr.pederobien.minecraftdictionary.interfaces.IMinecraftMessageCode;
-import fr.pederobien.minecraftgameplateform.dictionary.messages.common.ECommonMessageCode;
+import fr.pederobien.minecraftgameplateform.dictionary.ECommonMessageCode;
 import fr.pederobien.minecraftgameplateform.interfaces.editions.IMapPersistenceEdition;
 import fr.pederobien.minecraftgameplateform.interfaces.editions.IParentPersistenceEdition;
 import fr.pederobien.minecraftgameplateform.utils.Plateform;

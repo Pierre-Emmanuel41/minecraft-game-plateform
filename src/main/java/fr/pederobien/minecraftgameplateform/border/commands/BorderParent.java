@@ -2,7 +2,6 @@ package fr.pederobien.minecraftgameplateform.border.commands;
 
 import org.bukkit.plugin.Plugin;
 
-import fr.pederobien.minecraftgameplateform.border.messages.EBorderMessageCode;
 import fr.pederobien.minecraftgameplateform.border.persistence.BorderPersistence;
 import fr.pederobien.minecraftgameplateform.impl.editions.AbstractParentPersistenceEdition;
 import fr.pederobien.minecraftgameplateform.interfaces.element.IBorderConfiguration;

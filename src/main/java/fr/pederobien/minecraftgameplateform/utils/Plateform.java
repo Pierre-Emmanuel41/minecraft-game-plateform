@@ -5,7 +5,10 @@ import java.nio.file.Paths;
 
 import org.bukkit.plugin.Plugin;
 
+import fr.pederobien.dictionary.interfaces.IDictionaryParser;
 import fr.pederobien.minecraftdictionary.impl.NotificationCenter;
+import fr.pederobien.minecraftdictionary.impl.Permission;
+import fr.pederobien.minecraftdictionary.impl.parse.JarMinecraftDictionaryParser;
 import fr.pederobien.minecraftdictionary.interfaces.IMinecraftNotificationCenter;
 import fr.pederobien.minecraftgameplateform.PlateformPlugin;
 import fr.pederobien.minecraftgameplateform.helpers.CommandHelper;
@@ -27,6 +30,7 @@ public class Plateform {
 	public static final Path ROOT = Paths.get("plugins", "minecraft-game-plateform");
 
 	private static Plugin plugin;
+	private static JarMinecraftDictionaryParser parser;
 
 	/**
 	 * @return The version of this plugin.
@@ -124,5 +128,42 @@ public class Plateform {
 		if (!(plugin instanceof PlateformPlugin))
 			throw new UnsupportedOperationException("The plugin can only be reset by PlateformPlugin");
 		Plateform.plugin = null;
+	}
+
+	/**
+	 * Get the default dictionary xml parser. For this parser, the dictionary file must looks like : </br>
+	 * 
+	 * &lt;dictionary&gt;</br>
+	 * &lt;name&gt;Game&lt;/name&gt;
+	 * </pre>
+	 * </br>
+	 * &lt;version&gt;1.0&lt;/version&gt;</br>
+	 * &lt;locales&gt;</br>
+	 * &lt;locale&gt;fr&lt;/locale&gt;</br>
+	 * &lt;locale&gt;fr-FR&lt;/locale&gt;</br>
+	 * &lt;locale&gt;fr-CA&lt;/locale&gt;</br>
+	 * etc... </br>
+	 * &lt;/locales&gt;</br>
+	 * &lt;messages&gt;</br>
+	 * &lt;message&gt;</br>
+	 * &lt;code&gt;The code&lt;/code&gt;</br>
+	 * &lt;value&gt;The value&lt;/value&gt;</br>
+	 * &lt;/message&gt;</br>
+	 * &lt;message&gt;</br>
+	 * &lt;code permission="The permission"&gt;The code&lt;/code&gt;</br>
+	 * &lt;value&gt;The value&lt;/value&gt;</br>
+	 * &lt;/message&gt;</br>
+	 * etc...</br>
+	 * &lt;/messages&gt;</br>
+	 * &lt;/dictionary&gt;</br>
+	 * </br>
+	 * The permission correspond to enumeration {@link Permission}.
+	 * 
+	 * @return A dictionary parser.
+	 * 
+	 * @see IDictionaryParser
+	 */
+	public static JarMinecraftDictionaryParser getDefaultDictionaryParser(String name) {
+		return parser == null ? parser = new JarMinecraftDictionaryParser(name) : (JarMinecraftDictionaryParser) parser.setName(name);
 	}
 }

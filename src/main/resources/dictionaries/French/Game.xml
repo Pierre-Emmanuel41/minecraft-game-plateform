@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dictionary>
+	<name>Game</name>
+	<version>1.0</version>
+	<locales>
+		<locale>fr</locale>
+		<locale>fr-FR</locale>
+		<locale>fr-CA</locale>
+	</locales>
+	<messages>
+		<message>
+			<code>NO_CONFIGURATION_SETTED</code>
+			<value>Aucune partie selectionnée</value>
+		</message>
+		<message>
+			<code>STARTING_GAME</code>
+			<value>Lancement de %s</value>
+		</message>
+		<message>
+			<code>PAUSING_GAME</code>
+			<value>Partie suspendue</value>
+		</message>
+		<message>
+			<code>RESUMING_GAME</code>
+			<value>Reprise de la partie</value>
+		</message>
+		<message>
+			<code>STOPPING_GAME</code>
+			<value>Arrêt de la partie</value>
+		</message>
+	</messages>
+</dictionary>

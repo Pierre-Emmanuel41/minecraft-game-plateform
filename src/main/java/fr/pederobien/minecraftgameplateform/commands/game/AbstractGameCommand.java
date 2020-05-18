@@ -11,7 +11,7 @@ import fr.pederobien.minecraftdictionary.impl.MinecraftMessageEvent;
 import fr.pederobien.minecraftdictionary.interfaces.IMinecraftMessageCode;
 import fr.pederobien.minecraftdictionary.interfaces.IMinecraftMessageEvent;
 import fr.pederobien.minecraftgameplateform.commands.AbstractCommand;
-import fr.pederobien.minecraftgameplateform.dictionary.messages.game.EGameMessageCode;
+import fr.pederobien.minecraftgameplateform.dictionary.EGameMessageCode;
 import fr.pederobien.minecraftgameplateform.utils.Plateform;
 
 public abstract class AbstractGameCommand extends AbstractCommand {

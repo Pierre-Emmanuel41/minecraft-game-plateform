@@ -3,7 +3,7 @@ package fr.pederobien.minecraftgameplateform.commands.configurations;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 
-import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.EGameConfigurationMessageCode;
+import fr.pederobien.minecraftgameplateform.dictionary.EGameConfigurationMessageCode;
 import fr.pederobien.minecraftgameplateform.interfaces.element.IGameConfiguration;
 import fr.pederobien.minecraftgameplateform.interfaces.element.IGameConfigurationContext;
 

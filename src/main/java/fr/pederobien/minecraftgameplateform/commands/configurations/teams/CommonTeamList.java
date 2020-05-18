@@ -5,7 +5,7 @@ import java.util.StringJoiner;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 
-import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.teams.ETeamConfigurationMessageCode;
+import fr.pederobien.minecraftgameplateform.dictionary.ETeamConfigurationMessageCode;
 import fr.pederobien.minecraftgameplateform.interfaces.element.IGameConfiguration;
 import fr.pederobien.minecraftgameplateform.interfaces.element.ITeam;
 

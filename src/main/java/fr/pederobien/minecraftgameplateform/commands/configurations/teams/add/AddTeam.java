@@ -9,8 +9,8 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
 import fr.pederobien.minecraftgameplateform.commands.configurations.teams.AbstractTeamConfigurationEdition;
-import fr.pederobien.minecraftgameplateform.dictionary.messages.common.ECommonMessageCode;
-import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.teams.add.ETeamAddMessageCode;
+import fr.pederobien.minecraftgameplateform.dictionary.ECommonMessageCode;
+import fr.pederobien.minecraftgameplateform.dictionary.ETeamAddMessageCode;
 import fr.pederobien.minecraftgameplateform.exceptions.ColorNotFoundException;
 import fr.pederobien.minecraftgameplateform.exceptions.PlayerNotFoundException;
 import fr.pederobien.minecraftgameplateform.exceptions.configurations.TeamNameForbiddenException;

@@ -8,7 +8,7 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 
 import fr.pederobien.minecraftdictionary.interfaces.IMinecraftMessageCode;
-import fr.pederobien.minecraftgameplateform.dictionary.messages.common.ECommonMessageCode;
+import fr.pederobien.minecraftgameplateform.dictionary.ECommonMessageCode;
 import fr.pederobien.minecraftgameplateform.exceptions.worldstructure.WorldNotFoundException;
 import fr.pederobien.minecraftgameplateform.interfaces.element.IWorldStructure;
 import fr.pederobien.minecraftgameplateform.interfaces.element.persistence.IMinecraftPersistence;

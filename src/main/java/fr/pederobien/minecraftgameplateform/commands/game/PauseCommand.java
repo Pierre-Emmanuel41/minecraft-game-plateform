@@ -4,7 +4,7 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import fr.pederobien.minecraftgameplateform.dictionary.messages.game.EGameMessageCode;
+import fr.pederobien.minecraftgameplateform.dictionary.EGameMessageCode;
 import fr.pederobien.minecraftmanagers.PlayerManager;
 
 public class PauseCommand extends AbstractGameCommand {

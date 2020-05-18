@@ -6,7 +6,7 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 
 import fr.pederobien.minecraftgameplateform.commands.configurations.teams.AbstractTeamConfigurationEdition;
-import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.teams.modify.ETeamModifyMessageCode;
+import fr.pederobien.minecraftgameplateform.dictionary.ETeamModifyMessageCode;
 import fr.pederobien.minecraftgameplateform.exceptions.ColorNotFoundException;
 import fr.pederobien.minecraftgameplateform.exceptions.configurations.TeamNotFoundException;
 import fr.pederobien.minecraftgameplateform.exceptions.configurations.TeamWithSameColorAlreadyExistsException;

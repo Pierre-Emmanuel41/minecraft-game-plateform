@@ -17,7 +17,7 @@ import fr.pederobien.minecraftdictionary.impl.MinecraftMessageEvent;
 import fr.pederobien.minecraftdictionary.interfaces.IMinecraftMessageCode;
 import fr.pederobien.minecraftdictionary.interfaces.IMinecraftMessageEvent;
 import fr.pederobien.minecraftdictionary.interfaces.IMinecraftNotificationCenter;
-import fr.pederobien.minecraftgameplateform.dictionary.messages.common.ECommonMessageCode;
+import fr.pederobien.minecraftgameplateform.dictionary.ECommonMessageCode;
 import fr.pederobien.minecraftgameplateform.interfaces.editions.IMapPersistenceEdition;
 import fr.pederobien.minecraftgameplateform.interfaces.editions.IParentPersistenceEdition;
 import fr.pederobien.minecraftgameplateform.interfaces.element.persistence.IMinecraftPersistence;

@@ -4,7 +4,6 @@ import org.bukkit.command.CommandSender;
 
 import fr.pederobien.minecraftgameplateform.commands.worldstructure.CommonCenter;
 import fr.pederobien.minecraftgameplateform.interfaces.element.ISpawn;
-import fr.pederobien.minecraftgameplateform.spawn.messages.ESpawnMessageCode;
 
 public class CenterSpawn extends CommonCenter<ISpawn> {
 

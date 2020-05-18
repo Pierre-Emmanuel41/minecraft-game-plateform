@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dictionary>
+	<name>Configurations</name>
+	<version>1.0</version>
+	<locales>
+		<locale>fr</locale>
+		<locale>fr-FR</locale>
+		<locale>fr-CA</locale>
+	</locales>
+	<messages>
+		<message>
+			<code>AS_CURRENT__EXPLANATION</code>
+			<value>Pour définir ce style de jeu en tant que style à lancer par la commande startgame</value>
+		</message>
+		<message>
+			<code>AS_CURRENT__GAME_STYLE_DEFINED</code>
+			<value>La configuration %s est définie en tant que configuration à lancer par la commande startgame</value>
+		</message>
+		<message>
+			<code>COMMON_LOAD__CONFIGURATION_DOES_NOT_EXIST</code>
+			<value>Impossible de charger la configuration "%s", cette configuration n'existe pas</value>
+		</message>
+		<message>
+			<code>SCOREBOARD_REFRESH__EXPLANATION</code>
+			<value>Pour définir le nombre de tic serveur entre deux rafraichissements du scoreboard de chaque joueur</value>
+		</message>
+		<message>
+			<code>SCOREBOARD_REFRESH__ON_TAB_COMPLETE</code>
+			<value>&lt;nombre de tic serveur (entier)&gt;</value>
+		</message>
+		<message>
+			<code>SCOREBOARD_REFRESH__NEGATIVE_TICS_NUMBER</code>
+			<value>Le nombre de tics doit être strictement positif</value>
+		</message>
+		<message>
+			<code>SCOREBOARD_REFRESH__TICS_NUMBER_IS_MISSING</code>
+			<value>Impossible de définir la fréquence de rafraichissement du scoreboard, il manque le nombre de tics serveur</value>
+		</message>
+		<message>
+			<code>SCOREBOARD_REFRESH__ONE_TICK_DEFINED</code>
+			<value>Le scoreboard est rafraichit à chaque tic serveur</value>
+		</message>
+		<message>
+			<code>SCOREBOARD_REFRESH__SEVERAL_TICS_DEFINED</code>
+			<value>Le scoreboard est rafraichît tous les %o tics serveur</value>
+		</message>
+		
+		<message>
+			<code>TEAM__EXPLANATION</code>
+			<value>Pour gérer les équipes d'une configuration</value>
+		</message>
+		<message>
+			<code>ADD__EXPLANATION</code>
+			<value>Pour ajouter une équipe à cette configuration ou un joueur à une équipe</value>
+		</message>
+		<message>
+			<code>REMOVE__EXPLANATION</code>
+			<value>Pour enlever une équipe de cette configuration ou un joueur d'une équipe</value>
+		</message>
+		<message>
+			<code>MODIFY__EXPLANATION</code>
+			<value>Pour modifier les caractéristiques d'une équipe</value>
+		</message>
+		<message>
+			<code>LIST__EXPLANATION</code>
+			<value>Pour afficher les équipes d'une configuration</value>
+		</message>
+		<message>
+			<code permission="ALL">LIST__ANY_EXISTING_TEAM</code>
+			<value>Il n'existe aucune équipe pour la configuration %s</value>
+		</message>
+		<message>
+			<code permission="ALL">LIST__ONE_EXISTING_TEAM</code>
+			<value>Il y a une équipe enregistrée pour la configuration %s:\n%s</value>
+		</message>
+		<message>
+			<code permission="ALL">LIST__SEVERAL_EXISTING_TEAMS</code>
+			<value>Liste des équipes pour la configuration %s:\n%s</value>
+		</message>
+		<message>
+			<code>MOVE__EXPLANATION</code>
+			<value>Pour déplacer un joueur dans une autre équipe</value>
+		</message>
+		<message>
+			<code>MOVE__PLAYER_NAME_IS_MISSING</code>
+			<value>Impossible de changer l'équipe d'un joueur, il manque le nom du joueur</value>
+		</message>
+		<message>
+			<code>MOVE__TEAM_NAME_IS_MISSING</code>
+			<value>Impossible de changer l'équipe du joueur %s, il manque le nom de la nouvelle équipe</value>
+		</message>
+		<message>
+			<code>MOVE__PLAYER_DOES_NOT_EXIST</code>
+			<value>Impossible de modifier l'équipe du joueur "%s", ce joueur n'existe pas</value>
+		</message>
+		<message>
+			<code>MOVE__PLAYER_NOT_REGISTERED</code>
+			<value>Impossible de changer l'équipe du joueur %s, ce joueur n'est pas dans une équipe</value>
+		</message>
+		<message>
+			<code>MOVE__TEAM_DOES_NOT_EXIST</code>
+			<value>Impossible de changer l'équipe du joueur %s, l'équipe "%s" n'existe pas pour la configuration %s</value>
+		</message>
+		<message>
+			<code>MOVE__TEAMS_ARE_THE_SAME</code>
+			<value>Le joueur %s est déjà dans l'équipe %s</value>
+		</message>
+		<message>
+			<code>MOVE__PLAYER_MOVED</code>
+			<value>Le joueur %s a été déplacé dans l'équipe %s, ancienne équipe : %s</value>
+		</message>
+		
+		<message>
+			<code>ADD_TEAM__EXPLANATION</code>
+			<value>Pour ajouter une équipe à cette configuration</value>
+		</message>
+		<message>
+			<code>ADD_TEAM__TEAM_NAME_IS_MISSING</code>
+			<value>Impossible d'ajouter une équipe à la configuration %s, il manque le nom de l'équipe</value>
+		</message>
+		<message>
+			<code>ADD_TEAM__COLOR_NAME_IS_MISSING</code>
+			<value>Impossible d'ajouter l'équipe "%s" à la configuration %s, il manque la couleur</value>
+		</message>
+		<message>
+			<code>ADD_TEAM__COLOR_DOES_NOT_EXIST</code>
+			<value>Impossible d'ajouter l'équipe "%s" à la configuration %s, "%s" n'est pas une couleur</value>
+		</message>
+		<message>
+			<code>ADD_TEAM__TEAM_NAME_FORBIDDEN</code>
+			<value>Impossible d'ajouter l'équipe %s à la configuration %s, ce nom  est interdit pour une équipe</value>
+		</message>
+		<message>
+			<code>ADD_TEAM__TEAM_NAME_ALREADY_USED</code>
+			<value>Impossible d'ajouter l'équipe %s à la configuration %s, cette équipe existe déjà</value>
+		</message>
+		<message>
+			<code>ADD_TEAM__COLOR_ALREADY_USED</code>
+			<value>La couleur %s est déjà utilisée par l'équipe %s</value>
+		</message>
+		<message>
+			<code>ADD_TEAM__TEAM_ADDED</code>
+			<value>L'équipe %s a été ajoutée à la configuration %s</value>
+		</message>
+		<message>
+			<code>ADD_PLAYER__EXPLANATION</code>
+			<value>Pour ajouter un joueur à une équipe</value>
+		</message>
+		<message>
+			<code>ADD_PLAYER__TEAM_NAME_IS_MISSING</code>
+			<value>Impossible d'ajouter des joueurs à une équipe, il manque le nom de l'équipe</value>
+		</message>
+		<message>
+			<code>ADD_PLAYER__TEAM_DOES_NOT_EXIST</code>
+			<value>Impossible d'ajouter des joueurs à l'équipe "%s", elle n'existe pas pour la configuration %s</value>
+		</message>
+		<message>
+			<code>ADD_PLAYER__PLAYER_ALREADY_REGISTERED</code>
+			<value>Impossible d'ajouter le joueur %s à l'équipe %s, ce joueur est déjà dans l'équipe %s</value>
+		</message>
+		<message>
+			<code>ADD_PLAYER__ANY_PLAYER_ADDED</code>
+			<value>Aucun joueur n'a été ajouté</value>
+		</message>
+		<message>
+			<code>ADD_PLAYER__ONE_PLAYER_ADDED</code>
+			<value>Le joueur %s a été ajouté à l'équipe %s</value>
+		</message>
+		<message>
+			<code>ADD_PLAYER__SEVERAL_PLAYERS_ADDED</code>
+			<value>Les joueurs %s ont été ajoutés à l'équipe %s</value>
+		</message>
+		
+		<message>
+			<code>MODIFY_NAME__EXPLANATION</code>
+			<value>Pour renommer une équipe</value>
+		</message>
+		<message>
+			<code>MODIFY_NAME__OLD_NAME_IS_MISSING</code>
+			<value>Impossible de renommer une équipe, il manque le nom de l'équipe à renommer</value>
+		</message>
+		<message>
+			<code>MODIFY_NAME__NEW_NAME_IS_MISSING</code>
+			<value>Impossible de renommer l'équipe %s, il manque le nouveau nom de l'équipe</value>
+		</message>
+		<message>
+			<code>MODIFY_NAME__TEAM_DOES_NOT_EXIST</code>
+			<value>Impossible de renommer l'équipe "%s", elle n'existe pas dans la configuration %s</value>
+		</message>
+		<message>
+			<code>MODIFY_NAME__TEAM_NAME_FORBIDDEN</code>
+			<value>Impossible de renommer l'équipe %s en %s, ce nom est interdit pour une équipe</value>
+		</message>
+		<message>
+			<code>MODIFY_NAME__TEAM_NAME_ALREADY_USED</code>
+			<value>Impossible de renommer l'équipe %s en %s, ce nom est déjà utilisé</value>
+		</message>
+		<message>
+			<code>MODIFY_NAME__TEAM_RENAMED</code>
+			<value>L'équipe %s a été renommée en %s</value>
+		</message>
+		<message>
+			<code>MODIFY_COLOR__EXPLANATION</code>
+			<value>Pour modifier la couleur d'une équipe</value>
+		</message>
+		<message>
+			<code>MODIFY_COLOR__TEAM_NAME_IS_MISSING</code>
+			<value>Impossible de modifier la couleur d'une équipe, il manque le nom de l'équipe</value>
+		</message>
+		<message>
+			<code>MODIFY_COLOR__COLOR_NAME_IS_MISSING</code>
+			<value>Impossible de modifier la couleur de l'équipe %s, il manque le nom de la nouvelle couleur</value>
+		</message>
+		<message>
+			<code>MODIFY_COLOR__TEAM_DOES_NOT_EXIST</code>
+			<value>Impossible de modifier la couleur de l'équipe "%s", elle n'existe pas dans la configuration %s</value>
+		</message>
+		<message>
+			<code>MODIFY_COLOR__COLOR_ALREADY_USED</code>
+			<value>Impossible de modifier la couleur de l'équipe %s, la couleur %s est déjà utilisée par l'équipe %s</value>
+		</message>
+		<message>
+			<code>MODIFY_COLOR__COLOR_UPDATED</code>
+			<value>La couleur de l'équipe %s a été mise à jour pour la configuration %s</value>
+		</message>
+		
+		<message>
+			<code>REMOVE_TEAM__EXPLANATION</code>
+			<value>Pour enlever une équipe de cette configuration</value>
+		</message>
+		<message>
+			<code>REMOVE_TEAM__ALL_TEAMS_REMOVED</code>
+			<value>Toutes les équipes de la configuration %s ont été enlevées : %s</value>
+		</message>
+		<message>
+			<code>REMOVE_TEAM__TEAM_DOES_NOT_EXIST</code>
+			<value>Impossible de supprimer l'équipe "%s" de la configuration %s, elle n'existe pas</value>
+		</message>
+		<message>
+			<code>REMOVE_TEAM__ANY_TEAM_REMOVED</code>
+			<value>Aucune équipe n'a été supprimée de la configuration %s</value>
+		</message>
+		<message>
+			<code>REMOVE_TEAM__ONE_TEAM_REMOVED</code>
+			<value>L'équipe %s a été supprimée de la configuration %s</value>
+		</message>
+		<message>
+			<code>REMOVE_TEAM__SEVERAL_TEAMS_REMOVED</code>
+			<value>Les équipes %s ont été supprimées de la configuration %s</value>
+		</message>
+		<message>
+			<code>REMOVE_PLAYER__EXPLANATION</code>
+			<value>Pour enlever un joueur d'une équipe</value>
+		</message>
+		<message>
+			<code>REMOVE_PLAYER__ALL_PLAYERS_REMOVED</code>
+			<value>Tous les joueurs ont été retirés de leurs équipes</value>
+		</message>
+		<message>
+			<code>REMOVE_PLAYER__PLAYER_NOT_REGISTERED</code>
+			<value>Impossible d'enlever le joueur "%s" d'une équipe, il n'appartient à aucune équipe pour la configuration %s</value>
+		</message>
+		<message>
+			<code>REMOVE_PLAYER__ANY_PLAYER_REMOVED</code>
+			<value>Aucun joueur n'a été enlevé</value>
+		</message>
+		<message>
+			<code>REMOVE_PLAYER__ONE_PLAYER_REMOVED</code>
+			<value>Le joueur %s a été enlevé de l'équipe %s</value>
+		</message>
+		<message>
+			<code>REMOVE_PLAYER__SEVERAL_PLAYERS_REMOVED</code>
+			<value>Les joueurs %s ont été supprimés des équipes %s</value>
+		</message>
+		
+	</messages>
+</dictionary>

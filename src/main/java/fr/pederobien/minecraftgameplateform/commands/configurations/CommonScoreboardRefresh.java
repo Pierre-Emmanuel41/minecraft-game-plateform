@@ -6,8 +6,8 @@ import java.util.List;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 
-import fr.pederobien.minecraftgameplateform.dictionary.messages.common.ECommonMessageCode;
-import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.EGameConfigurationMessageCode;
+import fr.pederobien.minecraftgameplateform.dictionary.ECommonMessageCode;
+import fr.pederobien.minecraftgameplateform.dictionary.EGameConfigurationMessageCode;
 import fr.pederobien.minecraftgameplateform.interfaces.element.IGameConfiguration;
 
 public class CommonScoreboardRefresh<T extends IGameConfiguration> extends AbstractGameConfigurationEdition<T> {

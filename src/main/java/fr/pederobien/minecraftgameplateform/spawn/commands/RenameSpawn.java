@@ -4,7 +4,6 @@ import org.bukkit.command.CommandSender;
 
 import fr.pederobien.minecraftgameplateform.commands.common.CommonRename;
 import fr.pederobien.minecraftgameplateform.interfaces.element.ISpawn;
-import fr.pederobien.minecraftgameplateform.spawn.messages.ESpawnMessageCode;
 
 public class RenameSpawn extends CommonRename<ISpawn> {
 

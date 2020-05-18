@@ -4,7 +4,6 @@ import org.bukkit.plugin.Plugin;
 
 import fr.pederobien.minecraftgameplateform.impl.editions.AbstractParentPersistenceEdition;
 import fr.pederobien.minecraftgameplateform.interfaces.element.ISpawn;
-import fr.pederobien.minecraftgameplateform.spawn.messages.ESpawnMessageCode;
 import fr.pederobien.minecraftgameplateform.spawn.persistence.SpawnPersistence;
 
 public class SpawnParent extends AbstractParentPersistenceEdition<ISpawn> {

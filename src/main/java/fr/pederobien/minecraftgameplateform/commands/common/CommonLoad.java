@@ -7,7 +7,7 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 
 import fr.pederobien.minecraftdictionary.interfaces.IMinecraftMessageCode;
-import fr.pederobien.minecraftgameplateform.dictionary.messages.configurations.EGameConfigurationMessageCode;
+import fr.pederobien.minecraftgameplateform.dictionary.EGameConfigurationMessageCode;
 import fr.pederobien.minecraftgameplateform.impl.editions.AbstractLabelEdition;
 import fr.pederobien.persistence.interfaces.IUnmodifiableNominable;
 

@@ -3,7 +3,6 @@ package fr.pederobien.minecraftgameplateform.border.commands;
 import org.bukkit.command.CommandSender;
 
 import fr.pederobien.minecraftgameplateform.border.BorderConfiguration;
-import fr.pederobien.minecraftgameplateform.border.messages.EBorderMessageCode;
 import fr.pederobien.minecraftgameplateform.commands.common.CommonNew;
 import fr.pederobien.minecraftgameplateform.commands.common.ECommonLabel;
 import fr.pederobien.minecraftgameplateform.interfaces.element.IBorderConfiguration;
