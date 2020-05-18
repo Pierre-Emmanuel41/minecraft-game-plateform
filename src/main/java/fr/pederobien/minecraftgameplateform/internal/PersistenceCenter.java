@@ -52,22 +52,21 @@ public class PersistenceCenter extends AbstractNominable implements IPersistence
 		Double version = versions.get(persistence.getClass().getName());
 		if (version == null) {
 			Plateform.getPlugin().getLogger().info("Registering persistence " + persistence.getClass());
-			register(persistence);
+			versions.put(persistence.getClass().getName(), persistence.getVersion());
+			writeDefaultContent(persistence);
 		} else if (persistence.forceUpdate() || !version.equals(persistence.getVersion())) {
 			Plateform.getPlugin().getLogger().info("Updating persistence " + persistence.getClass());
 			update(persistence);
 		}
+
+		// When the default content does not exist
+		if (!persistence.getAbsolutePath(persistence.getDefaultContent().getName()).toFile().exists())
+			writeDefaultContent(persistence);
 	}
 
 	@Override
 	public void save() {
 		centerPersistence.save();
-	}
-
-	private <T extends IUnmodifiableNominable> void register(IMinecraftPersistence<T> persistence) {
-		FileWriterHelper.mkdirs(persistence.getPath());
-		versions.put(persistence.getClass().getName(), persistence.getVersion());
-		FileWriterHelper.write(persistence.getAbsolutePath(persistence.getDefaultContent().getName()), persistence.getDefaultContent().getDefaultContent());
 	}
 
 	private <T extends IUnmodifiableNominable> void update(IMinecraftPersistence<T> persistence) {
@@ -77,7 +76,12 @@ public class PersistenceCenter extends AbstractNominable implements IPersistence
 			persistence.set(null);
 			versions.put(persistence.getClass().getName(), persistence.getVersion());
 		} catch (FileNotFoundException e) {
-			FileWriterHelper.write(persistence.getAbsolutePath(persistence.getDefaultContent().getName()), persistence.getDefaultContent().getDefaultContent());
+			writeDefaultContent(persistence);
 		}
+	}
+
+	private <T extends IUnmodifiableNominable> void writeDefaultContent(IMinecraftPersistence<T> persistence) {
+		FileWriterHelper.mkdirs(persistence.getPath());
+		FileWriterHelper.write(persistence.getAbsolutePath(persistence.getDefaultContent().getName()), persistence.getDefaultContent().getDefaultContent());
 	}
 }
