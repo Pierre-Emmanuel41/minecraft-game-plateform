@@ -34,8 +34,8 @@ public class GameConfigurationContext implements IGameConfigurationContext {
 	}
 
 	@Override
-	public void remove(List<ITeam> teams) {
-		getGameConfiguration().remove(teams);
+	public void removeTeams(List<ITeam> teams) {
+		getGameConfiguration().removeTeams(teams);
 	}
 
 	@Override

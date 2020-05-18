@@ -25,7 +25,7 @@ public interface IGameConfiguration extends IUnmodifiableGameConfiguration {
 	 * 
 	 * @param teams The list of team to remove from this configuration.
 	 */
-	void remove(List<ITeam> teams);
+	void removeTeams(List<ITeam> teams);
 
 	/**
 	 * Remove each registered team from this configuration.

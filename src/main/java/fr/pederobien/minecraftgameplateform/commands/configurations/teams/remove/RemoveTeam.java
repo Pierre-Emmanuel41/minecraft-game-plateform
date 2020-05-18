@@ -35,7 +35,7 @@ public class RemoveTeam<T extends IGameConfiguration> extends AbstractTeamConfig
 		try {
 			teams = getTeams(args);
 			teamNamesConcatenated = concat(getTeamNames(teams, true));
-			get().remove(teams);
+			get().removeTeams(teams);
 		} catch (TeamNotFoundException e) {
 			sendMessageToSender(sender, ETeamRemoveMessageCode.REMOVE_TEAM__TEAM_DOES_NOT_EXIST, e.getTeamNotFoundName(), get().getName());
 			return false;
