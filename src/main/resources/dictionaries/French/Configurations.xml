@@ -42,7 +42,7 @@
 		</message>
 		<message>
 			<code>SCOREBOARD_REFRESH__SEVERAL_TICS_DEFINED</code>
-			<value>Le scoreboard est rafraichît tous les %o tics serveur</value>
+			<value>Le scoreboard est rafraichît tous les %s tics serveur</value>
 		</message>
 		
 		<message>

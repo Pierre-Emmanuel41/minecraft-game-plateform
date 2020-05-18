@@ -123,7 +123,7 @@
 		</message>
 		<message>
 			<code>CENTER_BORDER__CENTER_DEFINED</code>
-			<value>The border center is defined in X=%o Z=%o</value>
+			<value>The border center is defined in X=%s Z=%s</value>
 		</message>
 		<message>
 			<code>INITIAL_BORDER_DIAMETER__EXPLANATION</code>
@@ -143,7 +143,7 @@
 		</message>
 		<message>
 			<code>INITIAL_BORDER_DIAMETER__DIAMETER_DEFINED</code>
-			<value>The initial diameter of border %s is %o block(s)</value>
+			<value>The initial diameter of border %s is %s block(s)</value>
 		</message>
 		<message>
 			<code>FINAL_BORDER_DIAMETER__EXPLANATION</code>
@@ -163,7 +163,7 @@
 		</message>
 		<message>
 			<code>FINAL_BORDER_DIAMETER__DIAMETER_DEFINED</code>
-			<value>The final diameter of border %s is %o block(s)</value>
+			<value>The final diameter of border %s is %s block(s)</value>
 		</message>
 		<message>
 			<code>SPEED_BORDER__EXPLANATION</code>
@@ -215,7 +215,7 @@
 		</message>
 		<message>
 			<code>MOVE_TIME_BORDER__MOVE_TIME_DEFINED</code>
-			<value>The border %s will move to its final diameter in %s at speed %.2f block/s</value>
+			<value>The border %s will move to its final diameter in %s at speed %s block/s</value>
 		</message>
 	</messages>
 </dictionary>

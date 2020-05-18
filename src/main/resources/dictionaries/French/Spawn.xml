@@ -46,7 +46,7 @@
 		</message>
 		<message>
 			<code>CENTER_SPAWN__CENTER_DEFINED</code>
-			<value>Le centre du spawn est défini en X=%o Y=%o Z=%o</value>
+			<value>Le centre du spawn est défini en X=%s Y=%s Z=%s</value>
 		</message>
 		<message>
 			<code>DIMENSION_SPAWN__EXPLANATION</code>
@@ -54,7 +54,7 @@
 		</message>
 		<message>
 			<code>DIMENSION_SPAWN__DEFINED</code>
-			<value>Les dimensions du spawn %s sont X=%o Y=%o Z=%o</value>
+			<value>Les dimensions du spawn %s sont X=%s Y=%s Z=%s</value>
 		</message>
 		<message>
 			<code>RENAME_SPAWN__EXPLANATION</code>
@@ -146,7 +146,7 @@
 		</message>
 		<message>
 			<code>LAUNCH_SPAWN__SPAWN_LAUNCHED</code>
-			<value>Le spawn %s a été chargé dans le monde %s en X=%o Y=%o Z=%o</value>
+			<value>Le spawn %s a été chargé dans le monde %s en X=%s Y=%s Z=%s</value>
 		</message>
 		<message>
 			<code>CURRENT_SPAWN__EXPLANATION</code>
@@ -162,7 +162,7 @@
 		</message>
 		<message>
 			<code>PLAYER_SPAWN__PLAYER_SPAWN_DEFINED</code>
-			<value>Les joueurs apparaîtront en X=%o Y=%o Z=%o</value>
+			<value>Les joueurs apparaîtront en X=%s Y=%s Z=%s</value>
 		</message>
 		<message>
 			<code>RANDOM_SPAWN__EXPLANATION</code>

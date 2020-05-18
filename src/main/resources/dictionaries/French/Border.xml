@@ -122,7 +122,7 @@
 		</message>
 		<message>
 			<code>CENTER_BORDER__CENTER_DEFINED</code>
-			<value>Le centre de la bordure est défini en X=%o Z=%o</value>
+			<value>Le centre de la bordure est défini en X=%s Z=%s</value>
 		</message>
 		<message>
 			<code>INITIAL_BORDER_DIAMETER__EXPLANATION</code>
@@ -142,7 +142,7 @@
 		</message>
 		<message>
 			<code>INITIAL_BORDER_DIAMETER__DIAMETER_DEFINED</code>
-			<value>Le diamètre initial de la bordure %s est de %o bloc(s)</value>
+			<value>Le diamètre initial de la bordure %s est de %s bloc(s)</value>
 		</message>
 		<message>
 			<code>FINAL_BORDER_DIAMETER__EXPLANATION</code>
@@ -162,7 +162,7 @@
 		</message>
 		<message>
 			<code>FINAL_BORDER_DIAMETER__DIAMETER_DEFINED</code>
-			<value>Le diamètre final de la bordure %s est de %o bloc(s)</value>
+			<value>Le diamètre final de la bordure %s est de %s bloc(s)</value>
 		</message>
 		<message>
 			<code>SPEED_BORDER__EXPLANATION</code>
@@ -182,7 +182,7 @@
 		</message>
 		<message>
 			<code>SPEED_BORDER__SPEED_DEFINED</code>
-			<value>la vitesse de la bordure %s est définie à %.2f bloc/s, temps de déplacement : %s</value>
+			<value>la vitesse de la bordure %s est définie à %s bloc/s, temps de déplacement : %s</value>
 		</message>
 		<message>
 			<code>START_TIME_BORDER__EXPLANATION</code>
@@ -214,7 +214,7 @@
 		</message>
 		<message>
 			<code>MOVE_TIME_BORDER__MOVE_TIME_DEFINED</code>
-			<value>La bordure %s se déplacera à son diamètre final en %s à la vitesse de %.2f bloc/s</value>
+			<value>La bordure %s se déplacera à son diamètre final en %s à la vitesse de %s bloc/s</value>
 		</message>
 	</messages>
 </dictionary>
