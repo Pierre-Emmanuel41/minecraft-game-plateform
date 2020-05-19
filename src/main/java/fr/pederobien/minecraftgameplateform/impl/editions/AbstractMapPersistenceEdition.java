@@ -62,54 +62,6 @@ public abstract class AbstractMapPersistenceEdition<T extends IUnmodifiableNomin
 	}
 
 	/**
-	 * Find all descendants of the parent whose label match on the given label and set their availability to true.
-	 * 
-	 * @param label The name of the label to match on.
-	 * 
-	 * @see IParentPersistenceEdition#getChildrenByLabelName(String)
-	 * @see #setAvailable(boolean)
-	 */
-	protected void setAvailableEdition(String label) {
-		getParent().getChildrenByLabelName(label).forEach(descendant -> descendant.setAvailable(true));
-	}
-
-	/**
-	 * Find all descendants of the parent for each label in the given array and set their availability to true.
-	 * 
-	 * @param labels An array to find different parent's descendants.
-	 * 
-	 * @see AbstractMapPersistenceEdition#setAvailableEdition(String)
-	 */
-	protected void setAvailableEditions(String... labels) {
-		for (String label : labels)
-			setAvailableEdition(label);
-	}
-
-	/**
-	 * Find all descendants of the parent whose label match on the given label and set their availability to true.
-	 * 
-	 * @param label The name of the label to match on.
-	 * 
-	 * @see IParentPersistenceEdition#getChildrenByLabelName(String)
-	 * @see #setAvailable(boolean)
-	 */
-	protected void setNotAvailableEdition(String label) {
-		getParent().getChildrenByLabelName(label).forEach(descendant -> descendant.setModifiable(true).setAvailable(true).setModifiable(false));
-	}
-
-	/**
-	 * Find all descendants of the parent for each label in the given array and set their availability to true.
-	 * 
-	 * @param labels An array to find different parent's descendants.
-	 * 
-	 * @see AbstractMapPersistenceEdition#setAvailableEdition(String)
-	 */
-	protected void setNotAvailableEditions(String... labels) {
-		for (String label : labels)
-			setNotAvailableEdition(label);
-	}
-
-	/**
 	 * Method used to display the given block to minecraft player.
 	 * 
 	 * @param block The block to display.
