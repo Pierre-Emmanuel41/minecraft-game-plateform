@@ -12,7 +12,7 @@ public enum EBordersMessageCode implements IMinecraftMessageCode {
 	ADD_BORDERS__SEVERAL_BORDERS_ADDED,
 
 	// Code for command remove
-	REMOVE_BORDERS__EXPLANATION;
+	REMOVE_BORDERS__EXPLANATION, REMOVE_BORDERS__BORDER_NOT_REGISTERED;
 
 	private Permission permission;
 

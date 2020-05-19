@@ -41,6 +41,10 @@
 			<code>REMOVE_BORDERS__EXPLANATION</code>
 			<value>To remove border configurations from this game configuration</value>
 		</message>
+		<message>
+			<code>REMOVE_BORDERS__BORDER_NOT_REGISTERED</code>
+			<value>Cannot remove border %s, this border is not registered for configuration %s</value>
+		</message>
 		
 	</messages>
 </dictionary>
