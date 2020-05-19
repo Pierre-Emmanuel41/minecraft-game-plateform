@@ -8,7 +8,7 @@ public enum EBordersMessageCode implements IMinecraftMessageCode {
 	BORDERS__EXPLANATION,
 
 	// Code for command add
-	ADD_BORDERS__EXPLANATION, ADD_BORDERS__BORDER_DOES_NOT_EXIST;
+	ADD_BORDERS__EXPLANATION, ADD_BORDERS__BORDER_DOES_NOT_EXIST, ADD_BORDERS__BORDER_ALREADY_REGISTERED;
 
 	private Permission permission;
 
