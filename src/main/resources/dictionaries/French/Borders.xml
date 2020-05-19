@@ -10,7 +10,7 @@
 	<messages>
 		<message>
 			<code>BORDERS__EXPLANATION</code>
-			<value>Pour ajouter une configuration de bordure à cette configuration de partie</value>
+			<value>Pour gérer les bordures d'une configuration</value>
 		</message>
 	</messages>
 </dictionary>
