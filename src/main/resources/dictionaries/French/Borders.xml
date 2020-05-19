@@ -44,6 +44,10 @@
 			<code>REMOVE_BORDERS__BORDER_NOT_REGISTERED</code>
 			<value>Impossible d'enlever la bordure %s, cette bordure n'est pas enregistrée pour la configuration %s</value>
 		</message>
+		<message>
+			<code>REMOVE_BORDERS__NO_BORDER_REMOVED</code>
+			<value>Aucune bordure n'a été enlevée de la configuration %s</value>
+		</message>
 		
 	</messages>
 </dictionary>
