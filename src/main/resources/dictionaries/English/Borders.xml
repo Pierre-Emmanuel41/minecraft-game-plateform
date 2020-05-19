@@ -33,6 +33,10 @@
 			<code>ADD_BORDERS__ONE_BORDER_ADDED</code>
 			<value>The border %s has been registered in configuration %s</value>
 		</message>
+		<message>
+			<code>ADD_BORDERS__SEVERAL_BORDERS_ADDED</code>
+			<value>Borders %s have been registered in configuration %s</value>
+		</message>
 		
 	</messages>
 </dictionary>

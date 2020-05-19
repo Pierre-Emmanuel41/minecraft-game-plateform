@@ -32,6 +32,10 @@
 			<code>ADD_BORDERS__ONE_BORDER_ADDED</code>
 			<value>La bordure %s a été enregistrée pour la configuration %s</value>
 		</message>
+		<message>
+			<code>ADD_BORDERS__SEVERAL_BORDERS_ADDED</code>
+			<value>Les bordures %s ont été enregistrées pour la configuration %s</value>
+		</message>
 		
 	</messages>
 </dictionary>
