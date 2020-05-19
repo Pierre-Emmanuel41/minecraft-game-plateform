@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dictionary>
+	<name>Game</name>
+	<version>1.0</version>
+	<locales>
+		<locale>fr</locale>
+		<locale>fr-FR</locale>
+		<locale>fr-CA</locale>
+	</locales>
+	<messages>
+		<message>
+			<code>BORDERS__EXPLANATION</code>
+			<value>Pour ajouter une configuration de bordure à cette configuration de partie</value>
+		</message>
+	</messages>
+</dictionary>
