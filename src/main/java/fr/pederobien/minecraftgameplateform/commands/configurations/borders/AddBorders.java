@@ -20,8 +20,9 @@ public class AddBorders<T extends IGameBorderConfiguration> extends AbstractBord
 
 	@Override
 	public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-		List<IBorderConfiguration> configurations = getConfiguration(args);
+		List<IBorderConfiguration> configurations;
 		try {
+			configurations = getConfigurations(args);
 			for (IBorderConfiguration configuration : configurations)
 				get().add(configuration);
 		} catch (ConfigurationNotFoundException e) {
