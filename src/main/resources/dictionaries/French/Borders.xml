@@ -24,6 +24,10 @@
 			<code>ADD_BORDERS__BORDER_ALREADY_REGISTERED</code>
 			<value>Impossible d'ajouter la bordure %s, cette bordure est déjà enregistrée</value>
 		</message>
+		<message>
+			<code>ADD_BORDERS__NO_BORDER_ADDED</code>
+			<value>Aucune bordure n'a été enregistrée pour la configuration %s</value>
+		</message>
 		
 	</messages>
 </dictionary>
