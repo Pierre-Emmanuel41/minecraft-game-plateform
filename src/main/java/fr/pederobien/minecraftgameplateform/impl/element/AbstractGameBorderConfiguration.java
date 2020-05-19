@@ -11,6 +11,7 @@ import java.util.Optional;
 
 import org.bukkit.World;
 
+import fr.pederobien.minecraftgameplateform.exceptions.configurations.BorderConfigurationAlreadyRegisteredException;
 import fr.pederobien.minecraftgameplateform.interfaces.element.IBorderConfiguration;
 import fr.pederobien.minecraftgameplateform.interfaces.element.IGame;
 import fr.pederobien.minecraftgameplateform.interfaces.element.IGameBorderConfiguration;
@@ -47,6 +48,10 @@ public class AbstractGameBorderConfiguration extends AbstractGameConfiguration i
 		List<IBorderConfiguration> listConf = configurations.get(configuration.getWorld());
 		if (listConf == null)
 			listConf = new ArrayList<IBorderConfiguration>();
+
+		if (listConf.contains(configuration))
+			throw new BorderConfigurationAlreadyRegisteredException(this, configuration);
+
 		listConf.add(configuration);
 		list.add(configuration);
 	}

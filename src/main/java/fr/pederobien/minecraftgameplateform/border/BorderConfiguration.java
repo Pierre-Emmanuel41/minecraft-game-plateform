@@ -103,6 +103,15 @@ public class BorderConfiguration extends AbstractNominable implements IBorderCon
 	}
 
 	@Override
+	public boolean equals(Object obj) {
+		if (obj == null || !(obj instanceof IBorderConfiguration))
+			return false;
+
+		IBorderConfiguration other = (IBorderConfiguration) obj;
+		return getName().equals(other.getName());
+	}
+
+	@Override
 	public String toString() {
 		StringJoiner joiner = new StringJoiner("\n");
 		joiner.add("Name : " + getName());

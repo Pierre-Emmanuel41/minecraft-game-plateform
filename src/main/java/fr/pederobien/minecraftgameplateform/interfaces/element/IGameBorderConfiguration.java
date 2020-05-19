@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.bukkit.World;
 
+import fr.pederobien.minecraftgameplateform.exceptions.configurations.BorderConfigurationAlreadyRegisteredException;
 import fr.pederobien.minecraftgameplateform.interfaces.element.unmodifiable.IUnmodifiableGameBorderConfiguration;
 
 public interface IGameBorderConfiguration extends IUnmodifiableGameBorderConfiguration, IGameConfiguration {
@@ -12,6 +13,8 @@ public interface IGameBorderConfiguration extends IUnmodifiableGameBorderConfigu
 	 * Append the given border configuration to this game configuration.
 	 * 
 	 * @param configuration The border configuration to add.
+	 * 
+	 * @throws BorderConfigurationAlreadyRegisteredException If the given configuration is already registered.
 	 */
 	void add(IBorderConfiguration configuration);
 
