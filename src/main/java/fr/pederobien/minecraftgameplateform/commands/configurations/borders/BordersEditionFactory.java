@@ -11,4 +11,11 @@ public class BordersEditionFactory {
 	public static <T extends IGameBorderConfiguration> IMapPersistenceEdition<T> addBorders() {
 		return new AddBorders<T>();
 	}
+
+	/**
+	 * @return An edition to remove border configurations from a game configuration.
+	 */
+	public static <T extends IGameBorderConfiguration> IMapPersistenceEdition<T> removeBorders() {
+		return new RemoveBorders<>();
+	}
 }
