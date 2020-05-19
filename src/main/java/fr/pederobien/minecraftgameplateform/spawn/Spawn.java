@@ -5,7 +5,7 @@ import java.util.StringJoiner;
 import org.bukkit.block.Block;
 import org.bukkit.block.data.BlockData;
 
-import fr.pederobien.minecraftgameplateform.helpers.DisplayHelper;
+import fr.pederobien.minecraftdevelopmenttoolkit.utils.DisplayHelper;
 import fr.pederobien.minecraftgameplateform.impl.element.AbstractWorldStructure;
 import fr.pederobien.minecraftgameplateform.impl.element.WorldBlock;
 import fr.pederobien.minecraftgameplateform.interfaces.element.IEventListener;

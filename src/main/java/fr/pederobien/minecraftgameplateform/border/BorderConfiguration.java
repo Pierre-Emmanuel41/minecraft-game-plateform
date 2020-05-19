@@ -6,8 +6,8 @@ import java.util.StringJoiner;
 import org.bukkit.World;
 import org.bukkit.block.Block;
 
+import fr.pederobien.minecraftdevelopmenttoolkit.utils.DisplayHelper;
 import fr.pederobien.minecraftgameplateform.exceptions.worldstructure.WorldNotFoundException;
-import fr.pederobien.minecraftgameplateform.helpers.DisplayHelper;
 import fr.pederobien.minecraftgameplateform.impl.element.AbstractNominable;
 import fr.pederobien.minecraftgameplateform.interfaces.element.IBorderConfiguration;
 import fr.pederobien.minecraftmanagers.WorldManager;
