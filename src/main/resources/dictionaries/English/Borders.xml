@@ -37,6 +37,10 @@
 			<code>ADD_BORDERS__SEVERAL_BORDERS_ADDED</code>
 			<value>Borders %s have been registered in configuration %s</value>
 		</message>
+		<message>
+			<code>REMOVE_BORDERS__EXPLANATION</code>
+			<value>To remove border configurations from this game configuration</value>
+		</message>
 		
 	</messages>
 </dictionary>

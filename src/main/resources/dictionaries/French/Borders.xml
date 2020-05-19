@@ -36,6 +36,10 @@
 			<code>ADD_BORDERS__SEVERAL_BORDERS_ADDED</code>
 			<value>Les bordures %s ont été enregistrées pour la configuration %s</value>
 		</message>
+		<message>
+			<code>REMOVE_BORDERS__EXPLANATION</code>
+			<value>Pour supprimer des configurations de bordures de cette configuration de partie</value>
+		</message>
 		
 	</messages>
 </dictionary>
