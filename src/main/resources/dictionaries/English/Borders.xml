@@ -13,5 +13,10 @@
 			<code>BORDERS__EXPLANATION</code>
 			<value>To manage borders of a configuration</value>
 		</message>
+		<message>
+			<code>BORDERS_ADD__EXPLANATION</code>
+			<value>To add border configurations to this game configuration</value>
+		</message>
+		
 	</messages>
 </dictionary>

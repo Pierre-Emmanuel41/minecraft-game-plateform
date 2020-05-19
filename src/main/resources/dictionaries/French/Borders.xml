@@ -12,5 +12,10 @@
 			<code>BORDERS__EXPLANATION</code>
 			<value>Pour gérer les bordures d'une configuration</value>
 		</message>
+		<message>
+			<code>BORDERS_ADD__EXPLANATION</code>
+			<value>Pour ajouter des configurations de bordures à cette configuration de partie</value>
+		</message>
+		
 	</messages>
 </dictionary>
