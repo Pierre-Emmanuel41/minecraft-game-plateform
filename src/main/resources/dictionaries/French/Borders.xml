@@ -13,11 +13,11 @@
 			<value>Pour gérer les bordures d'une configuration</value>
 		</message>
 		<message>
-			<code>BORDERS_ADD__EXPLANATION</code>
+			<code>ADD_BORDERS__EXPLANATION</code>
 			<value>Pour ajouter des configurations de bordures à cette configuration de partie</value>
 		</message>
 		<message>
-			<code>BORDERS_ADD__BORDER_DOES_NOT_EXIST</code>
+			<code>ADD_BORDERS__BORDER_DOES_NOT_EXIST</code>
 			<value>Impossible d'ajouter la bordure %s, cette bordure n'existe pas</value>
 		</message>
 		
