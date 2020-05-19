@@ -49,6 +49,10 @@
 			<code>REMOVE_BORDERS__NO_BORDER_REMOVED</code>
 			<value>No border has been removed from configuration %s</value>
 		</message>
+		<message>
+			<code>REMOVE_BORDERS__ONE_BORDER_REMOVED</code>
+			<value>the border %s has been removed from configuration %s</value>
+		</message>
 		
 	</messages>
 </dictionary>

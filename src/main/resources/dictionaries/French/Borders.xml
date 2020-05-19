@@ -48,6 +48,10 @@
 			<code>REMOVE_BORDERS__NO_BORDER_REMOVED</code>
 			<value>Aucune bordure n'a été enlevée de la configuration %s</value>
 		</message>
+		<message>
+			<code>REMOVE_BORDERS__ONE_BORDER_REMOVED</code>
+			<value>La bordure %s a été enlevée de la configuration %s</value>
+		</message>
 		
 	</messages>
 </dictionary>
