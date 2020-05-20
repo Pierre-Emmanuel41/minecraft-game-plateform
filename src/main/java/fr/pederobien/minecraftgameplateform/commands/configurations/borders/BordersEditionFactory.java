@@ -25,4 +25,11 @@ public class BordersEditionFactory {
 	public static <T extends IGameBorderConfiguration> IMapPersistenceEdition<T> listBorders() {
 		return new ListBorders<>();
 	}
+
+	/**
+	 * @return An edition to display characteristics of registered borders.
+	 */
+	public static <T extends IGameBorderConfiguration> IMapPersistenceEdition<T> detailsBorders() {
+		return new DetailsBorders<>();
+	}
 }
