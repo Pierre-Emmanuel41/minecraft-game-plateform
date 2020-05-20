@@ -56,6 +56,10 @@
 			<code>REMOVE_BORDERS__ONE_BORDER_REMOVED</code>
 			<value>Les bordures %s ont été enlevées de la configuration %s</value>
 		</message>
+		<message>
+			<code>LIST_BORDERS__EXPLANATION</code>
+			<value>Pour afficher le nom des bordures enregistrées pour cette configuration</value>
+		</message>
 		
 	</messages>
 </dictionary>

@@ -57,6 +57,10 @@
 			<code>REMOVE_BORDERS__ONE_BORDER_REMOVED</code>
 			<value>Borders %s have been removed from configuration %s</value>
 		</message>
+		<message>
+			<code>LIST_BORDERS__EXPLANATION</code>
+			<value>To display the name of each registered border for this configuration</value>
+		</message>
 		
 	</messages>
 </dictionary>
