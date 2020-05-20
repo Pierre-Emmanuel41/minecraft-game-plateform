@@ -81,6 +81,10 @@
 			<code>DETAILS_BORDERS__BORDER_NOT_REGISTERED</code>
 			<value>Cannot display characteristics of border %s, this border is not registered for configuration %s</value>
 		</message>
+		<message>
+			<code>DETAILS_BORDERS__DETAILS_ON_SOME_BORDERS</code>
+			<value>Charactéristics of borders %s :\n%s</value>
+		</message>
 		
 	</messages>
 </dictionary>

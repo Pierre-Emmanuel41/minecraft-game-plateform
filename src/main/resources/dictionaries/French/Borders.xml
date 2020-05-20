@@ -80,6 +80,10 @@
 			<code>DETAILS_BORDERS__BORDER_NOT_REGISTERED</code>
 			<value>Impossible d'afficher les caractéristiques de la bordure %s, cette bordure n'est pas enregistrée pour la configuration %s</value>
 		</message>
+		<message>
+			<code>DETAILS_BORDERS__DETAILS_ON_SOME_BORDERS</code>
+			<value>Charactéristiques des bordures %s :\n%s</value>
+		</message>
 		
 	</messages>
 </dictionary>
