@@ -20,7 +20,7 @@ public class BordersEditionFactory {
 	}
 
 	/**
-	 * @return An edition to display the name of each registered
+	 * @return An edition to display the name of each registered borders for a game configuration.
 	 */
 	public static <T extends IGameBorderConfiguration> IMapPersistenceEdition<T> listBorders() {
 		return new ListBorders<>();
