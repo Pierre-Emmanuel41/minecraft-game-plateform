@@ -65,6 +65,10 @@
 			<code>LIST_BORDERS__ALL_REGISTERED_BORDERS</code>
 			<value>List of all registered borders for all worlds :\n%s</value>
 		</message>
+		<message>
+			<code>LIST_BORDERS__REGISTERED_BORDERS_FOR_WORLD</code>
+			<value>List of registered borders for the %s :\n%s</value>
+		</message>
 		
 	</messages>
 </dictionary>
