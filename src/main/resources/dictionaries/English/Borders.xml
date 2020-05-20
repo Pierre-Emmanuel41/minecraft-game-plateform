@@ -73,6 +73,10 @@
 			<code>DETAILS__EXPLANATION</code>
 			<value>To display characteristics of one or more registered borders for this configuration</value>
 		</message>
+		<message>
+			<code>DETAILS_BORDERS__DETAILS_ON_ALL_REGISTERED_BORDERS</code>
+			<value>Characteristics on all registered borders for the configuration %s :\n%s</value>
+		</message>
 		
 	</messages>
 </dictionary>

@@ -72,6 +72,11 @@
 			<code>DETAILS__EXPLANATION</code>
 			<value>Pour afficher les charactéristiques d'une ou plusieurs bordures enregistrées pour cette configuration</value>
 		</message>
+		<message>
+			<code>DETAILS_BORDERS__DETAILS_ON_ALL_REGISTERED_BORDERS</code>
+			<value>Characteristiques de toutes bordures enregistrée pour la configuration %s :\n%s</value>
+		</message>
+		
 		
 	</messages>
 </dictionary>
