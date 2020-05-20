@@ -76,7 +76,10 @@
 			<code>DETAILS_BORDERS__DETAILS_ON_ALL_REGISTERED_BORDERS</code>
 			<value>Characteristiques de toutes bordures enregistrée pour la configuration %s :\n%s</value>
 		</message>
-		
+		<message>
+			<code>DETAILS_BORDERS__BORDER_NOT_REGISTERED</code>
+			<value>Impossible d'afficher les caractéristiques de la bordure %s, cette bordure n'est pas enregistrée pour la configuration %s</value>
+		</message>
 		
 	</messages>
 </dictionary>
