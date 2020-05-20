@@ -60,6 +60,10 @@
 			<code>LIST_BORDERS__EXPLANATION</code>
 			<value>Pour afficher le nom des bordures enregistrées pour cette configuration</value>
 		</message>
+		<message>
+			<code>LIST_BORDERS__ALL_REGISTERED_BORDERS</code>
+			<value>Liste des bordures enregistrées pour tous les mondes :\n%s</value>
+		</message>
 		
 	</messages>
 </dictionary>

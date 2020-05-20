@@ -61,6 +61,10 @@
 			<code>LIST_BORDERS__EXPLANATION</code>
 			<value>To display the name of each registered border for this configuration</value>
 		</message>
+		<message>
+			<code>LIST_BORDERS__ALL_REGISTERED_BORDERS</code>
+			<value>List of all registered borders for all worlds :\n%s</value>
+		</message>
 		
 	</messages>
 </dictionary>
