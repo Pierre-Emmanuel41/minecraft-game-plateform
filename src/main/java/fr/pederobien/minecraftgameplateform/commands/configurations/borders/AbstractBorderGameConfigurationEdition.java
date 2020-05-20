@@ -6,6 +6,8 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Stream;
 
+import org.bukkit.World;
+
 import fr.pederobien.minecraftdictionary.interfaces.IMinecraftMessageCode;
 import fr.pederobien.minecraftgameplateform.border.persistence.BorderPersistence;
 import fr.pederobien.minecraftgameplateform.commands.configurations.AbstractGameConfigurationEdition;
@@ -14,6 +16,7 @@ import fr.pederobien.minecraftgameplateform.exceptions.configurations.Configurat
 import fr.pederobien.minecraftgameplateform.interfaces.element.IBorderConfiguration;
 import fr.pederobien.minecraftgameplateform.interfaces.element.IGameBorderConfiguration;
 import fr.pederobien.minecraftgameplateform.interfaces.element.ILabel;
+import fr.pederobien.minecraftmanagers.WorldManager;
 import fr.pederobien.persistence.interfaces.IPersistence;
 
 public class AbstractBorderGameConfigurationEdition<T extends IGameBorderConfiguration> extends AbstractGameConfigurationEdition<T> {
@@ -76,5 +79,15 @@ public class AbstractBorderGameConfigurationEdition<T extends IGameBorderConfigu
 			configurations.add(optConf.get());
 		}
 		return configurations;
+	}
+
+	/**
+	 * Get a string to display the name of each registered configuration for the given world.
+	 * 
+	 * @param world The world used as key to get its border configurations.
+	 * @return A string that looks like : WorldName + [borderName1 borderName2 etc...]
+	 */
+	protected String concat(World world) {
+		return WorldManager.getWorldNameNormalised(world) + "[" + concatNames(get().getConfigurations(world), " ") + "]";
 	}
 }

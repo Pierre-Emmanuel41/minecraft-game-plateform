@@ -18,4 +18,11 @@ public class BordersEditionFactory {
 	public static <T extends IGameBorderConfiguration> IMapPersistenceEdition<T> removeBorders() {
 		return new RemoveBorders<>();
 	}
+
+	/**
+	 * @return An edition to display the name of each registered
+	 */
+	public static <T extends IGameBorderConfiguration> IMapPersistenceEdition<T> listBorders() {
+		return new ListBorders<>();
+	}
 }

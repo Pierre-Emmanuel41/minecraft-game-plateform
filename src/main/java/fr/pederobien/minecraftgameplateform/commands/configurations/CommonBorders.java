@@ -10,5 +10,6 @@ public class CommonBorders<T extends IGameBorderConfiguration> extends AbstractG
 		super(EGameConfigurationLabel.BORDERS, EBordersMessageCode.BORDERS__EXPLANATION);
 		addEdition(BordersEditionFactory.addBorders());
 		addEdition(BordersEditionFactory.removeBorders());
+		addEdition(BordersEditionFactory.listBorders());
 	}
 }
