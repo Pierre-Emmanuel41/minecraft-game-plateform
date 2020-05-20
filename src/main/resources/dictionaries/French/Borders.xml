@@ -68,6 +68,10 @@
 			<code>LIST_BORDERS__REGISTERED_BORDERS_FOR_WORLD</code>
 			<value>Liste des bordures enregistrées pour le monde %s :\n%s</value>
 		</message>
+		<message>
+			<code>DETAILS__EXPLANATION</code>
+			<value>Pour afficher les charactéristiques d'une ou plusieurs bordures enregistrées pour cette configuration</value>
+		</message>
 		
 	</messages>
 </dictionary>
