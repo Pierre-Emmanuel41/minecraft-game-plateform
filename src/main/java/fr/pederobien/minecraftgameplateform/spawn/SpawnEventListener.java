@@ -17,6 +17,7 @@ public class SpawnEventListener extends AbstractEventListener {
 
 	public SpawnEventListener(ISpawn spawn) {
 		this.spawn = spawn;
+		setActivated(true);
 	}
 
 	@EventHandler(priority = EventPriority.HIGHEST, ignoreCancelled = true)

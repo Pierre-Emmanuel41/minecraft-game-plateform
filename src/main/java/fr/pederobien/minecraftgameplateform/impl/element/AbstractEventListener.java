@@ -9,7 +9,7 @@ public abstract class AbstractEventListener implements IEventListener {
 
 	protected AbstractEventListener() {
 		isRegistered = false;
-		isActivated = true;
+		isActivated = false;
 	}
 
 	@Override
