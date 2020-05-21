@@ -1,5 +1,8 @@
 package fr.pederobien.minecraftgameplateform.commands.game;
 
+import java.util.List;
+import java.util.function.Consumer;
+import java.util.function.Predicate;
 import java.util.stream.Stream;
 
 import org.bukkit.command.Command;
@@ -12,7 +15,9 @@ import fr.pederobien.minecraftdictionary.interfaces.IMinecraftMessageCode;
 import fr.pederobien.minecraftdictionary.interfaces.IMinecraftMessageEvent;
 import fr.pederobien.minecraftgameplateform.commands.AbstractCommand;
 import fr.pederobien.minecraftgameplateform.dictionary.EGameMessageCode;
+import fr.pederobien.minecraftgameplateform.interfaces.commands.IParentCommand;
 import fr.pederobien.minecraftgameplateform.utils.Plateform;
+import fr.pederobien.persistence.interfaces.IUnmodifiableNominable;
 
 public abstract class AbstractGameCommand extends AbstractCommand {
 
@@ -68,5 +73,37 @@ public abstract class AbstractGameCommand extends AbstractCommand {
 	 */
 	protected void sendMessageToPlayers(Stream<Player> players, IMinecraftMessageCode code, String... args) {
 		players.peek(player -> sendMessage(player, code, args));
+	}
+
+	/**
+	 * @return The list of all registered commands.
+	 */
+	protected List<IParentCommand<IUnmodifiableNominable>> getCommands() {
+		return Plateform.getCommandHelper().getCommands();
+	}
+
+	/**
+	 * Notify each command registered in the list <code>commands</code> using the given consumer.
+	 * 
+	 * @param commands A list of commands to notify.
+	 * @param consumer The consumer used to notify commands.
+	 */
+	protected void notifyCommands(List<IParentCommand<IUnmodifiableNominable>> commands, Consumer<IParentCommand<IUnmodifiableNominable>> consumer) {
+		for (IParentCommand<IUnmodifiableNominable> command : commands)
+			consumer.accept(command);
+	}
+
+	/**
+	 * Notify each command registered in the list <code>commands</code> using the given predicate.
+	 * 
+	 * @param commands  A list of commands to notify.
+	 * @param predicate The predicate used to notify commands.
+	 * @param result    A boolean that represent the result of the notification.
+	 * @return A boolean that correspond to the global result of each command notification.
+	 */
+	protected boolean notifyCommands(List<IParentCommand<IUnmodifiableNominable>> commands, Predicate<IParentCommand<IUnmodifiableNominable>> predicate, boolean result) {
+		for (IParentCommand<IUnmodifiableNominable> command : commands)
+			result &= predicate.test(command);
+		return result;
 	}
 }
