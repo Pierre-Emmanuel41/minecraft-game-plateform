@@ -32,6 +32,8 @@ public class StartCommand extends AbstractGameCommand {
 			return false;
 
 		getGameConfigurationContext().start();
+		getGameConfigurationContext().getGame().getListener().register(getPlugin());
+		getGameConfigurationContext().getGame().getListener().setActivated(true);
 
 		// Notify each command a game is started
 		notifyCommands(commands, cmd -> cmd.onGameIsStarted(getGameConfigurationContext().getGame()));

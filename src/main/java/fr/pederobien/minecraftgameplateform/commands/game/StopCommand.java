@@ -29,6 +29,7 @@ public class StopCommand extends AbstractGameCommand {
 			return false;
 
 		getGameConfigurationContext().stop();
+		getGameConfigurationContext().getListener().setActivated(false);
 
 		// Notify each command a game is stopped.
 		notifyCommands(commands, cmd -> cmd.onGameIsStopped(getGameConfigurationContext().getGame()));
