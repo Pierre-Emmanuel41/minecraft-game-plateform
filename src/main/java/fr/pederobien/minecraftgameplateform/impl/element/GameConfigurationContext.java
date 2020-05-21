@@ -99,7 +99,7 @@ public class GameConfigurationContext implements IGameConfigurationContext {
 	}
 
 	@Override
-	public IEventListener getListener() {
+	public <T extends IEventListener> T getListener() {
 		return getGame().getListener();
 	}
 

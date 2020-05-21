@@ -31,5 +31,5 @@ public interface IGame {
 	 * @return The listener that interact with minecraft events.
 	 * 
 	 */
-	IEventListener getListener();
+	<T extends IEventListener> T getListener();
 }
