@@ -2,6 +2,7 @@ package fr.pederobien.minecraftgameplateform.interfaces.commands;
 
 import java.util.Optional;
 
+import fr.pederobien.minecraftgameplateform.exceptions.CommandAlreadyRegisteredException;
 import fr.pederobien.persistence.interfaces.IUnmodifiableNominable;
 
 public interface ICommandHelper {
@@ -10,6 +11,8 @@ public interface ICommandHelper {
 	 * Register this command in order to be executed by this plugin.
 	 * 
 	 * @param command The command to register.
+	 * 
+	 * @throws CommandAlreadyRegisteredException If a command is already registered for the given command label.
 	 */
 	public <T extends IUnmodifiableNominable> void register(IParentCommand<T> command);
 

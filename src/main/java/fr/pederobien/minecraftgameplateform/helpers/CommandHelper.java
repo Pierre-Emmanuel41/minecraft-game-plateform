@@ -6,6 +6,7 @@ import java.util.Optional;
 
 import org.bukkit.command.PluginCommand;
 
+import fr.pederobien.minecraftgameplateform.exceptions.CommandAlreadyRegisteredException;
 import fr.pederobien.minecraftgameplateform.exceptions.CommandNotFoundException;
 import fr.pederobien.minecraftgameplateform.interfaces.commands.ICommand;
 import fr.pederobien.minecraftgameplateform.interfaces.commands.ICommandHelper;
@@ -32,6 +33,10 @@ public class CommandHelper implements ICommandHelper {
 		PluginCommand cmd = checkCommand(command);
 		cmd.setExecutor(command);
 		cmd.setTabCompleter(command.getTabCompleter());
+
+		if (commands.get(command.getLabel()) != null)
+			throw new CommandAlreadyRegisteredException(command.getLabel());
+
 		commands.put(command.getLabel(), command);
 	}
 
