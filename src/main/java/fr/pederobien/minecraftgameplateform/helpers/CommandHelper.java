@@ -2,12 +2,15 @@ package fr.pederobien.minecraftgameplateform.helpers;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Optional;
 
 import org.bukkit.command.PluginCommand;
 
 import fr.pederobien.minecraftgameplateform.exceptions.CommandNotFoundException;
 import fr.pederobien.minecraftgameplateform.interfaces.commands.ICommand;
 import fr.pederobien.minecraftgameplateform.interfaces.commands.ICommandHelper;
+import fr.pederobien.minecraftgameplateform.interfaces.commands.IParentCommand;
+import fr.pederobien.persistence.interfaces.IUnmodifiableNominable;
 
 public class CommandHelper implements ICommandHelper {
 	private Map<String, ICommand> commands;
@@ -25,11 +28,18 @@ public class CommandHelper implements ICommandHelper {
 	}
 
 	@Override
-	public void register(ICommand command) {
+	public <T extends IUnmodifiableNominable> void register(IParentCommand<T> command) {
 		PluginCommand cmd = checkCommand(command);
 		cmd.setExecutor(command);
 		cmd.setTabCompleter(command.getTabCompleter());
 		commands.put(command.getLabel(), command);
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public <T extends IUnmodifiableNominable> Optional<IParentCommand<T>> getCommand(String label) {
+		ICommand command = commands.get(label);
+		return command == null ? Optional.empty() : Optional.of((IParentCommand<T>) command);
 	}
 
 	@Override

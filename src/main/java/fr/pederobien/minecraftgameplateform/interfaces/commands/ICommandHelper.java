@@ -1,5 +1,9 @@
 package fr.pederobien.minecraftgameplateform.interfaces.commands;
 
+import java.util.Optional;
+
+import fr.pederobien.persistence.interfaces.IUnmodifiableNominable;
+
 public interface ICommandHelper {
 
 	/**
@@ -7,7 +11,15 @@ public interface ICommandHelper {
 	 * 
 	 * @param command The command to register.
 	 */
-	public void register(ICommand command);
+	public <T extends IUnmodifiableNominable> void register(IParentCommand<T> command);
+
+	/**
+	 * Get the command registered for the given label.
+	 * 
+	 * @param label The command label to get.
+	 * @return An optional that contains the command if it exists, an empty optional otherwise.
+	 */
+	public <T extends IUnmodifiableNominable> Optional<IParentCommand<T>> getCommand(String label);
 
 	/**
 	 * Set the availability of each registered commands.
