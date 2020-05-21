@@ -1,5 +1,6 @@
 package fr.pederobien.minecraftgameplateform.interfaces.commands;
 
+import java.util.List;
 import java.util.Optional;
 
 import fr.pederobien.minecraftgameplateform.exceptions.CommandAlreadyRegisteredException;
@@ -25,19 +26,7 @@ public interface ICommandHelper {
 	public <T extends IUnmodifiableNominable> Optional<IParentCommand<T>> getCommand(String label);
 
 	/**
-	 * Set the availability of each registered commands.
-	 * 
-	 * @param available True if all commands are available, false if all commands are not available.
+	 * @return The list of all registered commands.
 	 */
-	public void setAllAvailable(boolean available);
-
-	/**
-	 * Set the availability of the command associated to the given label.
-	 * 
-	 * @param label       The label of the command to modify.
-	 * @param isAvailable The new value that represent the availability of this command.
-	 * 
-	 * @return True if the command has been found, false otherwise.
-	 */
-	public boolean setAvailable(String label, boolean available);
+	public List<IParentCommand<IUnmodifiableNominable>> getCommands();
 }

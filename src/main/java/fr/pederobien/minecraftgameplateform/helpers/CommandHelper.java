@@ -1,8 +1,10 @@
 package fr.pederobien.minecraftgameplateform.helpers;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 import org.bukkit.command.PluginCommand;
 
@@ -47,17 +49,10 @@ public class CommandHelper implements ICommandHelper {
 		return command == null ? Optional.empty() : Optional.of((IParentCommand<T>) command);
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
-	public void setAllAvailable(boolean available) {
-		commands.values().forEach(c -> c.setAvailable(available));
-	}
-
-	@Override
-	public boolean setAvailable(String label, boolean available) {
-		ICommand cmd = commands.get(label);
-		if (cmd != null)
-			cmd.setAvailable(available);
-		return cmd != null;
+	public List<IParentCommand<IUnmodifiableNominable>> getCommands() {
+		return commands.values().stream().map(cmd -> (IParentCommand<IUnmodifiableNominable>) cmd).collect(Collectors.toList());
 	}
 
 	private PluginCommand checkCommand(ICommand command) {

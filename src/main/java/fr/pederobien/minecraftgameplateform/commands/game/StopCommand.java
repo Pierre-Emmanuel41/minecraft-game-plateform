@@ -18,7 +18,6 @@ public class StopCommand extends AbstractGameCommand {
 		sendMessageToPlayers(PlayerManager.getPlayers(), EGameMessageCode.STOPPING_GAME);
 
 		getGameConfigurationContext().stop();
-		getCommandHelper().setAllAvailable(true);
 		return true;
 	}
 }

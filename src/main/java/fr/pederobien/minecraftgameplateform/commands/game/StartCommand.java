@@ -21,7 +21,6 @@ public class StartCommand extends AbstractGameCommand {
 			return false;
 
 		getGameConfigurationContext().start();
-		getCommandHelper().setAllAvailable(false);
 		return true;
 	}
 }
