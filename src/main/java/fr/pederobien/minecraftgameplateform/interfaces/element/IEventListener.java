@@ -6,7 +6,7 @@ import org.bukkit.plugin.Plugin;
 public interface IEventListener extends Listener {
 
 	/**
-	 * Register this listener on the server.
+	 * Register this listener on the server if it is not already registered.
 	 * 
 	 * @param plugin The plugin for which the listener works.
 	 */
