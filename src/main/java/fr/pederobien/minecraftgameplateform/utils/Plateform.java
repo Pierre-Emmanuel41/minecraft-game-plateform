@@ -22,6 +22,8 @@ import fr.pederobien.minecraftgameplateform.interfaces.element.IPluginManager;
 import fr.pederobien.minecraftgameplateform.interfaces.helpers.IGameConfigurationHelper;
 import fr.pederobien.minecraftgameplateform.internal.IPersistenceCenter;
 import fr.pederobien.minecraftgameplateform.internal.PersistenceCenter;
+import fr.pederobien.minecraftscoreboards.ObjectiveUpdater;
+import fr.pederobien.minecraftscoreboards.interfaces.IObjectiveUpdater;
 
 public class Plateform {
 	/**
@@ -31,6 +33,7 @@ public class Plateform {
 
 	private static Plugin plugin;
 	private static JarMinecraftDictionaryParser parser;
+	private static IObjectiveUpdater updater;
 
 	/**
 	 * @return The version of this plugin.
@@ -114,6 +117,7 @@ public class Plateform {
 			throw new UnsupportedOperationException("The plugin is already defined for this plateform");
 		Plateform.plugin = plugin;
 		getPluginManager().register(plugin);
+		updater = ObjectiveUpdater.getInstance(plugin);
 	}
 
 	/**
@@ -128,6 +132,7 @@ public class Plateform {
 		if (!(plugin instanceof PlateformPlugin))
 			throw new UnsupportedOperationException("The plugin can only be reset by PlateformPlugin");
 		Plateform.plugin = null;
+		updater = null;
 	}
 
 	/**
@@ -165,5 +170,12 @@ public class Plateform {
 	 */
 	public static JarMinecraftDictionaryParser getDefaultDictionaryParser(String name) {
 		return parser == null ? parser = new JarMinecraftDictionaryParser(name) : (JarMinecraftDictionaryParser) parser.setName(name);
+	}
+
+	/**
+	 * @return The objective updater used to display informations on each player screen.
+	 */
+	public static IObjectiveUpdater getObjectiveUpdater() {
+		return updater;
 	}
 }
