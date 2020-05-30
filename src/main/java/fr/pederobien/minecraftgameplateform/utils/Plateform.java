@@ -57,7 +57,7 @@ public class Plateform {
 	 * @return The jar's name of this plugin.
 	 */
 	public static String getMinecraftPluginName() {
-		return getName().concat("-").concat(getVersion()).concat("-jwd").concat(".jar");
+		return getName().concat(".jar");
 	}
 
 	/**

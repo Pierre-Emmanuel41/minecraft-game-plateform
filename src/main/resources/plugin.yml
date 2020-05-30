@@ -16,7 +16,7 @@ commands:
     permission: PlateformPlugin.permission
   spawn:
     description: This command is used to manipulate a spawn before starting a game.
-    permission: PlateformPlugin.yml
+    permission: PlateformPlugin.permission
   border:
     description: This command is used to manipulate a border configurations.
-    permission: PlateformPlugin.yml  
+    permission: PlateformPlugin.permission  
