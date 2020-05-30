@@ -15,12 +15,14 @@ public class InitialTimeTaskState extends AbstractTimeTaskState {
 
 	@Override
 	public void start(Plugin plugin) {
-		getTask().setBukkitTask(BukkitManager.getScheduler().runTaskTimer(plugin, this, 0, 20));
+		setTotalTime(LocalTime.of(0, 0, 0));
+		setGameTime(LocalTime.of(0, 0, 0));
+		setPauseTime(LocalTime.of(0, 0, 0));
+		getTask().setBukkitTask(BukkitManager.getScheduler().runTaskTimer(plugin, getTask(), 0, 20));
 	}
 
 	@Override
 	public void run() {
-		setTotalTime(LocalTime.of(0, 0, 0));
 		getTask().setCurrentState(getTask().getRunState());
 		getTask().notifyObservers();
 	}

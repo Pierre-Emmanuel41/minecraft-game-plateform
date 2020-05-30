@@ -60,6 +60,11 @@ public class TimeTask extends Observable<ITimeTaskObserver> implements IStateTim
 	}
 
 	@Override
+	public void run() {
+		current.run();
+	}
+
+	@Override
 	public LocalTime getTotalTime() {
 		return current.getTotalTime();
 	}

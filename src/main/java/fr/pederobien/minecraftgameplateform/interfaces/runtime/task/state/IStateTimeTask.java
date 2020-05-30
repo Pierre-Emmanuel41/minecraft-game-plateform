@@ -2,7 +2,7 @@ package fr.pederobien.minecraftgameplateform.interfaces.runtime.task.state;
 
 import org.bukkit.scheduler.BukkitTask;
 
-public interface IStateTimeTask {
+public interface IStateTimeTask extends Runnable {
 
 	/**
 	 * @return The current state of this time task.

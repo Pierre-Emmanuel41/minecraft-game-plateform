@@ -43,6 +43,6 @@ public class Observable<T> implements IObservable<T> {
 	}
 
 	private void internalNotify(Stream<T> observers, Consumer<T> consumer) {
-		observers.peek(consumer);
+		observers.forEach(consumer);
 	}
 }
