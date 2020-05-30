@@ -26,17 +26,17 @@ public class GameBorderConfiguration extends GameConfiguration implements IGameB
 	}
 
 	@Override
-	public List<IBorderConfiguration> getConfigurations() {
+	public List<IBorderConfiguration> getBorders() {
 		return Collections.unmodifiableList(list);
 	}
 
 	@Override
-	public List<IBorderConfiguration> getConfigurations(World world) {
+	public List<IBorderConfiguration> getBorders(World world) {
 		return Collections.unmodifiableList(configurations.get(world));
 	}
 
 	@Override
-	public Optional<IBorderConfiguration> getConfiguration(String name) {
+	public Optional<IBorderConfiguration> getBorder(String name) {
 		for (IBorderConfiguration configuration : list)
 			if (configuration.getName().equals(name))
 				return Optional.of(configuration);
@@ -70,7 +70,7 @@ public class GameBorderConfiguration extends GameConfiguration implements IGameB
 	}
 
 	@Override
-	public void removeBorderConfigurations(List<IBorderConfiguration> configurations) {
+	public void remove(List<IBorderConfiguration> configurations) {
 		Iterator<Entry<World, List<IBorderConfiguration>>> iterator = this.configurations.entrySet().iterator();
 		List<IBorderConfiguration> copy = new ArrayList<>(configurations);
 		while (iterator.hasNext() && copy.size() > 0) {
@@ -85,7 +85,7 @@ public class GameBorderConfiguration extends GameConfiguration implements IGameB
 	}
 
 	@Override
-	public List<IBorderConfiguration> removeBorderConfigurations(World world) {
+	public List<IBorderConfiguration> remove(World world) {
 		List<IBorderConfiguration> confs = configurations.remove(world);
 		List<IBorderConfiguration> removed = confs == null ? new ArrayList<>() : confs;
 
@@ -94,7 +94,7 @@ public class GameBorderConfiguration extends GameConfiguration implements IGameB
 	}
 
 	@Override
-	public List<IBorderConfiguration> clearBorderConfigurations() {
+	public List<IBorderConfiguration> clearBorders() {
 		configurations.clear();
 		List<IBorderConfiguration> removedList = new ArrayList<>(list);
 		list.clear();

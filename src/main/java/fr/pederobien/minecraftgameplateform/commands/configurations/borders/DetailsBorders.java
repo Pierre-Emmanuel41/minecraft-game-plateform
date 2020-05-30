@@ -21,7 +21,7 @@ public class DetailsBorders<T extends IGameBorderConfiguration> extends Abstract
 	public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
 		if (args.length == 0) {
 			StringJoiner joiner = new StringJoiner("\n", "\n--------", "--------");
-			for (IBorderConfiguration configuration : get().getConfigurations())
+			for (IBorderConfiguration configuration : get().getBorders())
 				joiner.add(configuration.toString());
 			sendMessageToSender(sender, EBordersMessageCode.DETAILS_BORDERS__DETAILS_ON_ALL_REGISTERED_BORDERS, get().getName(), joiner);
 			return true;
@@ -42,6 +42,6 @@ public class DetailsBorders<T extends IGameBorderConfiguration> extends Abstract
 
 	@Override
 	public List<String> onTabComplete(CommandSender sender, Command command, String alias, String[] args) {
-		return filter(get().getConfigurations().stream().map(conf -> conf.getName()), args);
+		return filter(get().getBorders().stream().map(conf -> conf.getName()), args);
 	}
 }

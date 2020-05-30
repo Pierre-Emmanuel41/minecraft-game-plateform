@@ -42,7 +42,7 @@ public class RemoveBorders<T extends IGameBorderConfiguration> extends AbstractB
 
 	@Override
 	public List<String> onTabComplete(CommandSender sender, Command command, String alias, String[] args) {
-		return filter(get().getConfigurations().stream().map(conf -> conf.getName()), args);
+		return filter(get().getBorders().stream().map(conf -> conf.getName()), args);
 	}
 
 }

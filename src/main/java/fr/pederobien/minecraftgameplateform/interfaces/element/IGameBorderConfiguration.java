@@ -30,7 +30,7 @@ public interface IGameBorderConfiguration extends IUnmodifiableGameBorderConfigu
 	 * 
 	 * @param configurations The list of border configuration to remove.
 	 */
-	void removeBorderConfigurations(List<IBorderConfiguration> configurations);
+	void remove(List<IBorderConfiguration> configurations);
 
 	/**
 	 * Remove all border configuration registered for the given world.
@@ -39,12 +39,12 @@ public interface IGameBorderConfiguration extends IUnmodifiableGameBorderConfigu
 	 * 
 	 * @return A list that contains all removed border configuration, it could be empty.
 	 */
-	List<IBorderConfiguration> removeBorderConfigurations(World world);
+	List<IBorderConfiguration> remove(World world);
 
 	/**
 	 * Remove each registered border configuration from this game configuration.
 	 * 
 	 * @return The list of removed border configuration.
 	 */
-	List<IBorderConfiguration> clearBorderConfigurations();
+	List<IBorderConfiguration> clearBorders();
 }

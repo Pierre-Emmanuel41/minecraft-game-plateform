@@ -34,7 +34,7 @@ public class AbstractBorderGameConfigurationEdition<T extends IGameBorderConfigu
 	 * @return A stream that contains free and not mentioned configurations.
 	 */
 	protected Stream<String> getFreeBorderConfigurations(List<String> alreadyMentionnedConfigurations) {
-		return PERSISTENCE.list().stream().filter(conf -> !alreadyMentionnedConfigurations.contains(conf) && !get().getConfiguration(conf).isPresent());
+		return PERSISTENCE.list().stream().filter(conf -> !alreadyMentionnedConfigurations.contains(conf) && !get().getBorder(conf).isPresent());
 	}
 
 	/**
@@ -73,7 +73,7 @@ public class AbstractBorderGameConfigurationEdition<T extends IGameBorderConfigu
 	protected List<IBorderConfiguration> getConfigurationsFromGameConfiguration(String... args) {
 		List<IBorderConfiguration> configurations = new ArrayList<IBorderConfiguration>();
 		for (String name : args) {
-			Optional<IBorderConfiguration> optConf = get().getConfiguration(name);
+			Optional<IBorderConfiguration> optConf = get().getBorder(name);
 			if (!optConf.isPresent())
 				throw new BorderConfigurationNotRegisteredException(get(), name);
 			configurations.add(optConf.get());
@@ -88,6 +88,6 @@ public class AbstractBorderGameConfigurationEdition<T extends IGameBorderConfigu
 	 * @return A string that looks like : WorldName + [borderName1 borderName2 etc...]
 	 */
 	protected String concat(World world) {
-		return WorldManager.getWorldNameNormalised(world) + "[" + concatNames(get().getConfigurations(world), " ") + "]";
+		return WorldManager.getWorldNameNormalised(world) + "[" + concatNames(get().getBorders(world), " ") + "]";
 	}
 }

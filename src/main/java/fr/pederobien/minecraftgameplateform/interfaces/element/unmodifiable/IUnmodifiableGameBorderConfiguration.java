@@ -12,7 +12,7 @@ public interface IUnmodifiableGameBorderConfiguration extends IUnmodifiableGameC
 	/**
 	 * @return The list of all registered border configuration for this game configuration. This list is unmodifiable.
 	 */
-	List<IBorderConfiguration> getConfigurations();
+	List<IBorderConfiguration> getBorders();
 
 	/**
 	 * Get a list of border configuration registered for the given world. This list is unmodifiable.
@@ -21,7 +21,7 @@ public interface IUnmodifiableGameBorderConfiguration extends IUnmodifiableGameC
 	 * 
 	 * @return A list that contains border configurations. This list is unmodifiable and could be empty.
 	 */
-	List<IBorderConfiguration> getConfigurations(World world);
+	List<IBorderConfiguration> getBorders(World world);
 
 	/**
 	 * Get the configuration associated to the given name.
@@ -30,5 +30,5 @@ public interface IUnmodifiableGameBorderConfiguration extends IUnmodifiableGameC
 	 * 
 	 * @return An optional that contains the configuration if it is registered, an empty optional otherwise.
 	 */
-	Optional<IBorderConfiguration> getConfiguration(String name);
+	Optional<IBorderConfiguration> getBorder(String name);
 }
