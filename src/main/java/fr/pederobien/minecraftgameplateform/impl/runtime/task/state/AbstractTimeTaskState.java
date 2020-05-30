@@ -61,19 +61,19 @@ public abstract class AbstractTimeTaskState implements ITimeTaskState {
 
 	@Override
 	public LocalTime getGameTime() {
-		return gameTime == null ? LocalTime.of(0, 0, 0) : totalTime;
+		return gameTime == null ? LocalTime.of(0, 0, 0) : gameTime;
 	}
 
-	protected void setGameTime(LocalTime totalTime) {
-		AbstractTimeTaskState.totalTime = totalTime;
+	protected void setGameTime(LocalTime gameTime) {
+		AbstractTimeTaskState.gameTime = gameTime;
 	}
 
 	@Override
 	public LocalTime getPauseTime() {
-		return pauseTime == null ? LocalTime.of(0, 0, 0) : totalTime;
+		return pauseTime == null ? LocalTime.of(0, 0, 0) : pauseTime;
 	}
 
-	protected void setPauseTime(LocalTime totalTime) {
-		AbstractTimeTaskState.totalTime = totalTime;
+	protected void setPauseTime(LocalTime pauseTime) {
+		AbstractTimeTaskState.pauseTime = pauseTime;
 	}
 }
