@@ -8,7 +8,7 @@ import fr.pederobien.minecraftgameplateform.interfaces.runtime.task.state.ITimeT
 
 public abstract class AbstractTimeTaskState implements ITimeTaskState {
 	private IStateTimeTask task;
-	private LocalTime totalTime, limitTime;
+	private LocalTime totalTime;
 
 	protected AbstractTimeTaskState(IStateTimeTask task) {
 		this.task = task;
@@ -44,13 +44,5 @@ public abstract class AbstractTimeTaskState implements ITimeTaskState {
 
 	protected void setInternalTotalTime(LocalTime totalTime) {
 		this.totalTime = totalTime;
-	}
-
-	protected LocalTime getLimitTime() {
-		return limitTime;
-	}
-
-	protected void setLimiteTime(LocalTime limitTime) {
-		this.limitTime = limitTime;
 	}
 }

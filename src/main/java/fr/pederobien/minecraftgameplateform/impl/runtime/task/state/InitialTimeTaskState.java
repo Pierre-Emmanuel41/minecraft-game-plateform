@@ -6,9 +6,8 @@ import fr.pederobien.minecraftgameplateform.interfaces.runtime.task.state.IState
 
 public class InitialTimeTaskState extends AbstractTimeTaskState {
 
-	public InitialTimeTaskState(IStateTimeTask task, LocalTime limitTime) {
+	public InitialTimeTaskState(IStateTimeTask task) {
 		super(task);
-		setLimiteTime(limitTime);
 	}
 
 	@Override
@@ -25,11 +24,6 @@ public class InitialTimeTaskState extends AbstractTimeTaskState {
 	@Override
 	public LocalTime getGameTime() {
 		return getTask().getCurrentState().getGameTime();
-	}
-
-	@Override
-	public LocalTime getDecreasingTime() {
-		return getTask().getCurrentState().getDecreasingTime();
 	}
 
 	@Override

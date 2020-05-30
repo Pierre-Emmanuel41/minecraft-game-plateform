@@ -41,14 +41,6 @@ public interface ITimeTask extends ITimeTaskState, Runnable {
 	public LocalTime getGameTime();
 
 	/**
-	 * Get the time that is decreased by one second whenever the method {@link #run()} is called. If the {@link #pause()} method has
-	 * been called, this time is not updated until the {@link #relaunched()} method is called.
-	 * 
-	 * @return The decreasing time managed by this task.
-	 */
-	public LocalTime getDecreasingTime();
-
-	/**
 	 * Get the time that is increased by one second whenever the method {@link #run()} is called if and only if the {@link #pause()}
 	 * method has been called before. If the {@link #pause()} method has not been called, it correspond to the time 00:00:00. When the
 	 * method {@link #relaunched()} is called, this time not updated until the {@link #pause()} method is called.

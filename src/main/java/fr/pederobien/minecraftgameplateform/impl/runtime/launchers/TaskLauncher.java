@@ -1,7 +1,5 @@
 package fr.pederobien.minecraftgameplateform.impl.runtime.launchers;
 
-import java.time.LocalTime;
-
 import fr.pederobien.minecraftgameplateform.impl.runtime.task.TimeTask;
 import fr.pederobien.minecraftgameplateform.interfaces.observer.IObservable;
 import fr.pederobien.minecraftgameplateform.interfaces.runtime.launchers.ITaskLauncher;
@@ -10,8 +8,8 @@ import fr.pederobien.minecraftgameplateform.interfaces.runtime.task.ITimeTaskObs
 public class TaskLauncher extends AbstractLauncher implements ITaskLauncher {
 	private TimeTask task;
 
-	public TaskLauncher(LocalTime limitTime) {
-		task = new TimeTask(limitTime);
+	public TaskLauncher() {
+		task = new TimeTask();
 	}
 
 	@Override

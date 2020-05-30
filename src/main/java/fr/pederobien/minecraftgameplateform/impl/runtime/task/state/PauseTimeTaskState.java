@@ -38,11 +38,6 @@ public class PauseTimeTaskState extends AbstractTimeTaskState {
 	}
 
 	@Override
-	public LocalTime getDecreasingTime() {
-		return getTask().getRunState().getDecreasingTime();
-	}
-
-	@Override
 	public LocalTime getPauseTime() {
 		return pauseTime;
 	}

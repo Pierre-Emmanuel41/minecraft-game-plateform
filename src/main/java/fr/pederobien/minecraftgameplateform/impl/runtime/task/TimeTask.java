@@ -18,8 +18,8 @@ public class TimeTask extends Observable<ITimeTaskObserver> implements IStateTim
 	private ITimeTaskState run;
 	private ITimeTaskState pause;
 
-	public TimeTask(LocalTime time) {
-		initial = new InitialTimeTaskState(this, time);
+	public TimeTask() {
+		initial = new InitialTimeTaskState(this);
 		run = new RunTimeTaskState(this);
 		pause = new PauseTimeTaskState(this);
 
@@ -57,11 +57,6 @@ public class TimeTask extends Observable<ITimeTaskObserver> implements IStateTim
 	@Override
 	public LocalTime getGameTime() {
 		return current.getGameTime();
-	}
-
-	@Override
-	public LocalTime getDecreasingTime() {
-		return current.getDecreasingTime();
 	}
 
 	@Override
