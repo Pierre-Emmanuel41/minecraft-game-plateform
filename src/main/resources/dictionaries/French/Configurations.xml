@@ -20,30 +20,6 @@
 			<code>COMMON_LOAD__CONFIGURATION_DOES_NOT_EXIST</code>
 			<value>Impossible de charger la configuration "%s", cette configuration n'existe pas</value>
 		</message>
-		<message>
-			<code>SCOREBOARD_REFRESH__EXPLANATION</code>
-			<value>Pour définir le nombre de tic serveur entre deux rafraichissements du scoreboard de chaque joueur</value>
-		</message>
-		<message>
-			<code>SCOREBOARD_REFRESH__ON_TAB_COMPLETE</code>
-			<value>&lt;nombre de tic serveur (entier)&gt;</value>
-		</message>
-		<message>
-			<code>SCOREBOARD_REFRESH__NEGATIVE_TICS_NUMBER</code>
-			<value>Le nombre de tics doit être strictement positif</value>
-		</message>
-		<message>
-			<code>SCOREBOARD_REFRESH__TICS_NUMBER_IS_MISSING</code>
-			<value>Impossible de définir la fréquence de rafraichissement du scoreboard, il manque le nombre de tics serveur</value>
-		</message>
-		<message>
-			<code>SCOREBOARD_REFRESH__ONE_TICK_DEFINED</code>
-			<value>Le scoreboard est rafraichit à chaque tic serveur</value>
-		</message>
-		<message>
-			<code>SCOREBOARD_REFRESH__SEVERAL_TICS_DEFINED</code>
-			<value>Le scoreboard est rafraichît tous les %s tics serveur</value>
-		</message>
 		
 		<message>
 			<code>TEAM__EXPLANATION</code>

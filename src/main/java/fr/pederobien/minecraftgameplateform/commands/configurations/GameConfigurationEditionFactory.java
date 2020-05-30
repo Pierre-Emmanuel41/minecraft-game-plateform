@@ -21,13 +21,6 @@ public class GameConfigurationEditionFactory {
 	}
 
 	/**
-	 * @return An edition to set the refresh frequency of the player's scoreboard.
-	 */
-	public static <T extends IGameConfiguration> IMapPersistenceEdition<T> scoreboardRefreshEdition() {
-		return new CommonScoreboardRefresh<T>();
-	}
-
-	/**
 	 * @return An edition to manage borders for a game border configuration.
 	 */
 	public static <T extends IGameBorderConfiguration> IMapPersistenceEdition<T> bordersEdition() {
