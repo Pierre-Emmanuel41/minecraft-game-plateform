@@ -55,8 +55,8 @@ public class TimeTask extends Observable<ITimeTaskObserver> implements IStateTim
 	}
 
 	@Override
-	public LocalTime getIncreasingTime() {
-		return current.getIncreasingTime();
+	public LocalTime getGameTime() {
+		return current.getGameTime();
 	}
 
 	@Override

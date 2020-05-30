@@ -36,9 +36,9 @@ public interface ITimeTask extends ITimeTaskState, Runnable {
 	 * not been called, it correspond to the total time. When the method pause() has been called, this time not updated until the
 	 * {@link #relaunched()} method is called.
 	 * 
-	 * @return The increasing time managed by this time task.
+	 * @return The game time managed by this time task.
 	 */
-	public LocalTime getIncreasingTime();
+	public LocalTime getGameTime();
 
 	/**
 	 * Get the time that is decreased by one second whenever the method {@link #run()} is called. If the {@link #pause()} method has

@@ -28,12 +28,12 @@ public class TimeLine implements IObservableTimeLine, ITimeTaskObserver {
 	@Override
 	public void timeChanged(ITimeTask task) {
 		// Notify all punctual observers of the time = task.getIncreasingTime()
-		notifyObservers(punctual, task.getIncreasingTime(), obs -> obs.timeChanged(task.getIncreasingTime()));
+		notifyObservers(punctual, task.getGameTime(), obs -> obs.timeChanged(task.getGameTime()));
 
 		// Notify all periodic observers of the time = task.getIncreasingTime()
-		notifyObservers(periodic, task.getIncreasingTime(), obs -> {
-			obs.timeChanged(task.getIncreasingTime());
-			LocalTime nextNotifyTime = task.getIncreasingTime().plusSeconds(obs.getPeriod().toSecondOfDay());
+		notifyObservers(periodic, task.getGameTime(), obs -> {
+			obs.timeChanged(task.getGameTime());
+			LocalTime nextNotifyTime = task.getGameTime().plusSeconds(obs.getPeriod().toSecondOfDay());
 			obs.setNextNotifyTime(nextNotifyTime);
 
 			// the current observer is notified for the time @var= nextNotifyTime
@@ -41,7 +41,7 @@ public class TimeLine implements IObservableTimeLine, ITimeTaskObserver {
 		});
 
 		// Remove all observers for the key task.getIncreasingTime()
-		periodic.remove(task.getIncreasingTime());
+		periodic.remove(task.getGameTime());
 
 		// Notify each observer no matter the time that the current time has changed.
 		for (IObservable<ITimeLinePeriodicObserver> observable : periodic.values())

@@ -23,8 +23,8 @@ public class InitialTimeTaskState extends AbstractTimeTaskState {
 	}
 
 	@Override
-	public LocalTime getIncreasingTime() {
-		return getTask().getCurrentState().getIncreasingTime();
+	public LocalTime getGameTime() {
+		return getTask().getCurrentState().getGameTime();
 	}
 
 	@Override

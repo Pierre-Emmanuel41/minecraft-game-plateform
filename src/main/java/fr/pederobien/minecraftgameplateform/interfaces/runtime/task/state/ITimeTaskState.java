@@ -25,9 +25,9 @@ public interface ITimeTaskState extends Runnable {
 	LocalTime getTotalTime();
 
 	/**
-	 * @return The increasing time managed by this state.
+	 * @return The game time managed by this state.
 	 */
-	LocalTime getIncreasingTime();
+	LocalTime getGameTime();
 
 	/**
 	 * @return The decreasing time managed by this state.
