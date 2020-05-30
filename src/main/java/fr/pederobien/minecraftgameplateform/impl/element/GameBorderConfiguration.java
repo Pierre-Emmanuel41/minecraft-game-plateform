@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Optional;
+import java.util.StringJoiner;
 
 import org.bukkit.World;
 
@@ -15,6 +16,7 @@ import fr.pederobien.minecraftgameplateform.exceptions.configurations.BorderConf
 import fr.pederobien.minecraftgameplateform.interfaces.element.IBorderConfiguration;
 import fr.pederobien.minecraftgameplateform.interfaces.element.IGame;
 import fr.pederobien.minecraftgameplateform.interfaces.element.IGameBorderConfiguration;
+import fr.pederobien.minecraftmanagers.WorldManager;
 
 public class GameBorderConfiguration extends GameConfiguration implements IGameBorderConfiguration {
 	private Map<World, List<IBorderConfiguration>> configurations;
@@ -99,5 +101,22 @@ public class GameBorderConfiguration extends GameConfiguration implements IGameB
 		List<IBorderConfiguration> removedList = new ArrayList<>(list);
 		list.clear();
 		return removedList;
+	}
+
+	/**
+	 * Get a string that looks like : <code>WorldName + "[" + borderName1 + " " + .. + " " + borderNameN + "]"</code>.
+	 * 
+	 * @param world The world used as key to filter all registered border configurations.
+	 * @return A string to display all registered borders for the given world.
+	 */
+	protected String getWorldBorders(World world) {
+		List<IBorderConfiguration> configurations = getBorders(world);
+		if (configurations == null)
+			return WorldManager.getWorldNameNormalised(world) + "[]";
+
+		StringJoiner joiner = new StringJoiner(" ", "[", "]");
+		for (IBorderConfiguration conf : getBorders(world))
+			joiner.add(conf.getName());
+		return WorldManager.getWorldNameNormalised(world) + joiner.toString();
 	}
 }

@@ -57,4 +57,15 @@ public class GameConfiguration extends AbstractNominable implements IGameConfigu
 		teams.clear();
 		return removedTeams;
 	}
+
+	/**
+	 * If the given object is null then <code>"(default value)"</code> is added to parameter <code>display</code>.
+	 * 
+	 * @param object  The object to check.
+	 * @param display The return value to modify or not.
+	 * @return A string.
+	 */
+	protected String display(Object object, String display) {
+		return display.concat(object == null ? " (default value)" : "");
+	}
 }
