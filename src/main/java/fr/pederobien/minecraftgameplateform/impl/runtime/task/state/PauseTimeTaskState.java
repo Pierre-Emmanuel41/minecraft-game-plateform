@@ -12,6 +12,7 @@ public class PauseTimeTaskState extends AbstractTimeTaskState {
 	public void run() {
 		setTotalTime(getTotalTime().plusSeconds(1));
 		setPauseTime(getPauseTime().plusSeconds(1));
+		getTask().notifyObservers();
 	}
 
 	@Override

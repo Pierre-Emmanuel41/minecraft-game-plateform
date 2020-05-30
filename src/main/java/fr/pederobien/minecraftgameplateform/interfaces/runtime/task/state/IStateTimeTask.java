@@ -45,4 +45,9 @@ public interface IStateTimeTask {
 	 * @param task The bukkit task equivalent for this task.
 	 */
 	void setBukkitTask(BukkitTask task);
+
+	/**
+	 * Notify each registered observers that the time has changed.
+	 */
+	void notifyObservers();
 }

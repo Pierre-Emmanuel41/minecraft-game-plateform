@@ -22,5 +22,6 @@ public class InitialTimeTaskState extends AbstractTimeTaskState {
 	public void run() {
 		setTotalTime(LocalTime.of(0, 0, 0));
 		getTask().setCurrentState(getTask().getRunState());
+		getTask().notifyObservers();
 	}
 }

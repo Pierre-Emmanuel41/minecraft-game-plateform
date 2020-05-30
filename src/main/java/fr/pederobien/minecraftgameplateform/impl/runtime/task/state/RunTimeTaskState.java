@@ -12,6 +12,7 @@ public class RunTimeTaskState extends AbstractTimeTaskState {
 	public void run() {
 		setTotalTime(getTotalTime().plusSeconds(1));
 		setGameTime(getGameTime().plusSeconds(1));
+		getTask().notifyObservers();
 	}
 
 	@Override

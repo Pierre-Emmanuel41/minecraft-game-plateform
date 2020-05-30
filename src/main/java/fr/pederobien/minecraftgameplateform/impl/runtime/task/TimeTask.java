@@ -109,4 +109,9 @@ public class TimeTask extends Observable<ITimeTaskObserver> implements IStateTim
 	public void setBukkitTask(BukkitTask task) {
 		this.task = task;
 	}
+
+	@Override
+	public void notifyObservers() {
+		notifyObservers(obs -> obs.timeChanged(this));
+	}
 }
