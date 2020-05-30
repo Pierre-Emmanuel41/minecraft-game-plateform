@@ -67,9 +67,4 @@ public class BorderPersistence extends AbstractMinecraftPersistence<IBorderConfi
 		saveDocument(doc, get().getName());
 		return false;
 	}
-
-	@Override
-	public boolean forceUpdate() {
-		return true;
-	}
 }
