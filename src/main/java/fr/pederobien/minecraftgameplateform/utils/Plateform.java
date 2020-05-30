@@ -14,12 +14,16 @@ import fr.pederobien.minecraftgameplateform.PlateformPlugin;
 import fr.pederobien.minecraftgameplateform.helpers.CommandHelper;
 import fr.pederobien.minecraftgameplateform.helpers.ConfigurationHelperManager;
 import fr.pederobien.minecraftgameplateform.impl.element.GameConfigurationContext;
+import fr.pederobien.minecraftgameplateform.impl.runtime.task.TimeTask;
+import fr.pederobien.minecraftgameplateform.impl.runtime.timeline.TimeLine;
 import fr.pederobien.minecraftgameplateform.interfaces.commands.ICommand;
 import fr.pederobien.minecraftgameplateform.interfaces.commands.ICommandHelper;
 import fr.pederobien.minecraftgameplateform.interfaces.element.IGameConfiguration;
 import fr.pederobien.minecraftgameplateform.interfaces.element.IGameConfigurationContext;
 import fr.pederobien.minecraftgameplateform.interfaces.element.IPluginManager;
 import fr.pederobien.minecraftgameplateform.interfaces.helpers.IGameConfigurationHelper;
+import fr.pederobien.minecraftgameplateform.interfaces.runtime.task.ITimeTask;
+import fr.pederobien.minecraftgameplateform.interfaces.runtime.timeline.IObservableTimeLine;
 import fr.pederobien.minecraftgameplateform.internal.IPersistenceCenter;
 import fr.pederobien.minecraftgameplateform.internal.PersistenceCenter;
 import fr.pederobien.minecraftscoreboards.ObjectiveUpdater;
@@ -177,5 +181,24 @@ public class Plateform {
 	 */
 	public static IObjectiveUpdater getObjectiveUpdater() {
 		return updater;
+	}
+
+	/**
+	 * @return A task that represent the time during a game. When calling method {@link ITimeTask#start(Plugin)}, the game time
+	 *         changed each second and all registered observers are notified.
+	 */
+	public static ITimeTask getTimeTask() {
+		return TimeTask.getInstance();
+	}
+
+	/**
+	 * @return The time line associated to this plugin. The time line is particularly used to registered a time event. If you want to
+	 *         be notified punctually during a game, this time line should be used. However, if you want to be notified each second,
+	 *         then you should be registered as observer for the time task.
+	 * 
+	 * @see #getTimeTask()
+	 */
+	public static IObservableTimeLine getTimeLine() {
+		return TimeLine.getInstance();
 	}
 }
