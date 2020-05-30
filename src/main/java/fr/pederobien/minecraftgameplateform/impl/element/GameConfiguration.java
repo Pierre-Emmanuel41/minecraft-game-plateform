@@ -9,11 +9,11 @@ import fr.pederobien.minecraftgameplateform.interfaces.element.IGame;
 import fr.pederobien.minecraftgameplateform.interfaces.element.IGameConfiguration;
 import fr.pederobien.minecraftgameplateform.interfaces.element.ITeam;
 
-public abstract class AbstractGameConfiguration extends AbstractNominable implements IGameConfiguration {
+public class GameConfiguration extends AbstractNominable implements IGameConfiguration {
 	private IGame game;
 	private List<ITeam> teams;
 
-	protected AbstractGameConfiguration(String name, IGame game) {
+	protected GameConfiguration(String name, IGame game) {
 		super(name);
 		teams = new ArrayList<ITeam>();
 	}

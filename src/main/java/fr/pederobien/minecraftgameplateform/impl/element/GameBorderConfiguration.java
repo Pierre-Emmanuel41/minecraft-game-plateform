@@ -16,11 +16,11 @@ import fr.pederobien.minecraftgameplateform.interfaces.element.IBorderConfigurat
 import fr.pederobien.minecraftgameplateform.interfaces.element.IGame;
 import fr.pederobien.minecraftgameplateform.interfaces.element.IGameBorderConfiguration;
 
-public class AbstractGameBorderConfiguration extends AbstractGameConfiguration implements IGameBorderConfiguration {
+public class GameBorderConfiguration extends GameConfiguration implements IGameBorderConfiguration {
 	private Map<World, List<IBorderConfiguration>> configurations;
 	private List<IBorderConfiguration> list;
 
-	protected AbstractGameBorderConfiguration(String name, IGame game) {
+	protected GameBorderConfiguration(String name, IGame game) {
 		super(name, game);
 		configurations = new HashMap<World, List<IBorderConfiguration>>();
 	}
