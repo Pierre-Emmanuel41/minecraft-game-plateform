@@ -7,7 +7,6 @@ import java.util.function.Consumer;
 
 import fr.pederobien.minecraftgameplateform.impl.observer.Observable;
 import fr.pederobien.minecraftgameplateform.interfaces.observer.IObservable;
-import fr.pederobien.minecraftgameplateform.interfaces.runtime.task.IObservableTimeTask;
 import fr.pederobien.minecraftgameplateform.interfaces.runtime.task.ITimeTask;
 import fr.pederobien.minecraftgameplateform.interfaces.runtime.task.ITimeTaskObserver;
 import fr.pederobien.minecraftgameplateform.interfaces.runtime.timeline.IObservableTimeLine;
@@ -18,11 +17,17 @@ public class TimeLine implements IObservableTimeLine, ITimeTaskObserver {
 	private Map<LocalTime, IObservable<ITimeLineObserver>> punctual;
 	private Map<LocalTime, IObservable<ITimeLinePeriodicObserver>> periodic;
 
-	public TimeLine(IObservableTimeTask task) {
+	private TimeLine() {
 		punctual = new HashMap<LocalTime, IObservable<ITimeLineObserver>>();
 		periodic = new HashMap<LocalTime, IObservable<ITimeLinePeriodicObserver>>();
+	}
 
-		task.addObserver(this);
+	public static IObservableTimeLine getInstance() {
+		return SingletonHolder.TIME_LINE;
+	}
+
+	private static class SingletonHolder {
+		public static final TimeLine TIME_LINE = new TimeLine();
 	}
 
 	@Override
