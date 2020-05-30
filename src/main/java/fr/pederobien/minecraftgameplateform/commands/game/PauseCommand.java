@@ -8,6 +8,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 import fr.pederobien.minecraftgameplateform.dictionary.EGameMessageCode;
 import fr.pederobien.minecraftgameplateform.interfaces.commands.IParentCommand;
+import fr.pederobien.minecraftgameplateform.utils.Plateform;
 import fr.pederobien.minecraftmanagers.PlayerManager;
 import fr.pederobien.persistence.interfaces.IUnmodifiableNominable;
 
@@ -33,6 +34,7 @@ public class PauseCommand extends AbstractGameCommand {
 
 			// Notify each command a game is paused
 			notifyCommands(commands, cmd -> cmd.onGameIsPaused(getGameConfigurationContext().getGame()));
+			Plateform.getTimeTask().pause();
 		} else {
 			// Notify each command a game is resuming
 			if (!notifyCommands(commands, cmd -> cmd.onGameIsResuming(getGameConfigurationContext().getGame()), true))
@@ -42,6 +44,7 @@ public class PauseCommand extends AbstractGameCommand {
 
 			// Notify each command a game is resumed
 			notifyCommands(commands, cmd -> cmd.onGameIsResumed(getGameConfigurationContext().getGame()));
+			Plateform.getTimeTask().relaunched();
 		}
 		isGameStatePause = !isGameStatePause;
 		return true;

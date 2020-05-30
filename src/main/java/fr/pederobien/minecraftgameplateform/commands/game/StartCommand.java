@@ -7,7 +7,9 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import fr.pederobien.minecraftgameplateform.dictionary.EGameMessageCode;
+import fr.pederobien.minecraftgameplateform.impl.runtime.timeline.TimeLine;
 import fr.pederobien.minecraftgameplateform.interfaces.commands.IParentCommand;
+import fr.pederobien.minecraftgameplateform.utils.Plateform;
 import fr.pederobien.minecraftmanagers.PlayerManager;
 import fr.pederobien.persistence.interfaces.IUnmodifiableNominable;
 
@@ -37,6 +39,10 @@ public class StartCommand extends AbstractGameCommand {
 
 		// Notify each command a game is started
 		notifyCommands(commands, cmd -> cmd.onGameIsStarted(getGameConfigurationContext().getGame()));
+
+		// Registering the time line as time task observer
+		Plateform.getTimeTask().addObserver((TimeLine) Plateform.getTimeLine());
+		Plateform.getTimeTask().start(Plateform.getPlugin());
 		return true;
 	}
 }
