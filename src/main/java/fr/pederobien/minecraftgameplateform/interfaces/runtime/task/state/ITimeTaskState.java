@@ -2,7 +2,16 @@ package fr.pederobien.minecraftgameplateform.interfaces.runtime.task.state;
 
 import java.time.LocalTime;
 
+import org.bukkit.plugin.Plugin;
+
 public interface ITimeTaskState extends Runnable {
+
+	/**
+	 * Start this time task. The given plugin is necessary to schedule this task.
+	 * 
+	 * @param plugin The plugin associated to this task.
+	 */
+	void start(Plugin plugin);
 
 	/**
 	 * Modify the state of this time task to pause state.
@@ -15,9 +24,9 @@ public interface ITimeTaskState extends Runnable {
 	void relaunched();
 
 	/**
-	 * Modify the state of this time task to initial state.
+	 * Reset all parameters managed by this time task
 	 */
-	void cancel();
+	void stop();
 
 	/**
 	 * @return The total time managed by this state.

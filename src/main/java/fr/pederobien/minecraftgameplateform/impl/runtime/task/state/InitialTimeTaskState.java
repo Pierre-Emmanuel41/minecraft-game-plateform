@@ -2,7 +2,10 @@ package fr.pederobien.minecraftgameplateform.impl.runtime.task.state;
 
 import java.time.LocalTime;
 
+import org.bukkit.plugin.Plugin;
+
 import fr.pederobien.minecraftgameplateform.interfaces.runtime.task.state.IStateTimeTask;
+import fr.pederobien.minecraftmanagers.BukkitManager;
 
 public class InitialTimeTaskState extends AbstractTimeTaskState {
 
@@ -11,23 +14,13 @@ public class InitialTimeTaskState extends AbstractTimeTaskState {
 	}
 
 	@Override
+	public void start(Plugin plugin) {
+		getTask().setBukkitTask(BukkitManager.getScheduler().runTaskTimer(plugin, this, 0, 20));
+	}
+
+	@Override
 	public void run() {
-		setInternalTotalTime(LocalTime.of(0, 0, 0));
+		setTotalTime(LocalTime.of(0, 0, 0));
 		getTask().setCurrentState(getTask().getRunState());
-	}
-
-	@Override
-	public LocalTime getTotalTime() {
-		return getTask().getCurrentState().getTotalTime();
-	}
-
-	@Override
-	public LocalTime getGameTime() {
-		return getTask().getCurrentState().getGameTime();
-	}
-
-	@Override
-	public LocalTime getPauseTime() {
-		return getTask().getCurrentState().getPauseTime();
 	}
 }

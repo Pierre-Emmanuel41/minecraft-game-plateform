@@ -17,9 +17,4 @@ public interface IObservableTimeTask {
 	 * @param obs The observer to remove.
 	 */
 	void removeObserver(ITimeTaskObserver obs);
-
-	/**
-	 * Notify all observers whenever the internal time of this observable time task has changed.
-	 */
-	void notifyObservers();
 }

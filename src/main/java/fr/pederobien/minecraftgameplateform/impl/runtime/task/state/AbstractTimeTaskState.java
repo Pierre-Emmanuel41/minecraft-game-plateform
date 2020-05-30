@@ -2,20 +2,23 @@ package fr.pederobien.minecraftgameplateform.impl.runtime.task.state;
 
 import java.time.LocalTime;
 
+import org.bukkit.plugin.Plugin;
+
 import fr.pederobien.minecraftgameplateform.exceptions.TimeTaskStateException;
 import fr.pederobien.minecraftgameplateform.interfaces.runtime.task.state.IStateTimeTask;
 import fr.pederobien.minecraftgameplateform.interfaces.runtime.task.state.ITimeTaskState;
+import fr.pederobien.minecraftmanagers.BukkitManager;
 
 public abstract class AbstractTimeTaskState implements ITimeTaskState {
 	private IStateTimeTask task;
-	private LocalTime totalTime;
+	private static LocalTime totalTime, gameTime, pauseTime;
 
 	protected AbstractTimeTaskState(IStateTimeTask task) {
 		this.task = task;
 	}
 
 	@Override
-	public void run() {
+	public void start(Plugin plugin) {
 		throw new TimeTaskStateException(this);
 	}
 
@@ -30,7 +33,12 @@ public abstract class AbstractTimeTaskState implements ITimeTaskState {
 	}
 
 	@Override
-	public void cancel() {
+	public void stop() {
+		throw new TimeTaskStateException(this);
+	}
+
+	@Override
+	public void run() {
 		throw new TimeTaskStateException(this);
 	}
 
@@ -38,11 +46,34 @@ public abstract class AbstractTimeTaskState implements ITimeTaskState {
 		return task;
 	}
 
-	protected LocalTime getInternalTotalTime() {
-		return totalTime;
+	protected void cancel() {
+		BukkitManager.getScheduler().cancelTask(getTask().getBukkitTask().getTaskId());
 	}
 
-	protected void setInternalTotalTime(LocalTime totalTime) {
-		this.totalTime = totalTime;
+	@Override
+	public LocalTime getTotalTime() {
+		return totalTime == null ? LocalTime.of(0, 0, 0) : totalTime;
+	}
+
+	protected void setTotalTime(LocalTime totalTime) {
+		AbstractTimeTaskState.totalTime = totalTime;
+	}
+
+	@Override
+	public LocalTime getGameTime() {
+		return gameTime == null ? LocalTime.of(0, 0, 0) : totalTime;
+	}
+
+	protected void setGameTime(LocalTime totalTime) {
+		AbstractTimeTaskState.totalTime = totalTime;
+	}
+
+	@Override
+	public LocalTime getPauseTime() {
+		return pauseTime == null ? LocalTime.of(0, 0, 0) : totalTime;
+	}
+
+	protected void setPauseTime(LocalTime totalTime) {
+		AbstractTimeTaskState.totalTime = totalTime;
 	}
 }

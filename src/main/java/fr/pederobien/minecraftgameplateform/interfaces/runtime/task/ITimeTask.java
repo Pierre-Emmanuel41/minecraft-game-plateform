@@ -2,14 +2,16 @@ package fr.pederobien.minecraftgameplateform.interfaces.runtime.task;
 
 import java.time.LocalTime;
 
-import fr.pederobien.minecraftgameplateform.interfaces.runtime.task.state.ITimeTaskState;
+import org.bukkit.plugin.Plugin;
 
-public interface ITimeTask extends ITimeTaskState, Runnable {
+public interface ITimeTask extends IObservableTimeTask {
 
 	/**
-	 * Reset all parameters managed by this time task
+	 * Start this time task. The given plugin is necessary to schedule this task to run each second.
+	 * 
+	 * @param plugin The plugin associated to this task.
 	 */
-	void cancel();
+	void start(Plugin plugin);
 
 	/**
 	 * Modify the state of this time task to pause state. The internal total time is still updated, the increasing and decreasing time
@@ -22,6 +24,11 @@ public interface ITimeTask extends ITimeTaskState, Runnable {
 	 * more, the increasing and decreasing time are updated.
 	 */
 	void relaunched();
+
+	/**
+	 * Reset all parameters managed by this time task.
+	 */
+	void stop();
 
 	/**
 	 * Get the time since the first call to the {@link #run()} method. If the {@link #cancel()} method has been called, this time has

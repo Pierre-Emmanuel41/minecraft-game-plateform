@@ -2,6 +2,9 @@ package fr.pederobien.minecraftgameplateform.impl.runtime.task;
 
 import java.time.LocalTime;
 
+import org.bukkit.plugin.Plugin;
+import org.bukkit.scheduler.BukkitTask;
+
 import fr.pederobien.minecraftgameplateform.impl.observer.Observable;
 import fr.pederobien.minecraftgameplateform.impl.runtime.task.state.InitialTimeTaskState;
 import fr.pederobien.minecraftgameplateform.impl.runtime.task.state.PauseTimeTaskState;
@@ -18,7 +21,9 @@ public class TimeTask extends Observable<ITimeTaskObserver> implements IStateTim
 	private ITimeTaskState run;
 	private ITimeTaskState pause;
 
-	public TimeTask() {
+	private BukkitTask task;
+
+	private TimeTask() {
 		initial = new InitialTimeTaskState(this);
 		run = new RunTimeTaskState(this);
 		pause = new PauseTimeTaskState(this);
@@ -26,17 +31,17 @@ public class TimeTask extends Observable<ITimeTaskObserver> implements IStateTim
 		setCurrentState(initial);
 	}
 
-	@Override
-	public void run() {
-		current.run();
-		notifyObservers(obs -> obs.timeChanged(this));
+	public static ITimeTask getInstance() {
+		return SingletonHolder.TASK;
+	}
+
+	private static class SingletonHolder {
+		public static final ITimeTask TASK = new TimeTask();
 	}
 
 	@Override
-	public void cancel() {
-		run.cancel();
-		pause.cancel();
-		setCurrentState(initial);
+	public void start(Plugin plugin) {
+		current.start(plugin);
 	}
 
 	@Override
@@ -47,6 +52,11 @@ public class TimeTask extends Observable<ITimeTaskObserver> implements IStateTim
 	@Override
 	public void relaunched() {
 		current.relaunched();
+	}
+
+	@Override
+	public void stop() {
+		current.stop();
 	}
 
 	@Override
@@ -88,5 +98,15 @@ public class TimeTask extends Observable<ITimeTaskObserver> implements IStateTim
 	@Override
 	public ITimeTaskState getInitialState() {
 		return initial;
+	}
+
+	@Override
+	public BukkitTask getBukkitTask() {
+		return task;
+	}
+
+	@Override
+	public void setBukkitTask(BukkitTask task) {
+		this.task = task;
 	}
 }

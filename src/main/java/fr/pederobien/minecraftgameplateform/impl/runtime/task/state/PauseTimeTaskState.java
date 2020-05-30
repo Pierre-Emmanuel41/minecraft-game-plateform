@@ -1,11 +1,8 @@
 package fr.pederobien.minecraftgameplateform.impl.runtime.task.state;
 
-import java.time.LocalTime;
-
 import fr.pederobien.minecraftgameplateform.interfaces.runtime.task.state.IStateTimeTask;
 
 public class PauseTimeTaskState extends AbstractTimeTaskState {
-	private LocalTime pauseTime;
 
 	public PauseTimeTaskState(IStateTimeTask task) {
 		super(task);
@@ -13,8 +10,8 @@ public class PauseTimeTaskState extends AbstractTimeTaskState {
 
 	@Override
 	public void run() {
-		setInternalTotalTime(getInternalTotalTime().plusSeconds(1));
-		pauseTime = pauseTime.plusSeconds(1);
+		setTotalTime(getTotalTime().plusSeconds(1));
+		setPauseTime(getPauseTime().plusSeconds(1));
 	}
 
 	@Override
@@ -23,22 +20,7 @@ public class PauseTimeTaskState extends AbstractTimeTaskState {
 	}
 
 	@Override
-	public void cancel() {
-		pauseTime = LocalTime.of(0, 0, 0);
-	}
-
-	@Override
-	public LocalTime getTotalTime() {
-		return getInternalTotalTime();
-	}
-
-	@Override
-	public LocalTime getGameTime() {
-		return getTask().getRunState().getGameTime();
-	}
-
-	@Override
-	public LocalTime getPauseTime() {
-		return pauseTime;
+	public void stop() {
+		cancel();
 	}
 }

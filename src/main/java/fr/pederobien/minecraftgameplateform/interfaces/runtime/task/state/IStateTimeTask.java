@@ -1,5 +1,7 @@
 package fr.pederobien.minecraftgameplateform.interfaces.runtime.task.state;
 
+import org.bukkit.scheduler.BukkitTask;
+
 public interface IStateTimeTask {
 
 	/**
@@ -31,4 +33,16 @@ public interface IStateTimeTask {
 	 * @return The run state of this time task.
 	 */
 	ITimeTaskState getRunState();
+
+	/**
+	 * @return A task that will repeatedly run until cancelled.
+	 */
+	BukkitTask getBukkitTask();
+
+	/**
+	 * Set the bukkit task associated to this time task. This bukkit task is particularly used to cancel this task.
+	 * 
+	 * @param task The bukkit task equivalent for this task.
+	 */
+	void setBukkitTask(BukkitTask task);
 }
