@@ -5,19 +5,17 @@ import org.bukkit.command.CommandSender;
 
 import fr.pederobien.minecraftgameplateform.dictionary.EGameConfigurationMessageCode;
 import fr.pederobien.minecraftgameplateform.interfaces.element.IGameConfiguration;
-import fr.pederobien.minecraftgameplateform.interfaces.element.IGameConfigurationContext;
+import fr.pederobien.minecraftgameplateform.utils.Plateform;
 
 public class CommonAscurrent<T extends IGameConfiguration> extends AbstractGameConfigurationEdition<T> {
-	private IGameConfigurationContext gameContext;
 
-	protected CommonAscurrent(IGameConfigurationContext gameContext) {
+	protected CommonAscurrent() {
 		super(EGameConfigurationLabel.AS_CURRENT, EGameConfigurationMessageCode.AS_CURRENT__EXPLANATION);
-		this.gameContext = gameContext;
 	}
 
 	@Override
 	public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-		gameContext.setGameConfiguration(get());
+		Plateform.getGameConfigurationContext().setGameConfiguration(get());
 		sendMessageToSender(sender, EGameConfigurationMessageCode.AS_CURRENT__GAME_STYLE_DEFINED, get().getName());
 		return true;
 	}

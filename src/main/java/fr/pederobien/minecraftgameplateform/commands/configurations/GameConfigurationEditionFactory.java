@@ -3,18 +3,14 @@ package fr.pederobien.minecraftgameplateform.commands.configurations;
 import fr.pederobien.minecraftgameplateform.interfaces.editions.IMapPersistenceEdition;
 import fr.pederobien.minecraftgameplateform.interfaces.element.IGameBorderConfiguration;
 import fr.pederobien.minecraftgameplateform.interfaces.element.IGameConfiguration;
-import fr.pederobien.minecraftgameplateform.interfaces.element.IGameConfigurationContext;
 
 public class GameConfigurationEditionFactory {
 
 	/**
-	 * An edition to defined the game associated to this configuration as the game to run for command startgame.
-	 * 
-	 * @param gameContext The game context. This context is used by command startgame to know which game should be ran.
-	 * @return A edition.
+	 * @return An edition to defined the game associated to this configuration as the game to run for command startgame.
 	 */
-	public static <T extends IGameConfiguration> IMapPersistenceEdition<T> asCurrentEdition(IGameConfigurationContext gameContext) {
-		return new CommonAscurrent<T>(gameContext);
+	public static <T extends IGameConfiguration> IMapPersistenceEdition<T> asCurrentEdition() {
+		return new CommonAscurrent<T>();
 	}
 
 	/**
