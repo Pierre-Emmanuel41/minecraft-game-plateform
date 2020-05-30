@@ -1,5 +1,6 @@
 package fr.pederobien.minecraftgameplateform.impl.element;
 
+import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -10,8 +11,10 @@ import fr.pederobien.minecraftgameplateform.interfaces.element.IGameConfiguratio
 import fr.pederobien.minecraftgameplateform.interfaces.element.ITeam;
 
 public class GameConfiguration extends AbstractNominable implements IGameConfiguration {
+	private static final LocalTime DEFAULT_PVP_TIME = LocalTime.of(0, 0, 0);
 	private IGame game;
 	private List<ITeam> teams;
+	private LocalTime pvpTime;
 
 	protected GameConfiguration(String name, IGame game) {
 		super(name);
@@ -37,6 +40,11 @@ public class GameConfiguration extends AbstractNominable implements IGameConfigu
 	}
 
 	@Override
+	public LocalTime getPvpTime() {
+		return pvpTime == null ? DEFAULT_PVP_TIME : pvpTime;
+	}
+
+	@Override
 	public void add(ITeam team) {
 		teams.add(team);
 	}
@@ -56,6 +64,11 @@ public class GameConfiguration extends AbstractNominable implements IGameConfigu
 		List<ITeam> removedTeams = new ArrayList<ITeam>(teams);
 		teams.clear();
 		return removedTeams;
+	}
+
+	@Override
+	public void setPvpTime(LocalTime pvpTime) {
+		this.pvpTime = pvpTime;
 	}
 
 	/**

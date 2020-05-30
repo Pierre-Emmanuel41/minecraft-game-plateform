@@ -1,5 +1,6 @@
 package fr.pederobien.minecraftgameplateform.interfaces.element;
 
+import java.time.LocalTime;
 import java.util.List;
 
 import fr.pederobien.minecraftgameplateform.interfaces.element.unmodifiable.IUnmodifiableGameConfiguration;
@@ -33,4 +34,11 @@ public interface IGameConfiguration extends IUnmodifiableGameConfiguration {
 	 * @return The list of removed teams.
 	 */
 	List<ITeam> clearTeams();
+
+	/**
+	 * While the game time is less than the given time, the pvp is deactivated.
+	 * 
+	 * @param pvpTime The time after which the pvp is enabled.
+	 */
+	void setPvpTime(LocalTime pvpTime);
 }

@@ -1,5 +1,6 @@
 package fr.pederobien.minecraftgameplateform.impl.element;
 
+import java.time.LocalTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -44,6 +45,11 @@ public class GameConfigurationContext implements IGameConfigurationContext {
 	}
 
 	@Override
+	public void setPvpTime(LocalTime pvpTime) {
+		getGameConfiguration().setPvpTime(pvpTime);
+	}
+
+	@Override
 	public IGame getGame() {
 		return getGameConfiguration().getGame();
 	}
@@ -56,6 +62,11 @@ public class GameConfigurationContext implements IGameConfigurationContext {
 	@Override
 	public Optional<ITeam> getTeam(String name) {
 		return getGameConfiguration().getTeam(name);
+	}
+
+	@Override
+	public LocalTime getPvpTime() {
+		return getGameConfiguration().getPvpTime();
 	}
 
 	@Override
