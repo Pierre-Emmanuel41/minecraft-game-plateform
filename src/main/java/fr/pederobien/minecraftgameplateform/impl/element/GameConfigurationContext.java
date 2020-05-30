@@ -44,11 +44,6 @@ public class GameConfigurationContext implements IGameConfigurationContext {
 	}
 
 	@Override
-	public void setScoreboardRefresh(long refresh) {
-		getGameConfiguration().setScoreboardRefresh(refresh);
-	}
-
-	@Override
 	public IGame getGame() {
 		return getGameConfiguration().getGame();
 	}
@@ -61,11 +56,6 @@ public class GameConfigurationContext implements IGameConfigurationContext {
 	@Override
 	public Optional<ITeam> getTeam(String name) {
 		return getGameConfiguration().getTeam(name);
-	}
-
-	@Override
-	public Long getScoreboardRefresh() {
-		return getGameConfiguration().getScoreboardRefresh();
 	}
 
 	@Override

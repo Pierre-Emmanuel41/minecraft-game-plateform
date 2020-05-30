@@ -33,11 +33,4 @@ public interface IGameConfiguration extends IUnmodifiableGameConfiguration {
 	 * @return The list of removed teams.
 	 */
 	List<ITeam> clearTeams();
-
-	/**
-	 * Set the refresh scoreboard period, in server ticks.
-	 * 
-	 * @param refresh The scoreboard refresh period.
-	 */
-	void setScoreboardRefresh(long refresh);
 }

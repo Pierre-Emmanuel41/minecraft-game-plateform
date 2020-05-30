@@ -27,9 +27,4 @@ public interface IUnmodifiableGameConfiguration extends IUnmodifiableNominable {
 	 * @return An optional that contains the team if it exists, a empty optional otherwise.
 	 */
 	Optional<ITeam> getTeam(String name);
-
-	/**
-	 * @return The refresh scoreboard period, in server ticks.
-	 */
-	Long getScoreboardRefresh();
 }

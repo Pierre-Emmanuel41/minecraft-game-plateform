@@ -10,11 +10,8 @@ import fr.pederobien.minecraftgameplateform.interfaces.element.IGameConfiguratio
 import fr.pederobien.minecraftgameplateform.interfaces.element.ITeam;
 
 public abstract class AbstractGameConfiguration extends AbstractNominable implements IGameConfiguration {
-	private static final Long DEFAULT_SCOREBOARD_REFRESH = 5L;
-
 	private IGame game;
 	private List<ITeam> teams;
-	private Long scoreboardRefresh;
 
 	protected AbstractGameConfiguration(String name, IGame game) {
 		super(name);
@@ -40,11 +37,6 @@ public abstract class AbstractGameConfiguration extends AbstractNominable implem
 	}
 
 	@Override
-	public Long getScoreboardRefresh() {
-		return scoreboardRefresh == null ? DEFAULT_SCOREBOARD_REFRESH : scoreboardRefresh;
-	}
-
-	@Override
 	public void add(ITeam team) {
 		teams.add(team);
 	}
@@ -64,10 +56,5 @@ public abstract class AbstractGameConfiguration extends AbstractNominable implem
 		List<ITeam> removedTeams = new ArrayList<ITeam>(teams);
 		teams.clear();
 		return removedTeams;
-	}
-
-	@Override
-	public void setScoreboardRefresh(long refresh) {
-		this.scoreboardRefresh = refresh;
 	}
 }
