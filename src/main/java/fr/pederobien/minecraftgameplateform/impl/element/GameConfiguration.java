@@ -18,6 +18,7 @@ public class GameConfiguration extends AbstractNominable implements IGameConfigu
 
 	protected GameConfiguration(String name, IGame game) {
 		super(name);
+		this.game = game;
 		teams = new ArrayList<ITeam>();
 	}
 
