@@ -4,7 +4,7 @@ import java.time.LocalTime;
 
 import org.bukkit.plugin.Plugin;
 
-import fr.pederobien.minecraftgameplateform.exceptions.TimeTaskStateException;
+import fr.pederobien.minecraftgameplateform.exceptions.StateException;
 import fr.pederobien.minecraftgameplateform.interfaces.runtime.task.state.IStateTimeTask;
 import fr.pederobien.minecraftgameplateform.interfaces.runtime.task.state.ITimeTaskState;
 import fr.pederobien.minecraftmanagers.BukkitManager;
@@ -19,27 +19,27 @@ public abstract class AbstractTimeTaskState implements ITimeTaskState {
 
 	@Override
 	public void start(Plugin plugin) {
-		throw new TimeTaskStateException(this);
+		throw new StateException(this);
 	}
 
 	@Override
 	public void pause() {
-		throw new TimeTaskStateException(this);
+		throw new StateException(this);
 	}
 
 	@Override
 	public void relaunched() {
-		throw new TimeTaskStateException(this);
+		throw new StateException(this);
 	}
 
 	@Override
 	public void stop() {
-		throw new TimeTaskStateException(this);
+		throw new StateException(this);
 	}
 
 	@Override
 	public void run() {
-		throw new TimeTaskStateException(this);
+		throw new StateException(this);
 	}
 
 	protected IStateTimeTask getTask() {
