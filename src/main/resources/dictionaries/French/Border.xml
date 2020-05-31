@@ -185,6 +185,22 @@
 			<value>la vitesse de la bordure %s est définie à %s bloc/s, temps de déplacement : %s</value>
 		</message>
 		<message>
+			<code>INITIAL_TIME_BORDER__EXPLANATION</code>
+			<value>Pour définir le temps auquel la bordure est à son diamètre initial</value>
+		</message>
+		<message>
+			<code>INITIAL_TIME_BORDER__TIME_IS_MISSING</code>
+			<value>Impossible de définir le temps auquel la bordure est à son diamètre initial, il manque le temps</value>
+		</message>
+		<message>
+			<code>INITIAL_TIME_BORDER__INITIAL_DIAMETER_AT_THE_BEGINNING</code>
+			<value>La bordure %s est à son diamètre initial dès le début de la partie</value>
+		</message>
+		<message>
+			<code>INITIAL_TIME_BORDER__TIME_DEFINED</code>
+			<value>La bordure %s est à son diamètre initial après %s de jeu</value>
+		</message>
+		<message>
 			<code>START_TIME_BORDER__EXPLANATION</code>
 			<value>Pour définir le temps à partir duquel la bordure se déplace de son diamètre initial à son diamètre final</value>
 		</message>

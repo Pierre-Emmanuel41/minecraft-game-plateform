@@ -186,6 +186,22 @@
 			<value>The speed of border %s defined as %.2f bloc/s, time to move the border : %s</value>
 		</message>
 		<message>
+			<code>INITIAL_TIME_BORDER__EXPLANATION</code>
+			<value>To set the time at which the border is set to its initial diameter</value>
+		</message>
+		<message>
+			<code>INITIAL_TIME_BORDER__TIME_IS_MISSING</code>
+			<value>Cannot set the time at which the border is set to its initial diameter, the time is missing</value>
+		</message>
+		<message>
+			<code>INITIAL_TIME_BORDER__INITIAL_DIAMETER_AT_THE_BEGINNING</code>
+			<value>The border %s is set to its initial diameter at the beginning of the game</value>
+		</message>
+		<message>
+			<code>INITIAL_TIME_BORDER__TIME_DEFINED</code>
+			<value>The border %s is set to its initial diameter after %s of play</value>
+		</message>
+		<message>
 			<code>START_TIME_BORDER__EXPLANATION</code>
 			<value>To set the time after which the border moves from its initial diameter to its final diameter</value>
 		</message>

@@ -90,6 +90,13 @@ public class BorderEditionsFactory {
 	}
 
 	/**
+	 * @return An edition to set the time at which the border is set to its initial diameter.
+	 */
+	public static IMapPersistenceEdition<IBorderConfiguration> initialTimeBorder() {
+		return new InitialTimeBorder();
+	}
+
+	/**
 	 * @return An edition to set the time after which the border moves from its initial diameter to its final diameter.
 	 */
 	public static IMapPersistenceEdition<IBorderConfiguration> startTimeBorder() {

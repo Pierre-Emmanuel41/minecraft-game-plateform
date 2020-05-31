@@ -47,6 +47,13 @@ public interface IBorderConfiguration extends INominable, IUnmodifiableBorderCon
 	void setBorderSpeed(double borderSpeed);
 
 	/**
+	 * Set the time at which the border associated to this configuration is set to its initial diameter.
+	 * 
+	 * @param initialTime The time at which the border is set to its initial diameter.
+	 */
+	void setInitialTime(LocalTime initialTime);
+
+	/**
 	 * Set the time at which the border associated to this configuration moves from its initial diameter to its final diameter. If
 	 * this time correspond to 0h 0m 0s then the border moves when a game starts.
 	 * 

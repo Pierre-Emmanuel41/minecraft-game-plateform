@@ -60,11 +60,20 @@ public class BorderPersistence extends AbstractMinecraftPersistence<IBorderConfi
 		borderSpeed.appendChild(doc.createTextNode(get().getBorderSpeed().toString()));
 		root.appendChild(borderSpeed);
 
+		Element initialTime = createElement(doc, BorderXmlTag.INITIAL_TIME);
+		initialTime.appendChild(doc.createTextNode(get().getInitialTime().toString()));
+		root.appendChild(initialTime);
+
 		Element startTime = createElement(doc, BorderXmlTag.START_TIME);
 		startTime.appendChild(doc.createTextNode(get().getStartTime().toString()));
 		root.appendChild(startTime);
 
 		saveDocument(doc, get().getName());
 		return false;
+	}
+
+	@Override
+	public boolean forceUpdate() {
+		return true;
 	}
 }
