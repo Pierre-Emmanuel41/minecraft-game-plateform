@@ -7,12 +7,12 @@ import org.bukkit.event.entity.CreatureSpawnEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerRespawnEvent;
 
-import fr.pederobien.minecraftgameplateform.impl.element.AbstractEventListener;
+import fr.pederobien.minecraftgameplateform.impl.element.EventListener;
 import fr.pederobien.minecraftgameplateform.interfaces.element.ISpawn;
 import fr.pederobien.minecraftmanagers.PlayerManager;
 import fr.pederobien.minecraftmanagers.WorldManager;
 
-public class SpawnEventListener extends AbstractEventListener {
+public class SpawnEventListener extends EventListener {
 	private ISpawn spawn;
 
 	public SpawnEventListener(ISpawn spawn) {

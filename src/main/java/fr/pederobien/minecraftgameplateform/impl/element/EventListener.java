@@ -4,10 +4,10 @@ import org.bukkit.plugin.Plugin;
 
 import fr.pederobien.minecraftgameplateform.interfaces.element.IEventListener;
 
-public abstract class AbstractEventListener implements IEventListener {
+public class EventListener implements IEventListener {
 	private boolean isRegistered, isActivated;
 
-	protected AbstractEventListener() {
+	protected EventListener() {
 		isRegistered = false;
 		isActivated = false;
 	}

@@ -29,9 +29,8 @@ public interface IGame {
 
 	/**
 	 * @return The listener that interact with minecraft events.
-	 * 
 	 */
-	<T extends IEventListener> T getListener();
+	IEventListener getListener();
 
 	/**
 	 * This method is called when the pvp is enabled. If something has to be done by a special game this method is useful.
