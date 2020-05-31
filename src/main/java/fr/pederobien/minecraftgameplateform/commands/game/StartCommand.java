@@ -1,5 +1,6 @@
 package fr.pederobien.minecraftgameplateform.commands.game;
 
+import java.time.LocalTime;
 import java.util.List;
 
 import org.bukkit.command.Command;
@@ -9,8 +10,10 @@ import org.bukkit.plugin.java.JavaPlugin;
 import fr.pederobien.minecraftgameplateform.dictionary.EGameMessageCode;
 import fr.pederobien.minecraftgameplateform.impl.runtime.timeline.TimeLine;
 import fr.pederobien.minecraftgameplateform.interfaces.commands.IParentCommand;
+import fr.pederobien.minecraftgameplateform.interfaces.runtime.timeline.ITimeLineObserver;
 import fr.pederobien.minecraftgameplateform.utils.Plateform;
 import fr.pederobien.minecraftmanagers.PlayerManager;
+import fr.pederobien.minecraftmanagers.WorldManager;
 import fr.pederobien.persistence.interfaces.IUnmodifiableNominable;
 
 public class StartCommand extends AbstractGameCommand {
@@ -34,15 +37,29 @@ public class StartCommand extends AbstractGameCommand {
 			return false;
 
 		getGameConfigurationContext().start();
-		getGameConfigurationContext().getGame().getListener().register(getPlugin());
-		getGameConfigurationContext().getGame().getListener().setActivated(true);
+		getGameConfigurationContext().getListener().register(getPlugin());
+		getGameConfigurationContext().getListener().setActivated(true);
 
 		// Notify each command a game is started
 		notifyCommands(commands, cmd -> cmd.onGameIsStarted(getGameConfigurationContext().getGame()));
+
+		// Registering PvpActivator as timeLine observer
+		Plateform.getTimeLine().addObserver(getGameConfigurationContext().getPvpTime(), new PvpActivator());
 
 		// Registering the time line as time task observer
 		Plateform.getTimeTask().addObserver((TimeLine) Plateform.getTimeLine());
 		Plateform.getTimeTask().start(Plateform.getPlugin());
 		return true;
+	}
+
+	private class PvpActivator implements ITimeLineObserver {
+
+		@Override
+		public void timeChanged(LocalTime time) {
+			WorldManager.setPVPInOverworld(true);
+			WorldManager.setPVPInNether(true);
+			WorldManager.setPVPInEnder(true);
+			getGameConfigurationContext().getGame().onPvpEnabled();
+		}
 	}
 }

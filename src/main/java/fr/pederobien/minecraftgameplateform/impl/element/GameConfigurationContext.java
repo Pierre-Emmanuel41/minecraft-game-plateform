@@ -105,6 +105,11 @@ public class GameConfigurationContext implements IGameConfigurationContext {
 	}
 
 	@Override
+	public void onPvpEnabled() {
+		getGame().onPvpEnabled();
+	}
+
+	@Override
 	public void setGameConfiguration(IGameConfiguration gameConfiguration) {
 		this.gameConfiguration = gameConfiguration;
 	}
