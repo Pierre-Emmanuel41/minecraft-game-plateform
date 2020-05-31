@@ -27,6 +27,7 @@ public abstract class AbstractGameConfigurationParent<T extends IGameConfigurati
 		addEdition(getCurrentEdition());
 		addEdition(GameConfigurationEditionFactory.asCurrentEdition());
 		addEdition(GameConfigurationEditionFactory.teamEdition());
+		addEdition(GameConfigurationEditionFactory.pvpTime());
 	}
 
 	// Specific to create, rename, save, delete or display the list of game configuration.

@@ -8,7 +8,10 @@ public enum EGameConfigurationMessageCode implements IMinecraftMessageCode {
 	AS_CURRENT__EXPLANATION, AS_CURRENT__GAME_STYLE_DEFINED,
 
 	// Code for command load
-	COMMON_LOAD__CONFIGURATION_DOES_NOT_EXIST;
+	COMMON_LOAD__CONFIGURATION_DOES_NOT_EXIST,
+
+	// Code for command pvpTime
+	PVP_TIME__EXPLANATION, PVP_TIME__TIME_IS_MISSING, PVP_TIME__PVP_ENABLED_AT_THE_BEGINNING, PVP_TIME__TIME_DEFINED;
 
 	private Permission permission;
 

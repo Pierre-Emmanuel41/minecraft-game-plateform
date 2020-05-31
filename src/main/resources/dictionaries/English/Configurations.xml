@@ -21,7 +21,23 @@
 			<code>COMMON_LOAD__CONFIGURATION_DOES_NOT_EXIST</code>
 			<value>Cannot load configuration %s, this configuration does not exist</value>
 		</message>
-
+		<message>
+			<code>PVP_TIME__EXPLANATION</code>
+			<value>To set the time after which the pvp is enabled</value>
+		</message>
+		<message>
+			<code>PVP_TIME__TIME_IS_MISSING</code>
+			<value>Cannot set the time after which the pvp is enabled, the time is missing</value>
+		</message>
+		<message>
+			<code>PVP_TIME__PVP_ENABLED_AT_THE_BEGINNING</code>
+			<value>The pvp is enabled at the beginning of the game</value>
+		</message>
+		<message>
+			<code>PVP_TIME__TIME_DEFINED</code>
+			<value>The pvp is enabled after %s of play</value>
+		</message>
+		
 		<message>
 			<code>TEAM__EXPLANATION</code>
 			<value>To manage the teams of a configuration</value>
@@ -86,7 +102,7 @@
 			<code>MOVE__PLAYER_MOVED</code>
 			<value>The player %s has been moved in team %s, former team : %s</value>
 		</message>
-		
+
 		<message>
 			<code>ADD_TEAM__EXPLANATION</code>
 			<value>To add a team to this configuration</value>
@@ -101,7 +117,7 @@
 		</message>
 		<message>
 			<code>ADD_TEAM__COLOR_DOES_NOT_EXIST</code>
-			<value>Cannot add team "%s" to the configuration %s, "%s" is not a colour</value>
+			<value>Cannot add team "%s" to the configuration %s, "%s" is not a color</value>
 		</message>
 		<message>
 			<code>ADD_TEAM__TEAM_NAME_FORBIDDEN</code>
@@ -147,7 +163,7 @@
 			<code>ADD_PLAYER__SEVERAL_PLAYERS_ADDED</code>
 			<value>Players %s have been added to team %s</value>
 		</message>
-		
+
 		<message>
 			<code>MODIFY_NAME__EXPLANATION</code>
 			<value>To rename a team</value>
@@ -166,7 +182,7 @@
 		</message>
 		<message>
 			<code>MODIFY_NAME__TEAM_NAME_FORBIDDEN</code>
-			<value>Cannot rename team %s as %s, this name is forbidden for a team</value>
+			<value>Cannot rename team %s as %s, this name is forbidden for a team </value>
 		</message>
 		<message>
 			<code>MODIFY_NAME__TEAM_NAME_ALREADY_USED</code>
@@ -200,7 +216,7 @@
 			<code>MODIFY_COLOR__COLOR_UPDATED</code>
 			<value>The color of team %s has been updated for configuration %s</value>
 		</message>
-		
+
 		<message>
 			<code>REMOVE_TEAM__EXPLANATION</code>
 			<value>To remove a team from this configuration</value>
@@ -249,6 +265,6 @@
 			<code>REMOVE_PLAYER__SEVERAL_PLAYERS_REMOVED</code>
 			<value>Players %s have been removed from teams %s</value>
 		</message>
-		
+
 	</messages>
 </dictionary>

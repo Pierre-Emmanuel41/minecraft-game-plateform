@@ -26,4 +26,11 @@ public class GameConfigurationEditionFactory {
 	public static <T extends IGameBorderConfiguration> IMapPersistenceEdition<T> bordersEdition() {
 		return new CommonBorders<T>();
 	}
+
+	/**
+	 * @return An edition to set the time after which the pvp is enabled.
+	 */
+	public static <T extends IGameConfiguration> IMapPersistenceEdition<T> pvpTime() {
+		return new CommonPvpTime<T>();
+	}
 }

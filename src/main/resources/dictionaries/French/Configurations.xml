@@ -20,6 +20,22 @@
 			<code>COMMON_LOAD__CONFIGURATION_DOES_NOT_EXIST</code>
 			<value>Impossible de charger la configuration "%s", cette configuration n'existe pas</value>
 		</message>
+		<message>
+			<code>PVP_TIME__EXPLANATION</code>
+			<value>Pour définir le temps au bout duquel le pvp est activé</value>
+		</message>
+		<message>
+			<code>PVP_TIME__TIME_IS_MISSING</code>
+			<value>Impossible de définir le temps au bout duquel le pvp est activé, il manque le temps</value>
+		</message>
+		<message>
+			<code>PVP_TIME__PVP_ENABLED_AT_THE_BEGINNING</code>
+			<value>Le pvp est activé dès le début de la partie</value>
+		</message>
+		<message>
+			<code>PVP_TIME__TIME_DEFINED</code>
+			<value>Le pvp est activé après %s de jeu</value>
+		</message>
 		
 		<message>
 			<code>TEAM__EXPLANATION</code>
