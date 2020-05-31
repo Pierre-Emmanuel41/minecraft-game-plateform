@@ -49,16 +49,22 @@ public class StartCommand extends AbstractGameCommand {
 		// Registering the time line as time task observer
 		Plateform.getTimeTask().addObserver((TimeLine) Plateform.getTimeLine());
 		Plateform.getTimeTask().start(Plateform.getPlugin());
+
+		setPvp(false);
 		return true;
+	}
+
+	private void setPvp(boolean pvp) {
+		WorldManager.setPVPInOverworld(pvp);
+		WorldManager.setPVPInNether(pvp);
+		WorldManager.setPVPInEnder(pvp);
 	}
 
 	private class PvpActivator implements ITimeLineObserver {
 
 		@Override
 		public void timeChanged(LocalTime time) {
-			WorldManager.setPVPInOverworld(true);
-			WorldManager.setPVPInNether(true);
-			WorldManager.setPVPInEnder(true);
+			setPvp(true);
 			getGameConfigurationContext().getGame().onPvpEnabled();
 		}
 	}
