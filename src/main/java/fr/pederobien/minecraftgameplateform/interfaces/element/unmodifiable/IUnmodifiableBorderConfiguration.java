@@ -5,9 +5,10 @@ import java.time.LocalTime;
 import org.bukkit.World;
 import org.bukkit.block.Block;
 
+import fr.pederobien.minecraftgameplateform.interfaces.runtime.timeline.ITimeLineObserver;
 import fr.pederobien.persistence.interfaces.IUnmodifiableNominable;
 
-public interface IUnmodifiableBorderConfiguration extends IUnmodifiableNominable {
+public interface IUnmodifiableBorderConfiguration extends IUnmodifiableNominable, ITimeLineObserver {
 
 	/**
 	 * @return The world on which this configuration is applied.
@@ -52,4 +53,12 @@ public interface IUnmodifiableBorderConfiguration extends IUnmodifiableNominable
 	 * @return The time it take to move the border from its initial diameter to its final diameter.
 	 */
 	LocalTime getMoveTime();
+
+	@Override
+	default void timeChanged(LocalTime time) {
+		if (time.equals(getInitialTime()))
+			getWorld().getWorldBorder().setSize(getInitialBorderDiameter());
+		else if (time.equals(getStartTime()))
+			getWorld().getWorldBorder().setSize(getFinalBorderDiameter(), getInitialBorderDiameter().longValue() / getBorderSpeed().longValue());
+	}
 }
