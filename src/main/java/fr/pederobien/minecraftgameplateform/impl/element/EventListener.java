@@ -7,7 +7,7 @@ import fr.pederobien.minecraftgameplateform.interfaces.element.IEventListener;
 public class EventListener implements IEventListener {
 	private boolean isRegistered, isActivated;
 
-	protected EventListener() {
+	public EventListener() {
 		isRegistered = false;
 		isActivated = false;
 	}
