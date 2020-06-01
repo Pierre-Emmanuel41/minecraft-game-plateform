@@ -24,6 +24,7 @@ public abstract class AbstractGameBorderConfiguration extends AbstractGameConfig
 	protected AbstractGameBorderConfiguration(String name) {
 		super(name);
 		configurations = new HashMap<World, List<IBorderConfiguration>>();
+		list = new ArrayList<IBorderConfiguration>();
 	}
 
 	@Override
