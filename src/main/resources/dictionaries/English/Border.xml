@@ -35,7 +35,7 @@
 		</message>
 		<message>
 			<code>CURRENT_BORDER__ON_CURRENT</code>
-			<value>Current border's characteristics :\n%s</value>
+			<value>Current border's characteristics :%n%s</value>
 		</message>
 		<message>
 			<code>LOAD_BORDER__EXPLANATION</code>
@@ -75,11 +75,11 @@
 		</message>
 		<message>
 			<code>LIST_BORDER__ONE_ELEMENT</code>
-			<value>There is one existing border :\n%s</value>
+			<value>There is one existing border :%n%s</value>
 		</message>
 		<message>
 			<code>LIST_BORDER__SEVERAL_ELEMENTS</code>
-			<value>List of existing borders :\n%s</value>
+			<value>List of existing borders :%n%s</value>
 		</message>
 		<message>
 			<code>RENAME_BORDER__EXPLANATION</code>

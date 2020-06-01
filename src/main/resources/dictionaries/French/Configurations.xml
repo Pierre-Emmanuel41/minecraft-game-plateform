@@ -63,11 +63,11 @@
 		</message>
 		<message>
 			<code permission="ALL">LIST__ONE_EXISTING_TEAM</code>
-			<value>Il y a une équipe enregistrée pour la configuration %s:\n%s</value>
+			<value>Il y a une équipe enregistrée pour la configuration %s:%n%s</value>
 		</message>
 		<message>
 			<code permission="ALL">LIST__SEVERAL_EXISTING_TEAMS</code>
-			<value>Liste des équipes pour la configuration %s:\n%s</value>
+			<value>Liste des équipes pour la configuration %s:%n%s</value>
 		</message>
 		<message>
 			<code>MOVE__EXPLANATION</code>

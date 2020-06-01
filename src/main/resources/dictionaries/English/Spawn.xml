@@ -91,11 +91,11 @@
 		</message>
 		<message>
 			<code>LIST_SPAWN__ONE_ELEMENT</code>
-			<value>One existing spawn :\n%s</value>
+			<value>One existing spawn :%n%s</value>
 		</message>
 		<message>
 			<code>LIST_SPAWN__SEVERAL_ELEMENTS</code>
-			<value>List of existing spawns :\n%s</value>
+			<value>List of existing spawns :%n%s</value>
 		</message>
 		<message>
 			<code>DELETE_SPAWN__EXPLANATION</code>
@@ -155,7 +155,7 @@
 		</message>
 		<message>
 			<code>CURRENT_SPAWN__ON_CURRENT</code>
-			<value>Current spawn's characteristics :\n%s</value>
+			<value>Current spawn's characteristics :%n%s</value>
 		</message>
 		<message>
 			<code>PLAYER_SPAWN__EXPLANATION</code>

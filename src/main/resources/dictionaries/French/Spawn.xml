@@ -90,11 +90,11 @@
 		</message>
 		<message>
 			<code>LIST_SPAWN__ONE_ELEMENT</code>
-			<value>Il existe un spawn :\n%s</value>
+			<value>Il existe un spawn :%n%s</value>
 		</message>
 		<message>
 			<code>LIST_SPAWN__SEVERAL_ELEMENTS</code>
-			<value>Liste des spawns existants :\n%s</value>
+			<value>Liste des spawns existants :%n%s</value>
 		</message>
 		<message>
 			<code>DELETE_SPAWN__EXPLANATION</code>
@@ -154,7 +154,7 @@
 		</message>
 		<message>
 			<code>CURRENT_SPAWN__ON_CURRENT</code>
-			<value>Caractéristiques du spawn courant :\n%s</value>
+			<value>Caractéristiques du spawn courant :%n%s</value>
 		</message>
 		<message>
 			<code>PLAYER_SPAWN__EXPLANATION</code>
@@ -182,7 +182,7 @@
 		</message>
 		<message>
 			<code>ALLOW_MOB_TO_SPAWN_UNDER_SPAWN__DEFINED</code>
-			<value>La règle allowMobsUnderSpawn est définie sur : %b</value>
+			<value>La règle allowMobsUnderSpawn est définie sur : %s</value>
 		</message>
 	</messages>
 </dictionary>

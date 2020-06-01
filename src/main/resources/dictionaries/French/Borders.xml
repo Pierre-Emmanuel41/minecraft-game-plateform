@@ -62,11 +62,11 @@
 		</message>
 		<message>
 			<code>LIST_BORDERS__ALL_REGISTERED_BORDERS</code>
-			<value>Liste des bordures enregistrées pour tous les mondes :\n%s</value>
+			<value>Liste des bordures enregistrées pour tous les mondes :%n%s</value>
 		</message>
 		<message>
 			<code>LIST_BORDERS__REGISTERED_BORDERS_FOR_WORLD</code>
-			<value>Liste des bordures enregistrées pour le monde %s :\n%s</value>
+			<value>Liste des bordures enregistrées pour le monde %s :%n%s</value>
 		</message>
 		<message>
 			<code>DETAILS__EXPLANATION</code>
@@ -74,7 +74,7 @@
 		</message>
 		<message>
 			<code>DETAILS_BORDERS__DETAILS_ON_ALL_REGISTERED_BORDERS</code>
-			<value>Characteristiques de toutes bordures enregistrée pour la configuration %s :\n%s</value>
+			<value>Characteristiques de toutes bordures enregistrée pour la configuration %s :%n%s</value>
 		</message>
 		<message>
 			<code>DETAILS_BORDERS__BORDER_NOT_REGISTERED</code>
@@ -82,7 +82,7 @@
 		</message>
 		<message>
 			<code>DETAILS_BORDERS__DETAILS_ON_SOME_BORDERS</code>
-			<value>Charactéristiques des bordures %s :\n%s</value>
+			<value>Charactéristiques des bordures %s :%n%s</value>
 		</message>
 		
 	</messages>
