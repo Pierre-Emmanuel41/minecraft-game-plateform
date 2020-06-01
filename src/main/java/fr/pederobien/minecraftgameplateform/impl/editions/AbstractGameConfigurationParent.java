@@ -6,6 +6,7 @@ import fr.pederobien.minecraftdictionary.interfaces.IMinecraftMessageCode;
 import fr.pederobien.minecraftgameplateform.commands.common.CommonCurrent;
 import fr.pederobien.minecraftgameplateform.commands.common.CommonDelete;
 import fr.pederobien.minecraftgameplateform.commands.common.CommonList;
+import fr.pederobien.minecraftgameplateform.commands.common.CommonLoad;
 import fr.pederobien.minecraftgameplateform.commands.common.CommonNew;
 import fr.pederobien.minecraftgameplateform.commands.common.CommonRename;
 import fr.pederobien.minecraftgameplateform.commands.common.CommonSave;
@@ -25,6 +26,7 @@ public abstract class AbstractGameConfigurationParent<T extends IGameConfigurati
 		addEdition(getListEdition());
 		addEdition(getDeleteEdition());
 		addEdition(getCurrentEdition());
+		addEdition(getLoadEdition());
 		addEdition(GameConfigurationEditionFactory.asCurrentEdition());
 		addEdition(GameConfigurationEditionFactory.teamEdition());
 		addEdition(GameConfigurationEditionFactory.pvpTime());
@@ -73,4 +75,11 @@ public abstract class AbstractGameConfigurationParent<T extends IGameConfigurati
 	 * @return An edition to display current configuration's characteristics.
 	 */
 	protected abstract IMapPersistenceEdition<T> getCurrentEdition();
+
+	/**
+	 * The returned edition should extends {@link CommonLoad} for more security.
+	 * 
+	 * @return An edition to load a game configuration in order to modify it.
+	 */
+	protected abstract IMapPersistenceEdition<T> getLoadEdition();
 }
