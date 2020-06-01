@@ -34,7 +34,8 @@ public abstract class AbstractGameBorderConfiguration extends AbstractGameConfig
 
 	@Override
 	public List<IBorderConfiguration> getBorders(World world) {
-		return Collections.unmodifiableList(configurations.get(world));
+		List<IBorderConfiguration> list = configurations.get(world);
+		return Collections.unmodifiableList(list == null ? new ArrayList<IBorderConfiguration>() : list);
 	}
 
 	@Override
@@ -48,8 +49,10 @@ public abstract class AbstractGameBorderConfiguration extends AbstractGameConfig
 	@Override
 	public void add(IBorderConfiguration configuration) {
 		List<IBorderConfiguration> listConf = configurations.get(configuration.getWorld());
-		if (listConf == null)
+		if (listConf == null) {
 			listConf = new ArrayList<IBorderConfiguration>();
+			configurations.put(configuration.getWorld(), listConf);
+		}
 
 		if (listConf.contains(configuration))
 			throw new BorderConfigurationAlreadyRegisteredException(this, configuration);
@@ -104,7 +107,7 @@ public abstract class AbstractGameBorderConfiguration extends AbstractGameConfig
 	}
 
 	/**
-	 * Get a string that looks like : <code>WorldName + "[" + borderName1 + " " + .. + " " + borderNameN + "]"</code>.
+	 * Get a string that looks like : <code>WorldName + " [" + borderName1 + " " + .. + " " + borderNameN + "]"</code>.
 	 * 
 	 * @param world The world used as key to filter all registered border configurations.
 	 * @return A string to display all registered borders for the given world.
@@ -112,11 +115,11 @@ public abstract class AbstractGameBorderConfiguration extends AbstractGameConfig
 	protected String getWorldBorders(World world) {
 		List<IBorderConfiguration> configurations = getBorders(world);
 		if (configurations == null)
-			return WorldManager.getWorldNameNormalised(world) + "[]";
+			return WorldManager.getWorldNameNormalised(world) + " []";
 
 		StringJoiner joiner = new StringJoiner(" ", "[", "]");
 		for (IBorderConfiguration conf : getBorders(world))
 			joiner.add(conf.getName());
-		return WorldManager.getWorldNameNormalised(world) + joiner.toString();
+		return WorldManager.getWorldNameNormalised(world) + " " + joiner.toString();
 	}
 }
