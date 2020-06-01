@@ -53,7 +53,7 @@
 			<value>La bordure %s a été enlevée de la configuration %s</value>
 		</message>
 		<message>
-			<code>REMOVE_BORDERS__ONE_BORDER_REMOVED</code>
+			<code>REMOVE_BORDERS__SEVERAL_BORDERS_REMOVED</code>
 			<value>Les bordures %s ont été enlevées de la configuration %s</value>
 		</message>
 		<message>

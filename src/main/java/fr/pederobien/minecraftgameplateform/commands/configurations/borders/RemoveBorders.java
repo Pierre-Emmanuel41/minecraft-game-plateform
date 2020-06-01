@@ -20,7 +20,8 @@ public class RemoveBorders<T extends IGameBorderConfiguration> extends AbstractB
 	public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
 		List<IBorderConfiguration> configurations;
 		try {
-			configurations = getConfigurationsFromGameConfiguration();
+			configurations = getConfigurationsFromGameConfiguration(args);
+			get().remove(configurations);
 		} catch (BorderConfigurationNotRegisteredException e) {
 			sendMessageToSender(sender, EBordersMessageCode.REMOVE_BORDERS__BORDER_NOT_REGISTERED, e.getConfigurationName(), get().getName());
 			return false;

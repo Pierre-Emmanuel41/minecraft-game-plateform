@@ -54,7 +54,7 @@
 			<value>The border %s has been removed from configuration %s</value>
 		</message>
 		<message>
-			<code>REMOVE_BORDERS__ONE_BORDER_REMOVED</code>
+			<code>REMOVE_BORDERS__SEVERAL_BORDERS_REMOVED</code>
 			<value>Borders %s have been removed from configuration %s</value>
 		</message>
 		<message>
