@@ -15,6 +15,8 @@ public class SpawnCommand extends AbstractParentCommand<ISpawn> {
 
 	@Override
 	public <U extends IGame> void onGameIsStarted(U IGame) {
-		getParent().get().getListener().setActivated(false);
+		// Check if a spawn has been launched
+		if (getParent().get() != null)
+			getParent().get().getListener().setActivated(false);
 	}
 }
