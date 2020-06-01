@@ -1,5 +1,6 @@
 package fr.pederobien.minecraftgameplateform.helpers;
 
+import java.util.List;
 import java.util.Optional;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
@@ -7,6 +8,7 @@ import java.util.stream.Stream;
 
 import org.bukkit.Location;
 import org.bukkit.World;
+import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
 import org.bukkit.scoreboard.Team;
 
@@ -27,14 +29,15 @@ public class TeamHelper {
 	}
 
 	/**
-	 * Creates a {@link Team} for each {@link ITeam} present in the given stream.
+	 * Creates a {@link Team} for each {@link ITeam} present in the given list.
 	 * 
-	 * @param teams A stream that contains all teams to create on the server.
+	 * @param teams A list that contains all teams to create on the server.
 	 * 
 	 * @see #createTeamOnServer(ITeam)
 	 */
-	public static Stream<Team> createTeamsOnServer(Stream<ITeam> teams) {
-		return teams.peek(team -> createTeamOnServer(team)).map(team -> team.getServerTeam().get());
+	public static void createTeamsOnServer(List<ITeam> teams) {
+		for (ITeam team : teams)
+			createTeamOnServer(team);
 	}
 
 	/**
@@ -81,13 +84,14 @@ public class TeamHelper {
 	/**
 	 * Get a random location from the {@link WorldManager} and teleport each player of the given team at this location.
 	 * 
-	 * @param team  The team to teleport.
-	 * @param world The world into which players are randomly teleported.
-	 * @param bound The bound used to define a random location.
+	 * @param team   The team to teleport.
+	 * @param world  The world into which players are randomly teleported.
+	 * @param center The center used to be sure the random location is inside the area represented by the center and the bound.
+	 * @param bound  The bound used to define a random location.
 	 * 
 	 * @see WorldManager#getRandomlyLocation(org.bukkit.World, int)
 	 */
-	public static void teleportTeamRandomly(ITeam team, World world, int bound) {
-		teleportTeam(team, WorldManager.getRandomlyLocation(world, bound));
+	public static void teleportTeamRandomly(ITeam team, World world, Block center, int bound) {
+		teleportTeam(team, WorldManager.getRandomlyLocation(world, center, bound));
 	}
 }
