@@ -9,6 +9,7 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 import org.bukkit.World;
+import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
 
 import fr.pederobien.minecraftgameplateform.exceptions.ColorNotFoundException;
@@ -118,8 +119,8 @@ public class GameConfigurationHelper implements IGameConfigurationHelper {
 	}
 
 	@Override
-	public void teleportTeamsRandomly(World world, int bound) {
-		getTeamsStream().peek(team -> TeamHelper.teleportTeamRandomly(team, world, bound));
+	public void teleportTeamsRandomly(World world, Block center, int bound) {
+		getTeamsStream().peek(team -> TeamHelper.teleportTeamRandomly(team, world, center, bound));
 	}
 
 	@Override

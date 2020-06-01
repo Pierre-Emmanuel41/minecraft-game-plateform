@@ -6,6 +6,7 @@ import java.util.function.Predicate;
 import java.util.stream.Stream;
 
 import org.bukkit.World;
+import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
 
 import fr.pederobien.minecraftgameplateform.exceptions.ColorNotFoundException;
@@ -141,10 +142,11 @@ public interface IGameConfigurationHelper {
 	/**
 	 * Teleport randomly each team of this configuration.
 	 * 
-	 * @param world The world in which teams are teleported.
-	 * @param bound The bound used to define a random location.
+	 * @param world  The world in which teams are teleported.
+	 * @param center The center used to be sure the random location is inside the area represented by the center and the bound.
+	 * @param bound  The bound used to define a random location.
 	 */
-	void teleportTeamsRandomly(World world, int bound);
+	void teleportTeamsRandomly(World world, Block center, int bound);
 
 	/**
 	 * Add the given player to the team represented by the given name.
