@@ -14,16 +14,15 @@ import org.bukkit.World;
 
 import fr.pederobien.minecraftgameplateform.exceptions.configurations.BorderConfigurationAlreadyRegisteredException;
 import fr.pederobien.minecraftgameplateform.interfaces.element.IBorderConfiguration;
-import fr.pederobien.minecraftgameplateform.interfaces.element.IGame;
 import fr.pederobien.minecraftgameplateform.interfaces.element.IGameBorderConfiguration;
 import fr.pederobien.minecraftmanagers.WorldManager;
 
-public class GameBorderConfiguration extends GameConfiguration implements IGameBorderConfiguration {
+public abstract class AbstractGameBorderConfiguration extends AbstractGameConfiguration implements IGameBorderConfiguration {
 	private Map<World, List<IBorderConfiguration>> configurations;
 	private List<IBorderConfiguration> list;
 
-	protected GameBorderConfiguration(String name, IGame game) {
-		super(name, game);
+	protected AbstractGameBorderConfiguration(String name) {
+		super(name);
 		configurations = new HashMap<World, List<IBorderConfiguration>>();
 	}
 

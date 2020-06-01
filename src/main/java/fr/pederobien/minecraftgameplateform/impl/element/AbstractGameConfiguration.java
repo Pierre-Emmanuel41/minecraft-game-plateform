@@ -6,25 +6,17 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
-import fr.pederobien.minecraftgameplateform.interfaces.element.IGame;
 import fr.pederobien.minecraftgameplateform.interfaces.element.IGameConfiguration;
 import fr.pederobien.minecraftgameplateform.interfaces.element.ITeam;
 
-public class GameConfiguration extends AbstractNominable implements IGameConfiguration {
+public abstract class AbstractGameConfiguration extends AbstractNominable implements IGameConfiguration {
 	private static final LocalTime DEFAULT_PVP_TIME = LocalTime.of(0, 0, 0);
-	private IGame game;
 	private List<ITeam> teams;
 	private LocalTime pvpTime;
 
-	protected GameConfiguration(String name, IGame game) {
+	protected AbstractGameConfiguration(String name) {
 		super(name);
-		this.game = game;
 		teams = new ArrayList<ITeam>();
-	}
-
-	@Override
-	public IGame getGame() {
-		return game;
 	}
 
 	@Override
