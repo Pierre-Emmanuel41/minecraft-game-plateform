@@ -50,6 +50,11 @@ public class GameConfigurationContext implements IGameConfigurationContext {
 	}
 
 	@Override
+	public void setName(String name) {
+		getGameConfiguration().setName(name);
+	}
+
+	@Override
 	public IGame getGame() {
 		return getGameConfiguration().getGame();
 	}

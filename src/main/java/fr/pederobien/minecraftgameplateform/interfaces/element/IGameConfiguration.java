@@ -5,7 +5,7 @@ import java.util.List;
 
 import fr.pederobien.minecraftgameplateform.interfaces.element.unmodifiable.IUnmodifiableGameConfiguration;
 
-public interface IGameConfiguration extends IUnmodifiableGameConfiguration {
+public interface IGameConfiguration extends INominable, IUnmodifiableGameConfiguration {
 
 	/**
 	 * Append the given team to this configuration.
