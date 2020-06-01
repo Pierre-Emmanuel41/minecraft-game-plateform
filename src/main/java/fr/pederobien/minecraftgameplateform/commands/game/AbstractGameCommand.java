@@ -72,7 +72,7 @@ public abstract class AbstractGameCommand extends AbstractCommand {
 	 * @param args    Arguments that could be useful to send dynamic messages.
 	 */
 	protected void sendMessageToPlayers(Stream<Player> players, IMinecraftMessageCode code, String... args) {
-		players.peek(player -> sendMessage(player, code, args));
+		players.forEach(player -> sendMessage(player, code, args));
 	}
 
 	/**
