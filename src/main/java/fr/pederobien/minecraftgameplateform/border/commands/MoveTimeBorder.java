@@ -34,7 +34,7 @@ public class MoveTimeBorder extends AbstractLabelEdition<IBorderConfiguration> {
 			sendMessageToSender(sender, ECommonMessageCode.COMMON_BAD_TIME_FORMAT);
 			return false;
 		}
-		sendMessageToSender(sender, EBorderMessageCode.MOVE_TIME_BORDER__MOVE_TIME_DEFINED, get().getName(), toString(get().getMoveTime()),
+		sendMessageToSender(sender, EBorderMessageCode.MOVE_TIME_BORDER__MOVE_TIME_DEFINED, get().getName(), toString(get().getMoveTime(), false),
 				DisplayHelper.format(get().getBorderSpeed()));
 		return true;
 	}

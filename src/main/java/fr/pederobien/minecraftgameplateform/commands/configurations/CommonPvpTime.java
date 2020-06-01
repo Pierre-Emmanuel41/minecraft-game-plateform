@@ -8,7 +8,6 @@ import java.util.List;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 
-import fr.pederobien.minecraftdevelopmenttoolkit.utils.DisplayHelper;
 import fr.pederobien.minecraftgameplateform.dictionary.ECommonMessageCode;
 import fr.pederobien.minecraftgameplateform.dictionary.EGameConfigurationMessageCode;
 import fr.pederobien.minecraftgameplateform.interfaces.element.IGameConfiguration;
@@ -26,7 +25,7 @@ public class CommonPvpTime<T extends IGameConfiguration> extends AbstractGameCon
 			if (get().getPvpTime().equals(LocalTime.of(0, 0, 0)))
 				sendMessageToSender(sender, EGameConfigurationMessageCode.PVP_TIME__PVP_ENABLED_AT_THE_BEGINNING);
 			else
-				sendMessageToSender(sender, EGameConfigurationMessageCode.PVP_TIME__TIME_DEFINED, DisplayHelper.toString(get().getPvpTime()));
+				sendMessageToSender(sender, EGameConfigurationMessageCode.PVP_TIME__TIME_DEFINED, toString(get().getPvpTime(), false));
 			return true;
 		} catch (IndexOutOfBoundsException e) {
 			sendMessageToSender(sender, EGameConfigurationMessageCode.PVP_TIME__TIME_IS_MISSING);

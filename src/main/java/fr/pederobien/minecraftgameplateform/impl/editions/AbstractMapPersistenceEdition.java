@@ -76,11 +76,12 @@ public abstract class AbstractMapPersistenceEdition<T extends IUnmodifiableNomin
 	 * Method used to display the given time to minecraft player.
 	 * 
 	 * @param time The time to display.
+	 * @param full True if the method show hours, minutes or second even if it equals 0.
 	 * 
 	 * @return time.getHour() + "h " + time.getMinute() + "m " + time.getSecond() + "s";
 	 */
-	protected String toString(LocalTime time) {
-		return DisplayHelper.toString(time);
+	protected String toString(LocalTime time, boolean full) {
+		return DisplayHelper.toString(time, full);
 	}
 
 	/**

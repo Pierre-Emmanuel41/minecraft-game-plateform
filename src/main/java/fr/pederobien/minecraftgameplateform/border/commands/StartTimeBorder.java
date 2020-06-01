@@ -34,7 +34,7 @@ public class StartTimeBorder extends AbstractLabelEdition<IBorderConfiguration> 
 			return false;
 		}
 
-		sendMessageToSender(sender, EBorderMessageCode.START_TIME_BORDER__START_TIME_DEFINED, get().getName(), toString(get().getStartTime()));
+		sendMessageToSender(sender, EBorderMessageCode.START_TIME_BORDER__START_TIME_DEFINED, get().getName(), toString(get().getStartTime(), false));
 		return true;
 	}
 

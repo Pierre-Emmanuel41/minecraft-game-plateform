@@ -34,7 +34,7 @@ public class InitialTimeBorder extends AbstractLabelEdition<IBorderConfiguration
 			return false;
 		}
 
-		sendMessageToSender(sender, EBorderMessageCode.INITIAL_TIME_BORDER__TIME_DEFINED, get().getName(), toString(get().getInitialTime()));
+		sendMessageToSender(sender, EBorderMessageCode.INITIAL_TIME_BORDER__TIME_DEFINED, get().getName(), toString(get().getInitialTime(), false));
 		return true;
 	}
 

@@ -131,9 +131,9 @@ public class BorderConfiguration extends AbstractNominable implements IBorderCon
 		joiner.add("Initial diameter : " + display(initialDiameter, getInitialBorderDiameter() + " blocks"));
 		joiner.add("Final diameter : " + display(finalDiameter, getFinalBorderDiameter() + " blocks"));
 		joiner.add("Speed : " + display(borderSpeed, DisplayHelper.format(getBorderSpeed()) + " block/s"));
-		joiner.add("Initial time : " + display(initialTime, showTime(getInitialTime())));
-		joiner.add("Start time : " + display(startTime, showTime(getInitialTime())));
-		joiner.add("Move time : " + DisplayHelper.toString(getMoveTime()));
+		joiner.add("Initial time : " + display(initialTime, DisplayHelper.toString(getInitialTime(), true)));
+		joiner.add("Start time : " + display(startTime, DisplayHelper.toString(getStartTime(), true)));
+		joiner.add("Move time : " + DisplayHelper.toString(getMoveTime(), true));
 		joiner.add("End time : " + getStartTime().plusSeconds(getMoveTime().toSecondOfDay()));
 		return joiner.toString();
 	}
@@ -144,9 +144,5 @@ public class BorderConfiguration extends AbstractNominable implements IBorderCon
 
 	private Double getDistance() {
 		return (double) Math.abs(getInitialBorderDiameter() - getFinalBorderDiameter());
-	}
-
-	private String showTime(LocalTime time) {
-		return time.equals(LocalTime.of(0, 0, 0)) ? "Beginning" : DisplayHelper.toString(time);
 	}
 }
