@@ -29,13 +29,13 @@ public abstract class AbstractGameBorderConfiguration extends AbstractGameConfig
 
 	@Override
 	public List<IBorderConfiguration> getBorders() {
-		return Collections.unmodifiableList(list);
+		return sort(list);
 	}
 
 	@Override
 	public List<IBorderConfiguration> getBorders(World world) {
 		List<IBorderConfiguration> list = configurations.get(world);
-		return Collections.unmodifiableList(list == null ? new ArrayList<IBorderConfiguration>() : list);
+		return list == null ? Collections.unmodifiableList(new ArrayList<IBorderConfiguration>()) : sort(list);
 	}
 
 	@Override
@@ -95,7 +95,7 @@ public abstract class AbstractGameBorderConfiguration extends AbstractGameConfig
 		List<IBorderConfiguration> removed = confs == null ? new ArrayList<>() : confs;
 
 		list.removeIf(conf -> conf.getWorld().equals(world));
-		return removed;
+		return sort(removed);
 	}
 
 	@Override
@@ -103,7 +103,7 @@ public abstract class AbstractGameBorderConfiguration extends AbstractGameConfig
 		configurations.clear();
 		List<IBorderConfiguration> removedList = new ArrayList<>(list);
 		list.clear();
-		return removedList;
+		return sort(removedList);
 	}
 
 	/**
@@ -121,5 +121,10 @@ public abstract class AbstractGameBorderConfiguration extends AbstractGameConfig
 		for (IBorderConfiguration conf : getBorders(world))
 			joiner.add(conf.getName());
 		return WorldManager.getWorldNameNormalised(world) + " " + joiner.toString();
+	}
+
+	private List<IBorderConfiguration> sort(List<IBorderConfiguration> list) {
+		Collections.sort(list);
+		return list;
 	}
 }

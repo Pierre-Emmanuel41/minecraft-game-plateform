@@ -31,6 +31,11 @@ public class BorderConfiguration extends AbstractNominable implements IBorderCon
 	}
 
 	@Override
+	public int compareTo(IBorderConfiguration o) {
+		return getInitialTime().compareTo(o.getInitialTime());
+	}
+
+	@Override
 	public World getWorld() {
 		return world == null ? DEFAULT_WORLD : world;
 	}

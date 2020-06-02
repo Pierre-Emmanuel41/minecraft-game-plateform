@@ -5,7 +5,7 @@ import java.time.LocalTime;
 import fr.pederobien.minecraftgameplateform.exceptions.worldstructure.WorldNotFoundException;
 import fr.pederobien.minecraftgameplateform.interfaces.element.unmodifiable.IUnmodifiableBorderConfiguration;
 
-public interface IBorderConfiguration extends INominable, IUnmodifiableBorderConfiguration {
+public interface IBorderConfiguration extends Comparable<IBorderConfiguration>, INominable, IUnmodifiableBorderConfiguration {
 
 	/**
 	 * Set the world in which this configuration is applied.
