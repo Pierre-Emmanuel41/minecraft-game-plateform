@@ -50,14 +50,15 @@ public class TeamHelper {
 	}
 
 	/**
-	 * Remove each team present in the given stream from the server.
+	 * Remove each team present in the given list from the server.
 	 * 
-	 * @param teams A stream that contains all teams to remove from the server.
+	 * @param teams A list that contains all teams to remove from the server.
 	 * 
 	 * @see #removeTeamFromServer(ITeam)
 	 */
-	public static void removeTeamsFromServer(Stream<ITeam> teams) {
-		teams.peek(team -> removeTeamFromServer(team));
+	public static void removeTeamsFromServer(List<ITeam> teams) {
+		for (ITeam team : teams)
+			removeTeamFromServer(team);
 	}
 
 	/**
