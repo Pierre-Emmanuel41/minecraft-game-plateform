@@ -31,4 +31,12 @@ public interface IUnmodifiableGameBorderConfiguration extends IUnmodifiableGameC
 	 * @return An optional that contains the configuration if it is registered, an empty optional otherwise.
 	 */
 	Optional<IBorderConfiguration> getBorder(String name);
+
+	/**
+	 * Get the current active border configuration for the given world.
+	 * 
+	 * @param world The world used to get the current active border configuration.
+	 * @return An optional that contains the current active border if it exists, an empty optional otherwise.
+	 */
+	Optional<IBorderConfiguration> getCurrent(World world);
 }

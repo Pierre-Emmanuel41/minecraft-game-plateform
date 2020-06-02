@@ -19,11 +19,13 @@ import fr.pederobien.minecraftmanagers.WorldManager;
 
 public abstract class AbstractGameBorderConfiguration extends AbstractGameConfiguration implements IGameBorderConfiguration {
 	private Map<World, List<IBorderConfiguration>> configurations;
+	private Map<World, IBorderConfiguration> currents;
 	private List<IBorderConfiguration> list;
 
 	protected AbstractGameBorderConfiguration(String name) {
 		super(name);
 		configurations = new HashMap<World, List<IBorderConfiguration>>();
+		currents = new HashMap<World, IBorderConfiguration>();
 		list = new ArrayList<IBorderConfiguration>();
 	}
 
@@ -44,6 +46,12 @@ public abstract class AbstractGameBorderConfiguration extends AbstractGameConfig
 			if (configuration.getName().equals(name))
 				return Optional.of(configuration);
 		return Optional.empty();
+	}
+
+	@Override
+	public Optional<IBorderConfiguration> getCurrent(World world) {
+		IBorderConfiguration configuration = currents.get(world);
+		return configuration == null ? Optional.empty() : Optional.of(configuration);
 	}
 
 	@Override
@@ -104,6 +112,11 @@ public abstract class AbstractGameBorderConfiguration extends AbstractGameConfig
 		List<IBorderConfiguration> removedList = new ArrayList<>(list);
 		list.clear();
 		return sort(removedList);
+	}
+
+	@Override
+	public void setCurrent(IBorderConfiguration configuration) {
+		currents.put(configuration.getWorld(), configuration);
 	}
 
 	/**

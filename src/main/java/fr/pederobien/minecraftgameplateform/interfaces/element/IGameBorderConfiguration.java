@@ -47,4 +47,11 @@ public interface IGameBorderConfiguration extends IUnmodifiableGameBorderConfigu
 	 * @return The list of removed border configuration.
 	 */
 	List<IBorderConfiguration> clearBorders();
+
+	/**
+	 * Set the given configuration as active border configuration for the world associated to this configuration.
+	 * 
+	 * @param configuration The current configuration in the world associated to this configuration.
+	 */
+	void setCurrent(IBorderConfiguration configuration);
 }
