@@ -23,5 +23,6 @@ public class PauseTimeTaskState extends AbstractTimeTaskState {
 	@Override
 	public void stop() {
 		cancel();
+		getTask().setCurrentState(getTask().getInitialState());
 	}
 }

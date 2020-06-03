@@ -86,8 +86,7 @@ public class TimeTask extends Observable<ITimeTaskObserver> implements IStateTim
 
 	@Override
 	public ITimeTaskState setCurrentState(ITimeTaskState current) {
-		this.current = current;
-		return current;
+		return this.current = current;
 	}
 
 	@Override
