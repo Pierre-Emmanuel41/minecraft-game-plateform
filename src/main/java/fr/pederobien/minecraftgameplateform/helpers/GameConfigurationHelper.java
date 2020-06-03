@@ -120,7 +120,7 @@ public class GameConfigurationHelper implements IGameConfigurationHelper {
 
 	@Override
 	public void teleportTeamsRandomly(World world, Block center, int bound) {
-		getTeamsStream().peek(team -> TeamHelper.teleportTeamRandomly(team, world, center, bound));
+		getTeamsStream().forEach(team -> TeamHelper.teleportTeamRandomly(team, world, center, bound));
 	}
 
 	@Override
