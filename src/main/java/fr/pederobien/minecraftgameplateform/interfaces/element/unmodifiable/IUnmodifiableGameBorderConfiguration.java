@@ -15,13 +15,13 @@ public interface IUnmodifiableGameBorderConfiguration extends IUnmodifiableGameC
 	List<IBorderConfiguration> getBorders();
 
 	/**
-	 * Get a list of border configuration registered for the given world. This list is unmodifiable.
+	 * Get the registered border configuration for the given world if it exists.
 	 * 
 	 * @param world The world used as key to filter all registered border configurations.
 	 * 
-	 * @return A list that contains border configurations. This list is unmodifiable and could be empty.
+	 * @return An optional that contains the registered border configuration if it exists, an empty optional otherwise.
 	 */
-	List<IBorderConfiguration> getBorders(World world);
+	Optional<IBorderConfiguration> getBorder(World world);
 
 	/**
 	 * Get the configuration associated to the given name.
@@ -31,12 +31,4 @@ public interface IUnmodifiableGameBorderConfiguration extends IUnmodifiableGameC
 	 * @return An optional that contains the configuration if it is registered, an empty optional otherwise.
 	 */
 	Optional<IBorderConfiguration> getBorder(String name);
-
-	/**
-	 * Get the current active border configuration for the given world.
-	 * 
-	 * @param world The world used to get the current active border configuration.
-	 * @return An optional that contains the current active border if it exists, an empty optional otherwise.
-	 */
-	Optional<IBorderConfiguration> getCurrent(World world);
 }

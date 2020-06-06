@@ -66,7 +66,7 @@
 		</message>
 		<message>
 			<code>LIST_BORDERS__REGISTERED_BORDERS_FOR_WORLD</code>
-			<value>Liste des bordures enregistrées pour le monde %s :%n%s</value>
+			<value>Bordure enregistrée pour le monde %s</value>
 		</message>
 		<message>
 			<code>DETAILS__EXPLANATION</code>

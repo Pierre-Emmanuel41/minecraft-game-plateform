@@ -1,16 +1,19 @@
 package fr.pederobien.minecraftgameplateform.interfaces.element;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.bukkit.World;
 
 import fr.pederobien.minecraftgameplateform.exceptions.configurations.BorderConfigurationAlreadyRegisteredException;
+import fr.pederobien.minecraftgameplateform.exceptions.configurations.BorderConfigurationNotRegisteredException;
 import fr.pederobien.minecraftgameplateform.interfaces.element.unmodifiable.IUnmodifiableGameBorderConfiguration;
 
 public interface IGameBorderConfiguration extends IUnmodifiableGameBorderConfiguration, IGameConfiguration {
 
 	/**
-	 * Append the given border configuration to this game configuration.
+	 * Append the given border configuration to this game configuration. If a border configuration is already registered for the
+	 * world, then the former configuration is replaced.
 	 * 
 	 * @param configuration The border configuration to add.
 	 * 
@@ -22,6 +25,8 @@ public interface IGameBorderConfiguration extends IUnmodifiableGameBorderConfigu
 	 * Remove the given border configuration from this game configuration.
 	 * 
 	 * @param configuration The configuration to remove.
+	 * 
+	 * @throws BorderConfigurationNotRegisteredException If the the given configuration is not registered.
 	 */
 	void remove(IBorderConfiguration configuration);
 
@@ -33,13 +38,13 @@ public interface IGameBorderConfiguration extends IUnmodifiableGameBorderConfigu
 	void remove(List<IBorderConfiguration> configurations);
 
 	/**
-	 * Remove all border configuration registered for the given world.
+	 * Remove the border configuration registered for the given world.
 	 * 
 	 * @param world The world used as key to filter all registered border configurations.
 	 * 
-	 * @return A list that contains all removed border configuration, it could be empty.
+	 * @return An optional that contains the removed border configuration if it exists, an empty optional otherwise.
 	 */
-	List<IBorderConfiguration> remove(World world);
+	Optional<IBorderConfiguration> remove(World world);
 
 	/**
 	 * Remove each registered border configuration from this game configuration.
@@ -47,11 +52,4 @@ public interface IGameBorderConfiguration extends IUnmodifiableGameBorderConfigu
 	 * @return The list of removed border configuration.
 	 */
 	List<IBorderConfiguration> clearBorders();
-
-	/**
-	 * Set the given configuration as active border configuration for the world associated to this configuration.
-	 * 
-	 * @param configuration The current configuration in the world associated to this configuration.
-	 */
-	void setCurrent(IBorderConfiguration configuration);
 }

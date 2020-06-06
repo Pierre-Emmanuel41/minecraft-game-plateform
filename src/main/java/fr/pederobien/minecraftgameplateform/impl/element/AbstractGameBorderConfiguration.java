@@ -3,29 +3,25 @@ package fr.pederobien.minecraftgameplateform.impl.element;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Optional;
-import java.util.StringJoiner;
 
 import org.bukkit.World;
 
 import fr.pederobien.minecraftgameplateform.exceptions.configurations.BorderConfigurationAlreadyRegisteredException;
+import fr.pederobien.minecraftgameplateform.exceptions.configurations.BorderConfigurationNotRegisteredException;
 import fr.pederobien.minecraftgameplateform.interfaces.element.IBorderConfiguration;
 import fr.pederobien.minecraftgameplateform.interfaces.element.IGameBorderConfiguration;
 import fr.pederobien.minecraftmanagers.WorldManager;
 
 public abstract class AbstractGameBorderConfiguration extends AbstractGameConfiguration implements IGameBorderConfiguration {
-	private Map<World, List<IBorderConfiguration>> configurations;
-	private Map<World, IBorderConfiguration> currents;
+	private Map<World, IBorderConfiguration> configurations;
 	private List<IBorderConfiguration> list;
 
 	protected AbstractGameBorderConfiguration(String name) {
 		super(name);
-		configurations = new HashMap<World, List<IBorderConfiguration>>();
-		currents = new HashMap<World, IBorderConfiguration>();
+		configurations = new HashMap<World, IBorderConfiguration>();
 		list = new ArrayList<IBorderConfiguration>();
 	}
 
@@ -35,9 +31,8 @@ public abstract class AbstractGameBorderConfiguration extends AbstractGameConfig
 	}
 
 	@Override
-	public List<IBorderConfiguration> getBorders(World world) {
-		List<IBorderConfiguration> list = configurations.get(world);
-		return list == null ? Collections.unmodifiableList(new ArrayList<IBorderConfiguration>()) : sort(list);
+	public Optional<IBorderConfiguration> getBorder(World world) {
+		return Optional.ofNullable(configurations.get(world));
 	}
 
 	@Override
@@ -49,61 +44,44 @@ public abstract class AbstractGameBorderConfiguration extends AbstractGameConfig
 	}
 
 	@Override
-	public Optional<IBorderConfiguration> getCurrent(World world) {
-		IBorderConfiguration configuration = currents.get(world);
-		return configuration == null ? Optional.empty() : Optional.of(configuration);
-	}
-
-	@Override
 	public void add(IBorderConfiguration configuration) {
-		List<IBorderConfiguration> listConf = configurations.get(configuration.getWorld());
-		if (listConf == null) {
-			listConf = new ArrayList<IBorderConfiguration>();
-			configurations.put(configuration.getWorld(), listConf);
-		}
-
-		if (listConf.contains(configuration))
+		IBorderConfiguration border = configurations.get(configuration.getWorld());
+		if (border == null) {
+			configurations.put(configuration.getWorld(), configuration);
+			list.add(configuration);
+		} else if (border.getName().equals(configuration.getName()))
 			throw new BorderConfigurationAlreadyRegisteredException(this, configuration);
-
-		listConf.add(configuration);
-		list.add(configuration);
+		else {
+			list.remove(border);
+			configurations.put(configuration.getWorld(), configuration);
+			list.add(configuration);
+		}
 	}
 
 	@Override
 	public void remove(IBorderConfiguration configuration) {
-		List<IBorderConfiguration> listConf = configurations.get(configuration.getWorld());
-		if (listConf == null)
-			return;
+		IBorderConfiguration border = configurations.remove(configuration.getWorld());
 
-		listConf.remove(configuration);
-		list.remove(configuration);
+		if (border == null)
+			throw new BorderConfigurationNotRegisteredException(this, configuration.getName());
 
-		if (listConf.isEmpty())
-			configurations.remove(configuration.getWorld());
+		list.remove(border);
 	}
 
 	@Override
 	public void remove(List<IBorderConfiguration> configurations) {
-		Iterator<Entry<World, List<IBorderConfiguration>>> iterator = this.configurations.entrySet().iterator();
-		List<IBorderConfiguration> copy = new ArrayList<>(configurations);
-		while (iterator.hasNext() && copy.size() > 0) {
-			Entry<World, List<IBorderConfiguration>> entry = iterator.next();
-			for (int i = 0; i < configurations.size(); i++) {
-				IBorderConfiguration configuration = configurations.get(i);
-				if (entry.getKey().equals(configuration.getWorld()) && entry.getValue().remove(configuration))
-					copy.remove(configuration);
-			}
-		}
-		list.removeAll(configurations);
+		for (IBorderConfiguration border : configurations)
+			remove(border);
 	}
 
 	@Override
-	public List<IBorderConfiguration> remove(World world) {
-		List<IBorderConfiguration> confs = configurations.remove(world);
-		List<IBorderConfiguration> removed = confs == null ? new ArrayList<>() : confs;
+	public Optional<IBorderConfiguration> remove(World world) {
+		IBorderConfiguration border = configurations.remove(world);
+		Optional<IBorderConfiguration> optBorder = Optional.ofNullable(border);
 
-		list.removeIf(conf -> conf.getWorld().equals(world));
-		return sort(removed);
+		if (optBorder.isPresent())
+			list.remove(border);
+		return optBorder;
 	}
 
 	@Override
@@ -114,11 +92,6 @@ public abstract class AbstractGameBorderConfiguration extends AbstractGameConfig
 		return sort(removedList);
 	}
 
-	@Override
-	public void setCurrent(IBorderConfiguration configuration) {
-		currents.put(configuration.getWorld(), configuration);
-	}
-
 	/**
 	 * Get a string that looks like : <code>WorldName + " [" + borderName1 + " " + .. + " " + borderNameN + "]"</code>.
 	 * 
@@ -126,14 +99,8 @@ public abstract class AbstractGameBorderConfiguration extends AbstractGameConfig
 	 * @return A string to display all registered borders for the given world.
 	 */
 	protected String getWorldBorders(World world) {
-		List<IBorderConfiguration> configurations = getBorders(world);
-		if (configurations == null)
-			return WorldManager.getWorldNameNormalised(world) + " []";
-
-		StringJoiner joiner = new StringJoiner(" ", "[", "]");
-		for (IBorderConfiguration conf : getBorders(world))
-			joiner.add(conf.getName());
-		return WorldManager.getWorldNameNormalised(world) + " " + joiner.toString();
+		Optional<IBorderConfiguration> optBorder = getBorder(world);
+		return WorldManager.getWorldNameNormalised(world) + " : " + (optBorder.isPresent() ? optBorder.get().getName() : "none");
 	}
 
 	private List<IBorderConfiguration> sort(List<IBorderConfiguration> list) {

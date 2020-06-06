@@ -82,12 +82,15 @@ public class AbstractBorderGameConfigurationEdition<T extends IGameBorderConfigu
 	}
 
 	/**
-	 * Get a string to display the name of each registered configuration for the given world.
+	 * Get a string to display the name of the registered configuration for the given world. If any border is registered, then none is
+	 * displayed.
 	 * 
-	 * @param world The world used as key to get its border configurations.
-	 * @return A string that looks like : WorldName + [borderName1 borderName2 etc...]
+	 * @param world The world used as key to get its border configuration.
+	 * @return A string that looks like : <code>WorldName + " : " + borderName</code> if a border is registered.</br>
+	 *         <code>WorldName + " : none"</code> if any border is registered.
 	 */
 	protected String concat(World world) {
-		return WorldManager.getWorldNameNormalised(world) + "[" + concatNames(get().getBorders(world), " ") + "]";
+		Optional<IBorderConfiguration> optBorder = get().getBorder(world);
+		return WorldManager.getWorldNameNormalised(world) + " : " + (optBorder.isPresent() ? optBorder.get().getName() : " none ");
 	}
 }

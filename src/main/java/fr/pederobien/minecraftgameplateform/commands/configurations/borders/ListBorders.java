@@ -35,7 +35,7 @@ public class ListBorders<T extends IGameBorderConfiguration> extends AbstractBor
 			sendMessageToSender(sender, ECommonMessageCode.COMMON_WORLD_DOES_NOT_EXIST, name);
 			return false;
 		}
-		sendMessageToSender(sender, EBordersMessageCode.LIST_BORDERS__REGISTERED_BORDERS_FOR_WORLD, WorldManager.getWorldNameNormalised(world), concat(world));
+		sendMessageToSender(sender, EBordersMessageCode.LIST_BORDERS__REGISTERED_BORDER_FOR_WORLD, concat(world));
 		return true;
 	}
 
