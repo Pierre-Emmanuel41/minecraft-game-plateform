@@ -9,20 +9,34 @@ import java.util.stream.Stream;
 import fr.pederobien.minecraftgameplateform.interfaces.observer.IObservable;
 
 public class Observable<T> implements IObservable<T> {
-	private List<T> observers;
+	private List<T> observers, tempAddObserver, tempRemoveObserver;
+	private boolean isNotifying, addObserverFlag, removeObserverFlag;
 
 	public Observable() {
 		observers = new ArrayList<T>();
+		tempAddObserver = new ArrayList<T>();
+		tempRemoveObserver = new ArrayList<T>();
 	}
 
 	@Override
 	public void addObserver(T obs) {
-		observers.add(obs);
+		if (!isNotifying) {
+			observers.add(obs);
+			return;
+		}
+		addObserverFlag = true;
+		tempAddObserver.add(obs);
 	}
 
 	@Override
 	public void removeObserver(T obs) {
-		observers.remove(obs);
+		if (!isNotifying) {
+			observers.remove(obs);
+			return;
+		}
+
+		removeObserverFlag = true;
+		tempRemoveObserver.add(obs);
 	}
 
 	@Override
@@ -43,6 +57,18 @@ public class Observable<T> implements IObservable<T> {
 	}
 
 	private void internalNotify(Stream<T> observers, Consumer<T> consumer) {
+		isNotifying = true;
 		observers.forEach(consumer);
+		isNotifying = false;
+		if (addObserverFlag) {
+			tempAddObserver.forEach(obs -> this.observers.add(obs));
+			tempAddObserver.clear();
+			addObserverFlag = false;
+		}
+		if (removeObserverFlag) {
+			tempRemoveObserver.forEach(obs -> this.observers.remove(obs));
+			tempRemoveObserver.clear();
+			removeObserverFlag = false;
+		}
 	}
 }
