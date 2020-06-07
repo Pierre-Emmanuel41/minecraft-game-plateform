@@ -6,7 +6,6 @@ import java.util.StringJoiner;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 
-import fr.pederobien.dictionary.interfaces.IDictionaryManager;
 import fr.pederobien.minecraftdevelopmenttoolkit.impl.messagecode.AbstractMessageCodeHelper;
 import fr.pederobien.minecraftdevelopmenttoolkit.interfaces.IGenericEdition;
 import fr.pederobien.minecraftdictionary.impl.MinecraftMessageEvent;
@@ -32,8 +31,7 @@ public class ParentPersistenceHelper<T extends IUnmodifiableNominable> extends A
 	}
 
 	private String translate(Player player, IGenericEdition<IMinecraftMessageCode> edition) {
-		String explanation = ((IDictionaryManager) Plateform.getNotificationCenter().getDictionaryContext())
-				.getMessage(new MinecraftMessageEvent(player, edition.getExplanation()));
+		String explanation = Plateform.getNotificationCenter().getDictionaryContext().getMessage(new MinecraftMessageEvent(player, edition.getExplanation()));
 		return ChatColor.DARK_RED + edition.getLabel() + " - " + ChatColor.DARK_AQUA + explanation + "\n";
 	}
 }
