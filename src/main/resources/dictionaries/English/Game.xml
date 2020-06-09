@@ -31,8 +31,8 @@
 		</message>
 		
 		<message>
-			<code>GAME_TIME</code>
-			<value>Game time : </value>
+			<code>TOTAL_TIME</code>
+			<value>total time : </value>
 		</message>
 		<message>
 			<code>PAUSE_TIME</code>

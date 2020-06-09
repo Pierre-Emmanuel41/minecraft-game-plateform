@@ -24,6 +24,6 @@ public class TotalTimeEntry extends TimeTaskEntry {
 
 	@Override
 	protected IMinecraftMessageCode getBeforeAsCode(Player player) {
-		return EGameMessageCode.GAME_TIME;
+		return EGameMessageCode.TOTAL_TIME;
 	}
 }
