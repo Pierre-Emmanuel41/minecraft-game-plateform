@@ -29,5 +29,10 @@
 			<code>STOPPING_GAME</code>
 			<value>Stopping game</value>
 		</message>
+		
+		<message>
+			<code>GAME_TIME</code>
+			<value>Game time : </value>
+		</message>
 	</messages>
 </dictionary>

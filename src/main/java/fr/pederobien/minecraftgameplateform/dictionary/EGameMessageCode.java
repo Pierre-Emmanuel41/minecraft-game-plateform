@@ -5,7 +5,10 @@ import fr.pederobien.minecraftdictionary.interfaces.IMinecraftMessageCode;
 
 public enum EGameMessageCode implements IMinecraftMessageCode {
 	// Code for game messages
-	STARTING_GAME, NO_CONFIGURATION_SETTED, PAUSING_GAME, RESUMING_GAME, STOPPING_GAME;
+	STARTING_GAME, NO_CONFIGURATION_SETTED, PAUSING_GAME, RESUMING_GAME, STOPPING_GAME,
+
+	// Code for objective entries
+	GAME_TIME;
 
 	private Permission permission;
 
