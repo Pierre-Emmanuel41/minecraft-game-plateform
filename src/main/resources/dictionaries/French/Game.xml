@@ -33,5 +33,9 @@
 			<code>GAME_TIME</code>
 			<value>Temps de jeu : </value>
 		</message>
+		<message>
+			<code>PAUSE_TIME</code>
+			<value>Temps de pause : </value>
+		</message>
 	</messages>
 </dictionary>
