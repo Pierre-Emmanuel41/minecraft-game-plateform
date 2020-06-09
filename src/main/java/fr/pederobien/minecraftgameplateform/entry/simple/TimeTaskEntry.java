@@ -1,5 +1,10 @@
 package fr.pederobien.minecraftgameplateform.entry.simple;
 
+import java.time.LocalTime;
+
+import org.bukkit.entity.Player;
+
+import fr.pederobien.minecraftdevelopmenttoolkit.utils.DisplayHelper;
 import fr.pederobien.minecraftgameplateform.interfaces.runtime.task.ITimeTask;
 import fr.pederobien.minecraftgameplateform.utils.Plateform;
 
@@ -15,9 +20,19 @@ public abstract class TimeTaskEntry extends PlateformEntry {
 	}
 
 	/**
+	 * @return The time to display.
+	 */
+	protected abstract LocalTime getTime();
+
+	/**
 	 * @return A task that represent the time during a game.
 	 */
 	protected ITimeTask getTask() {
 		return Plateform.getTimeTask();
+	}
+
+	@Override
+	protected String updateCurrentValue(Player player) {
+		return DisplayHelper.toString(getTime(), false);
 	}
 }
