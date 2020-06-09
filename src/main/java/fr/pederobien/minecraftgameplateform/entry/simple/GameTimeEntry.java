@@ -14,7 +14,7 @@ public class GameTimeEntry extends TimeTaskEntry {
 	 * 
 	 * @param score The line number of this entry in the player objective.
 	 */
-	protected GameTimeEntry(int score) {
+	public GameTimeEntry(int score) {
 		super(score);
 	}
 

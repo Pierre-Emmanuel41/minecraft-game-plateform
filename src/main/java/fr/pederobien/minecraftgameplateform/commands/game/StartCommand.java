@@ -17,9 +17,13 @@ import fr.pederobien.minecraftmanagers.WorldManager;
 import fr.pederobien.persistence.interfaces.IUnmodifiableNominable;
 
 public class StartCommand extends AbstractGameCommand {
+	private ITimeLineObserver pvpActivator;
+	private boolean isRegistered;
 
 	public StartCommand(JavaPlugin plugin) {
 		super(plugin, "startgame");
+		pvpActivator = new PvpActivator();
+		isRegistered = false;
 	}
 
 	@Override
@@ -43,12 +47,7 @@ public class StartCommand extends AbstractGameCommand {
 		// Notify each command a game is started
 		notifyCommands(commands, cmd -> cmd.onGameIsStarted(getGameConfigurationContext().getGame()));
 
-		// Registering PvpActivator as timeLine observer
-		Plateform.getTimeLine().addObserver(getGameConfigurationContext().getPvpTime(), new PvpActivator());
-
-		// Registering the time line as time task observer
-		Plateform.getTimeTask().addObserver((TimeLine) Plateform.getTimeLine());
-		Plateform.getTimeTask().start(Plateform.getPlugin());
+		register();
 
 		setPvp(false);
 		return true;
@@ -58,6 +57,20 @@ public class StartCommand extends AbstractGameCommand {
 		WorldManager.setPVPInOverworld(pvp);
 		WorldManager.setPVPInNether(pvp);
 		WorldManager.setPVPInEnder(pvp);
+	}
+
+	private void register() {
+		if (isRegistered)
+			return;
+
+		// Registering PvpActivator as timeLine observer
+		Plateform.getTimeLine().addObserver(getGameConfigurationContext().getPvpTime(), pvpActivator);
+
+		// Registering the time line as time task observer
+		Plateform.getTimeTask().addObserver((TimeLine) Plateform.getTimeLine());
+		Plateform.getTimeTask().start(Plateform.getPlugin());
+
+		isRegistered = true;
 	}
 
 	private class PvpActivator implements ITimeLineObserver {
