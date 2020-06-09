@@ -8,7 +8,7 @@ public enum EGameMessageCode implements IMinecraftMessageCode {
 	STARTING_GAME, NO_CONFIGURATION_SETTED, PAUSING_GAME, RESUMING_GAME, STOPPING_GAME,
 
 	// Code for objective entries
-	TOTAL_TIME, PAUSE_TIME;
+	TOTAL_TIME, PAUSE_TIME, GAME_TIME;
 
 	private Permission permission;
 

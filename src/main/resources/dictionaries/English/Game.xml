@@ -38,5 +38,9 @@
 			<code>PAUSE_TIME</code>
 			<value>Pause time : </value>
 		</message>
+		<message>
+			<code>GAME_TIME</code>
+			<value>Game time : </value>
+		</message>
 	</messages>
 </dictionary>
