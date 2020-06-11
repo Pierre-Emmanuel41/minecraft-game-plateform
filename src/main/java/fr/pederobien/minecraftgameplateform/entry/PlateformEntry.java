@@ -1,4 +1,4 @@
-package fr.pederobien.minecraftgameplateform.entry.simple;
+package fr.pederobien.minecraftgameplateform.entry;
 
 import fr.pederobien.minecraftdevelopmenttoolkit.impl.entry.ToolkitEntry;
 import fr.pederobien.minecraftdictionary.interfaces.IMinecraftNotificationCenter;
