@@ -19,7 +19,7 @@ public class PauseTimeEntry extends TimeTaskEntry {
 	}
 
 	@Override
-	protected LocalTime getTime() {
+	public LocalTime getTime() {
 		return getTask().getPauseTime();
 	}
 

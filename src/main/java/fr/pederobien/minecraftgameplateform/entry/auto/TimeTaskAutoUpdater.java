@@ -1,5 +1,7 @@
 package fr.pederobien.minecraftgameplateform.entry.auto;
 
+import java.time.LocalTime;
+
 import fr.pederobien.minecraftgameplateform.entry.simple.TimeTaskEntry;
 import fr.pederobien.minecraftgameplateform.interfaces.runtime.task.ITimeTask;
 import fr.pederobien.minecraftgameplateform.interfaces.runtime.task.ITimeTaskObserver;
@@ -8,6 +10,7 @@ import fr.pederobien.minecraftscoreboards.impl.AbstractEntryUpdater;
 import fr.pederobien.minecraftscoreboards.interfaces.ISimpleObjective;
 
 public class TimeTaskAutoUpdater extends AbstractEntryUpdater<TimeTaskEntry> implements ITimeTaskObserver {
+	private LocalTime currentTime;
 
 	/**
 	 * Create an entry updater. This entry is responsible to update the source entry.
@@ -23,10 +26,16 @@ public class TimeTaskAutoUpdater extends AbstractEntryUpdater<TimeTaskEntry> imp
 	@Override
 	public void initialize() {
 		Plateform.getTimeTask().addObserver(this);
+		currentTime = getSource().getTime();
 	}
 
 	@Override
 	public void timeChanged(ITimeTask task) {
+		LocalTime tempTime = getSource().getTime();
+		if (currentTime.equals(tempTime))
+			return;
+
 		update();
+		currentTime = tempTime;
 	}
 }

@@ -22,7 +22,7 @@ public abstract class TimeTaskEntry extends PlateformEntry {
 	/**
 	 * @return The time to display.
 	 */
-	protected abstract LocalTime getTime();
+	public abstract LocalTime getTime();
 
 	/**
 	 * @return A task that represent the time during a game.

@@ -19,7 +19,7 @@ public class GameTimeEntry extends TimeTaskEntry {
 	}
 
 	@Override
-	protected LocalTime getTime() {
+	public LocalTime getTime() {
 		return getTask().getGameTime();
 	}
 
