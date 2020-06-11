@@ -7,9 +7,9 @@ import fr.pederobien.minecraftgameplateform.utils.Plateform;
 public abstract class PlateformEntry extends ToolkitEntry {
 
 	/**
-	 * Create an entry.
+	 * Constructs an entry that propose methods to display player language sensitive messages.
 	 * 
-	 * @param score The line number of this entry in the player objective.
+	 * @param score The line number of this entry.
 	 */
 	protected PlateformEntry(int score) {
 		super(score);
