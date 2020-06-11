@@ -1,8 +1,8 @@
-package fr.pederobien.minecraftgameplateform.entry.auto;
+package fr.pederobien.minecraftgameplateform.entries.auto;
 
 import java.time.LocalTime;
 
-import fr.pederobien.minecraftgameplateform.entry.simple.TimeTaskEntry;
+import fr.pederobien.minecraftgameplateform.entries.simple.TimeTaskEntry;
 import fr.pederobien.minecraftgameplateform.interfaces.runtime.task.ITimeTask;
 import fr.pederobien.minecraftgameplateform.interfaces.runtime.task.ITimeTaskObserver;
 import fr.pederobien.minecraftgameplateform.utils.Plateform;

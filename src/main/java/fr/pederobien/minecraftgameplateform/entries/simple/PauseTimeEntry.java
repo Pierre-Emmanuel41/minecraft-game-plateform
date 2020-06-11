@@ -1,4 +1,4 @@
-package fr.pederobien.minecraftgameplateform.entry.simple;
+package fr.pederobien.minecraftgameplateform.entries.simple;
 
 import java.time.LocalTime;
 
