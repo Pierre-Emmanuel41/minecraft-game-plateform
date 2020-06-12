@@ -6,10 +6,10 @@ import org.bukkit.World;
 import org.bukkit.WorldBorder;
 import org.bukkit.entity.Player;
 
-import fr.pederobien.minecraftgameplateform.entries.PlateformEntry;
+import fr.pederobien.minecraftgameplateform.interfaces.element.IBorderConfiguration;
 import fr.pederobien.minecraftmanagers.WorldManager;
 
-public class WorldBorderSizeEntry extends PlateformEntry {
+public class WorldBorderSizeEntry extends BorderConfigurationEntry {
 	private World world;
 	private DecimalFormat format;
 	private boolean displayHalfSize;
@@ -17,13 +17,13 @@ public class WorldBorderSizeEntry extends PlateformEntry {
 	/**
 	 * Create an entry that display the current size of the {@link WorldBorder} associated to the given world.
 	 * 
-	 * @param score   The line number of this entry in the player objective.
-	 * @param world   The world used to display the current size of its world border.
-	 * @param pattern A string used to format the world border size.
+	 * @param score         The line number of this entry in the player objective.
+	 * @param configuration The configuration used to get informations to display.
+	 * @param pattern       A string used to format the world border size.
 	 */
-	public WorldBorderSizeEntry(int score, World world, String pattern) {
-		super(score);
-		this.world = world;
+	public WorldBorderSizeEntry(int score, IBorderConfiguration configuration, String pattern) {
+		super(score, configuration);
+		this.world = configuration.getWorld();
 		this.format = new DecimalFormat(pattern);
 	}
 
