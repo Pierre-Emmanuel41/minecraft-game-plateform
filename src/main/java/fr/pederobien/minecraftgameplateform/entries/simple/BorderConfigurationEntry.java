@@ -6,6 +6,12 @@ import fr.pederobien.minecraftscoreboards.impl.AbstractSimpleEntry;
 public abstract class BorderConfigurationEntry extends AbstractSimpleEntry {
 	private IBorderConfiguration configuration;
 
+	/**
+	 * Create an entry to display informations about the given configuration.
+	 * 
+	 * @param score         The line number of this entry.
+	 * @param configuration The configuration used to get informations to display.
+	 */
 	protected BorderConfigurationEntry(int score, IBorderConfiguration configuration) {
 		super(score);
 		this.configuration = configuration;
