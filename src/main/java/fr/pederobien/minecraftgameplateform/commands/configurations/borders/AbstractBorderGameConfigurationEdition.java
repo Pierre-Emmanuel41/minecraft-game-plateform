@@ -49,12 +49,13 @@ public class AbstractBorderGameConfigurationEdition<T extends IGameBorderConfigu
 	protected List<IBorderConfiguration> getConfigurations(String... args) {
 		List<IBorderConfiguration> configurations = new ArrayList<IBorderConfiguration>();
 		String current = "";
+		PERSISTENCE.set(null);
 		try {
 			for (String name : args) {
 				current = name;
 				PERSISTENCE.load(name);
+				configurations.add(PERSISTENCE.get());
 			}
-			configurations.add(PERSISTENCE.get());
 		} catch (FileNotFoundException e) {
 			throw new ConfigurationNotFoundException(current);
 		}
