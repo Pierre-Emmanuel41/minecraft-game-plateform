@@ -84,6 +84,30 @@
 			<code>DETAILS_BORDERS__DETAILS_ON_SOME_BORDERS</code>
 			<value>Charactéristiques des bordures %s :%n%s</value>
 		</message>
+		<message>
+			<code>RELOAD_BORDERS__EXPLANATION</code>
+			<value>Pour recharger une bordure qui a été modifiée par la command "/border"</value>
+		</message>
+		<message>
+			<code>RELOAD_BORDERS__BORDER_NOT_REGISTERED</code>
+			<value>Impossible de recharger la bordure "%s", cette bordure n'est pas enregistrée pour la configuration %s</value>
+		</message>
+		<message>
+			<code>RELOAD_BORDERS__BORDER_DOES_NOT_EXIST</code>
+			<value>Impossible de recharger la bordure "%s", le fichier de cette bordure n'existe pas</value>
+		</message>
+		<message>
+			<code>RELOAD_BORDERS__ANY_BORDER_RELOADED</code>
+			<value>Aucune bordure n'a été rechargée</value>
+		</message>
+		<message>
+			<code>RELOAD_BORDERS__ONE_BORDER_RELOADED</code>
+			<value>La bordure %s a été rechargée</value>
+		</message>
+		<message>
+			<code>RELOAD_BORDERS__SEVERAL_BORDERS_RELOADED</code>
+			<value>Les bordures %s ont été rechargées</value>
+		</message>
 		
 	</messages>
 </dictionary>

@@ -3,7 +3,7 @@ package fr.pederobien.minecraftgameplateform.commands.configurations.borders;
 import fr.pederobien.minecraftgameplateform.interfaces.element.ILabel;
 
 public enum EBordersLabel implements ILabel {
-	ADD("add"), REMOVE("remove"), LIST("list"), DETAILS("details");
+	ADD("add"), REMOVE("remove"), LIST("list"), DETAILS("details"), RELOAD("reload");
 
 	private String label;
 

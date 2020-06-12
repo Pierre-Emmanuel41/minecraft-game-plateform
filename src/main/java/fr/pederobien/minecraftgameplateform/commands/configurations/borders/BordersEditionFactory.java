@@ -16,20 +16,27 @@ public class BordersEditionFactory {
 	 * @return An edition to remove border configurations from a game configuration.
 	 */
 	public static <T extends IGameBorderConfiguration> IMapPersistenceEdition<T> removeBorders() {
-		return new RemoveBorders<>();
+		return new RemoveBorders<T>();
 	}
 
 	/**
 	 * @return An edition to display the name of each registered borders for a game configuration.
 	 */
 	public static <T extends IGameBorderConfiguration> IMapPersistenceEdition<T> listBorders() {
-		return new ListBorders<>();
+		return new ListBorders<T>();
 	}
 
 	/**
 	 * @return An edition to display characteristics of registered borders.
 	 */
 	public static <T extends IGameBorderConfiguration> IMapPersistenceEdition<T> detailsBorders() {
-		return new DetailsBorders<>();
+		return new DetailsBorders<T>();
+	}
+
+	/**
+	 * @return An edition to reload registered borders for a game configuration.
+	 */
+	public static <T extends IGameBorderConfiguration> IMapPersistenceEdition<T> reloadBorders() {
+		return new ReloadBorders<T>();
 	}
 }
