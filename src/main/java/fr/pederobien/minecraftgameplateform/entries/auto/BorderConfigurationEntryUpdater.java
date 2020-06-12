@@ -13,7 +13,13 @@ import fr.pederobien.minecraftscoreboards.interfaces.ISimpleObjective;
 
 public class BorderConfigurationEntryUpdater<T extends BorderConfigurationEntry> extends AbstractEntryUpdater<T> implements ITimeTaskObserver, ITimeLineObserver {
 
-	protected BorderConfigurationEntryUpdater(ISimpleObjective objective, T source) {
+	/**
+	 * Create an entry updater. This entry is responsible to update the source entry.
+	 * 
+	 * @param objective The objective associated to the source entry.
+	 * @param source    The source tracked by this updater.
+	 */
+	public BorderConfigurationEntryUpdater(ISimpleObjective objective, T source) {
 		super(objective, source);
 	}
 
