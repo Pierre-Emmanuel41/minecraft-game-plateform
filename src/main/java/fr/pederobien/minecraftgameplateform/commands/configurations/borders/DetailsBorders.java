@@ -11,7 +11,7 @@ import fr.pederobien.minecraftgameplateform.exceptions.configurations.BorderConf
 import fr.pederobien.minecraftgameplateform.interfaces.element.IBorderConfiguration;
 import fr.pederobien.minecraftgameplateform.interfaces.element.IGameBorderConfiguration;
 
-public class DetailsBorders<T extends IGameBorderConfiguration> extends AbstractBorderGameConfigurationEdition<T> {
+public class DetailsBorders<T extends IGameBorderConfiguration> extends AbstractGameBorderConfigurationEdition<T> {
 
 	protected DetailsBorders() {
 		super(EBordersLabel.DETAILS, EBordersMessageCode.DETAILS__EXPLANATION);

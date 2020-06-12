@@ -11,7 +11,7 @@ import fr.pederobien.minecraftgameplateform.exceptions.configurations.Configurat
 import fr.pederobien.minecraftgameplateform.interfaces.element.IBorderConfiguration;
 import fr.pederobien.minecraftgameplateform.interfaces.element.IGameBorderConfiguration;
 
-public class ReloadBorders<T extends IGameBorderConfiguration> extends AbstractBorderGameConfigurationEdition<T> {
+public class ReloadBorders<T extends IGameBorderConfiguration> extends AbstractGameBorderConfigurationEdition<T> {
 
 	protected ReloadBorders() {
 		super(EBordersLabel.RELOAD, EBordersMessageCode.RELOAD_BORDERS__EXPLANATION);

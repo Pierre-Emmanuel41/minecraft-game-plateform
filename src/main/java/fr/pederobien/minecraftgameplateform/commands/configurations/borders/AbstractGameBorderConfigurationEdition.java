@@ -19,10 +19,10 @@ import fr.pederobien.minecraftgameplateform.interfaces.element.ILabel;
 import fr.pederobien.minecraftmanagers.WorldManager;
 import fr.pederobien.persistence.interfaces.IPersistence;
 
-public class AbstractBorderGameConfigurationEdition<T extends IGameBorderConfiguration> extends AbstractGameConfigurationEdition<T> {
+public class AbstractGameBorderConfigurationEdition<T extends IGameBorderConfiguration> extends AbstractGameConfigurationEdition<T> {
 	public static final IPersistence<IBorderConfiguration> PERSISTENCE = BorderPersistence.getInstance();
 
-	protected AbstractBorderGameConfigurationEdition(ILabel label, IMinecraftMessageCode explanation) {
+	protected AbstractGameBorderConfigurationEdition(ILabel label, IMinecraftMessageCode explanation) {
 		super(label, explanation);
 	}
 

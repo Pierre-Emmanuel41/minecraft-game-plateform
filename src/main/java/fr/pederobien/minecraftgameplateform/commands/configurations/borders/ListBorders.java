@@ -12,7 +12,7 @@ import fr.pederobien.minecraftgameplateform.dictionary.ECommonMessageCode;
 import fr.pederobien.minecraftgameplateform.interfaces.element.IGameBorderConfiguration;
 import fr.pederobien.minecraftmanagers.WorldManager;
 
-public class ListBorders<T extends IGameBorderConfiguration> extends AbstractBorderGameConfigurationEdition<T> {
+public class ListBorders<T extends IGameBorderConfiguration> extends AbstractGameBorderConfigurationEdition<T> {
 
 	protected ListBorders() {
 		super(EBordersLabel.LIST, EBordersMessageCode.LIST_BORDERS__EXPLANATION);

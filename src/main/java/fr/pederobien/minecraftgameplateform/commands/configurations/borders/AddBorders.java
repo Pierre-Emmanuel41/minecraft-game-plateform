@@ -12,7 +12,7 @@ import fr.pederobien.minecraftgameplateform.exceptions.configurations.Configurat
 import fr.pederobien.minecraftgameplateform.interfaces.element.IBorderConfiguration;
 import fr.pederobien.minecraftgameplateform.interfaces.element.IGameBorderConfiguration;
 
-public class AddBorders<T extends IGameBorderConfiguration> extends AbstractBorderGameConfigurationEdition<T> {
+public class AddBorders<T extends IGameBorderConfiguration> extends AbstractGameBorderConfigurationEdition<T> {
 
 	protected AddBorders() {
 		super(EBordersLabel.ADD, EBordersMessageCode.ADD_BORDERS__EXPLANATION);

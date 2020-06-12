@@ -10,7 +10,7 @@ import fr.pederobien.minecraftgameplateform.exceptions.configurations.BorderConf
 import fr.pederobien.minecraftgameplateform.interfaces.element.IBorderConfiguration;
 import fr.pederobien.minecraftgameplateform.interfaces.element.IGameBorderConfiguration;
 
-public class RemoveBorders<T extends IGameBorderConfiguration> extends AbstractBorderGameConfigurationEdition<T> {
+public class RemoveBorders<T extends IGameBorderConfiguration> extends AbstractGameBorderConfigurationEdition<T> {
 
 	protected RemoveBorders() {
 		super(EBordersLabel.REMOVE, EBordersMessageCode.REMOVE_BORDERS__EXPLANATION);
