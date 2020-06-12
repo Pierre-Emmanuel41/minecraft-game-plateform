@@ -1,0 +1,38 @@
+package fr.pederobien.minecraftgameplateform.entries.simple;
+
+import java.util.StringJoiner;
+
+import org.bukkit.Location;
+import org.bukkit.entity.Player;
+
+import fr.pederobien.minecraftgameplateform.entries.PlateformEntry;
+
+public class LocationEntry extends PlateformEntry {
+	private String delimiter;
+
+	/**
+	 * Create an entry that displays the current player location.
+	 * 
+	 * @param score     The line number of this entry.
+	 * @param delimiter The sequence of characters to be displayed between each element added.
+	 */
+	public LocationEntry(int score, String delimiter) {
+		super(score);
+		this.delimiter = delimiter;
+	}
+
+	/**
+	 * Create an entry that displays the current player location.
+	 * 
+	 * @param score The line number of this entry.
+	 */
+	public LocationEntry(int score) {
+		this(score, " ");
+	}
+
+	@Override
+	protected String updateCurrentValue(Player player) {
+		Location loc = player.getLocation();
+		return new StringJoiner(delimiter).add("" + loc.getBlockX()).add("" + loc.getBlockY()).add("" + loc.getBlockZ()).toString();
+	}
+}
