@@ -10,24 +10,20 @@
 	</locales>
 	<messages>
 		<message>
-			<code>NO_CONFIGURATION_SETTED</code>
-			<value>No game has been selected</value>
+			<code>TOTAL_TIME</code>
+			<value>total time : </value>
 		</message>
 		<message>
-			<code>STARTING_GAME</code>
-			<value>Starting %s</value>
+			<code>PAUSE_TIME</code>
+			<value>Pause time : </value>
 		</message>
 		<message>
-			<code>PAUSING_GAME</code>
-			<value>Pause</value>
+			<code>GAME_TIME</code>
+			<value>Game time : </value>
 		</message>
 		<message>
-			<code>RESUMING_GAME</code>
-			<value>Resume</value>
-		</message>
-		<message>
-			<code>STOPPING_GAME</code>
-			<value>Stopping game</value>
+			<code>CENTER</code>
+			<value>Center : </value>
 		</message>
 	</messages>
 </dictionary>

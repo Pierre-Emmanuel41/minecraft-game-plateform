@@ -5,7 +5,7 @@ import java.time.LocalTime;
 import org.bukkit.entity.Player;
 
 import fr.pederobien.minecraftdictionary.interfaces.IMinecraftMessageCode;
-import fr.pederobien.minecraftgameplateform.dictionary.EGameMessageCode;
+import fr.pederobien.minecraftgameplateform.entries.EEntryMessageCode;
 
 public class GameTimeEntry extends TimeTaskEntry {
 
@@ -25,6 +25,6 @@ public class GameTimeEntry extends TimeTaskEntry {
 
 	@Override
 	protected IMinecraftMessageCode getBeforeAsCode(Player player) {
-		return EGameMessageCode.GAME_TIME;
+		return EEntryMessageCode.GAME_TIME;
 	}
 }

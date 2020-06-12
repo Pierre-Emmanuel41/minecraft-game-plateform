@@ -1,19 +1,18 @@
-package fr.pederobien.minecraftgameplateform.dictionary;
+package fr.pederobien.minecraftgameplateform.entries;
 
 import fr.pederobien.minecraftdictionary.impl.Permission;
 import fr.pederobien.minecraftdictionary.interfaces.IMinecraftMessageCode;
 
-public enum EGameMessageCode implements IMinecraftMessageCode {
-	// Code for game messages
-	STARTING_GAME, NO_CONFIGURATION_SETTED, PAUSING_GAME, RESUMING_GAME, STOPPING_GAME;
+public enum EEntryMessageCode implements IMinecraftMessageCode {
+	TOTAL_TIME, PAUSE_TIME, GAME_TIME, CENTER;
 
 	private Permission permission;
 
-	private EGameMessageCode() {
-		this(Permission.OPERATORS);
+	private EEntryMessageCode() {
+		this(Permission.SENDER);
 	}
 
-	private EGameMessageCode(Permission permission) {
+	private EEntryMessageCode(Permission permission) {
 		this.permission = permission;
 	}
 
