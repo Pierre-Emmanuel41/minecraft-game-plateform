@@ -2,7 +2,7 @@ package fr.pederobien.minecraftgameplateform.entries.periodic;
 
 import fr.pederobien.minecraftgameplateform.entries.simple.HealthEntry;
 import fr.pederobien.minecraftscoreboards.impl.PeriodicUpdater;
-import fr.pederobien.minecraftscoreboards.interfaces.ISimpleObjective;
+import fr.pederobien.minecraftscoreboards.interfaces.IObjective;
 
 public class HealthPeriodicUpdater extends PeriodicUpdater<HealthEntry> {
 
@@ -15,7 +15,7 @@ public class HealthPeriodicUpdater extends PeriodicUpdater<HealthEntry> {
 	 * @param score     The line number of this entry.
 	 * @param pattern   A string used to format the player health on screen.
 	 */
-	public HealthPeriodicUpdater(ISimpleObjective objective, long delay, long period, HealthEntry source) {
+	public HealthPeriodicUpdater(IObjective objective, long delay, long period, HealthEntry source) {
 		super(objective, delay, period, source);
 	}
 
@@ -27,7 +27,7 @@ public class HealthPeriodicUpdater extends PeriodicUpdater<HealthEntry> {
 	 * @param score     The line number of this entry.
 	 * @param pattern   A string used to format the player health on screen.
 	 */
-	public HealthPeriodicUpdater(ISimpleObjective objective, long period, HealthEntry source) {
+	public HealthPeriodicUpdater(IObjective objective, long period, HealthEntry source) {
 		super(objective, 0, period, source);
 	}
 
@@ -40,7 +40,7 @@ public class HealthPeriodicUpdater extends PeriodicUpdater<HealthEntry> {
 	 * @param score     The line number of this entry.
 	 * @param pattern   A string used to format the player health on screen.
 	 */
-	public HealthPeriodicUpdater(ISimpleObjective objective, long delay, long period, int score, String pattern) {
+	public HealthPeriodicUpdater(IObjective objective, long delay, long period, int score, String pattern) {
 		this(objective, delay, period, new HealthEntry(score, pattern));
 	}
 
@@ -52,7 +52,7 @@ public class HealthPeriodicUpdater extends PeriodicUpdater<HealthEntry> {
 	 * @param score     The line number of this entry.
 	 * @param pattern   A string used to format the player health on screen.
 	 */
-	public HealthPeriodicUpdater(ISimpleObjective objective, long period, int score, String pattern) {
+	public HealthPeriodicUpdater(IObjective objective, long period, int score, String pattern) {
 		this(objective, 0, period, new HealthEntry(score, pattern));
 	}
 }

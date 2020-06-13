@@ -4,7 +4,7 @@ import org.bukkit.entity.EntityType;
 
 import fr.pederobien.minecraftgameplateform.entries.simple.EntityKilledEntry;
 import fr.pederobien.minecraftscoreboards.impl.PeriodicUpdater;
-import fr.pederobien.minecraftscoreboards.interfaces.ISimpleObjective;
+import fr.pederobien.minecraftscoreboards.interfaces.IObjective;
 
 public class EntityKilledPeriodicUpdater extends PeriodicUpdater<EntityKilledEntry> {
 
@@ -19,7 +19,7 @@ public class EntityKilledPeriodicUpdater extends PeriodicUpdater<EntityKilledEnt
 	 * 
 	 * @see EntityKilledEntry
 	 */
-	public EntityKilledPeriodicUpdater(ISimpleObjective objective, long delay, long period, EntityKilledEntry source) {
+	public EntityKilledPeriodicUpdater(IObjective objective, long delay, long period, EntityKilledEntry source) {
 		super(objective, delay, period, source);
 	}
 
@@ -33,7 +33,7 @@ public class EntityKilledPeriodicUpdater extends PeriodicUpdater<EntityKilledEnt
 	 * 
 	 * @see EntityKilledEntry
 	 */
-	public EntityKilledPeriodicUpdater(ISimpleObjective objective, long period, EntityKilledEntry source) {
+	public EntityKilledPeriodicUpdater(IObjective objective, long period, EntityKilledEntry source) {
 		super(objective, 0, period, source);
 	}
 
@@ -50,7 +50,7 @@ public class EntityKilledPeriodicUpdater extends PeriodicUpdater<EntityKilledEnt
 	 * @see EntityType
 	 * @see EntityKilledEntry
 	 */
-	public EntityKilledPeriodicUpdater(ISimpleObjective objective, long delay, long period, int score, EntityType entityType) {
+	public EntityKilledPeriodicUpdater(IObjective objective, long delay, long period, int score, EntityType entityType) {
 		this(objective, delay, period, new EntityKilledEntry(score, entityType));
 	}
 
@@ -66,7 +66,7 @@ public class EntityKilledPeriodicUpdater extends PeriodicUpdater<EntityKilledEnt
 	 * @see EntityType
 	 * @see EntityKilledEntry
 	 */
-	public EntityKilledPeriodicUpdater(ISimpleObjective objective, long period, int score, EntityType entityType) {
+	public EntityKilledPeriodicUpdater(IObjective objective, long period, int score, EntityType entityType) {
 		this(objective, period, new EntityKilledEntry(score, entityType));
 	}
 }

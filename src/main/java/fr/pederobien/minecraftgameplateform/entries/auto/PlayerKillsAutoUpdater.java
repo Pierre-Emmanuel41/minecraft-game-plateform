@@ -6,7 +6,7 @@ import org.bukkit.event.entity.PlayerDeathEvent;
 
 import fr.pederobien.minecraftgameplateform.entries.simple.PlayerKillsEntry;
 import fr.pederobien.minecraftscoreboards.impl.AutoUpdater;
-import fr.pederobien.minecraftscoreboards.interfaces.ISimpleObjective;
+import fr.pederobien.minecraftscoreboards.interfaces.IObjective;
 
 public class PlayerKillsAutoUpdater extends AutoUpdater<PlayerKillsEntry> {
 
@@ -18,7 +18,7 @@ public class PlayerKillsAutoUpdater extends AutoUpdater<PlayerKillsEntry> {
 	 * 
 	 * @see PlayerKillsEntry
 	 */
-	public PlayerKillsAutoUpdater(ISimpleObjective objective, PlayerKillsEntry source) {
+	public PlayerKillsAutoUpdater(IObjective objective, PlayerKillsEntry source) {
 		super(objective, source);
 	}
 
@@ -31,7 +31,7 @@ public class PlayerKillsAutoUpdater extends AutoUpdater<PlayerKillsEntry> {
 	 * 
 	 * @see PlayerKillsEntry
 	 */
-	public PlayerKillsAutoUpdater(ISimpleObjective objective, int score) {
+	public PlayerKillsAutoUpdater(IObjective objective, int score) {
 		super(objective, new PlayerKillsEntry(score));
 	}
 

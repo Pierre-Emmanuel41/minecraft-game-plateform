@@ -4,7 +4,7 @@ import org.bukkit.block.Block;
 
 import fr.pederobien.minecraftgameplateform.entries.simple.OrientationEntry;
 import fr.pederobien.minecraftscoreboards.impl.PeriodicUpdater;
-import fr.pederobien.minecraftscoreboards.interfaces.ISimpleObjective;
+import fr.pederobien.minecraftscoreboards.interfaces.IObjective;
 
 public class OrientationPeriodicUpdater extends PeriodicUpdater<OrientationEntry> {
 
@@ -18,7 +18,7 @@ public class OrientationPeriodicUpdater extends PeriodicUpdater<OrientationEntry
 	 * 
 	 * @see OrientationEntry
 	 */
-	public OrientationPeriodicUpdater(ISimpleObjective objective, long delay, long period, OrientationEntry source) {
+	public OrientationPeriodicUpdater(IObjective objective, long delay, long period, OrientationEntry source) {
 		super(objective, delay, period, source);
 	}
 
@@ -31,7 +31,7 @@ public class OrientationPeriodicUpdater extends PeriodicUpdater<OrientationEntry
 	 * 
 	 * @see OrientationEntry
 	 */
-	public OrientationPeriodicUpdater(ISimpleObjective objective, long period, OrientationEntry source) {
+	public OrientationPeriodicUpdater(IObjective objective, long period, OrientationEntry source) {
 		super(objective, 0, period, source);
 	}
 
@@ -46,7 +46,7 @@ public class OrientationPeriodicUpdater extends PeriodicUpdater<OrientationEntry
 	 * 
 	 * @see OrientationEntry
 	 */
-	public OrientationPeriodicUpdater(ISimpleObjective objective, long delay, long period, int score, Block block) {
+	public OrientationPeriodicUpdater(IObjective objective, long delay, long period, int score, Block block) {
 		this(objective, delay, period, new OrientationEntry(score, block));
 	}
 
@@ -61,7 +61,7 @@ public class OrientationPeriodicUpdater extends PeriodicUpdater<OrientationEntry
 	 * 
 	 * @see OrientationEntry
 	 */
-	public OrientationPeriodicUpdater(ISimpleObjective objective, long period, int score, Block block) {
+	public OrientationPeriodicUpdater(IObjective objective, long period, int score, Block block) {
 		this(objective, period, new OrientationEntry(score, block));
 	}
 }

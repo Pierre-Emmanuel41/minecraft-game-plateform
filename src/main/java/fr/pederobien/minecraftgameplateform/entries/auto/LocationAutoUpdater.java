@@ -6,7 +6,7 @@ import org.bukkit.event.player.PlayerMoveEvent;
 
 import fr.pederobien.minecraftgameplateform.entries.simple.LocationEntry;
 import fr.pederobien.minecraftscoreboards.impl.AutoUpdater;
-import fr.pederobien.minecraftscoreboards.interfaces.ISimpleObjective;
+import fr.pederobien.minecraftscoreboards.interfaces.IObjective;
 
 public class LocationAutoUpdater extends AutoUpdater<LocationEntry> {
 
@@ -18,7 +18,7 @@ public class LocationAutoUpdater extends AutoUpdater<LocationEntry> {
 	 * 
 	 * @see LocationEntry
 	 */
-	public LocationAutoUpdater(ISimpleObjective objective, LocationEntry source) {
+	public LocationAutoUpdater(IObjective objective, LocationEntry source) {
 		super(objective, source);
 	}
 
@@ -32,7 +32,7 @@ public class LocationAutoUpdater extends AutoUpdater<LocationEntry> {
 	 * 
 	 * @see LocationEntry
 	 */
-	public LocationAutoUpdater(ISimpleObjective objective, int score, String delimiter) {
+	public LocationAutoUpdater(IObjective objective, int score, String delimiter) {
 		super(objective, new LocationEntry(score, delimiter));
 	}
 
@@ -45,7 +45,7 @@ public class LocationAutoUpdater extends AutoUpdater<LocationEntry> {
 	 * 
 	 * @see LocationEntry
 	 */
-	public LocationAutoUpdater(ISimpleObjective objective, int score) {
+	public LocationAutoUpdater(IObjective objective, int score) {
 		super(objective, new LocationEntry(score));
 	}
 

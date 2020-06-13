@@ -2,7 +2,7 @@ package fr.pederobien.minecraftgameplateform.entries.periodic;
 
 import fr.pederobien.minecraftgameplateform.entries.simple.PlayerKillsEntry;
 import fr.pederobien.minecraftscoreboards.impl.PeriodicUpdater;
-import fr.pederobien.minecraftscoreboards.interfaces.ISimpleObjective;
+import fr.pederobien.minecraftscoreboards.interfaces.IObjective;
 
 public class PlayerKillsPeriodicUpdater extends PeriodicUpdater<PlayerKillsEntry> {
 
@@ -16,7 +16,7 @@ public class PlayerKillsPeriodicUpdater extends PeriodicUpdater<PlayerKillsEntry
 	 * 
 	 * @see PlayerKillsEntry
 	 */
-	public PlayerKillsPeriodicUpdater(ISimpleObjective objective, long delay, long period, PlayerKillsEntry source) {
+	public PlayerKillsPeriodicUpdater(IObjective objective, long delay, long period, PlayerKillsEntry source) {
 		super(objective, delay, period, source);
 	}
 
@@ -29,7 +29,7 @@ public class PlayerKillsPeriodicUpdater extends PeriodicUpdater<PlayerKillsEntry
 	 * 
 	 * @see PlayerKillsEntry
 	 */
-	public PlayerKillsPeriodicUpdater(ISimpleObjective objective, long period, PlayerKillsEntry source) {
+	public PlayerKillsPeriodicUpdater(IObjective objective, long period, PlayerKillsEntry source) {
 		super(objective, 0, period, source);
 	}
 
@@ -43,7 +43,7 @@ public class PlayerKillsPeriodicUpdater extends PeriodicUpdater<PlayerKillsEntry
 	 * 
 	 * @see PlayerKillsEntry
 	 */
-	public PlayerKillsPeriodicUpdater(ISimpleObjective objective, long delay, long period, int score) {
+	public PlayerKillsPeriodicUpdater(IObjective objective, long delay, long period, int score) {
 		this(objective, delay, period, new PlayerKillsEntry(score));
 	}
 
@@ -57,7 +57,7 @@ public class PlayerKillsPeriodicUpdater extends PeriodicUpdater<PlayerKillsEntry
 	 * 
 	 * @see PlayerKillsEntry
 	 */
-	public PlayerKillsPeriodicUpdater(ISimpleObjective objective, long period, int score) {
+	public PlayerKillsPeriodicUpdater(IObjective objective, long period, int score) {
 		this(objective, period, new PlayerKillsEntry(score));
 	}
 }

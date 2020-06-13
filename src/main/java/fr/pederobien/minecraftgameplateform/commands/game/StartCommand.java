@@ -60,16 +60,15 @@ public class StartCommand extends AbstractGameCommand {
 	}
 
 	private void register() {
-		if (isRegistered)
-			return;
+		if (!isRegistered) {
+			// Registering PvpActivator as timeLine observer
+			Plateform.getTimeLine().addObserver(getGameConfigurationContext().getPvpTime(), pvpActivator);
 
-		// Registering PvpActivator as timeLine observer
-		Plateform.getTimeLine().addObserver(getGameConfigurationContext().getPvpTime(), pvpActivator);
+			// Registering the time line as time task observer
+			Plateform.getTimeTask().addObserver((TimeLine) Plateform.getTimeLine());
+		}
 
-		// Registering the time line as time task observer
-		Plateform.getTimeTask().addObserver((TimeLine) Plateform.getTimeLine());
 		Plateform.getTimeTask().start(Plateform.getPlugin());
-
 		isRegistered = true;
 	}
 

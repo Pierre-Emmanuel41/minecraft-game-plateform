@@ -7,7 +7,7 @@ import fr.pederobien.minecraftgameplateform.interfaces.runtime.task.ITimeTask;
 import fr.pederobien.minecraftgameplateform.interfaces.runtime.task.ITimeTaskObserver;
 import fr.pederobien.minecraftgameplateform.utils.Plateform;
 import fr.pederobien.minecraftscoreboards.impl.AbstractEntryUpdater;
-import fr.pederobien.minecraftscoreboards.interfaces.ISimpleObjective;
+import fr.pederobien.minecraftscoreboards.interfaces.IObjective;
 
 public class TimeTaskAutoUpdater extends AbstractEntryUpdater<TimeTaskEntry> implements ITimeTaskObserver {
 	private LocalTime currentTime;
@@ -19,7 +19,7 @@ public class TimeTaskAutoUpdater extends AbstractEntryUpdater<TimeTaskEntry> imp
 	 * @param objective The objective associated to the source entry.
 	 * @param source    The source tracked by this updater.
 	 */
-	public TimeTaskAutoUpdater(ISimpleObjective objective, TimeTaskEntry source) {
+	public TimeTaskAutoUpdater(IObjective objective, TimeTaskEntry source) {
 		super(objective, source);
 	}
 

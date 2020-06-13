@@ -4,7 +4,7 @@ import org.bukkit.Material;
 
 import fr.pederobien.minecraftgameplateform.entries.simple.MinedBlockEntry;
 import fr.pederobien.minecraftscoreboards.impl.PeriodicUpdater;
-import fr.pederobien.minecraftscoreboards.interfaces.ISimpleObjective;
+import fr.pederobien.minecraftscoreboards.interfaces.IObjective;
 
 public class MinedBlockPeriodicUpdater extends PeriodicUpdater<MinedBlockEntry> {
 
@@ -18,7 +18,7 @@ public class MinedBlockPeriodicUpdater extends PeriodicUpdater<MinedBlockEntry> 
 	 * 
 	 * @see MinedBlockEntry
 	 */
-	public MinedBlockPeriodicUpdater(ISimpleObjective objective, long delay, long period, MinedBlockEntry source) {
+	public MinedBlockPeriodicUpdater(IObjective objective, long delay, long period, MinedBlockEntry source) {
 		super(objective, delay, period, source);
 	}
 
@@ -31,7 +31,7 @@ public class MinedBlockPeriodicUpdater extends PeriodicUpdater<MinedBlockEntry> 
 	 * 
 	 * @see MinedBlockEntry
 	 */
-	public MinedBlockPeriodicUpdater(ISimpleObjective objective, long period, MinedBlockEntry source) {
+	public MinedBlockPeriodicUpdater(IObjective objective, long period, MinedBlockEntry source) {
 		super(objective, 0, period, source);
 	}
 
@@ -47,7 +47,7 @@ public class MinedBlockPeriodicUpdater extends PeriodicUpdater<MinedBlockEntry> 
 	 * @see Material
 	 * @see MinedBlockEntry
 	 */
-	public MinedBlockPeriodicUpdater(ISimpleObjective objective, long delay, long period, int score, Material material) {
+	public MinedBlockPeriodicUpdater(IObjective objective, long delay, long period, int score, Material material) {
 		this(objective, delay, period, new MinedBlockEntry(score, material));
 	}
 
@@ -63,7 +63,7 @@ public class MinedBlockPeriodicUpdater extends PeriodicUpdater<MinedBlockEntry> 
 	 * @see Material
 	 * @see MinedBlockEntry
 	 */
-	public MinedBlockPeriodicUpdater(ISimpleObjective objective, long period, int score, Material material) {
+	public MinedBlockPeriodicUpdater(IObjective objective, long period, int score, Material material) {
 		this(objective, period, new MinedBlockEntry(score, material));
 	}
 }

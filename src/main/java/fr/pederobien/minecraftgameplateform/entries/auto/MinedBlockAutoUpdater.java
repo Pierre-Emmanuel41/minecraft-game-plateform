@@ -7,7 +7,7 @@ import org.bukkit.event.block.BlockBreakEvent;
 
 import fr.pederobien.minecraftgameplateform.entries.simple.MinedBlockEntry;
 import fr.pederobien.minecraftscoreboards.impl.AutoUpdater;
-import fr.pederobien.minecraftscoreboards.interfaces.ISimpleObjective;
+import fr.pederobien.minecraftscoreboards.interfaces.IObjective;
 
 public class MinedBlockAutoUpdater extends AutoUpdater<MinedBlockEntry> {
 
@@ -19,7 +19,7 @@ public class MinedBlockAutoUpdater extends AutoUpdater<MinedBlockEntry> {
 	 * 
 	 * @see MinedBlockEntry
 	 */
-	public MinedBlockAutoUpdater(ISimpleObjective objective, MinedBlockEntry source) {
+	public MinedBlockAutoUpdater(IObjective objective, MinedBlockEntry source) {
 		super(objective, source);
 	}
 
@@ -34,7 +34,7 @@ public class MinedBlockAutoUpdater extends AutoUpdater<MinedBlockEntry> {
 	 * @see Material
 	 * @see MinedBlockEntry
 	 */
-	public MinedBlockAutoUpdater(ISimpleObjective objective, int score, Material material) {
+	public MinedBlockAutoUpdater(IObjective objective, int score, Material material) {
 		super(objective, new MinedBlockEntry(score, material));
 	}
 

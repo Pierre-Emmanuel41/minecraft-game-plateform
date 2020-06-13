@@ -7,7 +7,7 @@ import org.bukkit.event.player.PlayerMoveEvent;
 
 import fr.pederobien.minecraftgameplateform.entries.simple.OrientationEntry;
 import fr.pederobien.minecraftscoreboards.impl.AutoUpdater;
-import fr.pederobien.minecraftscoreboards.interfaces.ISimpleObjective;
+import fr.pederobien.minecraftscoreboards.interfaces.IObjective;
 
 public class OrientationAutoUpdater extends AutoUpdater<OrientationEntry> {
 
@@ -19,7 +19,7 @@ public class OrientationAutoUpdater extends AutoUpdater<OrientationEntry> {
 	 * 
 	 * @see OrientationEntry
 	 */
-	public OrientationAutoUpdater(ISimpleObjective objective, OrientationEntry source) {
+	public OrientationAutoUpdater(IObjective objective, OrientationEntry source) {
 		super(objective, source);
 	}
 
@@ -33,7 +33,7 @@ public class OrientationAutoUpdater extends AutoUpdater<OrientationEntry> {
 	 * 
 	 * @see OrientationEntry
 	 */
-	public OrientationAutoUpdater(ISimpleObjective objective, int score, Block block) {
+	public OrientationAutoUpdater(IObjective objective, int score, Block block) {
 		super(objective, new OrientationEntry(score, block));
 	}
 

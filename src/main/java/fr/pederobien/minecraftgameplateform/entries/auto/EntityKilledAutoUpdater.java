@@ -7,7 +7,7 @@ import org.bukkit.event.entity.EntityDeathEvent;
 
 import fr.pederobien.minecraftgameplateform.entries.simple.EntityKilledEntry;
 import fr.pederobien.minecraftscoreboards.impl.AutoUpdater;
-import fr.pederobien.minecraftscoreboards.interfaces.ISimpleObjective;
+import fr.pederobien.minecraftscoreboards.interfaces.IObjective;
 
 public class EntityKilledAutoUpdater extends AutoUpdater<EntityKilledEntry> {
 
@@ -19,7 +19,7 @@ public class EntityKilledAutoUpdater extends AutoUpdater<EntityKilledEntry> {
 	 * 
 	 * @see EntityKilledEntry
 	 */
-	public EntityKilledAutoUpdater(ISimpleObjective objective, EntityKilledEntry source) {
+	public EntityKilledAutoUpdater(IObjective objective, EntityKilledEntry source) {
 		super(objective, source);
 	}
 
@@ -34,7 +34,7 @@ public class EntityKilledAutoUpdater extends AutoUpdater<EntityKilledEntry> {
 	 * @see EntityType
 	 * @see EntityKilledEntry
 	 */
-	public EntityKilledAutoUpdater(ISimpleObjective objective, int score, EntityType entityType) {
+	public EntityKilledAutoUpdater(IObjective objective, int score, EntityType entityType) {
 		this(objective, new EntityKilledEntry(score, entityType));
 	}
 

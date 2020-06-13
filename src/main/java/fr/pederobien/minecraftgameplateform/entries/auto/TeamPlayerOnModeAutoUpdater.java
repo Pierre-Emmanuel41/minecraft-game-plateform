@@ -11,7 +11,7 @@ import org.bukkit.scoreboard.Team;
 import fr.pederobien.minecraftgameplateform.entries.simple.TeamPlayerOnModeEntry;
 import fr.pederobien.minecraftmanagers.TeamManager;
 import fr.pederobien.minecraftscoreboards.impl.AutoUpdater;
-import fr.pederobien.minecraftscoreboards.interfaces.ISimpleObjective;
+import fr.pederobien.minecraftscoreboards.interfaces.IObjective;
 
 public class TeamPlayerOnModeAutoUpdater extends AutoUpdater<TeamPlayerOnModeEntry> {
 
@@ -23,7 +23,7 @@ public class TeamPlayerOnModeAutoUpdater extends AutoUpdater<TeamPlayerOnModeEnt
 	 * 
 	 * @see TeamPlayerOnModeEntry
 	 */
-	public TeamPlayerOnModeAutoUpdater(ISimpleObjective objective, TeamPlayerOnModeEntry source) {
+	public TeamPlayerOnModeAutoUpdater(IObjective objective, TeamPlayerOnModeEntry source) {
 		super(objective, source);
 	}
 
@@ -39,7 +39,7 @@ public class TeamPlayerOnModeAutoUpdater extends AutoUpdater<TeamPlayerOnModeEnt
 	 * 
 	 * @see TeamPlayerOnModeEntry
 	 */
-	public TeamPlayerOnModeAutoUpdater(ISimpleObjective objective, int score, Team team, GameMode mode, boolean colored) {
+	public TeamPlayerOnModeAutoUpdater(IObjective objective, int score, Team team, GameMode mode, boolean colored) {
 		super(objective, new TeamPlayerOnModeEntry(score, team, mode, colored));
 	}
 

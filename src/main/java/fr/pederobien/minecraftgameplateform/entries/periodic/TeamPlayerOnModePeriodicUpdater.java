@@ -5,7 +5,7 @@ import org.bukkit.scoreboard.Team;
 
 import fr.pederobien.minecraftgameplateform.entries.simple.TeamPlayerOnModeEntry;
 import fr.pederobien.minecraftscoreboards.impl.PeriodicUpdater;
-import fr.pederobien.minecraftscoreboards.interfaces.ISimpleObjective;
+import fr.pederobien.minecraftscoreboards.interfaces.IObjective;
 
 public class TeamPlayerOnModePeriodicUpdater extends PeriodicUpdater<TeamPlayerOnModeEntry> {
 
@@ -19,7 +19,7 @@ public class TeamPlayerOnModePeriodicUpdater extends PeriodicUpdater<TeamPlayerO
 	 * 
 	 * @see TeamPlayerOnModeEntry
 	 */
-	public TeamPlayerOnModePeriodicUpdater(ISimpleObjective objective, long delay, long period, TeamPlayerOnModeEntry source) {
+	public TeamPlayerOnModePeriodicUpdater(IObjective objective, long delay, long period, TeamPlayerOnModeEntry source) {
 		super(objective, delay, period, source);
 	}
 
@@ -32,7 +32,7 @@ public class TeamPlayerOnModePeriodicUpdater extends PeriodicUpdater<TeamPlayerO
 	 * 
 	 * @see TeamPlayerOnModeEntry
 	 */
-	public TeamPlayerOnModePeriodicUpdater(ISimpleObjective objective, long period, TeamPlayerOnModeEntry source) {
+	public TeamPlayerOnModePeriodicUpdater(IObjective objective, long period, TeamPlayerOnModeEntry source) {
 		super(objective, 0, period, source);
 	}
 
@@ -49,7 +49,7 @@ public class TeamPlayerOnModePeriodicUpdater extends PeriodicUpdater<TeamPlayerO
 	 * 
 	 * @see TeamPlayerOnModeEntry
 	 */
-	public TeamPlayerOnModePeriodicUpdater(ISimpleObjective objective, long delay, long period, int score, Team team, GameMode mode, boolean colored) {
+	public TeamPlayerOnModePeriodicUpdater(IObjective objective, long delay, long period, int score, Team team, GameMode mode, boolean colored) {
 		this(objective, delay, period, new TeamPlayerOnModeEntry(score, team, mode, colored));
 	}
 
@@ -67,7 +67,7 @@ public class TeamPlayerOnModePeriodicUpdater extends PeriodicUpdater<TeamPlayerO
 	 * 
 	 * @see TeamPlayerOnModeEntry
 	 */
-	public TeamPlayerOnModePeriodicUpdater(ISimpleObjective objective, long period, int score, Team team, GameMode mode, boolean colored) {
+	public TeamPlayerOnModePeriodicUpdater(IObjective objective, long period, int score, Team team, GameMode mode, boolean colored) {
 		this(objective, period, new TeamPlayerOnModeEntry(score, team, mode, colored));
 	}
 }

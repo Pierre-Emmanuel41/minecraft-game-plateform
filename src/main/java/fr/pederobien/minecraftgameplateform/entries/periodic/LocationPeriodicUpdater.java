@@ -2,7 +2,7 @@ package fr.pederobien.minecraftgameplateform.entries.periodic;
 
 import fr.pederobien.minecraftgameplateform.entries.simple.LocationEntry;
 import fr.pederobien.minecraftscoreboards.impl.PeriodicUpdater;
-import fr.pederobien.minecraftscoreboards.interfaces.ISimpleObjective;
+import fr.pederobien.minecraftscoreboards.interfaces.IObjective;
 
 public class LocationPeriodicUpdater extends PeriodicUpdater<LocationEntry> {
 
@@ -16,7 +16,7 @@ public class LocationPeriodicUpdater extends PeriodicUpdater<LocationEntry> {
 	 * 
 	 * @see LocationEntry
 	 */
-	public LocationPeriodicUpdater(ISimpleObjective objective, long delay, long period, LocationEntry source) {
+	public LocationPeriodicUpdater(IObjective objective, long delay, long period, LocationEntry source) {
 		super(objective, delay, period, source);
 	}
 
@@ -29,7 +29,7 @@ public class LocationPeriodicUpdater extends PeriodicUpdater<LocationEntry> {
 	 * 
 	 * @see LocationEntry
 	 */
-	public LocationPeriodicUpdater(ISimpleObjective objective, long period, LocationEntry source) {
+	public LocationPeriodicUpdater(IObjective objective, long period, LocationEntry source) {
 		super(objective, 0, period, source);
 	}
 
@@ -44,7 +44,7 @@ public class LocationPeriodicUpdater extends PeriodicUpdater<LocationEntry> {
 	 * 
 	 * @see LocationEntry
 	 */
-	public LocationPeriodicUpdater(ISimpleObjective objective, long delay, long period, int score, String pattern) {
+	public LocationPeriodicUpdater(IObjective objective, long delay, long period, int score, String pattern) {
 		this(objective, delay, period, new LocationEntry(score, pattern));
 	}
 
@@ -59,7 +59,7 @@ public class LocationPeriodicUpdater extends PeriodicUpdater<LocationEntry> {
 	 * 
 	 * @see LocationEntry
 	 */
-	public LocationPeriodicUpdater(ISimpleObjective objective, long period, int score, String pattern) {
+	public LocationPeriodicUpdater(IObjective objective, long period, int score, String pattern) {
 		this(objective, period, new LocationEntry(score, pattern));
 	}
 
@@ -73,7 +73,7 @@ public class LocationPeriodicUpdater extends PeriodicUpdater<LocationEntry> {
 	 * 
 	 * @see LocationEntry
 	 */
-	public LocationPeriodicUpdater(ISimpleObjective objective, long delay, long period, int score) {
+	public LocationPeriodicUpdater(IObjective objective, long delay, long period, int score) {
 		this(objective, delay, period, new LocationEntry(score));
 	}
 
@@ -87,7 +87,7 @@ public class LocationPeriodicUpdater extends PeriodicUpdater<LocationEntry> {
 	 * 
 	 * @see LocationEntry
 	 */
-	public LocationPeriodicUpdater(ISimpleObjective objective, long period, int score) {
+	public LocationPeriodicUpdater(IObjective objective, long period, int score) {
 		this(objective, period, new LocationEntry(score));
 	}
 }

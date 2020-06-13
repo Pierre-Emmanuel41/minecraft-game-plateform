@@ -10,7 +10,7 @@ import org.bukkit.event.player.PlayerRespawnEvent;
 
 import fr.pederobien.minecraftgameplateform.entries.simple.HealthEntry;
 import fr.pederobien.minecraftscoreboards.impl.AutoUpdater;
-import fr.pederobien.minecraftscoreboards.interfaces.ISimpleObjective;
+import fr.pederobien.minecraftscoreboards.interfaces.IObjective;
 
 public class HealthAutoUpdater extends AutoUpdater<HealthEntry> {
 
@@ -23,7 +23,7 @@ public class HealthAutoUpdater extends AutoUpdater<HealthEntry> {
 	 * 
 	 * @see HealthEntry
 	 */
-	public HealthAutoUpdater(ISimpleObjective objective, HealthEntry source) {
+	public HealthAutoUpdater(IObjective objective, HealthEntry source) {
 		super(objective, source);
 	}
 
@@ -37,7 +37,7 @@ public class HealthAutoUpdater extends AutoUpdater<HealthEntry> {
 	 * 
 	 * @see HealthEntry
 	 */
-	public HealthAutoUpdater(ISimpleObjective objective, int score, String pattern) {
+	public HealthAutoUpdater(IObjective objective, int score, String pattern) {
 		this(objective, new HealthEntry(score, pattern));
 	}
 

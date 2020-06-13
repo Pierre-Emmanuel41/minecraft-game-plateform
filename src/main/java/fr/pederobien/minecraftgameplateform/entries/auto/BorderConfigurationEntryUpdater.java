@@ -9,7 +9,7 @@ import fr.pederobien.minecraftgameplateform.interfaces.runtime.task.ITimeTaskObs
 import fr.pederobien.minecraftgameplateform.interfaces.runtime.timeline.ITimeLineObserver;
 import fr.pederobien.minecraftgameplateform.utils.Plateform;
 import fr.pederobien.minecraftscoreboards.impl.AbstractEntryUpdater;
-import fr.pederobien.minecraftscoreboards.interfaces.ISimpleObjective;
+import fr.pederobien.minecraftscoreboards.interfaces.IObjective;
 
 public class BorderConfigurationEntryUpdater<T extends BorderConfigurationEntry> extends AbstractEntryUpdater<T> implements ITimeTaskObserver, ITimeLineObserver {
 
@@ -19,7 +19,7 @@ public class BorderConfigurationEntryUpdater<T extends BorderConfigurationEntry>
 	 * @param objective The objective associated to the source entry.
 	 * @param source    The source tracked by this updater.
 	 */
-	public BorderConfigurationEntryUpdater(ISimpleObjective objective, T source) {
+	public BorderConfigurationEntryUpdater(IObjective objective, T source) {
 		super(objective, source);
 	}
 
