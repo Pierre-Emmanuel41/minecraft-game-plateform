@@ -1,9 +1,9 @@
 package fr.pederobien.minecraftgameplateform.entries.simple;
 
+import fr.pederobien.minecraftgameplateform.entries.PlateformEntry;
 import fr.pederobien.minecraftgameplateform.interfaces.element.IBorderConfiguration;
-import fr.pederobien.minecraftscoreboards.impl.AbstractSimpleEntry;
 
-public abstract class BorderConfigurationEntry extends AbstractSimpleEntry {
+public abstract class BorderConfigurationEntry extends PlateformEntry {
 	private IBorderConfiguration configuration;
 
 	/**
