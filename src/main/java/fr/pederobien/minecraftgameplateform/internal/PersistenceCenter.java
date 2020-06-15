@@ -74,10 +74,10 @@ public class PersistenceCenter extends AbstractNominable implements IPersistence
 			persistence.load(persistence.getDefaultContent().getName());
 			persistence.save();
 			persistence.set(null);
-			versions.put(persistence.getClass().getName(), persistence.getVersion());
 		} catch (FileNotFoundException e) {
 			writeDefaultContent(persistence);
 		}
+		versions.put(persistence.getClass().getName(), persistence.getVersion());
 	}
 
 	private <T extends IUnmodifiableNominable> void writeDefaultContent(IMinecraftPersistence<T> persistence) {
