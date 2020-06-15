@@ -73,6 +73,11 @@ public class BorderConfiguration extends AbstractNominable implements IBorderCon
 	}
 
 	@Override
+	public WorldBorder getWorldBorder() {
+		return getWorld().getWorldBorder();
+	}
+
+	@Override
 	public void apply(IObservableTimeLine timeLine) {
 		this.timeLine = timeLine;
 		getWorldBorder().setCenter(getBorderCenter().getLocation());
@@ -147,10 +152,6 @@ public class BorderConfiguration extends AbstractNominable implements IBorderCon
 		joiner.add("Move time : " + DisplayHelper.toString(getMoveTime(), true));
 		joiner.add("End time : " + getStartTime().plusSeconds(getMoveTime().toSecondOfDay()));
 		return joiner.toString();
-	}
-
-	private WorldBorder getWorldBorder() {
-		return getWorld().getWorldBorder();
 	}
 
 	private String display(Object object, String display) {
