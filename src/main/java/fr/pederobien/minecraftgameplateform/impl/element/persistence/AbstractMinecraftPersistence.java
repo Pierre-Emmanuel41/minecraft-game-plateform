@@ -1,5 +1,6 @@
 package fr.pederobien.minecraftgameplateform.impl.element.persistence;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.nio.file.Path;
 
@@ -37,6 +38,20 @@ public abstract class AbstractMinecraftPersistence<T extends IUnmodifiableNomina
 	public void setPath(Path path) {
 		checkPath(path);
 		super.setPath(path);
+	}
+
+	@Override
+	public void update() {
+		list().forEach(name -> {
+			Plateform.getPlugin().getLogger().info("Upgrading " + name);
+			try {
+				load(name);
+			} catch (FileNotFoundException e) {
+				e.printStackTrace();
+			}
+			save();
+		});
+		set(null);
 	}
 
 	private void checkPath(Path path) {
