@@ -27,6 +27,7 @@ public class BorderConfiguration extends AbstractNominable implements IBorderCon
 	private Double borderSpeed;
 	private LocalTime startTime;
 	private IObservableTimeLine timeLine;
+	private boolean isMoving;
 
 	public BorderConfiguration(String name) {
 		super(name);
@@ -70,6 +71,11 @@ public class BorderConfiguration extends AbstractNominable implements IBorderCon
 	@Override
 	public LocalTime getMoveTime() {
 		return LocalTime.of(0, 0, 0).plusSeconds(new Double(getDistance() / getBorderSpeed()).longValue());
+	}
+
+	@Override
+	public boolean isMoving() {
+		return isMoving;
 	}
 
 	@Override

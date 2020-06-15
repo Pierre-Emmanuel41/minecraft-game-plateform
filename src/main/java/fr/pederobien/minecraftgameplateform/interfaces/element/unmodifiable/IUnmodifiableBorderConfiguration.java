@@ -52,6 +52,11 @@ public interface IUnmodifiableBorderConfiguration extends IUnmodifiableNominable
 	LocalTime getMoveTime();
 
 	/**
+	 * @return True if the border is moving, false otherwise.
+	 */
+	boolean isMoving();
+
+	/**
 	 * @return The world border associated to the world of this configuration.
 	 */
 	WorldBorder getWorldBorder();
