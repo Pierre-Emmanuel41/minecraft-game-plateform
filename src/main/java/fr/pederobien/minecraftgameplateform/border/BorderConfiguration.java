@@ -99,6 +99,12 @@ public class BorderConfiguration extends AbstractNominable implements IBorderCon
 	}
 
 	@Override
+	public void timeChanged(LocalTime time) {
+		getWorld().getWorldBorder().setSize(getFinalBorderDiameter(), getInitialBorderDiameter().longValue() / getBorderSpeed().longValue());
+		isMoving = true;
+	}
+
+	@Override
 	public void setWorld(String worldName) {
 		World worldTemp = WorldManager.getWorld(worldName);
 		if (worldTemp == null)

@@ -61,11 +61,6 @@ public interface IUnmodifiableBorderConfiguration extends IUnmodifiableNominable
 	 */
 	WorldBorder getWorldBorder();
 
-	@Override
-	default void timeChanged(LocalTime time) {
-		getWorld().getWorldBorder().setSize(getFinalBorderDiameter(), getInitialBorderDiameter().longValue() / getBorderSpeed().longValue());
-	}
-
 	/**
 	 * Modify the center and the size of the border associated to its world.
 	 * 
