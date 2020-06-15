@@ -3,8 +3,10 @@ package fr.pederobien.minecraftgameplateform.interfaces.element.unmodifiable;
 import java.time.LocalTime;
 
 import org.bukkit.World;
+import org.bukkit.WorldBorder;
 import org.bukkit.block.Block;
 
+import fr.pederobien.minecraftgameplateform.interfaces.runtime.timeline.IObservableTimeLine;
 import fr.pederobien.minecraftgameplateform.interfaces.runtime.timeline.ITimeLineObserver;
 import fr.pederobien.persistence.interfaces.IUnmodifiableNominable;
 
@@ -53,4 +55,22 @@ public interface IUnmodifiableBorderConfiguration extends IUnmodifiableNominable
 	default void timeChanged(LocalTime time) {
 		getWorld().getWorldBorder().setSize(getFinalBorderDiameter(), getInitialBorderDiameter().longValue() / getBorderSpeed().longValue());
 	}
+
+	/**
+	 * Modify the center and the size of the border associated to its world.
+	 * 
+	 * @param timeline The time line used to move the border from its initial diameter to its final diameter.
+	 * 
+	 * @see #getBorderCenter()
+	 * @see #getInitialBorderDiameter()
+	 * @see WorldBorder#setCenter(org.bukkit.Location)
+	 * @see WorldBorder#setSize(double)
+	 */
+	void apply(IObservableTimeLine timeline);
+
+	/**
+	 * Reset the border associated to its world. This configuration is also removed from the list of observers of the
+	 * {@link IObservableTimeLine} passed to the method {@link #apply(IObservableTimeLine)}.
+	 */
+	void reset();
 }

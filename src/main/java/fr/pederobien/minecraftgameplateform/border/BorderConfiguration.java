@@ -4,12 +4,14 @@ import java.time.LocalTime;
 import java.util.StringJoiner;
 
 import org.bukkit.World;
+import org.bukkit.WorldBorder;
 import org.bukkit.block.Block;
 
 import fr.pederobien.minecraftdevelopmenttoolkit.utils.DisplayHelper;
 import fr.pederobien.minecraftgameplateform.exceptions.worldstructure.WorldNotFoundException;
 import fr.pederobien.minecraftgameplateform.impl.element.AbstractNominable;
 import fr.pederobien.minecraftgameplateform.interfaces.element.IBorderConfiguration;
+import fr.pederobien.minecraftgameplateform.interfaces.runtime.timeline.IObservableTimeLine;
 import fr.pederobien.minecraftmanagers.WorldManager;
 
 public class BorderConfiguration extends AbstractNominable implements IBorderConfiguration {
@@ -24,6 +26,7 @@ public class BorderConfiguration extends AbstractNominable implements IBorderCon
 	private Integer initialDiameter, finalDiameter;
 	private Double borderSpeed;
 	private LocalTime startTime;
+	private IObservableTimeLine timeLine;
 
 	public BorderConfiguration(String name) {
 		super(name);
@@ -67,6 +70,21 @@ public class BorderConfiguration extends AbstractNominable implements IBorderCon
 	@Override
 	public LocalTime getMoveTime() {
 		return LocalTime.of(0, 0, 0).plusSeconds(new Double(getDistance() / getBorderSpeed()).longValue());
+	}
+
+	@Override
+	public void apply(IObservableTimeLine timeLine) {
+		this.timeLine = timeLine;
+		getWorldBorder().setCenter(getBorderCenter().getLocation());
+		getWorldBorder().setSize(getInitialBorderDiameter());
+		timeLine.addObserver(getStartTime(), this);
+	}
+
+	@Override
+	public void reset() {
+		getWorldBorder().reset();
+		if (timeLine != null)
+			timeLine.removeObserver(getStartTime(), this);
 	}
 
 	@Override
@@ -129,6 +147,10 @@ public class BorderConfiguration extends AbstractNominable implements IBorderCon
 		joiner.add("Move time : " + DisplayHelper.toString(getMoveTime(), true));
 		joiner.add("End time : " + getStartTime().plusSeconds(getMoveTime().toSecondOfDay()));
 		return joiner.toString();
+	}
+
+	private WorldBorder getWorldBorder() {
+		return getWorld().getWorldBorder();
 	}
 
 	private String display(Object object, String display) {
