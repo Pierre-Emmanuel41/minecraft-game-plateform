@@ -72,6 +72,6 @@ public class BorderPersistence extends AbstractMinecraftPersistence<IBorderConfi
 		root.appendChild(startTime);
 
 		saveDocument(doc, get().getName());
-		return false;
+		return true;
 	}
 }
