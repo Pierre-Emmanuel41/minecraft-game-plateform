@@ -18,13 +18,12 @@ public class BorderConfiguration extends AbstractNominable implements IBorderCon
 	private static final Integer DEFAULT_FINAL_DIAMETER = 30;
 	private static final Double DEFAULT_BORDER_SPEED = 1.0;
 	private static final LocalTime DEFAULT_START_TIME = LocalTime.of(2, 0, 0);
-	private static final LocalTime DEFAULT_INITIAL_TIME = LocalTime.of(0, 0, 0);
 
 	private World world;
 	private Block center;
 	private Integer initialDiameter, finalDiameter;
 	private Double borderSpeed;
-	private LocalTime startTime, initialTime;
+	private LocalTime startTime;
 
 	public BorderConfiguration(String name) {
 		super(name);
@@ -32,7 +31,7 @@ public class BorderConfiguration extends AbstractNominable implements IBorderCon
 
 	@Override
 	public int compareTo(IBorderConfiguration o) {
-		return getInitialTime().compareTo(o.getInitialTime());
+		return getStartTime().compareTo(o.getStartTime());
 	}
 
 	@Override
@@ -58,11 +57,6 @@ public class BorderConfiguration extends AbstractNominable implements IBorderCon
 	@Override
 	public Double getBorderSpeed() {
 		return borderSpeed == null ? DEFAULT_BORDER_SPEED : borderSpeed;
-	}
-
-	@Override
-	public LocalTime getInitialTime() {
-		return initialTime == null ? DEFAULT_INITIAL_TIME : initialTime;
 	}
 
 	@Override
@@ -104,11 +98,6 @@ public class BorderConfiguration extends AbstractNominable implements IBorderCon
 	}
 
 	@Override
-	public void setInitialTime(LocalTime initialTime) {
-		this.initialTime = initialTime;
-	}
-
-	@Override
 	public void setStartTime(LocalTime startTime) {
 		this.startTime = startTime;
 	}
@@ -136,7 +125,6 @@ public class BorderConfiguration extends AbstractNominable implements IBorderCon
 		joiner.add("Initial diameter : " + display(initialDiameter, getInitialBorderDiameter() + " blocks"));
 		joiner.add("Final diameter : " + display(finalDiameter, getFinalBorderDiameter() + " blocks"));
 		joiner.add("Speed : " + display(borderSpeed, DisplayHelper.format(getBorderSpeed()) + " block/s"));
-		joiner.add("Initial time : " + display(initialTime, DisplayHelper.toString(getInitialTime(), true)));
 		joiner.add("Start time : " + display(startTime, DisplayHelper.toString(getStartTime(), true)));
 		joiner.add("Move time : " + DisplayHelper.toString(getMoveTime(), true));
 		joiner.add("End time : " + getStartTime().plusSeconds(getMoveTime().toSecondOfDay()));

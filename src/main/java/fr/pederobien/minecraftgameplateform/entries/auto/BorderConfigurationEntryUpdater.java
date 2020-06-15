@@ -25,16 +25,12 @@ public class BorderConfigurationEntryUpdater<T extends BorderConfigurationEntry>
 
 	@Override
 	public void initialize() {
-		Plateform.getTimeLine().addObserver(getConfiguration().getInitialTime(), this);
 		Plateform.getTimeLine().addObserver(getConfiguration().getStartTime(), this);
 	}
 
 	@Override
 	public void timeChanged(LocalTime time) {
-		if (time.equals(getConfiguration().getInitialTime()))
-			update();
-		else
-			Plateform.getTimeTask().addObserver(this);
+		Plateform.getTimeTask().addObserver(this);
 	}
 
 	@Override
