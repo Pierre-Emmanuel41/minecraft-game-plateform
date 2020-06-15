@@ -3,6 +3,7 @@ package fr.pederobien.minecraftgameplateform.spawn.persistence;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
+import fr.pederobien.minecraftdevelopmenttoolkit.utils.FileWriterHelper;
 import fr.pederobien.minecraftgameplateform.impl.element.persistence.AbstractMinecraftPersistence;
 import fr.pederobien.minecraftgameplateform.interfaces.element.ISpawn;
 import fr.pederobien.minecraftgameplateform.interfaces.element.IWorldBlock;
@@ -14,7 +15,7 @@ public class SpawnPersistence extends AbstractMinecraftPersistence<ISpawn> {
 	private static final String ROOT_XML_DOCUMENT = "spawn";
 
 	private SpawnPersistence() {
-		super(Plateform.ROOT.resolve("Spawns"), new DefaultSpawnContent());
+		super(Plateform.ROOT.resolve("Spawns"), "DefaultSpawn");
 		register(new SpawnLoaderV10());
 	}
 
@@ -24,6 +25,11 @@ public class SpawnPersistence extends AbstractMinecraftPersistence<ISpawn> {
 
 	private static class SingletonHolder {
 		public static final IMinecraftPersistence<ISpawn> PERSISTENCE = new SpawnPersistence();
+	}
+
+	@Override
+	public void saveDefault() {
+		FileWriterHelper.write(getAbsolutePath(getDefault()), new DefaultSpawnContent().get());
 	}
 
 	@Override

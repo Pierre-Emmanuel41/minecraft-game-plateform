@@ -6,7 +6,12 @@ import fr.pederobien.persistence.interfaces.IUnmodifiableNominable;
 public interface IMinecraftPersistence<T extends IUnmodifiableNominable> extends IPersistence<T> {
 
 	/**
-	 * @return The default content to save when the plugin is enabled.
+	 * @return The file name of the default object associated to this persistence.
 	 */
-	IDefaultContent getDefaultContent();
+	String getDefault();
+
+	/**
+	 * Method called when the file associated to the default object does not exists.
+	 */
+	void saveDefault();
 }

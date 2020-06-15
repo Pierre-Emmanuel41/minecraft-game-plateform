@@ -1,12 +1,10 @@
 package fr.pederobien.minecraftgameplateform.internal;
 
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
-import fr.pederobien.minecraftdevelopmenttoolkit.utils.FileWriterHelper;
 import fr.pederobien.minecraftgameplateform.impl.element.AbstractNominable;
 import fr.pederobien.minecraftgameplateform.interfaces.element.persistence.IMinecraftPersistence;
 import fr.pederobien.minecraftgameplateform.internal.persistence.PersistenceCenterPersistence;
@@ -50,17 +48,19 @@ public class PersistenceCenter extends AbstractNominable implements IPersistence
 	@Override
 	public <T extends IUnmodifiableNominable> void registerOrUpdate(IMinecraftPersistence<T> persistence) {
 		Double version = versions.get(persistence.getClass().getName());
+
 		if (version == null) {
 			Plateform.getPlugin().getLogger().info("Registering persistence " + persistence.getClass());
 			versions.put(persistence.getClass().getName(), persistence.getVersion());
 			writeDefaultContent(persistence);
 		} else if (persistence.forceUpdate() || !version.equals(persistence.getVersion())) {
 			Plateform.getPlugin().getLogger().info("Updating persistence " + persistence.getClass());
-			update(persistence);
+			persistence.update();
+			versions.put(persistence.getClass().getName(), persistence.getVersion());
 		}
 
 		// When the default content does not exist
-		if (!persistence.getAbsolutePath(persistence.getDefaultContent().getName()).toFile().exists())
+		if (!persistence.getAbsolutePath(persistence.getDefault()).toFile().exists())
 			writeDefaultContent(persistence);
 	}
 
@@ -69,19 +69,8 @@ public class PersistenceCenter extends AbstractNominable implements IPersistence
 		centerPersistence.save();
 	}
 
-	private <T extends IUnmodifiableNominable> void update(IMinecraftPersistence<T> persistence) {
-		try {
-			persistence.load(persistence.getDefaultContent().getName());
-			persistence.save();
-			persistence.set(null);
-		} catch (FileNotFoundException e) {
-			writeDefaultContent(persistence);
-		}
-		versions.put(persistence.getClass().getName(), persistence.getVersion());
-	}
-
 	private <T extends IUnmodifiableNominable> void writeDefaultContent(IMinecraftPersistence<T> persistence) {
-		FileWriterHelper.mkdirs(persistence.getPath());
-		FileWriterHelper.write(persistence.getAbsolutePath(persistence.getDefaultContent().getName()), persistence.getDefaultContent().getDefaultContent());
+		persistence.getPath().toFile().mkdirs();
+		persistence.saveDefault();
 	}
 }

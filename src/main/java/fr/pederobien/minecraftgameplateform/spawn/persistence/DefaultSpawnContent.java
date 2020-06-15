@@ -1,20 +1,16 @@
 package fr.pederobien.minecraftgameplateform.spawn.persistence;
 
-import fr.pederobien.minecraftgameplateform.impl.element.persistence.AbstractDefaultContent;
+import fr.pederobien.minecraftgameplateform.interfaces.element.persistence.IDefaultContent;
 
-public class DefaultSpawnContent extends AbstractDefaultContent {
-
-	protected DefaultSpawnContent() {
-		super("DefaultSpawn");
-	}
+public class DefaultSpawnContent implements IDefaultContent {
 
 	@Override
-	public String getDefaultContent() {
+	public String get() {
 		return "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n"
 				+ "<spawn>\r\n"
 				+ "  <version>1.0</version>\r\n"
 				+ "  <name>DefaultSpawn</name>\r\n"
-				+ "  <world>world_nether</world>\r\n"
+				+ "  <world>world</world>\r\n"
 				+ "  <dimensions depth=\"11\" height=\"3\" width=\"19\"/>\r\n"
 				+ "  <center x=\"0\" y=\"100\" z=\"0\"/>\r\n"
 				+ "  <playerspawn x=\"0\" y=\"1\" z=\"0\"/>\r\n"

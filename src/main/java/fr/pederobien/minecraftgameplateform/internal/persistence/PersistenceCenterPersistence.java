@@ -5,7 +5,6 @@ import java.util.Map;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
-import fr.pederobien.minecraftgameplateform.impl.element.persistence.AbstractDefaultContent;
 import fr.pederobien.minecraftgameplateform.impl.element.persistence.AbstractMinecraftPersistence;
 import fr.pederobien.minecraftgameplateform.internal.IPersistenceCenter;
 import fr.pederobien.minecraftgameplateform.internal.persistence.loaders.PersistenceCenterLoaderV10;
@@ -15,9 +14,14 @@ public class PersistenceCenterPersistence extends AbstractMinecraftPersistence<I
 	private static final String ROOT_XML_DOCUMENT = "register";
 
 	public PersistenceCenterPersistence(IPersistenceCenter persistenceRegister) {
-		super(Plateform.ROOT.resolve("Internal"), new PersistenceRegisterDefaultContent());
+		super(Plateform.ROOT.resolve("Internal"), "register");
 		register(new PersistenceCenterLoaderV10(persistenceRegister));
 		set(persistenceRegister);
+	}
+
+	@Override
+	public void saveDefault() {
+		save();
 	}
 
 	@Override
@@ -47,17 +51,5 @@ public class PersistenceCenterPersistence extends AbstractMinecraftPersistence<I
 
 		saveDocument(doc, get().getName());
 		return true;
-	}
-
-	private static class PersistenceRegisterDefaultContent extends AbstractDefaultContent {
-
-		public PersistenceRegisterDefaultContent() {
-			super("register");
-		}
-
-		@Override
-		public String getDefaultContent() {
-			return "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n" + "<register/>\r\n" + "  <version>1.0</version>\r\n" + "</register>";
-		}
 	}
 }

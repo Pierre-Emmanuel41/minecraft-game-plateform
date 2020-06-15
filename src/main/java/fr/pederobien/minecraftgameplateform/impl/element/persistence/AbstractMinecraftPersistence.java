@@ -6,22 +6,21 @@ import java.nio.file.Path;
 import org.w3c.dom.Document;
 
 import fr.pederobien.minecraftgameplateform.exceptions.persistence.IllegalPathException;
-import fr.pederobien.minecraftgameplateform.interfaces.element.persistence.IDefaultContent;
 import fr.pederobien.minecraftgameplateform.interfaces.element.persistence.IMinecraftPersistence;
 import fr.pederobien.minecraftgameplateform.utils.Plateform;
 import fr.pederobien.persistence.impl.xml.AbstractXmlPersistence;
 import fr.pederobien.persistence.interfaces.IUnmodifiableNominable;
 
 public abstract class AbstractMinecraftPersistence<T extends IUnmodifiableNominable> extends AbstractXmlPersistence<T> implements IMinecraftPersistence<T> {
-	private IDefaultContent defaultContent;
+	private String defaultName;
 
-	protected AbstractMinecraftPersistence(IDefaultContent defaultContent) {
-		this(Plateform.ROOT, defaultContent);
+	protected AbstractMinecraftPersistence(String defaultName) {
+		this(Plateform.ROOT, defaultName);
 	}
 
-	protected AbstractMinecraftPersistence(Path path, IDefaultContent defaultContent) {
+	protected AbstractMinecraftPersistence(Path path, String defaultName) {
 		super(path);
-		this.defaultContent = defaultContent;
+		this.defaultName = defaultName;
 	}
 
 	@Override
@@ -30,8 +29,8 @@ public abstract class AbstractMinecraftPersistence<T extends IUnmodifiableNomina
 	}
 
 	@Override
-	public IDefaultContent getDefaultContent() {
-		return defaultContent;
+	public String getDefault() {
+		return defaultName;
 	}
 
 	@Override

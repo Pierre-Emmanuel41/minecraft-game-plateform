@@ -3,6 +3,7 @@ package fr.pederobien.minecraftgameplateform.border.persistence;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
+import fr.pederobien.minecraftgameplateform.border.BorderConfiguration;
 import fr.pederobien.minecraftgameplateform.border.persistence.loaders.BorderLoaderV10;
 import fr.pederobien.minecraftgameplateform.impl.element.persistence.AbstractMinecraftPersistence;
 import fr.pederobien.minecraftgameplateform.interfaces.element.IBorderConfiguration;
@@ -13,12 +14,18 @@ public class BorderPersistence extends AbstractMinecraftPersistence<IBorderConfi
 	private static final String ROOT_XML_DOCUMENT = "border";
 
 	private BorderPersistence() {
-		super(Plateform.ROOT.resolve("Borders"), new DefaultBorderContent());
+		super(Plateform.ROOT.resolve("Borders"), "DefaultBorder");
 		register(new BorderLoaderV10());
 	}
 
 	public static IMinecraftPersistence<IBorderConfiguration> getInstance() {
 		return new BorderPersistence();
+	}
+
+	@Override
+	public void saveDefault() {
+		set(new BorderConfiguration(getDefault()));
+		save();
 	}
 
 	@Override
