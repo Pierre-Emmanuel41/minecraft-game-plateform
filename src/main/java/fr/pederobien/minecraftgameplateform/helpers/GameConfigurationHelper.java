@@ -174,15 +174,12 @@ public class GameConfigurationHelper implements IGameConfigurationHelper {
 	@Override
 	public ITeam[] movePlayer(String playerName, String teamName) {
 		Player player = checkPlayerExist(playerName);
-		ITeam initialTeam = checkPlayerRegistered(player);
-		ITeam targetTeam = checkTeamExist(teamName);
-		return movePlayer(initialTeam, targetTeam, player);
+		return movePlayer(checkPlayerRegistered(player), checkTeamExist(teamName), player);
 	}
 
 	@Override
 	public void movePlayer(Player player, ITeam targetTeam) {
-		ITeam initialTeam = checkPlayerRegistered(player);
-		movePlayer(initialTeam, targetTeam, player);
+		movePlayer(checkPlayerRegistered(player), targetTeam, player);
 	}
 
 	@Override
