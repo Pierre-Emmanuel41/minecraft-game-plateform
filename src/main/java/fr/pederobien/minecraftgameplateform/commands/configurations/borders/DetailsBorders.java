@@ -1,5 +1,6 @@
 package fr.pederobien.minecraftgameplateform.commands.configurations.borders;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.StringJoiner;
 
@@ -42,6 +43,6 @@ public class DetailsBorders<T extends IGameBorderConfiguration> extends Abstract
 
 	@Override
 	public List<String> onTabComplete(CommandSender sender, Command command, String alias, String[] args) {
-		return filter(get().getBorders().stream().map(conf -> conf.getName()), args);
+		return filter(get().getBorders().stream().map(conf -> conf.getName()).filter(conf -> !Arrays.asList(args).contains(conf)), args);
 	}
 }
