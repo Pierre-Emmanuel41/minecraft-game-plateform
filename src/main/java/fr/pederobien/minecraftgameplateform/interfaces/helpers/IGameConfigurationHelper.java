@@ -299,11 +299,6 @@ public interface IGameConfigurationHelper {
 	Stream<String> getTeamNames(boolean colored);
 
 	/**
-	 * @return A stream that contains all colours not used by the registered teams for this configuration.
-	 */
-	Stream<EColor> getFreeColors();
-
-	/**
 	 * Get a stream that contains all registered teams that does not contains the given player.
 	 * 
 	 * @param playerName The player's name used to filter the list of team for this configuration.

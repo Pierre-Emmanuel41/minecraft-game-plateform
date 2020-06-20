@@ -96,7 +96,7 @@ public class AddTeam<T extends IGameConfiguration> extends AbstractTeamConfigura
 		case 1:
 			return Arrays.asList(getMessageFromDictionary(sender, ECommonMessageCode.COMMON_NEW_TAB_COMPLETE));
 		case 2:
-			return filter(getGameConfigurationHelper().getAvailableColors().map(color -> color.getName()), args[1]);
+			return filter(getFreeColorNames(false).stream(), args[1]);
 		}
 		return filter(getFreePlayers(Arrays.asList(extract(args, 2))).map(player -> player.getName()), args[args.length - 1]);
 	}

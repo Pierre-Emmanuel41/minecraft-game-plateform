@@ -216,11 +216,6 @@ public class GameConfigurationHelper implements IGameConfigurationHelper {
 	}
 
 	@Override
-	public Stream<EColor> getFreeColors() {
-		return getTeamsStream().map(team -> team.getColor()).filter(color -> !alreadyUsedColors.contains(color));
-	}
-
-	@Override
 	public ITeam renameTeam(String oldName, String newName) {
 		ITeam teamToRename = checkTeamExist(oldName);
 		checkNameNotForbidden(newName);
