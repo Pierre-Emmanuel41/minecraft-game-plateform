@@ -15,6 +15,8 @@ public class BorderLoaderV10 extends AbstractBorderLoader {
 
 	@Override
 	public IXmlPersistenceLoader<IBorderConfiguration> load(Element root) {
+		createNewElement();
+
 		// Getting configuration's name
 		Node name = getElementsByTagName(root, BorderXmlTag.NAME).item(0);
 		get().setName(name.getChildNodes().item(0).getNodeValue());

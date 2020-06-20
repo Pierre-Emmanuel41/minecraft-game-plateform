@@ -15,6 +15,8 @@ public class PersistenceCenterLoaderV10 extends AbstractPersistenceCenterLoader 
 
 	@Override
 	public IXmlPersistenceLoader<IPersistenceCenter> load(Element root) {
+		createNewElement();
+
 		NodeList persistencies = getElementsByTagName(root, PersistenceXmlTag.PERSISTENCE);
 		for (int i = 0; i < persistencies.getLength(); i++) {
 			Element persistence = (Element) persistencies.item(i);

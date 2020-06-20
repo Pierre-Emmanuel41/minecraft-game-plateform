@@ -11,7 +11,12 @@ import fr.pederobien.persistence.interfaces.xml.IXmlPersistenceLoader;
 public abstract class AbstractSpawnLoader extends AbstractXmlPersistenceLoader<ISpawn> implements IXmlPersistenceLoader<ISpawn> {
 
 	protected AbstractSpawnLoader(Double version) {
-		super(version, new Spawn("DefaultSpawn"));
+		super(version);
+	}
+
+	@Override
+	protected ISpawn create() {
+		return new Spawn("DefaultSpawn");
 	}
 
 	protected String getXCoordinates(Element element) {

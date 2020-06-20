@@ -21,6 +21,8 @@ public class SpawnLoaderV10 extends AbstractSpawnLoader {
 
 	@Override
 	public IXmlPersistenceLoader<ISpawn> load(Element root) {
+		createNewElement();
+
 		// Getting the spawn's name
 		Node name = getElementsByTagName(root, SpawnXmlTag.NAME).item(0);
 		get().setName(name.getChildNodes().item(0).getNodeValue());
