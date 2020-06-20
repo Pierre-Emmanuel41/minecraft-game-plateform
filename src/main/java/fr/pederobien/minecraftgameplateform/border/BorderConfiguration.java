@@ -92,6 +92,17 @@ public class BorderConfiguration extends AbstractNominable implements IBorderCon
 	}
 
 	@Override
+	public void pause() {
+		getWorldBorder().setSize(getWorldBorder().getSize());
+	}
+
+	@Override
+	public void relaunched() {
+		if (isMoving())
+			moveBorder(new Double(getWorldBorder().getSize()).longValue());
+	}
+
+	@Override
 	public void reset() {
 		getWorldBorder().reset();
 		if (timeLine != null)
@@ -100,7 +111,7 @@ public class BorderConfiguration extends AbstractNominable implements IBorderCon
 
 	@Override
 	public void timeChanged(LocalTime time) {
-		getWorld().getWorldBorder().setSize(getFinalBorderDiameter(), getInitialBorderDiameter().longValue() / getBorderSpeed().longValue());
+		moveBorder(getInitialBorderDiameter().longValue());
 		isMoving = true;
 	}
 
@@ -172,5 +183,9 @@ public class BorderConfiguration extends AbstractNominable implements IBorderCon
 
 	private Double getDistance() {
 		return (double) Math.abs(getInitialBorderDiameter() - getFinalBorderDiameter());
+	}
+
+	private void moveBorder(long currentDiameter) {
+		getWorld().getWorldBorder().setSize(getFinalBorderDiameter(), currentDiameter / getBorderSpeed().longValue());
 	}
 }

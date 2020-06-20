@@ -74,6 +74,16 @@ public interface IUnmodifiableBorderConfiguration extends IUnmodifiableNominable
 	void apply(IObservableTimeLine timeline);
 
 	/**
+	 * Set the diameter of the border to its current diameter.
+	 */
+	void pause();
+
+	/**
+	 * Move the border from its current diameter to its final diameter if the border was moving.
+	 */
+	void relaunched();
+
+	/**
 	 * Reset the border associated to its world. This configuration is also removed from the list of observers of the
 	 * {@link IObservableTimeLine} passed to the method {@link #apply(IObservableTimeLine)}.
 	 */
