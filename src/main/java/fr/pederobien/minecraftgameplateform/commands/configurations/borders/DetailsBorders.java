@@ -19,14 +19,14 @@ public class DetailsBorders<T extends IGameBorderConfiguration> extends Abstract
 
 	@Override
 	public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
+		String delimiter = "\n----------------------------------------------------\n";
+		StringJoiner joiner = new StringJoiner(delimiter, delimiter, delimiter);
 		if (args.length == 0) {
-			StringJoiner joiner = new StringJoiner("\n", "\n--------", "--------");
 			for (IBorderConfiguration configuration : get().getBorders())
 				joiner.add(configuration.toString());
 			sendMessageToSender(sender, EBordersMessageCode.DETAILS_BORDERS__DETAILS_ON_ALL_REGISTERED_BORDERS, get().getName(), joiner);
 			return true;
 		}
-		StringJoiner joiner = args.length == 1 ? new StringJoiner("") : new StringJoiner("\n", "\n--------", "--------");
 		List<IBorderConfiguration> configurations = null;
 		try {
 			configurations = getConfigurationsFromGameConfiguration(args);
