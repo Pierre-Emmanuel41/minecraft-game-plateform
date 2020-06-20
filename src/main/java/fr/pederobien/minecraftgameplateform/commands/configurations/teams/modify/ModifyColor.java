@@ -37,6 +37,10 @@ public class ModifyColor<T extends IGameConfiguration> extends AbstractTeamConfi
 				sendMessageToSender(sender, ETeamModifyMessageCode.MODIFY_COLOR__COLOR_NAME_IS_MISSING, teamName);
 				return false;
 			}
+
+			getGameConfigurationHelper().modifyTeamColor(teamName, colorName);
+			sendMessageToSender(sender, ETeamModifyMessageCode.MODIFY_COLOR__COLOR_UPDATED, teamName, get().getName());
+			return true;
 		} catch (TeamNotFoundException e) {
 			sendMessageToSender(sender, ETeamModifyMessageCode.MODIFY_COLOR__TEAM_DOES_NOT_EXIST, e.getTeamNotFoundName());
 			return false;
@@ -48,10 +52,6 @@ public class ModifyColor<T extends IGameConfiguration> extends AbstractTeamConfi
 			sendMessageToSender(sender, ETeamModifyMessageCode.MODIFY_COLOR__COLOR_ALREADY_USED, teamName, team.getColor().getName(), team.getColoredName());
 			return false;
 		}
-
-		getGameConfigurationHelper().modifyTeamColor(teamName, colorName);
-		sendMessageToSender(sender, ETeamModifyMessageCode.MODIFY_COLOR__COLOR_UPDATED, teamName, get().getName());
-		return true;
 	}
 
 	@Override
