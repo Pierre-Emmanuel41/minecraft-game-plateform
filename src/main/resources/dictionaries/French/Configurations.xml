@@ -98,7 +98,7 @@
 			<value>Le joueur %s est déjà dans l'équipe %s</value>
 		</message>
 		<message>
-			<code>MOVE__PLAYER_MOVED</code>
+			<code permission="ALL">MOVE__PLAYER_MOVED</code>
 			<value>Le joueur %s a été déplacé dans l'équipe %s, ancienne équipe : %s</value>
 		</message>
 		

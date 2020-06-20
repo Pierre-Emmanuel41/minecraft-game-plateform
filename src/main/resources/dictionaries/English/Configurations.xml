@@ -100,7 +100,7 @@
 			<value>The player %s is already in team %s</value>
 		</message>
 		<message>
-			<code>MOVE__PLAYER_MOVED</code>
+			<code permission="ALL">MOVE__PLAYER_MOVED</code>
 			<value>The player %s has been moved in team %s, former team : %s</value>
 		</message>
 
