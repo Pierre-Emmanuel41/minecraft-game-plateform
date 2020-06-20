@@ -31,13 +31,9 @@ import fr.pederobien.minecraftmanagers.TeamManager;
 
 public class GameConfigurationHelper implements IGameConfigurationHelper {
 	private IGameConfiguration configuration;
-	private List<EColor> alreadyUsedColors;
-	private List<Player> registeredPlayers;
 
 	public GameConfigurationHelper(IGameConfiguration configuration) {
 		this.configuration = configuration;
-		alreadyUsedColors = new ArrayList<EColor>();
-		registeredPlayers = new ArrayList<Player>();
 	}
 
 	@Override
@@ -74,7 +70,7 @@ public class GameConfigurationHelper implements IGameConfigurationHelper {
 		List<Player> players = new ArrayList<Player>();
 		configuration.getTeams().forEach(team -> team.getPlayers().forEach(player -> {
 			players.add(player);
-			synchronizedRemove(team, player);
+			removePlayerFromTeam(team, player);
 		}));
 		return players;
 	}
@@ -125,27 +121,27 @@ public class GameConfigurationHelper implements IGameConfigurationHelper {
 
 	@Override
 	public ITeam add(String teamName, String playerName) {
-		return synchronizedAdd(checkTeamExist(teamName), checkPlayerNotAlreadyRegistered(checkPlayerExist(playerName)));
+		return addPlayerToTeam(checkTeamExist(teamName), checkPlayerNotAlreadyRegistered(checkPlayerExist(playerName)));
 	}
 
 	@Override
 	public ITeam add(String teamName, String[] playerNames) {
 		ITeam team = checkTeamExist(teamName);
 		for (String playerName : playerNames)
-			synchronizedAdd(team, checkPlayerNotAlreadyRegistered(checkPlayerExist(playerName)));
+			addPlayerToTeam(team, checkPlayerNotAlreadyRegistered(checkPlayerExist(playerName)));
 		return team;
 	}
 
 	@Override
 	public ITeam add(String teamName, Player player) {
-		return synchronizedAdd(checkTeamExist(teamName), checkPlayerNotAlreadyRegistered(player));
+		return addPlayerToTeam(checkTeamExist(teamName), checkPlayerNotAlreadyRegistered(player));
 	}
 
 	@Override
 	public ITeam add(String teamName, List<Player> players) {
 		ITeam team = checkTeamExist(teamName);
 		for (Player player : players)
-			synchronizedAdd(team, checkPlayerNotAlreadyRegistered(player));
+			addPlayerToTeam(team, checkPlayerNotAlreadyRegistered(player));
 		return team;
 	}
 
@@ -164,14 +160,14 @@ public class GameConfigurationHelper implements IGameConfigurationHelper {
 
 	@Override
 	public ITeam removePlayer(Player player) {
-		return synchronizedRemove(checkPlayerRegistered(player), player);
+		return removePlayerFromTeam(checkPlayerRegistered(player), player);
 	}
 
 	@Override
 	public List<ITeam> removePlayers(List<Player> players) {
 		List<ITeam> teams = new ArrayList<ITeam>();
 		for (Player player : players)
-			teams.add(synchronizedRemove(checkPlayerRegistered(player), player));
+			teams.add(removePlayerFromTeam(checkPlayerRegistered(player), player));
 		return teams;
 	}
 
@@ -191,17 +187,19 @@ public class GameConfigurationHelper implements IGameConfigurationHelper {
 
 	@Override
 	public Stream<EColor> getAvailableColors() {
+		List<EColor> alreadyUsedColors = getAlreadyUsedColors();
 		return Arrays.asList(EColor.values()).stream().filter(color -> !alreadyUsedColors.contains(color));
 	}
 
 	@Override
 	public Stream<Player> getFreePlayers() {
+		List<Player> registeredPlayers = getRegisteredPlayers();
 		return PlayerManager.getPlayers().filter(player -> !registeredPlayers.contains(player));
 	}
 
 	@Override
 	public Stream<Player> getNotFreePlayers() {
-		return getTeamsStream().map(team -> team.getPlayers().stream()).reduce(Stream.of(), (players, playersTeam) -> Stream.concat(players, playersTeam));
+		return getRegisteredPlayers().stream();
 	}
 
 	@Override
@@ -298,31 +296,27 @@ public class GameConfigurationHelper implements IGameConfigurationHelper {
 			throw new TeamsAreTheSameException(configuration, initialTeam, targetTeam);
 	}
 
-	private ITeam synchronizedAdd(ITeam team, Player player) {
+	private ITeam addPlayerToTeam(ITeam team, Player player) {
 		team.addPlayer(player);
-		registeredPlayers.add(player);
 		return team;
 	}
 
-	private ITeam synchronizedRemove(ITeam team, Player player) {
+	private ITeam removePlayerFromTeam(ITeam team, Player player) {
 		team.removePlayer(player);
-		registeredPlayers.remove(player);
 		return team;
 	}
 
 	private ITeam synchronizedAdd(String teamName, EColor color) {
 		ITeam team = PlateformTeam.of(teamName, color);
 		configuration.add(team);
-		alreadyUsedColors.add(color);
 		return team;
 	}
 
 	private ITeam synchronizedRemove(ITeam team) {
 		configuration.remove(team);
-		alreadyUsedColors.remove(team.getColor());
 		// Remove each player from the team and from the registered players list
 		for (Player player : team.getPlayers())
-			synchronizedRemove(team, player);
+			removePlayerFromTeam(team, player);
 		return team;
 	}
 
@@ -334,5 +328,19 @@ public class GameConfigurationHelper implements IGameConfigurationHelper {
 		teams[0] = initialTeam;
 		teams[1] = targetTeam;
 		return teams;
+	}
+
+	private List<EColor> getAlreadyUsedColors() {
+		List<EColor> alreadyUsedColors = new ArrayList<>();
+		for (ITeam team : configuration.getTeams())
+			alreadyUsedColors.add(team.getColor());
+		return alreadyUsedColors;
+	}
+
+	private List<Player> getRegisteredPlayers() {
+		List<Player> registeredPlayers = new ArrayList<Player>();
+		for (ITeam team : configuration.getTeams())
+			registeredPlayers.addAll(team.getPlayers());
+		return registeredPlayers;
 	}
 }
