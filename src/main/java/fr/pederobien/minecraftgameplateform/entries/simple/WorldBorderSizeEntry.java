@@ -6,7 +6,7 @@ import org.bukkit.World;
 import org.bukkit.WorldBorder;
 import org.bukkit.entity.Player;
 
-import fr.pederobien.minecraftgameplateform.interfaces.element.IBorderConfiguration;
+import fr.pederobien.minecraftgameplateform.border.IBorderConfiguration;
 import fr.pederobien.minecraftmanagers.WorldManager;
 
 public class WorldBorderSizeEntry extends BorderConfigurationEntry {

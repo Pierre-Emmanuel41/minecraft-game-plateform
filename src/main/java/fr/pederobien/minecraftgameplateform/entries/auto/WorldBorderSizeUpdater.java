@@ -1,7 +1,7 @@
 package fr.pederobien.minecraftgameplateform.entries.auto;
 
+import fr.pederobien.minecraftgameplateform.border.IBorderConfiguration;
 import fr.pederobien.minecraftgameplateform.entries.simple.WorldBorderSizeEntry;
-import fr.pederobien.minecraftgameplateform.interfaces.element.IBorderConfiguration;
 import fr.pederobien.minecraftscoreboards.interfaces.IObjective;
 
 public class WorldBorderSizeUpdater extends BorderConfigurationEntryUpdater<WorldBorderSizeEntry> {

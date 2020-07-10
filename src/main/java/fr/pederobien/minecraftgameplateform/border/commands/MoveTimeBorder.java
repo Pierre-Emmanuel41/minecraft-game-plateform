@@ -9,9 +9,9 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 
 import fr.pederobien.minecraftdevelopmenttoolkit.utils.DisplayHelper;
+import fr.pederobien.minecraftgameplateform.border.IBorderConfiguration;
 import fr.pederobien.minecraftgameplateform.dictionary.ECommonMessageCode;
 import fr.pederobien.minecraftgameplateform.impl.editions.AbstractLabelEdition;
-import fr.pederobien.minecraftgameplateform.interfaces.element.IBorderConfiguration;
 
 public class MoveTimeBorder extends AbstractLabelEdition<IBorderConfiguration> {
 

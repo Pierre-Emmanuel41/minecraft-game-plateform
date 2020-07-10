@@ -6,9 +6,9 @@ import java.util.List;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 
+import fr.pederobien.minecraftgameplateform.border.IBorderConfiguration;
 import fr.pederobien.minecraftgameplateform.dictionary.ECommonMessageCode;
 import fr.pederobien.minecraftgameplateform.impl.editions.AbstractLabelEdition;
-import fr.pederobien.minecraftgameplateform.interfaces.element.IBorderConfiguration;
 
 public class CenterBorder extends AbstractLabelEdition<IBorderConfiguration> {
 

@@ -9,9 +9,9 @@ import java.util.Optional;
 
 import org.bukkit.World;
 
+import fr.pederobien.minecraftgameplateform.border.IBorderConfiguration;
 import fr.pederobien.minecraftgameplateform.exceptions.configurations.BorderConfigurationAlreadyRegisteredException;
 import fr.pederobien.minecraftgameplateform.exceptions.configurations.BorderConfigurationNotRegisteredException;
-import fr.pederobien.minecraftgameplateform.interfaces.element.IBorderConfiguration;
 import fr.pederobien.minecraftgameplateform.interfaces.element.IGameBorderConfiguration;
 import fr.pederobien.minecraftmanagers.WorldManager;
 

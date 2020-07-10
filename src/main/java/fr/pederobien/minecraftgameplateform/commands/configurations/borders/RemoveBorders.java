@@ -5,9 +5,9 @@ import java.util.List;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 
+import fr.pederobien.minecraftgameplateform.border.IBorderConfiguration;
 import fr.pederobien.minecraftgameplateform.dictionary.EBordersMessageCode;
 import fr.pederobien.minecraftgameplateform.exceptions.configurations.BorderConfigurationNotRegisteredException;
-import fr.pederobien.minecraftgameplateform.interfaces.element.IBorderConfiguration;
 import fr.pederobien.minecraftgameplateform.interfaces.element.IGameBorderConfiguration;
 
 public class RemoveBorders<T extends IGameBorderConfiguration> extends AbstractGameBorderConfigurationEdition<T> {

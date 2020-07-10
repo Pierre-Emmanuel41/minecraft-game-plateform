@@ -2,8 +2,8 @@ package fr.pederobien.minecraftgameplateform.entries.auto;
 
 import java.time.LocalTime;
 
+import fr.pederobien.minecraftgameplateform.border.IBorderConfiguration;
 import fr.pederobien.minecraftgameplateform.entries.simple.BorderConfigurationEntry;
-import fr.pederobien.minecraftgameplateform.interfaces.element.IBorderConfiguration;
 import fr.pederobien.minecraftgameplateform.interfaces.runtime.task.ITimeTask;
 import fr.pederobien.minecraftgameplateform.interfaces.runtime.task.ITimeTaskObserver;
 import fr.pederobien.minecraftgameplateform.interfaces.runtime.timeline.ITimeLineObserver;

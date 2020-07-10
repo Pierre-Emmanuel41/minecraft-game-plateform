@@ -4,7 +4,7 @@ import java.time.LocalTime;
 
 import org.bukkit.entity.Player;
 
-import fr.pederobien.minecraftgameplateform.interfaces.element.IBorderConfiguration;
+import fr.pederobien.minecraftgameplateform.border.IBorderConfiguration;
 import fr.pederobien.minecraftgameplateform.utils.Plateform;
 import fr.pederobien.minecraftmanagers.WorldManager;
 

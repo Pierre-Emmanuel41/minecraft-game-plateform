@@ -1,6 +1,6 @@
 package fr.pederobien.minecraftgameplateform.exceptions.configurations;
 
-import fr.pederobien.minecraftgameplateform.interfaces.element.IBorderConfiguration;
+import fr.pederobien.minecraftgameplateform.border.IBorderConfiguration;
 import fr.pederobien.minecraftgameplateform.interfaces.element.IGameConfiguration;
 
 public class BorderConfigurationAlreadyRegisteredException extends GameConfigurationException {

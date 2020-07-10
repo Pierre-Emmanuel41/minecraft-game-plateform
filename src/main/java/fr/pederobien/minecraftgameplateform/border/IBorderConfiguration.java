@@ -1,4 +1,4 @@
-package fr.pederobien.minecraftgameplateform.interfaces.element;
+package fr.pederobien.minecraftgameplateform.border;
 
 import java.time.LocalTime;
 
@@ -7,6 +7,7 @@ import org.bukkit.WorldBorder;
 import org.bukkit.block.Block;
 
 import fr.pederobien.minecraftgameplateform.exceptions.worldstructure.WorldNotFoundException;
+import fr.pederobien.minecraftgameplateform.interfaces.element.INominable;
 import fr.pederobien.minecraftgameplateform.interfaces.runtime.timeline.IObservableTimeLine;
 import fr.pederobien.minecraftgameplateform.interfaces.runtime.timeline.ITimeLineObserver;
 

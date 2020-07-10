@@ -2,8 +2,8 @@ package fr.pederobien.minecraftgameplateform.border.commands;
 
 import org.bukkit.command.CommandSender;
 
+import fr.pederobien.minecraftgameplateform.border.IBorderConfiguration;
 import fr.pederobien.minecraftgameplateform.commands.common.CommonRename;
-import fr.pederobien.minecraftgameplateform.interfaces.element.IBorderConfiguration;
 
 public class RenameBorder extends CommonRename<IBorderConfiguration> {
 

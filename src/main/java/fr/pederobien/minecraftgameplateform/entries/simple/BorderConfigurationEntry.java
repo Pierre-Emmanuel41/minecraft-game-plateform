@@ -1,7 +1,7 @@
 package fr.pederobien.minecraftgameplateform.entries.simple;
 
+import fr.pederobien.minecraftgameplateform.border.IBorderConfiguration;
 import fr.pederobien.minecraftgameplateform.entries.PlateformEntry;
-import fr.pederobien.minecraftgameplateform.interfaces.element.IBorderConfiguration;
 
 public abstract class BorderConfigurationEntry extends PlateformEntry {
 	private IBorderConfiguration configuration;

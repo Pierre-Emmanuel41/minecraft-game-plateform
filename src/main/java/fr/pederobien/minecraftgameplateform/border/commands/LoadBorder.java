@@ -2,9 +2,9 @@ package fr.pederobien.minecraftgameplateform.border.commands;
 
 import org.bukkit.command.CommandSender;
 
+import fr.pederobien.minecraftgameplateform.border.IBorderConfiguration;
 import fr.pederobien.minecraftgameplateform.commands.common.CommonLoad;
 import fr.pederobien.minecraftgameplateform.commands.common.ECommonLabel;
-import fr.pederobien.minecraftgameplateform.interfaces.element.IBorderConfiguration;
 import fr.pederobien.minecraftgameplateform.interfaces.element.ILabel;
 
 public class LoadBorder extends CommonLoad<IBorderConfiguration> {

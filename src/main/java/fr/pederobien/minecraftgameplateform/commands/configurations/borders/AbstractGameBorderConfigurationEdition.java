@@ -9,11 +9,11 @@ import java.util.stream.Stream;
 import org.bukkit.World;
 
 import fr.pederobien.minecraftdictionary.interfaces.IMinecraftMessageCode;
+import fr.pederobien.minecraftgameplateform.border.IBorderConfiguration;
 import fr.pederobien.minecraftgameplateform.border.persistence.BorderPersistence;
 import fr.pederobien.minecraftgameplateform.commands.configurations.AbstractGameConfigurationEdition;
 import fr.pederobien.minecraftgameplateform.exceptions.configurations.BorderConfigurationNotRegisteredException;
 import fr.pederobien.minecraftgameplateform.exceptions.configurations.ConfigurationNotFoundException;
-import fr.pederobien.minecraftgameplateform.interfaces.element.IBorderConfiguration;
 import fr.pederobien.minecraftgameplateform.interfaces.element.IGameBorderConfiguration;
 import fr.pederobien.minecraftgameplateform.interfaces.element.ILabel;
 import fr.pederobien.minecraftmanagers.WorldManager;

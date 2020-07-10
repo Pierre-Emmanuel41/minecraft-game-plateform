@@ -1,7 +1,7 @@
 package fr.pederobien.minecraftgameplateform.border.commands;
 
+import fr.pederobien.minecraftgameplateform.border.IBorderConfiguration;
 import fr.pederobien.minecraftgameplateform.commands.common.CommonCurrent;
-import fr.pederobien.minecraftgameplateform.interfaces.element.IBorderConfiguration;
 
 public class CurrentBorder extends CommonCurrent<IBorderConfiguration> {
 

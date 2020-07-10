@@ -2,8 +2,8 @@ package fr.pederobien.minecraftgameplateform.border.commands;
 
 import org.bukkit.command.CommandSender;
 
+import fr.pederobien.minecraftgameplateform.border.IBorderConfiguration;
 import fr.pederobien.minecraftgameplateform.commands.common.CommonList;
-import fr.pederobien.minecraftgameplateform.interfaces.element.IBorderConfiguration;
 
 public class ListBorder extends CommonList<IBorderConfiguration> {
 

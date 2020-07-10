@@ -3,8 +3,8 @@ package fr.pederobien.minecraftgameplateform.border.persistence.loaders;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 
+import fr.pederobien.minecraftgameplateform.border.IBorderConfiguration;
 import fr.pederobien.minecraftgameplateform.border.persistence.BorderXmlTag;
-import fr.pederobien.minecraftgameplateform.interfaces.element.IBorderConfiguration;
 import fr.pederobien.persistence.interfaces.xml.IXmlPersistenceLoader;
 
 public class BorderLoaderV10 extends AbstractBorderLoader {

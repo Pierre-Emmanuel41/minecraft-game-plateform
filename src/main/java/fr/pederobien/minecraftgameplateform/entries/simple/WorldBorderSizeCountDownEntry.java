@@ -5,7 +5,7 @@ import java.time.LocalTime;
 import org.bukkit.entity.Player;
 
 import fr.pederobien.minecraftdevelopmenttoolkit.utils.DisplayHelper;
-import fr.pederobien.minecraftgameplateform.interfaces.element.IBorderConfiguration;
+import fr.pederobien.minecraftgameplateform.border.IBorderConfiguration;
 import fr.pederobien.minecraftgameplateform.utils.Plateform;
 
 public class WorldBorderSizeCountDownEntry extends WorldBorderSizeEntry {
