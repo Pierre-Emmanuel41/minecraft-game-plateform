@@ -46,7 +46,7 @@ public class PlateformPlugin extends JavaPlugin {
 	}
 
 	private void registerDictionary(String parent, String... dictionaryNames) {
-		Path jarPath = Plateform.ROOT.getParent().resolve(Plateform.getMinecraftPluginName());
+		Path jarPath = Plateform.ROOT.getParent().resolve(Plateform.getJarName("minecraft-game-plateform"));
 		String dictionariesFolder = "resources/dictionaries/".concat(parent).concat("/");
 		for (String name : dictionaryNames)
 			registerDictionary(Plateform.getDefaultDictionaryParser(dictionariesFolder.concat(name)), jarPath);

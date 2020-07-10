@@ -8,6 +8,7 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import fr.pederobien.minecraftgameplateform.dictionary.EGameMessageCode;
+import fr.pederobien.minecraftgameplateform.gamerules.GameRule;
 import fr.pederobien.minecraftgameplateform.impl.runtime.timeline.TimeLine;
 import fr.pederobien.minecraftgameplateform.interfaces.commands.IParentCommand;
 import fr.pederobien.minecraftgameplateform.interfaces.runtime.timeline.ITimeLineObserver;
@@ -48,6 +49,7 @@ public class StartCommand extends AbstractGameCommand {
 		notifyCommands(commands, cmd -> cmd.onGameIsStarted(getGameConfigurationContext().getGame()));
 
 		register();
+		runGameRules();
 
 		setPvp(false);
 		return true;
@@ -72,12 +74,17 @@ public class StartCommand extends AbstractGameCommand {
 		isRegistered = true;
 	}
 
+	private void runGameRules() {
+		GameRule.RUNNABLE_RULES.forEach(rule -> rule.start());
+	}
+
 	private class PvpActivator implements ITimeLineObserver {
 
 		@Override
 		public void timeChanged(LocalTime time) {
 			setPvp(true);
 			getGameConfigurationContext().getGame().onPvpEnabled();
+			GameRule.DISPLAY_CURRENT_TEAMMATE_LOCATION.setValue(true);
 		}
 	}
 }
