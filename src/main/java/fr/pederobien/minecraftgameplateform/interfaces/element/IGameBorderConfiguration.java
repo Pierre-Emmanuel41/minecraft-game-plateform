@@ -7,9 +7,8 @@ import org.bukkit.World;
 
 import fr.pederobien.minecraftgameplateform.exceptions.configurations.BorderConfigurationAlreadyRegisteredException;
 import fr.pederobien.minecraftgameplateform.exceptions.configurations.BorderConfigurationNotRegisteredException;
-import fr.pederobien.minecraftgameplateform.interfaces.element.unmodifiable.IUnmodifiableGameBorderConfiguration;
 
-public interface IGameBorderConfiguration extends IUnmodifiableGameBorderConfiguration, IGameConfiguration {
+public interface IGameBorderConfiguration extends IGameConfiguration {
 
 	/**
 	 * Append the given border configuration to this game configuration. If a border configuration is already registered for the
@@ -45,6 +44,29 @@ public interface IGameBorderConfiguration extends IUnmodifiableGameBorderConfigu
 	 * @return An optional that contains the removed border configuration if it exists, an empty optional otherwise.
 	 */
 	Optional<IBorderConfiguration> remove(World world);
+
+	/**
+	 * @return The list of all registered border configuration for this game configuration. This list is unmodifiable.
+	 */
+	List<IBorderConfiguration> getBorders();
+
+	/**
+	 * Get the registered border configuration for the given world if it exists.
+	 * 
+	 * @param world The world used as key to filter all registered border configurations.
+	 * 
+	 * @return An optional that contains the registered border configuration if it exists, an empty optional otherwise.
+	 */
+	Optional<IBorderConfiguration> getBorder(World world);
+
+	/**
+	 * Get the configuration associated to the given name.
+	 * 
+	 * @param name The configuration name.
+	 * 
+	 * @return An optional that contains the configuration if it is registered, an empty optional otherwise.
+	 */
+	Optional<IBorderConfiguration> getBorder(String name);
 
 	/**
 	 * Remove each registered border configuration from this game configuration.

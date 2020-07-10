@@ -1,8 +1,15 @@
 package fr.pederobien.minecraftgameplateform.interfaces.element;
 
-import fr.pederobien.minecraftgameplateform.interfaces.element.unmodifiable.IUnmodifiableSpawn;
+import org.bukkit.block.Block;
 
-public interface ISpawn extends IUnmodifiableSpawn, IWorldStructure {
+public interface ISpawn extends IWorldStructure {
+
+	/**
+	 * Get the block from Minecraft world above which players will spawn.
+	 * 
+	 * @return The block above which players will spawn. The coordinates of this block are absolute.
+	 */
+	Block getPlayerSpawn();
 
 	/**
 	 * Set the coordinates of the block above which players will spawn. The following coordinates are absolute.
@@ -14,6 +21,14 @@ public interface ISpawn extends IUnmodifiableSpawn, IWorldStructure {
 	void setPlayerSpawn(String x, String y, String z);
 
 	/**
+	 * Get a virtual block above which players will spawn. This block correspond to {@link #getPlayerSpawn()} but the coordinates are
+	 * relative.
+	 * 
+	 * @return A virtual block above which players will spawn.
+	 */
+	IWorldBlock getRelativePlayerSpawn();
+
+	/**
 	 * Set the coordinates of the block above which players will spawn. The following coordinates are relative to the center.
 	 * 
 	 * @param x The x-Coordinates of the block.
@@ -21,6 +36,11 @@ public interface ISpawn extends IUnmodifiableSpawn, IWorldStructure {
 	 * @param z The z-Coordinates of the block.
 	 */
 	void setRelativePlayerSpawn(String x, String y, String z);
+
+	/**
+	 * @return True if mobs are allowed to spawn under the spawn, false otherwise.
+	 */
+	boolean isAllowMobsUnderSpawn();
 
 	/**
 	 * If mobs are allowed to spawn under the spawn, then set to true, false otherwise.

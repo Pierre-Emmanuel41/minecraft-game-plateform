@@ -2,10 +2,14 @@ package fr.pederobien.minecraftgameplateform.interfaces.element;
 
 import java.time.LocalTime;
 import java.util.List;
+import java.util.Optional;
 
-import fr.pederobien.minecraftgameplateform.interfaces.element.unmodifiable.IUnmodifiableGameConfiguration;
+public interface IGameConfiguration extends INominable {
 
-public interface IGameConfiguration extends INominable, IUnmodifiableGameConfiguration {
+	/**
+	 * @return The game managed by this configuration.
+	 */
+	IGame getGame();
 
 	/**
 	 * Append the given team to this configuration.
@@ -34,6 +38,25 @@ public interface IGameConfiguration extends INominable, IUnmodifiableGameConfigu
 	 * @return The list of removed teams.
 	 */
 	List<ITeam> clearTeams();
+
+	/**
+	 * @return The list of registered team associated to this configuration. This list is unmodifiable.
+	 */
+	List<ITeam> getTeams();
+
+	/**
+	 * Get the team in this configuration associated to the given name.
+	 * 
+	 * @param name The name used to obtain the associated team.
+	 * 
+	 * @return An optional that contains the team if it exists, a empty optional otherwise.
+	 */
+	Optional<ITeam> getTeam(String name);
+
+	/**
+	 * @return The time after which the pvp is enabled.
+	 */
+	LocalTime getPvpTime();
 
 	/**
 	 * While the game time is less than the given time, the pvp is deactivated.
