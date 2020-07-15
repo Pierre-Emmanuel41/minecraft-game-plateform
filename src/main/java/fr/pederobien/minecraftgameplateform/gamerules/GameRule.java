@@ -43,7 +43,7 @@ public abstract class GameRule<T> extends AbstractNominable implements IGameRule
 
 	@Override
 	public T getValue() {
-		return value;
+		return value == null ? defaultValue : value;
 	}
 
 	@Override
