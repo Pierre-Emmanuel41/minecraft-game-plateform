@@ -16,7 +16,7 @@ public class BorderEditionsFactory {
 	 * @return An edition to display current border's characteristics.
 	 */
 	public static IMapPersistenceEdition<IBorderConfiguration> currentBorder() {
-		return new CurrentBorder();
+		return new DetailsBorder();
 	}
 
 	/**

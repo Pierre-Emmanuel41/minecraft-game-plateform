@@ -152,11 +152,11 @@
 			<value>The spawn %s has been launched in the %s at X=%s Y=%s Z=%s</value>
 		</message>
 		<message>
-			<code>CURRENT_SPAWN__EXPLANATION</code>
+			<code>DETAILS_SPAWN__EXPLANATION</code>
 			<value>To display current spawn’s characteristics</value>
 		</message>
 		<message>
-			<code>CURRENT_SPAWN__ON_CURRENT</code>
+			<code>DETAILS_SPAWN__ON_DETAILS</code>
 			<value>Current spawn's characteristics :%n%s</value>
 		</message>
 		<message>

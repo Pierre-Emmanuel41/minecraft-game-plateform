@@ -32,11 +32,11 @@
 			<value>The border %s has been created</value>
 		</message>
 		<message>
-			<code>CURRENT_BORDER__EXPLANATION</code>
+			<code>DETAILS_BORDER__EXPLANATION</code>
 			<value>To display current border's characteristics</value>
 		</message>
 		<message>
-			<code>CURRENT_BORDER__ON_CURRENT</code>
+			<code>DETAILS_BORDER__ON_DETAILS</code>
 			<value>Current border's characteristics :%n%s</value>
 		</message>
 		<message>

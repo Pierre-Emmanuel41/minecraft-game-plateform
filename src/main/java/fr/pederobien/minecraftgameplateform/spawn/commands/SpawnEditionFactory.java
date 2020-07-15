@@ -86,7 +86,7 @@ public class SpawnEditionFactory {
 	 * @return An edition to display current spawn's characteristics.
 	 */
 	public static IMapPersistenceEdition<ISpawn> currentSpawn() {
-		return new CurrentSpawn();
+		return new DetailsSpawn();
 	}
 
 	/**

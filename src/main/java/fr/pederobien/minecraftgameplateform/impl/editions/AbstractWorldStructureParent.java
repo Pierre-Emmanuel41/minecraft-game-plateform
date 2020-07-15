@@ -3,7 +3,7 @@ package fr.pederobien.minecraftgameplateform.impl.editions;
 import org.bukkit.plugin.Plugin;
 
 import fr.pederobien.minecraftdictionary.interfaces.IMinecraftMessageCode;
-import fr.pederobien.minecraftgameplateform.commands.common.CommonCurrent;
+import fr.pederobien.minecraftgameplateform.commands.common.CommonDetails;
 import fr.pederobien.minecraftgameplateform.commands.common.CommonDelete;
 import fr.pederobien.minecraftgameplateform.commands.common.CommonList;
 import fr.pederobien.minecraftgameplateform.commands.common.CommonNew;
@@ -76,7 +76,7 @@ public abstract class AbstractWorldStructureParent<T extends IWorldStructure> ex
 	protected abstract IMapPersistenceEdition<T> getDeleteEdition();
 
 	/**
-	 * The returned edition should extends {@link CommonCurrent} for more security.
+	 * The returned edition should extends {@link CommonDetails} for more security.
 	 * 
 	 * @return An edition to display current structure's characteristics.
 	 */
