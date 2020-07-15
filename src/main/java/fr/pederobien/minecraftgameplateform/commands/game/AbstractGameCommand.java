@@ -17,6 +17,7 @@ import fr.pederobien.minecraftgameplateform.commands.AbstractCommand;
 import fr.pederobien.minecraftgameplateform.dictionary.EGameMessageCode;
 import fr.pederobien.minecraftgameplateform.interfaces.commands.IParentCommand;
 import fr.pederobien.minecraftgameplateform.utils.Plateform;
+import fr.pederobien.minecraftmanagers.MessageManager;
 import fr.pederobien.persistence.interfaces.IUnmodifiableNominable;
 
 public abstract class AbstractGameCommand extends AbstractCommand {
@@ -61,7 +62,7 @@ public abstract class AbstractGameCommand extends AbstractCommand {
 	 * @param args   Arguments that could be useful to send dynamic messages.
 	 */
 	protected void sendMessage(Player player, IMinecraftMessageCode code, String... args) {
-		Plateform.getNotificationCenter().sendMessage(new MinecraftMessageEvent(player, code, (Object[]) args));
+		MessageManager.sendMessage(player, Plateform.getNotificationCenter().getMessage(new MinecraftMessageEvent(player, code, (Object[]) args)));
 	}
 
 	/**
