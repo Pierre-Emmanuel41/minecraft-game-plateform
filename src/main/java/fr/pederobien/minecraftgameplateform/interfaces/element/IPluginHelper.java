@@ -6,7 +6,7 @@ import java.util.stream.Stream;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
 
-public interface IPluginManager {
+public interface IPluginHelper {
 
 	/**
 	 * Register the given plugin.

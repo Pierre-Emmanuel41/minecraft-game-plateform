@@ -13,6 +13,7 @@ import fr.pederobien.minecraftdictionary.interfaces.IMinecraftNotificationCenter
 import fr.pederobien.minecraftgameplateform.PlateformPlugin;
 import fr.pederobien.minecraftgameplateform.helpers.CommandHelper;
 import fr.pederobien.minecraftgameplateform.helpers.ConfigurationHelperManager;
+import fr.pederobien.minecraftgameplateform.helpers.PluginHelper;
 import fr.pederobien.minecraftgameplateform.impl.element.GameConfigurationContext;
 import fr.pederobien.minecraftgameplateform.impl.runtime.task.TimeTask;
 import fr.pederobien.minecraftgameplateform.impl.runtime.timeline.TimeLine;
@@ -20,7 +21,7 @@ import fr.pederobien.minecraftgameplateform.interfaces.commands.ICommand;
 import fr.pederobien.minecraftgameplateform.interfaces.commands.ICommandHelper;
 import fr.pederobien.minecraftgameplateform.interfaces.element.IGameConfiguration;
 import fr.pederobien.minecraftgameplateform.interfaces.element.IGameConfigurationContext;
-import fr.pederobien.minecraftgameplateform.interfaces.element.IPluginManager;
+import fr.pederobien.minecraftgameplateform.interfaces.element.IPluginHelper;
 import fr.pederobien.minecraftgameplateform.interfaces.helpers.IGameConfigurationHelper;
 import fr.pederobien.minecraftgameplateform.interfaces.runtime.task.ITimeTask;
 import fr.pederobien.minecraftgameplateform.interfaces.runtime.timeline.IObservableTimeLine;
@@ -62,7 +63,7 @@ public class Plateform {
 	 * @return The jar's name of the plugin associated to the given plugin name.
 	 */
 	public static String getJarName(String pluginName) {
-		return getPluginManager().getPlugin(pluginName).get().getName().concat(".jar");
+		return getPluginHelper().getPlugin(pluginName).get().getName().concat(".jar");
 	}
 
 	/**
@@ -103,10 +104,10 @@ public class Plateform {
 	}
 
 	/**
-	 * @return The manager used to have access to all registered plugins to this plugin.
+	 * @return The helper used to have access to all registered plugins to this plugin.
 	 */
-	public static IPluginManager getPluginManager() {
-		return PluginManager.getInstance();
+	public static IPluginHelper getPluginHelper() {
+		return PluginHelper.getInstance();
 	}
 
 	/**
@@ -125,7 +126,7 @@ public class Plateform {
 		if (Plateform.plugin != null)
 			throw new UnsupportedOperationException("The plugin is already defined for this plateform");
 		Plateform.plugin = plugin;
-		getPluginManager().register(plugin);
+		getPluginHelper().register(plugin);
 		updater = ObjectiveUpdater.getInstance(plugin);
 	}
 

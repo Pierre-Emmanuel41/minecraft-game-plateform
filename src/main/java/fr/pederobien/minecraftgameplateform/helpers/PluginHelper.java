@@ -1,4 +1,4 @@
-package fr.pederobien.minecraftgameplateform.utils;
+package fr.pederobien.minecraftgameplateform.helpers;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -8,21 +8,22 @@ import java.util.stream.Stream;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import fr.pederobien.minecraftgameplateform.interfaces.element.IPluginManager;
+import fr.pederobien.minecraftgameplateform.interfaces.element.IPluginHelper;
+import fr.pederobien.minecraftgameplateform.utils.Plateform;
 
-public class PluginManager implements IPluginManager {
+public class PluginHelper implements IPluginHelper {
 	private List<Plugin> plugins = new ArrayList<Plugin>();
 
-	private PluginManager() {
+	private PluginHelper() {
 		plugins = new ArrayList<Plugin>();
 	}
 
-	public static IPluginManager getInstance() {
-		return SingletonHolder.MANAGER;
+	public static IPluginHelper getInstance() {
+		return SingletonHolder.HELPER;
 	}
 
 	private static class SingletonHolder {
-		public static final IPluginManager MANAGER = new PluginManager();
+		public static final IPluginHelper HELPER = new PluginHelper();
 	}
 
 	@Override
