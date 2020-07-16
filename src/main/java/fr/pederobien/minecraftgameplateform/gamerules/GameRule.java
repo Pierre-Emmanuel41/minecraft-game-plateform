@@ -10,7 +10,6 @@ import fr.pederobien.minecraftdictionary.interfaces.IMinecraftMessageCode;
 import fr.pederobien.minecraftgameplateform.impl.element.AbstractNominable;
 import fr.pederobien.minecraftgameplateform.interfaces.element.IGameRule;
 import fr.pederobien.minecraftgameplateform.interfaces.element.IRunnableGameRule;
-import fr.pederobien.minecraftgameplateform.utils.Plateform;
 
 public abstract class GameRule<T> extends AbstractNominable implements IGameRule<T> {
 	/**
@@ -38,7 +37,6 @@ public abstract class GameRule<T> extends AbstractNominable implements IGameRule
 		super(name);
 		this.defaultValue = defaultValue;
 		this.type = type;
-		Plateform.getGameRules().add(this);
 	}
 
 	@Override

@@ -2,8 +2,6 @@ package fr.pederobien.minecraftgameplateform.utils;
 
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.List;
 
 import org.bukkit.plugin.Plugin;
 
@@ -22,7 +20,6 @@ import fr.pederobien.minecraftgameplateform.interfaces.commands.ICommand;
 import fr.pederobien.minecraftgameplateform.interfaces.commands.ICommandHelper;
 import fr.pederobien.minecraftgameplateform.interfaces.element.IGameConfiguration;
 import fr.pederobien.minecraftgameplateform.interfaces.element.IGameConfigurationContext;
-import fr.pederobien.minecraftgameplateform.interfaces.element.IGameRule;
 import fr.pederobien.minecraftgameplateform.interfaces.element.IPluginManager;
 import fr.pederobien.minecraftgameplateform.interfaces.helpers.IGameConfigurationHelper;
 import fr.pederobien.minecraftgameplateform.interfaces.runtime.task.ITimeTask;
@@ -41,7 +38,6 @@ public class Plateform {
 	private static Plugin plugin;
 	private static JarMinecraftDictionaryParser parser;
 	private static IObjectiveUpdater updater;
-	private static List<IGameRule<?>> rules = new ArrayList<IGameRule<?>>();
 
 	/**
 	 * @return The version of this plugin.
@@ -209,12 +205,5 @@ public class Plateform {
 	 */
 	public static IObservableTimeLine getTimeLine() {
 		return TimeLine.getInstance();
-	}
-
-	/**
-	 * @return The list of game rule registered for this plateform. This list is modifiable and can be updated by other plugins.
-	 */
-	public static List<IGameRule<?>> getGameRules() {
-		return rules;
 	}
 }
