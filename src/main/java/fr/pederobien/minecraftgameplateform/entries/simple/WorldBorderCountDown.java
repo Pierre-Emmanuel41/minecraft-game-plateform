@@ -2,8 +2,6 @@ package fr.pederobien.minecraftgameplateform.entries.simple;
 
 import java.time.LocalTime;
 
-import org.bukkit.entity.Player;
-
 import fr.pederobien.minecraftgameplateform.border.IBorderConfiguration;
 import fr.pederobien.minecraftgameplateform.utils.Plateform;
 import fr.pederobien.minecraftmanagers.WorldManager;
@@ -22,7 +20,7 @@ public class WorldBorderCountDown extends TimeTaskEntry {
 	}
 
 	@Override
-	public String getBefore(Player player) {
+	public String getBefore() {
 		return WorldManager.getWorldNameNormalised(configuration.getWorld()) + " : ";
 	}
 }

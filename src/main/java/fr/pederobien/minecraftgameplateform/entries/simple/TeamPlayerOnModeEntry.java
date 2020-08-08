@@ -1,15 +1,17 @@
 package fr.pederobien.minecraftgameplateform.entries.simple;
 
-import org.bukkit.ChatColor;
+import java.util.Optional;
+
 import org.bukkit.GameMode;
 import org.bukkit.entity.Player;
 import org.bukkit.scoreboard.Team;
 
 import fr.pederobien.minecraftgameplateform.entries.PlateformEntry;
+import fr.pederobien.minecraftgameplateform.interfaces.element.ITeam;
 import fr.pederobien.minecraftmanagers.TeamManager;
 
 public class TeamPlayerOnModeEntry extends PlateformEntry {
-	private Team team;
+	private ITeam team;
 	private GameMode mode;
 	private boolean colored;
 
@@ -21,7 +23,7 @@ public class TeamPlayerOnModeEntry extends PlateformEntry {
 	 * @param mode    The player game mode used to filter team players.
 	 * @param colored True if the team name is colored, false otherwise.
 	 */
-	public TeamPlayerOnModeEntry(int score, Team team, GameMode mode, boolean colored) {
+	public TeamPlayerOnModeEntry(int score, ITeam team, GameMode mode, boolean colored) {
 		super(score);
 		this.team = team;
 		this.mode = mode;
@@ -30,13 +32,14 @@ public class TeamPlayerOnModeEntry extends PlateformEntry {
 
 	@Override
 	protected String updateCurrentValue(Player player) {
-		return "" + TeamManager.getNumberTeamPlayersOnMode(team, mode);
+		Optional<Team> optTeam = getTeam().getServerTeam();
+		return "" + (optTeam.isPresent() ? TeamManager.getNumberTeamPlayersOnMode(optTeam.get(), mode) : "");
 	}
 
 	/**
 	 * @return The team associated to this entry.
 	 */
-	public Team getTeam() {
+	public ITeam getTeam() {
 		return team;
 	}
 
@@ -49,7 +52,8 @@ public class TeamPlayerOnModeEntry extends PlateformEntry {
 	}
 
 	@Override
-	public final String getBefore(Player player) {
-		return (colored ? team.getColor() + team.getName() + ChatColor.RESET : team.getName()) + " : ";
+	public final String getBefore() {
+		String before = (colored ? team.getColor().getInColor(team.getName()) : team.getName()) + " : ";
+		return before;
 	}
 }

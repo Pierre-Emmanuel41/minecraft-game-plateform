@@ -53,7 +53,7 @@ public class WorldBorderSizeEntry extends BorderConfigurationEntry {
 	}
 
 	@Override
-	public final String getBefore(Player player) {
+	public final String getBefore() {
 		return WorldManager.getWorldNameNormalised(world) + " : ";
 	}
 }
