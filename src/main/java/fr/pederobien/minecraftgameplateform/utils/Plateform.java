@@ -13,6 +13,7 @@ import fr.pederobien.minecraftdictionary.interfaces.IMinecraftNotificationCenter
 import fr.pederobien.minecraftgameplateform.PlateformPlugin;
 import fr.pederobien.minecraftgameplateform.helpers.CommandHelper;
 import fr.pederobien.minecraftgameplateform.helpers.ConfigurationHelperManager;
+import fr.pederobien.minecraftgameplateform.helpers.GameRuleHelper;
 import fr.pederobien.minecraftgameplateform.helpers.PluginHelper;
 import fr.pederobien.minecraftgameplateform.impl.element.GameConfigurationContext;
 import fr.pederobien.minecraftgameplateform.impl.runtime.task.TimeTask;
@@ -21,6 +22,7 @@ import fr.pederobien.minecraftgameplateform.interfaces.commands.ICommand;
 import fr.pederobien.minecraftgameplateform.interfaces.commands.ICommandHelper;
 import fr.pederobien.minecraftgameplateform.interfaces.element.IGameConfiguration;
 import fr.pederobien.minecraftgameplateform.interfaces.element.IGameConfigurationContext;
+import fr.pederobien.minecraftgameplateform.interfaces.element.IGameRuleHelper;
 import fr.pederobien.minecraftgameplateform.interfaces.element.IPluginHelper;
 import fr.pederobien.minecraftgameplateform.interfaces.helpers.IGameConfigurationHelper;
 import fr.pederobien.minecraftgameplateform.interfaces.runtime.task.ITimeTask;
@@ -108,6 +110,13 @@ public class Plateform {
 	 */
 	public static IPluginHelper getPluginHelper() {
 		return PluginHelper.getInstance();
+	}
+
+	/**
+	 * @return The helper used to register game rules to this plateform.
+	 */
+	public static IGameRuleHelper getGameRuleHelper() {
+		return GameRuleHelper.getInstance();
 	}
 
 	/**
