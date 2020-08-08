@@ -5,6 +5,7 @@ import java.util.StringJoiner;
 import java.util.stream.Collectors;
 
 import org.bukkit.GameMode;
+import org.bukkit.GameRule;
 import org.bukkit.entity.Player;
 
 import fr.pederobien.minecraftgameplateform.dictionary.EGameRuleMessageCode;
@@ -15,6 +16,7 @@ import fr.pederobien.minecraftmanagers.MessageManager.DisplayOption;
 import fr.pederobien.minecraftmanagers.MessageManager.TitleMessage;
 import fr.pederobien.minecraftmanagers.TeamManager;
 import fr.pederobien.minecraftmanagers.TeamManager.ColleagueInfo;
+import fr.pederobien.minecraftmanagers.WorldManager;
 
 public class DisplayCurrentTeammatesLocation extends RunnableGameRule<Boolean> {
 
@@ -32,6 +34,22 @@ public class DisplayCurrentTeammatesLocation extends RunnableGameRule<Boolean> {
 	}
 
 	@Override
+	public void start() {
+		super.start();
+		WorldManager.OVERWORLD.setGameRule(GameRule.SEND_COMMAND_FEEDBACK, false);
+		WorldManager.NETHER_WORLD.setGameRule(GameRule.SEND_COMMAND_FEEDBACK, false);
+		WorldManager.END_WORLD.setGameRule(GameRule.SEND_COMMAND_FEEDBACK, false);
+	}
+
+	@Override
+	public void stop() {
+		super.stop();
+		WorldManager.OVERWORLD.setGameRule(GameRule.SEND_COMMAND_FEEDBACK, true);
+		WorldManager.NETHER_WORLD.setGameRule(GameRule.SEND_COMMAND_FEEDBACK, true);
+		WorldManager.END_WORLD.setGameRule(GameRule.SEND_COMMAND_FEEDBACK, true);
+	}
+
+	@Override
 	public void run() {
 		if (!getValue()) {
 			stop();
@@ -45,7 +63,9 @@ public class DisplayCurrentTeammatesLocation extends RunnableGameRule<Boolean> {
 				StringJoiner joiner = new StringJoiner(" ");
 				for (ColleagueInfo info : colleagueInfos)
 					joiner.add(info.getColleague().getName() + " : " + info.getDistance() + " | " + info.getArrow().getUnicode());
-				MessageManager.sendMessage(DisplayOption.ACTION_BAR, player, TitleMessage.of(joiner.toString(), "white"));
+
+				if (joiner.toString().length() > 0)
+					MessageManager.sendMessage(DisplayOption.ACTION_BAR, player, TitleMessage.of(joiner.toString(), "white"));
 			}
 		}
 	}
