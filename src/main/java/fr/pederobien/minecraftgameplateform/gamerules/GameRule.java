@@ -17,6 +17,8 @@ public abstract class GameRule<T> extends AbstractNominable implements IGameRule
 	 */
 	public static final List<IRunnableGameRule<?>> RUNNABLE_RULES = new ArrayList<IRunnableGameRule<?>>();
 
+	public static final List<IGameRule<?>> RULES = new ArrayList<IGameRule<?>>();
+
 	/**
 	 * Game rule to enable/deactivate the display of player team mates location.
 	 */
@@ -37,6 +39,7 @@ public abstract class GameRule<T> extends AbstractNominable implements IGameRule
 		super(name);
 		this.defaultValue = defaultValue;
 		this.type = type;
+		RULES.add(this);
 	}
 
 	@Override
