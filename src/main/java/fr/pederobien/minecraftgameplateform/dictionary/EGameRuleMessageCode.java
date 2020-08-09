@@ -4,7 +4,10 @@ import fr.pederobien.minecraftdictionary.impl.Permission;
 import fr.pederobien.minecraftdictionary.interfaces.IMinecraftMessageCode;
 
 public enum EGameRuleMessageCode implements IMinecraftMessageCode {
-	PVP, DISPLAY_CURRENT_TEAMMATES_LOCATION;
+	// Code for command pvp
+	PVP__EXPLANATION, PVP__VALUE_IS_MISSING, PVP__VALUE_DEFINED,
+
+	DISPLAY_CURRENT_TEAMMATES_LOCATION;
 
 	private Permission permission;
 

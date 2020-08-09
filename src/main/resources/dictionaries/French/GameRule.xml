@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dictionary>
+	<name>Game</name>
+	<version>1.0</version>
+	<locales>
+		<locale>fr</locale>
+		<locale>fr-FR</locale>
+		<locale>fr-CA</locale>
+	</locales>
+	<messages>
+		<message>
+			<code>PVP__EXPLANATION</code>
+			<value>Pour activer ou désactiver le pvp</value>
+		</message>
+		<message>
+			<code>PVP__VALUE_IS_MISSING</code>
+			<value>Impossible de définir la valeur pour la règle pvp, il manque la valeur</value>
+		</message>
+		<message>
+			<code>PVP__VALUE_DEFINED</code>
+			<value>La régle pvp est maintenant définie sur : %s</value>
+		</message>
+		
+	</messages>
+</dictionary>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dictionary>
+	<name>Game</name>
+	<version>1.0</version>
+	<locales>
+		<locale>en</locale>
+		<locale>en-EN</locale>
+		<locale>en-GB</locale>
+		<locale>en-UK</locale>
+		<locale>en-US</locale>
+		<locale>en-CA</locale>
+	</locales>
+	<messages>
+		<message>
+			<code>PVP__EXPLANATION</code>
+			<value>To enable or disable the pvp</value>
+		</message>
+		<message>
+			<code>PVP__VALUE_IS_MISSING</code>
+			<value>Cannot set the value of the game rule pvp, the value is missing</value>
+		</message>
+		<message>
+			<code>PVP__VALUE_DEFINED</code>
+			<value>Gamerule pvp is now set to : %s</value>
+		</message>
+		
+	</messages>
+</dictionary>
