@@ -14,11 +14,16 @@ import fr.pederobien.persistence.interfaces.IUnmodifiableNominable;
 public abstract class AbstractParentCommand<T extends IUnmodifiableNominable> extends AbstractCommand implements IParentCommand<T> {
 	private IParentPersistenceEdition<T> parent;
 
-	protected AbstractParentCommand(JavaPlugin plugin, IParentPersistenceEdition<T> parent) {
+	protected AbstractParentCommand(JavaPlugin plugin, IParentPersistenceEdition<T> parent, boolean registerPresistence) {
 		super(plugin, parent.getLabel());
 		this.parent = parent;
 		getCommandHelper().register(this);
-		Plateform.getPersistenceCenter().registerOrUpdate(parent.getPersistence());
+		if (registerPresistence)
+			Plateform.getPersistenceCenter().registerOrUpdate(parent.getPersistence());
+	}
+
+	protected AbstractParentCommand(JavaPlugin plugin, IParentPersistenceEdition<T> parent) {
+		this(plugin, parent, true);
 	}
 
 	@Override
