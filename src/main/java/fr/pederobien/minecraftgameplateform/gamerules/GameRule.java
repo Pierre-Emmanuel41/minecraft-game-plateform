@@ -3,15 +3,18 @@ package fr.pederobien.minecraftgameplateform.gamerules;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.bukkit.Material;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.command.TabCompleter;
+import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Player;
 
 import fr.pederobien.minecraftdictionary.impl.MinecraftMessageEvent;
 import fr.pederobien.minecraftdictionary.interfaces.IMinecraftMessageCode;
 import fr.pederobien.minecraftdictionary.interfaces.IMinecraftMessageEvent;
 import fr.pederobien.minecraftdictionary.interfaces.IMinecraftNotificationCenter;
+import fr.pederobien.minecraftgameplateform.dictionary.EGameRuleMessageCode;
 import fr.pederobien.minecraftgameplateform.impl.element.AbstractNominable;
 import fr.pederobien.minecraftgameplateform.interfaces.element.IGameRule;
 import fr.pederobien.minecraftgameplateform.interfaces.element.IRunnableGameRule;
@@ -35,6 +38,13 @@ public abstract class GameRule<T> extends AbstractNominable implements IGameRule
 	 * Game rule to enable/deactivate the pvp in the overworld, nether and end.
 	 */
 	public static final IGameRule<Boolean> PVP = new Pvp();
+
+	/**
+	 * Game rule to modify the max level of the protection level on diamonds pieces.
+	 */
+	public static final IRunnableGameRule<Integer> MAX_PROTECTION_ON_DIAMONDS = new EnchantGameRule("maxProtectionOnDiamonds", Enchantment.PROTECTION_ENVIRONMENTAL,
+			EGameRuleMessageCode.MAX_PROTECTION_ON_DIAMONDS__EXPLANATION).setTargetItems(Material.DIAMOND_HELMET, Material.DIAMOND_CHESTPLATE, Material.DIAMOND_LEGGINGS,
+					Material.DIAMOND_BOOTS);
 
 	private T value, defaultValue;
 	private Class<T> type;
@@ -164,6 +174,8 @@ public abstract class GameRule<T> extends AbstractNominable implements IGameRule
 	}
 
 	static {
-		RUNNABLE_RULES.add(DISPLAY_CURRENT_TEAMMATE_LOCATION);
+		for (IGameRule<?> rule : RULES)
+			if (rule instanceof IRunnableGameRule<?>)
+				RUNNABLE_RULES.add((IRunnableGameRule<?>) rule);
 	}
 }

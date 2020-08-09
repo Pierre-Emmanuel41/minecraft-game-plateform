@@ -4,11 +4,17 @@ import fr.pederobien.minecraftdictionary.impl.Permission;
 import fr.pederobien.minecraftdictionary.interfaces.IMinecraftMessageCode;
 
 public enum EGameRuleMessageCode implements IMinecraftMessageCode {
-	// Code for command pvp
+	// Code for rule pvp
 	PVP__EXPLANATION, PVP__VALUE_IS_MISSING, PVP__VALUE_DEFINED,
 
-	// Code for command displayTeamMatesLocation
-	DISPLAY_CURRENT_TEAMMATES_LOCATION__EXPLANATION, DISPLAY_CURRENT_TEAMMATES_LOCATION__VALUE_IS_MISSING, DISPLAY_CURRENT_TEAMMATES_LOCATION__VALUE_DEFINED;
+	// Code for rule displayTeamMatesLocation
+	DISPLAY_CURRENT_TEAMMATES_LOCATION__EXPLANATION, DISPLAY_CURRENT_TEAMMATES_LOCATION__VALUE_IS_MISSING, DISPLAY_CURRENT_TEAMMATES_LOCATION__VALUE_DEFINED,
+
+	// Code for rule enchant
+	ENCHANT__ON_TAB_COMPLETE, ENCHANT__LEVEL_IS_MISSING, ENCHANT__LEVEL_DEFINED, ENCHANT__CANNOT_ENCHANT,
+
+	// Code for command maxProtectionOnDiamonds
+	MAX_PROTECTION_ON_DIAMONDS__EXPLANATION;
 
 	private Permission permission;
 

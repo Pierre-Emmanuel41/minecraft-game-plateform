@@ -31,5 +31,21 @@
 			<code>DISPLAY_CURRENT_TEAMMATES_LOCATION__VALUE_DEFINED</code>
 			<value>Gamerule displayCurrentTeamMatesLocation is now set to : %s (in game)</value>
 		</message>
+		<message>
+			<code>ENCHANT__ON_TAB_COMPLETE</code>
+			<value>&lt;max level&gt;</value>
+		</message>
+		<message>
+			<code>ENCHANT__LEVEL_IS_MISSING</code>
+			<value>Cannot set the max level of game rule %s, the level is missing</value>
+		</message>
+		<message>
+			<code>ENCHANT__LEVEL_DEFINED</code>
+			<value>The max level of enchant %s is %s</value>
+		</message>
+		<message>
+			<code>ENCHANT__CANNOT_ENCHANT</code>
+			<value>You cannot enchant this item, the max level of enchant %s is %s (getting level %s)</value>
+		</message>
 	</messages>
 </dictionary>

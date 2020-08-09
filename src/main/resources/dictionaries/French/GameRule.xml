@@ -32,5 +32,17 @@
 			<code>DISPLAY_CURRENT_TEAMMATES_LOCATION__VALUE_DEFINED</code>
 			<value>La régle displayCurrentTeamMatesLocation est maintenant définie sur : %s (pendant une partie)</value>
 		</message>
+		<message>
+			<code>ENCHANT__ON_TAB_COMPLETE</code>
+			<value>&lt;niveau max&gt;</value>
+		</message>
+		<message>
+			<code>ENCHANT__LEVEL_IS_MISSING</code>
+			<value>Impossible de définir le niveau max de la règle %s, il manque le niveau</value>
+		</message>
+		<message>
+			<code>ENCHANT__CANNOT_ENCHANT</code>
+			<value>Impossible d'enchanter cet item, le niveau maximum de l'enchantement %s est %s (niveau reçu %s)</value>
+		</message>
 	</messages>
 </dictionary>
