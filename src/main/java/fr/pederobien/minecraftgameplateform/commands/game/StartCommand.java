@@ -84,7 +84,6 @@ public class StartCommand extends AbstractGameCommand {
 		public void timeChanged(LocalTime time) {
 			setPvp(true);
 			getGameConfigurationContext().getGame().onPvpEnabled();
-			GameRule.DISPLAY_CURRENT_TEAMMATE_LOCATION.setValue(true);
 		}
 	}
 }
