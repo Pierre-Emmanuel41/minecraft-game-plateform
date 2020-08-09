@@ -115,6 +115,11 @@ public class GameConfigurationContext implements IGameConfigurationContext {
 	}
 
 	@Override
+	public boolean isRunning() {
+		return gameConfiguration == null ? false : getGame().isRunning();
+	}
+
+	@Override
 	public void setGameConfiguration(IGameConfiguration gameConfiguration) {
 		this.gameConfiguration = gameConfiguration;
 	}

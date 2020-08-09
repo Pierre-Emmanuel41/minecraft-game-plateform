@@ -6,8 +6,12 @@ import java.util.stream.Collectors;
 
 import org.bukkit.GameMode;
 import org.bukkit.GameRule;
+import org.bukkit.command.Command;
+import org.bukkit.command.CommandExecutor;
+import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
+import fr.pederobien.minecraftgameplateform.dictionary.ECommonMessageCode;
 import fr.pederobien.minecraftgameplateform.dictionary.EGameRuleMessageCode;
 import fr.pederobien.minecraftgameplateform.interfaces.element.ITeam;
 import fr.pederobien.minecraftgameplateform.utils.Plateform;
@@ -31,24 +35,20 @@ public class DisplayCurrentTeammatesLocation extends RunnableGameRule<Boolean> {
 		super.setValue(value);
 		if (isRunning() && !value)
 			stop();
-		else if (!isRunning() && value)
+		else if (!isRunning() && Plateform.getGameConfigurationContext().isRunning() && value)
 			start();
 	}
 
 	@Override
 	public void start() {
 		super.start();
-		WorldManager.OVERWORLD.setGameRule(GameRule.SEND_COMMAND_FEEDBACK, false);
-		WorldManager.NETHER_WORLD.setGameRule(GameRule.SEND_COMMAND_FEEDBACK, false);
-		WorldManager.END_WORLD.setGameRule(GameRule.SEND_COMMAND_FEEDBACK, false);
+		setSendCommandFeedBaskValue(false);
 	}
 
 	@Override
 	public void stop() {
 		super.stop();
-		WorldManager.OVERWORLD.setGameRule(GameRule.SEND_COMMAND_FEEDBACK, true);
-		WorldManager.NETHER_WORLD.setGameRule(GameRule.SEND_COMMAND_FEEDBACK, true);
-		WorldManager.END_WORLD.setGameRule(GameRule.SEND_COMMAND_FEEDBACK, true);
+		setSendCommandFeedBaskValue(true);
 	}
 
 	@Override
@@ -70,5 +70,36 @@ public class DisplayCurrentTeammatesLocation extends RunnableGameRule<Boolean> {
 					MessageManager.sendMessage(DisplayOption.ACTION_BAR, player, TitleMessage.of(joiner.toString(), "white"));
 			}
 		}
+	}
+
+	@Override
+	public CommandExecutor getExecutor() {
+		return new CommandExecutor() {
+			@Override
+			public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
+				try {
+					String value = args[0];
+					if (value.equals("true"))
+						setValue(true);
+					else if (value.equals("false"))
+						setValue(false);
+					else {
+						sendMessageToSender(sender, ECommonMessageCode.COMMON_BAD_BOOLEAN_FORMAT);
+						return false;
+					}
+					sendMessageToSender(sender, EGameRuleMessageCode.DISPLAY_CURRENT_TEAMMATES_LOCATION__VALUE_DEFINED, getValue());
+				} catch (IndexOutOfBoundsException e) {
+					sendMessageToSender(sender, EGameRuleMessageCode.DISPLAY_CURRENT_TEAMMATES_LOCATION__VALUE_IS_MISSING);
+					return false;
+				}
+				return true;
+			}
+		};
+	}
+
+	private void setSendCommandFeedBaskValue(boolean value) {
+		WorldManager.OVERWORLD.setGameRule(GameRule.SEND_COMMAND_FEEDBACK, true);
+		WorldManager.NETHER_WORLD.setGameRule(GameRule.SEND_COMMAND_FEEDBACK, true);
+		WorldManager.END_WORLD.setGameRule(GameRule.SEND_COMMAND_FEEDBACK, true);
 	}
 }

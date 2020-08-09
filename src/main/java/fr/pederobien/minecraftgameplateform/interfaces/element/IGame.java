@@ -36,4 +36,9 @@ public interface IGame {
 	 * This method is called when the pvp is enabled. If something has to be done by a special game this method is useful.
 	 */
 	void onPvpEnabled();
+
+	/**
+	 * @return True if the game has been started, false otherwise.
+	 */
+	boolean isRunning();
 }
