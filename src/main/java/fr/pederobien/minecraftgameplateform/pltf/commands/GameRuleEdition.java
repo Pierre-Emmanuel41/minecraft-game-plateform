@@ -1,4 +1,4 @@
-package fr.pederobien.minecraftgameplateform.gamerules;
+package fr.pederobien.minecraftgameplateform.pltf.commands;
 
 import java.util.List;
 
@@ -7,9 +7,9 @@ import org.bukkit.command.CommandSender;
 
 import fr.pederobien.minecraftgameplateform.impl.editions.AbstractMapPersistenceEdition;
 import fr.pederobien.minecraftgameplateform.interfaces.element.IGameRule;
-import fr.pederobien.persistence.interfaces.IUnmodifiableNominable;
+import fr.pederobien.minecraftgameplateform.pltf.IPlateformConfiguration;
 
-public class GameRuleEdition<T> extends AbstractMapPersistenceEdition<IUnmodifiableNominable> {
+public class GameRuleEdition<T> extends AbstractMapPersistenceEdition<IPlateformConfiguration> {
 	private IGameRule<T> rule;
 
 	protected GameRuleEdition(IGameRule<T> rule) {

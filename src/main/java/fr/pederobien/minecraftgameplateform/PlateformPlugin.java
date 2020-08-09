@@ -10,6 +10,10 @@ import fr.pederobien.minecraftgameplateform.border.BorderCommand;
 import fr.pederobien.minecraftgameplateform.commands.game.PauseCommand;
 import fr.pederobien.minecraftgameplateform.commands.game.StartCommand;
 import fr.pederobien.minecraftgameplateform.commands.game.StopCommand;
+import fr.pederobien.minecraftgameplateform.gamerules.GameRule;
+import fr.pederobien.minecraftgameplateform.interfaces.element.IGameRule;
+import fr.pederobien.minecraftgameplateform.pltf.PlateformCommand;
+import fr.pederobien.minecraftgameplateform.pltf.PlateformConfiguration;
 import fr.pederobien.minecraftgameplateform.spawn.SpawnCommand;
 import fr.pederobien.minecraftgameplateform.utils.Plateform;
 
@@ -17,7 +21,7 @@ public class PlateformPlugin extends JavaPlugin {
 
 	@Override
 	public void onEnable() {
-		Plateform.setPlugin(this);
+		Plateform.setPlateformConfiguration(new PlateformConfiguration(this));
 
 		new StartCommand(this);
 		new PauseCommand(this);
@@ -26,13 +30,17 @@ public class PlateformPlugin extends JavaPlugin {
 		new SpawnCommand(this);
 		new BorderCommand(this);
 
+		new PlateformCommand(this);
+
 		registerDictionaries();
+
+		for (IGameRule<?> rule : GameRule.RULES)
+			Plateform.getGameRuleHelper().register(rule);
 	}
 
 	@Override
 	public void onDisable() {
 		Plateform.getPersistenceCenter().save();
-		Plateform.reset(this);
 	}
 
 	private void registerDictionaries() {

@@ -1,7 +1,4 @@
-package fr.pederobien.minecraftgameplateform.utils;
-
-import java.nio.file.Path;
-import java.nio.file.Paths;
+package fr.pederobien.minecraftgameplateform.pltf;
 
 import org.bukkit.plugin.Plugin;
 
@@ -14,45 +11,25 @@ import fr.pederobien.minecraftgameplateform.interfaces.commands.ICommandHelper;
 import fr.pederobien.minecraftgameplateform.interfaces.element.IGameConfiguration;
 import fr.pederobien.minecraftgameplateform.interfaces.element.IGameConfigurationContext;
 import fr.pederobien.minecraftgameplateform.interfaces.element.IGameRuleHelper;
+import fr.pederobien.minecraftgameplateform.interfaces.element.INominable;
 import fr.pederobien.minecraftgameplateform.interfaces.element.IPluginHelper;
 import fr.pederobien.minecraftgameplateform.interfaces.helpers.IGameConfigurationHelper;
 import fr.pederobien.minecraftgameplateform.interfaces.runtime.task.ITimeTask;
 import fr.pederobien.minecraftgameplateform.interfaces.runtime.timeline.IObservableTimeLine;
 import fr.pederobien.minecraftgameplateform.internal.IPersistenceCenter;
-import fr.pederobien.minecraftgameplateform.pltf.IPlateformConfiguration;
 import fr.pederobien.minecraftscoreboards.interfaces.IObjectiveUpdater;
 
-public class Plateform {
-	/**
-	 * Path to folder plugins/minecraft-game-plateform
-	 */
-	public static final Path ROOT = Paths.get("plugins", "minecraft-game-plateform");
-
-	private static IPlateformConfiguration configuration;
-
-	public static void setPlateformConfiguration(IPlateformConfiguration configuration) {
-		if (Plateform.configuration != null)
-			throw new UnsupportedOperationException("The plugin is already defined for this plateform");
-		Plateform.configuration = configuration;
-	}
-
-	public static IPlateformConfiguration getConfiguration() {
-		return configuration;
-	}
+public interface IPlateformConfiguration extends INominable {
 
 	/**
 	 * @return The version of this plugin.
 	 */
-	public static String getVersion() {
-		return configuration.getVersion();
-	}
+	public String getVersion();
 
 	/**
 	 * @return The name of this plugin.
 	 */
-	public static String getName() {
-		return configuration.getName();
-	}
+	public String getName();
 
 	/**
 	 * Get the name of the jar associated to the given plugin name. If there is any plugin registered, this throws a
@@ -62,67 +39,49 @@ public class Plateform {
 	 * 
 	 * @return The jar's name of the plugin associated to the given plugin name.
 	 */
-	public static String getJarName(String pluginName) {
-		return configuration.getJarName(pluginName);
-	}
+	public String getJarName(String pluginName);
 
 	/**
 	 * @return A context for game. This context is used to start, pause, relaunch and stop the game managed by the current
 	 *         configuration of this context.
 	 */
-	public static IGameConfigurationContext getGameConfigurationContext() {
-		return configuration.getGameConfigurationContext();
-	}
+	public IGameConfigurationContext getGameConfigurationContext();
 
 	/**
 	 * @return The notification center to send message to player(s) that are currently logged into the server.
 	 */
-	public static IMinecraftNotificationCenter getNotificationCenter() {
-		return configuration.getNotificationCenter();
-	}
+	public IMinecraftNotificationCenter getNotificationCenter();
 
 	/**
 	 * @return The helper used to register commands. Once a command has been registered, it is impossible to unregister it. However,
 	 *         it is possible to not display it by setting {@link ICommand#setAvailable(boolean)} to false.
 	 */
-	public static ICommandHelper getCommandHelper() {
-		return configuration.getCommandHelper();
-	}
+	public ICommandHelper getCommandHelper();
 
 	/**
 	 * @return The center used to track persistence version update.
 	 */
-	public static IPersistenceCenter getPersistenceCenter() {
-		return configuration.getPersistenceCenter();
-	}
+	public IPersistenceCenter getPersistenceCenter();
 
 	/**
 	 * @return The manager used to or create an helper associated to a configuration.
 	 */
-	public static IGameConfigurationHelper getOrCreateConfigurationHelper(IGameConfiguration configuration) {
-		return Plateform.configuration.getOrCreateConfigurationHelper(configuration);
-	}
+	public IGameConfigurationHelper getOrCreateConfigurationHelper(IGameConfiguration configuration);
 
 	/**
 	 * @return The helper used to have access to all registered plugins to this plugin.
 	 */
-	public static IPluginHelper getPluginHelper() {
-		return configuration.getPluginHelper();
-	}
+	public IPluginHelper getPluginHelper();
 
 	/**
 	 * @return The helper used to register game rules to this plateform.
 	 */
-	public static IGameRuleHelper getGameRuleHelper() {
-		return configuration.getGameRuleHelper();
-	}
+	public IGameRuleHelper getGameRuleHelper();
 
 	/**
 	 * @return The plugin associated to this plateform.
 	 */
-	public static Plugin getPlugin() {
-		return configuration.getPlugin();
-	}
+	public Plugin getPlugin();
 
 	/**
 	 * Get the default dictionary xml parser. For this parser, the dictionary file must looks like : </br>
@@ -157,24 +116,18 @@ public class Plateform {
 	 * 
 	 * @see IDictionaryParser
 	 */
-	public static JarMinecraftDictionaryParser getDefaultDictionaryParser(String name) {
-		return configuration.getDefaultDictionaryParser(name);
-	}
+	public JarMinecraftDictionaryParser getDefaultDictionaryParser(String name);
 
 	/**
 	 * @return The objective updater used to display informations on each player screen.
 	 */
-	public static IObjectiveUpdater getObjectiveUpdater() {
-		return configuration.getObjectiveUpdater();
-	}
+	public IObjectiveUpdater getObjectiveUpdater();
 
 	/**
 	 * @return A task that represent the time during a game. When calling method {@link ITimeTask#start(Plugin)}, the game time
 	 *         changed each second and all registered observers are notified.
 	 */
-	public static ITimeTask getTimeTask() {
-		return configuration.getTimeTask();
-	}
+	public ITimeTask getTimeTask();
 
 	/**
 	 * @return The time line associated to this plugin. The time line is particularly used to registered a time event. If you want to
@@ -183,7 +136,5 @@ public class Plateform {
 	 * 
 	 * @see #getTimeTask()
 	 */
-	public static IObservableTimeLine getTimeLine() {
-		return configuration.getTimeLine();
-	}
+	public IObservableTimeLine getTimeLine();
 }
