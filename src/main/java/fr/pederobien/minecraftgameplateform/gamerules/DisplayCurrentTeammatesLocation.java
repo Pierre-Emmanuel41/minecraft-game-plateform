@@ -23,7 +23,7 @@ import fr.pederobien.minecraftmanagers.TeamManager;
 import fr.pederobien.minecraftmanagers.TeamManager.ColleagueInfo;
 import fr.pederobien.minecraftmanagers.WorldManager;
 
-public class DisplayCurrentTeammatesLocation extends RunnableGameRule<Boolean> {
+public class DisplayCurrentTeammatesLocation extends PeriodicRunnableGameRule<Boolean> {
 
 	public DisplayCurrentTeammatesLocation() {
 		super("displayCurrentTeamMatesLocation", false, Boolean.class, EGameRuleMessageCode.DISPLAY_CURRENT_TEAMMATES_LOCATION__EXPLANATION);

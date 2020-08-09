@@ -1,6 +1,6 @@
 package fr.pederobien.minecraftgameplateform.interfaces.element;
 
-public interface IRunnableGameRule<T> extends IGameRule<T>, Runnable {
+public interface IRunnableGameRule<T> extends IGameRule<T> {
 
 	/**
 	 * @return The number of ticks between two runs.
