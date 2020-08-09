@@ -45,7 +45,7 @@ public class PlateformPlugin extends JavaPlugin {
 
 	private void registerDictionaries() {
 		String[] dictionaries = new String[] { "Common.xml", "Game.xml", "WorldStructure.xml", "Configurations.xml", "Spawn.xml", "Border.xml", "Borders.xml",
-				"Entry.xml", "GameRule.xml" };
+				"Entry.xml", "Plateform.xml", "GameRule.xml" };
 		// Registering French dictionaries
 		registerDictionary("French", dictionaries);
 
