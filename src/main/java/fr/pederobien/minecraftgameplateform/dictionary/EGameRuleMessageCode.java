@@ -7,7 +7,7 @@ public enum EGameRuleMessageCode implements IMinecraftMessageCode {
 	// Code for command pvp
 	PVP__EXPLANATION, PVP__VALUE_IS_MISSING, PVP__VALUE_DEFINED,
 
-	DISPLAY_CURRENT_TEAMMATES_LOCATION;
+	DISPLAY_CURRENT_TEAMMATES_LOCATION__EXPLANATION;
 
 	private Permission permission;
 

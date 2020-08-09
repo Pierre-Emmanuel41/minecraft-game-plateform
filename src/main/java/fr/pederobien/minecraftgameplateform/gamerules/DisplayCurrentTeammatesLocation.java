@@ -11,6 +11,7 @@ import org.bukkit.entity.Player;
 import fr.pederobien.minecraftgameplateform.dictionary.EGameRuleMessageCode;
 import fr.pederobien.minecraftgameplateform.interfaces.element.ITeam;
 import fr.pederobien.minecraftgameplateform.utils.Plateform;
+import fr.pederobien.minecraftgameplateform.utils.TabCompleterFactory;
 import fr.pederobien.minecraftmanagers.MessageManager;
 import fr.pederobien.minecraftmanagers.MessageManager.DisplayOption;
 import fr.pederobien.minecraftmanagers.MessageManager.TitleMessage;
@@ -21,7 +22,8 @@ import fr.pederobien.minecraftmanagers.WorldManager;
 public class DisplayCurrentTeammatesLocation extends RunnableGameRule<Boolean> {
 
 	public DisplayCurrentTeammatesLocation() {
-		super("currentTeamMatesLocation", false, Boolean.class, EGameRuleMessageCode.DISPLAY_CURRENT_TEAMMATES_LOCATION);
+		super("displayCurrentTeamMatesLocation", false, Boolean.class, EGameRuleMessageCode.DISPLAY_CURRENT_TEAMMATES_LOCATION__EXPLANATION);
+		setCompleter(TabCompleterFactory.trueFalseCompleter());
 	}
 
 	@Override

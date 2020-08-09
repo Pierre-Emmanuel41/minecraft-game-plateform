@@ -20,6 +20,10 @@
 			<code>PVP__VALUE_DEFINED</code>
 			<value>La régle pvp est maintenant définie sur : %s</value>
 		</message>
+		<message>
+			<code>DISPLAY_CURRENT_TEAMMATES_LOCATION__EXPLANATION</code>
+			<value>Pour activer ou désactiver l'affichage de la position des coéquipiers d'un joueurs</value>
+		</message>
 		
 	</messages>
 </dictionary>

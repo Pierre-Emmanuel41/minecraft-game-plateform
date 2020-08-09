@@ -46,6 +46,7 @@ public abstract class GameRule<T> extends AbstractNominable implements IGameRule
 		super(name);
 		this.defaultValue = defaultValue;
 		this.type = type;
+		this.explanation = explanation;
 		RULES.add(this);
 	}
 
