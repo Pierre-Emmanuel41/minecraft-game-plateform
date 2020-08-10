@@ -16,7 +16,6 @@ public class EventRunnableGameRule<T> extends RunnableGameRule<T> implements Lis
 	@Override
 	public void start() {
 		if (!isRegistered) {
-			System.out.println("Registering rule : " + getName());
 			Plateform.getPlugin().getServer().getPluginManager().registerEvents(this, Plateform.getPlugin());
 			isRegistered = true;
 		}
