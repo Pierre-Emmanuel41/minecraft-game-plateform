@@ -14,6 +14,9 @@ import org.bukkit.enchantments.Enchantment;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.enchantment.EnchantItemEvent;
+import org.bukkit.event.inventory.InventoryClickEvent;
+import org.bukkit.inventory.AnvilInventory;
+import org.bukkit.inventory.ItemStack;
 
 import fr.pederobien.minecraftdictionary.interfaces.IMinecraftMessageCode;
 import fr.pederobien.minecraftgameplateform.dictionary.ECommonMessageCode;
@@ -39,6 +42,25 @@ public class EnchantGameRule extends EventRunnableGameRule<Integer> {
 				event.setCancelled(true);
 				sendMessageToSender(event.getEnchanter(), EGameRuleMessageCode.ENCHANT__CANNOT_ENCHANT, enchantment.getKey().getKey(), getValue(), entry.getValue());
 			}
+	}
+
+	@EventHandler(priority = EventPriority.HIGHEST, ignoreCancelled = true)
+	public void onInventoryClickEvent(InventoryClickEvent event) {
+		if (!isRunning() || !(event.getInventory() instanceof AnvilInventory))
+			return;
+
+		AnvilInventory anvilInventory = (AnvilInventory) event.getInventory();
+		ItemStack result = anvilInventory.getItem(2);
+
+		if (result == null)
+			return;
+
+		for (Map.Entry<Enchantment, Integer> entry : result.getEnchantments().entrySet()) {
+			if (entry.getKey().equals(enchantment) && entry.getValue() > getValue()) {
+				event.setCancelled(true);
+				sendMessageToSender(event.getWhoClicked(), EGameRuleMessageCode.ENCHANT__CANNOT_ENCHANT, enchantment.getKey().getKey(), getValue(), entry.getValue());
+			}
+		}
 	}
 
 	@Override
