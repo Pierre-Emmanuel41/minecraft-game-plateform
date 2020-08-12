@@ -40,7 +40,8 @@ public class EnchantGameRule extends EventRunnableGameRule<Integer> {
 		for (Map.Entry<Enchantment, Integer> entry : event.getEnchantsToAdd().entrySet())
 			if (entry.getKey().equals(enchantment) && entry.getValue() > getValue()) {
 				event.setCancelled(true);
-				sendMessageToSender(event.getEnchanter(), EGameRuleMessageCode.ENCHANT__CANNOT_ENCHANT, enchantment.getKey().getKey(), getValue(), entry.getValue());
+				sendMessageToSenderNotSynchonized(event.getEnchanter(), EGameRuleMessageCode.ENCHANT__CANNOT_ENCHANT, enchantment.getKey().getKey(), getValue(),
+						entry.getValue());
 			}
 	}
 
@@ -58,7 +59,8 @@ public class EnchantGameRule extends EventRunnableGameRule<Integer> {
 		for (Map.Entry<Enchantment, Integer> entry : result.getEnchantments().entrySet()) {
 			if (entry.getKey().equals(enchantment) && entry.getValue() > getValue()) {
 				event.setCancelled(true);
-				sendMessageToSender(event.getWhoClicked(), EGameRuleMessageCode.ENCHANT__CANNOT_ENCHANT, enchantment.getKey().getKey(), getValue(), entry.getValue());
+				sendMessageToSenderNotSynchonized(event.getWhoClicked(), EGameRuleMessageCode.ENCHANT__CANNOT_ENCHANT, enchantment.getKey().getKey(), getValue(),
+						entry.getValue());
 			}
 		}
 	}
