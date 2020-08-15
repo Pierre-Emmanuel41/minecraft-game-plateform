@@ -46,6 +46,8 @@ public abstract class GameRule<T> extends AbstractNominable implements IGameRule
 			EGameRuleMessageCode.MAX_PROTECTION_ON_DIAMONDS__EXPLANATION).setTargetItems(Material.DIAMOND_HELMET, Material.DIAMOND_CHESTPLATE, Material.DIAMOND_LEGGINGS,
 					Material.DIAMOND_BOOTS);
 
+	public static final IRunnableGameRule<Integer> MAX_POTION_LEVEL = new MaxPotionLevel();
+
 	private T value, defaultValue;
 	private Class<T> type;
 	private TabCompleter completer;

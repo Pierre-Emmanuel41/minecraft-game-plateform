@@ -92,7 +92,7 @@ public class EnchantGameRule extends EventRunnableGameRule<Integer> {
 
 			@Override
 			public List<String> onTabComplete(CommandSender sender, Command command, String alias, String[] args) {
-				return Arrays.asList(getMessageFromDictionary(sender, EGameRuleMessageCode.ENCHANT__ON_TAB_COMPLETE));
+				return Arrays.asList(getMessageFromDictionary(sender, EGameRuleMessageCode.MAX_LEVEL__ON_TAB_COMPLETE));
 			}
 		};
 	}
