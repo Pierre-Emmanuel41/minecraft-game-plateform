@@ -47,5 +47,9 @@
 			<code>ENCHANT__CANNOT_ENCHANT</code>
 			<value>You cannot enchant this item, the max level of enchant %s is %s (getting level %s)</value>
 		</message>
+		<message>
+			<code>MAX_PROTECTION_ON_DIAMONDS__EXPLANATION</code>
+			<value>To set the max level of the protection enchantment on diamonds armor pieces</value>
+		</message>
 	</messages>
 </dictionary>
