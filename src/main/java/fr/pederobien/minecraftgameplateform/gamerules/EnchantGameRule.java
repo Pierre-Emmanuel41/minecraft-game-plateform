@@ -80,7 +80,6 @@ public class EnchantGameRule extends EventRunnableGameRule<Integer> {
 					sendMessageToSender(sender, ECommonMessageCode.COMMON_BAD_INTEGER_FORMAT);
 					return false;
 				}
-				setValue(Integer.parseInt(args[0]));
 				return true;
 			}
 		};
