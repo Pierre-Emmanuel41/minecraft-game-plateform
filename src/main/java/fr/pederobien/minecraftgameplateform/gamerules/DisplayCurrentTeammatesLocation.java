@@ -98,8 +98,8 @@ public class DisplayCurrentTeammatesLocation extends PeriodicRunnableGameRule<Bo
 	}
 
 	private void setSendCommandFeedBaskValue(boolean value) {
-		WorldManager.OVERWORLD.setGameRule(GameRule.SEND_COMMAND_FEEDBACK, true);
-		WorldManager.NETHER_WORLD.setGameRule(GameRule.SEND_COMMAND_FEEDBACK, true);
-		WorldManager.END_WORLD.setGameRule(GameRule.SEND_COMMAND_FEEDBACK, true);
+		WorldManager.OVERWORLD.setGameRule(GameRule.SEND_COMMAND_FEEDBACK, value);
+		WorldManager.NETHER_WORLD.setGameRule(GameRule.SEND_COMMAND_FEEDBACK, value);
+		WorldManager.END_WORLD.setGameRule(GameRule.SEND_COMMAND_FEEDBACK, value);
 	}
 }
