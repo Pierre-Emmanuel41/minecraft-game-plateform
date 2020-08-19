@@ -23,7 +23,7 @@ public abstract class AbstractConfigurationParentPersistenceEdition<T extends IN
 		addEdition(getSaveEdition());
 		addEdition(getListEdition());
 		addEdition(getDeleteEdition());
-		addEdition(getCurrentEdition());
+		addEdition(getDetailsEdition());
 		addEdition(getLoadEdition());
 	}
 
@@ -69,7 +69,7 @@ public abstract class AbstractConfigurationParentPersistenceEdition<T extends IN
 	 * 
 	 * @return An edition to display current configuration's characteristics.
 	 */
-	protected abstract IMapPersistenceEdition<T> getCurrentEdition();
+	protected abstract IMapPersistenceEdition<T> getDetailsEdition();
 
 	/**
 	 * The returned edition should extends {@link CommonLoad} for more security.
