@@ -4,6 +4,8 @@ import java.time.LocalTime;
 import java.util.List;
 import java.util.Optional;
 
+import fr.pederobien.minecraftgameplateform.interfaces.observer.IObsGameConfiguration;
+
 public interface IGameConfiguration extends INominable {
 
 	/**
@@ -64,4 +66,18 @@ public interface IGameConfiguration extends INominable {
 	 * @param pvpTime The time after which the pvp is enabled.
 	 */
 	void setPvpTime(LocalTime pvpTime);
+
+	/**
+	 * Append an observer for this configuration.
+	 * 
+	 * @param obs The observer to add.
+	 */
+	void addObserver(IObsGameConfiguration obs);
+
+	/**
+	 * Removes the given observer from the list of observer for this configuration.
+	 * 
+	 * @param obs The observer to remove.
+	 */
+	void removeObserver(IObsGameConfiguration obs);
 }

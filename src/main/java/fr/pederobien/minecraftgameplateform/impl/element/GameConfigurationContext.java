@@ -9,6 +9,7 @@ import fr.pederobien.minecraftgameplateform.interfaces.element.IGame;
 import fr.pederobien.minecraftgameplateform.interfaces.element.IGameConfiguration;
 import fr.pederobien.minecraftgameplateform.interfaces.element.IGameConfigurationContext;
 import fr.pederobien.minecraftgameplateform.interfaces.element.ITeam;
+import fr.pederobien.minecraftgameplateform.interfaces.observer.IObsGameConfiguration;
 
 public class GameConfigurationContext implements IGameConfigurationContext {
 	private IGameConfiguration gameConfiguration;
@@ -47,6 +48,16 @@ public class GameConfigurationContext implements IGameConfigurationContext {
 	@Override
 	public void setPvpTime(LocalTime pvpTime) {
 		getGameConfiguration().setPvpTime(pvpTime);
+	}
+
+	@Override
+	public void addObserver(IObsGameConfiguration obs) {
+		getGameConfiguration().addObserver(obs);
+	}
+
+	@Override
+	public void removeObserver(IObsGameConfiguration obs) {
+		getGameConfiguration().removeObserver(obs);
 	}
 
 	@Override

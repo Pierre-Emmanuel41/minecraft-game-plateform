@@ -6,17 +6,21 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
+import fr.pederobien.minecraftgameplateform.impl.observer.Observable;
 import fr.pederobien.minecraftgameplateform.interfaces.element.IGameConfiguration;
 import fr.pederobien.minecraftgameplateform.interfaces.element.ITeam;
+import fr.pederobien.minecraftgameplateform.interfaces.observer.IObsGameConfiguration;
 
 public abstract class AbstractGameConfiguration extends AbstractNominable implements IGameConfiguration {
 	private static final LocalTime DEFAULT_PVP_TIME = LocalTime.of(0, 0, 0);
 	private List<ITeam> teams;
 	private LocalTime pvpTime;
+	private Observable<IObsGameConfiguration> observers;
 
 	protected AbstractGameConfiguration(String name) {
 		super(name);
 		teams = new ArrayList<ITeam>();
+		observers = new Observable<>();
 	}
 
 	@Override
@@ -40,11 +44,13 @@ public abstract class AbstractGameConfiguration extends AbstractNominable implem
 	@Override
 	public void add(ITeam team) {
 		teams.add(team);
+		observers.notifyObservers(obs -> obs.onTeamAdded(this, team));
 	}
 
 	@Override
 	public void remove(ITeam team) {
 		teams.remove(team);
+		observers.notifyObservers(obs -> obs.onTeamRemoved(this, team));
 	}
 
 	@Override
@@ -61,7 +67,18 @@ public abstract class AbstractGameConfiguration extends AbstractNominable implem
 
 	@Override
 	public void setPvpTime(LocalTime pvpTime) {
-		this.pvpTime = pvpTime;
+		LocalTime oldTime = this.pvpTime;
+		observers.notifyObservers(obs -> obs.onPvpTimeChanged(this, oldTime, this.pvpTime = pvpTime));
+	}
+
+	@Override
+	public void addObserver(IObsGameConfiguration obs) {
+		observers.addObserver(obs);
+	}
+
+	@Override
+	public void removeObserver(IObsGameConfiguration obs) {
+		observers.removeObserver(obs);
 	}
 
 	/**
