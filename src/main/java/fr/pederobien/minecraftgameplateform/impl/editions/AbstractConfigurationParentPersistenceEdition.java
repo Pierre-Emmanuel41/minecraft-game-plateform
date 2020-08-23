@@ -18,13 +18,13 @@ public abstract class AbstractConfigurationParentPersistenceEdition<T extends IN
 
 	public AbstractConfigurationParentPersistenceEdition(String label, IMinecraftMessageCode explanation, Plugin plugin, IMinecraftPersistence<T> persistence) {
 		super(label, explanation, plugin, persistence);
-		addEdition(getNewEdition().setModifiable(false));
-		addEdition(getRenameEdition().setModifiable(false));
-		addEdition(getSaveEdition().setModifiable(false));
-		addEdition(getListEdition().setModifiable(false));
-		addEdition(getDeleteEdition().setModifiable(false));
+		addEdition(getNewEdition());
+		addEdition(getRenameEdition());
+		addEdition(getSaveEdition());
+		addEdition(getListEdition());
+		addEdition(getDeleteEdition());
 		addEdition(getDetailsEdition());
-		addEdition(getLoadEdition().setModifiable(false));
+		addEdition(getLoadEdition());
 	}
 
 	// Specific to create, rename, save, delete or display the list of game configuration.
