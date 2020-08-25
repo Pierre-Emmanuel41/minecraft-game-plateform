@@ -152,9 +152,8 @@ public class PlateformTeam extends AbstractNominable implements ITeam {
 	 * @param obs  The consumer used to notify observers oh this team.
 	 */
 	private void synchronizeWithServerTeam(Consumer<Team> team, Consumer<IObsTeam> obs) {
-		if (isCreatedOnServer() && !isCopy) {
+		if (isCreatedOnServer() && !isCopy)
 			team.accept(serverTeam);
-			observable.notifyObservers(obs);
-		}
+		observable.notifyObservers(obs);
 	}
 }
