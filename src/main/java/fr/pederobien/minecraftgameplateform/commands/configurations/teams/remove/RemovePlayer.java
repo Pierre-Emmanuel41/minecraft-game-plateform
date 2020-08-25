@@ -29,6 +29,8 @@ public class RemovePlayer<T extends IGameConfiguration> extends AbstractTeamConf
 		List<Player> players = new ArrayList<Player>();
 
 		if (args[0].equals(IGameConfigurationHelper.ALL)) {
+			for (ITeam team : get().getTeams())
+				team.clear();
 			sendMessageToSender(sender, ETeamRemoveMessageCode.REMOVE_PLAYER__ALL_PLAYERS_REMOVED);
 			return true;
 		}
