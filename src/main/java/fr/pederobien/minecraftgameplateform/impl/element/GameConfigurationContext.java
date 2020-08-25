@@ -4,17 +4,21 @@ import java.time.LocalTime;
 import java.util.List;
 import java.util.Optional;
 
+import fr.pederobien.minecraftgameplateform.impl.observer.Observable;
 import fr.pederobien.minecraftgameplateform.interfaces.element.IEventListener;
 import fr.pederobien.minecraftgameplateform.interfaces.element.IGame;
 import fr.pederobien.minecraftgameplateform.interfaces.element.IGameConfiguration;
 import fr.pederobien.minecraftgameplateform.interfaces.element.IGameConfigurationContext;
 import fr.pederobien.minecraftgameplateform.interfaces.element.ITeam;
 import fr.pederobien.minecraftgameplateform.interfaces.observer.IObsGameConfiguration;
+import fr.pederobien.minecraftgameplateform.interfaces.observer.IObsGameConfigurationContext;
 
 public class GameConfigurationContext implements IGameConfigurationContext {
 	private IGameConfiguration gameConfiguration;
+	private Observable<IObsGameConfigurationContext> observers;
 
 	private GameConfigurationContext() {
+		observers = new Observable<IObsGameConfigurationContext>();
 	}
 
 	public static IGameConfigurationContext getInstance() {
@@ -132,11 +136,23 @@ public class GameConfigurationContext implements IGameConfigurationContext {
 
 	@Override
 	public void setGameConfiguration(IGameConfiguration gameConfiguration) {
+		IGameConfiguration oldConfiguration = this.gameConfiguration;
 		this.gameConfiguration = gameConfiguration;
+		observers.notifyObservers(obs -> obs.onConfigurationChanged(oldConfiguration, getGameConfiguration()));
 	}
 
 	@Override
 	public IGameConfiguration getGameConfiguration() {
 		return gameConfiguration;
+	}
+
+	@Override
+	public void addContextObserver(IObsGameConfigurationContext obs) {
+		observers.addObserver(obs);
+	}
+
+	@Override
+	public void removeContextObserver(IObsGameConfigurationContext obs) {
+		observers.removeObserver(obs);
 	}
 }
