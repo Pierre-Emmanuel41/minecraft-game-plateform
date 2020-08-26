@@ -25,7 +25,8 @@ public class TeamHelper {
 	 * @param team The team to create on the server.
 	 */
 	public static Team createTeamOnServer(ITeam team) {
-		return TeamManager.createTeam(team.getName(), team.getColor().getChatColor(), team.getPlayers().stream());
+		Optional<Team> optTeam = TeamManager.getTeam(team.getName());
+		return optTeam.isPresent() ? optTeam.get() : TeamManager.createTeam(team.getName(), team.getColor().getChatColor(), team.getPlayers().stream());
 	}
 
 	/**
