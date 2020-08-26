@@ -2,6 +2,7 @@ package fr.pederobien.minecraftgameplateform.impl.element;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
@@ -9,6 +10,8 @@ import java.util.StringJoiner;
 import java.util.function.Consumer;
 
 import org.bukkit.entity.Player;
+import org.bukkit.event.player.PlayerJoinEvent;
+import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.scoreboard.Team;
 
 import fr.pederobien.minecraftgameplateform.impl.observer.Observable;
@@ -16,11 +19,12 @@ import fr.pederobien.minecraftgameplateform.interfaces.element.ITeam;
 import fr.pederobien.minecraftgameplateform.interfaces.observer.IObsTeam;
 import fr.pederobien.minecraftgameplateform.interfaces.observer.IObservable;
 import fr.pederobien.minecraftgameplateform.utils.EColor;
+import fr.pederobien.minecraftgameplateform.utils.Plateform;
 import fr.pederobien.minecraftmanagers.TeamManager;
 
 public class PlateformTeam extends AbstractNominable implements ITeam {
 	private EColor color;
-	private List<Player> players;
+	private List<Player> players, quitPlayers;
 	private IObservable<IObsTeam> observable;
 	private boolean isCopy;
 	private Team serverTeam;
@@ -29,10 +33,13 @@ public class PlateformTeam extends AbstractNominable implements ITeam {
 		super(name);
 
 		players = new ArrayList<Player>();
+		quitPlayers = new ArrayList<Player>();
 		observable = new Observable<IObsTeam>();
 
 		setColor(color);
 		this.isCopy = isCopy;
+
+		Plateform.getPlayerQuitOrJoinEventListener().addObserver(this);
 	}
 
 	/**
@@ -58,6 +65,26 @@ public class PlateformTeam extends AbstractNominable implements ITeam {
 	 */
 	public static ITeam of(String name) {
 		return of(name, EColor.RESET);
+	}
+
+	@Override
+	public void onPlayerJoinEvent(PlayerJoinEvent event) {
+		Iterator<Player> iterator = quitPlayers.iterator();
+		while (iterator.hasNext()) {
+			Player player = iterator.next();
+			if (player.getName().equals(event.getPlayer().getName())) {
+				removePlayer(player);
+				iterator.remove();
+				addPlayer(event.getPlayer());
+			}
+		}
+	}
+
+	@Override
+	public void onPlayerQuitEvent(PlayerQuitEvent event) {
+		for (Player player : players)
+			if (player.getName().equals(event.getPlayer().getName()))
+				quitPlayers.add(event.getPlayer());
 	}
 
 	@Override
