@@ -12,6 +12,7 @@ import fr.pederobien.minecraftgameplateform.interfaces.element.IGameConfiguratio
 import fr.pederobien.minecraftgameplateform.interfaces.element.IGameConfigurationContext;
 import fr.pederobien.minecraftgameplateform.interfaces.element.IGameRuleHelper;
 import fr.pederobien.minecraftgameplateform.interfaces.element.INominable;
+import fr.pederobien.minecraftgameplateform.interfaces.element.IPlayerQuitOrJoinEventListener;
 import fr.pederobien.minecraftgameplateform.interfaces.element.IPluginHelper;
 import fr.pederobien.minecraftgameplateform.interfaces.helpers.IGameConfigurationHelper;
 import fr.pederobien.minecraftgameplateform.interfaces.runtime.task.ITimeTask;
@@ -137,4 +138,9 @@ public interface IPlateformConfiguration extends INominable {
 	 * @see #getTimeTask()
 	 */
 	public IObservableTimeLine getTimeLine();
+
+	/**
+	 * @return An event listener used to notify when a player quit or join the server.
+	 */
+	public IPlayerQuitOrJoinEventListener getPlayerQuitOrJoinEventListener();
 }

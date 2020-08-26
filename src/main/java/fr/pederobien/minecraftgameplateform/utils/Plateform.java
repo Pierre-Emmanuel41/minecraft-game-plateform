@@ -14,6 +14,7 @@ import fr.pederobien.minecraftgameplateform.interfaces.commands.ICommandHelper;
 import fr.pederobien.minecraftgameplateform.interfaces.element.IGameConfiguration;
 import fr.pederobien.minecraftgameplateform.interfaces.element.IGameConfigurationContext;
 import fr.pederobien.minecraftgameplateform.interfaces.element.IGameRuleHelper;
+import fr.pederobien.minecraftgameplateform.interfaces.element.IPlayerQuitOrJoinEventListener;
 import fr.pederobien.minecraftgameplateform.interfaces.element.IPluginHelper;
 import fr.pederobien.minecraftgameplateform.interfaces.helpers.IGameConfigurationHelper;
 import fr.pederobien.minecraftgameplateform.interfaces.runtime.task.ITimeTask;
@@ -185,5 +186,12 @@ public class Plateform {
 	 */
 	public static IObservableTimeLine getTimeLine() {
 		return configuration.getTimeLine();
+	}
+
+	/**
+	 * @return An event listener used to notify when a player quit or join the server.
+	 */
+	public static IPlayerQuitOrJoinEventListener getPlayerQuitOrJoinEventListener() {
+		return configuration.getPlayerQuitOrJoinEventListener();
 	}
 }
