@@ -49,13 +49,17 @@ public abstract class AbstractGameConfiguration extends AbstractNominable implem
 
 	@Override
 	public void remove(ITeam team) {
+		if (!teams.contains(team))
+			return;
+
+		team.clear();
 		teams.remove(team);
 		observers.notifyObservers(obs -> obs.onTeamRemoved(this, team));
 	}
 
 	@Override
 	public void removeTeams(List<ITeam> teams) {
-		teams.removeAll(teams);
+		teams.forEach(team -> remove(team));
 	}
 
 	@Override
