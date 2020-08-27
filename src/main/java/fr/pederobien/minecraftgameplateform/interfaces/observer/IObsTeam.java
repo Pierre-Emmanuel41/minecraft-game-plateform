@@ -8,11 +8,20 @@ import fr.pederobien.minecraftgameplateform.utils.EColor;
 public interface IObsTeam {
 
 	/**
-	 * Notify this observer when the colour of the given team has changed.
+	 * Notify this observer when the name of the given team has changed.
+	 * 
+	 * @param team    The modified team.
+	 * @param oldName The old name of the team.
+	 * @param newName The new name of the team.
+	 */
+	void onNameChanged(ITeam team, String oldName, String newName);
+
+	/**
+	 * Notify this observer when the color of the given team has changed.
 	 * 
 	 * @param team     The modified team.
-	 * @param oldColor The old colour of the given team.
-	 * @param newColor The new colour of team.
+	 * @param oldColor The old color of the given team.
+	 * @param newColor The new color of team.
 	 */
 	void onColorChanged(ITeam team, EColor oldColor, EColor newColor);
 

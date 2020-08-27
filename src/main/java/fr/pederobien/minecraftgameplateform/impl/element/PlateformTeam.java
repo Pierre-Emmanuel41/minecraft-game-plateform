@@ -68,6 +68,13 @@ public class PlateformTeam extends AbstractNominable implements ITeam {
 	}
 
 	@Override
+	public void setName(String name) {
+		String oldName = getName();
+		super.setName(name);
+		synchronizeWithServerTeam(serverTeam -> serverTeam.setDisplayName(name), obs -> obs.onNameChanged(this, oldName, getName()));
+	}
+
+	@Override
 	public void onPlayerJoinEvent(PlayerJoinEvent event) {
 		Iterator<Player> iterator = quitPlayers.iterator();
 		while (iterator.hasNext()) {

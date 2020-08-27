@@ -8,7 +8,7 @@ public abstract class AbstractNominable implements INominable {
 	private String name;
 
 	protected AbstractNominable(String name) {
-		setName(name);
+		this.name = name;
 	}
 
 	@Override
