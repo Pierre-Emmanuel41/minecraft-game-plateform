@@ -208,7 +208,11 @@
 		</message>
 		<message>
 			<code>MODIFY_COLOR__TEAM_DOES_NOT_EXIST</code>
-			<value>Cannot modify the color of team %, it does not exist for configuration %s</value>
+			<value>Cannot modify the color of team %s, it does not exist for configuration %s</value>
+		</message>
+		<message>
+			<code>MODIFY_COLOR__COLOR_DOES_NOT_EXIST</code>
+			<value>Cannot modify the color of team %s, the color "%s" does not exist</value>
 		</message>
 		<message>
 			<code>MODIFY_COLOR__COLOR_ALREADY_USED</code>

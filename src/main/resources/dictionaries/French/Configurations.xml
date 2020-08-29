@@ -208,6 +208,10 @@
 			<value>Impossible de modifier la couleur de l'équipe "%s", elle n'existe pas dans la configuration %s</value>
 		</message>
 		<message>
+			<code>MODIFY_COLOR__COLOR_DOES_NOT_EXIST</code>
+			<value>Impossible de modifier la couleur de l'équipe %s, la couleur "%s" n'existe pas</value>
+		</message>
+		<message>
 			<code>MODIFY_COLOR__COLOR_ALREADY_USED</code>
 			<value>Impossible de modifier la couleur de l'équipe %s, la couleur %s est déjà utilisée par l'équipe %s</value>
 		</message>
