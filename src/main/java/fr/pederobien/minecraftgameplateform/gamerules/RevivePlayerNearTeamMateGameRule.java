@@ -14,9 +14,7 @@ import org.bukkit.event.player.PlayerRespawnEvent;
 import fr.pederobien.minecraftgameplateform.dictionary.ECommonMessageCode;
 import fr.pederobien.minecraftgameplateform.dictionary.EGameRuleMessageCode;
 import fr.pederobien.minecraftgameplateform.helpers.TeamHelper;
-import fr.pederobien.minecraftgameplateform.utils.EColor;
 import fr.pederobien.minecraftgameplateform.utils.TabCompleterFactory;
-import fr.pederobien.minecraftmanagers.BukkitManager;
 
 public class RevivePlayerNearTeamMateGameRule extends EventRunnableGameRule<Boolean> {
 
@@ -31,10 +29,8 @@ public class RevivePlayerNearTeamMateGameRule extends EventRunnableGameRule<Bool
 			return;
 
 		Optional<Player> optPlayer = TeamHelper.getRandomColleagues(event.getPlayer(), player -> player.getGameMode().equals(GameMode.SURVIVAL));
-		if (optPlayer.isPresent()) {
-			BukkitManager.broadcastMessage(EColor.GOLD.getInColor("Teammate : " + optPlayer.get().getName()));
+		if (optPlayer.isPresent())
 			event.setRespawnLocation(optPlayer.get().getLocation());
-		}
 	}
 
 	@Override
