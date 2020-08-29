@@ -46,6 +46,11 @@ public abstract class GameRule<T> extends AbstractNominable implements IGameRule
 			EGameRuleMessageCode.MAX_PROTECTION_ON_DIAMONDS__EXPLANATION).setTargetItems(Material.DIAMOND_HELMET, Material.DIAMOND_CHESTPLATE, Material.DIAMOND_LEGGINGS,
 					Material.DIAMOND_BOOTS);
 
+	/**
+	 * Game rule to set whether or not a respawning player is teleported to a teammate.
+	 */
+	public static final IRunnableGameRule<Boolean> REVIVE_NEAR_TEAM_MATE = new RevivePlayerNearTeamMateGameRule();
+
 	private T value, defaultValue;
 	private Class<T> type;
 	private TabCompleter completer;

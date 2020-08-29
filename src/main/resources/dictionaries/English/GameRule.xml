@@ -16,32 +16,24 @@
 			<value>&lt;max level&gt;</value>
 		</message>
 		<message>
+			<code>COMMON_VALUE_IS_MISSING</code>
+			<value>Cannot set the value of game rule %s, the value is missing</value>
+		</message>
+		<message>
+			<code>COMMON_VALUE_DEFINED</code>
+			<value>The value of game rule %s is now set to : %s</value>
+		</message>
+		<message>
+			<code>COMMON_VALUE_DEFINED_IN_GAME</code>
+			<value>The value of game rule %s is now set to : %s (in game)</value>
+		</message>
+		<message>
 			<code>PVP__EXPLANATION</code>
 			<value>To enable or disable the pvp</value>
 		</message>
 		<message>
-			<code>PVP__VALUE_IS_MISSING</code>
-			<value>Cannot set the value of the game rule pvp, the value is missing</value>
-		</message>
-		<message>
-			<code>PVP__VALUE_DEFINED</code>
-			<value>Gamerule pvp is now set to : %s</value>
-		</message>
-		<message>
 			<code>DISPLAY_CURRENT_TEAMMATES_LOCATION__EXPLANATION</code>
 			<value>To enable or disable the display of team mates location of a player</value>
-		</message>
-		<message>
-			<code>DISPLAY_CURRENT_TEAMMATES_LOCATION__VALUE_DEFINED</code>
-			<value>Gamerule displayCurrentTeamMatesLocation is now set to : %s (in game)</value>
-		</message>
-		<message>
-			<code>ENCHANT__LEVEL_IS_MISSING</code>
-			<value>Cannot set the max level of game rule %s, the level is missing</value>
-		</message>
-		<message>
-			<code>ENCHANT__LEVEL_DEFINED</code>
-			<value>The max level of enchant %s is %s</value>
 		</message>
 		<message>
 			<code>ENCHANT__CANNOT_ENCHANT</code>
@@ -50,6 +42,10 @@
 		<message>
 			<code>MAX_PROTECTION_ON_DIAMONDS__EXPLANATION</code>
 			<value>To set the max level of the protection enchantment on diamonds armor pieces</value>
+		</message>
+		<message>
+			<code>REVIVE_NEAR_TEAM_MATE__EXPLANATION</code>
+			<value>To set whether or not a respawning player should be teleported to a teammate</value>
 		</message>
 	</messages>
 </dictionary>

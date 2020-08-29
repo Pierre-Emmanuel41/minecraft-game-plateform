@@ -72,9 +72,9 @@ public class EnchantGameRule extends EventRunnableGameRule<Integer> {
 			public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
 				try {
 					setValue(Integer.parseInt(args[0]));
-					sendMessageToSender(sender, EGameRuleMessageCode.ENCHANT__LEVEL_DEFINED, enchantment.getKey().getKey(), getValue());
+					sendMessageToSender(sender, EGameRuleMessageCode.COMMON_VALUE_DEFINED_IN_GAME, getName(), getValue());
 				} catch (IndexOutOfBoundsException e) {
-					sendMessageToSender(sender, EGameRuleMessageCode.ENCHANT__LEVEL_IS_MISSING, getName());
+					sendMessageToSender(sender, EGameRuleMessageCode.COMMON_VALUE_IS_MISSING, getName());
 					return false;
 				} catch (NumberFormatException e) {
 					sendMessageToSender(sender, ECommonMessageCode.COMMON_BAD_INTEGER_FORMAT);

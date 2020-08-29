@@ -12,7 +12,10 @@ import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
 import org.bukkit.scoreboard.Team;
 
+import fr.pederobien.minecraftgameplateform.interfaces.element.IGameConfiguration;
+import fr.pederobien.minecraftgameplateform.interfaces.element.IGameConfigurationContext;
 import fr.pederobien.minecraftgameplateform.interfaces.element.ITeam;
+import fr.pederobien.minecraftgameplateform.utils.Plateform;
 import fr.pederobien.minecraftmanagers.PlayerManager;
 import fr.pederobien.minecraftmanagers.TeamManager;
 import fr.pederobien.minecraftmanagers.WorldManager;
@@ -95,5 +98,77 @@ public class TeamHelper {
 	 */
 	public static void teleportTeamRandomly(ITeam team, World world, Block center, int bound) {
 		teleportTeam(team, WorldManager.getRandomlyLocation(world, center, bound));
+	}
+
+	/**
+	 * Get the team associated with the given player by querying the game managed by the {@link IGameConfigurationContext} of the
+	 * {@link Plateform}.
+	 * 
+	 * @param player The player used to get its team.
+	 * @return An optional that contains the team if the player is registered into a team, an empty optional otherwise.
+	 */
+	public static Optional<ITeam> getTeam(Player player) {
+		if (Plateform.getGameConfigurationContext().getGameConfiguration() == null)
+			return Optional.of(null);
+
+		IGameConfiguration configuration = Plateform.getGameConfigurationContext().getGameConfiguration();
+		for (ITeam team : configuration.getTeams())
+			if (team.getPlayers().contains(player))
+				return Optional.of(team);
+		return Optional.empty();
+	}
+
+	/**
+	 * Get colleagues of the given player. These colleagues correspond to the other players of the given player's team.
+	 * 
+	 * @param player The player used to get its colleagues.
+	 * @return All players in the team of the given player without the specified player.
+	 * 
+	 * @see #getTeam(Player)
+	 */
+	public static Stream<Player> getColleagues(Player player) {
+		Optional<ITeam> optTeam = getTeam(player);
+		return optTeam.isPresent() ? optTeam.get().getPlayers().stream().filter(p -> !p.equals(player)) : Stream.of();
+	}
+
+	/**
+	 * Get colleagues of the given player. These colleagues correspond to the other players of the given player's team.
+	 * 
+	 * @param player    The player used to get its colleagues.
+	 * @param predicate A filter for the players' selection.
+	 * 
+	 * @return All players in the team of the given player without the specified player.
+	 * 
+	 * @see #getColleagues(Player)
+	 */
+	public static Stream<Player> getColleagues(Player player, Predicate<Player> predicate) {
+		return getColleagues(player).filter(predicate);
+	}
+
+	/**
+	 * Get a random colleague of the specified player.
+	 * 
+	 * @param player The player used to get its colleagues.
+	 * @return A player from the same team as the given player.
+	 * 
+	 * @see #getColleagues(Player)
+	 * @see TeamManager#getRandom(Stream)
+	 */
+	public static Optional<Player> getRandomColleagues(Player player) {
+		return TeamManager.getRandom(getColleagues(player).collect(Collectors.toList()));
+	}
+
+	/**
+	 * Filter the stream of player's colleague using the specified predicate, then collect this stream using
+	 * {@link Collectors#toList()} and finally choose a random player from this list.
+	 * 
+	 * @param player The player used to get its colleagues.
+	 * @return A player from the same team as the given player.
+	 * 
+	 * @see #getColleagues(Player)
+	 * @see TeamManager#getRandom(Stream)
+	 */
+	public static Optional<Player> getRandomColleagues(Player player, Predicate<Player> predicate) {
+		return TeamManager.getRandom(getColleagues(player, predicate).collect(Collectors.toList()));
 	}
 }

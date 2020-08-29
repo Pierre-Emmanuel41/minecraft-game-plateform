@@ -13,32 +13,24 @@
 			<value>&lt;niveau max&gt;</value>
 		</message>
 		<message>
+			<code>COMMON_VALUE_IS_MISSING</code>
+			<value>Impossible de définir la valeur de la game rule %s, la valeur est manquante</value>
+		</message>
+		<message>
+			<code>COMMON_VALUE_DEFINED</code>
+			<value>La valeur de la game rule %s est maintenant définie à : %s</value>
+		</message>
+		<message>
+			<code>COMMON_VALUE_DEFINED_IN_GAME</code>
+			<value>la valeur de la game rule %s est maintenant définie à : %s (in game)</value>
+		</message>
+		<message>
 			<code>PVP__EXPLANATION</code>
 			<value>Pour activer ou désactiver le pvp</value>
 		</message>
 		<message>
-			<code>PVP__VALUE_IS_MISSING</code>
-			<value>Impossible de définir la valeur pour la règle pvp, il manque la valeur</value>
-		</message>
-		<message>
-			<code>PVP__VALUE_DEFINED</code>
-			<value>La régle pvp est maintenant définie sur : %s</value>
-		</message>
-		<message>
 			<code>DISPLAY_CURRENT_TEAMMATES_LOCATION__EXPLANATION</code>
 			<value>Pour activer ou désactiver l'affichage de la position des coéquipiers d'un joueur</value>
-		</message>
-		<message>
-			<code>DISPLAY_CURRENT_TEAMMATES_LOCATION__VALUE_IS_MISSING</code>
-			<value>Impossible de définir la valeur pour la règle displayCurrentTeamMatesLocation, il manque la valeur</value>
-		</message>
-		<message>
-			<code>DISPLAY_CURRENT_TEAMMATES_LOCATION__VALUE_DEFINED</code>
-			<value>La régle displayCurrentTeamMatesLocation est maintenant définie sur : %s (pendant une partie)</value>
-		</message>
-		<message>
-			<code>ENCHANT__LEVEL_IS_MISSING</code>
-			<value>Impossible de définir le niveau max de la règle %s, il manque le niveau</value>
 		</message>
 		<message>
 			<code>ENCHANT__CANNOT_ENCHANT</code>
@@ -47,6 +39,10 @@
 		<message>
 			<code>MAX_PROTECTION_ON_DIAMONDS__EXPLANATION</code>
 			<value>Pour définir le niveau max de l'enchant protection sur les pièces d'armure en diamants</value>
+		</message>
+		<message>
+			<code>REVIVE_NEAR_TEAM_MATE__EXPLANATION</code>
+			<value>Pour définir si un joueur qui respawn doit être téléporté à un coéquipier</value>
 		</message>
 	</messages>
 </dictionary>

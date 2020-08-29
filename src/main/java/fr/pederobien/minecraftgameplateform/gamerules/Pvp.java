@@ -39,9 +39,9 @@ public class Pvp extends GameRule<Boolean> {
 						sendMessageToSender(sender, ECommonMessageCode.COMMON_BAD_BOOLEAN_FORMAT);
 						return false;
 					}
-					sendMessageToSender(sender, EGameRuleMessageCode.PVP__VALUE_DEFINED, value);
+					sendMessageToSender(sender, EGameRuleMessageCode.COMMON_VALUE_DEFINED, getName(), value);
 				} catch (IndexOutOfBoundsException e) {
-					sendMessageToSender(sender, EGameRuleMessageCode.PVP__VALUE_IS_MISSING);
+					sendMessageToSender(sender, EGameRuleMessageCode.COMMON_VALUE_IS_MISSING, getName());
 					return false;
 				}
 				return true;

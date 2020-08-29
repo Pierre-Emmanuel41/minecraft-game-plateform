@@ -87,9 +87,9 @@ public class DisplayCurrentTeammatesLocation extends PeriodicRunnableGameRule<Bo
 						sendMessageToSender(sender, ECommonMessageCode.COMMON_BAD_BOOLEAN_FORMAT);
 						return false;
 					}
-					sendMessageToSender(sender, EGameRuleMessageCode.DISPLAY_CURRENT_TEAMMATES_LOCATION__VALUE_DEFINED, getValue());
+					sendMessageToSender(sender, EGameRuleMessageCode.COMMON_VALUE_DEFINED_IN_GAME, getName(), getValue());
 				} catch (IndexOutOfBoundsException e) {
-					sendMessageToSender(sender, EGameRuleMessageCode.DISPLAY_CURRENT_TEAMMATES_LOCATION__VALUE_IS_MISSING);
+					sendMessageToSender(sender, EGameRuleMessageCode.COMMON_VALUE_IS_MISSING, getName());
 					return false;
 				}
 				return true;
