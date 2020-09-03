@@ -11,7 +11,7 @@ public interface IObservableTimeLine {
 	 * @param time The time at which the observer is notified.
 	 * @param obs  The observer to notify.
 	 */
-	void addObserver(LocalTime time, ITimeLineObserver obs);
+	void addObserver(LocalTime time, IObsTimeLine obs);
 
 	/**
 	 * Remove the specified observer for the given time.
@@ -19,7 +19,7 @@ public interface IObservableTimeLine {
 	 * @param time The used as key to remove the observer.
 	 * @param obs  The observer to remove.
 	 */
-	void removeObserver(LocalTime time, ITimeLineObserver obs);
+	void removeObserver(LocalTime time, IObsTimeLine obs);
 
 	/**
 	 * Register periodically the given observer for the specific time. It is possible to add several periodic observers for the same

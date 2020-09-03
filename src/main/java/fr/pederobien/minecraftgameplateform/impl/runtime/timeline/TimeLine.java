@@ -10,15 +10,15 @@ import fr.pederobien.minecraftgameplateform.interfaces.observer.IObservable;
 import fr.pederobien.minecraftgameplateform.interfaces.runtime.task.ITimeTask;
 import fr.pederobien.minecraftgameplateform.interfaces.runtime.task.IObsTimeTask;
 import fr.pederobien.minecraftgameplateform.interfaces.runtime.timeline.IObservableTimeLine;
-import fr.pederobien.minecraftgameplateform.interfaces.runtime.timeline.ITimeLineObserver;
+import fr.pederobien.minecraftgameplateform.interfaces.runtime.timeline.IObsTimeLine;
 import fr.pederobien.minecraftgameplateform.interfaces.runtime.timeline.ITimeLinePeriodicObserver;
 
 public class TimeLine implements IObservableTimeLine, IObsTimeTask {
-	private Map<LocalTime, IObservable<ITimeLineObserver>> punctual;
+	private Map<LocalTime, IObservable<IObsTimeLine>> punctual;
 	private Map<LocalTime, IObservable<ITimeLinePeriodicObserver>> periodic;
 
 	private TimeLine() {
-		punctual = new HashMap<LocalTime, IObservable<ITimeLineObserver>>();
+		punctual = new HashMap<LocalTime, IObservable<IObsTimeLine>>();
 		periodic = new HashMap<LocalTime, IObservable<ITimeLinePeriodicObserver>>();
 	}
 
@@ -54,12 +54,12 @@ public class TimeLine implements IObservableTimeLine, IObsTimeTask {
 	}
 
 	@Override
-	public void addObserver(LocalTime time, ITimeLineObserver obs) {
+	public void addObserver(LocalTime time, IObsTimeLine obs) {
 		addObserverToMap(punctual, time, obs);
 	}
 
 	@Override
-	public void removeObserver(LocalTime time, ITimeLineObserver obs) {
+	public void removeObserver(LocalTime time, IObsTimeLine obs) {
 		removeObserverToMap(punctual, time, obs);
 	}
 
@@ -73,7 +73,7 @@ public class TimeLine implements IObservableTimeLine, IObsTimeTask {
 		removeObserverToMap(periodic, obs.getNextNotifyTime(), obs);
 	}
 
-	private <T extends ITimeLineObserver> void addObserverToMap(Map<LocalTime, IObservable<T>> observers, LocalTime time, T obs) {
+	private <T extends IObsTimeLine> void addObserverToMap(Map<LocalTime, IObservable<T>> observers, LocalTime time, T obs) {
 		if (observers.containsKey(time))
 			observers.get(time).addObserver(obs);
 		else {
@@ -83,13 +83,13 @@ public class TimeLine implements IObservableTimeLine, IObsTimeTask {
 		}
 	}
 
-	private <T extends ITimeLineObserver> void removeObserverToMap(Map<LocalTime, IObservable<T>> observers, LocalTime time, T obs) {
+	private <T extends IObsTimeLine> void removeObserverToMap(Map<LocalTime, IObservable<T>> observers, LocalTime time, T obs) {
 		observers.get(time).removeObserver(obs);
 		if (observers.get(time).size() == 0)
 			observers.remove(time);
 	}
 
-	private <T extends ITimeLineObserver> void notifyObservers(Map<LocalTime, IObservable<T>> observers, LocalTime time, Consumer<T> consumer) {
+	private <T extends IObsTimeLine> void notifyObservers(Map<LocalTime, IObservable<T>> observers, LocalTime time, Consumer<T> consumer) {
 		IObservable<T> observable = observers.get(time);
 		if (observable != null)
 			observable.notifyObservers(consumer);

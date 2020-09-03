@@ -4,7 +4,7 @@ import java.time.LocalTime;
 
 import fr.pederobien.minecraftgameplateform.interfaces.runtime.task.ITimeTask;
 
-public interface ITimeLinePeriodicObserver extends ITimeLineObserver {
+public interface ITimeLinePeriodicObserver extends IObsTimeLine {
 
 	/**
 	 * @return The period used to notify the observer.

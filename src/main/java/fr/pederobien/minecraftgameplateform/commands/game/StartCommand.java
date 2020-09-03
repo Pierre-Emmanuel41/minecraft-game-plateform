@@ -11,14 +11,14 @@ import fr.pederobien.minecraftgameplateform.dictionary.EGameMessageCode;
 import fr.pederobien.minecraftgameplateform.gamerules.GameRule;
 import fr.pederobien.minecraftgameplateform.impl.runtime.timeline.TimeLine;
 import fr.pederobien.minecraftgameplateform.interfaces.commands.IParentCommand;
-import fr.pederobien.minecraftgameplateform.interfaces.runtime.timeline.ITimeLineObserver;
+import fr.pederobien.minecraftgameplateform.interfaces.runtime.timeline.IObsTimeLine;
 import fr.pederobien.minecraftgameplateform.utils.Plateform;
 import fr.pederobien.minecraftmanagers.PlayerManager;
 import fr.pederobien.minecraftmanagers.WorldManager;
 import fr.pederobien.persistence.interfaces.IUnmodifiableNominable;
 
 public class StartCommand extends AbstractGameCommand {
-	private ITimeLineObserver pvpActivator;
+	private IObsTimeLine pvpActivator;
 	private boolean isRegistered;
 
 	public StartCommand(JavaPlugin plugin) {
@@ -78,7 +78,7 @@ public class StartCommand extends AbstractGameCommand {
 		GameRule.RUNNABLE_RULES.forEach(rule -> rule.start());
 	}
 
-	private class PvpActivator implements ITimeLineObserver {
+	private class PvpActivator implements IObsTimeLine {
 
 		@Override
 		public void timeChanged(LocalTime time) {
