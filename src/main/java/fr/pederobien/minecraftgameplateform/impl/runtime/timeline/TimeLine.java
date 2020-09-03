@@ -7,10 +7,10 @@ import java.util.function.Consumer;
 
 import fr.pederobien.minecraftgameplateform.impl.observer.Observable;
 import fr.pederobien.minecraftgameplateform.interfaces.observer.IObservable;
-import fr.pederobien.minecraftgameplateform.interfaces.runtime.task.ITimeTask;
 import fr.pederobien.minecraftgameplateform.interfaces.runtime.task.IObsTimeTask;
-import fr.pederobien.minecraftgameplateform.interfaces.runtime.timeline.IObservableTimeLine;
+import fr.pederobien.minecraftgameplateform.interfaces.runtime.task.ITimeTask;
 import fr.pederobien.minecraftgameplateform.interfaces.runtime.timeline.IObsTimeLine;
+import fr.pederobien.minecraftgameplateform.interfaces.runtime.timeline.IObservableTimeLine;
 import fr.pederobien.minecraftgameplateform.interfaces.runtime.timeline.ITimeLinePeriodicObserver;
 
 public class TimeLine implements IObservableTimeLine, IObsTimeTask {
@@ -28,6 +28,27 @@ public class TimeLine implements IObservableTimeLine, IObsTimeTask {
 
 	private static class SingletonHolder {
 		public static final TimeLine TIME_LINE = new TimeLine();
+	}
+
+	@Override
+	public void onStart(ITimeTask task) {
+
+	}
+
+	@Override
+	public void onPause(ITimeTask task) {
+
+	}
+
+	@Override
+	public void onRelaunched(ITimeTask task) {
+
+	}
+
+	@Override
+	public void onStop(ITimeTask task) {
+		punctual.clear();
+		periodic.clear();
 	}
 
 	@Override

@@ -10,25 +10,27 @@ import fr.pederobien.minecraftgameplateform.impl.runtime.task.state.InitialTimeT
 import fr.pederobien.minecraftgameplateform.impl.runtime.task.state.PauseTimeTaskState;
 import fr.pederobien.minecraftgameplateform.impl.runtime.task.state.RunTimeTaskState;
 import fr.pederobien.minecraftgameplateform.interfaces.observer.IObservable;
-import fr.pederobien.minecraftgameplateform.interfaces.runtime.task.ITimeTask;
 import fr.pederobien.minecraftgameplateform.interfaces.runtime.task.IObsTimeTask;
+import fr.pederobien.minecraftgameplateform.interfaces.runtime.task.ITimeTask;
 import fr.pederobien.minecraftgameplateform.interfaces.runtime.task.state.IStateTimeTask;
 import fr.pederobien.minecraftgameplateform.interfaces.runtime.task.state.ITimeTaskState;
 
-public class TimeTask extends Observable<IObsTimeTask> implements IStateTimeTask, ITimeTask, IObservable<IObsTimeTask> {
+public class TimeTask implements IStateTimeTask, ITimeTask {
 	private ITimeTaskState current;
 	private ITimeTaskState initial;
 	private ITimeTaskState run;
 	private ITimeTaskState pause;
 
 	private BukkitTask task;
+	private IObservable<IObsTimeTask> observable;
 
 	private TimeTask() {
 		initial = new InitialTimeTaskState(this);
 		run = new RunTimeTaskState(this);
 		pause = new PauseTimeTaskState(this);
-
 		setCurrentState(initial);
+
+		observable = new Observable<IObsTimeTask>();
 	}
 
 	public static ITimeTask getInstance() {
@@ -41,27 +43,41 @@ public class TimeTask extends Observable<IObsTimeTask> implements IStateTimeTask
 
 	@Override
 	public void start(Plugin plugin) {
+		observable.notifyObservers(obs -> obs.onStart(this));
 		current.start(plugin);
 	}
 
 	@Override
 	public void pause() {
+		observable.notifyObservers(obs -> obs.onPause(this));
 		current.pause();
 	}
 
 	@Override
 	public void relaunched() {
+		observable.notifyObservers(obs -> obs.onRelaunched(this));
 		current.relaunched();
 	}
 
 	@Override
 	public void stop() {
+		observable.notifyObservers(obs -> obs.onStop(this));
 		current.stop();
 	}
 
 	@Override
 	public void run() {
 		current.run();
+	}
+
+	@Override
+	public void addObserver(IObsTimeTask obs) {
+		observable.addObserver(obs);
+	}
+
+	@Override
+	public void removeObserver(IObsTimeTask obs) {
+		observable.removeObserver(obs);
 	}
 
 	@Override
@@ -116,6 +132,6 @@ public class TimeTask extends Observable<IObsTimeTask> implements IStateTimeTask
 
 	@Override
 	public void notifyObservers() {
-		notifyObservers(obs -> obs.timeChanged(this));
+		observable.notifyObservers(obs -> obs.timeChanged(this));
 	}
 }
