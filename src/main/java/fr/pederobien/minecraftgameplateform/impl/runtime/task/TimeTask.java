@@ -11,11 +11,11 @@ import fr.pederobien.minecraftgameplateform.impl.runtime.task.state.PauseTimeTas
 import fr.pederobien.minecraftgameplateform.impl.runtime.task.state.RunTimeTaskState;
 import fr.pederobien.minecraftgameplateform.interfaces.observer.IObservable;
 import fr.pederobien.minecraftgameplateform.interfaces.runtime.task.ITimeTask;
-import fr.pederobien.minecraftgameplateform.interfaces.runtime.task.ITimeTaskObserver;
+import fr.pederobien.minecraftgameplateform.interfaces.runtime.task.IObsTimeTask;
 import fr.pederobien.minecraftgameplateform.interfaces.runtime.task.state.IStateTimeTask;
 import fr.pederobien.minecraftgameplateform.interfaces.runtime.task.state.ITimeTaskState;
 
-public class TimeTask extends Observable<ITimeTaskObserver> implements IStateTimeTask, ITimeTask, IObservable<ITimeTaskObserver> {
+public class TimeTask extends Observable<IObsTimeTask> implements IStateTimeTask, ITimeTask, IObservable<IObsTimeTask> {
 	private ITimeTaskState current;
 	private ITimeTaskState initial;
 	private ITimeTaskState run;

@@ -8,12 +8,12 @@ import java.util.function.Consumer;
 import fr.pederobien.minecraftgameplateform.impl.observer.Observable;
 import fr.pederobien.minecraftgameplateform.interfaces.observer.IObservable;
 import fr.pederobien.minecraftgameplateform.interfaces.runtime.task.ITimeTask;
-import fr.pederobien.minecraftgameplateform.interfaces.runtime.task.ITimeTaskObserver;
+import fr.pederobien.minecraftgameplateform.interfaces.runtime.task.IObsTimeTask;
 import fr.pederobien.minecraftgameplateform.interfaces.runtime.timeline.IObservableTimeLine;
 import fr.pederobien.minecraftgameplateform.interfaces.runtime.timeline.ITimeLineObserver;
 import fr.pederobien.minecraftgameplateform.interfaces.runtime.timeline.ITimeLinePeriodicObserver;
 
-public class TimeLine implements IObservableTimeLine, ITimeTaskObserver {
+public class TimeLine implements IObservableTimeLine, IObsTimeTask {
 	private Map<LocalTime, IObservable<ITimeLineObserver>> punctual;
 	private Map<LocalTime, IObservable<ITimeLinePeriodicObserver>> periodic;
 

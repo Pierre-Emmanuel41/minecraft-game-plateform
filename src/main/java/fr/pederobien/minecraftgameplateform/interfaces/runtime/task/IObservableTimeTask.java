@@ -8,7 +8,7 @@ public interface IObservableTimeTask {
 	 * 
 	 * @param obs The observer to notify.
 	 */
-	void addObserver(ITimeTaskObserver obs);
+	void addObserver(IObsTimeTask obs);
 
 	/**
 	 * Remove the given observer from the list of observers for this observable time task. The given observer is not notified any more
@@ -16,5 +16,5 @@ public interface IObservableTimeTask {
 	 * 
 	 * @param obs The observer to remove.
 	 */
-	void removeObserver(ITimeTaskObserver obs);
+	void removeObserver(IObsTimeTask obs);
 }

@@ -1,6 +1,6 @@
 package fr.pederobien.minecraftgameplateform.interfaces.runtime.task;
 
-public interface ITimeTaskObserver {
+public interface IObsTimeTask {
 
 	/**
 	 * Method called by the given time task whenever its internal time has changed.
