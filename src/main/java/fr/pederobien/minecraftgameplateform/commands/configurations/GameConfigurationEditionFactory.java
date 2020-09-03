@@ -1,7 +1,6 @@
 package fr.pederobien.minecraftgameplateform.commands.configurations;
 
 import fr.pederobien.minecraftgameplateform.interfaces.editions.IMapPersistenceEdition;
-import fr.pederobien.minecraftgameplateform.interfaces.element.IGameBorderConfiguration;
 import fr.pederobien.minecraftgameplateform.interfaces.element.IGameConfiguration;
 
 public class GameConfigurationEditionFactory {
@@ -18,13 +17,6 @@ public class GameConfigurationEditionFactory {
 	 */
 	public static <T extends IGameConfiguration> IMapPersistenceEdition<T> teamEdition() {
 		return new CommonTeam<T>();
-	}
-
-	/**
-	 * @return An edition to manage borders for a game border configuration.
-	 */
-	public static <T extends IGameBorderConfiguration> IMapPersistenceEdition<T> bordersEdition() {
-		return new CommonBorders<T>();
 	}
 
 	/**

@@ -6,7 +6,6 @@ import java.nio.file.Path;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import fr.pederobien.dictionary.interfaces.IDictionaryParser;
-import fr.pederobien.minecraftgameplateform.border.BorderCommand;
 import fr.pederobien.minecraftgameplateform.commands.game.PauseCommand;
 import fr.pederobien.minecraftgameplateform.commands.game.StartCommand;
 import fr.pederobien.minecraftgameplateform.commands.game.StopCommand;
@@ -28,7 +27,6 @@ public class PlateformPlugin extends JavaPlugin {
 		new StopCommand(this);
 
 		new SpawnCommand(this);
-		new BorderCommand(this);
 
 		new PlateformCommand(this);
 
@@ -44,8 +42,7 @@ public class PlateformPlugin extends JavaPlugin {
 	}
 
 	private void registerDictionaries() {
-		String[] dictionaries = new String[] { "Common.xml", "Game.xml", "WorldStructure.xml", "Configurations.xml", "Spawn.xml", "Border.xml", "Borders.xml",
-				"Entry.xml", "Plateform.xml", "GameRule.xml" };
+		String[] dictionaries = new String[] { "Common.xml", "Game.xml", "WorldStructure.xml", "Configurations.xml", "Spawn.xml", "Entry.xml", "Plateform.xml", "GameRule.xml" };
 		// Registering French dictionaries
 		registerDictionary("French", dictionaries);
 
