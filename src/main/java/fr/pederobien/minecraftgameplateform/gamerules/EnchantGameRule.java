@@ -36,7 +36,6 @@ public class EnchantGameRule extends EventRunnableGameRule<Integer> {
 	public void onEnchantItemEvent(EnchantItemEvent event) {
 		if (!isRunning() || !items.contains(event.getItem().getType()))
 			return;
-
 		for (Map.Entry<Enchantment, Integer> entry : event.getEnchantsToAdd().entrySet())
 			if (entry.getKey().equals(enchantment) && entry.getValue() > getValue()) {
 				event.setCancelled(true);
@@ -53,7 +52,7 @@ public class EnchantGameRule extends EventRunnableGameRule<Integer> {
 		AnvilInventory anvilInventory = (AnvilInventory) event.getInventory();
 		ItemStack result = anvilInventory.getItem(2);
 
-		if (result == null)
+		if (result == null || !items.contains(result.getType()))
 			return;
 
 		for (Map.Entry<Enchantment, Integer> entry : result.getEnchantments().entrySet()) {
