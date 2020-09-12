@@ -47,7 +47,7 @@ public abstract class AbstractMapPersistenceEdition<T extends IUnmodifiableNomin
 	}
 
 	@Override
-	protected IMinecraftNotificationCenter getNotificationCenter() {
+	public IMinecraftNotificationCenter getNotificationCenter() {
 		return Plateform.getNotificationCenter();
 	}
 
