@@ -7,7 +7,6 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 import fr.pederobien.minecraftgameplateform.interfaces.commands.IParentCommand;
 import fr.pederobien.minecraftgameplateform.interfaces.editions.IParentPersistenceEdition;
-import fr.pederobien.minecraftgameplateform.interfaces.element.IGame;
 import fr.pederobien.minecraftgameplateform.utils.Plateform;
 import fr.pederobien.persistence.interfaces.IUnmodifiableNominable;
 
@@ -39,45 +38,5 @@ public abstract class AbstractParentCommand<T extends IUnmodifiableNominable> ex
 	@Override
 	public IParentPersistenceEdition<T> getParent() {
 		return parent;
-	}
-
-	@Override
-	public <U extends IGame> boolean onGameIsStarting(U IGame) {
-		return true;
-	}
-
-	@Override
-	public <U extends IGame> void onGameIsStarted(U IGame) {
-
-	}
-
-	@Override
-	public <U extends IGame> boolean onGameIsPausing(U IGame) {
-		return true;
-	}
-
-	@Override
-	public <U extends IGame> void onGameIsPaused(U IGame) {
-
-	}
-
-	@Override
-	public <U extends IGame> boolean onGameIsResuming(U IGame) {
-		return true;
-	}
-
-	@Override
-	public <U extends IGame> void onGameIsResumed(U IGame) {
-
-	}
-
-	@Override
-	public <U extends IGame> boolean onGameIsStopping(U IGame) {
-		return true;
-	}
-
-	@Override
-	public <U extends IGame> void onGameIsStopped(U IGame) {
-
 	}
 }

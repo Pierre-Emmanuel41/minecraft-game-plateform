@@ -10,6 +10,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 import fr.pederobien.minecraftgameplateform.interfaces.commands.ICommand;
 import fr.pederobien.minecraftgameplateform.interfaces.commands.ICommandHelper;
+import fr.pederobien.minecraftgameplateform.interfaces.element.IGame;
 import fr.pederobien.minecraftgameplateform.interfaces.element.IGameConfigurationContext;
 import fr.pederobien.minecraftgameplateform.utils.Plateform;
 
@@ -55,6 +56,46 @@ public abstract class AbstractCommand implements ICommand {
 	@Override
 	public TabCompleter getTabCompleter() {
 		return DEFAULT_COMPLETER;
+	}
+
+	@Override
+	public <U extends IGame> boolean onGameIsStarting(U IGame) {
+		return true;
+	}
+
+	@Override
+	public <U extends IGame> void onGameIsStarted(U IGame) {
+
+	}
+
+	@Override
+	public <U extends IGame> boolean onGameIsPausing(U IGame) {
+		return true;
+	}
+
+	@Override
+	public <U extends IGame> void onGameIsPaused(U IGame) {
+
+	}
+
+	@Override
+	public <U extends IGame> boolean onGameIsResuming(U IGame) {
+		return true;
+	}
+
+	@Override
+	public <U extends IGame> void onGameIsResumed(U IGame) {
+
+	}
+
+	@Override
+	public <U extends IGame> boolean onGameIsStopping(U IGame) {
+		return true;
+	}
+
+	@Override
+	public <U extends IGame> void onGameIsStopped(U IGame) {
+
 	}
 
 	/**
