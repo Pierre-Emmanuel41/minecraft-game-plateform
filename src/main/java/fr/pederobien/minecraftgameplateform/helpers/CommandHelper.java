@@ -1,10 +1,11 @@
 package fr.pederobien.minecraftgameplateform.helpers;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
-import java.util.stream.Collectors;
 
 import org.bukkit.command.PluginCommand;
 
@@ -12,14 +13,14 @@ import fr.pederobien.minecraftgameplateform.exceptions.CommandAlreadyRegisteredE
 import fr.pederobien.minecraftgameplateform.exceptions.CommandNotFoundException;
 import fr.pederobien.minecraftgameplateform.interfaces.commands.ICommand;
 import fr.pederobien.minecraftgameplateform.interfaces.commands.ICommandHelper;
-import fr.pederobien.minecraftgameplateform.interfaces.commands.IParentCommand;
-import fr.pederobien.persistence.interfaces.IUnmodifiableNominable;
 
 public class CommandHelper implements ICommandHelper {
 	private Map<String, ICommand> commands;
+	private List<ICommand> commandsList;
 
 	private CommandHelper() {
 		commands = new HashMap<String, ICommand>();
+		commandsList = new ArrayList<ICommand>();
 	}
 
 	public static ICommandHelper getInstance() {
@@ -31,7 +32,7 @@ public class CommandHelper implements ICommandHelper {
 	}
 
 	@Override
-	public <T extends IUnmodifiableNominable> void register(IParentCommand<T> command) {
+	public void register(ICommand command) {
 		PluginCommand cmd = checkCommand(command);
 		cmd.setExecutor(command);
 		cmd.setTabCompleter(command.getTabCompleter());
@@ -40,19 +41,17 @@ public class CommandHelper implements ICommandHelper {
 			throw new CommandAlreadyRegisteredException(command.getLabel());
 
 		commands.put(command.getLabel(), command);
+		commandsList = new ArrayList<>(commands.values());
 	}
 
-	@SuppressWarnings("unchecked")
 	@Override
-	public <T extends IUnmodifiableNominable> Optional<IParentCommand<T>> getCommand(String label) {
-		ICommand command = commands.get(label);
-		return command == null ? Optional.empty() : Optional.of((IParentCommand<T>) command);
+	public Optional<ICommand> getCommand(String label) {
+		return Optional.ofNullable(commands.get(label));
 	}
 
-	@SuppressWarnings("unchecked")
 	@Override
-	public List<IParentCommand<IUnmodifiableNominable>> getCommands() {
-		return commands.values().stream().map(cmd -> (IParentCommand<IUnmodifiableNominable>) cmd).collect(Collectors.toList());
+	public List<ICommand> getCommands() {
+		return Collections.unmodifiableList(commandsList);
 	}
 
 	private PluginCommand checkCommand(ICommand command) {

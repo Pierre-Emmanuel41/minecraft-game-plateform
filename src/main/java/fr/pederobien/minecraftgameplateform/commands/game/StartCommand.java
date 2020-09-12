@@ -10,12 +10,11 @@ import org.bukkit.plugin.java.JavaPlugin;
 import fr.pederobien.minecraftgameplateform.dictionary.EGameMessageCode;
 import fr.pederobien.minecraftgameplateform.gamerules.GameRule;
 import fr.pederobien.minecraftgameplateform.impl.runtime.timeline.TimeLine;
-import fr.pederobien.minecraftgameplateform.interfaces.commands.IParentCommand;
+import fr.pederobien.minecraftgameplateform.interfaces.commands.ICommand;
 import fr.pederobien.minecraftgameplateform.interfaces.runtime.timeline.IObsTimeLine;
 import fr.pederobien.minecraftgameplateform.utils.Plateform;
 import fr.pederobien.minecraftmanagers.PlayerManager;
 import fr.pederobien.minecraftmanagers.WorldManager;
-import fr.pederobien.persistence.interfaces.IUnmodifiableNominable;
 
 public class StartCommand extends AbstractGameCommand {
 	private IObsTimeLine pvpActivator;
@@ -32,7 +31,7 @@ public class StartCommand extends AbstractGameCommand {
 		sendMessageToPlayers(PlayerManager.getPlayers(), EGameMessageCode.STARTING_GAME, getGameConfigurationContext().getName());
 
 		// Getting all registered commands
-		List<IParentCommand<IUnmodifiableNominable>> commands = getCommands();
+		List<ICommand> commands = getCommands();
 
 		// Notify each command a game is starting
 		if (!notifyCommands(commands, cmd -> cmd.onGameIsStarting(getGameConfigurationContext().getGame()), true))

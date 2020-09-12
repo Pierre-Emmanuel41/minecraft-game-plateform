@@ -7,10 +7,9 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import fr.pederobien.minecraftgameplateform.dictionary.EGameMessageCode;
-import fr.pederobien.minecraftgameplateform.interfaces.commands.IParentCommand;
+import fr.pederobien.minecraftgameplateform.interfaces.commands.ICommand;
 import fr.pederobien.minecraftgameplateform.utils.Plateform;
 import fr.pederobien.minecraftmanagers.PlayerManager;
-import fr.pederobien.persistence.interfaces.IUnmodifiableNominable;
 
 public class PauseCommand extends AbstractGameCommand {
 	private boolean isGameStatePause;
@@ -23,7 +22,7 @@ public class PauseCommand extends AbstractGameCommand {
 	@Override
 	protected boolean onGameCommand(CommandSender sender, Command command, String label, String[] args) {
 		// Getting all registered commands
-		List<IParentCommand<IUnmodifiableNominable>> commands = getCommands();
+		List<ICommand> commands = getCommands();
 
 		if (!isGameStatePause) {
 			// Notify each command a game is pausing

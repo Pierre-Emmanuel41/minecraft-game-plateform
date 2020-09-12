@@ -8,10 +8,9 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 import fr.pederobien.minecraftgameplateform.dictionary.EGameMessageCode;
 import fr.pederobien.minecraftgameplateform.gamerules.GameRule;
-import fr.pederobien.minecraftgameplateform.interfaces.commands.IParentCommand;
+import fr.pederobien.minecraftgameplateform.interfaces.commands.ICommand;
 import fr.pederobien.minecraftgameplateform.utils.Plateform;
 import fr.pederobien.minecraftmanagers.PlayerManager;
-import fr.pederobien.persistence.interfaces.IUnmodifiableNominable;
 
 public class StopCommand extends AbstractGameCommand {
 
@@ -24,7 +23,7 @@ public class StopCommand extends AbstractGameCommand {
 		sendMessageToPlayers(PlayerManager.getPlayers(), EGameMessageCode.STOPPING_GAME);
 
 		// Getting all registered commands
-		List<IParentCommand<IUnmodifiableNominable>> commands = getCommands();
+		List<ICommand> commands = getCommands();
 
 		// Notify each command a game is stopping
 		if (!notifyCommands(commands, cmd -> cmd.onGameIsStopping(getGameConfigurationContext().getGame()), true))
