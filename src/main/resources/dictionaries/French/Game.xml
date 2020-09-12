@@ -8,6 +8,18 @@
 		<locale>fr-CA</locale>
 	</locales>
 	<messages>
+	<message>
+			<code>START_GAME__EXPLANATION</code>
+			<value>Pour démarrer une partie</value>
+		</message>
+		<message>
+			<code>PAUSE_GAME__EXPLANATION</code>
+			<value>Pour mettre en pause ou reprendre la partie</value>
+		</message>
+		<message>
+			<code>STOP_GAME__EXPLANATION</code>
+			<value>To arrêter une partie</value>
+		</message>
 		<message>
 			<code>NO_CONFIGURATION_SETTED</code>
 			<value>Aucune partie selectionnée</value>
@@ -18,15 +30,15 @@
 		</message>
 		<message>
 			<code>PAUSING_GAME</code>
-			<value>Partie suspendue</value>
+			<value>Partie %s suspendue</value>
 		</message>
 		<message>
 			<code>RESUMING_GAME</code>
-			<value>Reprise de la partie</value>
+			<value>Reprise de %s</value>
 		</message>
 		<message>
 			<code>STOPPING_GAME</code>
-			<value>Arrêt de la partie</value>
+			<value>Arrêt de %s</value>
 		</message>
 	</messages>
 </dictionary>

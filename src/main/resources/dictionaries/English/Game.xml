@@ -12,6 +12,18 @@
 	</locales>
 	<messages>
 		<message>
+			<code>START_GAME__EXPLANATION</code>
+			<value>To start a game</value>
+		</message>
+		<message>
+			<code>PAUSE_GAME__EXPLANATION</code>
+			<value>To pause or relaunch a game</value>
+		</message>
+		<message>
+			<code>STOP_GAME__EXPLANATION</code>
+			<value>To stop a game</value>
+		</message>
+		<message>
 			<code>NO_CONFIGURATION_SETTED</code>
 			<value>No game has been selected</value>
 		</message>
@@ -21,15 +33,15 @@
 		</message>
 		<message>
 			<code>PAUSING_GAME</code>
-			<value>Pause</value>
+			<value>Pausing %s</value>
 		</message>
 		<message>
 			<code>RESUMING_GAME</code>
-			<value>Resume</value>
+			<value>Resuming %s</value>
 		</message>
 		<message>
 			<code>STOPPING_GAME</code>
-			<value>Stopping game</value>
+			<value>Stopping %s</value>
 		</message>
 	</messages>
 </dictionary>
