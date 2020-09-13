@@ -6,21 +6,29 @@ import java.nio.file.Paths;
 import org.bukkit.plugin.Plugin;
 
 import fr.pederobien.dictionary.interfaces.IDictionaryParser;
+import fr.pederobien.minecraftdictionary.impl.NotificationCenter;
 import fr.pederobien.minecraftdictionary.impl.Permission;
 import fr.pederobien.minecraftdictionary.impl.parse.JarMinecraftDictionaryParser;
 import fr.pederobien.minecraftdictionary.interfaces.IMinecraftNotificationCenter;
+import fr.pederobien.minecraftgameplateform.helpers.CommandHelper;
+import fr.pederobien.minecraftgameplateform.helpers.ConfigurationHelperManager;
+import fr.pederobien.minecraftgameplateform.helpers.PluginHelper;
+import fr.pederobien.minecraftgameplateform.impl.element.GameConfigurationContext;
+import fr.pederobien.minecraftgameplateform.impl.element.PlayerQuitOrJoinEventListener;
+import fr.pederobien.minecraftgameplateform.impl.runtime.task.TimeTask;
+import fr.pederobien.minecraftgameplateform.impl.runtime.timeline.TimeLine;
 import fr.pederobien.minecraftgameplateform.interfaces.commands.ICommand;
 import fr.pederobien.minecraftgameplateform.interfaces.commands.ICommandHelper;
 import fr.pederobien.minecraftgameplateform.interfaces.element.IGameConfiguration;
 import fr.pederobien.minecraftgameplateform.interfaces.element.IGameConfigurationContext;
-import fr.pederobien.minecraftgameplateform.interfaces.element.IGameRuleHelper;
 import fr.pederobien.minecraftgameplateform.interfaces.element.IPlayerQuitOrJoinEventListener;
 import fr.pederobien.minecraftgameplateform.interfaces.element.IPluginHelper;
 import fr.pederobien.minecraftgameplateform.interfaces.helpers.IGameConfigurationHelper;
 import fr.pederobien.minecraftgameplateform.interfaces.runtime.task.ITimeTask;
 import fr.pederobien.minecraftgameplateform.interfaces.runtime.timeline.IObservableTimeLine;
 import fr.pederobien.minecraftgameplateform.internal.IPersistenceCenter;
-import fr.pederobien.minecraftgameplateform.pltf.IPlateformConfiguration;
+import fr.pederobien.minecraftgameplateform.internal.PersistenceCenter;
+import fr.pederobien.minecraftscoreboards.ObjectiveUpdater;
 import fr.pederobien.minecraftscoreboards.interfaces.IObjectiveUpdater;
 
 public class Plateform {
@@ -29,30 +37,23 @@ public class Plateform {
 	 */
 	public static final Path ROOT = Paths.get("plugins", "minecraft-game-plateform");
 
-	private static IPlateformConfiguration configuration;
-
-	public static void setPlateformConfiguration(IPlateformConfiguration configuration) {
-		if (Plateform.configuration != null)
-			throw new UnsupportedOperationException("The plugin is already defined for this plateform");
-		Plateform.configuration = configuration;
-	}
-
-	public static IPlateformConfiguration getConfiguration() {
-		return configuration;
-	}
+	private static JarMinecraftDictionaryParser parser;
+	private static IObjectiveUpdater updater;
+	private static Plugin plugin;
+	private static IPlayerQuitOrJoinEventListener playerQuitOrJoinEventListener;
 
 	/**
 	 * @return The version of this plugin.
 	 */
 	public static String getVersion() {
-		return configuration.getVersion();
+		return getPlugin().getDescription().getVersion();
 	}
 
 	/**
 	 * @return The name of this plugin.
 	 */
 	public static String getName() {
-		return configuration.getName();
+		return getPlugin().getName();
 	}
 
 	/**
@@ -64,7 +65,7 @@ public class Plateform {
 	 * @return The jar's name of the plugin associated to the given plugin name.
 	 */
 	public static String getJarName(String pluginName) {
-		return configuration.getJarName(pluginName);
+		return getPluginHelper().getPlugin(pluginName).get().getName().concat(".jar");
 	}
 
 	/**
@@ -72,14 +73,14 @@ public class Plateform {
 	 *         configuration of this context.
 	 */
 	public static IGameConfigurationContext getGameConfigurationContext() {
-		return configuration.getGameConfigurationContext();
+		return GameConfigurationContext.getInstance();
 	}
 
 	/**
 	 * @return The notification center to send message to player(s) that are currently logged into the server.
 	 */
 	public static IMinecraftNotificationCenter getNotificationCenter() {
-		return configuration.getNotificationCenter();
+		return NotificationCenter.getInstance();
 	}
 
 	/**
@@ -87,42 +88,35 @@ public class Plateform {
 	 *         it is possible to not display it by setting {@link ICommand#setAvailable(boolean)} to false.
 	 */
 	public static ICommandHelper getCommandHelper() {
-		return configuration.getCommandHelper();
+		return CommandHelper.getInstance();
 	}
 
 	/**
 	 * @return The center used to track persistence version update.
 	 */
 	public static IPersistenceCenter getPersistenceCenter() {
-		return configuration.getPersistenceCenter();
+		return PersistenceCenter.getInstance();
 	}
 
 	/**
 	 * @return The manager used to or create an helper associated to a configuration.
 	 */
 	public static IGameConfigurationHelper getOrCreateConfigurationHelper(IGameConfiguration configuration) {
-		return Plateform.configuration.getOrCreateConfigurationHelper(configuration);
+		return ConfigurationHelperManager.getInstance().getOrCreateHelper(configuration);
 	}
 
 	/**
 	 * @return The helper used to have access to all registered plugins to this plugin.
 	 */
 	public static IPluginHelper getPluginHelper() {
-		return configuration.getPluginHelper();
-	}
-
-	/**
-	 * @return The helper used to register game rules to this plateform.
-	 */
-	public static IGameRuleHelper getGameRuleHelper() {
-		return configuration.getGameRuleHelper();
+		return PluginHelper.getInstance();
 	}
 
 	/**
 	 * @return The plugin associated to this plateform.
 	 */
 	public static Plugin getPlugin() {
-		return configuration.getPlugin();
+		return plugin;
 	}
 
 	/**
@@ -159,14 +153,14 @@ public class Plateform {
 	 * @see IDictionaryParser
 	 */
 	public static JarMinecraftDictionaryParser getDefaultDictionaryParser(String name) {
-		return configuration.getDefaultDictionaryParser(name);
+		return parser == null ? parser = new JarMinecraftDictionaryParser(name) : (JarMinecraftDictionaryParser) parser.setName(name);
 	}
 
 	/**
 	 * @return The objective updater used to display informations on each player screen.
 	 */
 	public static IObjectiveUpdater getObjectiveUpdater() {
-		return configuration.getObjectiveUpdater();
+		return updater;
 	}
 
 	/**
@@ -174,7 +168,7 @@ public class Plateform {
 	 *         changed each second and all registered observers are notified.
 	 */
 	public static ITimeTask getTimeTask() {
-		return configuration.getTimeTask();
+		return TimeTask.getInstance();
 	}
 
 	/**
@@ -185,13 +179,20 @@ public class Plateform {
 	 * @see #getTimeTask()
 	 */
 	public static IObservableTimeLine getTimeLine() {
-		return configuration.getTimeLine();
+		return TimeLine.getInstance();
 	}
 
 	/**
 	 * @return An event listener used to notify when a player quit or join the server.
 	 */
 	public static IPlayerQuitOrJoinEventListener getPlayerQuitOrJoinEventListener() {
-		return configuration.getPlayerQuitOrJoinEventListener();
+		return playerQuitOrJoinEventListener;
+	}
+
+	protected void setPlugin(Plugin plugin) {
+		Plateform.plugin = plugin;
+		getPluginHelper().register(plugin);
+		Plateform.updater = ObjectiveUpdater.getInstance(getPlugin());
+		Plateform.playerQuitOrJoinEventListener = new PlayerQuitOrJoinEventListener();
 	}
 }

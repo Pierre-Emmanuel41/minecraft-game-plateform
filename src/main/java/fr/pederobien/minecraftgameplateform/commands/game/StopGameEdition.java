@@ -7,7 +7,6 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import fr.pederobien.minecraftgameplateform.dictionary.EGameMessageCode;
-import fr.pederobien.minecraftgameplateform.gamerules.GameRule;
 import fr.pederobien.minecraftgameplateform.interfaces.commands.ICommand;
 import fr.pederobien.minecraftgameplateform.utils.Plateform;
 
@@ -39,8 +38,6 @@ public class StopGameEdition extends GameEdition {
 
 		// Registering the time line as time task observer
 		Plateform.getTimeTask().stop();
-
-		GameRule.RUNNABLE_RULES.forEach(rule -> rule.stop());
 		return true;
 	}
 }
