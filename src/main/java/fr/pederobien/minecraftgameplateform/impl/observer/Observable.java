@@ -1,6 +1,7 @@
 package fr.pederobien.minecraftgameplateform.impl.observer;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.function.Consumer;
 import java.util.function.Predicate;
@@ -54,6 +55,11 @@ public class Observable<T> implements IObservable<T> {
 	@Override
 	public int size() {
 		return observers.size();
+	}
+
+	@Override
+	public List<T> getObservers() {
+		return Collections.unmodifiableList(observers);
 	}
 
 	private void internalNotify(Stream<T> observers, Consumer<T> consumer) {

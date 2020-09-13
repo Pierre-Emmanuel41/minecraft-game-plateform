@@ -1,5 +1,6 @@
 package fr.pederobien.minecraftgameplateform.interfaces.observer;
 
+import java.util.List;
 import java.util.function.Consumer;
 import java.util.function.Predicate;
 
@@ -44,4 +45,9 @@ public interface IObservable<T> {
 	 * @return The number of observers for this observable object.
 	 */
 	int size();
+
+	/**
+	 * @return A list that contains all registered observers for this observable. This list is unmodifiable.
+	 */
+	List<T> getObservers();
 }
