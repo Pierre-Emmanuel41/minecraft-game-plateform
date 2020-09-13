@@ -54,11 +54,11 @@ public class TimeLine implements IObservableTimeLine, IObsTimeTask {
 	@Override
 	public void timeChanged(ITimeTask task) {
 		// Notify all punctual observers of the time = task.getIncreasingTime()
-		notifyObservers(punctual, task.getGameTime(), obs -> obs.timeChanged(task.getGameTime()));
+		notifyObservers(punctual, task.getGameTime(), obs -> obs.onTime(task.getGameTime()));
 
 		// Notify all periodic observers of the time = task.getIncreasingTime()
 		notifyObservers(periodic, task.getGameTime(), obs -> {
-			obs.timeChanged(task.getGameTime());
+			obs.onTime(task.getGameTime());
 			LocalTime nextNotifyTime = task.getGameTime().plusSeconds(obs.getPeriod().toSecondOfDay());
 			obs.setNextNotifyTime(nextNotifyTime);
 

@@ -9,5 +9,5 @@ public interface IObsTimeLine {
 	 * 
 	 * @param time The current time.
 	 */
-	void timeChanged(LocalTime time);
+	void onTime(LocalTime time);
 }
