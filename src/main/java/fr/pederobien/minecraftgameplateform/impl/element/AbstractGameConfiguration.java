@@ -72,6 +72,7 @@ public abstract class AbstractGameConfiguration extends AbstractNominable implem
 	@Override
 	public void setPvpTime(LocalTime pvpTime) {
 		LocalTime oldTime = this.pvpTime;
+		this.pvpTime = pvpTime;
 		observers.notifyObservers(obs -> obs.onPvpTimeChanged(this, oldTime, this.pvpTime = pvpTime));
 	}
 
