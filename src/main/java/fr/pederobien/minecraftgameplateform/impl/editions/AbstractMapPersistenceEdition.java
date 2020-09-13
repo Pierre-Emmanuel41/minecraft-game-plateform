@@ -4,11 +4,16 @@ import java.time.LocalTime;
 
 import org.bukkit.Location;
 import org.bukkit.block.Block;
+import org.bukkit.command.Command;
+import org.bukkit.command.CommandSender;
 
+import fr.pederobien.minecraftdevelopmenttoolkit.exceptions.ArgumentNotFoundException;
+import fr.pederobien.minecraftdevelopmenttoolkit.exceptions.NotAvailableArgumentException;
 import fr.pederobien.minecraftdevelopmenttoolkit.impl.messagecode.AbstractMessageCodeMapEdition;
 import fr.pederobien.minecraftdevelopmenttoolkit.utils.DisplayHelper;
 import fr.pederobien.minecraftdictionary.interfaces.IMinecraftMessageCode;
 import fr.pederobien.minecraftdictionary.interfaces.IMinecraftNotificationCenter;
+import fr.pederobien.minecraftgameplateform.dictionary.ECommonMessageCode;
 import fr.pederobien.minecraftgameplateform.interfaces.editions.IMapPersistenceEdition;
 import fr.pederobien.minecraftgameplateform.interfaces.editions.IParentPersistenceEdition;
 import fr.pederobien.minecraftgameplateform.interfaces.element.persistence.IMinecraftPersistence;
@@ -20,6 +25,18 @@ public abstract class AbstractMapPersistenceEdition<T extends IUnmodifiableNomin
 
 	protected AbstractMapPersistenceEdition(String label, IMinecraftMessageCode explanation) {
 		super(label, explanation);
+	}
+
+	@Override
+	public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
+		try {
+			return super.onCommand(sender, command, label, args);
+		} catch (ArgumentNotFoundException e) {
+			sendMessageToSender(sender, ECommonMessageCode.COMMON_ARGUMENT_NOT_FOUND, e.getNotFoundArgument(), e.getLabel());
+		} catch (NotAvailableArgumentException e) {
+			sendMessageToSender(sender, ECommonMessageCode.COMMON_NOT_AVAILABLE_ARGUMENT, e.getArgument(), e.getLabel());
+		}
+		return false;
 	}
 
 	@Override
