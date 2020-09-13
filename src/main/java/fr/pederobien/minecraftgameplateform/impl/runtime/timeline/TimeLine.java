@@ -3,7 +3,6 @@ package fr.pederobien.minecraftgameplateform.impl.runtime.timeline;
 import java.time.LocalTime;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.function.Consumer;
 
 import fr.pederobien.minecraftgameplateform.impl.observer.Observable;
 import fr.pederobien.minecraftgameplateform.interfaces.observer.IObservable;
@@ -11,15 +10,14 @@ import fr.pederobien.minecraftgameplateform.interfaces.runtime.task.IObsTimeTask
 import fr.pederobien.minecraftgameplateform.interfaces.runtime.task.ITimeTask;
 import fr.pederobien.minecraftgameplateform.interfaces.runtime.timeline.IObsTimeLine;
 import fr.pederobien.minecraftgameplateform.interfaces.runtime.timeline.IObservableTimeLine;
-import fr.pederobien.minecraftgameplateform.interfaces.runtime.timeline.ITimeLinePeriodicObserver;
 
 public class TimeLine implements IObservableTimeLine, IObsTimeTask {
-	private Map<LocalTime, IObservable<IObsTimeLine>> punctual;
-	private Map<LocalTime, IObservable<ITimeLinePeriodicObserver>> periodic;
+	private Map<LocalTime, IObservable<IObsTimeLine>> observers;
+	private Map<LocalTime, IObservable<IObsTimeLine>> countdown;
 
 	private TimeLine() {
-		punctual = new HashMap<LocalTime, IObservable<IObsTimeLine>>();
-		periodic = new HashMap<LocalTime, IObservable<ITimeLinePeriodicObserver>>();
+		observers = new HashMap<LocalTime, IObservable<IObsTimeLine>>();
+		countdown = new HashMap<LocalTime, IObservable<IObsTimeLine>>();
 	}
 
 	public static IObservableTimeLine getInstance() {
@@ -47,72 +45,99 @@ public class TimeLine implements IObservableTimeLine, IObsTimeTask {
 
 	@Override
 	public void onStop(ITimeTask task) {
-		punctual.clear();
-		periodic.clear();
+		observers.clear();
+		countdown.clear();
 	}
 
 	@Override
 	public void timeChanged(ITimeTask task) {
-		// Notify all punctual observers of the time = task.getIncreasingTime()
-		notifyObservers(punctual, task.getGameTime(), obs -> obs.onTime(task.getGameTime()));
+		LocalTime currentTime = task.getGameTime();
+		// Getting observers associated to the game time of the task.
+		IObservable<IObsTimeLine> obsOnTime = observers.get(currentTime);
 
-		// Notify all periodic observers of the time = task.getIncreasingTime()
-		notifyObservers(periodic, task.getGameTime(), obs -> {
-			obs.onTime(task.getGameTime());
-			LocalTime nextNotifyTime = task.getGameTime().plusSeconds(obs.getPeriod().toSecondOfDay());
-			obs.setNextNotifyTime(nextNotifyTime);
+		// If there are observers interested by the current game time
+		if (obsOnTime != null) {
+			obsOnTime.getObservers().stream().forEach(obs -> {
+				// Notify the observer using onTime
+				obs.onTime(currentTime);
 
-			// the current observer is notified for the time @var= nextNotifyTime
-			addObserverToMap(periodic, nextNotifyTime, obs);
-		});
+				LocalTime nextRelativeTime = obs.getNextNotifiedTime();
 
-		// Remove all observers for the key task.getIncreasingTime()
-		periodic.remove(task.getGameTime());
+				// Check if the observer should be notified later.
+				LocalTime nextAbsoluteNotifiedTime = currentTime.plusSeconds(nextRelativeTime.toSecondOfDay());
+				if (!nextAbsoluteNotifiedTime.equals(LocalTime.of(0, 0, 0))) {
+					IObservable<IObsTimeLine> nextObsList = observers.get(nextAbsoluteNotifiedTime);
 
-		// Notify each observer no matter the time that the current time has changed.
-		for (IObservable<ITimeLinePeriodicObserver> observable : periodic.values())
-			observable.notifyObservers(obs -> obs.notifyCurrentTimeChanged());
+					// If the observer is the first observer for the nextNotifiedTime then creating a new observers list.
+					if (nextObsList == null) {
+						nextObsList = new Observable<IObsTimeLine>();
+						observers.put(nextAbsoluteNotifiedTime, nextObsList);
+					}
+
+					// Adding the observer to the list in order to be notified later.
+					nextObsList.addObserver(obs);
+
+					// Getting observers associated to the game time of the task.
+					LocalTime countDownTime = currentTime.plusSeconds(nextRelativeTime.minusSeconds(obs.getCountDown()).toSecondOfDay());
+					IObservable<IObsTimeLine> obsOnCountDownTime = countdown.get(countDownTime);
+					if (obsOnCountDownTime == null) {
+						obsOnCountDownTime = new Observable<IObsTimeLine>();
+						countdown.put(countDownTime, obsOnCountDownTime);
+					}
+					obsOnCountDownTime.addObserver(obs);
+				}
+			});
+		}
+
+		// Getting observers associated to the game time of the task.
+		IObservable<IObsTimeLine> obsOnCountDownTime = countdown.get(currentTime);
+		if (obsOnCountDownTime != null) {
+			obsOnCountDownTime.getObservers().stream().forEach(obs -> {
+				// Notify the observer using onTime
+				obs.onCountDownTime(currentTime);
+
+				if (obs.getCurrentCountDown() != 0) {
+					LocalTime nextNotifiedTime = currentTime.plusSeconds(1);
+					IObservable<IObsTimeLine> nextObsList = countdown.get(nextNotifiedTime);
+
+					// If the observer is the first observer for the nextNotifiedTime then creating a new observers list.
+					if (nextObsList == null) {
+						nextObsList = new Observable<IObsTimeLine>();
+						countdown.put(nextNotifiedTime, nextObsList);
+					}
+
+					// Adding the observer to the list in order to be notified later.
+					nextObsList.addObserver(obs);
+				}
+			});
+		}
 	}
 
 	@Override
 	public void addObserver(LocalTime time, IObsTimeLine obs) {
-		addObserverToMap(punctual, time, obs);
+		// Getting observers associated to the game time of the task.
+		IObservable<IObsTimeLine> obsOnTime = observers.get(time);
+
+		// If there are observers interested by the current game time
+		if (obsOnTime == null) {
+			obsOnTime = new Observable<IObsTimeLine>();
+			observers.put(time, obsOnTime);
+		}
+		obsOnTime.addObserver(obs);
+
+		// Getting observers associated to the game time of the task.
+		LocalTime countDownTime = time.minusSeconds(obs.getCountDown());
+		IObservable<IObsTimeLine> obsOnCountDownTime = countdown.get(countDownTime);
+		if (obsOnCountDownTime == null) {
+			obsOnCountDownTime = new Observable<IObsTimeLine>();
+			countdown.put(countDownTime, obsOnCountDownTime);
+		}
+		obsOnCountDownTime.addObserver(obs);
 	}
 
 	@Override
 	public void removeObserver(LocalTime time, IObsTimeLine obs) {
-		removeObserverToMap(punctual, time, obs);
-	}
-
-	@Override
-	public void addObserver(LocalTime time, ITimeLinePeriodicObserver obs) {
-		addObserverToMap(periodic, time, obs);
-	}
-
-	@Override
-	public void removeObserver(ITimeLinePeriodicObserver obs) {
-		removeObserverToMap(periodic, obs.getNextNotifyTime(), obs);
-	}
-
-	private <T extends IObsTimeLine> void addObserverToMap(Map<LocalTime, IObservable<T>> observers, LocalTime time, T obs) {
-		if (observers.containsKey(time))
-			observers.get(time).addObserver(obs);
-		else {
-			IObservable<T> observable = new Observable<T>();
-			observable.addObserver(obs);
-			observers.put(time, observable);
-		}
-	}
-
-	private <T extends IObsTimeLine> void removeObserverToMap(Map<LocalTime, IObservable<T>> observers, LocalTime time, T obs) {
-		observers.get(time).removeObserver(obs);
-		if (observers.get(time).size() == 0)
-			observers.remove(time);
-	}
-
-	private <T extends IObsTimeLine> void notifyObservers(Map<LocalTime, IObservable<T>> observers, LocalTime time, Consumer<T> consumer) {
-		IObservable<T> observable = observers.get(time);
-		if (observable != null)
-			observable.notifyObservers(consumer);
+		observers.remove(time);
+		countdown.remove(time);
 	}
 }

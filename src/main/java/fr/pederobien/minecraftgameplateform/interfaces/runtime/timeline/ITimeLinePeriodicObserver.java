@@ -28,5 +28,4 @@ public interface ITimeLinePeriodicObserver extends IObsTimeLine {
 	 * {@link ITimeTask} has changed.
 	 */
 	void notifyCurrentTimeChanged();
-
 }
