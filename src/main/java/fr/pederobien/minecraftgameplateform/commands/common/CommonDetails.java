@@ -17,7 +17,7 @@ public abstract class CommonDetails<T extends IUnmodifiableNominable> extends Ab
 
 	@Override
 	public final boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-		sendMessageToSender(sender, detailsCode, get().toString());
+		sendMessageToSenderNotSynchonized(sender, detailsCode, get().toString());
 		return true;
 	}
 }
