@@ -62,10 +62,9 @@ public class TimeLine implements IObservableTimeLine, IObsTimeTask {
 				obs.onTime(currentTime);
 
 				LocalTime nextRelativeTime = obs.getNextNotifiedTime();
-
 				// Check if the observer should be notified later.
-				LocalTime nextAbsoluteNotifiedTime = currentTime.plusSeconds(nextRelativeTime.toSecondOfDay());
-				if (!nextAbsoluteNotifiedTime.equals(LocalTime.of(0, 0, 0))) {
+				if (!nextRelativeTime.equals(LocalTime.of(0, 0, 0))) {
+					LocalTime nextAbsoluteNotifiedTime = currentTime.plusSeconds(nextRelativeTime.toSecondOfDay());
 					IObservable<IObsTimeLine> nextObsList = observers.get(nextAbsoluteNotifiedTime);
 
 					// If the observer is the first observer for the nextNotifiedTime then creating a new observers list.
