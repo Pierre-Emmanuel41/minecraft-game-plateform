@@ -12,12 +12,10 @@ import fr.pederobien.minecraftdevelopmenttoolkit.exceptions.NotAvailableArgument
 import fr.pederobien.minecraftdevelopmenttoolkit.impl.messagecode.AbstractMessageCodeMapEdition;
 import fr.pederobien.minecraftdevelopmenttoolkit.utils.DisplayHelper;
 import fr.pederobien.minecraftdictionary.interfaces.IMinecraftMessageCode;
-import fr.pederobien.minecraftdictionary.interfaces.IMinecraftNotificationCenter;
 import fr.pederobien.minecraftgameplateform.dictionary.ECommonMessageCode;
 import fr.pederobien.minecraftgameplateform.interfaces.editions.IMapPersistenceEdition;
 import fr.pederobien.minecraftgameplateform.interfaces.editions.IParentPersistenceEdition;
 import fr.pederobien.minecraftgameplateform.interfaces.element.persistence.IMinecraftPersistence;
-import fr.pederobien.minecraftgameplateform.utils.Plateform;
 import fr.pederobien.persistence.interfaces.IUnmodifiableNominable;
 
 public abstract class AbstractMapPersistenceEdition<T extends IUnmodifiableNominable>
@@ -61,11 +59,6 @@ public abstract class AbstractMapPersistenceEdition<T extends IUnmodifiableNomin
 	public final IMapPersistenceEdition<T> removeEdition(IMapPersistenceEdition<T> elt) {
 		internalRemove(elt);
 		return this;
-	}
-
-	@Override
-	public IMinecraftNotificationCenter getNotificationCenter() {
-		return Plateform.getNotificationCenter();
 	}
 
 	/**
