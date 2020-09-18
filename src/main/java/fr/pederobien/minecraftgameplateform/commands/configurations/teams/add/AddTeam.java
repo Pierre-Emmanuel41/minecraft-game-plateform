@@ -32,7 +32,7 @@ public class AddTeam<T extends IGameConfiguration> extends AbstractTeamConfigura
 		try {
 			teamName = args[0];
 		} catch (IndexOutOfBoundsException e) {
-			sendMessageToSender(sender, ETeamAddMessageCode.ADD_TEAM__TEAM_NAME_IS_MISSING, get().getName());
+			sendSynchro(sender, ETeamAddMessageCode.ADD_TEAM__TEAM_NAME_IS_MISSING, get().getName());
 			return false;
 		}
 
@@ -40,26 +40,26 @@ public class AddTeam<T extends IGameConfiguration> extends AbstractTeamConfigura
 		try {
 			teamColor = getColor(args[1]);
 		} catch (IndexOutOfBoundsException e) {
-			sendMessageToSender(sender, ETeamAddMessageCode.ADD_TEAM__COLOR_NAME_IS_MISSING, teamName, get().getName());
+			sendSynchro(sender, ETeamAddMessageCode.ADD_TEAM__COLOR_NAME_IS_MISSING, teamName, get().getName());
 			return false;
 		} catch (ColorNotFoundException e) {
-			sendMessageToSender(sender, ETeamAddMessageCode.ADD_TEAM__COLOR_DOES_NOT_EXIST, teamName, get().getName(), e.getColorName());
+			sendSynchro(sender, ETeamAddMessageCode.ADD_TEAM__COLOR_DOES_NOT_EXIST, teamName, get().getName(), e.getColorName());
 			return false;
 		}
 
 		ITeam team = null;
 		try {
 			team = getGameConfigurationHelper().create(teamName, teamColor);
-			sendMessageToSender(sender, ETeamAddMessageCode.ADD_TEAM__TEAM_ADDED, team.getColoredName(), get().getName());
+			sendSynchro(sender, ETeamAddMessageCode.ADD_TEAM__TEAM_ADDED, team.getColoredName(), get().getName());
 		} catch (TeamNameForbiddenException e) {
-			sendMessageToSender(sender, ETeamAddMessageCode.ADD_TEAM__TEAM_NAME_FORBIDDEN, e.getForbiddenName(), get().getName());
+			sendSynchro(sender, ETeamAddMessageCode.ADD_TEAM__TEAM_NAME_FORBIDDEN, e.getForbiddenName(), get().getName());
 			return false;
 		} catch (TeamWithSameNameAlreadyExistsException e) {
-			sendMessageToSender(sender, ETeamAddMessageCode.ADD_TEAM__TEAM_NAME_ALREADY_USED, e.getAlreadyExistingTeam().getColoredName(), get().getName());
+			sendSynchro(sender, ETeamAddMessageCode.ADD_TEAM__TEAM_NAME_ALREADY_USED, e.getAlreadyExistingTeam().getColoredName(), get().getName());
 			return false;
 		} catch (TeamWithSameColorAlreadyExistsException e) {
 			ITeam alreadyExistingTeam = e.getAlreadyExistingTeam();
-			sendMessageToSender(sender, ETeamAddMessageCode.ADD_TEAM__COLOR_ALREADY_USED, alreadyExistingTeam.getColor(), alreadyExistingTeam.getColoredName());
+			sendSynchro(sender, ETeamAddMessageCode.ADD_TEAM__COLOR_ALREADY_USED, alreadyExistingTeam.getColor(), alreadyExistingTeam.getColoredName());
 			return false;
 		}
 
@@ -72,19 +72,19 @@ public class AddTeam<T extends IGameConfiguration> extends AbstractTeamConfigura
 			for (Player player : players)
 				team.addPlayer(player);
 		} catch (PlayerNotFoundException e) {
-			sendMessageToSender(sender, ECommonMessageCode.COMMON_PLAYER_DOES_NOT_EXIST, e.getPlayerName());
+			sendSynchro(sender, ECommonMessageCode.COMMON_PLAYER_DOES_NOT_EXIST, e.getPlayerName());
 			return false;
 		}
 
 		switch (playerNames.length) {
 		case 0:
-			sendMessageToSender(sender, ETeamAddMessageCode.ADD_PLAYER__ANY_PLAYER_ADDED);
+			sendSynchro(sender, ETeamAddMessageCode.ADD_PLAYER__ANY_PLAYER_ADDED);
 			break;
 		case 1:
-			sendMessageToSender(sender, ETeamAddMessageCode.ADD_PLAYER__ONE_PLAYER_ADDED, playerNamesConcatenated, team.getColoredName());
+			sendSynchro(sender, ETeamAddMessageCode.ADD_PLAYER__ONE_PLAYER_ADDED, playerNamesConcatenated, team.getColoredName());
 			break;
 		default:
-			sendMessageToSender(sender, ETeamAddMessageCode.ADD_PLAYER__SEVERAL_PLAYERS_ADDED, playerNamesConcatenated, team.getColoredName());
+			sendSynchro(sender, ETeamAddMessageCode.ADD_PLAYER__SEVERAL_PLAYERS_ADDED, playerNamesConcatenated, team.getColoredName());
 			break;
 		}
 		return true;
@@ -96,7 +96,7 @@ public class AddTeam<T extends IGameConfiguration> extends AbstractTeamConfigura
 		case 0:
 			return emptyList();
 		case 1:
-			return Arrays.asList(getMessageFromDictionary(sender, ECommonMessageCode.COMMON_NEW_TAB_COMPLETE));
+			return Arrays.asList(getMessage(sender, ECommonMessageCode.COMMON_NEW_TAB_COMPLETE));
 		case 2:
 			return filter(getFreeColorNames(false).stream(), args[1]);
 		default:

@@ -17,12 +17,12 @@ public class NewSpawn extends CommonNew<ISpawn> {
 
 	@Override
 	protected void onNameAlreadyTaken(CommandSender sender, String name) {
-		sendMessageToSender(sender, ESpawnMessageCode.NEW_SPAWN__NAME_ALREADY_TAKEN, name);
+		sendSynchro(sender, ESpawnMessageCode.NEW_SPAWN__NAME_ALREADY_TAKEN, name);
 	}
 
 	@Override
 	protected void onNameIsMissing(CommandSender sender) {
-		sendMessageToSender(sender, ESpawnMessageCode.NEW_SPAWN__NAME_IS_MISSING);
+		sendSynchro(sender, ESpawnMessageCode.NEW_SPAWN__NAME_IS_MISSING);
 	}
 
 	@Override
@@ -32,7 +32,7 @@ public class NewSpawn extends CommonNew<ISpawn> {
 
 	@Override
 	protected void onCreated(CommandSender sender, String name) {
-		sendMessageToSender(sender, ESpawnMessageCode.NEW_SPAWN__SPAWN_CREATED, name);
+		sendSynchro(sender, ESpawnMessageCode.NEW_SPAWN__SPAWN_CREATED, name);
 		setAllAvailable();
 	}
 

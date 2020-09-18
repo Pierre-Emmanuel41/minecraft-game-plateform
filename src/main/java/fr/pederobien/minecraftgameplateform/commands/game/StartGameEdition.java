@@ -23,7 +23,7 @@ public class StartGameEdition extends GameEdition {
 		if (!super.onCommand(sender, command, label, args))
 			return false;
 
-		sendMessageToSender(sender, EGameMessageCode.STARTING_GAME, Plateform.getGameConfigurationContext().getName());
+		sendSynchro(sender, EGameMessageCode.STARTING_GAME, Plateform.getGameConfigurationContext().getName());
 
 		// Getting all registered commands
 		List<ICommand> commands = getCommands();

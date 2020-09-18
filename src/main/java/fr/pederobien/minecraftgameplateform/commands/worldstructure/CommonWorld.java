@@ -45,7 +45,7 @@ public abstract class CommonWorld<T extends IWorldStructure> extends AbstractLab
 			onWorldNameIsMissing(sender);
 			return false;
 		} catch (WorldNotFoundException e) {
-			sendMessageToSender(sender, ECommonMessageCode.COMMON_WORLD_DOES_NOT_EXIST, name);
+			sendSynchro(sender, ECommonMessageCode.COMMON_WORLD_DOES_NOT_EXIST, name);
 			return false;
 		}
 		return true;

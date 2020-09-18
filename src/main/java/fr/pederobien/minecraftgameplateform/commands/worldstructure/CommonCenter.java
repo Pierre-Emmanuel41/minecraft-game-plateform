@@ -34,11 +34,11 @@ public abstract class CommonCenter<T extends IWorldStructure> extends AbstractWo
 			onCenterDefined(sender, get().getName(), get().getCenter().getX(), get().getCenter().getY(), get().getCenter().getZ());
 		} catch (IndexOutOfBoundsException e) {
 			// When X or Y or Z is missing
-			sendMessageToSender(sender, ECommonMessageCode.COMMON_MISSING_COORDINATES);
+			sendSynchro(sender, ECommonMessageCode.COMMON_MISSING_COORDINATES);
 			return false;
 		} catch (NumberFormatException e) {
 			// When the coordinates are not integer
-			sendMessageToSender(sender, ECommonMessageCode.COMMON_BAD_INTEGER_FORMAT);
+			sendSynchro(sender, ECommonMessageCode.COMMON_BAD_INTEGER_FORMAT);
 			return false;
 		}
 		return true;

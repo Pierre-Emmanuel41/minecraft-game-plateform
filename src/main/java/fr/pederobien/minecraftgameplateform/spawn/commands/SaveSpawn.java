@@ -13,6 +13,6 @@ public class SaveSpawn extends CommonSave<ISpawn> {
 
 	@Override
 	protected void onSave(CommandSender sender, String name) {
-		sendMessageToSender(sender, ESpawnMessageCode.SAVE_SPAWN__SPAWN_SAVED, name);
+		sendSynchro(sender, ESpawnMessageCode.SAVE_SPAWN__SPAWN_SAVED, name);
 	}
 }

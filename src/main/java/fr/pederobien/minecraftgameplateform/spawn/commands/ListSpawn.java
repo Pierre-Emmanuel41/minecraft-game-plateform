@@ -13,16 +13,16 @@ public class ListSpawn extends CommonList<ISpawn> {
 
 	@Override
 	protected void onNoElement(CommandSender sender) {
-		sendMessageToSender(sender, ESpawnMessageCode.LIST_SPAWN__NO_ELEMENT);
+		sendSynchro(sender, ESpawnMessageCode.LIST_SPAWN__NO_ELEMENT);
 	}
 
 	@Override
 	protected void onOneElement(CommandSender sender, String name) {
-		sendMessageToSender(sender, ESpawnMessageCode.LIST_SPAWN__ONE_ELEMENT, name);
+		sendSynchro(sender, ESpawnMessageCode.LIST_SPAWN__ONE_ELEMENT, name);
 	}
 
 	@Override
 	protected void onSeveralElement(CommandSender sender, String names) {
-		sendMessageToSender(sender, ESpawnMessageCode.LIST_SPAWN__SEVERAL_ELEMENTS, names);
+		sendSynchro(sender, ESpawnMessageCode.LIST_SPAWN__SEVERAL_ELEMENTS, names);
 	}
 }

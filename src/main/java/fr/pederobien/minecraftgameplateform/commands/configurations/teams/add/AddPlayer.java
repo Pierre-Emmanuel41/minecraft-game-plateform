@@ -29,7 +29,7 @@ public class AddPlayer<T extends IGameConfiguration> extends AbstractTeamConfigu
 		try {
 			name = args[0];
 		} catch (IndexOutOfBoundsException e) {
-			sendMessageToSender(sender, ETeamAddMessageCode.ADD_PLAYER__TEAM_NAME_IS_MISSING);
+			sendSynchro(sender, ETeamAddMessageCode.ADD_PLAYER__TEAM_NAME_IS_MISSING);
 			return false;
 		}
 
@@ -43,24 +43,24 @@ public class AddPlayer<T extends IGameConfiguration> extends AbstractTeamConfigu
 			playerNamesConcatenated = concat(getPlayerNames(players));
 			team = getGameConfigurationHelper().add(name, players);
 		} catch (PlayerNotFoundException e) {
-			sendMessageToSender(sender, ECommonMessageCode.COMMON_PLAYER_DOES_NOT_EXIST, e.getPlayerName());
+			sendSynchro(sender, ECommonMessageCode.COMMON_PLAYER_DOES_NOT_EXIST, e.getPlayerName());
 			return false;
 		} catch (TeamNotFoundException e) {
-			sendMessageToSender(sender, ETeamAddMessageCode.ADD_PLAYER__TEAM_DOES_NOT_EXIST, name, get().getName());
+			sendSynchro(sender, ETeamAddMessageCode.ADD_PLAYER__TEAM_DOES_NOT_EXIST, name, get().getName());
 			return false;
 		} catch (PlayerAlreadyRegisteredException e) {
-			sendMessageToSender(sender, ETeamAddMessageCode.ADD_PLAYER__PLAYER_ALREADY_REGISTERED, e.getAlreadyRegisteredPlayer(), team, e.getTeam());
+			sendSynchro(sender, ETeamAddMessageCode.ADD_PLAYER__PLAYER_ALREADY_REGISTERED, e.getAlreadyRegisteredPlayer(), team, e.getTeam());
 		}
 
 		switch (playerNames.length) {
 		case 0:
-			sendMessageToSender(sender, ETeamAddMessageCode.ADD_PLAYER__ANY_PLAYER_ADDED);
+			sendSynchro(sender, ETeamAddMessageCode.ADD_PLAYER__ANY_PLAYER_ADDED);
 			break;
 		case 1:
-			sendMessageToSender(sender, ETeamAddMessageCode.ADD_PLAYER__ONE_PLAYER_ADDED, playerNamesConcatenated, team.getColoredName());
+			sendSynchro(sender, ETeamAddMessageCode.ADD_PLAYER__ONE_PLAYER_ADDED, playerNamesConcatenated, team.getColoredName());
 			break;
 		default:
-			sendMessageToSender(sender, ETeamAddMessageCode.ADD_PLAYER__SEVERAL_PLAYERS_ADDED, playerNamesConcatenated, team.getColoredName());
+			sendSynchro(sender, ETeamAddMessageCode.ADD_PLAYER__SEVERAL_PLAYERS_ADDED, playerNamesConcatenated, team.getColoredName());
 			break;
 		}
 		return true;

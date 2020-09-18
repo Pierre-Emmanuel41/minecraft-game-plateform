@@ -16,22 +16,22 @@ public class LaunchSpawn extends CommonLaunch<ISpawn> {
 
 	@Override
 	protected void onNoStructure(CommandSender sender) {
-		sendMessageToSender(sender, ESpawnMessageCode.LAUNCH_SPAWN__NO_CURRENT_SPAWN);
+		sendSynchro(sender, ESpawnMessageCode.LAUNCH_SPAWN__NO_CURRENT_SPAWN);
 	}
 
 	@Override
 	protected void onWorldIsMissing(CommandSender sender, String world) {
-		sendMessageToSender(sender, ESpawnMessageCode.LAUNCH_SPAWN__WORLD_IS_MISSING, world);
+		sendSynchro(sender, ESpawnMessageCode.LAUNCH_SPAWN__WORLD_IS_MISSING, world);
 	}
 
 	@Override
 	protected void onStructureDoesNotExist(CommandSender sender, String name) {
-		sendMessageToSender(sender, ESpawnMessageCode.LAUNCH_SPAWN__SPAWN_DOES_NOT_EXIST, name);
+		sendSynchro(sender, ESpawnMessageCode.LAUNCH_SPAWN__SPAWN_DOES_NOT_EXIST, name);
 	}
 
 	@Override
 	protected void onLaunched(CommandSender sender, String name, String world, int x, int y, int z) {
-		sendMessageToSender(sender, ESpawnMessageCode.LAUNCH_SPAWN__SPAWN_LAUNCHED, name, world, x, y, z);
+		sendSynchro(sender, ESpawnMessageCode.LAUNCH_SPAWN__SPAWN_LAUNCHED, name, world, x, y, z);
 		get().getListener().register(getParent().getPlugin());
 		get().getListener().setActivated(true);
 		setAllAvailable();

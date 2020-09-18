@@ -50,7 +50,7 @@ public abstract class CommonRename<T extends INominable> extends AbstractLabelEd
 
 			// The name of all new created object must not start with default.
 			if (startWithIgnoreCase(newName, "default")) {
-				sendMessageToSender(sender, ECommonMessageCode.COMMON_NAME_MUST_NOT_START_WITH_DEFAULT, newName);
+				sendSynchro(sender, ECommonMessageCode.COMMON_NAME_MUST_NOT_START_WITH_DEFAULT, newName);
 				return false;
 			}
 
@@ -74,7 +74,7 @@ public abstract class CommonRename<T extends INominable> extends AbstractLabelEd
 	@Override
 	public List<String> onTabComplete(CommandSender sender, Command command, String alias, String[] args) {
 		if (args.length == 1)
-			return Arrays.asList(getMessageFromDictionary(sender, ECommonMessageCode.COMMON_RENAME_TAB_COMPLETE));
+			return Arrays.asList(getMessage(sender, ECommonMessageCode.COMMON_RENAME_TAB_COMPLETE));
 		return super.onTabComplete(sender, command, alias, args);
 	}
 }

@@ -27,7 +27,7 @@ public class CommonTeamRandom<T extends IGameConfiguration> extends AbstractTeam
 			if (args.length == 1) {
 				maxPlayerInTeam = Integer.parseInt(args[0]);
 				if (maxPlayerInTeam <= 0) {
-					sendMessageToSender(sender, ETeamConfigurationMessageCode.TEAM_RANDOM__MAX_PLAYER_NEGATIVE);
+					sendSynchro(sender, ETeamConfigurationMessageCode.TEAM_RANDOM__MAX_PLAYER_NEGATIVE);
 					return false;
 				}
 			} else
@@ -39,15 +39,15 @@ public class CommonTeamRandom<T extends IGameConfiguration> extends AbstractTeam
 			for (ITeam team : get().getTeams())
 				if (!team.getPlayers().isEmpty())
 					joiner.add(team.toString());
-			sendMessageToSender(sender, ETeamConfigurationMessageCode.TEAM_RANDOM__PLAYERS_DISPATCHED, joiner.toString());
+			sendSynchro(sender, ETeamConfigurationMessageCode.TEAM_RANDOM__PLAYERS_DISPATCHED, joiner.toString());
 		} catch (NumberFormatException e) {
-			sendMessageToSender(sender, ECommonMessageCode.COMMON_BAD_INTEGER_FORMAT);
+			sendSynchro(sender, ECommonMessageCode.COMMON_BAD_INTEGER_FORMAT);
 			return false;
 		} catch (RandomTeamNotEnoughPlayer e) {
-			sendMessageToSender(sender, ETeamConfigurationMessageCode.TEAM_RANDOM__NOT_ENOUGH_PLAYERS, e.getPlayersCount());
+			sendSynchro(sender, ETeamConfigurationMessageCode.TEAM_RANDOM__NOT_ENOUGH_PLAYERS, e.getPlayersCount());
 			return false;
 		} catch (RandomTeamNotEnoughTeam e) {
-			sendMessageToSender(sender, ETeamConfigurationMessageCode.TEAM_RANDOM__NOT_ENOUGH_TEAMS, get().getName(), e.getTeamCount());
+			sendSynchro(sender, ETeamConfigurationMessageCode.TEAM_RANDOM__NOT_ENOUGH_TEAMS, get().getName(), e.getTeamCount());
 			return false;
 		}
 		return true;
@@ -57,7 +57,7 @@ public class CommonTeamRandom<T extends IGameConfiguration> extends AbstractTeam
 	public List<String> onTabComplete(CommandSender sender, Command command, String alias, String[] args) {
 		switch (args.length) {
 		case 1:
-			return asList(getMessageFromDictionary(sender, ETeamConfigurationMessageCode.TEAM_RANDOM__ON_TAB_COMPLETE));
+			return asList(getMessage(sender, ETeamConfigurationMessageCode.TEAM_RANDOM__ON_TAB_COMPLETE));
 		default:
 			return emptyList();
 		}

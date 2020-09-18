@@ -44,7 +44,7 @@ public abstract class CommonLoad<T extends IUnmodifiableNominable> extends Abstr
 			onNameIsMissing(sender);
 			return false;
 		} catch (FileNotFoundException e) {
-			sendMessageToSender(sender, EGameConfigurationMessageCode.COMMON_LOAD__CONFIGURATION_DOES_NOT_EXIST, name);
+			sendSynchro(sender, EGameConfigurationMessageCode.COMMON_LOAD__CONFIGURATION_DOES_NOT_EXIST, name);
 			return false;
 		}
 		return true;

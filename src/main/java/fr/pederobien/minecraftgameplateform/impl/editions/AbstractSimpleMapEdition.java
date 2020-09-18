@@ -22,9 +22,9 @@ public class AbstractSimpleMapEdition extends AbstractMessageCodeSimpleMapEditio
 		try {
 			return super.onCommand(sender, command, label, args);
 		} catch (ArgumentNotFoundException e) {
-			sendMessageToSender(sender, ECommonMessageCode.COMMON_ARGUMENT_NOT_FOUND, e.getNotFoundArgument(), e.getLabel());
+			sendSynchro(sender, ECommonMessageCode.COMMON_ARGUMENT_NOT_FOUND, e.getNotFoundArgument(), e.getLabel());
 		} catch (NotAvailableArgumentException e) {
-			sendMessageToSender(sender, ECommonMessageCode.COMMON_NOT_AVAILABLE_ARGUMENT, e.getArgument(), e.getLabel());
+			sendSynchro(sender, ECommonMessageCode.COMMON_NOT_AVAILABLE_ARGUMENT, e.getArgument(), e.getLabel());
 		}
 		return false;
 	}

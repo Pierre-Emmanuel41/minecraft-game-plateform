@@ -45,7 +45,7 @@ public abstract class CommonDelete<T extends IUnmodifiableNominable> extends Abs
 		try {
 			String name = args[0];
 			if (startWithIgnoreCase(name, "default")) {
-				sendMessageToSender(sender, ECommonMessageCode.COMMON_NAME_MUST_NOT_START_WITH_DEFAULT, name);
+				sendSynchro(sender, ECommonMessageCode.COMMON_NAME_MUST_NOT_START_WITH_DEFAULT, name);
 				return false;
 			}
 			if (!getPersistence().delete(name)) {

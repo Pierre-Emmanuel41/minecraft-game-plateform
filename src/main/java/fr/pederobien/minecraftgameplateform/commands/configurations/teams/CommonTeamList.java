@@ -23,13 +23,13 @@ public class CommonTeamList<T extends IGameConfiguration> extends AbstractTeamCo
 
 		switch (get().getTeams().size()) {
 		case 0:
-			sendMessageToSender(sender, ETeamConfigurationMessageCode.LIST__ANY_EXISTING_TEAM, get().getName());
+			sendSynchro(sender, ETeamConfigurationMessageCode.LIST__ANY_EXISTING_TEAM, get().getName());
 			break;
 		case 1:
-			sendMessageToSender(sender, ETeamConfigurationMessageCode.LIST__ONE_EXISTING_TEAM, get().getName(), teams);
+			sendSynchro(sender, ETeamConfigurationMessageCode.LIST__ONE_EXISTING_TEAM, get().getName(), teams);
 			break;
 		default:
-			sendMessageToSender(sender, ETeamConfigurationMessageCode.LIST__SEVERAL_EXISTING_TEAMS, get().getName(), teams);
+			sendSynchro(sender, ETeamConfigurationMessageCode.LIST__SEVERAL_EXISTING_TEAMS, get().getName(), teams);
 			break;
 		}
 		return true;

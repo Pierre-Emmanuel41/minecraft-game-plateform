@@ -13,16 +13,16 @@ public class DeleteSpawn extends CommonDelete<ISpawn> {
 
 	@Override
 	protected void onDidNotDelete(CommandSender sender, String name) {
-		sendMessageToSender(sender, ESpawnMessageCode.DELETE_SPAWN__DIT_NOT_DELETE, name);
+		sendSynchro(sender, ESpawnMessageCode.DELETE_SPAWN__DIT_NOT_DELETE, name);
 	}
 
 	@Override
 	protected void onDeleted(CommandSender sender, String name) {
-		sendMessageToSender(sender, ESpawnMessageCode.DELETE_SPAWN__SPAWN_DELETED, name);
+		sendSynchro(sender, ESpawnMessageCode.DELETE_SPAWN__SPAWN_DELETED, name);
 	}
 
 	@Override
 	protected void onNameIsMissing(CommandSender sender) {
-		sendMessageToSender(sender, ESpawnMessageCode.DELETE_SPAWN__NAME_IS_MISSING);
+		sendSynchro(sender, ESpawnMessageCode.DELETE_SPAWN__NAME_IS_MISSING);
 	}
 }

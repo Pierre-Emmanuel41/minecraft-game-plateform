@@ -13,6 +13,6 @@ public class CenterSpawn extends CommonCenter<ISpawn> {
 
 	@Override
 	protected void onCenterDefined(CommandSender sender, String name, int x, int y, int z) {
-		sendMessageToSender(sender, ESpawnMessageCode.CENTER_SPAWN__CENTER_DEFINED, x, y, z);
+		sendSynchro(sender, ESpawnMessageCode.CENTER_SPAWN__CENTER_DEFINED, x, y, z);
 	}
 }

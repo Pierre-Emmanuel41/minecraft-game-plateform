@@ -21,7 +21,7 @@ public class StopGameEdition extends GameEdition {
 		if (!super.onCommand(sender, command, label, args))
 			return false;
 
-		sendMessageToSender(sender, EGameMessageCode.STOPPING_GAME, Plateform.getGameConfigurationContext().getName());
+		sendSynchro(sender, EGameMessageCode.STOPPING_GAME, Plateform.getGameConfigurationContext().getName());
 
 		// Getting all registered commands
 		List<ICommand> commands = getCommands();

@@ -27,7 +27,7 @@ public class RemoveTeam<T extends IGameConfiguration> extends AbstractTeamConfig
 
 		if (args[0].equals(IGameConfigurationHelper.ALL)) {
 			List<String> teamNames = getTeamNames(getGameConfigurationHelper().clearTeams(), true);
-			sendMessageToSender(sender, ETeamRemoveMessageCode.REMOVE_TEAM__ALL_TEAMS_REMOVED, get().getName(), concat(teamNames, ", "));
+			sendSynchro(sender, ETeamRemoveMessageCode.REMOVE_TEAM__ALL_TEAMS_REMOVED, get().getName(), concat(teamNames, ", "));
 			return true;
 		}
 
@@ -37,19 +37,19 @@ public class RemoveTeam<T extends IGameConfiguration> extends AbstractTeamConfig
 			teamNamesConcatenated = concat(getTeamNames(teams, true));
 			get().removeTeams(teams);
 		} catch (TeamNotFoundException e) {
-			sendMessageToSender(sender, ETeamRemoveMessageCode.REMOVE_TEAM__TEAM_DOES_NOT_EXIST, e.getTeamNotFoundName(), get().getName());
+			sendSynchro(sender, ETeamRemoveMessageCode.REMOVE_TEAM__TEAM_DOES_NOT_EXIST, e.getTeamNotFoundName(), get().getName());
 			return false;
 		}
 
 		switch (teams.size()) {
 		case 0:
-			sendMessageToSender(sender, ETeamRemoveMessageCode.REMOVE_TEAM__ANY_TEAM_REMOVED, get().getName());
+			sendSynchro(sender, ETeamRemoveMessageCode.REMOVE_TEAM__ANY_TEAM_REMOVED, get().getName());
 			break;
 		case 1:
-			sendMessageToSender(sender, ETeamRemoveMessageCode.REMOVE_TEAM__ONE_TEAM_REMOVED, teamNamesConcatenated, get().getName());
+			sendSynchro(sender, ETeamRemoveMessageCode.REMOVE_TEAM__ONE_TEAM_REMOVED, teamNamesConcatenated, get().getName());
 			break;
 		default:
-			sendMessageToSender(sender, ETeamRemoveMessageCode.REMOVE_TEAM__SEVERAL_TEAMS_REMOVED, teamNamesConcatenated, get().getName());
+			sendSynchro(sender, ETeamRemoveMessageCode.REMOVE_TEAM__SEVERAL_TEAMS_REMOVED, teamNamesConcatenated, get().getName());
 			break;
 		}
 		return true;

@@ -28,26 +28,26 @@ public class ModifyName<T extends IGameConfiguration> extends AbstractTeamConfig
 			try {
 				oldName = args[0];
 			} catch (IndexOutOfBoundsException e) {
-				sendMessageToSender(sender, ETeamModifyMessageCode.MODIFY_NAME__OLD_NAME_IS_MISSING);
+				sendSynchro(sender, ETeamModifyMessageCode.MODIFY_NAME__OLD_NAME_IS_MISSING);
 				return false;
 			}
 			String newName = "";
 			try {
 				newName = args[1];
 			} catch (IndexOutOfBoundsException e) {
-				sendMessageToSender(sender, ETeamModifyMessageCode.MODIFY_NAME__NEW_NAME_IS_MISSING, oldName);
+				sendSynchro(sender, ETeamModifyMessageCode.MODIFY_NAME__NEW_NAME_IS_MISSING, oldName);
 				return false;
 			}
 			ITeam renamedTeam = getGameConfigurationHelper().renameTeam(oldName, newName);
-			sendMessageToSender(sender, ETeamModifyMessageCode.MODIFY_NAME__TEAM_RENAMED, renamedTeam.getColor().getInColor(oldName), renamedTeam.getColoredName());
+			sendSynchro(sender, ETeamModifyMessageCode.MODIFY_NAME__TEAM_RENAMED, renamedTeam.getColor().getInColor(oldName), renamedTeam.getColoredName());
 		} catch (TeamNotFoundException e) {
-			sendMessageToSender(sender, ETeamModifyMessageCode.MODIFY_NAME__TEAM_DOES_NOT_EXIST, e.getTeamNotFoundName(), get().getName());
+			sendSynchro(sender, ETeamModifyMessageCode.MODIFY_NAME__TEAM_DOES_NOT_EXIST, e.getTeamNotFoundName(), get().getName());
 			return false;
 		} catch (TeamNameForbiddenException e) {
-			sendMessageToSender(sender, ETeamModifyMessageCode.MODIFY_NAME__TEAM_NAME_FORBIDDEN, oldName, e.getForbiddenName());
+			sendSynchro(sender, ETeamModifyMessageCode.MODIFY_NAME__TEAM_NAME_FORBIDDEN, oldName, e.getForbiddenName());
 			return false;
 		} catch (TeamWithSameNameAlreadyExistsException e) {
-			sendMessageToSender(sender, ETeamModifyMessageCode.MODIFY_NAME__TEAM_NAME_ALREADY_USED, oldName, e.getAlreadyExistingTeam().getName());
+			sendSynchro(sender, ETeamModifyMessageCode.MODIFY_NAME__TEAM_NAME_ALREADY_USED, oldName, e.getAlreadyExistingTeam().getName());
 			return false;
 		}
 		return true;
@@ -59,7 +59,7 @@ public class ModifyName<T extends IGameConfiguration> extends AbstractTeamConfig
 		case 1:
 			return filter(getGameConfigurationHelper().getTeamNames(false), args[0]);
 		case 2:
-			return Arrays.asList(getMessageFromDictionary(sender, ECommonMessageCode.COMMON_RENAME_TAB_COMPLETE));
+			return Arrays.asList(getMessage(sender, ECommonMessageCode.COMMON_RENAME_TAB_COMPLETE));
 		}
 		return super.onTabComplete(sender, command, alias, args);
 	}

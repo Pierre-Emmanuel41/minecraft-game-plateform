@@ -16,7 +16,7 @@ public class CommonAscurrent<T extends IGameConfiguration> extends AbstractGameC
 	@Override
 	public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
 		Plateform.getGameConfigurationContext().setGameConfiguration(get());
-		sendMessageToSender(sender, EGameConfigurationMessageCode.AS_CURRENT__GAME_STYLE_DEFINED, get().getName());
+		sendSynchro(sender, EGameConfigurationMessageCode.AS_CURRENT__GAME_STYLE_DEFINED, get().getName());
 		return true;
 	}
 }

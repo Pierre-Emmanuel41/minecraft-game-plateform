@@ -28,30 +28,30 @@ public class CommonTeamMove<T extends IGameConfiguration> extends AbstractTeamCo
 			try {
 				playerName = args[0];
 			} catch (IndexOutOfBoundsException e) {
-				sendMessageToSender(sender, ETeamConfigurationMessageCode.MOVE__PLAYER_NAME_IS_MISSING);
+				sendSynchro(sender, ETeamConfigurationMessageCode.MOVE__PLAYER_NAME_IS_MISSING);
 				return false;
 			}
 			try {
 				teamName = args[1];
 			} catch (IndexOutOfBoundsException e) {
-				sendMessageToSender(sender, ETeamConfigurationMessageCode.MOVE__TEAM_NAME_IS_MISSING, playerName);
+				sendSynchro(sender, ETeamConfigurationMessageCode.MOVE__TEAM_NAME_IS_MISSING, playerName);
 				return false;
 			}
 
 			ITeam[] teams = getGameConfigurationHelper().movePlayer(playerName, teamName);
-			sendMessageToSender(sender, ETeamConfigurationMessageCode.MOVE__PLAYER_MOVED, playerName, teams[1].getColoredName(), teams[0].getColoredName());
+			sendSynchro(sender, ETeamConfigurationMessageCode.MOVE__PLAYER_MOVED, playerName, teams[1].getColoredName(), teams[0].getColoredName());
 			return true;
 		} catch (PlayerNotFoundException e) {
-			sendMessageToSender(sender, ETeamConfigurationMessageCode.MOVE__PLAYER_DOES_NOT_EXIST, e.getPlayerName());
+			sendSynchro(sender, ETeamConfigurationMessageCode.MOVE__PLAYER_DOES_NOT_EXIST, e.getPlayerName());
 			return false;
 		} catch (PlayerNotRegisteredException e) {
-			sendMessageToSender(sender, ETeamConfigurationMessageCode.MOVE__PLAYER_NOT_REGISTERED, e.getNotRegisteredPlayer().getName());
+			sendSynchro(sender, ETeamConfigurationMessageCode.MOVE__PLAYER_NOT_REGISTERED, e.getNotRegisteredPlayer().getName());
 			return false;
 		} catch (TeamNotFoundException e) {
-			sendMessageToSender(sender, ETeamConfigurationMessageCode.MOVE__TEAM_DOES_NOT_EXIST, playerName, e.getTeamNotFoundName(), get().getName());
+			sendSynchro(sender, ETeamConfigurationMessageCode.MOVE__TEAM_DOES_NOT_EXIST, playerName, e.getTeamNotFoundName(), get().getName());
 			return false;
 		} catch (TeamsAreTheSameException e) {
-			sendMessageToSender(sender, ETeamConfigurationMessageCode.MOVE__TEAMS_ARE_THE_SAME, playerName, e.getTargetTeam().getColoredName());
+			sendSynchro(sender, ETeamConfigurationMessageCode.MOVE__TEAMS_ARE_THE_SAME, playerName, e.getTargetTeam().getColoredName());
 			return false;
 		}
 	}

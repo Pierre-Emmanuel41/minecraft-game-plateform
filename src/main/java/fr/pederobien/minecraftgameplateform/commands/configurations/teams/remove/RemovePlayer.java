@@ -31,7 +31,7 @@ public class RemovePlayer<T extends IGameConfiguration> extends AbstractTeamConf
 		if (args[0].equals(IGameConfigurationHelper.ALL)) {
 			for (ITeam team : get().getTeams())
 				team.clear();
-			sendMessageToSender(sender, ETeamRemoveMessageCode.REMOVE_PLAYER__ALL_PLAYERS_REMOVED);
+			sendSynchro(sender, ETeamRemoveMessageCode.REMOVE_PLAYER__ALL_PLAYERS_REMOVED);
 			return true;
 		}
 
@@ -42,22 +42,22 @@ public class RemovePlayer<T extends IGameConfiguration> extends AbstractTeamConf
 			playerNamesConcatenated = concat(getPlayerNames(players));
 			teams = getGameConfigurationHelper().removePlayers(players);
 		} catch (PlayerNotFoundException e) {
-			sendMessageToSender(sender, ECommonMessageCode.COMMON_PLAYER_DOES_NOT_EXIST, e.getPlayerName(), get().getName());
+			sendSynchro(sender, ECommonMessageCode.COMMON_PLAYER_DOES_NOT_EXIST, e.getPlayerName(), get().getName());
 			return false;
 		} catch (PlayerNotRegisteredException e) {
-			sendMessageToSender(sender, ETeamRemoveMessageCode.REMOVE_PLAYER__PLAYER_NOT_REGISTERED, e.getNotRegisteredPlayer().getName(), get().getName());
+			sendSynchro(sender, ETeamRemoveMessageCode.REMOVE_PLAYER__PLAYER_NOT_REGISTERED, e.getNotRegisteredPlayer().getName(), get().getName());
 			return false;
 		}
 
 		switch (players.size()) {
 		case 0:
-			sendMessageToSender(sender, ETeamRemoveMessageCode.REMOVE_PLAYER__ANY_PLAYER_REMOVED);
+			sendSynchro(sender, ETeamRemoveMessageCode.REMOVE_PLAYER__ANY_PLAYER_REMOVED);
 			break;
 		case 1:
-			sendMessageToSender(sender, ETeamRemoveMessageCode.REMOVE_PLAYER__ONE_PLAYER_REMOVED, playerNamesConcatenated, getTeamNames(teams, true));
+			sendSynchro(sender, ETeamRemoveMessageCode.REMOVE_PLAYER__ONE_PLAYER_REMOVED, playerNamesConcatenated, getTeamNames(teams, true));
 			break;
 		default:
-			sendMessageToSender(sender, ETeamRemoveMessageCode.REMOVE_PLAYER__SEVERAL_PLAYERS_REMOVED, playerNamesConcatenated, getTeamNames(teams, true));
+			sendSynchro(sender, ETeamRemoveMessageCode.REMOVE_PLAYER__SEVERAL_PLAYERS_REMOVED, playerNamesConcatenated, getTeamNames(teams, true));
 			break;
 		}
 

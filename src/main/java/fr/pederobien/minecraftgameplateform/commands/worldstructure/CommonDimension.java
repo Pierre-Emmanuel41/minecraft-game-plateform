@@ -36,9 +36,9 @@ public abstract class CommonDimension<T extends IWorldStructure> extends Abstrac
 			get().setDepth(getInt(depth));
 			onDimensionDefined(sender, get().getName(), get().getWidth(), get().getHeight(), get().getDepth());
 		} catch (IndexOutOfBoundsException e) {
-			sendMessageToSender(sender, EWorldStructureMessageCode.COMMON_DIMENSION__MISSING_DIMENSION);
+			sendSynchro(sender, EWorldStructureMessageCode.COMMON_DIMENSION__MISSING_DIMENSION);
 		} catch (NumberFormatException e) {
-			sendMessageToSender(sender, EWorldStructureMessageCode.COMMON_DIMENSION__BAD_DIMENSION_FORMAT);
+			sendSynchro(sender, EWorldStructureMessageCode.COMMON_DIMENSION__BAD_DIMENSION_FORMAT);
 		}
 		return true;
 	}

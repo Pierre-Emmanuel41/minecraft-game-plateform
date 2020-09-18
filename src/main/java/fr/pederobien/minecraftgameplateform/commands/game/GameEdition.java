@@ -25,7 +25,7 @@ public class GameEdition extends AbstractSimpleMapEdition {
 	@Override
 	public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
 		if (Plateform.getGameConfigurationContext().getGameConfiguration() == null) {
-			sendMessageToSender(sender, EGameMessageCode.NO_CONFIGURATION_SETTED, (Object[]) args);
+			sendSynchro(sender, EGameMessageCode.NO_CONFIGURATION_SETTED, (Object[]) args);
 			return false;
 		}
 		return true;

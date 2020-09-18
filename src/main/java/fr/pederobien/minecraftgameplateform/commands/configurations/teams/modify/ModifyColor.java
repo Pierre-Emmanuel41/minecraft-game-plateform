@@ -27,29 +27,29 @@ public class ModifyColor<T extends IGameConfiguration> extends AbstractTeamConfi
 			try {
 				teamName = args[0];
 			} catch (IndexOutOfBoundsException e) {
-				sendMessageToSender(sender, ETeamModifyMessageCode.MODIFY_COLOR__TEAM_NAME_IS_MISSING);
+				sendSynchro(sender, ETeamModifyMessageCode.MODIFY_COLOR__TEAM_NAME_IS_MISSING);
 				return false;
 			}
 
 			try {
 				colorName = args[1];
 			} catch (IndexOutOfBoundsException e) {
-				sendMessageToSender(sender, ETeamModifyMessageCode.MODIFY_COLOR__COLOR_NAME_IS_MISSING, teamName);
+				sendSynchro(sender, ETeamModifyMessageCode.MODIFY_COLOR__COLOR_NAME_IS_MISSING, teamName);
 				return false;
 			}
 
 			getGameConfigurationHelper().modifyTeamColor(teamName, colorName);
-			sendMessageToSender(sender, ETeamModifyMessageCode.MODIFY_COLOR__COLOR_UPDATED, teamName, get().getName());
+			sendSynchro(sender, ETeamModifyMessageCode.MODIFY_COLOR__COLOR_UPDATED, teamName, get().getName());
 			return true;
 		} catch (TeamNotFoundException e) {
-			sendMessageToSender(sender, ETeamModifyMessageCode.MODIFY_COLOR__TEAM_DOES_NOT_EXIST, e.getTeamNotFoundName());
+			sendSynchro(sender, ETeamModifyMessageCode.MODIFY_COLOR__TEAM_DOES_NOT_EXIST, e.getTeamNotFoundName());
 			return false;
 		} catch (ColorNotFoundException e) {
-			sendMessageToSender(sender, ETeamModifyMessageCode.MODIFY_COLOR__COLOR_DOES_NOT_EXIST, teamName, e.getColorName());
+			sendSynchro(sender, ETeamModifyMessageCode.MODIFY_COLOR__COLOR_DOES_NOT_EXIST, teamName, e.getColorName());
 			return false;
 		} catch (TeamWithSameColorAlreadyExistsException e) {
 			ITeam team = e.getAlreadyExistingTeam();
-			sendMessageToSender(sender, ETeamModifyMessageCode.MODIFY_COLOR__COLOR_ALREADY_USED, teamName, team.getColor(), team.getColoredName());
+			sendSynchro(sender, ETeamModifyMessageCode.MODIFY_COLOR__COLOR_ALREADY_USED, teamName, team.getColor(), team.getColoredName());
 			return false;
 		}
 	}

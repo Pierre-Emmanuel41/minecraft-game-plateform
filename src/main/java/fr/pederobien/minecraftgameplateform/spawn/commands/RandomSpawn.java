@@ -31,7 +31,7 @@ public class RandomSpawn extends AbstractWorldStructureEdition<ISpawn> {
 
 		// Args : world + X + Y + Z
 		if (args.length < 4) {
-			sendMessageToSender(sender, ESpawnMessageCode.RANDOM_SPAWN__WORLD_OR_COORDINATES_ARE_MISSING);
+			sendSynchro(sender, ESpawnMessageCode.RANDOM_SPAWN__WORLD_OR_COORDINATES_ARE_MISSING);
 			return false;
 		}
 		StringJoiner joiner = new StringJoiner(" ");

@@ -23,11 +23,11 @@ public class PlayerSpawn extends AbstractWorldStructureEdition<ISpawn> {
 			onPlayerSpawnDefined(sender, get().getPlayerSpawn().getX(), get().getPlayerSpawn().getY(), get().getPlayerSpawn().getZ());
 		} catch (IndexOutOfBoundsException e) {
 			// When X or Y or Z is missing
-			sendMessageToSender(sender, ECommonMessageCode.COMMON_MISSING_COORDINATES);
+			sendSynchro(sender, ECommonMessageCode.COMMON_MISSING_COORDINATES);
 			return false;
 		} catch (NumberFormatException e) {
 			// When the coordinates are not integer
-			sendMessageToSender(sender, ECommonMessageCode.COMMON_BAD_INTEGER_FORMAT);
+			sendSynchro(sender, ECommonMessageCode.COMMON_BAD_INTEGER_FORMAT);
 			return false;
 		}
 		return true;
@@ -50,6 +50,6 @@ public class PlayerSpawn extends AbstractWorldStructureEdition<ISpawn> {
 	}
 
 	private void onPlayerSpawnDefined(CommandSender sender, int x, int y, int z) {
-		sendMessageToSender(sender, ESpawnMessageCode.PLAYER_SPAWN__PLAYER_SPAWN_DEFINED, x, y, z);
+		sendSynchro(sender, ESpawnMessageCode.PLAYER_SPAWN__PLAYER_SPAWN_DEFINED, x, y, z);
 	}
 }
