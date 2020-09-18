@@ -16,7 +16,7 @@ public class TeamWithSameColorAlreadyExistsException extends TeamAlreadyExistsEx
 	protected String getInternalMessage() {
 		StringJoiner joiner = new StringJoiner(" ");
 		joiner.add("The team \"" + getAlreadyExistingTeam().getName() + "\"");
-		joiner.add("already has the color \"" + getAlreadyExistingTeam().getColor().getName() + "\"");
+		joiner.add("already has the color \"" + getAlreadyExistingTeam().getColor() + "\"");
 		joiner.add("in configuration " + getGameConfiguration().getName());
 		return joiner.toString();
 	}

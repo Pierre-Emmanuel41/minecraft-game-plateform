@@ -59,7 +59,7 @@ public class AddTeam<T extends IGameConfiguration> extends AbstractTeamConfigura
 			return false;
 		} catch (TeamWithSameColorAlreadyExistsException e) {
 			ITeam alreadyExistingTeam = e.getAlreadyExistingTeam();
-			sendMessageToSender(sender, ETeamAddMessageCode.ADD_TEAM__COLOR_ALREADY_USED, alreadyExistingTeam.getColor().getName(), alreadyExistingTeam.getColoredName());
+			sendMessageToSender(sender, ETeamAddMessageCode.ADD_TEAM__COLOR_ALREADY_USED, alreadyExistingTeam.getColor(), alreadyExistingTeam.getColoredName());
 			return false;
 		}
 

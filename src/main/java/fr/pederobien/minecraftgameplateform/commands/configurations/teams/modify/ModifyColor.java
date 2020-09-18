@@ -49,7 +49,7 @@ public class ModifyColor<T extends IGameConfiguration> extends AbstractTeamConfi
 			return false;
 		} catch (TeamWithSameColorAlreadyExistsException e) {
 			ITeam team = e.getAlreadyExistingTeam();
-			sendMessageToSender(sender, ETeamModifyMessageCode.MODIFY_COLOR__COLOR_ALREADY_USED, teamName, team.getColor().getName(), team.getColoredName());
+			sendMessageToSender(sender, ETeamModifyMessageCode.MODIFY_COLOR__COLOR_ALREADY_USED, teamName, team.getColor(), team.getColoredName());
 			return false;
 		}
 	}

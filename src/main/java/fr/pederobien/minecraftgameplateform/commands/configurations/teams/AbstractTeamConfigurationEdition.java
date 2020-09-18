@@ -124,6 +124,6 @@ public class AbstractTeamConfigurationEdition<T extends IGameConfiguration> exte
 	 * @return The list of free color's name.
 	 */
 	protected List<String> getFreeColorNames(boolean coloured) {
-		return getGameConfigurationHelper().getAvailableColors().map(color -> coloured ? color.getColoredColorName() : color.getName()).collect(Collectors.toList());
+		return getGameConfigurationHelper().getAvailableColors().map(color -> coloured ? color.getColoredColorName() : color.toString()).collect(Collectors.toList());
 	}
 }
