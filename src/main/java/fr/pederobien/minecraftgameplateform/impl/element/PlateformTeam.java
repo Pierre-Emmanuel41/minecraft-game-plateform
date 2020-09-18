@@ -18,8 +18,8 @@ import fr.pederobien.minecraftgameplateform.impl.observer.Observable;
 import fr.pederobien.minecraftgameplateform.interfaces.element.ITeam;
 import fr.pederobien.minecraftgameplateform.interfaces.observer.IObsTeam;
 import fr.pederobien.minecraftgameplateform.interfaces.observer.IObservable;
-import fr.pederobien.minecraftgameplateform.utils.EColor;
 import fr.pederobien.minecraftgameplateform.utils.Plateform;
+import fr.pederobien.minecraftmanagers.EColor;
 import fr.pederobien.minecraftmanagers.TeamManager;
 
 public class PlateformTeam extends AbstractNominable implements ITeam {

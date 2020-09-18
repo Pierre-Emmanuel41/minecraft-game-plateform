@@ -3,7 +3,7 @@ package fr.pederobien.minecraftgameplateform.interfaces.observer;
 import org.bukkit.entity.Player;
 
 import fr.pederobien.minecraftgameplateform.interfaces.element.ITeam;
-import fr.pederobien.minecraftgameplateform.utils.EColor;
+import fr.pederobien.minecraftmanagers.EColor;
 
 public interface IObsTeam {
 

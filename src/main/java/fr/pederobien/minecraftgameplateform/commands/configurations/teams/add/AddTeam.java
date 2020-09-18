@@ -18,7 +18,7 @@ import fr.pederobien.minecraftgameplateform.exceptions.configurations.TeamWithSa
 import fr.pederobien.minecraftgameplateform.exceptions.configurations.TeamWithSameNameAlreadyExistsException;
 import fr.pederobien.minecraftgameplateform.interfaces.element.IGameConfiguration;
 import fr.pederobien.minecraftgameplateform.interfaces.element.ITeam;
-import fr.pederobien.minecraftgameplateform.utils.EColor;
+import fr.pederobien.minecraftmanagers.EColor;
 
 public class AddTeam<T extends IGameConfiguration> extends AbstractTeamConfigurationEdition<T> {
 

@@ -1,6 +1,6 @@
 package fr.pederobien.minecraftgameplateform.exceptions;
 
-import fr.pederobien.minecraftgameplateform.utils.EColor;
+import fr.pederobien.minecraftmanagers.EColor;
 
 public class ColorNotFoundException extends SimpleMessageException {
 	private static final long serialVersionUID = 1L;

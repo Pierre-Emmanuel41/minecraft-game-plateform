@@ -20,7 +20,7 @@ import fr.pederobien.minecraftgameplateform.exceptions.configurations.TeamWithSa
 import fr.pederobien.minecraftgameplateform.exceptions.configurations.TeamsAreTheSameException;
 import fr.pederobien.minecraftgameplateform.helpers.TeamHelper;
 import fr.pederobien.minecraftgameplateform.interfaces.element.ITeam;
-import fr.pederobien.minecraftgameplateform.utils.EColor;
+import fr.pederobien.minecraftmanagers.EColor;
 
 public interface IGameConfigurationHelper {
 	/**

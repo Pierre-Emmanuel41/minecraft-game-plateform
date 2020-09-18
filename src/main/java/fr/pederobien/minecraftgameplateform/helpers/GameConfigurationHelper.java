@@ -25,7 +25,7 @@ import fr.pederobien.minecraftgameplateform.impl.element.PlateformTeam;
 import fr.pederobien.minecraftgameplateform.interfaces.element.IGameConfiguration;
 import fr.pederobien.minecraftgameplateform.interfaces.element.ITeam;
 import fr.pederobien.minecraftgameplateform.interfaces.helpers.IGameConfigurationHelper;
-import fr.pederobien.minecraftgameplateform.utils.EColor;
+import fr.pederobien.minecraftmanagers.EColor;
 import fr.pederobien.minecraftmanagers.PlayerManager;
 import fr.pederobien.minecraftmanagers.TeamManager;
 

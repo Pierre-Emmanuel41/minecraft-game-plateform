@@ -14,7 +14,7 @@ import fr.pederobien.minecraftgameplateform.interfaces.element.IGameConfiguratio
 import fr.pederobien.minecraftgameplateform.interfaces.element.ILabel;
 import fr.pederobien.minecraftgameplateform.interfaces.element.ITeam;
 import fr.pederobien.minecraftgameplateform.interfaces.helpers.IGameConfigurationHelper;
-import fr.pederobien.minecraftgameplateform.utils.EColor;
+import fr.pederobien.minecraftmanagers.EColor;
 
 public class AbstractTeamConfigurationEdition<T extends IGameConfiguration> extends AbstractGameConfigurationEdition<T> {
 

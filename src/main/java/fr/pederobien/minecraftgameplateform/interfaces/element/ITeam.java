@@ -8,7 +8,7 @@ import org.bukkit.scoreboard.Team;
 
 import fr.pederobien.minecraftgameplateform.interfaces.observer.IObsPlayerQuitOrJoinEventListener;
 import fr.pederobien.minecraftgameplateform.interfaces.observer.IObsTeam;
-import fr.pederobien.minecraftgameplateform.utils.EColor;
+import fr.pederobien.minecraftmanagers.EColor;
 
 public interface ITeam extends INominable, IObsPlayerQuitOrJoinEventListener {
 
