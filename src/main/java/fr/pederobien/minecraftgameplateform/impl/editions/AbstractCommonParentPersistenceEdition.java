@@ -19,8 +19,8 @@ public abstract class AbstractCommonParentPersistenceEdition<T extends INominabl
 		super(label, explanation, plugin, persistence);
 
 		addEdition(getNewEdition().setModifiable(false));
-		addEdition(getRenameEdition().setModifiable(false));
-		addEdition(getSaveEdition().setModifiable(false));
+		addEdition(getRenameEdition());
+		addEdition(getSaveEdition());
 		addEdition(getListEdition().setModifiable(false));
 		addEdition(getDeleteEdition().setModifiable(false));
 		addEdition(getDetailsEdition().setModifiable(false));
