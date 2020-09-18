@@ -1,6 +1,8 @@
 package fr.pederobien.minecraftgameplateform.interfaces.element;
 
-public interface IGame {
+import fr.pederobien.minecraftgameplateform.interfaces.editions.IPlateformCodeSender;
+
+public interface IGame extends IPlateformCodeSender {
 
 	/**
 	 * @return True if the game is successful initiated, false otherwise.
