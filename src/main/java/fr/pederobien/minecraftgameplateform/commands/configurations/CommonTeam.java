@@ -13,5 +13,6 @@ public class CommonTeam<T extends IGameConfiguration> extends AbstractGameConfig
 		addEdition(TeamEditionFactory.commonTeamModify());
 		addEdition(TeamEditionFactory.commonTeamList());
 		addEdition(TeamEditionFactory.commonTeamMove());
+		addEdition(TeamEditionFactory.commonTeamRandom());
 	}
 }

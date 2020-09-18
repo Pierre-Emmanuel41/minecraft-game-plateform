@@ -1,7 +1,9 @@
 package fr.pederobien.minecraftgameplateform.helpers;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.Random;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -12,6 +14,8 @@ import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
 import org.bukkit.scoreboard.Team;
 
+import fr.pederobien.minecraftgameplateform.exceptions.configurations.RandomTeamNotEnoughPlayer;
+import fr.pederobien.minecraftgameplateform.exceptions.configurations.RandomTeamNotEnoughTeam;
 import fr.pederobien.minecraftgameplateform.interfaces.element.IGameConfiguration;
 import fr.pederobien.minecraftgameplateform.interfaces.element.IGameConfigurationContext;
 import fr.pederobien.minecraftgameplateform.interfaces.element.ITeam;
@@ -21,6 +25,7 @@ import fr.pederobien.minecraftmanagers.TeamManager;
 import fr.pederobien.minecraftmanagers.WorldManager;
 
 public class TeamHelper {
+	private static final Random RANDOM = new Random();
 
 	/**
 	 * Create the given team on the server. A team with the name, the color and players is created on the server.
@@ -170,5 +175,52 @@ public class TeamHelper {
 	 */
 	public static Optional<Player> getRandomColleagues(Player player, Predicate<Player> predicate) {
 		return TeamManager.getRandom(getColleagues(player, predicate).collect(Collectors.toList()));
+	}
+
+	/**
+	 * Dispatch all players currently logged into the server into teams. To simplify the way of using this method, it possible to put
+	 * -1 for <code>maxPlayerInTeam</code>. In that case, players are directly dispatched into the given teams.
+	 * 
+	 * @param teams           A list of team in which players are dispatched.
+	 * @param maxPlayerInTeam The max player allowed per team.
+	 * 
+	 * @throws RandomTeamNotEnoughPlayer If there are not enough players.
+	 * @throws RandomTeamNotEnoughTeam   If there are not enough teams.
+	 */
+	public static void dispatchPlayerRandomlyInTeam(IGameConfiguration configuration, int maxPlayerInTeam) {
+		List<ITeam> teams = configuration.getTeams();
+		for (ITeam team : teams)
+			team.clear();
+
+		List<ITeam> copyTeams = new ArrayList<ITeam>(teams);
+		copyTeams = TeamManager.mix(copyTeams);
+		List<Player> copyPlayers = new ArrayList<Player>(PlayerManager.getPlayers().collect(Collectors.toList()));
+		copyPlayers = TeamManager.mix(copyPlayers);
+
+		if (maxPlayerInTeam > 0) {
+			if (copyPlayers.size() <= maxPlayerInTeam)
+				throw new RandomTeamNotEnoughPlayer(configuration, copyPlayers.size());
+			int nbTeams = copyPlayers.size() / maxPlayerInTeam + (copyPlayers.size() % maxPlayerInTeam > 0 ? 1 : 0);
+			if (copyTeams.size() < nbTeams)
+				throw new RandomTeamNotEnoughTeam(configuration, copyTeams.size());
+
+			for (int i = 0; i < teams.size() - nbTeams; i++)
+				copyTeams.remove(RANDOM.nextInt(copyTeams.size()));
+		} else {
+			int max = copyPlayers.size() / copyTeams.size();
+			maxPlayerInTeam = max > 0 ? max : 1;
+		}
+
+		int quotient = copyPlayers.size() / maxPlayerInTeam;
+		int reste = copyPlayers.size() % maxPlayerInTeam;
+
+		for (int i = 0; i < copyTeams.size(); i++) {
+			int maxPlayer = i < quotient ? maxPlayerInTeam : reste;
+			for (int j = 0; j < maxPlayer; j++) {
+				Player player = copyPlayers.get(RANDOM.nextInt(copyPlayers.size()));
+				copyTeams.get(i).addPlayer(player);
+				copyPlayers.remove(player);
+			}
+		}
 	}
 }

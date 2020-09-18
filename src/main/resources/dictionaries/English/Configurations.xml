@@ -104,6 +104,30 @@
 			<code permission="ALL">MOVE__PLAYER_MOVED</code>
 			<value>The player %s has been moved in team %s, former team : %s</value>
 		</message>
+		<message>
+			<code>TEAM_RANDOM__EXPLANATION</code>
+			<value>To dispatch randomly players in teams</value>
+		</message>
+		<message>
+			<code>TEAM_RANDOM__ON_TAB_COMPLETE</code>
+			<value>[Max player per team]</value>
+		</message>
+		<message>
+			<code>TEAM_RANDOM__MAX_PLAYER_NEGATIVE</code>
+			<value>The maximal number of player per team should be strictly positive</value>
+		</message>
+		<message>
+			<code>TEAM_RANDOM__NOT_ENOUGH_PLAYERS</code>
+			<value>There is not enough players currently logged into the server (logged : %s)</value>
+		</message>
+		<message>
+			<code>TEAM_RANDOM__NOT_ENOUGH_TEAMS</code>
+			<value>There is not enough teams in configuration %s (team(s) : %s)</value>
+		</message>
+		<message>
+			<code>TEAM_RANDOM__PLAYERS_DISPATCHED</code>
+			<value>Random teams have been created :%n%s</value>
+		</message>
 
 		<message>
 			<code>ADD_TEAM__EXPLANATION</code>

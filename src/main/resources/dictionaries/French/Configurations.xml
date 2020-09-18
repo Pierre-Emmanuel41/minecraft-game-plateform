@@ -101,6 +101,30 @@
 			<code permission="ALL">MOVE__PLAYER_MOVED</code>
 			<value>Le joueur %s a été déplacé dans l'équipe %s, ancienne équipe : %s</value>
 		</message>
+		<message>
+			<code>TEAM_RANDOM__EXPLANATION</code>
+			<value>Pour répartir les joueurs dans les équipes</value>
+		</message>
+		<message>
+			<code>TEAM_RANDOM__ON_TAB_COMPLETE</code>
+			<value>[Max joueurs par équipe]</value>
+		</message>
+		<message>
+			<code>TEAM_RANDOM__MAX_PLAYER_NEGATIVE</code>
+			<value>Le nombre maximal de joueur par équipe doit être strictement positif</value>
+		</message>
+		<message>
+			<code>TEAM_RANDOM__NOT_ENOUGH_PLAYERS</code>
+			<value>Il n'y a pas suffisamment de joueurs actuellement connecté sur le serveur (connecté(s) : %s)</value>
+		</message>
+		<message>
+			<code>TEAM_RANDOM__NOT_ENOUGH_TEAMS</code>
+			<value>Il n'y a pas assez d'équipe dans la configuration %s (équipes(s) : %s)</value>
+		</message>
+		<message>
+			<code>TEAM_RANDOM__PLAYERS_DISPATCHED</code>
+			<value>Les équipes aléatoires ont été créées :%n%s</value>
+		</message>
 		
 		<message>
 			<code>ADD_TEAM__EXPLANATION</code>

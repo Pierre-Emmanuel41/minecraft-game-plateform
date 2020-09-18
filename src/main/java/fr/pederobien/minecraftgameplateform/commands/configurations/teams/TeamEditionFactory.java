@@ -39,4 +39,11 @@ public class TeamEditionFactory {
 	public static <T extends IGameConfiguration> IMapPersistenceEdition<T> commonTeamMove() {
 		return new CommonTeamMove<T>();
 	}
+
+	/**
+	 * @return An edition to dispatch randomly players in teams.
+	 */
+	public static <T extends IGameConfiguration> IMapPersistenceEdition<T> commonTeamRandom() {
+		return new CommonTeamRandom<T>();
+	}
 }
