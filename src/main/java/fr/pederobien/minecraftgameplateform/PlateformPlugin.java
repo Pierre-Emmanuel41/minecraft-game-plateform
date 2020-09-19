@@ -10,7 +10,6 @@ import fr.pederobien.dictionary.interfaces.IDictionaryParser;
 import fr.pederobien.minecraftgameplateform.commands.game.PauseCommand;
 import fr.pederobien.minecraftgameplateform.commands.game.StartCommand;
 import fr.pederobien.minecraftgameplateform.commands.game.StopCommand;
-import fr.pederobien.minecraftgameplateform.spawn.SpawnCommand;
 import fr.pederobien.minecraftgameplateform.utils.Plateform;
 
 public class PlateformPlugin extends JavaPlugin {
@@ -24,8 +23,6 @@ public class PlateformPlugin extends JavaPlugin {
 		new PauseCommand(this);
 		new StopCommand(this);
 
-		new SpawnCommand(this);
-
 		registerDictionaries();
 	}
 
@@ -35,7 +32,7 @@ public class PlateformPlugin extends JavaPlugin {
 	}
 
 	private void registerDictionaries() {
-		String[] dictionaries = new String[] { "Common.xml", "Game.xml", "WorldStructure.xml", "Configurations.xml", "Spawn.xml", "Entry.xml", "Plateform.xml" };
+		String[] dictionaries = new String[] { "Common.xml", "Game.xml", "WorldStructure.xml", "Configurations.xml", "Entry.xml", "Plateform.xml" };
 		// Registering French dictionaries
 		registerDictionary("French", dictionaries);
 
