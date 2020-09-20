@@ -27,5 +27,9 @@
 			<code>CENTER</code>
 			<value>Center : </value>
 		</message>
+		<message>
+			<code>X_Y_Z</code>
+			<value>X/Y/Z : </value>
+		</message>
 	</messages>
 </dictionary>

@@ -3,12 +3,30 @@ package fr.pederobien.minecraftgameplateform.entries.simple;
 import java.util.StringJoiner;
 
 import org.bukkit.Location;
+import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
 
+import fr.pederobien.minecraftdictionary.interfaces.IMinecraftMessageCode;
+import fr.pederobien.minecraftgameplateform.entries.EEntryMessageCode;
 import fr.pederobien.minecraftgameplateform.entries.PlateformEntry;
+import fr.pederobien.minecraftmanagers.WorldManager;
 
 public class LocationEntry extends PlateformEntry {
 	private String delimiter;
+	private Block center;
+
+	/**
+	 * Create an entry that displays the current player location.
+	 * 
+	 * @param score     The line number of this entry.
+	 * @param delimiter The sequence of characters to be displayed between each element added.
+	 * @param center    The player's coordinates are displayed relative to the given center.
+	 */
+	public LocationEntry(int score, String delimiter, Block center) {
+		super(score);
+		this.delimiter = delimiter;
+		this.center = center;
+	}
 
 	/**
 	 * Create an entry that displays the current player location.
@@ -17,8 +35,17 @@ public class LocationEntry extends PlateformEntry {
 	 * @param delimiter The sequence of characters to be displayed between each element added.
 	 */
 	public LocationEntry(int score, String delimiter) {
-		super(score);
-		this.delimiter = delimiter;
+		this(score, delimiter, WorldManager.getBlockAtFromOverworld(0, 0, 0));
+	}
+
+	/**
+	 * Create an entry that displays the current player location.
+	 * 
+	 * @param score  The line number of this entry.
+	 * @param center The player's coordinates are displayed relative to the given center.
+	 */
+	public LocationEntry(int score, Block center) {
+		this(score, " ", center);
 	}
 
 	/**
@@ -32,7 +59,15 @@ public class LocationEntry extends PlateformEntry {
 
 	@Override
 	protected String updateCurrentValue(Player player) {
-		Location loc = player.getLocation();
-		return new StringJoiner(delimiter).add("" + loc.getBlockX()).add("" + loc.getBlockY()).add("" + loc.getBlockZ()).toString();
+		Location playerLoc = player.getLocation();
+		Integer relativeX = playerLoc.getBlockX() - center.getX();
+		Integer relativeY = playerLoc.getBlockY();
+		Integer relativeZ = playerLoc.getBlockZ() - center.getZ();
+		return new StringJoiner(delimiter).add(relativeX.toString()).add(relativeY.toString()).add(relativeZ.toString()).toString();
+	}
+
+	@Override
+	protected IMinecraftMessageCode getBeforeAsCode(Player player) {
+		return EEntryMessageCode.X_Y_Z;
 	}
 }

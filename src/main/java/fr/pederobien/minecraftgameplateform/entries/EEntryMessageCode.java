@@ -4,7 +4,7 @@ import fr.pederobien.minecraftdictionary.impl.Permission;
 import fr.pederobien.minecraftdictionary.interfaces.IMinecraftMessageCode;
 
 public enum EEntryMessageCode implements IMinecraftMessageCode {
-	TOTAL_TIME, PAUSE_TIME, GAME_TIME, CENTER;
+	TOTAL_TIME, PAUSE_TIME, GAME_TIME, CENTER, X_Y_Z;
 
 	private Permission permission;
 
