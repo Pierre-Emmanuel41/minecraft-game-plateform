@@ -23,7 +23,7 @@ public abstract class AbstractCommonParentPersistenceEdition<T extends INominabl
 		addEdition(getSaveEdition());
 		addEdition(getListEdition().setModifiable(false));
 		addEdition(getDeleteEdition().setModifiable(false));
-		addEdition(getDetailsEdition().setModifiable(false));
+		addEdition(getDetailsEdition());
 	}
 
 	// Specific to create, rename, save, delete or display the list of game configuration.
