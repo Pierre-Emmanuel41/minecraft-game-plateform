@@ -1,6 +1,5 @@
 package fr.pederobien.minecraftgameplateform.commands.configurations.teams.modify;
 
-import java.util.Arrays;
 import java.util.List;
 
 import org.bukkit.command.Command;
@@ -57,11 +56,12 @@ public class ModifyName<T extends IGameConfiguration> extends AbstractTeamConfig
 	public List<String> onTabComplete(CommandSender sender, Command command, String alias, String[] args) {
 		switch (args.length) {
 		case 1:
-			return filter(getGameConfigurationHelper().getTeamNames(false), args[0]);
+			return filter(getGameConfigurationHelper().getTeamNames(false), args);
 		case 2:
-			return Arrays.asList(getMessage(sender, ECommonMessageCode.COMMON_RENAME_TAB_COMPLETE));
+			return asList(getMessage(sender, ECommonMessageCode.COMMON_RENAME_TAB_COMPLETE));
+		default:
+			return emptyList();
 		}
-		return super.onTabComplete(sender, command, alias, args);
 	}
 
 }

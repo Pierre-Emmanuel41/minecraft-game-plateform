@@ -1,7 +1,6 @@
 package fr.pederobien.minecraftgameplateform.commands.configurations.teams.remove;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Stream;
 
@@ -56,14 +55,14 @@ public class RemoveTeam<T extends IGameConfiguration> extends AbstractTeamConfig
 	}
 
 	public List<String> onTabComplete(CommandSender sender, Command command, String alias, String[] args) {
-		Stream<String> teams = getFreeTeams(Arrays.asList(args)).map(team -> team.getName());
+		Stream<String> teams = getFreeTeams(asList(args)).map(team -> team.getName());
 
 		// Adding all to delete all registered teams
 		if (args.length == 1)
-			return filter(Stream.concat(teams, Stream.of(IGameConfigurationHelper.ALL)), args[0]);
+			return filter(Stream.concat(teams, Stream.of(IGameConfigurationHelper.ALL)), args);
 
 		// If the first argument is all -> any team is proposed
 		// Else propose not already mentioned teams
-		return filter(args[0].equals(IGameConfigurationHelper.ALL) ? emptyStream() : teams, args[args.length - 1]);
+		return filter(args[0].equals(IGameConfigurationHelper.ALL) ? emptyStream() : teams, args);
 	}
 }

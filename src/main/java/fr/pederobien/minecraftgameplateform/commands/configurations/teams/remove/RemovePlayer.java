@@ -1,7 +1,6 @@
 package fr.pederobien.minecraftgameplateform.commands.configurations.teams.remove;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Stream;
 
@@ -66,14 +65,14 @@ public class RemovePlayer<T extends IGameConfiguration> extends AbstractTeamConf
 
 	@Override
 	public List<String> onTabComplete(CommandSender sender, Command command, String alias, String[] args) {
-		Stream<String> players = getNotFreePlayers(Arrays.asList(args)).map(player -> player.getName());
+		Stream<String> players = getNotFreePlayers(asList(args)).map(player -> player.getName());
 
 		// Adding all to delete all registered players
 		if (args.length == 1)
-			return filter(Stream.concat(players, Stream.of(IGameConfigurationHelper.ALL)), args[0]);
+			return filter(Stream.concat(players, Stream.of(IGameConfigurationHelper.ALL)), args);
 
 		// If the first argument is all -> any player is proposed
 		// Else propose not already mentioned players
-		return filter(args[0].equals(IGameConfigurationHelper.ALL) ? emptyStream() : players, args[args.length - 1]);
+		return filter(args[0].equals(IGameConfigurationHelper.ALL) ? emptyStream() : players, args);
 	}
 }

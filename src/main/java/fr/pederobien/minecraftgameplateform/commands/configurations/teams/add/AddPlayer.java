@@ -1,7 +1,6 @@
 package fr.pederobien.minecraftgameplateform.commands.configurations.teams.add;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import org.bukkit.command.Command;
@@ -72,9 +71,9 @@ public class AddPlayer<T extends IGameConfiguration> extends AbstractTeamConfigu
 		case 0:
 			return emptyList();
 		case 1:
-			return filter(getGameConfigurationHelper().getTeamNames(false), args[0]);
+			return filter(getGameConfigurationHelper().getTeamNames(false), args);
 		default:
-			return filter(getFreePlayers(Arrays.asList(extract(args, 1))).map(player -> player.getName()), args[args.length - 1]);
+			return filter(getFreePlayers(asList(extract(args, 1))).map(player -> player.getName()), args);
 		}
 	}
 }

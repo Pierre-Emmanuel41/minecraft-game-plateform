@@ -42,8 +42,11 @@ public abstract class CommonDelete<T extends IUnmodifiableNominable> extends Abs
 
 	@Override
 	public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-		try {
-			String name = args[0];
+		if (args.length == 0) {
+			onNameIsMissing(sender);
+			return false;
+		}
+		for (String name : args) {
 			if (startWithIgnoreCase(name, "default")) {
 				sendSynchro(sender, ECommonMessageCode.COMMON_NAME_MUST_NOT_START_WITH_DEFAULT, name);
 				return false;
@@ -53,15 +56,13 @@ public abstract class CommonDelete<T extends IUnmodifiableNominable> extends Abs
 				return false;
 			}
 			onDeleted(sender, name);
-		} catch (IndexOutOfBoundsException e) {
-			onNameIsMissing(sender);
-			return false;
 		}
 		return true;
 	}
 
 	@Override
 	public List<String> onTabComplete(CommandSender sender, Command command, String alias, String[] args) {
-		return filter(getPersistence().list().stream().filter(name -> !startWithIgnoreCase(name, "default")), args[0]);
+		List<String> alreadyMentionnedFiles = asList(args);
+		return filter(getPersistence().list().stream().filter(name -> !startWithIgnoreCase(name, "default") && !alreadyMentionnedFiles.contains(name)), args);
 	}
 }

@@ -2,7 +2,6 @@ package fr.pederobien.minecraftgameplateform.commands.configurations;
 
 import java.time.LocalTime;
 import java.time.format.DateTimeParseException;
-import java.util.Arrays;
 import java.util.List;
 
 import org.bukkit.command.Command;
@@ -38,8 +37,11 @@ public class CommonPvpTime<T extends IGameConfiguration> extends AbstractGameCon
 
 	@Override
 	public List<String> onTabComplete(CommandSender sender, Command command, String alias, String[] args) {
-		if (args.length == 1)
-			return Arrays.asList(getMessage(sender, ECommonMessageCode.COMMON_TIME_TAB_COMPLETE));
-		return super.onTabComplete(sender, command, alias, args);
+		switch (args.length) {
+		case 1:
+			return asList(getMessage(sender, ECommonMessageCode.COMMON_TIME_TAB_COMPLETE));
+		default:
+			return emptyList();
+		}
 	}
 }

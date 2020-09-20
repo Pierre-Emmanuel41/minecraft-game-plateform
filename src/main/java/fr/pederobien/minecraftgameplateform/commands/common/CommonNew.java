@@ -1,6 +1,5 @@
 package fr.pederobien.minecraftgameplateform.commands.common;
 
-import java.util.Arrays;
 import java.util.List;
 
 import org.bukkit.command.Command;
@@ -81,8 +80,11 @@ public abstract class CommonNew<T extends IUnmodifiableNominable> extends Abstra
 
 	@Override
 	public List<String> onTabComplete(CommandSender sender, Command command, String alias, String[] args) {
-		if (args.length == 1)
-			return Arrays.asList(getMessage(sender, ECommonMessageCode.COMMON_NEW_TAB_COMPLETE));
-		return super.onTabComplete(sender, command, alias, args);
+		switch (args.length) {
+		case 1:
+			return asList(getMessage(sender, ECommonMessageCode.COMMON_NEW_TAB_COMPLETE));
+		default:
+			return emptyList();
+		}
 	}
 }

@@ -58,10 +58,11 @@ public class ModifyColor<T extends IGameConfiguration> extends AbstractTeamConfi
 	public List<String> onTabComplete(CommandSender sender, Command command, String alias, String[] args) {
 		switch (args.length) {
 		case 1:
-			return filter(getGameConfigurationHelper().getTeamNames(false), args[0]);
+			return filter(getGameConfigurationHelper().getTeamNames(false), args);
 		case 2:
-			return filter(check(args[0], e -> getGameConfigurationHelper().getTeam(e).isPresent(), getFreeColorNames(false)).stream(), args[1]);
+			return filter(check(args[0], e -> getGameConfigurationHelper().getTeam(e).isPresent(), getFreeColorNames(false)).stream(), args);
+		default:
+			return emptyList();
 		}
-		return super.onTabComplete(sender, command, alias, args);
 	}
 }

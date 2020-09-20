@@ -63,7 +63,8 @@ public class CommonTeamMove<T extends IGameConfiguration> extends AbstractTeamCo
 			return filter(getGameConfigurationHelper().getNotFreePlayers().map(player -> player.getName()), args);
 		case 2:
 			return filter(check(args[0], e -> PlayerManager.getPlayer(e) != null, getOtherTeamNames(args[0])), args);
+		default:
+			return emptyList();
 		}
-		return super.onTabComplete(sender, command, alias, args);
 	}
 }
