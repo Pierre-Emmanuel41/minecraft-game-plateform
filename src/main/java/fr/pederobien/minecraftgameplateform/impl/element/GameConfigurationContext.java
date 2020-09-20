@@ -4,6 +4,9 @@ import java.time.LocalTime;
 import java.util.List;
 import java.util.Optional;
 
+import org.bukkit.command.Command;
+import org.bukkit.command.CommandSender;
+
 import fr.pederobien.minecraftgameplateform.impl.observer.Observable;
 import fr.pederobien.minecraftgameplateform.interfaces.element.IEventListener;
 import fr.pederobien.minecraftgameplateform.interfaces.element.IGame;
@@ -95,8 +98,8 @@ public class GameConfigurationContext implements IGameConfigurationContext {
 	}
 
 	@Override
-	public boolean initiate() {
-		return getGame().initiate();
+	public boolean initiate(CommandSender sender, Command command, String label, String[] args) {
+		return getGame().initiate(sender, command, label, args);
 	}
 
 	@Override

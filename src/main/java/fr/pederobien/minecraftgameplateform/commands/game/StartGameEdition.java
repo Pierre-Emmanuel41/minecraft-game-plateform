@@ -32,7 +32,7 @@ public class StartGameEdition extends GameEdition {
 		if (!notifyCommands(commands, cmd -> cmd.onGameIsStarting(Plateform.getGameConfigurationContext().getGame()), true))
 			return false;
 
-		if (!Plateform.getGameConfigurationContext().initiate())
+		if (!Plateform.getGameConfigurationContext().initiate(sender, command, label, args))
 			return false;
 
 		Plateform.getGameConfigurationContext().start();
