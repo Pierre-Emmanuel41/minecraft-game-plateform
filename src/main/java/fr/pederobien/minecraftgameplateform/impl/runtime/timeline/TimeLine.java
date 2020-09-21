@@ -61,23 +61,22 @@ public class TimeLine implements IObservableTimeLine, IObsTimeTask {
 				// Notify the observer using onTime
 				obs.onTime(currentTime);
 
-				LocalTime nextRelativeTime = obs.getNextNotifiedTime();
+				LocalTime nextNotifiedTime = obs.getNextNotifiedTime();
 				// Check if the observer should be notified later.
-				if (!nextRelativeTime.equals(LocalTime.of(0, 0, 0))) {
-					LocalTime nextAbsoluteNotifiedTime = currentTime.plusSeconds(nextRelativeTime.toSecondOfDay());
-					IObservable<IObsTimeLine> nextObsList = observers.get(nextAbsoluteNotifiedTime);
+				if (!nextNotifiedTime.equals(LocalTime.of(0, 0, 0))) {
+					IObservable<IObsTimeLine> nextObsList = observers.get(nextNotifiedTime);
 
 					// If the observer is the first observer for the nextNotifiedTime then creating a new observers list.
 					if (nextObsList == null) {
 						nextObsList = new Observable<IObsTimeLine>();
-						observers.put(nextAbsoluteNotifiedTime, nextObsList);
+						observers.put(nextNotifiedTime, nextObsList);
 					}
 
 					// Adding the observer to the list in order to be notified later.
 					nextObsList.addObserver(obs);
 
 					// Getting observers associated to the game time of the task.
-					LocalTime countDownTime = currentTime.plusSeconds(nextRelativeTime.minusSeconds(obs.getCountDown()).toSecondOfDay());
+					LocalTime countDownTime = nextNotifiedTime.minusSeconds(obs.getCountDown());
 					IObservable<IObsTimeLine> obsOnCountDownTime = countdown.get(countDownTime);
 					if (obsOnCountDownTime == null) {
 						obsOnCountDownTime = new Observable<IObsTimeLine>();

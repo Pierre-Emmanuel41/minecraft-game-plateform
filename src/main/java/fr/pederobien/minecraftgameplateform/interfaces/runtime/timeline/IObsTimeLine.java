@@ -35,8 +35,9 @@ public interface IObsTimeLine {
 	void onCountDownTime(LocalTime currentTime);
 
 	/**
-	 * Get the next time at which this observer should be notified. This time correspond to the time between the last and the next
-	 * notification. If the returned time corresponds to 0h 0m 0s then this observer will never be notified again.
+	 * Get the next time at which this observer should be notified. This time correspond to the absolute time (from the beginning of
+	 * the game) at which the observer wants to be notified.. If the returned time corresponds to 0h 0m 0s then this observer will
+	 * never be notified again.
 	 * 
 	 * @return The new time at which this observer will be notified.
 	 */
