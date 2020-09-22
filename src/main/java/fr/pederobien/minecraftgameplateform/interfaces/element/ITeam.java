@@ -52,6 +52,13 @@ public interface ITeam extends INominable, IObsPlayerQuitOrJoinEventListener {
 	List<Player> getPlayers();
 
 	/**
+	 * Send the given message to each player registered in this room.
+	 * 
+	 * @param sender The player who send the message.
+	 */
+	void sendMessage(Player sender, String message);
+
+	/**
 	 * Remove all registered players. If this team has been created on the server and is not a clone, then the "server team" is also
 	 * updated.
 	 */

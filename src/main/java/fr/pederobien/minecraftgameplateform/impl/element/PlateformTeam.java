@@ -20,6 +20,7 @@ import fr.pederobien.minecraftgameplateform.interfaces.observer.IObsTeam;
 import fr.pederobien.minecraftgameplateform.interfaces.observer.IObservable;
 import fr.pederobien.minecraftgameplateform.utils.Plateform;
 import fr.pederobien.minecraftmanagers.EColor;
+import fr.pederobien.minecraftmanagers.MessageManager;
 import fr.pederobien.minecraftmanagers.TeamManager;
 
 public class PlateformTeam extends AbstractNominable implements ITeam {
@@ -107,6 +108,12 @@ public class PlateformTeam extends AbstractNominable implements ITeam {
 	@Override
 	public List<Player> getPlayers() {
 		return Collections.unmodifiableList(players);
+	}
+
+	@Override
+	public void sendMessage(Player sender, String message) {
+		for (Player player : players)
+			MessageManager.sendMessage(player, color.getInColor("[" + (player.equals(sender) ? "me" : sender.getName()) + " -> " + getName() + "] ") + message);
 	}
 
 	@Override
