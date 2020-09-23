@@ -25,4 +25,11 @@ public class OrientationEntry extends PlateformEntry {
 	protected String updateCurrentValue(Player player) {
 		return EArrows.getArrow(WorldManager.getYaw(player, block.getLocation())).getUnicode();
 	}
+
+	/**
+	 * @return The block to reach.
+	 */
+	public Block getBlock() {
+		return block;
+	}
 }
