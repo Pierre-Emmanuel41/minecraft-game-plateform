@@ -14,6 +14,7 @@ import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.scoreboard.Team;
 
+import fr.pederobien.minecraftdictionary.interfaces.IMinecraftMessageCode;
 import fr.pederobien.minecraftgameplateform.impl.observer.Observable;
 import fr.pederobien.minecraftgameplateform.interfaces.element.ITeam;
 import fr.pederobien.minecraftgameplateform.interfaces.observer.IObsTeam;
@@ -113,7 +114,13 @@ public class PlateformTeam extends AbstractNominable implements ITeam {
 	@Override
 	public void sendMessage(Player sender, String message) {
 		for (Player player : players)
-			MessageManager.sendMessage(player, color.getInColor("[" + (player.equals(sender) ? "me" : sender.getName()) + " -> " + getName() + "] ") + message);
+			MessageManager.sendMessage(player, getPrefix(sender, player) + message);
+	}
+
+	@Override
+	public void sendMessage(Player sender, IMinecraftMessageCode code, Object... args) {
+		for (Player player : players)
+			MessageManager.sendMessage(player, getPrefix(sender, player) + getMessage(player, code, args));
 	}
 
 	@Override
@@ -196,5 +203,9 @@ public class PlateformTeam extends AbstractNominable implements ITeam {
 		if (isCreatedOnServer() && !isCopy)
 			team.accept(serverTeam);
 		observable.notifyObservers(obs);
+	}
+
+	private String getPrefix(Player sender, Player player) {
+		return color.getInColor("[" + (player.equals(sender) ? "me" : sender.getName()) + " -> " + getName() + "] ");
 	}
 }

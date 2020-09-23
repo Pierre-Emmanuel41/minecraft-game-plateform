@@ -6,11 +6,13 @@ import java.util.Optional;
 import org.bukkit.entity.Player;
 import org.bukkit.scoreboard.Team;
 
+import fr.pederobien.minecraftdictionary.interfaces.IMinecraftMessageCode;
+import fr.pederobien.minecraftgameplateform.interfaces.editions.IPlateformCodeSender;
 import fr.pederobien.minecraftgameplateform.interfaces.observer.IObsPlayerQuitOrJoinEventListener;
 import fr.pederobien.minecraftgameplateform.interfaces.observer.IObsTeam;
 import fr.pederobien.minecraftmanagers.EColor;
 
-public interface ITeam extends INominable, IObsPlayerQuitOrJoinEventListener {
+public interface ITeam extends INominable, IObsPlayerQuitOrJoinEventListener, IPlateformCodeSender {
 
 	/**
 	 * @return The name of this team using {@link EColor#getInColor(String)} with parameters String equals {@link #getName()}.
@@ -57,6 +59,15 @@ public interface ITeam extends INominable, IObsPlayerQuitOrJoinEventListener {
 	 * @param sender The player who send the message.
 	 */
 	void sendMessage(Player sender, String message);
+
+	/**
+	 * For each player in this team, send the message associated to the given code.
+	 * 
+	 * @param sender The player who send the message to the team.
+	 * @param code   Used as key to get the right message in the right dictionary.
+	 * @param args   Some arguments (optional) used for dynamic messages.
+	 */
+	void sendMessage(Player sender, IMinecraftMessageCode code, Object... args);
 
 	/**
 	 * Remove all registered players. If this team has been created on the server and is not a clone, then the "server team" is also
