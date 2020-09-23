@@ -9,6 +9,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 import fr.pederobien.minecraftgameplateform.dictionary.EGameMessageCode;
 import fr.pederobien.minecraftgameplateform.interfaces.commands.ICommand;
 import fr.pederobien.minecraftgameplateform.utils.Plateform;
+import fr.pederobien.minecraftmanagers.EColor;
 
 public class StopGameEdition extends GameEdition {
 
@@ -21,7 +22,7 @@ public class StopGameEdition extends GameEdition {
 		if (!super.onCommand(sender, command, label, args))
 			return false;
 
-		sendSynchro(sender, EGameMessageCode.STOPPING_GAME, Plateform.getGameConfigurationContext().getName());
+		sendSynchro(sender, EGameMessageCode.STOPPING_GAME, EColor.DARK_GRAY, Plateform.getGameConfigurationContext().getName());
 
 		// Getting all registered commands
 		List<ICommand> commands = getCommands();

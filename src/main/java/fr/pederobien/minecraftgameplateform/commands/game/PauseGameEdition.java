@@ -9,6 +9,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 import fr.pederobien.minecraftgameplateform.dictionary.EGameMessageCode;
 import fr.pederobien.minecraftgameplateform.interfaces.commands.ICommand;
 import fr.pederobien.minecraftgameplateform.utils.Plateform;
+import fr.pederobien.minecraftmanagers.EColor;
 
 public class PauseGameEdition extends GameEdition {
 	private boolean isGameStatePause;
@@ -29,7 +30,7 @@ public class PauseGameEdition extends GameEdition {
 			// Notify each command a game is pausing
 			if (!notifyCommands(commands, cmd -> cmd.onGameIsPausing(Plateform.getGameConfigurationContext().getGame()), true))
 				return false;
-			sendSynchro(sender, EGameMessageCode.PAUSING_GAME, Plateform.getGameConfigurationContext().getName());
+			sendSynchro(sender, EGameMessageCode.PAUSING_GAME, EColor.DARK_GRAY, Plateform.getGameConfigurationContext().getName());
 			Plateform.getGameConfigurationContext().pause();
 
 			// Notify each command a game is paused
@@ -39,7 +40,7 @@ public class PauseGameEdition extends GameEdition {
 			// Notify each command a game is resuming
 			if (!notifyCommands(commands, cmd -> cmd.onGameIsResuming(Plateform.getGameConfigurationContext().getGame()), true))
 				return false;
-			sendSynchro(sender, EGameMessageCode.RESUMING_GAME, Plateform.getGameConfigurationContext().getName());
+			sendSynchro(sender, EGameMessageCode.RESUMING_GAME, EColor.DARK_GRAY, Plateform.getGameConfigurationContext().getName());
 			Plateform.getGameConfigurationContext().relaunch();
 
 			// Notify each command a game is resumed

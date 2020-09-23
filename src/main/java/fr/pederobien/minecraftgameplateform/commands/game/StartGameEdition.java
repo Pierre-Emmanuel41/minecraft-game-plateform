@@ -10,6 +10,7 @@ import fr.pederobien.minecraftgameplateform.dictionary.EGameMessageCode;
 import fr.pederobien.minecraftgameplateform.impl.runtime.timeline.TimeLine;
 import fr.pederobien.minecraftgameplateform.interfaces.commands.ICommand;
 import fr.pederobien.minecraftgameplateform.utils.Plateform;
+import fr.pederobien.minecraftmanagers.EColor;
 
 public class StartGameEdition extends GameEdition {
 	private boolean isRegistered;
@@ -23,7 +24,7 @@ public class StartGameEdition extends GameEdition {
 		if (!super.onCommand(sender, command, label, args))
 			return false;
 
-		sendSynchro(sender, EGameMessageCode.STARTING_GAME, Plateform.getGameConfigurationContext().getName());
+		sendSynchro(sender, EGameMessageCode.STARTING_GAME, EColor.DARK_GRAY, Plateform.getGameConfigurationContext().getName());
 
 		// Getting all registered commands
 		List<ICommand> commands = getCommands();
