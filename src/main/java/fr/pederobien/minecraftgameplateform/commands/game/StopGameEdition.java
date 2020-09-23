@@ -22,7 +22,7 @@ public class StopGameEdition extends GameEdition {
 		if (!super.onCommand(sender, command, label, args))
 			return false;
 
-		sendSynchro(sender, EGameMessageCode.STOPPING_GAME, EColor.DARK_GRAY, Plateform.getGameConfigurationContext().getName());
+		sendNotSynchro(sender, EGameMessageCode.STOPPING_GAME, EColor.DARK_GRAY, Plateform.getGameConfigurationContext().getName());
 
 		// Getting all registered commands
 		List<ICommand> commands = getCommands();
@@ -33,6 +33,7 @@ public class StopGameEdition extends GameEdition {
 
 		Plateform.getGameConfigurationContext().stop();
 		Plateform.getGameConfigurationContext().getListener().setActivated(false);
+		Plateform.getObjectiveUpdater().clear();
 
 		// Notify each command a game is stopped.
 		notifyCommands(commands, cmd -> cmd.onGameIsStopped(Plateform.getGameConfigurationContext().getGame()));
