@@ -183,6 +183,18 @@ public class GameConfigurationHelper implements IGameConfigurationHelper {
 	}
 
 	@Override
+	public boolean isAlone(Player player) {
+		Optional<ITeam> optTeam = getTeam(player);
+		return optTeam.isPresent() ? optTeam.get().getPlayers().size() == 1 : true;
+	}
+
+	@Override
+	public boolean isAlone(Player player, Predicate<Player> predicate) {
+		Optional<ITeam> optTeam = getTeam(player);
+		return optTeam.isPresent() ? optTeam.get().getPlayers().stream().filter(predicate).collect(Collectors.toList()).size() == 1 : true;
+	}
+
+	@Override
 	public Stream<EColor> getAvailableColors() {
 		List<EColor> alreadyUsedColors = getAlreadyUsedColors();
 		return Arrays.asList(EColor.values()).stream().filter(color -> !alreadyUsedColors.contains(color));

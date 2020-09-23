@@ -276,6 +276,25 @@ public interface IGameConfigurationHelper {
 	void movePlayer(Player player, ITeam targetTeam);
 
 	/**
+	 * To know if a player is alone in its team. If the player is not registered in team, returns true.
+	 * 
+	 * @param player The player used to know if it is alone are not in its team.
+	 * 
+	 * @return True if the given player is alone (ie has no colleague), false otherwise.
+	 */
+	boolean isAlone(Player player);
+
+	/**
+	 * To know if a player is alone in its team. If the player is not registered in team, returns true.
+	 * 
+	 * @param player    The player used to know if it is alone are not in its team.
+	 * @param predicate A filter for the players from the given player's team.
+	 * 
+	 * @return True if the given player is alone (ie has no colleague), false otherwise.
+	 */
+	boolean isAlone(Player player, Predicate<Player> predicate);
+
+	/**
 	 * @return A stream that contains all colours not already used by teams of this configuration.
 	 */
 	Stream<EColor> getAvailableColors();
