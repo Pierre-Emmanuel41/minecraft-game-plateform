@@ -13,11 +13,19 @@ import fr.pederobien.minecraftgameplateform.commands.game.StopCommand;
 import fr.pederobien.minecraftgameplateform.utils.Plateform;
 
 public class PlateformPlugin extends JavaPlugin {
-	public static final String NAME = "minecraft-game-plateform";
+	private static Plugin plugin;
+
+	/**
+	 * @return The plugin associated to this plateform plugin.
+	 */
+	public static Plugin get() {
+		return plugin;
+	}
 
 	@Override
 	public void onEnable() {
 		new Platform(this);
+		plugin = this;
 
 		new StartCommand(this);
 		new PauseCommand(this);
@@ -41,7 +49,7 @@ public class PlateformPlugin extends JavaPlugin {
 	}
 
 	private void registerDictionary(String parent, String... dictionaryNames) {
-		Path jarPath = Plateform.ROOT.getParent().resolve(Plateform.getJarName(NAME));
+		Path jarPath = Plateform.ROOT.getParent().resolve(getName().concat(".jar"));
 		String dictionariesFolder = "resources/dictionaries/".concat(parent).concat("/");
 		for (String name : dictionaryNames)
 			registerDictionary(Plateform.getDefaultDictionaryParser(dictionariesFolder.concat(name)), jarPath);

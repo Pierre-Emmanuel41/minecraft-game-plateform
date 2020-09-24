@@ -57,18 +57,6 @@ public class Plateform {
 	}
 
 	/**
-	 * Get the name of the jar associated to the given plugin name. If there is any plugin registered, this throws a
-	 * {@link NullPointerException}.
-	 * 
-	 * @param pluginName The name of the plugin.
-	 * 
-	 * @return The jar's name of the plugin associated to the given plugin name.
-	 */
-	public static String getJarName(String pluginName) {
-		return getPluginHelper().getPlugin(pluginName).get().getName().concat(".jar");
-	}
-
-	/**
 	 * @return A context for game. This context is used to start, pause, relaunch and stop the game managed by the current
 	 *         configuration of this context.
 	 */
