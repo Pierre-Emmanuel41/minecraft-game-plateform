@@ -70,4 +70,20 @@ public class LocationEntry extends PlateformEntry {
 	protected IMinecraftMessageCode getBeforeAsCode(Player player) {
 		return EEntryMessageCode.X_Y_Z;
 	}
+
+	/**
+	 * @return The center used to calculate the relative player position.
+	 */
+	public Block getCenter() {
+		return center;
+	}
+
+	/**
+	 * Set the center used to calculate the relative player position.
+	 * 
+	 * @param center The center used to calculate the relative player position.
+	 */
+	public void setCenter(Block center) {
+		this.center = center;
+	}
 }
