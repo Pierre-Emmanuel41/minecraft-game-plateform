@@ -114,7 +114,7 @@ public class TeamHelper {
 	 */
 	public static Optional<ITeam> getTeam(Player player) {
 		if (Plateform.getGameConfigurationContext().getGameConfiguration() == null)
-			return Optional.of(null);
+			return Optional.ofNullable(null);
 
 		IGameConfiguration configuration = Plateform.getGameConfigurationContext().getGameConfiguration();
 		for (ITeam team : configuration.getTeams())
