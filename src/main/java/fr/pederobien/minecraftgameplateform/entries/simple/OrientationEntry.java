@@ -32,4 +32,13 @@ public class OrientationEntry extends PlateformEntry {
 	public Block getBlock() {
 		return block;
 	}
+
+	/**
+	 * Set The block to reach.
+	 * 
+	 * @param block The block to reach.
+	 */
+	public void setBlock(Block block) {
+		this.block = block;
+	}
 }
