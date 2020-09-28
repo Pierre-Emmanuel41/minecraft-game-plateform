@@ -35,7 +35,7 @@ public class LocationEntry extends PlateformEntry {
 	 * @param delimiter The sequence of characters to be displayed between each element added.
 	 */
 	public LocationEntry(int score, String delimiter) {
-		this(score, delimiter, WorldManager.getBlockAtFromOverworld(0, 0, 0));
+		this(score, delimiter, WorldManager.getFromOverworldHighestBlockYAt(0, 0));
 	}
 
 	/**
