@@ -182,5 +182,6 @@ public class Plateform {
 		getPluginHelper().register(plugin);
 		Plateform.updater = ObjectiveUpdater.getInstance(getPlugin());
 		Plateform.playerQuitOrJoinEventListener = new PlayerQuitOrJoinEventListener();
+		playerQuitOrJoinEventListener.register(plugin);
 	}
 }
