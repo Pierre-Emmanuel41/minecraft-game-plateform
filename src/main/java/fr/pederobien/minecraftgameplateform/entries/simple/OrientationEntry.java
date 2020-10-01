@@ -21,6 +21,15 @@ public class OrientationEntry extends PlateformEntry {
 		this.block = block;
 	}
 
+	/**
+	 * Create an entry that displays the orientation to follow to reach the given block.
+	 * 
+	 * @param score The line number of this entry.
+	 */
+	public OrientationEntry(int score) {
+		this(score, WorldManager.getFromOverworldHighestBlockYAt(0, 0));
+	}
+
 	@Override
 	protected String updateCurrentValue(Player player) {
 		return EArrows.getArrow(WorldManager.getYaw(player, block.getLocation())).getUnicode();
