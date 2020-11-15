@@ -135,7 +135,12 @@ public class TimeLine implements IObservableTimeLine, IObsTimeTask {
 
 	@Override
 	public void removeObserver(LocalTime time, IObsTimeLine obs) {
-		observers.remove(time);
-		countdown.remove(time);
+		IObservable<IObsTimeLine> observable = observers.get(time);
+		if (observable != null)
+			observable.removeObserver(obs);
+
+		observable = countdown.get(time);
+		if (observable != null)
+			observable.removeObserver(obs);
 	}
 }
