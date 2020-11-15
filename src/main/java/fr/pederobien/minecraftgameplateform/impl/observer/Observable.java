@@ -64,7 +64,13 @@ public class Observable<T> implements IObservable<T> {
 
 	private void internalNotify(Stream<T> observers, Consumer<T> consumer) {
 		isNotifying = true;
-		observers.forEach(consumer);
+		observers.forEach(obj -> {
+			try {
+				consumer.accept(obj);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		});
 		isNotifying = false;
 		if (addObserverFlag) {
 			tempAddObserver.forEach(obs -> this.observers.add(obs));
