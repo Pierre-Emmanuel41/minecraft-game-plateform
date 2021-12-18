@@ -2,11 +2,11 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>fr.pederobien</groupId>
-	<artifactId>minecraft-game-plateform</artifactId>
+	<groupId>fr.pederobien.minecraft</groupId>
+	<artifactId>game-plateform</artifactId>
 	<packaging>jar</packaging>
 	<version>1.0_MC_1.13.2-SNAPSHOT</version>
-	<name>minecraft-game-plateform</name>
+	<name>game-plateform</name>
 	<url>http://maven.apache.org</url>
 
 	<properties>
@@ -32,8 +32,6 @@
 	</dependencies>
 
 	<build>
-		<finalName>minecraft-game-plateform</finalName>
-		<sourceDirectory>src/main/java</sourceDirectory>
 		<resources>
 			<resource>
 				<targetPath>.</targetPath>
