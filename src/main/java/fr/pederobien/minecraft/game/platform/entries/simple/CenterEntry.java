@@ -3,8 +3,8 @@ package fr.pederobien.minecraft.game.platform.entries.simple;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
 
-import fr.pederobien.minecraft.game.platform.entries.EEntryMessageCode;
-import fr.pederobien.minecraftdictionary.interfaces.IMinecraftMessageCode;
+import fr.pederobien.minecraft.dictionary.interfaces.IMinecraftCode;
+import fr.pederobien.minecraft.game.platform.entries.EEntryCode;
 
 public class CenterEntry extends OrientationEntry {
 
@@ -19,7 +19,7 @@ public class CenterEntry extends OrientationEntry {
 	}
 
 	@Override
-	protected final IMinecraftMessageCode getBeforeAsCode(Player player) {
-		return EEntryMessageCode.CENTER;
+	protected final IMinecraftCode getBeforeAsCode(Player player) {
+		return EEntryCode.CENTER;
 	}
 }

@@ -6,12 +6,12 @@ import org.bukkit.Location;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
 
-import fr.pederobien.minecraft.game.platform.entries.EEntryMessageCode;
-import fr.pederobien.minecraft.game.platform.entries.PlateformEntry;
-import fr.pederobien.minecraftdictionary.interfaces.IMinecraftMessageCode;
-import fr.pederobien.minecraftmanagers.WorldManager;
+import fr.pederobien.minecraft.dictionary.interfaces.IMinecraftCode;
+import fr.pederobien.minecraft.game.platform.entries.EEntryCode;
+import fr.pederobien.minecraft.managers.WorldManager;
+import fr.pederobien.minecraft.scoreboards.impl.CodeEntry;
 
-public class LocationEntry extends PlateformEntry {
+public class LocationEntry extends CodeEntry {
 	private String delimiter;
 	private Block center;
 
@@ -67,8 +67,8 @@ public class LocationEntry extends PlateformEntry {
 	}
 
 	@Override
-	protected IMinecraftMessageCode getBeforeAsCode(Player player) {
-		return EEntryMessageCode.X_Y_Z;
+	protected IMinecraftCode getBeforeAsCode(Player player) {
+		return EEntryCode.X_Y_Z;
 	}
 
 	/**

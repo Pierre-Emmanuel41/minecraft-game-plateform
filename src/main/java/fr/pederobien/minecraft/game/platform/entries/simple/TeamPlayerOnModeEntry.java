@@ -6,11 +6,11 @@ import org.bukkit.GameMode;
 import org.bukkit.entity.Player;
 import org.bukkit.scoreboard.Team;
 
-import fr.pederobien.minecraft.game.platform.entries.PlateformEntry;
-import fr.pederobien.minecraft.game.platform.interfaces.element.ITeam;
-import fr.pederobien.minecraftmanagers.TeamManager;
+import fr.pederobien.minecraft.game.interfaces.ITeam;
+import fr.pederobien.minecraft.managers.TeamManager;
+import fr.pederobien.minecraft.scoreboards.impl.CodeEntry;
 
-public class TeamPlayerOnModeEntry extends PlateformEntry {
+public class TeamPlayerOnModeEntry extends CodeEntry {
 	private ITeam team;
 	private GameMode mode;
 	private boolean colored;
@@ -44,8 +44,7 @@ public class TeamPlayerOnModeEntry extends PlateformEntry {
 	}
 
 	/**
-	 * 
-	 * @return
+	 * @return The game mode of players checked by this entry.
 	 */
 	public GameMode getGameMode() {
 		return mode;

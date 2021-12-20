@@ -4,8 +4,8 @@ import java.time.LocalTime;
 
 import org.bukkit.entity.Player;
 
-import fr.pederobien.minecraft.game.platform.entries.EEntryMessageCode;
-import fr.pederobien.minecraftdictionary.interfaces.IMinecraftMessageCode;
+import fr.pederobien.minecraft.dictionary.interfaces.IMinecraftCode;
+import fr.pederobien.minecraft.game.platform.entries.EEntryCode;
 
 public class PauseTimeEntry extends TimeTaskEntry {
 
@@ -24,7 +24,7 @@ public class PauseTimeEntry extends TimeTaskEntry {
 	}
 
 	@Override
-	protected IMinecraftMessageCode getBeforeAsCode(Player player) {
-		return EEntryMessageCode.PAUSE_TIME;
+	protected IMinecraftCode getBeforeAsCode(Player player) {
+		return EEntryCode.PAUSE_TIME;
 	}
 }

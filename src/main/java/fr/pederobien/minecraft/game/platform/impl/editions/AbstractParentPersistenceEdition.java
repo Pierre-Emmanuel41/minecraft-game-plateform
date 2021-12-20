@@ -24,7 +24,7 @@ import fr.pederobien.minecraftdictionary.interfaces.IMinecraftMessageEvent;
 import fr.pederobien.minecraftdictionary.interfaces.IMinecraftNotificationCenter;
 import fr.pederobien.persistence.interfaces.IUnmodifiableNominable;
 
-public abstract class AbstractParentPersistenceEdition<T extends IUnmodifiableNominable>
+abstract class AbstractParentPersistenceEdition<T extends IUnmodifiableNominable>
 		extends AbstractMessageCodeParentEdition<T, IParentPersistenceEdition<T>, IMapPersistenceEdition<T>> implements IParentPersistenceEdition<T> {
 	private IMinecraftPersistence<T> minecraftPersistence;
 	private Plugin plugin;

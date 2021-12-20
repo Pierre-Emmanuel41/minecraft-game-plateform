@@ -5,9 +5,9 @@ import org.bukkit.Statistic;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
 
-import fr.pederobien.minecraft.game.platform.entries.PlateformEntry;
+import fr.pederobien.minecraft.scoreboards.impl.CodeEntry;
 
-public class StatisticEntry extends PlateformEntry {
+public class StatisticEntry extends CodeEntry {
 	private Statistic statistic;
 	private EntityType entityType;
 	private Material material;

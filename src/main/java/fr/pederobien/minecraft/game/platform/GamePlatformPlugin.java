@@ -2,13 +2,19 @@ package fr.pederobien.minecraft.game.platform;
 
 import java.io.FileNotFoundException;
 import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.Arrays;
+import java.util.List;
 
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import fr.pederobien.dictionary.interfaces.IDictionaryParser;
+import fr.pederobien.dictionary.impl.JarXmlDictionaryParser;
+import fr.pederobien.minecraft.dictionary.impl.MinecraftDictionaryContext;
 
 public class GamePlatformPlugin extends JavaPlugin {
+	private static final Path DICTIONARY_FOLDER = Paths.get("resources/dictionaries");
+
 	private static Plugin instance;
 
 	/**
@@ -31,24 +37,21 @@ public class GamePlatformPlugin extends JavaPlugin {
 	}
 
 	private void registerDictionaries() {
-		String[] dictionaries = new String[] { "Common.xml", "Game.xml", "WorldStructure.xml", "Configurations.xml", "Entry.xml", "Plateform.xml" };
-		// Registering French dictionaries
-		registerDictionary("French", dictionaries);
+		// Folder for dictionaries
+		String[] parents = new String[] { "English", "French" };
 
-		// Registering English dictionaries
-		registerDictionary("English", dictionaries);
-	}
+		// Dictionary files
+		List<String> dictionaries = Arrays.asList("Common.xml", "Game.xml", "WorldStructure.xml", "Configurations.xml", "Entry.xml", "Plateform.xml");
 
-	private void registerDictionary(String parent, String... dictionaryNames) {
-		Path jarPath = Platform.ROOT.getParent().resolve(getName().concat(".jar"));
-		String dictionariesFolder = "resources/dictionaries/".concat(parent).concat("/");
-		for (String name : dictionaryNames)
-			registerDictionary(Platform.getDefaultDictionaryParser(dictionariesFolder.concat(name)), jarPath);
-	}
-
-	private void registerDictionary(IDictionaryParser parser, Path jarPath) {
 		try {
-			Platform.getNotificationCenter().getDictionaryContext().register(parser, jarPath);
+			JarXmlDictionaryParser dictionaryParser = new JarXmlDictionaryParser(Platform.PLUGINS);
+			MinecraftDictionaryContext context = MinecraftDictionaryContext.instance();
+
+			for (String parent : parents) {
+				for (String dictionary : dictionaries) {
+					context.register(dictionaryParser.parse(DICTIONARY_FOLDER.resolve(parent).resolve(dictionary)));
+				}
+			}
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		}

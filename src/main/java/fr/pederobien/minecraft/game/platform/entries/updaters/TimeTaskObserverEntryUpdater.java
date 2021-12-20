@@ -1,39 +1,36 @@
 package fr.pederobien.minecraft.game.platform.entries.updaters;
 
+import fr.pederobien.minecraft.game.event.TimeTaskStartPostEvent;
+import fr.pederobien.minecraft.game.event.TimeTaskStopPostEvent;
+import fr.pederobien.minecraft.game.event.TimeTaskTimeChangePostEvent;
 import fr.pederobien.minecraft.game.platform.Platform;
-import fr.pederobien.minecraft.game.platform.interfaces.runtime.task.IObsTimeTask;
-import fr.pederobien.minecraft.game.platform.interfaces.runtime.task.ITimeTask;
-import fr.pederobien.minecraftscoreboards.impl.EntryUpdater;
+import fr.pederobien.minecraft.scoreboards.impl.EntryUpdater;
+import fr.pederobien.utils.event.EventHandler;
+import fr.pederobien.utils.event.EventManager;
+import fr.pederobien.utils.event.IEventListener;
 
-public class TimeTaskObserverEntryUpdater extends EntryUpdater implements IObsTimeTask {
+public class TimeTaskObserverEntryUpdater extends EntryUpdater implements IEventListener {
 
 	@Override
 	public void initialize() {
-		Platform.getTimeTask().addObserver(this);
+		EventManager.registerListener(this);
 	}
 
-	@Override
-	public void onStart(ITimeTask task) {
+	@EventHandler
+	private void onTimeTaskStart(TimeTaskStartPostEvent event) {
 		setActivated(true);
 	}
 
-	@Override
-	public void onPause(ITimeTask task) {
-
-	}
-
-	@Override
-	public void onRelaunched(ITimeTask task) {
-
-	}
-
-	@Override
-	public void onStop(ITimeTask task) {
+	@EventHandler
+	private void onTimeTaskStop(TimeTaskStopPostEvent event) {
 		setActivated(false);
 	}
 
-	@Override
-	public void timeChanged(ITimeTask task) {
+	@EventHandler
+	private void onTimeChange(TimeTaskTimeChangePostEvent event) {
+		if (!event.getTask().equals(Platform.TIME_LINE.getTimeTask()))
+			return;
+
 		update();
 	}
 }

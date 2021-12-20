@@ -3,11 +3,11 @@ package fr.pederobien.minecraft.game.platform.entries.simple;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
 
-import fr.pederobien.minecraft.game.platform.entries.PlateformEntry;
-import fr.pederobien.minecraftmanagers.EArrows;
-import fr.pederobien.minecraftmanagers.WorldManager;
+import fr.pederobien.minecraft.managers.EArrows;
+import fr.pederobien.minecraft.managers.WorldManager;
+import fr.pederobien.minecraft.scoreboards.impl.CodeEntry;
 
-public class OrientationEntry extends PlateformEntry {
+public class OrientationEntry extends CodeEntry {
 	private Block block;
 
 	/**

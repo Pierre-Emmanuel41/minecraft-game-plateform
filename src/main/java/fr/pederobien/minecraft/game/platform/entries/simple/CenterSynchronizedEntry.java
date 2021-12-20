@@ -3,7 +3,7 @@ package fr.pederobien.minecraft.game.platform.entries.simple;
 import org.bukkit.World;
 import org.bukkit.entity.Player;
 
-import fr.pederobien.minecraftmanagers.WorldManager;
+import fr.pederobien.minecraft.managers.WorldManager;
 
 public class CenterSynchronizedEntry extends CenterEntry {
 	private World currentWorld;

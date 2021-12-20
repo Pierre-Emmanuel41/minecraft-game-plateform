@@ -4,9 +4,9 @@ import java.text.DecimalFormat;
 
 import org.bukkit.entity.Player;
 
-import fr.pederobien.minecraft.game.platform.entries.PlateformEntry;
+import fr.pederobien.minecraft.scoreboards.impl.CodeEntry;
 
-public class HealthEntry extends PlateformEntry {
+public class HealthEntry extends CodeEntry {
 	private DecimalFormat format;
 
 	/**

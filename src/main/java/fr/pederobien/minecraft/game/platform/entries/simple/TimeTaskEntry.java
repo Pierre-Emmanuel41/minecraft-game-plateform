@@ -4,12 +4,12 @@ import java.time.LocalTime;
 
 import org.bukkit.entity.Player;
 
+import fr.pederobien.minecraft.game.impl.DisplayHelper;
 import fr.pederobien.minecraft.game.platform.Platform;
-import fr.pederobien.minecraft.game.platform.entries.PlateformEntry;
 import fr.pederobien.minecraft.game.platform.interfaces.runtime.task.ITimeTask;
-import fr.pederobien.minecraftdevelopmenttoolkit.utils.DisplayHelper;
+import fr.pederobien.minecraft.scoreboards.impl.CodeEntry;
 
-public abstract class TimeTaskEntry extends PlateformEntry {
+public abstract class TimeTaskEntry extends CodeEntry {
 
 	/**
 	 * Constructs an entry that propose methods to display player language sensitive messages.

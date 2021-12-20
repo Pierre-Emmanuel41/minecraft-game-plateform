@@ -6,10 +6,10 @@ import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 import org.bukkit.scoreboard.Team;
 
-import fr.pederobien.minecraft.game.platform.entries.PlateformEntry;
-import fr.pederobien.minecraftmanagers.TeamManager;
+import fr.pederobien.minecraft.managers.TeamManager;
+import fr.pederobien.minecraft.scoreboards.impl.CodeEntry;
 
-public class TeamNameEntry extends PlateformEntry {
+public class TeamNameEntry extends CodeEntry {
 	private boolean colored;
 
 	/**
