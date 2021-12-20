@@ -7,9 +7,6 @@ import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import fr.pederobien.dictionary.interfaces.IDictionaryParser;
-import fr.pederobien.minecraft.gameplateform.commands.game.PauseCommand;
-import fr.pederobien.minecraft.gameplateform.commands.game.StartCommand;
-import fr.pederobien.minecraft.gameplateform.commands.game.StopCommand;
 import fr.pederobien.minecraft.gameplateform.utils.Plateform;
 
 public class PlateformPlugin extends JavaPlugin {
@@ -26,10 +23,6 @@ public class PlateformPlugin extends JavaPlugin {
 	public void onEnable() {
 		new Platform(this);
 		plugin = this;
-
-		new StartCommand(this);
-		new PauseCommand(this);
-		new StopCommand(this);
 
 		registerDictionaries();
 	}
