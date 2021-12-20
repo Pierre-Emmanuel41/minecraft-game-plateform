@@ -5,6 +5,7 @@ import java.time.LocalTime;
 import org.bukkit.entity.Player;
 
 import fr.pederobien.minecraft.dictionary.interfaces.IMinecraftCode;
+import fr.pederobien.minecraft.game.platform.Platform;
 import fr.pederobien.minecraft.game.platform.entries.EEntryCode;
 
 public class GameTimeEntry extends TimeTaskEntry {
@@ -20,7 +21,7 @@ public class GameTimeEntry extends TimeTaskEntry {
 
 	@Override
 	public LocalTime getTime() {
-		return getTask().getGameTime();
+		return Platform.TIME_LINE.getTimeTask().getGameTime();
 	}
 
 	@Override

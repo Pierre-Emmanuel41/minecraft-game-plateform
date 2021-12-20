@@ -3,23 +3,18 @@ package fr.pederobien.minecraft.game.platform;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
-import org.bukkit.plugin.Plugin;
-
+import fr.pederobien.minecraft.game.impl.time.TimeLine;
 import fr.pederobien.minecraft.game.interfaces.time.ITimeLine;
 import fr.pederobien.minecraft.game.platform.helpers.CommandHelper;
 import fr.pederobien.minecraft.game.platform.helpers.ConfigurationHelperManager;
 import fr.pederobien.minecraft.game.platform.helpers.PluginHelper;
 import fr.pederobien.minecraft.game.platform.impl.element.GameConfigurationContext;
-import fr.pederobien.minecraft.game.platform.impl.runtime.task.TimeTask;
-import fr.pederobien.minecraft.game.platform.impl.runtime.timeline.TimeLine;
 import fr.pederobien.minecraft.game.platform.interfaces.commands.ICommand;
 import fr.pederobien.minecraft.game.platform.interfaces.commands.ICommandHelper;
 import fr.pederobien.minecraft.game.platform.interfaces.element.IGameConfiguration;
 import fr.pederobien.minecraft.game.platform.interfaces.element.IGameConfigurationContext;
 import fr.pederobien.minecraft.game.platform.interfaces.element.IPluginHelper;
 import fr.pederobien.minecraft.game.platform.interfaces.helpers.IGameConfigurationHelper;
-import fr.pederobien.minecraft.game.platform.interfaces.runtime.task.ITimeTask;
-import fr.pederobien.minecraft.game.platform.interfaces.runtime.timeline.IObservableTimeLine;
 import fr.pederobien.minecraft.game.platform.internal.IPersistenceCenter;
 import fr.pederobien.minecraft.game.platform.internal.PersistenceCenter;
 import fr.pederobien.minecraft.scoreboards.ObjectiveUpdater;
@@ -52,7 +47,7 @@ public class Platform {
 
 	static {
 		OBJECTIVE_UPDATER = ObjectiveUpdater.getInstance(GamePlatformPlugin.instance());
-		TIME_LINE = new fr.pederobien.minecraft.game.impl.time.TimeLine(GamePlatformPlugin.instance());
+		TIME_LINE = new TimeLine(GamePlatformPlugin.instance());
 	}
 
 	/**
@@ -97,24 +92,5 @@ public class Platform {
 	 */
 	public static IPluginHelper getPluginHelper() {
 		return PluginHelper.getInstance();
-	}
-
-	/**
-	 * @return A task that represent the time during a game. When calling method {@link ITimeTask#start(Plugin)}, the game time
-	 *         changed each second and all registered observers are notified.
-	 */
-	public static ITimeTask getTimeTask() {
-		return TimeTask.getInstance();
-	}
-
-	/**
-	 * @return The time line associated to this plugin. The time line is particularly used to registered a time event. If you want to
-	 *         be notified punctually during a game, this time line should be used. However, if you want to be notified each second,
-	 *         then you should be registered as observer for the time task.
-	 * 
-	 * @see #getTimeTask()
-	 */
-	public static IObservableTimeLine getTimeLine() {
-		return TimeLine.getInstance();
 	}
 }

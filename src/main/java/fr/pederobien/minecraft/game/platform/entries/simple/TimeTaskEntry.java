@@ -5,8 +5,6 @@ import java.time.LocalTime;
 import org.bukkit.entity.Player;
 
 import fr.pederobien.minecraft.game.impl.DisplayHelper;
-import fr.pederobien.minecraft.game.platform.Platform;
-import fr.pederobien.minecraft.game.platform.interfaces.runtime.task.ITimeTask;
 import fr.pederobien.minecraft.scoreboards.impl.CodeEntry;
 
 public abstract class TimeTaskEntry extends CodeEntry {
@@ -24,13 +22,6 @@ public abstract class TimeTaskEntry extends CodeEntry {
 	 * @return The time to display.
 	 */
 	public abstract LocalTime getTime();
-
-	/**
-	 * @return A task that represent the time during a game.
-	 */
-	protected ITimeTask getTask() {
-		return Platform.getTimeTask();
-	}
 
 	@Override
 	protected String updateCurrentValue(Player player) {
