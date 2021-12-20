@@ -8,11 +8,11 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.command.TabCompleter;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import fr.pederobien.minecraft.game.platform.Platform;
 import fr.pederobien.minecraft.game.platform.interfaces.commands.ICommand;
 import fr.pederobien.minecraft.game.platform.interfaces.commands.ICommandHelper;
 import fr.pederobien.minecraft.game.platform.interfaces.element.IGame;
 import fr.pederobien.minecraft.game.platform.interfaces.element.IGameConfigurationContext;
-import fr.pederobien.minecraft.game.platform.utils.Platform;
 
 public abstract class AbstractCommand implements ICommand {
 	private static final TabCompleter DEFAULT_COMPLETER;

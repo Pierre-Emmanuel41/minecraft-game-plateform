@@ -7,7 +7,6 @@ import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import fr.pederobien.dictionary.interfaces.IDictionaryParser;
-import fr.pederobien.minecraft.game.platform.utils.Platform;
 
 public class GamePlatformPlugin extends JavaPlugin {
 	private static Plugin instance;

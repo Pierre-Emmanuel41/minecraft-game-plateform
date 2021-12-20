@@ -5,10 +5,10 @@ import java.util.Map;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
+import fr.pederobien.minecraft.game.platform.Platform;
 import fr.pederobien.minecraft.game.platform.impl.element.persistence.AbstractMinecraftPersistence;
 import fr.pederobien.minecraft.game.platform.internal.IPersistenceCenter;
 import fr.pederobien.minecraft.game.platform.internal.persistence.loaders.PersistenceCenterLoaderV10;
-import fr.pederobien.minecraft.game.platform.utils.Platform;
 
 public class PersistenceCenterPersistence extends AbstractMinecraftPersistence<IPersistenceCenter> {
 	private static final String ROOT_XML_DOCUMENT = "register";

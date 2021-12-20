@@ -14,12 +14,12 @@ import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
 import org.bukkit.scoreboard.Team;
 
+import fr.pederobien.minecraft.game.platform.Platform;
 import fr.pederobien.minecraft.game.platform.exceptions.configurations.RandomTeamNotEnoughPlayer;
 import fr.pederobien.minecraft.game.platform.exceptions.configurations.RandomTeamNotEnoughTeam;
 import fr.pederobien.minecraft.game.platform.interfaces.element.IGameConfiguration;
 import fr.pederobien.minecraft.game.platform.interfaces.element.IGameConfigurationContext;
 import fr.pederobien.minecraft.game.platform.interfaces.element.ITeam;
-import fr.pederobien.minecraft.game.platform.utils.Platform;
 import fr.pederobien.minecraftmanagers.PlayerManager;
 import fr.pederobien.minecraftmanagers.TeamManager;
 import fr.pederobien.minecraftmanagers.WorldManager;

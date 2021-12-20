@@ -9,11 +9,11 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.Plugin;
 
+import fr.pederobien.minecraft.game.platform.Platform;
 import fr.pederobien.minecraft.game.platform.dictionary.ECommonMessageCode;
 import fr.pederobien.minecraft.game.platform.interfaces.editions.IMapPersistenceEdition;
 import fr.pederobien.minecraft.game.platform.interfaces.editions.IParentPersistenceEdition;
 import fr.pederobien.minecraft.game.platform.interfaces.element.persistence.IMinecraftPersistence;
-import fr.pederobien.minecraft.game.platform.utils.Platform;
 import fr.pederobien.minecraftdevelopmenttoolkit.exceptions.ArgumentNotFoundException;
 import fr.pederobien.minecraftdevelopmenttoolkit.exceptions.NotAvailableArgumentException;
 import fr.pederobien.minecraftdevelopmenttoolkit.exceptions.NotAvailableCommandException;

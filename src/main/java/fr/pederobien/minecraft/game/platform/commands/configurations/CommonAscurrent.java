@@ -3,9 +3,9 @@ package fr.pederobien.minecraft.game.platform.commands.configurations;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 
+import fr.pederobien.minecraft.game.platform.Platform;
 import fr.pederobien.minecraft.game.platform.dictionary.EGameConfigurationMessageCode;
 import fr.pederobien.minecraft.game.platform.interfaces.element.IGameConfiguration;
-import fr.pederobien.minecraft.game.platform.utils.Platform;
 
 public class CommonAscurrent<T extends IGameConfiguration> extends AbstractGameConfigurationEdition<T> {
 

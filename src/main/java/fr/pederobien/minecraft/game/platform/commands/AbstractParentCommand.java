@@ -2,9 +2,9 @@ package fr.pederobien.minecraft.game.platform.commands;
 
 import org.bukkit.plugin.java.JavaPlugin;
 
+import fr.pederobien.minecraft.game.platform.Platform;
 import fr.pederobien.minecraft.game.platform.interfaces.commands.IParentCommand;
 import fr.pederobien.minecraft.game.platform.interfaces.editions.IParentPersistenceEdition;
-import fr.pederobien.minecraft.game.platform.utils.Platform;
 import fr.pederobien.persistence.interfaces.IUnmodifiableNominable;
 
 public abstract class AbstractParentCommand<T extends IUnmodifiableNominable> extends AbstractTabExecutorCommand<IParentPersistenceEdition<T>>

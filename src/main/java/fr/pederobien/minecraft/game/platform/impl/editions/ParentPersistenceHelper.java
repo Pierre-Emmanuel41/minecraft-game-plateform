@@ -6,10 +6,10 @@ import java.util.StringJoiner;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 
+import fr.pederobien.minecraft.game.platform.Platform;
 import fr.pederobien.minecraft.game.platform.dictionary.ECommonMessageCode;
 import fr.pederobien.minecraft.game.platform.interfaces.editions.IMapPersistenceEdition;
 import fr.pederobien.minecraft.game.platform.interfaces.editions.IParentPersistenceEdition;
-import fr.pederobien.minecraft.game.platform.utils.Platform;
 import fr.pederobien.minecraftdevelopmenttoolkit.impl.messagecode.AbstractMessageCodeHelper;
 import fr.pederobien.minecraftdevelopmenttoolkit.interfaces.IGenericEdition;
 import fr.pederobien.minecraftdictionary.impl.MinecraftMessageEvent;

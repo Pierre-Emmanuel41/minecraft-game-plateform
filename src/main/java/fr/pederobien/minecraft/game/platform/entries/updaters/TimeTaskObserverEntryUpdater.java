@@ -1,8 +1,8 @@
 package fr.pederobien.minecraft.game.platform.entries.updaters;
 
+import fr.pederobien.minecraft.game.platform.Platform;
 import fr.pederobien.minecraft.game.platform.interfaces.runtime.task.IObsTimeTask;
 import fr.pederobien.minecraft.game.platform.interfaces.runtime.task.ITimeTask;
-import fr.pederobien.minecraft.game.platform.utils.Platform;
 import fr.pederobien.minecraftscoreboards.impl.EntryUpdater;
 
 public class TimeTaskObserverEntryUpdater extends EntryUpdater implements IObsTimeTask {

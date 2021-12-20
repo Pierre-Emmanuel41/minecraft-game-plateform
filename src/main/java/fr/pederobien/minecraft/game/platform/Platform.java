@@ -1,4 +1,4 @@
-package fr.pederobien.minecraft.game.platform.utils;
+package fr.pederobien.minecraft.game.platform;
 
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -6,7 +6,6 @@ import java.nio.file.Paths;
 import org.bukkit.plugin.Plugin;
 
 import fr.pederobien.dictionary.interfaces.IDictionaryParser;
-import fr.pederobien.minecraft.game.platform.GamePlatformPlugin;
 import fr.pederobien.minecraft.game.platform.helpers.CommandHelper;
 import fr.pederobien.minecraft.game.platform.helpers.ConfigurationHelperManager;
 import fr.pederobien.minecraft.game.platform.helpers.PluginHelper;

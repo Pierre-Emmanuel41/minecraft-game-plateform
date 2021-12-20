@@ -4,9 +4,9 @@ import java.time.LocalTime;
 
 import org.bukkit.entity.Player;
 
+import fr.pederobien.minecraft.game.platform.Platform;
 import fr.pederobien.minecraft.game.platform.entries.PlateformEntry;
 import fr.pederobien.minecraft.game.platform.interfaces.runtime.task.ITimeTask;
-import fr.pederobien.minecraft.game.platform.utils.Platform;
 import fr.pederobien.minecraftdevelopmenttoolkit.utils.DisplayHelper;
 
 public abstract class TimeTaskEntry extends PlateformEntry {

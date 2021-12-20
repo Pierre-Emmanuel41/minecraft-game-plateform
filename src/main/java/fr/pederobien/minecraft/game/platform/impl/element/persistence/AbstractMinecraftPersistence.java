@@ -7,9 +7,9 @@ import java.nio.file.Path;
 import org.w3c.dom.Document;
 
 import fr.pederobien.minecraft.game.platform.GamePlatformPlugin;
+import fr.pederobien.minecraft.game.platform.Platform;
 import fr.pederobien.minecraft.game.platform.exceptions.persistence.IllegalPathException;
 import fr.pederobien.minecraft.game.platform.interfaces.element.persistence.IMinecraftPersistence;
-import fr.pederobien.minecraft.game.platform.utils.Platform;
 import fr.pederobien.persistence.impl.xml.AbstractXmlPersistence;
 import fr.pederobien.persistence.interfaces.IUnmodifiableNominable;
 

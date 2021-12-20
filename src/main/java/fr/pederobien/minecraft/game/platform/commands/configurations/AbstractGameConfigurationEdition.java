@@ -4,6 +4,7 @@ import java.util.Optional;
 
 import org.bukkit.entity.Player;
 
+import fr.pederobien.minecraft.game.platform.Platform;
 import fr.pederobien.minecraft.game.platform.exceptions.ColorNotFoundException;
 import fr.pederobien.minecraft.game.platform.exceptions.PlayerNotFoundException;
 import fr.pederobien.minecraft.game.platform.exceptions.configurations.TeamNotFoundException;
@@ -12,7 +13,6 @@ import fr.pederobien.minecraft.game.platform.interfaces.element.IGameConfigurati
 import fr.pederobien.minecraft.game.platform.interfaces.element.ILabel;
 import fr.pederobien.minecraft.game.platform.interfaces.element.ITeam;
 import fr.pederobien.minecraft.game.platform.interfaces.helpers.IGameConfigurationHelper;
-import fr.pederobien.minecraft.game.platform.utils.Platform;
 import fr.pederobien.minecraftdictionary.interfaces.IMinecraftMessageCode;
 import fr.pederobien.minecraftmanagers.EColor;
 import fr.pederobien.minecraftmanagers.PlayerManager;

@@ -1,6 +1,6 @@
 package fr.pederobien.minecraft.game.platform.entries;
 
-import fr.pederobien.minecraft.game.platform.utils.Platform;
+import fr.pederobien.minecraft.game.platform.Platform;
 import fr.pederobien.minecraftdevelopmenttoolkit.impl.entry.ToolkitEntry;
 import fr.pederobien.minecraftdictionary.interfaces.IMinecraftNotificationCenter;
 
