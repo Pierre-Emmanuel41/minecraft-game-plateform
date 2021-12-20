@@ -36,10 +36,14 @@ public class Platform {
 	public static final Path ROOT = Paths.get("plugins", "minecraft-game-plateform");
 
 	private static JarMinecraftDictionaryParser parser;
-	private static IObjectiveUpdater updater;
+
+	/**
+	 * @return The objective updater used to display informations on each player screen.
+	 */
+	public static final IObjectiveUpdater OBJECTIVE_UPDATER;
 
 	static {
-		Platform.updater = ObjectiveUpdater.getInstance(GamePlatformPlugin.instance());
+		OBJECTIVE_UPDATER = ObjectiveUpdater.getInstance(GamePlatformPlugin.instance());
 	}
 
 	/**
@@ -121,13 +125,6 @@ public class Platform {
 	 */
 	public static JarMinecraftDictionaryParser getDefaultDictionaryParser(String name) {
 		return parser == null ? parser = new JarMinecraftDictionaryParser(name) : (JarMinecraftDictionaryParser) parser.setName(name);
-	}
-
-	/**
-	 * @return The objective updater used to display informations on each player screen.
-	 */
-	public static IObjectiveUpdater getObjectiveUpdater() {
-		return updater;
 	}
 
 	/**
