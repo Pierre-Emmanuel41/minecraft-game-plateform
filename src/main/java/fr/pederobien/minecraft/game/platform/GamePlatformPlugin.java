@@ -9,20 +9,20 @@ import org.bukkit.plugin.java.JavaPlugin;
 import fr.pederobien.dictionary.interfaces.IDictionaryParser;
 import fr.pederobien.minecraft.game.platform.utils.Plateform;
 
-public class PlateformPlugin extends JavaPlugin {
-	private static Plugin plugin;
+public class GamePlatformPlugin extends JavaPlugin {
+	private static Plugin instance;
 
 	/**
 	 * @return The plugin associated to this plateform plugin.
 	 */
-	public static Plugin get() {
-		return plugin;
+	public static Plugin instance() {
+		return instance;
 	}
 
 	@Override
 	public void onEnable() {
 		new Platform(this);
-		plugin = this;
+		instance = this;
 
 		registerDictionaries();
 	}

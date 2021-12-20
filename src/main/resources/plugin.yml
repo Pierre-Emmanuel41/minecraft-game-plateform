@@ -1,4 +1,4 @@
-main: fr.pederobien.minecraftgameplateform.PlateformPlugin
+main: fr.pederobien.minecraftgameplateform.GamePlatformPlugin
 name: minecraft-game-plateform
 version: 1.0-SNAPSHOT
 api-version: 1.13
