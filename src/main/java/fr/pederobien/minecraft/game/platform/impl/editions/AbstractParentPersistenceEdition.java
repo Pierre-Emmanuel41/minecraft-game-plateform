@@ -10,7 +10,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.plugin.Plugin;
 
 import fr.pederobien.minecraft.game.platform.Platform;
-import fr.pederobien.minecraft.game.platform.dictionary.ECommonMessageCode;
+import fr.pederobien.minecraft.game.platform.dictionary.ECommonCode;
 import fr.pederobien.minecraft.game.platform.interfaces.editions.IMapPersistenceEdition;
 import fr.pederobien.minecraft.game.platform.interfaces.editions.IParentPersistenceEdition;
 import fr.pederobien.minecraft.game.platform.interfaces.element.persistence.IMinecraftPersistence;
@@ -55,11 +55,11 @@ abstract class AbstractParentPersistenceEdition<T extends IUnmodifiableNominable
 		try {
 			return super.onCommand(sender, command, label, args);
 		} catch (ArgumentNotFoundException e) {
-			sendMessageToSender(sender, ECommonMessageCode.COMMON_ARGUMENT_NOT_FOUND, e.getNotFoundArgument(), e.getLabel());
+			sendMessageToSender(sender, ECommonCode.COMMON_ARGUMENT_NOT_FOUND, e.getNotFoundArgument(), e.getLabel());
 		} catch (NotAvailableArgumentException e) {
-			sendMessageToSender(sender, ECommonMessageCode.COMMON_NOT_AVAILABLE_ARGUMENT, e.getArgument(), e.getLabel());
+			sendMessageToSender(sender, ECommonCode.COMMON_NOT_AVAILABLE_ARGUMENT, e.getArgument(), e.getLabel());
 		} catch (NotAvailableCommandException e) {
-			sendMessageToSender(sender, ECommonMessageCode.COMMON_NOT_AVAILABLE_COMMAND, e.getLabel());
+			sendMessageToSender(sender, ECommonCode.COMMON_NOT_AVAILABLE_COMMAND, e.getLabel());
 		}
 		return false;
 	}

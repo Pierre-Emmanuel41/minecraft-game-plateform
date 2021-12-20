@@ -8,7 +8,7 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 
 import fr.pederobien.minecraft.game.platform.commands.configurations.teams.AbstractTeamConfigurationEdition;
-import fr.pederobien.minecraft.game.platform.dictionary.ETeamRemoveMessageCode;
+import fr.pederobien.minecraft.game.platform.dictionary.ETeamRemoveCode;
 import fr.pederobien.minecraft.game.platform.exceptions.configurations.TeamNotFoundException;
 import fr.pederobien.minecraft.game.platform.interfaces.element.IGameConfiguration;
 import fr.pederobien.minecraft.game.platform.interfaces.element.ITeam;
@@ -17,7 +17,7 @@ import fr.pederobien.minecraft.game.platform.interfaces.helpers.IGameConfigurati
 public class RemoveTeam<T extends IGameConfiguration> extends AbstractTeamConfigurationEdition<T> {
 
 	protected RemoveTeam() {
-		super(ETeamRemoveLabel.TEAM, ETeamRemoveMessageCode.REMOVE_TEAM__EXPLANATION);
+		super(ETeamRemoveLabel.TEAM, ETeamRemoveCode.REMOVE_TEAM__EXPLANATION);
 	}
 
 	@Override
@@ -26,7 +26,7 @@ public class RemoveTeam<T extends IGameConfiguration> extends AbstractTeamConfig
 
 		if (args[0].equals(IGameConfigurationHelper.ALL)) {
 			List<String> teamNames = getTeamNames(getGameConfigurationHelper().clearTeams(), true);
-			sendSynchro(sender, ETeamRemoveMessageCode.REMOVE_TEAM__ALL_TEAMS_REMOVED, get().getName(), concat(teamNames, ", "));
+			sendSynchro(sender, ETeamRemoveCode.REMOVE_TEAM__ALL_TEAMS_REMOVED, get().getName(), concat(teamNames, ", "));
 			return true;
 		}
 
@@ -36,19 +36,19 @@ public class RemoveTeam<T extends IGameConfiguration> extends AbstractTeamConfig
 			teamNamesConcatenated = concat(getTeamNames(teams, true));
 			get().removeTeams(teams);
 		} catch (TeamNotFoundException e) {
-			sendSynchro(sender, ETeamRemoveMessageCode.REMOVE_TEAM__TEAM_DOES_NOT_EXIST, e.getTeamNotFoundName(), get().getName());
+			sendSynchro(sender, ETeamRemoveCode.REMOVE_TEAM__TEAM_DOES_NOT_EXIST, e.getTeamNotFoundName(), get().getName());
 			return false;
 		}
 
 		switch (teams.size()) {
 		case 0:
-			sendSynchro(sender, ETeamRemoveMessageCode.REMOVE_TEAM__ANY_TEAM_REMOVED, get().getName());
+			sendSynchro(sender, ETeamRemoveCode.REMOVE_TEAM__ANY_TEAM_REMOVED, get().getName());
 			break;
 		case 1:
-			sendSynchro(sender, ETeamRemoveMessageCode.REMOVE_TEAM__ONE_TEAM_REMOVED, teamNamesConcatenated, get().getName());
+			sendSynchro(sender, ETeamRemoveCode.REMOVE_TEAM__ONE_TEAM_REMOVED, teamNamesConcatenated, get().getName());
 			break;
 		default:
-			sendSynchro(sender, ETeamRemoveMessageCode.REMOVE_TEAM__SEVERAL_TEAMS_REMOVED, teamNamesConcatenated, get().getName());
+			sendSynchro(sender, ETeamRemoveCode.REMOVE_TEAM__SEVERAL_TEAMS_REMOVED, teamNamesConcatenated, get().getName());
 			break;
 		}
 		return true;

@@ -7,7 +7,7 @@ import org.bukkit.block.Block;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 
-import fr.pederobien.minecraft.game.platform.dictionary.ECommonMessageCode;
+import fr.pederobien.minecraft.game.platform.dictionary.ECommonCode;
 import fr.pederobien.minecraft.game.platform.interfaces.editions.IMapPersistenceEdition;
 import fr.pederobien.minecraft.game.platform.interfaces.editions.IParentPersistenceEdition;
 import fr.pederobien.minecraft.game.platform.interfaces.element.persistence.IMinecraftPersistence;
@@ -30,9 +30,9 @@ public abstract class AbstractMapPersistenceEdition<T extends IUnmodifiableNomin
 		try {
 			return super.onCommand(sender, command, label, args);
 		} catch (ArgumentNotFoundException e) {
-			sendSynchro(sender, ECommonMessageCode.COMMON_ARGUMENT_NOT_FOUND, e.getNotFoundArgument(), e.getLabel());
+			sendSynchro(sender, ECommonCode.COMMON_ARGUMENT_NOT_FOUND, e.getNotFoundArgument(), e.getLabel());
 		} catch (NotAvailableArgumentException e) {
-			sendSynchro(sender, ECommonMessageCode.COMMON_NOT_AVAILABLE_ARGUMENT, e.getArgument(), e.getLabel());
+			sendSynchro(sender, ECommonCode.COMMON_NOT_AVAILABLE_ARGUMENT, e.getArgument(), e.getLabel());
 		}
 		return false;
 	}

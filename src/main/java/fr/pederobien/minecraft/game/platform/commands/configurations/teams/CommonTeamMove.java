@@ -5,7 +5,7 @@ import java.util.List;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 
-import fr.pederobien.minecraft.game.platform.dictionary.ETeamConfigurationMessageCode;
+import fr.pederobien.minecraft.game.platform.dictionary.ETeamConfigurationCode;
 import fr.pederobien.minecraft.game.platform.exceptions.PlayerNotFoundException;
 import fr.pederobien.minecraft.game.platform.exceptions.configurations.PlayerNotRegisteredException;
 import fr.pederobien.minecraft.game.platform.exceptions.configurations.TeamNotFoundException;
@@ -17,7 +17,7 @@ import fr.pederobien.minecraftmanagers.PlayerManager;
 public class CommonTeamMove<T extends IGameConfiguration> extends AbstractTeamConfigurationEdition<T> {
 
 	protected CommonTeamMove() {
-		super(ETeamConfigurationLabel.MOVE, ETeamConfigurationMessageCode.MOVE__EXPLANATION);
+		super(ETeamConfigurationLabel.MOVE, ETeamConfigurationCode.MOVE__EXPLANATION);
 	}
 
 	@Override
@@ -28,30 +28,30 @@ public class CommonTeamMove<T extends IGameConfiguration> extends AbstractTeamCo
 			try {
 				playerName = args[0];
 			} catch (IndexOutOfBoundsException e) {
-				sendSynchro(sender, ETeamConfigurationMessageCode.MOVE__PLAYER_NAME_IS_MISSING);
+				sendSynchro(sender, ETeamConfigurationCode.MOVE__PLAYER_NAME_IS_MISSING);
 				return false;
 			}
 			try {
 				teamName = args[1];
 			} catch (IndexOutOfBoundsException e) {
-				sendSynchro(sender, ETeamConfigurationMessageCode.MOVE__TEAM_NAME_IS_MISSING, playerName);
+				sendSynchro(sender, ETeamConfigurationCode.MOVE__TEAM_NAME_IS_MISSING, playerName);
 				return false;
 			}
 
 			ITeam[] teams = getGameConfigurationHelper().movePlayer(playerName, teamName);
-			sendSynchro(sender, ETeamConfigurationMessageCode.MOVE__PLAYER_MOVED, playerName, teams[1].getColoredName(), teams[0].getColoredName());
+			sendSynchro(sender, ETeamConfigurationCode.MOVE__PLAYER_MOVED, playerName, teams[1].getColoredName(), teams[0].getColoredName());
 			return true;
 		} catch (PlayerNotFoundException e) {
-			sendSynchro(sender, ETeamConfigurationMessageCode.MOVE__PLAYER_DOES_NOT_EXIST, e.getPlayerName());
+			sendSynchro(sender, ETeamConfigurationCode.MOVE__PLAYER_DOES_NOT_EXIST, e.getPlayerName());
 			return false;
 		} catch (PlayerNotRegisteredException e) {
-			sendSynchro(sender, ETeamConfigurationMessageCode.MOVE__PLAYER_NOT_REGISTERED, e.getNotRegisteredPlayer().getName());
+			sendSynchro(sender, ETeamConfigurationCode.MOVE__PLAYER_NOT_REGISTERED, e.getNotRegisteredPlayer().getName());
 			return false;
 		} catch (TeamNotFoundException e) {
-			sendSynchro(sender, ETeamConfigurationMessageCode.MOVE__TEAM_DOES_NOT_EXIST, playerName, e.getTeamNotFoundName(), get().getName());
+			sendSynchro(sender, ETeamConfigurationCode.MOVE__TEAM_DOES_NOT_EXIST, playerName, e.getTeamNotFoundName(), get().getName());
 			return false;
 		} catch (TeamsAreTheSameException e) {
-			sendSynchro(sender, ETeamConfigurationMessageCode.MOVE__TEAMS_ARE_THE_SAME, playerName, e.getTargetTeam().getColoredName());
+			sendSynchro(sender, ETeamConfigurationCode.MOVE__TEAMS_ARE_THE_SAME, playerName, e.getTargetTeam().getColoredName());
 			return false;
 		}
 	}

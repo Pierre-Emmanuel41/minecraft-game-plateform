@@ -27,4 +27,9 @@ public enum EEntryCode implements IMinecraftCode {
 	public void setGroup(IPlayerGroup group) {
 		this.group = group;
 	}
+
+	@Override
+	public String toString() {
+		return String.format("value=%s,group=%s", value(), getGroup());
+	}
 }

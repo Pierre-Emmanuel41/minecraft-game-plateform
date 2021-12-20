@@ -3,7 +3,7 @@ package fr.pederobien.minecraft.game.platform.dictionary;
 import fr.pederobien.minecraftdictionary.impl.Permission;
 import fr.pederobien.minecraftdictionary.interfaces.IMinecraftMessageCode;
 
-public enum ETeamConfigurationMessageCode implements IMinecraftMessageCode {
+public enum ETeamConfigurationCode implements IMinecraftMessageCode {
 	// Code for command team
 	TEAM__EXPLANATION,
 
@@ -29,7 +29,7 @@ public enum ETeamConfigurationMessageCode implements IMinecraftMessageCode {
 
 	private Permission permission;
 
-	private ETeamConfigurationMessageCode() {
+	private ETeamConfigurationCode() {
 		this(Permission.OPERATORS);
 	}
 
@@ -38,7 +38,7 @@ public enum ETeamConfigurationMessageCode implements IMinecraftMessageCode {
 		return toString();
 	}
 
-	private ETeamConfigurationMessageCode(Permission permission) {
+	private ETeamConfigurationCode(Permission permission) {
 		this.permission = permission;
 	}
 

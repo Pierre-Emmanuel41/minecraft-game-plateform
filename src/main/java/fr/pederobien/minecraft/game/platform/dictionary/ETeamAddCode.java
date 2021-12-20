@@ -3,7 +3,7 @@ package fr.pederobien.minecraft.game.platform.dictionary;
 import fr.pederobien.minecraftdictionary.impl.Permission;
 import fr.pederobien.minecraftdictionary.interfaces.IMinecraftMessageCode;
 
-public enum ETeamAddMessageCode implements IMinecraftMessageCode {
+public enum ETeamAddCode implements IMinecraftMessageCode {
 	// Code for command add team
 	ADD_TEAM__EXPLANATION, ADD_TEAM__TEAM_NAME_IS_MISSING, ADD_TEAM__COLOR_NAME_IS_MISSING, ADD_TEAM__COLOR_DOES_NOT_EXIST, ADD_TEAM__TEAM_NAME_FORBIDDEN,
 	ADD_TEAM__TEAM_NAME_ALREADY_USED, ADD_TEAM__COLOR_ALREADY_USED, ADD_TEAM__TEAM_ADDED(Permission.ALL),
@@ -14,11 +14,11 @@ public enum ETeamAddMessageCode implements IMinecraftMessageCode {
 
 	private Permission permission;
 
-	private ETeamAddMessageCode() {
+	private ETeamAddCode() {
 		this(Permission.OPERATORS);
 	}
 
-	private ETeamAddMessageCode(Permission permission) {
+	private ETeamAddCode(Permission permission) {
 		this.permission = permission;
 	}
 

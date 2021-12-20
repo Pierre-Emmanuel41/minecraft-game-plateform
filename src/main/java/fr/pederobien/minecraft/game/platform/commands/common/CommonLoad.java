@@ -6,7 +6,7 @@ import java.util.List;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 
-import fr.pederobien.minecraft.game.platform.dictionary.EGameConfigurationMessageCode;
+import fr.pederobien.minecraft.game.platform.dictionary.EGameConfigurationCode;
 import fr.pederobien.minecraft.game.platform.impl.editions.AbstractLabelEdition;
 import fr.pederobien.minecraftdictionary.interfaces.IMinecraftMessageCode;
 import fr.pederobien.persistence.interfaces.IUnmodifiableNominable;
@@ -44,7 +44,7 @@ public abstract class CommonLoad<T extends IUnmodifiableNominable> extends Abstr
 			onNameIsMissing(sender);
 			return false;
 		} catch (FileNotFoundException e) {
-			sendSynchro(sender, EGameConfigurationMessageCode.COMMON_LOAD__CONFIGURATION_DOES_NOT_EXIST, name);
+			sendSynchro(sender, EGameConfigurationCode.COMMON_LOAD__CONFIGURATION_DOES_NOT_EXIST, name);
 			return false;
 		}
 		return true;

@@ -3,7 +3,7 @@ package fr.pederobien.minecraft.game.platform.dictionary;
 import fr.pederobien.minecraftdictionary.impl.Permission;
 import fr.pederobien.minecraftdictionary.interfaces.IMinecraftMessageCode;
 
-public enum EGameMessageCode implements IMinecraftMessageCode {
+public enum EGameCode implements IMinecraftMessageCode {
 	// Code for command startgame
 	START_GAME__EXPLANATION(Permission.SENDER),
 
@@ -18,7 +18,7 @@ public enum EGameMessageCode implements IMinecraftMessageCode {
 
 	private Permission permission;
 
-	private EGameMessageCode(Permission permission) {
+	private EGameCode(Permission permission) {
 		this.permission = permission;
 	}
 

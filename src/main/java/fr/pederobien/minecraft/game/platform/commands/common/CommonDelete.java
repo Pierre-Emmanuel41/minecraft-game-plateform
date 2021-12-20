@@ -5,7 +5,7 @@ import java.util.List;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 
-import fr.pederobien.minecraft.game.platform.dictionary.ECommonMessageCode;
+import fr.pederobien.minecraft.game.platform.dictionary.ECommonCode;
 import fr.pederobien.minecraft.game.platform.impl.editions.AbstractLabelEdition;
 import fr.pederobien.minecraft.game.platform.interfaces.element.persistence.IMinecraftPersistence;
 import fr.pederobien.minecraftdictionary.interfaces.IMinecraftMessageCode;
@@ -48,7 +48,7 @@ public abstract class CommonDelete<T extends IUnmodifiableNominable> extends Abs
 		}
 		for (String name : args) {
 			if (startWithIgnoreCase(name, "default")) {
-				sendSynchro(sender, ECommonMessageCode.COMMON_NAME_MUST_NOT_START_WITH_DEFAULT, name);
+				sendSynchro(sender, ECommonCode.COMMON_NAME_MUST_NOT_START_WITH_DEFAULT, name);
 				return false;
 			}
 			if (!getPersistence().delete(name)) {

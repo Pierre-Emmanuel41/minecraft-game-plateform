@@ -3,7 +3,7 @@ package fr.pederobien.minecraft.game.platform.dictionary;
 import fr.pederobien.minecraftdictionary.impl.Permission;
 import fr.pederobien.minecraftdictionary.interfaces.IMinecraftMessageCode;
 
-public enum ETeamModifyMessageCode implements IMinecraftMessageCode {
+public enum ETeamModifyCode implements IMinecraftMessageCode {
 	// Code for command modify name
 	MODIFY_NAME__EXPLANATION, MODIFY_NAME__OLD_NAME_IS_MISSING, MODIFY_NAME__NEW_NAME_IS_MISSING, MODIFY_NAME__TEAM_DOES_NOT_EXIST, MODIFY_NAME__TEAM_NAME_FORBIDDEN,
 	MODIFY_NAME__TEAM_NAME_ALREADY_USED, MODIFY_NAME__TEAM_RENAMED,
@@ -14,11 +14,11 @@ public enum ETeamModifyMessageCode implements IMinecraftMessageCode {
 
 	private Permission permission;
 
-	private ETeamModifyMessageCode() {
+	private ETeamModifyCode() {
 		this(Permission.OPERATORS);
 	}
 
-	private ETeamModifyMessageCode(Permission permission) {
+	private ETeamModifyCode(Permission permission) {
 		this.permission = permission;
 	}
 

@@ -7,7 +7,7 @@ import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 
 import fr.pederobien.minecraft.game.platform.Platform;
-import fr.pederobien.minecraft.game.platform.dictionary.ECommonMessageCode;
+import fr.pederobien.minecraft.game.platform.dictionary.ECommonCode;
 import fr.pederobien.minecraft.game.platform.interfaces.editions.IMapPersistenceEdition;
 import fr.pederobien.minecraft.game.platform.interfaces.editions.IParentPersistenceEdition;
 import fr.pederobien.minecraftdevelopmenttoolkit.impl.messagecode.AbstractMessageCodeHelper;
@@ -19,7 +19,7 @@ import fr.pederobien.persistence.interfaces.IUnmodifiableNominable;
 public class ParentPersistenceHelper<T extends IUnmodifiableNominable> extends AbstractMessageCodeHelper<T, IParentPersistenceEdition<T>, IMapPersistenceEdition<T>> {
 
 	protected ParentPersistenceHelper() {
-		super(ECommonMessageCode.COMMON_HELP_EXPLANATION);
+		super(ECommonCode.COMMON_HELP_EXPLANATION);
 	}
 
 	@Override

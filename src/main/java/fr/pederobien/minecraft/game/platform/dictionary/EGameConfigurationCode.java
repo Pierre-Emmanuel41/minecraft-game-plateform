@@ -3,7 +3,7 @@ package fr.pederobien.minecraft.game.platform.dictionary;
 import fr.pederobien.minecraftdictionary.impl.Permission;
 import fr.pederobien.minecraftdictionary.interfaces.IMinecraftMessageCode;
 
-public enum EGameConfigurationMessageCode implements IMinecraftMessageCode {
+public enum EGameConfigurationCode implements IMinecraftMessageCode {
 	// Code for command ascurrent
 	AS_CURRENT__EXPLANATION, AS_CURRENT__GAME_STYLE_DEFINED,
 
@@ -15,11 +15,11 @@ public enum EGameConfigurationMessageCode implements IMinecraftMessageCode {
 
 	private Permission permission;
 
-	private EGameConfigurationMessageCode() {
+	private EGameConfigurationCode() {
 		this(Permission.OPERATORS);
 	}
 
-	private EGameConfigurationMessageCode(Permission permission) {
+	private EGameConfigurationCode(Permission permission) {
 		this.permission = permission;
 	}
 

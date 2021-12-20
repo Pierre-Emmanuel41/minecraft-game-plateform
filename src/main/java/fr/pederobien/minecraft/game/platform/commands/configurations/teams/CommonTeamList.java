@@ -5,14 +5,14 @@ import java.util.StringJoiner;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 
-import fr.pederobien.minecraft.game.platform.dictionary.ETeamConfigurationMessageCode;
+import fr.pederobien.minecraft.game.platform.dictionary.ETeamConfigurationCode;
 import fr.pederobien.minecraft.game.platform.interfaces.element.IGameConfiguration;
 import fr.pederobien.minecraft.game.platform.interfaces.element.ITeam;
 
 public class CommonTeamList<T extends IGameConfiguration> extends AbstractTeamConfigurationEdition<T> {
 
 	protected CommonTeamList() {
-		super(ETeamConfigurationLabel.LIST, ETeamConfigurationMessageCode.LIST__EXPLANATION);
+		super(ETeamConfigurationLabel.LIST, ETeamConfigurationCode.LIST__EXPLANATION);
 	}
 
 	@Override
@@ -23,13 +23,13 @@ public class CommonTeamList<T extends IGameConfiguration> extends AbstractTeamCo
 
 		switch (get().getTeams().size()) {
 		case 0:
-			sendSynchro(sender, ETeamConfigurationMessageCode.LIST__ANY_EXISTING_TEAM, get().getName());
+			sendSynchro(sender, ETeamConfigurationCode.LIST__ANY_EXISTING_TEAM, get().getName());
 			break;
 		case 1:
-			sendSynchro(sender, ETeamConfigurationMessageCode.LIST__ONE_EXISTING_TEAM, get().getName(), teams);
+			sendSynchro(sender, ETeamConfigurationCode.LIST__ONE_EXISTING_TEAM, get().getName(), teams);
 			break;
 		default:
-			sendSynchro(sender, ETeamConfigurationMessageCode.LIST__SEVERAL_EXISTING_TEAMS, get().getName(), teams);
+			sendSynchro(sender, ETeamConfigurationCode.LIST__SEVERAL_EXISTING_TEAMS, get().getName(), teams);
 			break;
 		}
 		return true;

@@ -4,7 +4,7 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 
 import fr.pederobien.minecraft.game.platform.Platform;
-import fr.pederobien.minecraft.game.platform.dictionary.ECommonMessageCode;
+import fr.pederobien.minecraft.game.platform.dictionary.ECommonCode;
 import fr.pederobien.minecraftdevelopmenttoolkit.exceptions.ArgumentNotFoundException;
 import fr.pederobien.minecraftdevelopmenttoolkit.exceptions.NotAvailableArgumentException;
 import fr.pederobien.minecraftdevelopmenttoolkit.impl.messagecode.AbstractMessageCodeSimpleMapEdition;
@@ -22,9 +22,9 @@ public class AbstractSimpleMapEdition extends AbstractMessageCodeSimpleMapEditio
 		try {
 			return super.onCommand(sender, command, label, args);
 		} catch (ArgumentNotFoundException e) {
-			sendSynchro(sender, ECommonMessageCode.COMMON_ARGUMENT_NOT_FOUND, e.getNotFoundArgument(), e.getLabel());
+			sendSynchro(sender, ECommonCode.COMMON_ARGUMENT_NOT_FOUND, e.getNotFoundArgument(), e.getLabel());
 		} catch (NotAvailableArgumentException e) {
-			sendSynchro(sender, ECommonMessageCode.COMMON_NOT_AVAILABLE_ARGUMENT, e.getArgument(), e.getLabel());
+			sendSynchro(sender, ECommonCode.COMMON_NOT_AVAILABLE_ARGUMENT, e.getArgument(), e.getLabel());
 		}
 		return false;
 	}

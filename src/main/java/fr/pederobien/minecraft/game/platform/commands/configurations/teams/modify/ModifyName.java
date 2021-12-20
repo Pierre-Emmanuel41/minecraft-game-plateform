@@ -6,8 +6,8 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 
 import fr.pederobien.minecraft.game.platform.commands.configurations.teams.AbstractTeamConfigurationEdition;
-import fr.pederobien.minecraft.game.platform.dictionary.ECommonMessageCode;
-import fr.pederobien.minecraft.game.platform.dictionary.ETeamModifyMessageCode;
+import fr.pederobien.minecraft.game.platform.dictionary.ECommonCode;
+import fr.pederobien.minecraft.game.platform.dictionary.ETeamModifyCode;
 import fr.pederobien.minecraft.game.platform.exceptions.configurations.TeamNameForbiddenException;
 import fr.pederobien.minecraft.game.platform.exceptions.configurations.TeamNotFoundException;
 import fr.pederobien.minecraft.game.platform.exceptions.configurations.TeamWithSameNameAlreadyExistsException;
@@ -17,7 +17,7 @@ import fr.pederobien.minecraft.game.platform.interfaces.element.ITeam;
 public class ModifyName<T extends IGameConfiguration> extends AbstractTeamConfigurationEdition<T> {
 
 	protected ModifyName() {
-		super(ETeamModifyLabel.NAME, ETeamModifyMessageCode.MODIFY_NAME__EXPLANATION);
+		super(ETeamModifyLabel.NAME, ETeamModifyCode.MODIFY_NAME__EXPLANATION);
 	}
 
 	@Override
@@ -27,26 +27,26 @@ public class ModifyName<T extends IGameConfiguration> extends AbstractTeamConfig
 			try {
 				oldName = args[0];
 			} catch (IndexOutOfBoundsException e) {
-				sendSynchro(sender, ETeamModifyMessageCode.MODIFY_NAME__OLD_NAME_IS_MISSING);
+				sendSynchro(sender, ETeamModifyCode.MODIFY_NAME__OLD_NAME_IS_MISSING);
 				return false;
 			}
 			String newName = "";
 			try {
 				newName = args[1];
 			} catch (IndexOutOfBoundsException e) {
-				sendSynchro(sender, ETeamModifyMessageCode.MODIFY_NAME__NEW_NAME_IS_MISSING, oldName);
+				sendSynchro(sender, ETeamModifyCode.MODIFY_NAME__NEW_NAME_IS_MISSING, oldName);
 				return false;
 			}
 			ITeam renamedTeam = getGameConfigurationHelper().renameTeam(oldName, newName);
-			sendSynchro(sender, ETeamModifyMessageCode.MODIFY_NAME__TEAM_RENAMED, renamedTeam.getColor().getInColor(oldName), renamedTeam.getColoredName());
+			sendSynchro(sender, ETeamModifyCode.MODIFY_NAME__TEAM_RENAMED, renamedTeam.getColor().getInColor(oldName), renamedTeam.getColoredName());
 		} catch (TeamNotFoundException e) {
-			sendSynchro(sender, ETeamModifyMessageCode.MODIFY_NAME__TEAM_DOES_NOT_EXIST, e.getTeamNotFoundName(), get().getName());
+			sendSynchro(sender, ETeamModifyCode.MODIFY_NAME__TEAM_DOES_NOT_EXIST, e.getTeamNotFoundName(), get().getName());
 			return false;
 		} catch (TeamNameForbiddenException e) {
-			sendSynchro(sender, ETeamModifyMessageCode.MODIFY_NAME__TEAM_NAME_FORBIDDEN, oldName, e.getForbiddenName());
+			sendSynchro(sender, ETeamModifyCode.MODIFY_NAME__TEAM_NAME_FORBIDDEN, oldName, e.getForbiddenName());
 			return false;
 		} catch (TeamWithSameNameAlreadyExistsException e) {
-			sendSynchro(sender, ETeamModifyMessageCode.MODIFY_NAME__TEAM_NAME_ALREADY_USED, oldName, e.getAlreadyExistingTeam().getName());
+			sendSynchro(sender, ETeamModifyCode.MODIFY_NAME__TEAM_NAME_ALREADY_USED, oldName, e.getAlreadyExistingTeam().getName());
 			return false;
 		}
 		return true;
@@ -58,7 +58,7 @@ public class ModifyName<T extends IGameConfiguration> extends AbstractTeamConfig
 		case 1:
 			return filter(getGameConfigurationHelper().getTeamNames(false), args);
 		case 2:
-			return asList(getMessage(sender, ECommonMessageCode.COMMON_RENAME_TAB_COMPLETE));
+			return asList(getMessage(sender, ECommonCode.COMMON_RENAME_TAB_COMPLETE));
 		default:
 			return emptyList();
 		}

@@ -3,7 +3,7 @@ package fr.pederobien.minecraft.game.platform.dictionary;
 import fr.pederobien.minecraftdictionary.impl.Permission;
 import fr.pederobien.minecraftdictionary.interfaces.IMinecraftMessageCode;
 
-public enum ETeamRemoveMessageCode implements IMinecraftMessageCode {
+public enum ETeamRemoveCode implements IMinecraftMessageCode {
 	// Code for command remove team
 	REMOVE_TEAM__EXPLANATION, REMOVE_TEAM__ALL_TEAMS_REMOVED(Permission.ALL), REMOVE_TEAM__TEAM_DOES_NOT_EXIST, REMOVE_TEAM__ANY_TEAM_REMOVED,
 	REMOVE_TEAM__ONE_TEAM_REMOVED(Permission.ALL), REMOVE_TEAM__SEVERAL_TEAMS_REMOVED(Permission.ALL),
@@ -14,11 +14,11 @@ public enum ETeamRemoveMessageCode implements IMinecraftMessageCode {
 
 	private Permission permission;
 
-	private ETeamRemoveMessageCode() {
+	private ETeamRemoveCode() {
 		this(Permission.OPERATORS);
 	}
 
-	private ETeamRemoveMessageCode(Permission permission) {
+	private ETeamRemoveCode(Permission permission) {
 		this.permission = permission;
 	}
 
