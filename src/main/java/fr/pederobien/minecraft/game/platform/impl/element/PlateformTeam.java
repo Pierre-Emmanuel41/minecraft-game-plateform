@@ -18,7 +18,7 @@ import fr.pederobien.minecraft.game.platform.impl.observer.Observable;
 import fr.pederobien.minecraft.game.platform.interfaces.element.ITeam;
 import fr.pederobien.minecraft.game.platform.interfaces.observer.IObsTeam;
 import fr.pederobien.minecraft.game.platform.interfaces.observer.IObservable;
-import fr.pederobien.minecraft.game.platform.utils.Plateform;
+import fr.pederobien.minecraft.game.platform.utils.Platform;
 import fr.pederobien.minecraftdictionary.interfaces.IMinecraftMessageCode;
 import fr.pederobien.minecraftmanagers.EColor;
 import fr.pederobien.minecraftmanagers.MessageManager;
@@ -41,7 +41,7 @@ public class PlateformTeam extends AbstractNominable implements ITeam {
 		setColor(color);
 		this.isCopy = isCopy;
 
-		Plateform.getPlayerQuitOrJoinEventListener().addObserver(this);
+		Platform.getPlayerQuitOrJoinEventListener().addObserver(this);
 	}
 
 	/**

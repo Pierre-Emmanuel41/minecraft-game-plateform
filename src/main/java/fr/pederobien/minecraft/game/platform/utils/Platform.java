@@ -32,7 +32,7 @@ import fr.pederobien.minecraftdictionary.interfaces.IMinecraftNotificationCenter
 import fr.pederobien.minecraftscoreboards.ObjectiveUpdater;
 import fr.pederobien.minecraftscoreboards.interfaces.IObjectiveUpdater;
 
-public class Plateform {
+public class Platform {
 	/**
 	 * Path to folder plugins/minecraft-game-plateform
 	 */
@@ -43,8 +43,8 @@ public class Plateform {
 	private static IPlayerQuitOrJoinEventListener playerQuitOrJoinEventListener;
 
 	static {
-		Plateform.updater = ObjectiveUpdater.getInstance(GamePlatformPlugin.instance());
-		Plateform.playerQuitOrJoinEventListener = new PlayerQuitOrJoinEventListener();
+		Platform.updater = ObjectiveUpdater.getInstance(GamePlatformPlugin.instance());
+		Platform.playerQuitOrJoinEventListener = new PlayerQuitOrJoinEventListener();
 		playerQuitOrJoinEventListener.register(GamePlatformPlugin.instance());
 	}
 

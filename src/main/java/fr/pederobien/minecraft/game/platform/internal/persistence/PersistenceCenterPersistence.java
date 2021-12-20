@@ -8,13 +8,13 @@ import org.w3c.dom.Element;
 import fr.pederobien.minecraft.game.platform.impl.element.persistence.AbstractMinecraftPersistence;
 import fr.pederobien.minecraft.game.platform.internal.IPersistenceCenter;
 import fr.pederobien.minecraft.game.platform.internal.persistence.loaders.PersistenceCenterLoaderV10;
-import fr.pederobien.minecraft.game.platform.utils.Plateform;
+import fr.pederobien.minecraft.game.platform.utils.Platform;
 
 public class PersistenceCenterPersistence extends AbstractMinecraftPersistence<IPersistenceCenter> {
 	private static final String ROOT_XML_DOCUMENT = "register";
 
 	public PersistenceCenterPersistence(IPersistenceCenter persistenceRegister) {
-		super(Plateform.ROOT.resolve("Internal"), "register");
+		super(Platform.ROOT.resolve("Internal"), "register");
 		register(new PersistenceCenterLoaderV10(persistenceRegister));
 		set(persistenceRegister);
 	}

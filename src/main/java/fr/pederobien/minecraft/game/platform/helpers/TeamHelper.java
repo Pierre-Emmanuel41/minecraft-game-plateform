@@ -19,7 +19,7 @@ import fr.pederobien.minecraft.game.platform.exceptions.configurations.RandomTea
 import fr.pederobien.minecraft.game.platform.interfaces.element.IGameConfiguration;
 import fr.pederobien.minecraft.game.platform.interfaces.element.IGameConfigurationContext;
 import fr.pederobien.minecraft.game.platform.interfaces.element.ITeam;
-import fr.pederobien.minecraft.game.platform.utils.Plateform;
+import fr.pederobien.minecraft.game.platform.utils.Platform;
 import fr.pederobien.minecraftmanagers.PlayerManager;
 import fr.pederobien.minecraftmanagers.TeamManager;
 import fr.pederobien.minecraftmanagers.WorldManager;
@@ -107,16 +107,16 @@ public class TeamHelper {
 
 	/**
 	 * Get the team associated with the given player by querying the game managed by the {@link IGameConfigurationContext} of the
-	 * {@link Plateform}.
+	 * {@link Platform}.
 	 * 
 	 * @param player The player used to get its team.
 	 * @return An optional that contains the team if the player is registered into a team, an empty optional otherwise.
 	 */
 	public static Optional<ITeam> getTeam(Player player) {
-		if (Plateform.getGameConfigurationContext().getGameConfiguration() == null)
+		if (Platform.getGameConfigurationContext().getGameConfiguration() == null)
 			return Optional.ofNullable(null);
 
-		IGameConfiguration configuration = Plateform.getGameConfigurationContext().getGameConfiguration();
+		IGameConfiguration configuration = Platform.getGameConfigurationContext().getGameConfiguration();
 		for (ITeam team : configuration.getTeams())
 			if (team.getPlayers().contains(player))
 				return Optional.of(team);

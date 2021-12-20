@@ -7,7 +7,7 @@ import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import fr.pederobien.dictionary.interfaces.IDictionaryParser;
-import fr.pederobien.minecraft.game.platform.utils.Plateform;
+import fr.pederobien.minecraft.game.platform.utils.Platform;
 
 public class GamePlatformPlugin extends JavaPlugin {
 	private static Plugin instance;
@@ -28,7 +28,7 @@ public class GamePlatformPlugin extends JavaPlugin {
 
 	@Override
 	public void onDisable() {
-		Plateform.getPersistenceCenter().save();
+		Platform.getPersistenceCenter().save();
 	}
 
 	private void registerDictionaries() {
@@ -41,15 +41,15 @@ public class GamePlatformPlugin extends JavaPlugin {
 	}
 
 	private void registerDictionary(String parent, String... dictionaryNames) {
-		Path jarPath = Plateform.ROOT.getParent().resolve(getName().concat(".jar"));
+		Path jarPath = Platform.ROOT.getParent().resolve(getName().concat(".jar"));
 		String dictionariesFolder = "resources/dictionaries/".concat(parent).concat("/");
 		for (String name : dictionaryNames)
-			registerDictionary(Plateform.getDefaultDictionaryParser(dictionariesFolder.concat(name)), jarPath);
+			registerDictionary(Platform.getDefaultDictionaryParser(dictionariesFolder.concat(name)), jarPath);
 	}
 
 	private void registerDictionary(IDictionaryParser parser, Path jarPath) {
 		try {
-			Plateform.getNotificationCenter().getDictionaryContext().register(parser, jarPath);
+			Platform.getNotificationCenter().getDictionaryContext().register(parser, jarPath);
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		}

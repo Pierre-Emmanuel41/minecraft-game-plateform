@@ -13,7 +13,7 @@ import fr.pederobien.minecraft.game.platform.dictionary.ECommonMessageCode;
 import fr.pederobien.minecraft.game.platform.interfaces.editions.IMapPersistenceEdition;
 import fr.pederobien.minecraft.game.platform.interfaces.editions.IParentPersistenceEdition;
 import fr.pederobien.minecraft.game.platform.interfaces.element.persistence.IMinecraftPersistence;
-import fr.pederobien.minecraft.game.platform.utils.Plateform;
+import fr.pederobien.minecraft.game.platform.utils.Platform;
 import fr.pederobien.minecraftdevelopmenttoolkit.exceptions.ArgumentNotFoundException;
 import fr.pederobien.minecraftdevelopmenttoolkit.exceptions.NotAvailableArgumentException;
 import fr.pederobien.minecraftdevelopmenttoolkit.exceptions.NotAvailableCommandException;
@@ -124,7 +124,7 @@ public abstract class AbstractParentPersistenceEdition<T extends IUnmodifiableNo
 	}
 
 	private IMinecraftNotificationCenter getNotificationCenter() {
-		return Plateform.getNotificationCenter();
+		return Platform.getNotificationCenter();
 	}
 
 	private IMinecraftMessageEvent messageEvent(Player player, IMinecraftMessageCode code, Object... args) {

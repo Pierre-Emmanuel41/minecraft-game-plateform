@@ -12,7 +12,7 @@ import fr.pederobien.minecraft.game.platform.interfaces.commands.ICommand;
 import fr.pederobien.minecraft.game.platform.interfaces.commands.ICommandHelper;
 import fr.pederobien.minecraft.game.platform.interfaces.element.IGame;
 import fr.pederobien.minecraft.game.platform.interfaces.element.IGameConfigurationContext;
-import fr.pederobien.minecraft.game.platform.utils.Plateform;
+import fr.pederobien.minecraft.game.platform.utils.Platform;
 
 public abstract class AbstractCommand implements ICommand {
 	private static final TabCompleter DEFAULT_COMPLETER;
@@ -103,7 +103,7 @@ public abstract class AbstractCommand implements ICommand {
 	 *         configuration of this context.
 	 */
 	protected IGameConfigurationContext getGameConfigurationContext() {
-		return Plateform.getGameConfigurationContext();
+		return Platform.getGameConfigurationContext();
 	}
 
 	/**
@@ -111,6 +111,6 @@ public abstract class AbstractCommand implements ICommand {
 	 *         it is possible to not display it by setting {@link ICommand#setAvailable(boolean)} to false.
 	 */
 	protected ICommandHelper getCommandHelper() {
-		return Plateform.getCommandHelper();
+		return Platform.getCommandHelper();
 	}
 }

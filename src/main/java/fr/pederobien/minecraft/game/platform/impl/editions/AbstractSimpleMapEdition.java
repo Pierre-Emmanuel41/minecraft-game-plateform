@@ -4,7 +4,7 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 
 import fr.pederobien.minecraft.game.platform.dictionary.ECommonMessageCode;
-import fr.pederobien.minecraft.game.platform.utils.Plateform;
+import fr.pederobien.minecraft.game.platform.utils.Platform;
 import fr.pederobien.minecraftdevelopmenttoolkit.exceptions.ArgumentNotFoundException;
 import fr.pederobien.minecraftdevelopmenttoolkit.exceptions.NotAvailableArgumentException;
 import fr.pederobien.minecraftdevelopmenttoolkit.impl.messagecode.AbstractMessageCodeSimpleMapEdition;
@@ -31,6 +31,6 @@ public class AbstractSimpleMapEdition extends AbstractMessageCodeSimpleMapEditio
 
 	@Override
 	public IMinecraftNotificationCenter getNotificationCenter() {
-		return Plateform.getNotificationCenter();
+		return Platform.getNotificationCenter();
 	}
 }

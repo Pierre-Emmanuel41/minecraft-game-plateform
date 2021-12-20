@@ -12,7 +12,7 @@ import fr.pederobien.minecraft.game.platform.interfaces.element.IGameConfigurati
 import fr.pederobien.minecraft.game.platform.interfaces.element.ILabel;
 import fr.pederobien.minecraft.game.platform.interfaces.element.ITeam;
 import fr.pederobien.minecraft.game.platform.interfaces.helpers.IGameConfigurationHelper;
-import fr.pederobien.minecraft.game.platform.utils.Plateform;
+import fr.pederobien.minecraft.game.platform.utils.Platform;
 import fr.pederobien.minecraftdictionary.interfaces.IMinecraftMessageCode;
 import fr.pederobien.minecraftmanagers.EColor;
 import fr.pederobien.minecraftmanagers.PlayerManager;
@@ -27,7 +27,7 @@ public class AbstractGameConfigurationEdition<T extends IGameConfiguration> exte
 	 * @return An helper to simplify manipulation of a game configuration.
 	 */
 	protected IGameConfigurationHelper getGameConfigurationHelper() {
-		return Plateform.getOrCreateConfigurationHelper(get());
+		return Platform.getOrCreateConfigurationHelper(get());
 	}
 
 	/**

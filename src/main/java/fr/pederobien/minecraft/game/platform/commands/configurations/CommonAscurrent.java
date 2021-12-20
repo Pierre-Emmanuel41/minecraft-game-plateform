@@ -5,7 +5,7 @@ import org.bukkit.command.CommandSender;
 
 import fr.pederobien.minecraft.game.platform.dictionary.EGameConfigurationMessageCode;
 import fr.pederobien.minecraft.game.platform.interfaces.element.IGameConfiguration;
-import fr.pederobien.minecraft.game.platform.utils.Plateform;
+import fr.pederobien.minecraft.game.platform.utils.Platform;
 
 public class CommonAscurrent<T extends IGameConfiguration> extends AbstractGameConfigurationEdition<T> {
 
@@ -15,7 +15,7 @@ public class CommonAscurrent<T extends IGameConfiguration> extends AbstractGameC
 
 	@Override
 	public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-		Plateform.getGameConfigurationContext().setGameConfiguration(get());
+		Platform.getGameConfigurationContext().setGameConfiguration(get());
 		sendSynchro(sender, EGameConfigurationMessageCode.AS_CURRENT__GAME_STYLE_DEFINED, get().getName());
 		return true;
 	}

@@ -6,7 +6,7 @@ import org.bukkit.entity.Player;
 
 import fr.pederobien.minecraft.game.platform.entries.PlateformEntry;
 import fr.pederobien.minecraft.game.platform.interfaces.runtime.task.ITimeTask;
-import fr.pederobien.minecraft.game.platform.utils.Plateform;
+import fr.pederobien.minecraft.game.platform.utils.Platform;
 import fr.pederobien.minecraftdevelopmenttoolkit.utils.DisplayHelper;
 
 public abstract class TimeTaskEntry extends PlateformEntry {
@@ -29,7 +29,7 @@ public abstract class TimeTaskEntry extends PlateformEntry {
 	 * @return A task that represent the time during a game.
 	 */
 	protected ITimeTask getTask() {
-		return Plateform.getTimeTask();
+		return Platform.getTimeTask();
 	}
 
 	@Override

@@ -1,6 +1,6 @@
 package fr.pederobien.minecraft.game.platform.entries;
 
-import fr.pederobien.minecraft.game.platform.utils.Plateform;
+import fr.pederobien.minecraft.game.platform.utils.Platform;
 import fr.pederobien.minecraftdevelopmenttoolkit.impl.entry.ToolkitEntry;
 import fr.pederobien.minecraftdictionary.interfaces.IMinecraftNotificationCenter;
 
@@ -17,6 +17,6 @@ public abstract class PlateformEntry extends ToolkitEntry {
 
 	@Override
 	protected IMinecraftNotificationCenter getNotificationCenter() {
-		return Plateform.getNotificationCenter();
+		return Platform.getNotificationCenter();
 	}
 }

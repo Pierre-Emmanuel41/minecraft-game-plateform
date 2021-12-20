@@ -9,7 +9,7 @@ import org.w3c.dom.Document;
 import fr.pederobien.minecraft.game.platform.GamePlatformPlugin;
 import fr.pederobien.minecraft.game.platform.exceptions.persistence.IllegalPathException;
 import fr.pederobien.minecraft.game.platform.interfaces.element.persistence.IMinecraftPersistence;
-import fr.pederobien.minecraft.game.platform.utils.Plateform;
+import fr.pederobien.minecraft.game.platform.utils.Platform;
 import fr.pederobien.persistence.impl.xml.AbstractXmlPersistence;
 import fr.pederobien.persistence.interfaces.IUnmodifiableNominable;
 
@@ -17,7 +17,7 @@ public abstract class AbstractMinecraftPersistence<T extends IUnmodifiableNomina
 	private String defaultName;
 
 	protected AbstractMinecraftPersistence(String defaultName) {
-		this(Plateform.ROOT, defaultName);
+		this(Platform.ROOT, defaultName);
 	}
 
 	protected AbstractMinecraftPersistence(Path path, String defaultName) {
@@ -56,7 +56,7 @@ public abstract class AbstractMinecraftPersistence<T extends IUnmodifiableNomina
 	}
 
 	private void checkPath(Path path) {
-		if (!path.startsWith(Plateform.ROOT))
+		if (!path.startsWith(Platform.ROOT))
 			throw new IllegalPathException(path);
 	}
 }
