@@ -7,12 +7,11 @@ import org.bukkit.entity.Player;
 import org.bukkit.scoreboard.Team;
 
 import fr.pederobien.minecraft.game.platform.interfaces.editions.IPlateformCodeSender;
-import fr.pederobien.minecraft.game.platform.interfaces.observer.IObsPlayerQuitOrJoinEventListener;
 import fr.pederobien.minecraft.game.platform.interfaces.observer.IObsTeam;
 import fr.pederobien.minecraftdictionary.interfaces.IMinecraftMessageCode;
 import fr.pederobien.minecraftmanagers.EColor;
 
-public interface ITeam extends INominable, IObsPlayerQuitOrJoinEventListener, IPlateformCodeSender {
+public interface ITeam extends INominable, IPlateformCodeSender {
 
 	/**
 	 * @return The name of this team using {@link EColor#getInColor(String)} with parameters String equals {@link #getName()}.

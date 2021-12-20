@@ -14,7 +14,7 @@ import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.scoreboard.Team;
 
-import fr.pederobien.minecraft.game.platform.Platform;
+import fr.pederobien.minecraft.game.impl.PlayerQuitOrJoinEventHandler;
 import fr.pederobien.minecraft.game.platform.impl.observer.Observable;
 import fr.pederobien.minecraft.game.platform.interfaces.element.ITeam;
 import fr.pederobien.minecraft.game.platform.interfaces.observer.IObsTeam;
@@ -40,8 +40,8 @@ public class PlateformTeam extends AbstractNominable implements ITeam {
 
 		setColor(color);
 		this.isCopy = isCopy;
-
-		Platform.getPlayerQuitOrJoinEventListener().addObserver(this);
+		PlayerQuitOrJoinEventHandler.instance().registerQuitEventHandler(this, event -> onPlayerQuitEvent(event));
+		PlayerQuitOrJoinEventHandler.instance().registerJoinEventHandler(this, event -> onPlayerJoinEvent(event));
 	}
 
 	/**
@@ -74,26 +74,6 @@ public class PlateformTeam extends AbstractNominable implements ITeam {
 		String oldName = getName();
 		super.setName(name);
 		synchronizeWithServerTeam(serverTeam -> serverTeam.setDisplayName(name), obs -> obs.onNameChanged(this, oldName, getName()));
-	}
-
-	@Override
-	public void onPlayerJoinEvent(PlayerJoinEvent event) {
-		Iterator<Player> iterator = quitPlayers.iterator();
-		while (iterator.hasNext()) {
-			Player player = iterator.next();
-			if (player.getName().equals(event.getPlayer().getName())) {
-				removePlayer(player);
-				iterator.remove();
-				addPlayer(event.getPlayer());
-			}
-		}
-	}
-
-	@Override
-	public void onPlayerQuitEvent(PlayerQuitEvent event) {
-		for (Player player : players)
-			if (player.getName().equals(event.getPlayer().getName()))
-				quitPlayers.add(event.getPlayer());
 	}
 
 	@Override
@@ -207,5 +187,23 @@ public class PlateformTeam extends AbstractNominable implements ITeam {
 
 	private String getPrefix(Player sender, Player player) {
 		return color.getInColor("[" + (player.equals(sender) ? "me" : sender.getName()) + " -> " + getName() + "] ");
+	}
+
+	private void onPlayerJoinEvent(PlayerJoinEvent event) {
+		Iterator<Player> iterator = quitPlayers.iterator();
+		while (iterator.hasNext()) {
+			Player player = iterator.next();
+			if (player.getName().equals(event.getPlayer().getName())) {
+				removePlayer(player);
+				iterator.remove();
+				addPlayer(event.getPlayer());
+			}
+		}
+	}
+
+	private void onPlayerQuitEvent(PlayerQuitEvent event) {
+		for (Player player : players)
+			if (player.getName().equals(event.getPlayer().getName()))
+				quitPlayers.add(event.getPlayer());
 	}
 }

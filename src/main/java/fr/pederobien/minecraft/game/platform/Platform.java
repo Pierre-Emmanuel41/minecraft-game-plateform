@@ -10,14 +10,12 @@ import fr.pederobien.minecraft.game.platform.helpers.CommandHelper;
 import fr.pederobien.minecraft.game.platform.helpers.ConfigurationHelperManager;
 import fr.pederobien.minecraft.game.platform.helpers.PluginHelper;
 import fr.pederobien.minecraft.game.platform.impl.element.GameConfigurationContext;
-import fr.pederobien.minecraft.game.platform.impl.element.PlayerQuitOrJoinEventListener;
 import fr.pederobien.minecraft.game.platform.impl.runtime.task.TimeTask;
 import fr.pederobien.minecraft.game.platform.impl.runtime.timeline.TimeLine;
 import fr.pederobien.minecraft.game.platform.interfaces.commands.ICommand;
 import fr.pederobien.minecraft.game.platform.interfaces.commands.ICommandHelper;
 import fr.pederobien.minecraft.game.platform.interfaces.element.IGameConfiguration;
 import fr.pederobien.minecraft.game.platform.interfaces.element.IGameConfigurationContext;
-import fr.pederobien.minecraft.game.platform.interfaces.element.IPlayerQuitOrJoinEventListener;
 import fr.pederobien.minecraft.game.platform.interfaces.element.IPluginHelper;
 import fr.pederobien.minecraft.game.platform.interfaces.helpers.IGameConfigurationHelper;
 import fr.pederobien.minecraft.game.platform.interfaces.runtime.task.ITimeTask;
@@ -39,12 +37,9 @@ public class Platform {
 
 	private static JarMinecraftDictionaryParser parser;
 	private static IObjectiveUpdater updater;
-	private static IPlayerQuitOrJoinEventListener playerQuitOrJoinEventListener;
 
 	static {
 		Platform.updater = ObjectiveUpdater.getInstance(GamePlatformPlugin.instance());
-		Platform.playerQuitOrJoinEventListener = new PlayerQuitOrJoinEventListener();
-		playerQuitOrJoinEventListener.register(GamePlatformPlugin.instance());
 	}
 
 	/**
@@ -152,12 +147,5 @@ public class Platform {
 	 */
 	public static IObservableTimeLine getTimeLine() {
 		return TimeLine.getInstance();
-	}
-
-	/**
-	 * @return An event listener used to notify when a player quit or join the server.
-	 */
-	public static IPlayerQuitOrJoinEventListener getPlayerQuitOrJoinEventListener() {
-		return playerQuitOrJoinEventListener;
 	}
 }
