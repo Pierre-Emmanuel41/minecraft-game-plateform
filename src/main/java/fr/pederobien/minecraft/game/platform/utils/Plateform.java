@@ -6,6 +6,7 @@ import java.nio.file.Paths;
 import org.bukkit.plugin.Plugin;
 
 import fr.pederobien.dictionary.interfaces.IDictionaryParser;
+import fr.pederobien.minecraft.game.platform.GamePlatformPlugin;
 import fr.pederobien.minecraft.game.platform.helpers.CommandHelper;
 import fr.pederobien.minecraft.game.platform.helpers.ConfigurationHelperManager;
 import fr.pederobien.minecraft.game.platform.helpers.PluginHelper;
@@ -39,21 +40,12 @@ public class Plateform {
 
 	private static JarMinecraftDictionaryParser parser;
 	private static IObjectiveUpdater updater;
-	private static Plugin plugin;
 	private static IPlayerQuitOrJoinEventListener playerQuitOrJoinEventListener;
 
-	/**
-	 * @return The version of this plugin.
-	 */
-	public static String getVersion() {
-		return getPlugin().getDescription().getVersion();
-	}
-
-	/**
-	 * @return The name of this plugin.
-	 */
-	public static String getName() {
-		return getPlugin().getName();
+	static {
+		Plateform.updater = ObjectiveUpdater.getInstance(GamePlatformPlugin.instance());
+		Plateform.playerQuitOrJoinEventListener = new PlayerQuitOrJoinEventListener();
+		playerQuitOrJoinEventListener.register(GamePlatformPlugin.instance());
 	}
 
 	/**
@@ -98,13 +90,6 @@ public class Plateform {
 	 */
 	public static IPluginHelper getPluginHelper() {
 		return PluginHelper.getInstance();
-	}
-
-	/**
-	 * @return The plugin associated to this plateform.
-	 */
-	public static Plugin getPlugin() {
-		return plugin;
 	}
 
 	/**
@@ -175,13 +160,5 @@ public class Plateform {
 	 */
 	public static IPlayerQuitOrJoinEventListener getPlayerQuitOrJoinEventListener() {
 		return playerQuitOrJoinEventListener;
-	}
-
-	protected void setPlugin(Plugin plugin) {
-		Plateform.plugin = plugin;
-		getPluginHelper().register(plugin);
-		Plateform.updater = ObjectiveUpdater.getInstance(getPlugin());
-		Plateform.playerQuitOrJoinEventListener = new PlayerQuitOrJoinEventListener();
-		playerQuitOrJoinEventListener.register(plugin);
 	}
 }

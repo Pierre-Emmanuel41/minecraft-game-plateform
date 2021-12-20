@@ -6,6 +6,7 @@ import java.nio.file.Path;
 
 import org.w3c.dom.Document;
 
+import fr.pederobien.minecraft.game.platform.GamePlatformPlugin;
 import fr.pederobien.minecraft.game.platform.exceptions.persistence.IllegalPathException;
 import fr.pederobien.minecraft.game.platform.interfaces.element.persistence.IMinecraftPersistence;
 import fr.pederobien.minecraft.game.platform.utils.Plateform;
@@ -43,7 +44,7 @@ public abstract class AbstractMinecraftPersistence<T extends IUnmodifiableNomina
 	@Override
 	public void update() {
 		list().forEach(name -> {
-			Plateform.getPlugin().getLogger().info("Upgrading " + name);
+			GamePlatformPlugin.instance().getLogger().info("Upgrading " + name);
 			try {
 				load(name);
 			} catch (FileNotFoundException e) {

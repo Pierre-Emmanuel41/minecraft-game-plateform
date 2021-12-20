@@ -5,10 +5,10 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
+import fr.pederobien.minecraft.game.platform.GamePlatformPlugin;
 import fr.pederobien.minecraft.game.platform.impl.element.AbstractNominable;
 import fr.pederobien.minecraft.game.platform.interfaces.element.persistence.IMinecraftPersistence;
 import fr.pederobien.minecraft.game.platform.internal.persistence.PersistenceCenterPersistence;
-import fr.pederobien.minecraft.game.platform.utils.Plateform;
 import fr.pederobien.persistence.interfaces.IUnmodifiableNominable;
 
 public class PersistenceCenter extends AbstractNominable implements IPersistenceCenter {
@@ -50,11 +50,11 @@ public class PersistenceCenter extends AbstractNominable implements IPersistence
 		Double version = versions.get(persistence.getClass().getName());
 
 		if (version == null) {
-			Plateform.getPlugin().getLogger().info("Registering persistence " + persistence.getClass());
+			GamePlatformPlugin.instance().getLogger().info("Registering persistence " + persistence.getClass());
 			versions.put(persistence.getClass().getName(), persistence.getVersion());
 			writeDefaultContent(persistence);
 		} else if (persistence.forceUpdate() || !version.equals(persistence.getVersion())) {
-			Plateform.getPlugin().getLogger().info("Updating persistence " + persistence.getClass());
+			GamePlatformPlugin.instance().getLogger().info("Updating persistence " + persistence.getClass());
 			persistence.update();
 			versions.put(persistence.getClass().getName(), persistence.getVersion());
 		}

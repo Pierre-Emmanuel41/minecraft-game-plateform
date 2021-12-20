@@ -21,7 +21,6 @@ public class GamePlatformPlugin extends JavaPlugin {
 
 	@Override
 	public void onEnable() {
-		new Platform(this);
 		instance = this;
 
 		registerDictionaries();
@@ -53,13 +52,6 @@ public class GamePlatformPlugin extends JavaPlugin {
 			Plateform.getNotificationCenter().getDictionaryContext().register(parser, jarPath);
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
-		}
-	}
-
-	private class Platform extends Plateform {
-
-		protected Platform(Plugin plugin) {
-			setPlugin(plugin);
 		}
 	}
 }

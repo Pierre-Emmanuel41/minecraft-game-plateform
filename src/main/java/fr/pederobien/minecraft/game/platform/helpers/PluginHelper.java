@@ -9,7 +9,6 @@ import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import fr.pederobien.minecraft.game.platform.interfaces.element.IPluginHelper;
-import fr.pederobien.minecraft.game.platform.utils.Plateform;
 
 public class PluginHelper implements IPluginHelper {
 	private List<Plugin> plugins = new ArrayList<Plugin>();
@@ -60,6 +59,6 @@ public class PluginHelper implements IPluginHelper {
 
 	@Override
 	public Stream<Plugin> getPlugins() {
-		return plugins.stream().filter(plugin -> !plugin.getName().equals(Plateform.getName()));
+		return plugins.stream();
 	}
 }

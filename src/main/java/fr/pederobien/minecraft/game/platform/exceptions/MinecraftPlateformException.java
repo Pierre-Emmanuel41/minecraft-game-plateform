@@ -2,7 +2,7 @@ package fr.pederobien.minecraft.game.platform.exceptions;
 
 import java.util.StringJoiner;
 
-import fr.pederobien.minecraft.game.platform.utils.Plateform;
+import fr.pederobien.minecraft.game.platform.GamePlatformPlugin;
 
 public abstract class MinecraftPlateformException extends RuntimeException {
 	private static final long serialVersionUID = 1L;
@@ -10,7 +10,7 @@ public abstract class MinecraftPlateformException extends RuntimeException {
 	@Override
 	public final String getMessage() {
 		StringJoiner joiner = new StringJoiner("\n");
-		joiner.add("Plateform version : " + Plateform.getVersion());
+		joiner.add("Plateform version : " + GamePlatformPlugin.instance());
 		joiner.add(getInternalMessage());
 		return joiner.toString();
 	}
