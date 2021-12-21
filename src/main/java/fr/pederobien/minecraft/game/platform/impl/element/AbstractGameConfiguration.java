@@ -6,10 +6,10 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
-import fr.pederobien.minecraft.game.platform.impl.observer.Observable;
 import fr.pederobien.minecraft.game.platform.interfaces.element.IGameConfiguration;
 import fr.pederobien.minecraft.game.platform.interfaces.element.ITeam;
 import fr.pederobien.minecraft.game.platform.interfaces.observer.IObsGameConfiguration;
+import fr.pederobien.utils.Observable;
 
 public abstract class AbstractGameConfiguration extends AbstractNominable implements IGameConfiguration {
 	private static final LocalTime DEFAULT_PVP_TIME = LocalTime.of(0, 0, 0);
@@ -20,7 +20,7 @@ public abstract class AbstractGameConfiguration extends AbstractNominable implem
 	protected AbstractGameConfiguration(String name) {
 		super(name);
 		teams = new ArrayList<ITeam>();
-		observers = new Observable<>();
+		observers = new Observable<IObsGameConfiguration>();
 	}
 
 	@Override

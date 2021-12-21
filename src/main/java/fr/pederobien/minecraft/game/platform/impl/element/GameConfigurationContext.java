@@ -7,7 +7,6 @@ import java.util.Optional;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 
-import fr.pederobien.minecraft.game.platform.impl.observer.Observable;
 import fr.pederobien.minecraft.game.platform.interfaces.element.IEventListener;
 import fr.pederobien.minecraft.game.platform.interfaces.element.IGame;
 import fr.pederobien.minecraft.game.platform.interfaces.element.IGameConfiguration;
@@ -15,6 +14,7 @@ import fr.pederobien.minecraft.game.platform.interfaces.element.IGameConfigurati
 import fr.pederobien.minecraft.game.platform.interfaces.element.ITeam;
 import fr.pederobien.minecraft.game.platform.interfaces.observer.IObsGameConfiguration;
 import fr.pederobien.minecraft.game.platform.interfaces.observer.IObsGameConfigurationContext;
+import fr.pederobien.utils.Observable;
 
 public class GameConfigurationContext implements IGameConfigurationContext {
 	private IGameConfiguration gameConfiguration;

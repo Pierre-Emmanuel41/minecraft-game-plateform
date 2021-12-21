@@ -15,19 +15,18 @@ import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.scoreboard.Team;
 
 import fr.pederobien.minecraft.game.impl.PlayerQuitOrJoinEventHandler;
-import fr.pederobien.minecraft.game.platform.impl.observer.Observable;
 import fr.pederobien.minecraft.game.platform.interfaces.element.ITeam;
 import fr.pederobien.minecraft.game.platform.interfaces.observer.IObsTeam;
-import fr.pederobien.minecraft.game.platform.interfaces.observer.IObservable;
 import fr.pederobien.minecraftdictionary.interfaces.IMinecraftMessageCode;
 import fr.pederobien.minecraftmanagers.EColor;
 import fr.pederobien.minecraftmanagers.MessageManager;
 import fr.pederobien.minecraftmanagers.TeamManager;
+import fr.pederobien.utils.Observable;
 
 public class PlateformTeam extends AbstractNominable implements ITeam {
 	private EColor color;
 	private List<Player> players, quitPlayers;
-	private IObservable<IObsTeam> observable;
+	private Observable<IObsTeam> observable;
 	private boolean isCopy;
 	private Team serverTeam;
 
