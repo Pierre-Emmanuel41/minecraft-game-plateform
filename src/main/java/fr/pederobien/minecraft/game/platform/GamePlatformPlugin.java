@@ -3,8 +3,6 @@ package fr.pederobien.minecraft.game.platform;
 import java.io.FileNotFoundException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.Arrays;
-import java.util.List;
 
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -37,21 +35,13 @@ public class GamePlatformPlugin extends JavaPlugin {
 	}
 
 	private void registerDictionaries() {
-		// Folder for dictionaries
-		String[] parents = new String[] { "English", "French" };
-
-		// Dictionary files
-		List<String> dictionaries = Arrays.asList("Common.xml", "Game.xml", "WorldStructure.xml", "Configurations.xml", "Entry.xml", "Plateform.xml");
-
 		try {
-			JarXmlDictionaryParser dictionaryParser = new JarXmlDictionaryParser(Platform.PLUGINS);
-			MinecraftDictionaryContext context = MinecraftDictionaryContext.instance();
+			JarXmlDictionaryParser dictionaryParser = new JarXmlDictionaryParser(getFile().toPath());
 
-			for (String parent : parents) {
-				for (String dictionary : dictionaries) {
-					context.register(dictionaryParser.parse(DICTIONARY_FOLDER.resolve(parent).resolve(dictionary)));
-				}
-			}
+			MinecraftDictionaryContext context = MinecraftDictionaryContext.instance();
+			String[] dictionaries = new String[] { "English.xml", "French.xml" };
+			for (String dictionary : dictionaries)
+				context.register(dictionaryParser.parse(DICTIONARY_FOLDER.resolve(dictionary)));
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		}

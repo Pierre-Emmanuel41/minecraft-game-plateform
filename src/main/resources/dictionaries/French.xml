@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dictionary>
+	<version>1.0</version>
+	<locales>
+		<locale>fr</locale>
+		<locale>fr-FR</locale>
+		<locale>fr-CA</locale>
+	</locales>
+	<messages>
+		<message>
+			<code>TIME_FORMAT__COMPLETION</code>
+			<value>hh:mm:ss</value>
+		</message>
+		<message>
+			<code>GAME_CONFIG__PVP_TIME__EXPLANATION</code>
+			<value>Pour définir le temps au bout duquel, le PVP est activé</value>
+		</message>
+		<message>
+			<code>GAME_CONFIG__PVP_TIME__TIME_IS_MISSING</code>
+			<value>Impossible de définir le temps PVP, il manque le temps</value>
+		</message>
+		<message>
+			<code>GAME_CONFIG__PVP_TIME__PVP_ENABLED_FROM_BEGINNING</code>
+			<value>Le PVP est activé dès le début de la partie</value>
+		</message>
+		<message>
+			<code>GAME_CONFIG__PVP_TIME__PVP_TIME_DEFINED</code>
+			<value>Le PVP est activé après %s de jeu</value>
+		</message>
+	</messages>
+</dictionary>
