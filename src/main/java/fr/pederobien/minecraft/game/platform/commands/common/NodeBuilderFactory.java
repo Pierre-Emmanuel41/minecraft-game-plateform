@@ -8,9 +8,10 @@ import java.util.function.Supplier;
 
 import org.bukkit.command.CommandSender;
 
+import fr.pederobien.minecraft.game.commands.ListNode;
+import fr.pederobien.minecraft.game.commands.ListNode.ListNodeBuilder;
 import fr.pederobien.minecraft.game.platform.commands.common.DeleteNode.DeleteNodeBuilder;
 import fr.pederobien.minecraft.game.platform.commands.common.DetailsNode.DetailsNodeBuilder;
-import fr.pederobien.minecraft.game.platform.commands.common.ListNode.ListNodeBuilder;
 import fr.pederobien.minecraft.game.platform.commands.common.LoadNode.LoadNodeBuilder;
 import fr.pederobien.minecraft.game.platform.commands.common.NewNode.NewNodeBuilder;
 import fr.pederobien.minecraft.game.platform.commands.common.RenameNode.RenameNodeBuilder;

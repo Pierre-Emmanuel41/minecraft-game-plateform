@@ -8,9 +8,9 @@ import org.bukkit.command.CommandSender;
 
 import fr.pederobien.minecraft.commandtree.impl.MinecraftCodeNodeWrapper;
 import fr.pederobien.minecraft.dictionary.interfaces.IMinecraftCode;
-import fr.pederobien.minecraft.game.platform.commands.common.ListNode;
+import fr.pederobien.minecraft.game.commands.ListNode;
+import fr.pederobien.minecraft.game.commands.ListNode.ListNodeBuilder;
 import fr.pederobien.minecraft.game.platform.commands.common.NodeBuilderFactory;
-import fr.pederobien.minecraft.game.platform.commands.common.ListNode.ListNodeBuilder;
 import fr.pederobien.minecraft.game.platform.interfaces.INominable;
 import fr.pederobien.minecraft.game.platform.interfaces.IPlatformPersistence;
 
