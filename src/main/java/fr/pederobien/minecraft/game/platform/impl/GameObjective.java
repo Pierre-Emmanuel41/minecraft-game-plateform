@@ -1,12 +1,12 @@
-package fr.pederobien.minecraft.game.platform.impl.element;
+package fr.pederobien.minecraft.game.platform.impl;
 
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.scoreboard.DisplaySlot;
 
 import fr.pederobien.minecraft.game.interfaces.IGameConfiguration;
-import fr.pederobien.minecraft.game.platform.interfaces.element.IGameObjective;
-import fr.pederobien.minecraftscoreboards.impl.Objective;
+import fr.pederobien.minecraft.game.platform.interfaces.IGameObjective;
+import fr.pederobien.minecraft.scoreboards.impl.Objective;
 
 public class GameObjective<T extends IGameConfiguration> extends Objective implements IGameObjective<T> {
 	private T configuration;

@@ -1,7 +1,7 @@
-package fr.pederobien.minecraft.game.platform.interfaces.element;
+package fr.pederobien.minecraft.game.platform.interfaces;
 
 import fr.pederobien.minecraft.game.interfaces.IGameConfiguration;
-import fr.pederobien.minecraftscoreboards.interfaces.IObjective;
+import fr.pederobien.minecraft.scoreboards.interfaces.IObjective;
 
 public interface IGameObjective<T extends IGameConfiguration> extends IObjective {
 
