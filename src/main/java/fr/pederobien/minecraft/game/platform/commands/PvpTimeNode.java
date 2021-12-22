@@ -14,8 +14,13 @@ import fr.pederobien.minecraft.game.platform.interfaces.IPvpTimeConfigurable;
 
 public class PvpTimeNode extends ConfigurableNode<LocalTime> {
 
-	protected PvpTimeNode(IPvpTimeConfigurable configurable) {
-		super("pvpTime", EPlatformCode.GAME_CONFIG__PVP_TIME__EXPLANATION, configurable.getPvpTime());
+	/**
+	 * Creates a node in order to modify the PVP time for this configuration.
+	 * 
+	 * @param configuration The configuration that contains a PVP time parameter.
+	 */
+	protected PvpTimeNode(IPvpTimeConfigurable configuration) {
+		super("pvpTime", EPlatformCode.GAME_CONFIG__PVP_TIME__EXPLANATION, configuration.getPvpTime());
 	}
 
 	@Override
