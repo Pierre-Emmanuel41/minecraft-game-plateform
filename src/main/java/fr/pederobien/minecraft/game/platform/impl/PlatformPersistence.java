@@ -42,8 +42,9 @@ public class PlatformPersistence<T extends INominable> implements IPlatformPersi
 
 	@Override
 	public boolean serialize() {
-		T element = elt == null ? getCreator().get() : elt;
-		return persistence.serialize(element, IPersistence.LATEST, getAbsolutePath(element.getName()).toString());
+		if (elt == null)
+			return true;
+		return persistence.serialize(elt, IPersistence.LATEST, getAbsolutePath(elt.getName()).toString());
 	}
 
 	@Override
