@@ -5,17 +5,10 @@ import java.nio.file.Paths;
 
 import fr.pederobien.minecraft.game.impl.time.TimeLine;
 import fr.pederobien.minecraft.game.interfaces.time.ITimeLine;
-import fr.pederobien.minecraft.game.platform.helpers.CommandHelper;
-import fr.pederobien.minecraft.game.platform.helpers.PluginHelper;
-import fr.pederobien.minecraft.game.platform.interfaces.commands.ICommand;
-import fr.pederobien.minecraft.game.platform.interfaces.commands.ICommandHelper;
-import fr.pederobien.minecraft.game.platform.interfaces.element.IPluginHelper;
 import fr.pederobien.minecraft.game.platform.internal.IPersistenceCenter;
 import fr.pederobien.minecraft.game.platform.internal.PersistenceCenter;
 import fr.pederobien.minecraft.scoreboards.ObjectiveUpdater;
 import fr.pederobien.minecraft.scoreboards.interfaces.IObjectiveUpdater;
-import fr.pederobien.minecraftdictionary.impl.NotificationCenter;
-import fr.pederobien.minecraftdictionary.interfaces.IMinecraftNotificationCenter;
 
 public class Platform {
 	/**
@@ -46,31 +39,9 @@ public class Platform {
 	}
 
 	/**
-	 * @return The helper used to register commands. Once a command has been registered, it is impossible to unregister it. However,
-	 *         it is possible to not display it by setting {@link ICommand#setAvailable(boolean)} to false.
-	 */
-	public static ICommandHelper getCommandHelper() {
-		return CommandHelper.getInstance();
-	}
-
-	/**
 	 * @return The center used to track persistence version update.
 	 */
 	public static IPersistenceCenter getPersistenceCenter() {
 		return PersistenceCenter.getInstance();
-	}
-
-	/**
-	 * @return The notification center to send message to player(s) that are currently logged into the server.
-	 */
-	public static IMinecraftNotificationCenter getNotificationCenter() {
-		return NotificationCenter.getInstance();
-	}
-
-	/**
-	 * @return The helper used to have access to all registered plugins to this plugin.
-	 */
-	public static IPluginHelper getPluginHelper() {
-		return PluginHelper.getInstance();
 	}
 }
