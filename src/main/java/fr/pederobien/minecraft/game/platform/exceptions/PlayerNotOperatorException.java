@@ -2,12 +2,12 @@ package fr.pederobien.minecraft.game.platform.exceptions;
 
 import org.bukkit.entity.Player;
 
-public class PlayerNotOperatorException extends SimpleMessageException {
+public class PlayerNotOperatorException extends PlatformException {
 	private static final long serialVersionUID = 1L;
 	private Player player;
 
 	public PlayerNotOperatorException(Player player) {
-		super("The player " + player.getName() + " is not an operator");
+		super(String.format("%s is not an operator", player.getName()));
 		this.player = player;
 	}
 

@@ -4,12 +4,13 @@ import java.util.StringJoiner;
 
 import org.bukkit.plugin.Plugin;
 
-public class CommandNotFoundException extends MinecraftPlateformException {
+public class CommandNotFoundException extends PlatformException {
 	private static final long serialVersionUID = 1L;
 	private Plugin plugin;
 	private String label;
 
 	public CommandNotFoundException(Plugin plugin, String label) {
+		super(new StringJoiner(", ").add("Command not found in file plugin.yml").toString());
 		this.plugin = plugin;
 		this.label = label;
 	}

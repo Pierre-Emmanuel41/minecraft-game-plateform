@@ -1,6 +1,6 @@
 package fr.pederobien.minecraft.game.platform.exceptions;
 
-public class PlayerNotFoundException extends SimpleMessageException {
+public class PlayerNotFoundException extends PlatformException {
 	private static final long serialVersionUID = 1L;
 	private String playerName;
 

@@ -1,16 +1,12 @@
 package fr.pederobien.minecraft.game.platform.exceptions;
 
-public class CommandAlreadyRegisteredException extends MinecraftPlateformException {
+public class CommandAlreadyRegisteredException extends PlatformException {
 	private static final long serialVersionUID = 1L;
 	private String name;
 
 	public CommandAlreadyRegisteredException(String name) {
+		super(String.format("The command %s is already registered", name));
 		this.name = name;
-	}
-
-	@Override
-	protected String getInternalMessage() {
-		return "The command " + getName() + " is already registered";
 	}
 
 	/**
