@@ -3,11 +3,11 @@ package fr.pederobien.minecraft.game.platform.impl.editions;
 import org.bukkit.plugin.Plugin;
 
 import fr.pederobien.minecraft.game.platform.commands.common.CommonDelete;
-import fr.pederobien.minecraft.game.platform.commands.common.CommonDetails;
 import fr.pederobien.minecraft.game.platform.commands.common.CommonList;
 import fr.pederobien.minecraft.game.platform.commands.common.CommonNew;
 import fr.pederobien.minecraft.game.platform.commands.common.CommonRename;
 import fr.pederobien.minecraft.game.platform.commands.common.CommonSave;
+import fr.pederobien.minecraft.game.platform.commands.persistence.PersistenceDetailsNode;
 import fr.pederobien.minecraft.game.platform.interfaces.editions.IMapPersistenceEdition;
 import fr.pederobien.minecraft.game.platform.interfaces.element.INominable;
 import fr.pederobien.minecraft.game.platform.interfaces.element.persistence.IMinecraftPersistence;
@@ -64,7 +64,7 @@ public abstract class AbstractCommonParentPersistenceEdition<T extends INominabl
 	protected abstract IMapPersistenceEdition<T> getDeleteEdition();
 
 	/**
-	 * The returned edition should extends {@link CommonDetails} for more security.
+	 * The returned edition should extends {@link PersistenceDetailsNode} for more security.
 	 * 
 	 * @return An edition to display current configuration's characteristics.
 	 */
