@@ -5,8 +5,6 @@ import java.nio.file.Paths;
 
 import fr.pederobien.minecraft.game.impl.time.TimeLine;
 import fr.pederobien.minecraft.game.interfaces.time.ITimeLine;
-import fr.pederobien.minecraft.game.platform.internal.IPersistenceCenter;
-import fr.pederobien.minecraft.game.platform.internal.PersistenceCenter;
 import fr.pederobien.minecraft.scoreboards.ObjectiveUpdater;
 import fr.pederobien.minecraft.scoreboards.interfaces.IObjectiveUpdater;
 
@@ -36,12 +34,5 @@ public class Platform {
 	static {
 		OBJECTIVE_UPDATER = ObjectiveUpdater.getInstance(GamePlatformPlugin.instance());
 		TIME_LINE = new TimeLine(GamePlatformPlugin.instance());
-	}
-
-	/**
-	 * @return The center used to track persistence version update.
-	 */
-	public static IPersistenceCenter getPersistenceCenter() {
-		return PersistenceCenter.getInstance();
 	}
 }

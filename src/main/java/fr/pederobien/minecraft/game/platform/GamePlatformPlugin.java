@@ -29,11 +29,6 @@ public class GamePlatformPlugin extends JavaPlugin {
 		registerDictionaries();
 	}
 
-	@Override
-	public void onDisable() {
-		Platform.getPersistenceCenter().save();
-	}
-
 	private void registerDictionaries() {
 		try {
 			JarXmlDictionaryParser dictionaryParser = new JarXmlDictionaryParser(getFile().toPath());
