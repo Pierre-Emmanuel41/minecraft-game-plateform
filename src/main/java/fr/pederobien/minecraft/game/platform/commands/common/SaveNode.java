@@ -15,7 +15,7 @@ public class SaveNode extends MinecraftCodeNode {
 	private SaveNodeBuilder builder;
 
 	private SaveNode(SaveNodeBuilder builder) {
-		super(ECommonLabel.SAVE.getLabel(), builder.explanation, () -> builder.tree.getPersistence().get() != null);
+		super("save", builder.explanation, () -> builder.tree.getPersistence().get() != null);
 		this.builder = builder;
 	}
 

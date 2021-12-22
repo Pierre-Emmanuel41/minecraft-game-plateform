@@ -16,7 +16,7 @@ public class DeleteNode extends MinecraftCodeNode {
 	private DeleteNodeBuilder builder;
 
 	private DeleteNode(DeleteNodeBuilder builder) {
-		super(ECommonLabel.DELETE.getLabel(), builder.explanation);
+		super("delete", builder.explanation);
 		this.builder = builder;
 	}
 

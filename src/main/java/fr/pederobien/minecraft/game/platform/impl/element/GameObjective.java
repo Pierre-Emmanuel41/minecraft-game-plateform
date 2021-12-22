@@ -4,7 +4,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.scoreboard.DisplaySlot;
 
-import fr.pederobien.minecraft.game.platform.interfaces.element.IGameConfiguration;
+import fr.pederobien.minecraft.game.interfaces.IGameConfiguration;
 import fr.pederobien.minecraft.game.platform.interfaces.element.IGameObjective;
 import fr.pederobien.minecraftscoreboards.impl.Objective;
 

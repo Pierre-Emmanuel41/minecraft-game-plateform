@@ -17,7 +17,7 @@ public class NewNode<T> extends MinecraftCodeNode {
 	private NewNodeBuilder<T> builder;
 
 	private NewNode(NewNodeBuilder<T> builder) {
-		super(ECommonLabel.NEW.getLabel(), builder.explanation);
+		super("new", builder.explanation);
 	}
 
 	/**

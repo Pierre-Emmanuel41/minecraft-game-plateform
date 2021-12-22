@@ -13,7 +13,7 @@ public class DetailsNode extends MinecraftCodeNode {
 	private DetailsNodeBuilder builder;
 
 	private DetailsNode(DetailsNodeBuilder builder) {
-		super(ECommonLabel.DETAILS.getLabel(), builder.explanation);
+		super("details", builder.explanation);
 		this.builder = builder;
 	}
 

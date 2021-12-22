@@ -6,15 +6,10 @@ import java.nio.file.Paths;
 import fr.pederobien.minecraft.game.impl.time.TimeLine;
 import fr.pederobien.minecraft.game.interfaces.time.ITimeLine;
 import fr.pederobien.minecraft.game.platform.helpers.CommandHelper;
-import fr.pederobien.minecraft.game.platform.helpers.ConfigurationHelperManager;
 import fr.pederobien.minecraft.game.platform.helpers.PluginHelper;
-import fr.pederobien.minecraft.game.platform.impl.element.GameConfigurationContext;
 import fr.pederobien.minecraft.game.platform.interfaces.commands.ICommand;
 import fr.pederobien.minecraft.game.platform.interfaces.commands.ICommandHelper;
-import fr.pederobien.minecraft.game.platform.interfaces.element.IGameConfiguration;
-import fr.pederobien.minecraft.game.platform.interfaces.element.IGameConfigurationContext;
 import fr.pederobien.minecraft.game.platform.interfaces.element.IPluginHelper;
-import fr.pederobien.minecraft.game.platform.interfaces.helpers.IGameConfigurationHelper;
 import fr.pederobien.minecraft.game.platform.internal.IPersistenceCenter;
 import fr.pederobien.minecraft.game.platform.internal.PersistenceCenter;
 import fr.pederobien.minecraft.scoreboards.ObjectiveUpdater;
@@ -51,14 +46,6 @@ public class Platform {
 	}
 
 	/**
-	 * @return A context for game. This context is used to start, pause, relaunch and stop the game managed by the current
-	 *         configuration of this context.
-	 */
-	public static IGameConfigurationContext getGameConfigurationContext() {
-		return GameConfigurationContext.getInstance();
-	}
-
-	/**
 	 * @return The helper used to register commands. Once a command has been registered, it is impossible to unregister it. However,
 	 *         it is possible to not display it by setting {@link ICommand#setAvailable(boolean)} to false.
 	 */
@@ -71,13 +58,6 @@ public class Platform {
 	 */
 	public static IPersistenceCenter getPersistenceCenter() {
 		return PersistenceCenter.getInstance();
-	}
-
-	/**
-	 * @return The manager used to or create an helper associated to a configuration.
-	 */
-	public static IGameConfigurationHelper getOrCreateConfigurationHelper(IGameConfiguration configuration) {
-		return ConfigurationHelperManager.getInstance().getOrCreateHelper(configuration);
 	}
 
 	/**

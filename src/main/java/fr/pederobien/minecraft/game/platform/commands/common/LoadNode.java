@@ -16,7 +16,7 @@ public class LoadNode extends MinecraftCodeNode {
 	private LoadNodeBuilder builder;
 
 	private LoadNode(LoadNodeBuilder builder) {
-		super(ECommonLabel.LOAD.getLabel(), builder.explanation, () -> true);
+		super("load", builder.explanation, () -> true);
 		this.builder = builder;
 	}
 

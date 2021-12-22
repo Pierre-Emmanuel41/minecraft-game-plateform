@@ -17,7 +17,7 @@ public class RenameNode extends MinecraftCodeNode {
 	private RenameNodeBuilder builder;
 
 	private RenameNode(RenameNodeBuilder builder) {
-		super(ECommonLabel.RENAME.getLabel(), builder.explanation);
+		super("renamed", builder.explanation);
 		this.builder = builder;
 	}
 
