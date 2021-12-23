@@ -27,5 +27,13 @@
 			<code>GAME_CONFIG__PVP_TIME__PVP_TIME_DEFINED</code>
 			<value>Le PVP est activé après %s de jeu</value>
 		</message>
+		<message>
+			<code>GAME_CONFIG__AS_CURRENT__EXPLANATION</code>
+			<value>Pour définir la partie à lancer avec la commande "./startgame"</value>
+		</message>
+		<message>
+			<code>GAME_CONFIG__AS_CURRENT__GAME_DEFINED</code>
+			<value>%s sera lancée avec la commande "./startgame"</value>
+		</message>
 	</messages>
 </dictionary>

@@ -30,5 +30,13 @@
 			<code>GAME_CONFIG__PVP_TIME__PVP_TIME_DEFINED</code>
 			<value>The PVP is enabled after %s of play</value>
 		</message>
+		<message>
+			<code>GAME_CONFIG__AS_CURRENT__EXPLANATION</code>
+			<value>To set the game to start with command "./startgame"</value>
+		</message>
+		<message>
+			<code>GAME_CONFIG__AS_CURRENT__GAME_DEFINED</code>
+			<value>%s will be started with command "./startgame"</value>
+		</message>
 	</messages>
 </dictionary>

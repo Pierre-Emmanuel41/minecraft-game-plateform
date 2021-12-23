@@ -10,6 +10,7 @@ import org.bukkit.command.CommandSender;
 
 import fr.pederobien.minecraft.game.commands.ListNode;
 import fr.pederobien.minecraft.game.commands.ListNode.ListNodeBuilder;
+import fr.pederobien.minecraft.game.interfaces.IGame;
 import fr.pederobien.minecraft.game.platform.commands.common.DeleteNode.DeleteNodeBuilder;
 import fr.pederobien.minecraft.game.platform.commands.common.DetailsNode.DetailsNodeBuilder;
 import fr.pederobien.minecraft.game.platform.commands.common.LoadNode.LoadNodeBuilder;
@@ -103,5 +104,14 @@ public class NodeBuilderFactory {
 	 */
 	public static DeleteNodeBuilder deleteNode(Consumer<CommandSender> onNameIsMissing) {
 		return DeleteNode.builder(onNameIsMissing);
+	}
+
+	/**
+	 * Get a node that sets the given game to start with the command "./startgame".
+	 * 
+	 * @param game The game to start.
+	 */
+	public static AsCurrentNode asCurrentNode(IGame game) {
+		return new AsCurrentNode(game);
 	}
 }

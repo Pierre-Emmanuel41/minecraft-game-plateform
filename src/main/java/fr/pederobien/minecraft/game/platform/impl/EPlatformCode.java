@@ -21,6 +21,12 @@ public enum EPlatformCode implements IMinecraftCode {
 	// Code when the PVP is defined
 	GAME_CONFIG__PVP_TIME__PVP_TIME_DEFINED,
 
+	// Code for the "ascurrent" command ------------------------------------------
+	GAME_CONFIG__AS_CURRENT__EXPLANATION,
+
+	// Code when the game is defined as the game to start
+	GAME_CONFIG__AS_CURRENT__GAME_DEFINED,
+
 	;
 
 	private IPlayerGroup group;
