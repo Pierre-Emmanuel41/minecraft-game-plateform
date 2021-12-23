@@ -9,8 +9,12 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 import fr.pederobien.dictionary.impl.JarXmlDictionaryParser;
 import fr.pederobien.minecraft.dictionary.impl.MinecraftDictionaryContext;
+import fr.pederobien.minecraft.game.event.GameStartPostEvent;
+import fr.pederobien.utils.event.EventHandler;
+import fr.pederobien.utils.event.EventManager;
+import fr.pederobien.utils.event.IEventListener;
 
-public class GamePlatformPlugin extends JavaPlugin {
+public class GamePlatformPlugin extends JavaPlugin implements IEventListener {
 	private static final Path DICTIONARY_FOLDER = Paths.get("resources/dictionaries");
 
 	private static Plugin instance;
@@ -26,6 +30,8 @@ public class GamePlatformPlugin extends JavaPlugin {
 	public void onEnable() {
 		instance = this;
 
+		EventManager.registerListener(this);
+
 		registerDictionaries();
 	}
 
@@ -40,5 +46,15 @@ public class GamePlatformPlugin extends JavaPlugin {
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		}
+	}
+
+	@EventHandler
+	private void onGameStart(GameStartPostEvent event) {
+		Platform.register(event.getGame().getPlugin());
+	}
+
+	@EventHandler
+	private void onGameStop(GameStartPostEvent event) {
+		Platform.unregister(event.getGame().getPlugin());
 	}
 }

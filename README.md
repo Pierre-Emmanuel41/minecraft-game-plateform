@@ -1,6 +1,6 @@
 # Presentation
 
-This project can be used by minecraft developper in order to use three different commands : startgame, stopgame and pausegame. But first, those commands can be used only by operators on the server and second, they can be used if and only if there are plugins compatible with this plugin registered on the server. Using this plugin alone is useless.
+This project can be used by minecraft developers in order to use three different commands : startgame, stopgame and pausegame. But first, those commands can be used only by operators on the server and second, they can be used if and only if there are plugins compatible with this plugin registered on the server. Using this plugin alone is useless.
 
 # Download
 

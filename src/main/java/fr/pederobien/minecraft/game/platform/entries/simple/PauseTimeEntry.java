@@ -21,7 +21,7 @@ public class PauseTimeEntry extends TimeTaskEntry {
 
 	@Override
 	public LocalTime getTime() {
-		return Platform.TIME_LINE.getTimeTask().getPauseTime();
+		return Platform.get(getObjective().getPlugin()).getTimeLine().getTimeTask().getPauseTime();
 	}
 
 	@Override

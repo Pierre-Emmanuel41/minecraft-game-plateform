@@ -28,7 +28,7 @@ public class TimeTaskObserverEntryUpdater extends EntryUpdater implements IEvent
 
 	@EventHandler
 	private void onTimeChange(TimeTaskTimeChangePostEvent event) {
-		if (!event.getTask().equals(Platform.TIME_LINE.getTimeTask()))
+		if (!event.getTask().equals(Platform.get(getPlugin()).getTimeLine().getTimeTask()))
 			return;
 
 		update();

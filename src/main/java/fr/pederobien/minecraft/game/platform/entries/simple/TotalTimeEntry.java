@@ -21,7 +21,7 @@ public class TotalTimeEntry extends TimeTaskEntry {
 
 	@Override
 	public LocalTime getTime() {
-		return Platform.TIME_LINE.getTimeTask().getTotalTime();
+		return Platform.get(getObjective().getPlugin()).getTimeLine().getTimeTask().getTotalTime();
 	}
 
 	@Override
