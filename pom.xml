@@ -47,17 +47,9 @@
 				</includes>
 			</resource>
 			<resource>
-				<targetPath>./resources/dictionaries/French</targetPath>
+				<targetPath>./resources/dictionaries</targetPath>
 				<filtering>true</filtering>
-				<directory>${basedir}/src/main/resources/dictionaries/French</directory>
-				<includes>
-					<include>*.xml</include>
-				</includes>
-			</resource>
-			<resource>
-				<targetPath>./resources/dictionaries/English</targetPath>
-				<filtering>true</filtering>
-				<directory>${basedir}/src/main/resources/dictionaries/English</directory>
+				<directory>${basedir}/src/main/resources</directory>
 				<includes>
 					<include>*.xml</include>
 				</includes>
