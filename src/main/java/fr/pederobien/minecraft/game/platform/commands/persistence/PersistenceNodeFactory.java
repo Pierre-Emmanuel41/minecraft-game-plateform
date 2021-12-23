@@ -58,7 +58,7 @@ public class PersistenceNodeFactory<T extends INominable> {
 	 * 
 	 * @return A new instance of a PersistenceDetailsNodeBuilder.
 	 */
-	public PersistenceDetailsNodeBuilder detailsNode(BiConsumer<CommandSender, String> onDetails) {
+	public PersistenceDetailsNodeBuilder<T> detailsNode(BiConsumer<CommandSender, T> onDetails) {
 		return PersistenceDetailsNode.builder(persistence, onDetails);
 	}
 
