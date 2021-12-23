@@ -1,9 +1,9 @@
 package fr.pederobien.minecraft.game.platform.interfaces;
 
-import fr.pederobien.minecraft.game.interfaces.IGameConfiguration;
+import fr.pederobien.minecraft.game.interfaces.IGame;
 import fr.pederobien.minecraft.scoreboards.interfaces.IObjective;
 
-public interface IGameObjective<T extends IGameConfiguration> extends IObjective {
+public interface IGameObjective<T extends IGame> extends IObjective {
 
 	void initiate();
 
@@ -15,5 +15,5 @@ public interface IGameObjective<T extends IGameConfiguration> extends IObjective
 
 	void stop();
 
-	T getConfiguration();
+	T getGame();
 }
