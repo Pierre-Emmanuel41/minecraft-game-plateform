@@ -81,11 +81,6 @@ public class PlatformPersistence<T extends INominable> implements IPlatformPersi
 		return names;
 	}
 
-	@Override
-	public Double getVersion() {
-		return persistence.getVersion();
-	}
-
 	/**
 	 * Get the absolute path leading to the file associated to the given name.
 	 * 

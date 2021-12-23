@@ -68,10 +68,4 @@ public interface IPlatformPersistence<T extends INominable> {
 	 * @return The list of file's name in the persistence folder.
 	 */
 	List<String> list();
-
-	/**
-	 * @return The current version number of this persistence. This number is used to update the default content when version has
-	 *         changed.
-	 */
-	Double getVersion();
 }
