@@ -23,14 +23,14 @@ public class NodeBuilderFactory {
 
 	/**
 	 * Creates a DetailsNodeBuilder based on the given element. The {@link CommandSender} refers to the entity that run the command,
-	 * the <code>String</code> parameter refers to the details to display.
+	 * the <code>T</code> parameter refers to type of element whose details should be displayed.
 	 * 
-	 * @param element   The element used to display the string returned by the <code>toString</code> method.
-	 * @param onDetails Set the action to perform when displaying the details.
+	 * @param element   The element used to display its details.
+	 * @param onDetails Action to perform when displaying the details of the underlying object.
 	 * 
 	 * @return A new instance of a DetailsNodeBuilder.
 	 */
-	public static DetailsNodeBuilder detailsNode(Object element, BiConsumer<CommandSender, String> onDetails) {
+	public static <T> DetailsNodeBuilder<T> detailsNode(T element, BiConsumer<CommandSender, T> onDetails) {
 		return DetailsNode.builder(element, onDetails);
 	}
 
