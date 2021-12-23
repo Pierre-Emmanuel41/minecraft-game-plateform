@@ -24,7 +24,7 @@ public class PlatformPersistence<T extends INominable> implements IPlatformPersi
 	 * @param creator     The supplier used to create new object.
 	 * @param persistence The persistence used to serialize deserialize objects.
 	 */
-	protected PlatformPersistence(Path path, Function<String, T> creator, IPersistence<T, ? extends ISerializer<T>> persistence) {
+	public PlatformPersistence(Path path, Function<String, T> creator, IPersistence<T, ? extends ISerializer<T>> persistence) {
 		this.path = Platform.ROOT.resolve(path);
 		this.creator = creator;
 		this.persistence = persistence;
