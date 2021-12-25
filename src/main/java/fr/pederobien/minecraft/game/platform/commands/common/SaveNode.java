@@ -8,14 +8,12 @@ import org.bukkit.command.CommandSender;
 
 import fr.pederobien.minecraft.commandtree.impl.MinecraftCodeNode;
 import fr.pederobien.minecraft.dictionary.interfaces.IMinecraftCode;
-import fr.pederobien.minecraft.game.platform.commands.persistence.PersistenceNodeFactory;
-import fr.pederobien.minecraft.game.platform.interfaces.INominable;
 
 public class SaveNode extends MinecraftCodeNode {
 	private SaveNodeBuilder builder;
 
 	private SaveNode(SaveNodeBuilder builder) {
-		super("save", builder.explanation, () -> builder.tree.getPersistence().get() != null);
+		super("save", builder.explanation);
 		this.builder = builder;
 	}
 
@@ -39,7 +37,6 @@ public class SaveNode extends MinecraftCodeNode {
 	}
 
 	public static class SaveNodeBuilder {
-		private PersistenceNodeFactory<? extends INominable> tree;
 		private Supplier<Boolean> onSerializeAction;
 		private Consumer<CommandSender> onFailToSerialize, onSerialized;
 		private IMinecraftCode explanation;
