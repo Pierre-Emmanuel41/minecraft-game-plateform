@@ -70,7 +70,7 @@ public class DetailsNode<T> extends MinecraftCodeNode {
 		 * @throws IllegalArgumentException if one parameter is null.
 		 */
 		public DetailsNode<T> build(IMinecraftCode explanation) {
-			if (element == null || onDetails == null || explanation == null)
+			if (onDetails == null || explanation == null)
 				throw new IllegalArgumentException();
 
 			this.explanation = explanation;
