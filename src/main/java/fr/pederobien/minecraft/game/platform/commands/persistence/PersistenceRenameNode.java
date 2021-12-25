@@ -96,12 +96,16 @@ public class PersistenceRenameNode extends MinecraftCodeNodeWrapper {
 		 * second <code>String</code> parameter refers to the current object name and the last <code>String</code> parameter refers to the
 		 * new object name.
 		 * 
-		 * @param onDeleted The action to perform.
+		 * @param onRenamed The action to perform.
 		 * 
 		 * @return This builder.
 		 */
 		public PersistenceRenameNodeBuilder onRenamed(Consumer3<CommandSender, String, String> onRenamed) {
-			renameNodeBuilder.onRenamed(onRenamed);
+			renameNodeBuilder.onRenamed((sender, oldName, newName) -> {
+				persistence.delete(oldName);
+				persistence.serialize();
+				onRenamed.accept(sender, oldName, newName);
+			});
 			return this;
 		}
 
