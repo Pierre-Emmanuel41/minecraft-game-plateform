@@ -16,8 +16,8 @@ import fr.pederobien.minecraft.commandtree.interfaces.ICodeSender;
 import fr.pederobien.minecraft.dictionary.interfaces.IMinecraftCode;
 import fr.pederobien.minecraft.game.platform.commands.common.ECommonCode;
 import fr.pederobien.minecraft.game.platform.commands.common.LoadNode;
-import fr.pederobien.minecraft.game.platform.commands.common.NodeBuilderFactory;
 import fr.pederobien.minecraft.game.platform.commands.common.LoadNode.LoadNodeBuilder;
+import fr.pederobien.minecraft.game.platform.commands.common.NodeBuilderFactory;
 import fr.pederobien.minecraft.game.platform.interfaces.INominable;
 import fr.pederobien.minecraft.game.platform.interfaces.IPlatformPersistence;
 
@@ -36,11 +36,12 @@ public class PersistenceLoadNode extends MinecraftCodeNodeWrapper {
 	 * 
 	 * @return A new instance of a PersistenceLoadNodeBuilder.
 	 */
-	protected static PersistenceLoadNodeBuilder builder(IPlatformPersistence<? extends INominable> persistence, Consumer<CommandSender> onNameIsMissing) {
-		return new PersistenceLoadNodeBuilder(persistence, onNameIsMissing);
+	protected static <U extends INominable> PersistenceLoadNodeBuilder<U> builder(IPlatformPersistence<U> persistence, Consumer<CommandSender> onNameIsMissing) {
+		return new PersistenceLoadNodeBuilder<U>(persistence, onNameIsMissing);
 	}
 
-	public static class PersistenceLoadNodeBuilder implements ICodeSender {
+	public static class PersistenceLoadNodeBuilder<T extends INominable> implements ICodeSender {
+		private IPlatformPersistence<T> persistence;
 		private LoadNodeBuilder loadNodeBuilder;
 
 		/**
@@ -50,7 +51,9 @@ public class PersistenceLoadNode extends MinecraftCodeNodeWrapper {
 		 * @param persistence     The persistence associated to this node.
 		 * @param onNameIsMissing Action to perform when the name of the file to load is missing.
 		 */
-		private PersistenceLoadNodeBuilder(IPlatformPersistence<? extends INominable> persistence, Consumer<CommandSender> onNameIsMissing) {
+		private PersistenceLoadNodeBuilder(IPlatformPersistence<T> persistence, Consumer<CommandSender> onNameIsMissing) {
+			this.persistence = persistence;
+
 			loadNodeBuilder = NodeBuilderFactory.loadNode(onNameIsMissing);
 
 			// Action for argument completion.
@@ -109,8 +112,8 @@ public class PersistenceLoadNode extends MinecraftCodeNodeWrapper {
 		 * 
 		 * @return This builder.
 		 */
-		public PersistenceLoadNodeBuilder onLoaded(BiConsumer<CommandSender, String> onLoaded) {
-			loadNodeBuilder.onLoaded(onLoaded);
+		public PersistenceLoadNodeBuilder<T> onLoaded(BiConsumer<CommandSender, T> onLoaded) {
+			loadNodeBuilder.onLoaded((sender, name) -> onLoaded.accept(sender, persistence.get()));
 			return this;
 		}
 
