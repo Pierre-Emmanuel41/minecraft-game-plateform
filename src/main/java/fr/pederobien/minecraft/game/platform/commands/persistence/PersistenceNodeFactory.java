@@ -39,14 +39,14 @@ public class PersistenceNodeFactory<T extends INominable> {
 	}
 
 	/**
-	 * Get a builder in order to save data on the server. The {@link CommandSender} refers to the entity that run the command, the
-	 * <code>String</code> parameter refers to the object name to serialize.
+	 * Creates a PersistenceSaveNodeBuilder based on the specified persistence. The {@link CommandSender} refers to the entity that
+	 * run the command, the <code>T</code> parameter refers to serialized object.
 	 * 
 	 * @param onFailToSerialize Set the action to perform when the deletion fails.
 	 * 
 	 * @return A new instance of a SaveNodeBuilder.
 	 */
-	public PersistenceSaveNodeBuilder saveNode(BiConsumer<CommandSender, String> onFailToSerialize) {
+	public PersistenceSaveNodeBuilder<T> saveNode(BiConsumer<CommandSender, T> onFailToSerialize) {
 		return PersistenceSaveNode.builder(persistence, onFailToSerialize);
 	}
 
@@ -82,7 +82,7 @@ public class PersistenceNodeFactory<T extends INominable> {
 	 * 
 	 * @return A new instance of a LoadNodeBuilder.
 	 */
-	public PersistenceLoadNodeBuilder loadNode(Consumer<CommandSender> onNameIsMissing) {
+	public PersistenceLoadNodeBuilder<T> loadNode(Consumer<CommandSender> onNameIsMissing) {
 		return PersistenceLoadNode.builder(persistence, onNameIsMissing);
 	}
 
