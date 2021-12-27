@@ -37,7 +37,7 @@
 	</dependencies>
 
 	<build>
-		<finalName>minecraft-game-platform_v${project.version}</finalName>
+		<finalName>minecraft-platform_v${project.version}</finalName>
 		<resources>
 			<resource>
 				<targetPath>.</targetPath>
