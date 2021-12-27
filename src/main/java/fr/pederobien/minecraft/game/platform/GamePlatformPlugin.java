@@ -15,7 +15,7 @@ import fr.pederobien.utils.event.EventManager;
 import fr.pederobien.utils.event.IEventListener;
 
 public class GamePlatformPlugin extends JavaPlugin implements IEventListener {
-	private static final String DICTIONARY_FOLDER = "resources/dictionaries";
+	private static final String DICTIONARY_FOLDER = "resources/dictionaries/";
 
 	private static Plugin instance;
 
