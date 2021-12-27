@@ -1,8 +1,6 @@
 package fr.pederobien.minecraft.game.platform;
 
 import java.io.FileNotFoundException;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -11,12 +9,13 @@ import fr.pederobien.dictionary.exceptions.MessageRegisteredException;
 import fr.pederobien.dictionary.impl.JarXmlDictionaryParser;
 import fr.pederobien.minecraft.dictionary.impl.MinecraftDictionaryContext;
 import fr.pederobien.minecraft.game.event.GameStartPostEvent;
+import fr.pederobien.utils.AsyncConsole;
 import fr.pederobien.utils.event.EventHandler;
 import fr.pederobien.utils.event.EventManager;
 import fr.pederobien.utils.event.IEventListener;
 
 public class GamePlatformPlugin extends JavaPlugin implements IEventListener {
-	private static final Path DICTIONARY_FOLDER = Paths.get("resources/dictionaries");
+	private static final String DICTIONARY_FOLDER = "resources/dictionaries";
 
 	private static Plugin instance;
 
@@ -44,9 +43,11 @@ public class GamePlatformPlugin extends JavaPlugin implements IEventListener {
 			String[] dictionaries = new String[] { "English.xml", "French.xml" };
 			for (String dictionary : dictionaries)
 				try {
-					context.register(dictionaryParser.parse(DICTIONARY_FOLDER.resolve(dictionary)));
+					context.register(dictionaryParser.parse(DICTIONARY_FOLDER.concat(dictionary)));
 				} catch (MessageRegisteredException e) {
-					e.printStackTrace();
+					AsyncConsole.print(e);
+					for (StackTraceElement element : e.getStackTrace())
+						AsyncConsole.print(element);
 				}
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
