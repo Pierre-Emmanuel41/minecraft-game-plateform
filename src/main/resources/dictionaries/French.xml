@@ -8,6 +8,14 @@
 	</locales>
 	<messages>
 		<message>
+			<code>NAME_MUST_NOT_START_WITH_DEFAULT</code>
+			<value>Le nom de doit pas commencer par "default" (la casse est ignorée)</value>
+		</message>
+		<message>
+			<code>FILE_DOES_NOT_EXIST</code>
+			<value>Le fichier associé à %s n'existe pas</value>
+		</message>
+		<message>
 			<code>TIME_FORMAT__COMPLETION</code>
 			<value>hh:mm:ss</value>
 		</message>

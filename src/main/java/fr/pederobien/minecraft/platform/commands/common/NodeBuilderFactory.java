@@ -30,7 +30,7 @@ public class NodeBuilderFactory {
 	 * 
 	 * @return A new instance of a DetailsNodeBuilder.
 	 */
-	public static <T> DetailsNodeBuilder<T> detailsNode(T element, BiConsumer<CommandSender, T> onDetails) {
+	public static <T> DetailsNodeBuilder<T> detailsNode(Supplier<T> element, BiConsumer<CommandSender, T> onDetails) {
 		return DetailsNode.builder(element, onDetails);
 	}
 
@@ -55,7 +55,7 @@ public class NodeBuilderFactory {
 	 * 
 	 * @return A new instance of a RenameNodeBuilder.
 	 */
-	public static RenameNodeBuilder renameNode(INominable element, BiConsumer<CommandSender, String> onNameIsMissing) {
+	public static RenameNodeBuilder renameNode(Supplier<INominable> element, BiConsumer<CommandSender, String> onNameIsMissing) {
 		return RenameNode.builder(element, onNameIsMissing);
 	}
 

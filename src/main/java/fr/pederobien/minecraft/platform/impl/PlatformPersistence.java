@@ -1,15 +1,20 @@
 package fr.pederobien.minecraft.platform.impl;
 
+import java.io.File;
 import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Function;
 
 import fr.pederobien.minecraft.platform.Platform;
+import fr.pederobien.minecraft.platform.event.PlatformDisablePostEvent;
 import fr.pederobien.minecraft.platform.interfaces.INominable;
 import fr.pederobien.minecraft.platform.interfaces.IPlatformPersistence;
 import fr.pederobien.persistence.interfaces.IPersistence;
 import fr.pederobien.persistence.interfaces.ISerializer;
+import fr.pederobien.utils.event.EventHandler;
+import fr.pederobien.utils.event.EventManager;
+import fr.pederobien.utils.event.IEventListener;
 
 public class PlatformPersistence<T extends INominable> implements IPlatformPersistence<T> {
 	private IPersistence<T, ? extends ISerializer<T>> persistence;
@@ -28,6 +33,9 @@ public class PlatformPersistence<T extends INominable> implements IPlatformPersi
 		this.path = Platform.ROOT.resolve(path);
 		this.creator = creator;
 		this.persistence = persistence;
+
+		writeDefaultContent();
+		EventManager.registerListener(new AutomaticSerializer(this));
 	}
 
 	@Override
@@ -37,7 +45,13 @@ public class PlatformPersistence<T extends INominable> implements IPlatformPersi
 
 	@Override
 	public boolean deserialize(String name) {
-		return persistence.deserialize(get(), getAbsolutePath(name).toString());
+		elt = getCreator().apply(name);
+		if (!persistence.deserialize(elt, getAbsolutePath(name).toString())) {
+			elt = null;
+			return false;
+		}
+
+		return true;
 	}
 
 	@Override
@@ -90,5 +104,31 @@ public class PlatformPersistence<T extends INominable> implements IPlatformPersi
 	 */
 	private Path getAbsolutePath(String name) {
 		return getPath().resolve(name.concat(persistence.getExtension()));
+	}
+
+	private void writeDefaultContent() {
+		File folder = getPath().toFile();
+		if (!folder.exists())
+			folder.mkdirs();
+
+		T defaultElement = creator.apply("Default");
+		Path defaultPath = getAbsolutePath(defaultElement.getName());
+		if (defaultPath.toFile().exists())
+			return;
+
+		persistence.serialize(defaultElement, IPersistence.LATEST, defaultPath.toString());
+	}
+
+	private class AutomaticSerializer implements IEventListener {
+		private IPlatformPersistence<T> persistence;
+
+		private AutomaticSerializer(IPlatformPersistence<T> persistence) {
+			this.persistence = persistence;
+		}
+
+		@EventHandler
+		private void onPlatformDisabled(PlatformDisablePostEvent event) {
+			persistence.serialize();
+		}
 	}
 }

@@ -1,6 +1,7 @@
 package fr.pederobien.minecraft.platform.commands.common;
 
 import java.util.function.BiConsumer;
+import java.util.function.Supplier;
 
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
@@ -26,18 +27,18 @@ public class DetailsNode<T> extends MinecraftCodeNode {
 	 * 
 	 * @return A new instance of a DetailsNodeBuilder.
 	 */
-	protected static <U> DetailsNodeBuilder<U> builder(U element, BiConsumer<CommandSender, U> onDetails) {
+	protected static <U> DetailsNodeBuilder<U> builder(Supplier<U> element, BiConsumer<CommandSender, U> onDetails) {
 		return new DetailsNodeBuilder<U>(element, onDetails);
 	}
 
 	@Override
 	public final boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-		builder.onDetails.accept(sender, builder.element);
+		builder.onDetails.accept(sender, builder.element.get());
 		return true;
 	}
 
 	public static class DetailsNodeBuilder<T> {
-		private T element;
+		private Supplier<T> element;
 		private BiConsumer<CommandSender, T> onDetails;
 		private IMinecraftCode explanation;
 
@@ -48,7 +49,7 @@ public class DetailsNode<T> extends MinecraftCodeNode {
 		 * @param element   The element used to display its details.
 		 * @param onDetails Action to perform when displaying the details of the underlying object.
 		 */
-		private DetailsNodeBuilder(T element, BiConsumer<CommandSender, T> onDetails) {
+		private DetailsNodeBuilder(Supplier<T> element, BiConsumer<CommandSender, T> onDetails) {
 			this.element = element;
 			this.onDetails = onDetails;
 		}

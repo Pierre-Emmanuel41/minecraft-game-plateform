@@ -11,6 +11,14 @@
 	</locales>
 	<messages>
 		<message>
+			<code>NAME_MUST_NOT_START_WITH_DEFAULT</code>
+			<value>The name should not begin with "default" (Case ignored)</value>
+		</message>
+		<message>
+			<code>FILE_DOES_NOT_EXIST</code>
+			<value>The file associated to %s does not exist</value>
+		</message>
+		<message>
 			<code>TIME_FORMAT__COMPLETION</code>
 			<value>hh:mm:ss</value>
 		</message>

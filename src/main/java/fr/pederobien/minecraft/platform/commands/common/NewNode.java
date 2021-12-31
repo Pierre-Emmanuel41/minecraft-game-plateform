@@ -18,6 +18,7 @@ public class NewNode<T> extends MinecraftCodeNode {
 
 	private NewNode(NewNodeBuilder<T> builder) {
 		super("new", builder.explanation);
+		this.builder = builder;
 	}
 
 	/**

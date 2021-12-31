@@ -3,6 +3,7 @@ package fr.pederobien.minecraft.platform.commands.common;
 import java.util.List;
 import java.util.function.BiConsumer;
 import java.util.function.BiFunction;
+import java.util.function.Supplier;
 
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
@@ -17,7 +18,7 @@ public class RenameNode extends MinecraftCodeNode {
 	private RenameNodeBuilder builder;
 
 	private RenameNode(RenameNodeBuilder builder) {
-		super("renamed", builder.explanation);
+		super("rename", builder.explanation);
 		this.builder = builder;
 	}
 
@@ -30,7 +31,7 @@ public class RenameNode extends MinecraftCodeNode {
 	 * 
 	 * @return A new instance of a RenameNodeBuilder.
 	 */
-	protected static RenameNodeBuilder builder(INominable element, BiConsumer<CommandSender, String> onNameIsMissing) {
+	protected static RenameNodeBuilder builder(Supplier<INominable> element, BiConsumer<CommandSender, String> onNameIsMissing) {
 		return new RenameNodeBuilder(element, onNameIsMissing);
 	}
 
@@ -50,7 +51,7 @@ public class RenameNode extends MinecraftCodeNode {
 		try {
 			newName = args[0];
 		} catch (IndexOutOfBoundsException e) {
-			builder.onNameIsMissing.accept(sender, builder.element.getName());
+			builder.onNameIsMissing.accept(sender, builder.element.get().getName());
 			return false;
 		}
 
@@ -59,14 +60,14 @@ public class RenameNode extends MinecraftCodeNode {
 			return false;
 
 		// Keep the old name in memory
-		String oldName = builder.element.getName();
-		builder.element.setName(newName);
+		String oldName = builder.element.get().getName();
+		builder.element.get().setName(newName);
 		builder.onRenamed.accept(sender, oldName, newName);
 		return true;
 	}
 
 	public static class RenameNodeBuilder {
-		private INominable element;
+		private Supplier<INominable> element;
 		private BiConsumer<CommandSender, String> onNameIsMissing;
 		private BiFunction<CommandSender, String, Boolean> onValidateName;
 		private Consumer3<CommandSender, String, String> onRenamed;
@@ -79,7 +80,7 @@ public class RenameNode extends MinecraftCodeNode {
 		 * @param element         The element to rename.
 		 * @param onNameIsMissing Action to perform when the new name is missing while renaming the object.
 		 */
-		private RenameNodeBuilder(INominable element, BiConsumer<CommandSender, String> onNameIsMissing) {
+		private RenameNodeBuilder(Supplier<INominable> element, BiConsumer<CommandSender, String> onNameIsMissing) {
 			this.element = element;
 			this.onNameIsMissing = onNameIsMissing;
 		}

@@ -9,6 +9,7 @@ import fr.pederobien.dictionary.exceptions.MessageRegisteredException;
 import fr.pederobien.dictionary.impl.JarXmlDictionaryParser;
 import fr.pederobien.minecraft.dictionary.impl.MinecraftDictionaryContext;
 import fr.pederobien.minecraft.game.event.GameStartPostEvent;
+import fr.pederobien.minecraft.platform.event.PlatformDisablePostEvent;
 import fr.pederobien.utils.AsyncConsole;
 import fr.pederobien.utils.event.EventHandler;
 import fr.pederobien.utils.event.EventManager;
@@ -33,6 +34,11 @@ public class GamePlatformPlugin extends JavaPlugin implements IEventListener {
 		EventManager.registerListener(this);
 
 		registerDictionaries();
+	}
+
+	@Override
+	public void onDisable() {
+		EventManager.callEvent(new PlatformDisablePostEvent());
 	}
 
 	private void registerDictionaries() {

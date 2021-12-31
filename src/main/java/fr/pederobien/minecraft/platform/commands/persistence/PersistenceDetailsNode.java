@@ -7,8 +7,8 @@ import org.bukkit.command.CommandSender;
 import fr.pederobien.minecraft.commandtree.impl.MinecraftCodeNodeWrapper;
 import fr.pederobien.minecraft.dictionary.interfaces.IMinecraftCode;
 import fr.pederobien.minecraft.platform.commands.common.DetailsNode;
-import fr.pederobien.minecraft.platform.commands.common.NodeBuilderFactory;
 import fr.pederobien.minecraft.platform.commands.common.DetailsNode.DetailsNodeBuilder;
+import fr.pederobien.minecraft.platform.commands.common.NodeBuilderFactory;
 import fr.pederobien.minecraft.platform.interfaces.INominable;
 import fr.pederobien.minecraft.platform.interfaces.IPlatformPersistence;
 
@@ -42,7 +42,7 @@ public class PersistenceDetailsNode<T> extends MinecraftCodeNodeWrapper {
 		 * @param onDetails   Action to perform when displaying the details of the object managed by the persistence.
 		 */
 		private PersistenceDetailsNodeBuilder(IPlatformPersistence<T> persistence, BiConsumer<CommandSender, T> onDetails) {
-			detailsNodeBuilder = NodeBuilderFactory.detailsNode(persistence.get(), onDetails);
+			detailsNodeBuilder = NodeBuilderFactory.detailsNode(() -> persistence.get(), onDetails);
 		}
 
 		/**

@@ -14,10 +14,10 @@ import org.bukkit.command.TabCompleter;
 import fr.pederobien.minecraft.commandtree.impl.MinecraftCodeNodeWrapper;
 import fr.pederobien.minecraft.commandtree.interfaces.ICodeSender;
 import fr.pederobien.minecraft.dictionary.interfaces.IMinecraftCode;
-import fr.pederobien.minecraft.platform.commands.common.ECommonCode;
 import fr.pederobien.minecraft.platform.commands.common.LoadNode;
-import fr.pederobien.minecraft.platform.commands.common.NodeBuilderFactory;
 import fr.pederobien.minecraft.platform.commands.common.LoadNode.LoadNodeBuilder;
+import fr.pederobien.minecraft.platform.commands.common.NodeBuilderFactory;
+import fr.pederobien.minecraft.platform.impl.EPlatformCode;
 import fr.pederobien.minecraft.platform.interfaces.INominable;
 import fr.pederobien.minecraft.platform.interfaces.IPlatformPersistence;
 
@@ -73,7 +73,7 @@ public class PersistenceLoadNode extends MinecraftCodeNodeWrapper {
 			});
 
 			// Action to perform when the deserialization fails.
-			loadNodeBuilder.onFailToLoad((sender, name) -> send(eventBuilder(sender, ECommonCode.FILE_DOES_NOT_EXIST, name)));
+			loadNodeBuilder.onFailToLoad((sender, name) -> send(eventBuilder(sender, EPlatformCode.FILE_DOES_NOT_EXIST, name)));
 		}
 
 		/**

@@ -8,13 +8,12 @@ import org.bukkit.command.CommandSender;
 import fr.pederobien.minecraft.commandtree.impl.MinecraftCodeNodeWrapper;
 import fr.pederobien.minecraft.commandtree.interfaces.ICodeSender;
 import fr.pederobien.minecraft.dictionary.interfaces.IMinecraftCode;
-import fr.pederobien.minecraft.platform.commands.common.ECommonCode;
 import fr.pederobien.minecraft.platform.commands.common.NewNode;
-import fr.pederobien.minecraft.platform.commands.common.NodeBuilderFactory;
 import fr.pederobien.minecraft.platform.commands.common.NewNode.NewNodeBuilder;
+import fr.pederobien.minecraft.platform.commands.common.NodeBuilderFactory;
+import fr.pederobien.minecraft.platform.impl.EPlatformCode;
 import fr.pederobien.minecraft.platform.interfaces.INominable;
 import fr.pederobien.minecraft.platform.interfaces.IPlatformPersistence;
-import fr.pederobien.utils.consumers.Consumer3;
 
 public class PersistenceNewNode<T extends INominable> extends MinecraftCodeNodeWrapper {
 
@@ -38,7 +37,7 @@ public class PersistenceNewNode<T extends INominable> extends MinecraftCodeNodeW
 	public static class PersistenceNewNodeBuilder<T extends INominable> implements ICodeSender {
 		private IPlatformPersistence<T> persistence;
 		private NewNodeBuilder<T> newNodeBuilder;
-		private Consumer3<CommandSender, String, String> onNameAlreadyTaken;
+		private BiConsumer<CommandSender, String> onNameAlreadyTaken;
 
 		/**
 		 * Creates a PersistenceNewNodeBuilder based on the specified persistence. The {@link CommandSender} refers to the entity that run
@@ -61,25 +60,24 @@ public class PersistenceNewNode<T extends INominable> extends MinecraftCodeNodeW
 
 		/**
 		 * Set the action to perform when the new object name is already taken. The {@link CommandSender} refers to the entity that run
-		 * the command, the second <code>String</code> parameter refers to the current object name and the last <code>String</code>
-		 * parameter refers to the object name.
+		 * the command, the second <code>String</code> parameter refers to the object name to create.
 		 * 
 		 * @param onNameAlreadyTaken The action to perform.
 		 * 
 		 * @return This builder.
 		 */
-		public PersistenceNewNodeBuilder<T> onNameAlreadyTaken(Consumer3<CommandSender, String, String> onNameAlreadyTaken) {
+		public PersistenceNewNodeBuilder<T> onNameAlreadyTaken(BiConsumer<CommandSender, String> onNameAlreadyTaken) {
 			this.onNameAlreadyTaken = onNameAlreadyTaken;
 			newNodeBuilder.onValidateName((sender, name) -> {
 				// The name of all new created object must not start with default.
 				if (startWithIgnoreCase(name, "default")) {
-					send(eventBuilder(sender, ECommonCode.NAME_MUST_NOT_START_WITH_DEFAULT, name));
+					send(eventBuilder(sender, EPlatformCode.NAME_MUST_NOT_START_WITH_DEFAULT, name));
 					return false;
 				}
 
 				boolean valid = !persistence.exist(name);
 				if (!valid)
-					onNameAlreadyTaken.accept(sender, persistence.get().getName(), name);
+					onNameAlreadyTaken.accept(sender, name);
 				return valid;
 			});
 			return this;
@@ -88,7 +86,7 @@ public class PersistenceNewNode<T extends INominable> extends MinecraftCodeNodeW
 		/**
 		 * @return The action to perform when the name is already taken.
 		 */
-		public Consumer3<CommandSender, String, String> getOnNameAlreadyTaken() {
+		public BiConsumer<CommandSender, String> getOnNameAlreadyTaken() {
 			return onNameAlreadyTaken;
 		}
 
@@ -102,6 +100,8 @@ public class PersistenceNewNode<T extends INominable> extends MinecraftCodeNodeW
 		 */
 		public PersistenceNewNodeBuilder<T> onCreated(BiConsumer<CommandSender, T> onCreated) {
 			newNodeBuilder.onCreated((sender, element) -> {
+				// Always serializing before creating a new element
+				persistence.serialize();
 				persistence.set(element);
 				onCreated.accept(sender, element);
 			});

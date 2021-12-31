@@ -1,10 +1,17 @@
 package fr.pederobien.minecraft.platform.impl;
 
+import fr.pederobien.minecraft.dictionary.impl.PlayerGroup;
 import fr.pederobien.minecraft.dictionary.interfaces.IMinecraftCode;
 import fr.pederobien.minecraft.dictionary.interfaces.IPlayerGroup;
 
 public enum EPlatformCode implements IMinecraftCode {
 	// Common codes --------------------------------------------------------------
+
+	// Code when the name starts with default
+	NAME_MUST_NOT_START_WITH_DEFAULT,
+
+	// Code when the file does not exists
+	FILE_DOES_NOT_EXIST,
 
 	// Code for the time format completion
 	TIME_FORMAT__COMPLETION,
@@ -31,6 +38,14 @@ public enum EPlatformCode implements IMinecraftCode {
 
 	private IPlayerGroup group;
 
+	private EPlatformCode() {
+		this(PlayerGroup.OPERATORS);
+	}
+
+	private EPlatformCode(IPlayerGroup group) {
+		this.group = group;
+	}
+
 	@Override
 	public String value() {
 		return name();
@@ -44,5 +59,10 @@ public enum EPlatformCode implements IMinecraftCode {
 	@Override
 	public void setGroup(IPlayerGroup group) {
 		this.group = group;
+	}
+
+	@Override
+	public String toString() {
+		return String.format("value=%s, group=%s", value(), getGroup());
 	}
 }

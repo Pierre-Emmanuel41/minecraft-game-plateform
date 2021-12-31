@@ -47,7 +47,6 @@ public class LoadNode extends MinecraftCodeNode {
 			return true;
 		}
 
-		send(eventBuilder(sender, ECommonCode.FILE_DOES_NOT_EXIST, name));
 		builder.onFailToLoad.accept(sender, name);
 		return false;
 	}

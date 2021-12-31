@@ -24,7 +24,7 @@ public class AsCurrentNode extends MinecraftCodeNode {
 	@Override
 	public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
 		GamePlugin.getGameTree().setGame(game);
-		send(eventBuilder(sender, EPlatformCode.GAME_CONFIG__AS_CURRENT__GAME_DEFINED, game.getName()));
+		sendSuccessful(sender, EPlatformCode.GAME_CONFIG__AS_CURRENT__GAME_DEFINED, game.getName());
 		return true;
 	}
 }

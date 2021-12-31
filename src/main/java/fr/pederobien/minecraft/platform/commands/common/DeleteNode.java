@@ -11,6 +11,7 @@ import org.bukkit.command.TabCompleter;
 
 import fr.pederobien.minecraft.commandtree.impl.MinecraftCodeNode;
 import fr.pederobien.minecraft.dictionary.interfaces.IMinecraftCode;
+import fr.pederobien.minecraft.platform.impl.EPlatformCode;
 
 public class DeleteNode extends MinecraftCodeNode {
 	private DeleteNodeBuilder builder;
@@ -39,7 +40,7 @@ public class DeleteNode extends MinecraftCodeNode {
 		}
 		for (String name : args) {
 			if (startWithIgnoreCase(name, "default")) {
-				send(eventBuilder(sender, ECommonCode.NAME_MUST_NOT_START_WITH_DEFAULT, name));
+				send(eventBuilder(sender, EPlatformCode.NAME_MUST_NOT_START_WITH_DEFAULT, name));
 				return false;
 			}
 

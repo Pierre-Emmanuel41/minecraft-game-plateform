@@ -7,10 +7,10 @@ import org.bukkit.command.CommandSender;
 import fr.pederobien.minecraft.commandtree.impl.MinecraftCodeNodeWrapper;
 import fr.pederobien.minecraft.commandtree.interfaces.ICodeSender;
 import fr.pederobien.minecraft.dictionary.interfaces.IMinecraftCode;
-import fr.pederobien.minecraft.platform.commands.common.ECommonCode;
 import fr.pederobien.minecraft.platform.commands.common.NodeBuilderFactory;
 import fr.pederobien.minecraft.platform.commands.common.RenameNode;
 import fr.pederobien.minecraft.platform.commands.common.RenameNode.RenameNodeBuilder;
+import fr.pederobien.minecraft.platform.impl.EPlatformCode;
 import fr.pederobien.minecraft.platform.interfaces.INominable;
 import fr.pederobien.minecraft.platform.interfaces.IPlatformPersistence;
 import fr.pederobien.utils.consumers.Consumer3;
@@ -48,7 +48,7 @@ public class PersistenceRenameNode extends MinecraftCodeNodeWrapper {
 		 */
 		private PersistenceRenameNodeBuilder(IPlatformPersistence<? extends INominable> persistence, BiConsumer<CommandSender, String> onNameIsMissing) {
 			this.persistence = persistence;
-			renameNodeBuilder = NodeBuilderFactory.renameNode(persistence.get(), onNameIsMissing);
+			renameNodeBuilder = NodeBuilderFactory.renameNode(() -> persistence.get(), onNameIsMissing);
 		}
 
 		/**
@@ -72,7 +72,7 @@ public class PersistenceRenameNode extends MinecraftCodeNodeWrapper {
 			renameNodeBuilder.onValidateName((sender, name) -> {
 				// The name of all new created object must not start with default.
 				if (startWithIgnoreCase(name, "default")) {
-					send(eventBuilder(sender, ECommonCode.NAME_MUST_NOT_START_WITH_DEFAULT, name));
+					send(eventBuilder(sender, EPlatformCode.NAME_MUST_NOT_START_WITH_DEFAULT, name));
 					return false;
 				}
 

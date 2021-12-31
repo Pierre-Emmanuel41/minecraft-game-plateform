@@ -17,9 +17,9 @@ import fr.pederobien.minecraft.commandtree.impl.MinecraftCodeNodeWrapper;
 import fr.pederobien.minecraft.commandtree.interfaces.ICodeSender;
 import fr.pederobien.minecraft.dictionary.interfaces.IMinecraftCode;
 import fr.pederobien.minecraft.platform.commands.common.DeleteNode;
-import fr.pederobien.minecraft.platform.commands.common.ECommonCode;
-import fr.pederobien.minecraft.platform.commands.common.NodeBuilderFactory;
 import fr.pederobien.minecraft.platform.commands.common.DeleteNode.DeleteNodeBuilder;
+import fr.pederobien.minecraft.platform.commands.common.NodeBuilderFactory;
+import fr.pederobien.minecraft.platform.impl.EPlatformCode;
 import fr.pederobien.minecraft.platform.interfaces.INominable;
 import fr.pederobien.minecraft.platform.interfaces.IPlatformPersistence;
 
@@ -66,7 +66,7 @@ public class PersistenceDeleteNode extends MinecraftCodeNodeWrapper {
 			deleteNodeBuilder.onDeleteAction(name -> persistence.delete(name));
 
 			// Action to perform when the deletion fails.
-			deleteNodeBuilder.onFailToDelete((sender, name) -> send(eventBuilder(sender, ECommonCode.FILE_DOES_NOT_EXIST, name)));
+			deleteNodeBuilder.onFailToDelete((sender, name) -> send(eventBuilder(sender, EPlatformCode.FILE_DOES_NOT_EXIST, name)));
 		}
 
 		/**
