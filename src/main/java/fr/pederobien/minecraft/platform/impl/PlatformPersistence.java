@@ -46,11 +46,13 @@ public class PlatformPersistence<T extends INominable> implements IPlatformPersi
 	@Override
 	public boolean deserialize(String name) {
 		elt = getCreator().apply(name);
-		if (!persistence.deserialize(elt, getAbsolutePath(name).toString())) {
+		try {
+			persistence.deserialize(elt, getAbsolutePath(name).toString());
+		} catch (Exception e) {
+			e.printStackTrace();
 			elt = null;
 			return false;
 		}
-
 		return true;
 	}
 
@@ -58,7 +60,13 @@ public class PlatformPersistence<T extends INominable> implements IPlatformPersi
 	public boolean serialize() {
 		if (elt == null)
 			return true;
-		return persistence.serialize(elt, IPersistence.LATEST, getAbsolutePath(elt.getName()).toString());
+		try {
+			persistence.serialize(elt, IPersistence.LATEST, getAbsolutePath(elt.getName()).toString());
+		} catch (Exception e) {
+			e.printStackTrace();
+			return false;
+		}
+		return true;
 	}
 
 	@Override
@@ -116,7 +124,11 @@ public class PlatformPersistence<T extends INominable> implements IPlatformPersi
 		if (defaultPath.toFile().exists())
 			return;
 
-		persistence.serialize(defaultElement, IPersistence.LATEST, defaultPath.toString());
+		try {
+			persistence.serialize(defaultElement, IPersistence.LATEST, defaultPath.toString());
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 	private class AutomaticSerializer implements IEventListener {

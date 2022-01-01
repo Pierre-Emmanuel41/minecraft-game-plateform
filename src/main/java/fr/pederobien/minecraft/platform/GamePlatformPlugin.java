@@ -1,11 +1,8 @@
 package fr.pederobien.minecraft.platform;
 
-import java.io.FileNotFoundException;
-
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import fr.pederobien.dictionary.exceptions.MessageRegisteredException;
 import fr.pederobien.dictionary.impl.JarXmlDictionaryParser;
 import fr.pederobien.minecraft.dictionary.impl.MinecraftDictionaryContext;
 import fr.pederobien.minecraft.game.event.GameStartPostEvent;
@@ -42,22 +39,18 @@ public class GamePlatformPlugin extends JavaPlugin implements IEventListener {
 	}
 
 	private void registerDictionaries() {
-		try {
-			JarXmlDictionaryParser dictionaryParser = new JarXmlDictionaryParser(getFile().toPath());
+		JarXmlDictionaryParser dictionaryParser = new JarXmlDictionaryParser(getFile().toPath());
 
-			MinecraftDictionaryContext context = MinecraftDictionaryContext.instance();
-			String[] dictionaries = new String[] { "English.xml", "French.xml" };
-			for (String dictionary : dictionaries)
-				try {
-					context.register(dictionaryParser.parse(DICTIONARY_FOLDER.concat(dictionary)));
-				} catch (MessageRegisteredException e) {
-					AsyncConsole.print(e);
-					for (StackTraceElement element : e.getStackTrace())
-						AsyncConsole.print(element);
-				}
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-		}
+		MinecraftDictionaryContext context = MinecraftDictionaryContext.instance();
+		String[] dictionaries = new String[] { "English.xml", "French.xml" };
+		for (String dictionary : dictionaries)
+			try {
+				context.register(dictionaryParser.parse(DICTIONARY_FOLDER.concat(dictionary)));
+			} catch (Exception e) {
+				AsyncConsole.print(e);
+				for (StackTraceElement element : e.getStackTrace())
+					AsyncConsole.print(element);
+			}
 	}
 
 	@EventHandler
