@@ -13,6 +13,11 @@ public interface IConfigurable<T> {
 	T get();
 
 	/**
+	 * @return The default value of this configurable value.
+	 */
+	T getDefault();
+
+	/**
 	 * Set the new value of this configurable value.
 	 * 
 	 * @param value The new value.

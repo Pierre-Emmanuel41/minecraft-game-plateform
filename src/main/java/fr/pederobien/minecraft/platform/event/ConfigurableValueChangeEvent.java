@@ -1,5 +1,7 @@
 package fr.pederobien.minecraft.platform.event;
 
+import java.util.StringJoiner;
+
 import fr.pederobien.minecraft.platform.interfaces.IConfigurable;
 
 public class ConfigurableValueChangeEvent extends ProjectGamePlatformEvent {
@@ -28,5 +30,14 @@ public class ConfigurableValueChangeEvent extends ProjectGamePlatformEvent {
 	 */
 	public Object getOldValue() {
 		return oldValue;
+	}
+
+	@Override
+	public String toString() {
+		StringJoiner joiner = new StringJoiner(", ", "{", "}");
+		joiner.add("parameter=" + getConfigurable().getName());
+		joiner.add("oldValue=" + getOldValue());
+		joiner.add("newValue=" + getConfigurable().get());
+		return String.format("%s_%s", getName(), joiner);
 	}
 }
