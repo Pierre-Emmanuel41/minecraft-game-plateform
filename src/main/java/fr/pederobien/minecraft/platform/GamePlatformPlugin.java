@@ -10,6 +10,7 @@ import fr.pederobien.minecraft.platform.event.PlatformDisablePostEvent;
 import fr.pederobien.utils.AsyncConsole;
 import fr.pederobien.utils.event.EventHandler;
 import fr.pederobien.utils.event.EventManager;
+import fr.pederobien.utils.event.EventPriority;
 import fr.pederobien.utils.event.IEventListener;
 
 public class GamePlatformPlugin extends JavaPlugin implements IEventListener {
@@ -53,12 +54,19 @@ public class GamePlatformPlugin extends JavaPlugin implements IEventListener {
 			}
 	}
 
-	@EventHandler
+	@EventHandler(priority = EventPriority.LOWEST)
 	private void onGameStart(GameStartPostEvent event) {
 		Platform.register(event.getGame().getPlugin());
 	}
 
-	@EventHandler
+	@EventHandler(priority = EventPriority.HIGHEST)
+	private void startTimeLine(GameStartPostEvent event) {
+		Platform platform = Platform.get(event.getGame().getPlugin());
+		platform.getTimeLine().getTimeTask().start();
+		platform.getObjectiveUpdater().start();
+	}
+
+	@EventHandler(priority = EventPriority.HIGHEST)
 	private void onGameStop(GameStartPostEvent event) {
 		Platform.unregister(event.getGame().getPlugin());
 	}

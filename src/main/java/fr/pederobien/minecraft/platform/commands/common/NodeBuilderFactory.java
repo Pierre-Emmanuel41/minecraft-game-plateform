@@ -111,7 +111,7 @@ public class NodeBuilderFactory {
 	 * 
 	 * @param game The game to start.
 	 */
-	public static AsCurrentNode asCurrentNode(IGame game) {
+	public static AsCurrentNode asCurrentNode(Supplier<IGame> game) {
 		return new AsCurrentNode(game);
 	}
 }

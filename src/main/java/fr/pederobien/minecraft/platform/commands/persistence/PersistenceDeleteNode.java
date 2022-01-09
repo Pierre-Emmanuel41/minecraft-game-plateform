@@ -1,5 +1,6 @@
 package fr.pederobien.minecraft.platform.commands.persistence;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.function.BiConsumer;
@@ -57,9 +58,14 @@ public class PersistenceDeleteNode extends MinecraftCodeNodeWrapper {
 
 			// Action for argument completion.
 			deleteNodeBuilder.onTabComplete((sender, command, alias, args) -> {
-				List<String> alreadyMentionnedFiles = Arrays.asList(args);
-				Predicate<String> filter = name -> !startWithIgnoreCase(name, "default") && !alreadyMentionnedFiles.contains(name);
-				return filter(persistence.list().stream().filter(filter), args);
+				switch (args.length) {
+				case 1:
+					List<String> alreadyMentionnedFiles = Arrays.asList(args);
+					Predicate<String> filter = name -> !startWithIgnoreCase(name, "default") && !alreadyMentionnedFiles.contains(name);
+					return filter(persistence.list().stream().filter(filter), args);
+				default:
+					return new ArrayList<String>();
+				}
 			});
 
 			// Action to perform in order to delete a file

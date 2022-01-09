@@ -4,6 +4,7 @@ import java.io.File;
 import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Consumer;
 import java.util.function.Function;
 
 import fr.pederobien.minecraft.platform.Platform;
@@ -20,19 +21,23 @@ public class PlatformPersistence<T extends INominable> implements IPlatformPersi
 	private IPersistence<T, ? extends ISerializer<T>> persistence;
 	private Path path;
 	private Function<String, T> creator;
+	private Consumer<T> writeDefault;
 	private T elt;
 
 	/**
-	 * Creates a platform persistence. The given path should be relative to the {@link Platform#ROOT} path.
+	 * Creates a platform persistence. The given path should be relative to the {@link Platform#ROOT} path. If the file associated to
+	 * the name "Default" does not exist in the persistence folder, then a file configuration is created.
 	 * 
-	 * @param path        The persistence folder.
-	 * @param creator     The supplier used to create new object.
-	 * @param persistence The persistence used to serialize deserialize objects.
+	 * @param path         The persistence folder.
+	 * @param creator      The supplier used to create new object.
+	 * @param persistence  The persistence used to serialize deserialize objects.
+	 * @param writeDefault The action to perform while serializing the object associated to the name "Default".
 	 */
-	public PlatformPersistence(Path path, Function<String, T> creator, IPersistence<T, ? extends ISerializer<T>> persistence) {
+	public PlatformPersistence(Path path, Function<String, T> creator, IPersistence<T, ? extends ISerializer<T>> persistence, Consumer<T> writeDefault) {
 		this.path = Platform.ROOT.resolve(path);
 		this.creator = creator;
 		this.persistence = persistence;
+		this.writeDefault = writeDefault;
 
 		writeDefaultContent();
 		EventManager.registerListener(new AutomaticSerializer(this));
@@ -121,11 +126,11 @@ public class PlatformPersistence<T extends INominable> implements IPlatformPersi
 
 		T defaultElement = creator.apply("Default");
 		Path defaultPath = getAbsolutePath(defaultElement.getName());
-		if (defaultPath.toFile().exists())
-			return;
 
 		try {
-			persistence.serialize(defaultElement, IPersistence.LATEST, defaultPath.toString());
+			if (!defaultPath.toFile().exists())
+				persistence.serialize(defaultElement, IPersistence.LATEST, defaultPath.toString());
+			writeDefault.accept(defaultElement);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

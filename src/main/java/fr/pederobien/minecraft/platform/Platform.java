@@ -75,10 +75,7 @@ public class Platform {
 	 */
 	private Platform(Plugin plugin) {
 		objectiveUpdater = ObjectiveUpdater.getInstance(plugin);
-		objectiveUpdater.start();
-
 		timeLine = new TimeLine(plugin);
-		timeLine.getTimeTask().start();
 	}
 
 	/**
