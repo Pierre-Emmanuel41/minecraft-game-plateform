@@ -12,8 +12,8 @@
 			<value>Le nom de doit pas commencer par "default" (la casse est ignorée)</value>
 		</message>
 		<message>
-			<code>FILE_DOES_NOT_EXIST</code>
-			<value>Le fichier associé à %s n'existe pas</value>
+			<code>FAIL_TO_LOAD</code>
+			<value>Impossible de charger %s, veuillez consulter la console du serveur pour plus d'informations</value>
 		</message>
 		<message>
 			<code>TIME_FORMAT__COMPLETION</code>

@@ -72,7 +72,7 @@ public class PersistenceDeleteNode extends MinecraftCodeNodeWrapper {
 			deleteNodeBuilder.onDeleteAction(name -> persistence.delete(name));
 
 			// Action to perform when the deletion fails.
-			deleteNodeBuilder.onFailToDelete((sender, name) -> send(eventBuilder(sender, EPlatformCode.FILE_DOES_NOT_EXIST, name)));
+			deleteNodeBuilder.onFailToDelete((sender, name) -> send(eventBuilder(sender, EPlatformCode.FAIL_TO_LOAD, name)));
 		}
 
 		/**

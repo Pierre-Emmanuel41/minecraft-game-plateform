@@ -73,7 +73,7 @@ public class PersistenceLoadNode extends MinecraftCodeNodeWrapper {
 			});
 
 			// Action to perform when the deserialization fails.
-			loadNodeBuilder.onFailToLoad((sender, name) -> send(eventBuilder(sender, EPlatformCode.FILE_DOES_NOT_EXIST, name)));
+			loadNodeBuilder.onFailToLoad((sender, name) -> send(eventBuilder(sender, EPlatformCode.FAIL_TO_LOAD, name)));
 		}
 
 		/**

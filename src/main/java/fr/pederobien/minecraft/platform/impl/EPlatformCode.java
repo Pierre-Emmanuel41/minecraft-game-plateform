@@ -10,8 +10,8 @@ public enum EPlatformCode implements IMinecraftCode {
 	// Code when the name starts with default
 	NAME_MUST_NOT_START_WITH_DEFAULT,
 
-	// Code when the file does not exists
-	FILE_DOES_NOT_EXIST,
+	// Code when the deserialization fails
+	FAIL_TO_LOAD,
 
 	// Code for the time format completion
 	TIME_FORMAT__COMPLETION,
