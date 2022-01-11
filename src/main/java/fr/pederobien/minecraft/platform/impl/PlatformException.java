@@ -1,4 +1,4 @@
-package fr.pederobien.minecraft.platform.exceptions;
+package fr.pederobien.minecraft.platform.impl;
 
 import fr.pederobien.minecraft.platform.GamePlatformPlugin;
 
