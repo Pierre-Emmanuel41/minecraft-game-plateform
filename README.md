@@ -19,4 +19,5 @@ and then double click on the deploy.bat file. This will deploy this project and 
 	<version>1.0_MC_1.13.2-SNAPSHOT</version>
 </dependency>
 ```
-You can now use features provided by this API in you project.
+
+To see the functionalities provided by this plugin, please have a look to [this presentation](https://github.com/Pierre-Emmanuel41/minecraft-game-plateform/blob/master/Presentation.md)
