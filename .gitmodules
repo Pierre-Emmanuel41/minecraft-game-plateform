@@ -1,4 +1,0 @@
-[submodule "minecraft-development-toolkit"]
-	path = minecraft-development-toolkit
-	url = https://github.com/Pierre-Emmanuel41/minecraft-development-toolkit.git
-	branch = master
