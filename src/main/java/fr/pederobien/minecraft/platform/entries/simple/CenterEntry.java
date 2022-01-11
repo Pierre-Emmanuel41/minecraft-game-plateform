@@ -4,7 +4,7 @@ import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
 
 import fr.pederobien.minecraft.dictionary.interfaces.IMinecraftCode;
-import fr.pederobien.minecraft.platform.entries.EEntryCode;
+import fr.pederobien.minecraft.platform.impl.EPlatformCode;
 
 public class CenterEntry extends OrientationEntry {
 
@@ -20,6 +20,6 @@ public class CenterEntry extends OrientationEntry {
 
 	@Override
 	protected final IMinecraftCode getBeforeAsCode(Player player) {
-		return EEntryCode.CENTER;
+		return EPlatformCode.CENTER;
 	}
 }

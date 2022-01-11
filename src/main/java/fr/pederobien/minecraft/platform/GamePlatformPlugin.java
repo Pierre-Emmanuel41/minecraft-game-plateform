@@ -6,6 +6,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 import fr.pederobien.dictionary.impl.JarXmlDictionaryParser;
 import fr.pederobien.minecraft.dictionary.impl.MinecraftDictionaryContext;
 import fr.pederobien.minecraft.game.event.GameStartPostEvent;
+import fr.pederobien.minecraft.game.event.GameStopPostEvent;
 import fr.pederobien.minecraft.platform.event.PlatformDisablePostEvent;
 import fr.pederobien.utils.AsyncConsole;
 import fr.pederobien.utils.event.EventHandler;
@@ -67,7 +68,7 @@ public class GamePlatformPlugin extends JavaPlugin implements IEventListener {
 	}
 
 	@EventHandler(priority = EventPriority.HIGHEST)
-	private void onGameStop(GameStartPostEvent event) {
+	private void onGameStop(GameStopPostEvent event) {
 		Platform.unregister(event.getGame().getPlugin());
 	}
 }

@@ -8,7 +8,7 @@ import org.bukkit.entity.Player;
 
 import fr.pederobien.minecraft.dictionary.interfaces.IMinecraftCode;
 import fr.pederobien.minecraft.managers.WorldManager;
-import fr.pederobien.minecraft.platform.entries.EEntryCode;
+import fr.pederobien.minecraft.platform.impl.EPlatformCode;
 import fr.pederobien.minecraft.scoreboards.impl.CodeEntry;
 
 public class LocationEntry extends CodeEntry {
@@ -68,7 +68,7 @@ public class LocationEntry extends CodeEntry {
 
 	@Override
 	protected IMinecraftCode getBeforeAsCode(Player player) {
-		return EEntryCode.X_Y_Z;
+		return EPlatformCode.ENTRY__X_Y_Z;
 	}
 
 	/**

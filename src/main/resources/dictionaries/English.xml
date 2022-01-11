@@ -23,6 +23,10 @@
 			<value>hh:mm:ss</value>
 		</message>
 		<message>
+			<code>CENTER</code>
+			<value>Center :</value>
+		</message>
+		<message>
 			<code>GAME_CONFIG__PVP_TIME__EXPLANATION</code>
 			<value>To set the time at which the PVP is enabled</value>
 		</message>
@@ -45,6 +49,22 @@
 		<message>
 			<code>GAME_CONFIG__AS_CURRENT__GAME_DEFINED</code>
 			<value>%s will be started with command "./startgame"</value>
+		</message>
+		<message>
+			<code>ENTRY__TOTAL_TIME</code>
+			<value>Total time: </value>
+		</message>
+		<message>
+			<code>ENTRY__PAUSE_TIME</code>
+			<value>Pause time: </value>
+		</message>
+		<message>
+			<code>ENTRY__GAME_TIME</code>
+			<value>Game time: </value>
+		</message>
+		<message>
+			<code>ENTRY__X_Y_Z</code>
+			<value>X/Y/Z: </value>
 		</message>
 	</messages>
 </dictionary>

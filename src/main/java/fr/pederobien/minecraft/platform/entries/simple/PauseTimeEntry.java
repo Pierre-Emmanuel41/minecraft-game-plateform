@@ -6,7 +6,7 @@ import org.bukkit.entity.Player;
 
 import fr.pederobien.minecraft.dictionary.interfaces.IMinecraftCode;
 import fr.pederobien.minecraft.platform.Platform;
-import fr.pederobien.minecraft.platform.entries.EEntryCode;
+import fr.pederobien.minecraft.platform.impl.EPlatformCode;
 
 public class PauseTimeEntry extends TimeTaskEntry {
 
@@ -26,6 +26,6 @@ public class PauseTimeEntry extends TimeTaskEntry {
 
 	@Override
 	protected IMinecraftCode getBeforeAsCode(Player player) {
-		return EEntryCode.PAUSE_TIME;
+		return EPlatformCode.ENTRY__PAUSE_TIME;
 	}
 }

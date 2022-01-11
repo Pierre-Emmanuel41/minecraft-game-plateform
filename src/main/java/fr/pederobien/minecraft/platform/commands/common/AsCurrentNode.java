@@ -19,7 +19,7 @@ public class AsCurrentNode extends MinecraftCodeNode {
 	 * @param game The game to start.
 	 */
 	protected AsCurrentNode(Supplier<IGame> game) {
-		super("ascurrent", EPlatformCode.GAME_CONFIG__AS_CURRENT__EXPLANATION);
+		super("ascurrent", EPlatformCode.GAME_CONFIG__AS_CURRENT__EXPLANATION, () -> game.get() != null);
 		this.game = game;
 	}
 

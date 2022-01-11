@@ -7,12 +7,17 @@ import java.util.Map;
 
 import org.bukkit.plugin.Plugin;
 
+import fr.pederobien.minecraft.game.event.GamePausePostEvent;
+import fr.pederobien.minecraft.game.event.GameResumePostEvent;
 import fr.pederobien.minecraft.game.impl.time.TimeLine;
 import fr.pederobien.minecraft.game.interfaces.time.ITimeLine;
 import fr.pederobien.minecraft.scoreboards.ObjectiveUpdater;
 import fr.pederobien.minecraft.scoreboards.interfaces.IObjectiveUpdater;
+import fr.pederobien.utils.event.EventHandler;
+import fr.pederobien.utils.event.EventManager;
+import fr.pederobien.utils.event.IEventListener;
 
-public class Platform {
+public class Platform implements IEventListener {
 	/**
 	 * The path leading to the plugins folder.
 	 */
@@ -24,6 +29,8 @@ public class Platform {
 	public static final Path ROOT = PLUGINS.resolve("minecraft-game-plateform");
 
 	private static final Map<Plugin, Platform> PLATFORMS = new HashMap<Plugin, Platform>();
+
+	private Plugin plugin;
 	private IObjectiveUpdater objectiveUpdater;
 	private ITimeLine timeLine;
 
@@ -66,6 +73,7 @@ public class Platform {
 
 		platform.getObjectiveUpdater().stop(true);
 		platform.getTimeLine().getTimeTask().stop();
+		EventManager.unregisterListener(platform);
 	}
 
 	/**
@@ -74,8 +82,11 @@ public class Platform {
 	 * @param plugin The plugin associated to this platform.
 	 */
 	private Platform(Plugin plugin) {
+		this.plugin = plugin;
 		objectiveUpdater = ObjectiveUpdater.getInstance(plugin);
 		timeLine = new TimeLine(plugin);
+
+		EventManager.registerListener(this);
 	}
 
 	/**
@@ -94,5 +105,21 @@ public class Platform {
 	 */
 	public IObjectiveUpdater getObjectiveUpdater() {
 		return objectiveUpdater;
+	}
+
+	@EventHandler
+	private void onGamePause(GamePausePostEvent event) {
+		if (!event.getGame().getPlugin().equals(plugin))
+			return;
+
+		timeLine.getTimeTask().pause();
+	}
+
+	@EventHandler
+	private void onGameResume(GameResumePostEvent event) {
+		if (!event.getGame().getPlugin().equals(plugin))
+			return;
+
+		timeLine.getTimeTask().resume();
 	}
 }

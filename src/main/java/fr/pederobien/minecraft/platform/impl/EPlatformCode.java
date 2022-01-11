@@ -16,6 +16,9 @@ public enum EPlatformCode implements IMinecraftCode {
 	// Code for the time format completion
 	TIME_FORMAT__COMPLETION,
 
+	// Code for the "center" translation
+	CENTER,
+
 	// Code for the "pvpTime" command --------------------------------------------
 	GAME_CONFIG__PVP_TIME__EXPLANATION,
 
@@ -33,6 +36,18 @@ public enum EPlatformCode implements IMinecraftCode {
 
 	// Code when the game is defined as the game to start
 	GAME_CONFIG__AS_CURRENT__GAME_DEFINED,
+
+	// Code for the elapsed time since the beginning of the game
+	ENTRY__TOTAL_TIME,
+
+	// Code for the time elapsed while the game is paused
+	ENTRY__PAUSE_TIME,
+
+	// Code for the time elapsed while the game is in progress
+	ENTRY__GAME_TIME,
+
+	// Code to display X, Y and Z coordinates
+	ENTRY__X_Y_Z;
 
 	;
 

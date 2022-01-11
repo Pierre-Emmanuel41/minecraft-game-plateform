@@ -20,6 +20,10 @@
 			<value>hh:mm:ss</value>
 		</message>
 		<message>
+			<code>CENTER</code>
+			<value>Centre :</value>
+		</message>
+		<message>
 			<code>GAME_CONFIG__PVP_TIME__EXPLANATION</code>
 			<value>Pour définir le temps au bout duquel, le PVP est activé</value>
 		</message>
@@ -42,6 +46,22 @@
 		<message>
 			<code>GAME_CONFIG__AS_CURRENT__GAME_DEFINED</code>
 			<value>%s sera lancée avec la commande "./startgame"</value>
+		</message>
+		<message>
+			<code>ENTRY__TOTAL_TIME</code>
+			<value>Temps total : </value>
+		</message>
+		<message>
+			<code>ENTRY__PAUSE_TIME</code>
+			<value>Temps de pause : </value>
+		</message>
+		<message>
+			<code>ENTRY__GAME_TIME</code>
+			<value>Temps de jeu : </value>
+		</message>
+		<message>
+			<code>ENTRY__X_Y_Z</code>
+			<value>X/Y/Z : </value>
 		</message>
 	</messages>
 </dictionary>
