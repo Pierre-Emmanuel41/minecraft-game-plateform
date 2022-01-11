@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dictionary>
+	<version>1.0</version>
+	<locales>
+		<locale>en</locale>
+		<locale>en-EN</locale>
+		<locale>en-GB</locale>
+		<locale>en-UK</locale>
+		<locale>en-US</locale>
+		<locale>en-CA</locale>
+	</locales>
+	<messages>
+		<message>
+			<code>NAME_MUST_NOT_START_WITH_DEFAULT</code>
+			<value>The name should not begin with "default" (Case ignored)</value>
+		</message>
+		<message>
+			<code>FAIL_TO_LOAD</code>
+			<value>Fail to load %s, please see the server console for more information</value>
+		</message>
+		<message>
+			<code>TIME_FORMAT__COMPLETION</code>
+			<value>hh:mm:ss</value>
+		</message>
+		<message>
+			<code>CENTER</code>
+			<value>Center :</value>
+		</message>
+		<message>
+			<code>GAME_CONFIG__PVP_TIME__EXPLANATION</code>
+			<value>To set the time at which the PVP is enabled</value>
+		</message>
+		<message>
+			<code>GAME_CONFIG__PVP_TIME__TIME_IS_MISSING</code>
+			<value>Cannot set the PVP time, the time is missing</value>
+		</message>
+		<message>
+			<code>GAME_CONFIG__PVP_TIME__PVP_ENABLED_FROM_BEGINNING</code>
+			<value>The PVP is enabled from the beginning of the game</value>
+		</message>
+		<message>
+			<code>GAME_CONFIG__PVP_TIME__PVP_TIME_DEFINED</code>
+			<value>The PVP is enabled after %s of play</value>
+		</message>
+		<message>
+			<code>GAME_CONFIG__AS_CURRENT__EXPLANATION</code>
+			<value>To set the game to start with command "./startgame"</value>
+		</message>
+		<message>
+			<code>GAME_CONFIG__AS_CURRENT__GAME_DEFINED</code>
+			<value>%s will be started with command "./startgame"</value>
+		</message>
+		<message>
+			<code>ENTRY__TOTAL_TIME</code>
+			<value>Total time: </value>
+		</message>
+		<message>
+			<code>ENTRY__PAUSE_TIME</code>
+			<value>Pause time: </value>
+		</message>
+		<message>
+			<code>ENTRY__GAME_TIME</code>
+			<value>Game time: </value>
+		</message>
+		<message>
+			<code>ENTRY__X_Y_Z</code>
+			<value>X/Y/Z: </value>
+		</message>
+	</messages>
+</dictionary>

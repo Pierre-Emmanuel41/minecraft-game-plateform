@@ -2,15 +2,14 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>fr.pederobien</groupId>
-	<artifactId>minecraft-game-plateform</artifactId>
+	<groupId>fr.pederobien.minecraft</groupId>
+	<artifactId>platform</artifactId>
 	<packaging>jar</packaging>
 	<version>1.0_MC_1.13.2-SNAPSHOT</version>
-	<name>minecraft-game-plateform</name>
+	<name>platform</name>
 	<url>http://maven.apache.org</url>
 
 	<properties>
-		<mainClass>${project.groupId}.minecraftgameplateform.PlateformPlugin</mainClass>
 		<author>Pierre-Emmanuel41</author>
 		<project.build.sourceEncoding>Cp1252</project.build.sourceEncoding>
 		<maven.compiler.target>1.8</maven.compiler.target>
@@ -25,36 +24,33 @@
 			<scope>provided</scope>
 		</dependency>
 		<dependency>
-			<groupId>fr.pederobien</groupId>
-			<artifactId>minecraft-development-toolkit</artifactId>
-			<version>2.0.0-SNAPSHOT</version>
+			<groupId>fr.pederobien.minecraft</groupId>
+			<artifactId>game</artifactId>
+			<version>1.0_MC_1.13.2-SNAPSHOT</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>fr.pederobien.minecraft</groupId>
+			<artifactId>scoreboards</artifactId>
+			<version>2.0_MC_1.13.2-SNAPSHOT</version>
 		</dependency>
 	</dependencies>
 
 	<build>
-		<finalName>minecraft-game-plateform</finalName>
-		<sourceDirectory>src/main/java</sourceDirectory>
+		<finalName>minecraft-platform_v${project.version}</finalName>
 		<resources>
 			<resource>
 				<targetPath>.</targetPath>
 				<filtering>true</filtering>
-				<directory>${basedir}/src/main/resources/</directory>
+				<directory>${basedir}/src/main/resources</directory>
 				<includes>
 					<include>plugin.yml</include>
 				</includes>
 			</resource>
 			<resource>
-				<targetPath>./resources/dictionaries/French</targetPath>
+				<targetPath>./resources/dictionaries</targetPath>
 				<filtering>true</filtering>
-				<directory>${basedir}/src/main/resources/dictionaries/French</directory>
-				<includes>
-					<include>*.xml</include>
-				</includes>
-			</resource>
-			<resource>
-				<targetPath>./resources/dictionaries/English</targetPath>
-				<filtering>true</filtering>
-				<directory>${basedir}/src/main/resources/dictionaries/English</directory>
+				<directory>${basedir}/src/main/resources/dictionaries</directory>
 				<includes>
 					<include>*.xml</include>
 				</includes>

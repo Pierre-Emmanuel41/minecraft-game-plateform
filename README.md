@@ -1,6 +1,6 @@
 # Presentation
 
-This project can be used by minecraft developper in order to use three different commands : startgame, stopgame and pausegame. But first, those commands can be used only by operators on the server and second, they can be used if and only if there are plugins compatible with this plugin registered on the server. Using this plugin alone is useless.
+This project can be used by minecraft developers in order to use three different commands : startgame, stopgame and pausegame. But first, those commands can be used only by operators on the server and second, they can be used if and only if there are plugins compatible with this plugin registered on the server. Using this plugin alone is useless.
 
 # Download
 
@@ -14,9 +14,10 @@ and then double click on the deploy.bat file. This will deploy this project and 
 
 ```xml
 <dependency>
-	<groupId>fr.pederobien</groupId>
-	<artifactId>minecraft-game-plateform</artifactId>
+	<groupId>fr.pederobien.minecraft</groupId>
+	<artifactId>platform</artifactId>
 	<version>1.0_MC_1.13.2-SNAPSHOT</version>
 </dependency>
 ```
-You can now use features provided by this API in you project.
+
+To see the functionalities provided by this plugin, please have a look to [this presentation](https://github.com/Pierre-Emmanuel41/minecraft-game-plateform/blob/master/Presentation.md)
