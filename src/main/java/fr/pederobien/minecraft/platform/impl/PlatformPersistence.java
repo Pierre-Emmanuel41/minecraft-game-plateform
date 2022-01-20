@@ -50,12 +50,18 @@ public class PlatformPersistence<T extends INominable> implements IPlatformPersi
 
 	@Override
 	public boolean deserialize(String name) {
-		elt = getCreator().apply(name);
+		boolean succeed = deserialize(elt = getCreator().apply(name));
+		if (!succeed)
+			elt = null;
+		return succeed;
+	}
+
+	@Override
+	public boolean deserialize(T element) {
 		try {
-			persistence.deserialize(elt, getAbsolutePath(name).toString());
+			persistence.deserialize(element, getAbsolutePath(element.getName()).toString());
 		} catch (Exception e) {
 			e.printStackTrace();
-			elt = null;
 			return false;
 		}
 		return true;
