@@ -16,9 +16,6 @@ public enum EPlatformCode implements IMinecraftCode {
 	// Code for the time format completion
 	TIME_FORMAT__COMPLETION,
 
-	// Code for the "center" translation
-	CENTER,
-
 	// Code for the "pvpTime" command --------------------------------------------
 	GAME_CONFIG__PVP_TIME__EXPLANATION,
 

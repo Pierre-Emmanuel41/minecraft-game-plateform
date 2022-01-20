@@ -23,10 +23,6 @@
 			<value>hh:mm:ss</value>
 		</message>
 		<message>
-			<code>CENTER</code>
-			<value>Center :</value>
-		</message>
-		<message>
 			<code>GAME_CONFIG__PVP_TIME__EXPLANATION</code>
 			<value>To set the time at which the PVP is enabled</value>
 		</message>

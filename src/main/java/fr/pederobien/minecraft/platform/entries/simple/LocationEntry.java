@@ -60,9 +60,9 @@ public class LocationEntry extends CodeEntry {
 	@Override
 	protected String updateCurrentValue(Player player) {
 		Location playerLoc = player.getLocation();
-		Integer relativeX = playerLoc.getBlockX() - center.getX();
+		Integer relativeX = playerLoc.getBlockX() - getCenter().getX();
 		Integer relativeY = playerLoc.getBlockY();
-		Integer relativeZ = playerLoc.getBlockZ() - center.getZ();
+		Integer relativeZ = playerLoc.getBlockZ() - getCenter().getZ();
 		return new StringJoiner(delimiter).add(relativeX.toString()).add(relativeY.toString()).add(relativeZ.toString()).toString();
 	}
 

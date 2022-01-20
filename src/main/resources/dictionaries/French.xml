@@ -20,10 +20,6 @@
 			<value>hh:mm:ss</value>
 		</message>
 		<message>
-			<code>CENTER</code>
-			<value>Centre :</value>
-		</message>
-		<message>
 			<code>GAME_CONFIG__PVP_TIME__EXPLANATION</code>
 			<value>Pour définir le temps au bout duquel, le PVP est activé</value>
 		</message>
