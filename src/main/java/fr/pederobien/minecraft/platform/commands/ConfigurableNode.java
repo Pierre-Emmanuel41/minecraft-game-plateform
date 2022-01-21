@@ -6,8 +6,8 @@ import fr.pederobien.minecraft.commandtree.impl.MinecraftCodeNode;
 import fr.pederobien.minecraft.dictionary.interfaces.IMinecraftCode;
 import fr.pederobien.minecraft.platform.interfaces.IConfigurable;
 
-public class ConfigurableNode<T> extends MinecraftCodeNode {
-	private IConfigurable<T> configurable;
+public class ConfigurableNode<T extends IConfigurable<?>> extends MinecraftCodeNode {
+	private Supplier<T> configurable;
 
 	/**
 	 * Create a configurable node in order to change the value of a configurable parameter.
@@ -17,7 +17,7 @@ public class ConfigurableNode<T> extends MinecraftCodeNode {
 	 * @param explanation  The explanation of the node.
 	 * @param isAvailable  True if this node is available, false otherwise.
 	 */
-	protected ConfigurableNode(String label, IMinecraftCode explanation, Supplier<Boolean> isAvailable, IConfigurable<T> configurable) {
+	protected ConfigurableNode(Supplier<T> configurable, String label, IMinecraftCode explanation, Supplier<Boolean> isAvailable) {
 		super(label, explanation, isAvailable);
 		this.configurable = configurable;
 	}
@@ -29,14 +29,15 @@ public class ConfigurableNode<T> extends MinecraftCodeNode {
 	 * @param label        The name of the node.
 	 * @param explanation  The explanation of the node.
 	 */
-	protected ConfigurableNode(String label, IMinecraftCode explanation, IConfigurable<T> configurable) {
+	protected ConfigurableNode(Supplier<T> configurable, String label, IMinecraftCode explanation) {
 		super(label, explanation);
+		this.configurable = configurable;
 	}
 
 	/**
 	 * @return The configurable value managed by this node.
 	 */
-	public IConfigurable<T> getConfigurable() {
-		return configurable;
+	public T getConfigurable() {
+		return configurable.get();
 	}
 }

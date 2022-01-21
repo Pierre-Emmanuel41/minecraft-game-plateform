@@ -1,6 +1,5 @@
 package fr.pederobien.minecraft.platform.interfaces;
 
-import java.io.FileNotFoundException;
 import java.nio.file.Path;
 import java.util.List;
 import java.util.function.Function;
@@ -18,9 +17,17 @@ public interface IPlatformPersistence<T extends INominable> {
 	 * @param name The file name to deserialize. It should only be the file name (without extension), not the path to the file.
 	 * 
 	 * @return True if the element has been successfully updated, false otherwise.
-	 * @throws FileNotFoundException If there is no file associated to the given name.
 	 */
 	boolean deserialize(String name);
+
+	/**
+	 * Load the file associated to the given name and creates a <code>T</code> object based on the parameters value.
+	 * 
+	 * @param element The element that should be updated according to the content of the associated file.
+	 * 
+	 * @return True if the element has been successfully updated, false otherwise.
+	 */
+	boolean deserialize(T element);
 
 	/**
 	 * Save the current object in the folder associated to this persistence.

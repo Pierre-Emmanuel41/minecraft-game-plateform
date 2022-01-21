@@ -32,7 +32,7 @@ public class OrientationEntry extends CodeEntry {
 
 	@Override
 	protected String updateCurrentValue(Player player) {
-		return EArrows.getArrow(WorldManager.getYaw(player, block.getLocation())).getUnicode();
+		return EArrows.getArrow(WorldManager.getYaw(player, getBlock().getLocation())).getUnicode();
 	}
 
 	/**
