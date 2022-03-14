@@ -18,6 +18,7 @@ import fr.pederobien.utils.event.EventManager;
 import fr.pederobien.utils.event.IEventListener;
 
 public class PlatformPersistence<T extends INominable> implements IPlatformPersistence<T> {
+	private static final String DEFAULT_NAME = "Default";
 	private IPersistence<T, ? extends ISerializer<T>> persistence;
 	private Path path;
 	private Function<String, T> creator;
@@ -130,13 +131,14 @@ public class PlatformPersistence<T extends INominable> implements IPlatformPersi
 		if (!folder.exists())
 			folder.mkdirs();
 
-		T defaultElement = creator.apply("Default");
-		Path defaultPath = getAbsolutePath(defaultElement.getName());
+		Path defaultPath = getAbsolutePath(DEFAULT_NAME);
 
 		try {
-			if (!defaultPath.toFile().exists())
+			if (!defaultPath.toFile().exists()) {
+				T defaultElement = creator.apply(DEFAULT_NAME);
 				persistence.serialize(defaultElement, IPersistence.LATEST, defaultPath.toString());
-			writeDefault.accept(defaultElement);
+				writeDefault.accept(defaultElement);
+			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
