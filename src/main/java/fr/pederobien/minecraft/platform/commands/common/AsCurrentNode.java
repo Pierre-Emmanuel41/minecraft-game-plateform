@@ -6,8 +6,8 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 
 import fr.pederobien.minecraft.commandtree.impl.MinecraftCodeNode;
-import fr.pederobien.minecraft.game.GamePlugin;
 import fr.pederobien.minecraft.game.interfaces.IGame;
+import fr.pederobien.minecraft.platform.GamePlatformPlugin;
 import fr.pederobien.minecraft.platform.impl.EPlatformCode;
 
 public class AsCurrentNode extends MinecraftCodeNode {
@@ -25,7 +25,7 @@ public class AsCurrentNode extends MinecraftCodeNode {
 
 	@Override
 	public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-		GamePlugin.getGameTree().setGame(game.get());
+		GamePlatformPlugin.getGameTree().setGame(game.get());
 		sendSuccessful(sender, EPlatformCode.GAME_CONFIG__AS_CURRENT__GAME_DEFINED, game.get().getName());
 		return true;
 	}

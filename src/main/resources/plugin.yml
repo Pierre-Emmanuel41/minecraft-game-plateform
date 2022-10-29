@@ -2,4 +2,11 @@ main: fr.pederobien.minecraft.platform.GamePlatformPlugin
 name: minecraft-platform
 version: 1.0_MC_1.16.5-SNAPSHOT
 api-version: 1.16
-depend: [minecraft-game]
+
+commands:
+  startgame:
+    description: This command is used to start a game.
+  pausegame:
+    description: This command is used to pause/resume a game.
+  stopgame:
+    description: This command is used to stop a game.

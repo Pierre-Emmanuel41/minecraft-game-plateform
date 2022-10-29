@@ -25,12 +25,6 @@
 		</dependency>
 		<dependency>
 			<groupId>fr.pederobien.minecraft</groupId>
-			<artifactId>game</artifactId>
-			<version>1.0_MC_1.16.5-SNAPSHOT</version>
-			<scope>provided</scope>
-		</dependency>
-		<dependency>
-			<groupId>fr.pederobien.minecraft</groupId>
 			<artifactId>scoreboards</artifactId>
 			<version>2.0_MC_1.16.5-SNAPSHOT</version>
 		</dependency>
@@ -48,7 +42,7 @@
 				</includes>
 			</resource>
 			<resource>
-				<targetPath>./resources/dictionaries</targetPath>
+				<targetPath>./resources/dictionaries/platform</targetPath>
 				<filtering>true</filtering>
 				<directory>${basedir}/src/main/resources/dictionaries</directory>
 				<includes>
