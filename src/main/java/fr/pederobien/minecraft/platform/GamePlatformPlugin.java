@@ -57,18 +57,18 @@ public class GamePlatformPlugin extends JavaPlugin implements IEventListener {
 
 	@EventHandler(priority = EventPriority.LOWEST)
 	private void onGameStart(GameStartPostEvent event) {
-		Platform.register(event.getGame().getPlugin());
+		Platform.register(event.getGame());
 	}
 
 	@EventHandler(priority = EventPriority.HIGHEST)
 	private void startTimeLine(GameStartPostEvent event) {
-		Platform platform = Platform.get(event.getGame().getPlugin());
+		Platform platform = Platform.get(event.getGame());
 		platform.getTimeLine().getTimeTask().start();
 		platform.getObjectiveUpdater().start();
 	}
 
 	@EventHandler(priority = EventPriority.HIGHEST)
 	private void onGameStop(GameStopPostEvent event) {
-		Platform.unregister(event.getGame().getPlugin());
+		Platform.unregister(event.getGame());
 	}
 }
