@@ -4,12 +4,17 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Optional;
 
+import org.bukkit.entity.Player;
 import org.bukkit.plugin.Plugin;
 
 import fr.pederobien.minecraft.game.event.GamePausePostEvent;
 import fr.pederobien.minecraft.game.event.GameResumePostEvent;
 import fr.pederobien.minecraft.game.impl.time.TimeLine;
+import fr.pederobien.minecraft.game.interfaces.IGame;
+import fr.pederobien.minecraft.game.interfaces.ITeam;
+import fr.pederobien.minecraft.game.interfaces.ITeamConfigurable;
 import fr.pederobien.minecraft.game.interfaces.time.ITimeLine;
 import fr.pederobien.minecraft.scoreboards.ObjectiveUpdater;
 import fr.pederobien.minecraft.scoreboards.interfaces.IObjectiveUpdater;
@@ -17,7 +22,7 @@ import fr.pederobien.utils.event.EventHandler;
 import fr.pederobien.utils.event.EventManager;
 import fr.pederobien.utils.event.IEventListener;
 
-public class Platform implements IEventListener {
+public final class Platform implements IEventListener {
 	/**
 	 * The path leading to the plugins folder.
 	 */
@@ -28,45 +33,83 @@ public class Platform implements IEventListener {
 	 */
 	public static final Path ROOT = PLUGINS.resolve("minecraft-game-plateform");
 
-	private static final Map<Plugin, Platform> PLATFORMS = new HashMap<Plugin, Platform>();
+	private static final Map<IGame, Platform> PLATFORMS = new HashMap<IGame, Platform>();
 
-	private Plugin plugin;
+	private IGame game;
 	private IObjectiveUpdater objectiveUpdater;
 	private ITimeLine timeLine;
 
 	/**
-	 * Get the platform instance associated to the given plugin. The returned platform is not null if and only if the game associated
-	 * to the plugin is started.
+	 * Get the platform instance associated to the given game. The returned platform is not null if and only if the associated game is
+	 * started.
+	 * 
+	 * @param game The game used to get the associated platform.
+	 * 
+	 * @return The platform instance.
+	 */
+	public static Platform get(IGame game) {
+		return PLATFORMS.get(game);
+	}
+
+	/**
+	 * Get the platform instance associated to the given plugin. The returned platform is not null if and only if the associated game
+	 * is started.
 	 * 
 	 * @param plugin The plugin used to get the associated platform.
 	 * 
 	 * @return The platform instance.
 	 */
 	public static Platform get(Plugin plugin) {
-		return PLATFORMS.get(plugin);
+		for (Map.Entry<IGame, Platform> entry : PLATFORMS.entrySet())
+			if (entry.getKey().getPlugin().equals(plugin))
+				return entry.getValue();
+
+		return null;
 	}
 
 	/**
-	 * Creates a new platform instance associated to the given plugin.
+	 * Get the platform associated to the given player. The platform is associated to a player if and only if the player is registered
+	 * in one team of the game associated to a platform.
 	 * 
-	 * @param plugin The plugin that contains a started game.
+	 * @param player The player used to get its game.
+	 * 
+	 * @return The game in which the player is playing, or null.
 	 */
-	protected static void register(Plugin plugin) {
-		Platform platform = PLATFORMS.get(plugin);
+	public static Platform get(Player player) {
+		for (Map.Entry<IGame, Platform> entry : PLATFORMS.entrySet()) {
+			if (!(entry.getKey() instanceof ITeamConfigurable))
+				continue;
+
+			ITeamConfigurable teams = (ITeamConfigurable) entry.getKey();
+			Optional<ITeam> optTeam = teams.getTeams().getTeam(player);
+			if (optTeam.isPresent())
+				return entry.getValue();
+		}
+
+		return null;
+	}
+
+	/**
+	 * Creates a new platform instance associated to the given game.
+	 * 
+	 * @param game The started game.
+	 */
+	protected static void register(IGame game) {
+		Platform platform = PLATFORMS.get(game);
 		if (platform != null)
 			return;
 
-		platform = new Platform(plugin);
-		PLATFORMS.put(plugin, platform);
+		platform = new Platform(game);
+		PLATFORMS.put(game, platform);
 	}
 
 	/**
-	 * Removes the platform associated to the given plugin.
+	 * Removes the platform associated to the given game.
 	 * 
-	 * @param plugin The plugin that contains a started game.
+	 * @param game The stopped game.
 	 */
-	protected static void unregister(Plugin plugin) {
-		Platform platform = PLATFORMS.remove(plugin);
+	protected static void unregister(IGame game) {
+		Platform platform = PLATFORMS.remove(game);
 
 		if (platform == null)
 			return;
@@ -77,16 +120,23 @@ public class Platform implements IEventListener {
 	}
 
 	/**
-	 * Creates a new platform based on the given plugin.
+	 * Creates a new platform based on the given game.
 	 * 
-	 * @param plugin The plugin associated to this platform.
+	 * @param game The game associated to this platform.
 	 */
-	private Platform(Plugin plugin) {
-		this.plugin = plugin;
-		objectiveUpdater = ObjectiveUpdater.getInstance(plugin);
-		timeLine = new TimeLine(plugin);
+	private Platform(IGame game) {
+		this.game = game;
+		objectiveUpdater = ObjectiveUpdater.getInstance(game.getPlugin());
+		timeLine = new TimeLine(game.getPlugin());
 
 		EventManager.registerListener(this);
+	}
+
+	/**
+	 * @return The game associated to this platform.
+	 */
+	public IGame getGame() {
+		return game;
 	}
 
 	/**
@@ -109,7 +159,7 @@ public class Platform implements IEventListener {
 
 	@EventHandler
 	private void onGamePause(GamePausePostEvent event) {
-		if (!event.getGame().getPlugin().equals(plugin))
+		if (!event.getGame().equals(game))
 			return;
 
 		timeLine.getTimeTask().pause();
@@ -117,7 +167,7 @@ public class Platform implements IEventListener {
 
 	@EventHandler
 	private void onGameResume(GameResumePostEvent event) {
-		if (!event.getGame().getPlugin().equals(plugin))
+		if (!event.getGame().equals(game))
 			return;
 
 		timeLine.getTimeTask().resume();

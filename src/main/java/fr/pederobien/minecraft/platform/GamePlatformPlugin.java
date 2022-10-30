@@ -64,7 +64,7 @@ public class GamePlatformPlugin extends JavaPlugin implements IEventListener {
 
 	@EventHandler(priority = EventPriority.LOWEST)
 	private void onGameStart(GameStartPostEvent event) {
-		Platform.register(event.getGame().getPlugin());
+		Platform.register(event.getGame());
 	}
 
 	@EventHandler(priority = EventPriority.HIGHEST)
@@ -76,7 +76,7 @@ public class GamePlatformPlugin extends JavaPlugin implements IEventListener {
 
 	@EventHandler(priority = EventPriority.HIGHEST)
 	private void onGameStop(GameStopPostEvent event) {
-		Platform.unregister(event.getGame().getPlugin());
+		Platform.unregister(event.getGame());
 	}
 
 	private void registerDictionaries() {
