@@ -44,6 +44,9 @@ public class GamePlatformPlugin extends JavaPlugin implements IEventListener {
 
 	@Override
 	public void onEnable() {
+		registerDictionaries();
+		registerTabExecutors();
+
 		EventLogger.instance().newLine(true).timeStamp(false).register();
 		EventLogger.instance().ignore(DictionaryEvent.class).register();
 		EventLogger.instance().ignore(NodeEvent.class).register();
@@ -52,9 +55,6 @@ public class GamePlatformPlugin extends JavaPlugin implements IEventListener {
 
 		instance = this;
 		gameTree = new GameCommandTree();
-
-		registerDictionaries();
-		registerTabExecutors();
 	}
 
 	@Override

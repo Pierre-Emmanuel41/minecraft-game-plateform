@@ -44,7 +44,7 @@ public enum EPlatformCode implements IMinecraftCode {
 	ENTRY__GAME_TIME,
 
 	// Code to display X, Y and Z coordinates
-	ENTRY__X_Y_Z;
+	ENTRY__X_Y_Z
 
 	;
 
